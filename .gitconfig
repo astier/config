@@ -1,3 +1,8 @@
 [user]
 	email = aleksandrs.stier@uni-bielefeld.de
 	name = aleks
+[alias]
+	c = commit
+	s = status
+	a = add -A
+	cm = commit -m
