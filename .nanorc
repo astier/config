@@ -1,0 +1,54 @@
+# v2.9.3
+
+# Settings
+set atblanks        # Wrap lines at blank characters
+set autoindent      # Intend new lines based on the previous line
+set boldtext        # Line-numbers, title-, status- and help-bar are bold without video
+set historylog      # Save the last hundred searches, replacements and commands
+set linenumbers     # Show line-numbers
+set locking         # Lock file for other procsses
+set morespace       # Remove blank line after the tile-bar
+set multibuffer     # Enable opening files within nano and switching between them
+set nohelp          # Remove help-bar at the bottom (activate via <ALT>+X)
+set positionlog     # Store and reuse cursor-position
+set quickblank      # Statusbar messages disappears after 1 keystroke instead of 25
+set regexp          # Extended regular expression searches
+set smarthome       # Navigation with the home-button !DOESNT WORK FOR ME!
+set smooth          # Smooth scrolling
+set softwrap        # Wrap lines which are longer than the display
+set suspend         # Enable to suspend nano (exit nano and come back later without saving)
+set tabsize 4       # Tabs are represented as 4 spaces
+set tabstospaces    # Insert spaces instead of a tab when tab is pressed
+set trimblanks      # Trim whitespace during hard-wrapping and justify-command
+set wordbounds      # Detect word boundaries more accurately
+
+# KEY-BINDINGS
+
+# Basics
+bind ^Q exit all
+bind ^H help all
+bind ^W writeout all
+bind ^O insert all
+
+# Editing
+bind ^Y copytext all
+bind ^X cut all
+bind ^V uncut all
+bind ^U undo all
+bind M-R redo all
+bind M-, cutwordleft all
+bind M-. cutwordright all
+bind M-# comment all
+
+# Search
+bind ^F whereis all
+bind ^R replace all
+bind ^P findprevious all
+bind ^N findnext all
+
+# Navigate
+bind M-+ scrollup all
+bind M-- scrolldown all
+bind ^G gotoline all
+bind M-P firstline all
+bind M-N lastline all
