@@ -56,4 +56,3 @@ noremap! <down> <nop>
 " Disable backspace
 noremap <bs> <nop>
 noremap! <bs> <nop>
-

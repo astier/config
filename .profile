@@ -26,5 +26,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+
 # CUSTOM SETUP
-#setxkbmap -option caps:swapescape
+
+# Switch the ESC and CAPS-LOCK buttons
+setxkbmap -option caps:swapescape

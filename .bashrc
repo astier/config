@@ -116,10 +116,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+# CUSTOM SETUP
+
 # added by Miniconda3 installer
 export PATH="/home/aleks/miniconda3/bin:$PATH"
 
-# CUSTOM SETUP
+# Enable basic vi-commands in the terminal
 set -o vi
+
+# Set default editor
 EDITOR='/bin/nano'
 VISUAL='/bin/nano'
