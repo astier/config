@@ -1,54 +1,64 @@
 # v2.9.3
 
+# Include all available syntax-definitions
+include "/usr/share/nano/*.nanorc"
+
+
 # Settings
 set atblanks        # Wrap lines at blank characters
 set autoindent      # Intend new lines based on the previous line
 set boldtext        # Line-numbers, title-, status- and help-bar are bold without video
-set historylog      # Save the last hundred searches, replacements and commands
+set historylog      # Save past searches, replacements and commands
 set linenumbers     # Show line-numbers
 set locking         # Lock file for other procsses
 set morespace       # Remove blank line after the tile-bar
 set multibuffer     # Enable opening files within nano and switching between them
 set nohelp          # Remove help-bar at the bottom (activate via <ALT>+X)
+set nowrap          # Disable hard-wrap
 set positionlog     # Store and reuse cursor-position
 set quickblank      # Statusbar messages disappears after 1 keystroke instead of 25
 set regexp          # Extended regular expression searches
-set smarthome       # Navigation with the home-button !DOESNT WORK FOR ME!
+set smarthome       # Navigation with the home-button
 set smooth          # Smooth scrolling
-set softwrap        # Wrap lines which are longer than the display
+set softwrap        # Enable soft-wrap
 set suspend         # Enable to suspend nano (exit nano and come back later without saving)
 set tabsize 4       # Tabs are represented as 4 spaces
 set tabstospaces    # Insert spaces instead of a tab when tab is pressed
 set trimblanks      # Trim whitespace during hard-wrapping and justify-command
-set wordbounds      # Detect word boundaries more accurately
+
 
 # KEY-BINDINGS
+# ^=Ctrl, M-=Alt
 
 # Basics
-bind ^Q exit all
-bind ^H help all
-bind ^W writeout all
-bind ^O insert all
+bind ^Q exit all            # Quit nano, menues and tabs/buffers
+bind ^D cancel all          # Cancel the current command
+bind M-H help all           # Open/Close extensive help
+bind ^H nohelp all          # Open/Close quick help
+bind ^W writeout all        # Specify file-name and save file
+bind ^O insert all          # Open a new or existing file in a new tab/buffer
 
 # Editing
-bind ^Y copytext all
-bind ^X cut all
-bind ^V uncut all
-bind ^U undo all
-bind M-R redo all
-bind M-, cutwordleft all
-bind M-. cutwordright all
-bind M-# comment all
+bind ^C copytext all        # Copy/yank the current line or selected text
+bind ^X cut all             # Cut the current line or selected text
+bind ^V uncut all           # Paste the copied text
+bind ^U undo all            # Undo the last command
+bind ^R redo all            # Redo the last command
+bind M-, cutwordleft all    # Cut to the next beginning of a word to the left
+bind M-. cutwordright all   # Cut to the next beginning of a word to the right
+bind M-# comment all        # Un-/Comment the current line
 
-# Search
-bind ^F whereis all
-bind ^R replace all
-bind ^P findprevious all
-bind ^N findnext all
+# Searching
+bind M-F whereis all        # Search occurences of the specified text
+bind M-R replace all        # Replace occurences of the specified text with other specified text
+bind ^P findprevious all    # Jump curser backwards to the previous match from the search-command
+bind ^N findnext all        # Jump curser forward to the next match from the search-command
+bind ^G gotoline all        # Jump the curser to the defined line and column
 
-# Navigate
-bind M-+ scrollup all
-bind M-- scrolldown all
-bind ^G gotoline all
-bind M-P firstline all
-bind M-N lastline all
+# Useful
+bind M-V mark all           # Turn on/off visual mode (like in vim for selecting text)
+bind M-P curpos all         # Show current position: line, column, character
+bind M-W wordcount all      # Show number of words, lines and characters
+bind M-S speller all        # Turn on/off spellchecker
+bind M-M recordmacro all    # Start/Stop recording a macro
+bind M-E runmacro all       # Execute recorded macro
