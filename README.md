@@ -1,2 +1,2 @@
 # dotfiles
-My configuration files.
+My configuration files. Especially *.nanorc* could be of interest to others.
