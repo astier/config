@@ -4,5 +4,7 @@
 [alias]
 	c = commit
 	s = status
-	a = add -A
+	a = add
 	cm = commit -m
+	aa = add -A
+	d = diff
