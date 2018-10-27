@@ -8,20 +8,20 @@ include "/usr/share/nano/*.nanorc"
 set atblanks        # Wrap lines at blank characters
 set autoindent      # Intend new lines based on the previous line
 set boldtext        # Line-numbers, title-, status- and help-bar are bold without video
-set historylog      # Save past searches, replacements and commands
+unset historylog      # Save past searches, replacements and commands
 set linenumbers     # Show line-numbers
 set locking         # Lock file for other procsses
 set morespace       # Remove blank line after the tile-bar
 set multibuffer     # Enable opening files within nano and switching between them
 set nohelp          # Remove help-bar at the bottom (activate via <ALT>+X)
 set nowrap          # Disable hard-wrap
-set positionlog     # Store and reuse cursor-position
+unset positionlog     # Store and reuse cursor-position
 set quickblank      # Statusbar messages disappears after 1 keystroke instead of 25
-set regexp          # Extended regular expression searches
-set smarthome       # Navigation with the home-button
+unset regexp          # Use regex for searching
+unset smarthome       # Navigation with the home-button
 set smooth          # Smooth scrolling
 set softwrap        # Enable soft-wrap
-set suspend         # Enable to suspend nano (exit nano and come back later without saving)
+unset suspend         # Enable to suspend nano
 set tabsize 4       # Tabs are represented as 4 spaces
 set tabstospaces    # Insert spaces instead of a tab when tab is pressed
 set trimblanks      # Trim whitespace during hard-wrapping and justify-command
