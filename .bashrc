@@ -126,5 +126,5 @@ export PATH="/home/aleks/miniconda3/bin:$PATH"
 set -o vi
 
 # Set default editor
-EDITOR=nano
-VISUAL=nano
+export EDITOR=nano
+#export VISUAL=nano
