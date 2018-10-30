@@ -8,3 +8,5 @@
 	cm = commit -m
 	aa = add -A
 	d = diff
+[core]
+	excludesfile = /home/aleks/.gitignore_global

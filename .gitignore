@@ -3,6 +3,7 @@
 !.bash_aliases
 !.gitconfig
 !.gitignore
+!.gitignore_global
 !.nanorc
 !.profile
 !.vimrc
