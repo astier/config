@@ -4,6 +4,9 @@
 !.gitconfig
 !.gitignore
 !.gitignore_global
-!.nanorc
 !.profile
 !.vimrc
+!.config/
+
+.config/*
+!.config/nano/
