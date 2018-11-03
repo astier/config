@@ -10,3 +10,5 @@
 	d = diff
 [core]
 	excludesfile = ~/.config/git/ignore
+[credential]
+	helper = cache
