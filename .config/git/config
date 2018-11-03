@@ -9,4 +9,4 @@
 	aa = add -A
 	d = diff
 [core]
-	excludesfile = /home/aleks/.gitignore_global
+	excludesfile = ~/.config/git/ignore
