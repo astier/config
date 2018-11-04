@@ -8,6 +8,7 @@
 	cm = commit -m
 	aa = add -A
 	d = diff
+	cam = commit -am
 [core]
 	excludesfile = ~/.config/git/ignore
 [credential]
