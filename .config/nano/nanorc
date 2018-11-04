@@ -46,7 +46,7 @@ bind ^U undo all            # Undo the last command
 bind ^R redo all            # Redo the last command
 bind M-, cutwordleft all    # Cut to the next beginning of a word to the left
 bind M-. cutwordright all   # Cut to the next beginning of a word to the right
-bind M-# comment all        # Un-/Comment the current line
+bind M-C comment all        # Un-/Comment the current line
 
 # Searching
 bind M-F whereis all        # Search occurences of the specified text
