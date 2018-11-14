@@ -9,7 +9,7 @@ set atblanks        # Wrap lines at blank characters
 set autoindent      # Intend new lines based on the previous line
 set boldtext        # Line-numbers, title-, status- and help-bar are bold without video
 unset historylog      # Save past searches, replacements and commands
-set linenumbers     # Show line-numbers
+unset linenumbers     # Show line-numbers
 set locking         # Lock file for other procsses
 set morespace       # Remove blank line after the tile-bar
 set multibuffer     # Enable opening files within nano and switching between them
