@@ -57,14 +57,14 @@
         <value type="string" value="15431855661.desktop"/>
       </property>
     </property>
-    <property name="plugin-10" type="string" value="launcher">
-      <property name="items" type="array">
-        <value type="string" value="15431855792.desktop"/>
-      </property>
-    </property>
     <property name="plugin-11" type="string" value="launcher">
       <property name="items" type="array">
         <value type="string" value="15431856023.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-10" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="15432749801.desktop"/>
       </property>
     </property>
   </property>
