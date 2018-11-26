@@ -1,10 +1,11 @@
-# v2.9.3
+# 3.2
 
 # Include all available syntax-definitions
 include "/usr/share/nano/*.nanorc"
 
 
 # Settings
+set afterends       # NextWord-Function jumps to the end of a word
 set atblanks        # Wrap lines at blank characters
 set autoindent      # Intend new lines based on the previous line
 set boldtext        # Line-numbers, title-, status- and help-bar are bold without video
