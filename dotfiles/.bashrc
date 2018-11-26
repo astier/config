@@ -8,7 +8,7 @@ HISTCONTROL=ignoreboth
 HISTSIZE=100
 HISTFILESIZE=200
 PATH="$PATH/home/aleks/miniconda3/bin"
-PS1='\[\e[32m\][\u@\h:\W]\$ \[\e[m\]'
+PS1='\[\e[32m\][\u@\h:\[\033[01;34m\]\w\[\e[32m\]]\$ \[\e[m\]'
 
 # Settings
 set -o vi
