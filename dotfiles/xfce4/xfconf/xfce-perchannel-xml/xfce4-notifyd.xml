@@ -6,6 +6,7 @@
       <value type="string" value="Dropbox"/>
       <value type="string" value="Firefox"/>
       <value type="string" value="nm-applet"/>
+      <value type="string" value="xfce4-power-manager"/>
     </property>
     <property name="muted_applications" type="array">
     </property>
