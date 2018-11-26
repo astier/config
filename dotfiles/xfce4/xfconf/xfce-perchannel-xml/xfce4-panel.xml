@@ -17,9 +17,9 @@
         <value type="int" value="11"/>
         <value type="int" value="4"/>
         <value type="int" value="3"/>
-        <value type="int" value="8"/>
         <value type="int" value="6"/>
         <value type="int" value="7"/>
+        <value type="int" value="8"/>
         <value type="int" value="9"/>
       </property>
     </property>
@@ -30,6 +30,12 @@
     <property name="plugin-3" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="1"/>
+    </property>
+    <property name="plugin-4" type="string" value="tasklist">
+      <property name="flat-buttons" type="bool" value="true"/>
+      <property name="middle-click" type="uint" value="1"/>
+      <property name="window-scrolling" type="bool" value="false"/>
+      <property name="grouping" type="uint" value="1"/>
     </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
@@ -60,12 +66,6 @@
       <property name="items" type="array">
         <value type="string" value="15431856023.desktop"/>
       </property>
-    </property>
-    <property name="plugin-4" type="string" value="tasklist">
-      <property name="flat-buttons" type="bool" value="true"/>
-      <property name="show-labels" type="bool" value="true"/>
-      <property name="grouping" type="uint" value="1"/>
-      <property name="middle-click" type="uint" value="1"/>
     </property>
   </property>
 </channel>

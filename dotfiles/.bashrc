@@ -1,22 +1,20 @@
-
-# If not running interactively, don't do anything
+# Exit if not interactive
 [[ $- != *i* ]] && return
 
 # Parameters
-EDITOR=nano
-HISTCONTROL=ignoreboth
-HISTSIZE=100
-HISTFILESIZE=200
-PATH="$PATH/home/aleks/miniconda3/bin"
-PS1='\[\e[32m\][\u@\h:\[\033[01;34m\]\w\[\e[32m\]]\$ \[\e[m\]'
+HISTCONTROL=erasedups:ignorespace
+PS1='\[\e[32m\][\u@\h:\[\e[34m\]\w\[\e[32m\]]\$ \[\e[m\]'
 
 # Settings
 set -o vi
 shopt -s autocd
-shopt -s checkwinsize
-shopt -s histappend
 
 # Aliases
-alias grep='grep --color=auto'
-alias ls='ls --color=auto'
-
+alias ...='cd /'
+alias mrl='sudo reflector -c Germany -p https -l10 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist'
+alias grep='grep --color'
+alias la='ls -a'
+alias ll='ls -l'
+alias ls='ls --color --group-directories-first -h'
+alias pacman='sudo pacman --color auto'
+alias src='. ~/.bashrc'

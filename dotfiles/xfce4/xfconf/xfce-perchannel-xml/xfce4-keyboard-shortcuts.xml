@@ -35,6 +35,7 @@
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Super&gt;y" type="string" value="exo-open /home/aleks/Dropbox/Notes/notes"/>
       <property name="&lt;Super&gt;c" type="string" value="xfce4-terminal -e python3"/>
+      <property name="&lt;Super&gt;t" type="string" value="xfce4-terminal"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

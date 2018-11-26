@@ -17,12 +17,4 @@
   </property>
   <property name="last-separator-position" type="int" value="170"/>
   <property name="last-show-hidden" type="bool" value="true"/>
-<<<<<<< Updated upstream
-  <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,136,50,50,359,50,50,63,50,66"/>
-=======
-  <property name="hidden-bookmarks" type="array">
-    <value type="string" value="network:///"/>
-  </property>
->>>>>>> Stashed changes
 </channel>
