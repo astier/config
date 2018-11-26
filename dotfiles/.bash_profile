@@ -1,3 +1,4 @@
+export EDITOR=nano
 export PATH="$PATH:/home/aleks/miniconda3/bin"
 
 # Load .bashrc
