@@ -3,7 +3,6 @@
 
 # Parameters
 HISTCONTROL=erasedups:ignorespace
-# PS1='\[\e[32m\][\u@\h:\[\e[34m\]\W\[\e[32m\]]\$\[\e[m\] '
 PS1='\[\e[32m\][\w]\$\[\e[m\] '
 
 # Settings
