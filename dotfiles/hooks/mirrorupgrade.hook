@@ -7,4 +7,4 @@ Target = pacman-mirrorlist
 Description = Updating pacman-mirrorlist with reflector and removing pacnew...
 When = PostTransaction
 Depends = reflector
-Exec = /bin/sh -c "reflector -c Germany -p https -l10 --sort rate --save /etc/pacman.d/mirrorlist; rm -f /etc/pacman.d/mirrorlist.pacnew; cat /etc/pacman.d/mirrorlist"
+Exec = mrl
