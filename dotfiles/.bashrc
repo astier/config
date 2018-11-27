@@ -6,6 +6,7 @@ PS1='\[\e[32m\][\w]\$\[\e[m\] '
 
 set -o vi
 shopt -s autocd
+shopt -s cdspell
 
 alias df='df -h'
 alias htop='htop -t'
