@@ -1,15 +1,12 @@
 # Exit if not interactive
 [[ $- != *i* ]] && return
 
-# Parameters
 HISTCONTROL=erasedups:ignorespace
 PS1='\[\e[32m\][\w]\$\[\e[m\] '
 
-# Settings
 set -o vi
 shopt -s autocd
 
-# Aliases
 alias df='df -h'
 alias htop='htop -t'
 alias mrl='sudo reflector --info -p https -l256 -f32 --score 8 --sort rate --save /etc/pacman.d/mirrorlist'

@@ -15,7 +15,7 @@
   <property name="hidden-devices" type="array">
     <value type="string" value="b0170adb-cb6f-4ed8-b7f2-b1f3b2008de4"/>
   </property>
-  <property name="last-separator-position" type="int" value="170"/>
+  <property name="last-separator-position" type="int" value="149"/>
   <property name="last-show-hidden" type="bool" value="true"/>
   <property name="hidden-bookmarks" type="array">
     <value type="string" value="network:///"/>
