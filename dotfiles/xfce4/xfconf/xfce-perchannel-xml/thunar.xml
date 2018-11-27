@@ -10,8 +10,8 @@
   <property name="last-window-width" type="int" value="956"/>
   <property name="last-window-height" type="int" value="494"/>
   <property name="last-window-maximized" type="bool" value="false"/>
-  <property name="last-statusbar-visible" type="bool" value="false"/>
-  <property name="last-menubar-visible" type="bool" value="false"/>
+  <property name="last-statusbar-visible" type="bool" value="true"/>
+  <property name="last-menubar-visible" type="bool" value="true"/>
   <property name="hidden-devices" type="array">
     <value type="string" value="b0170adb-cb6f-4ed8-b7f2-b1f3b2008de4"/>
   </property>
