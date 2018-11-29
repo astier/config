@@ -8,9 +8,10 @@ set -o vi
 shopt -s autocd
 shopt -s cdspell
 
+alias cfb='$EDITOR ~/.bashrc && src '
 alias df='df -h'
 alias htop='htop -t'
-alias mrl='sudo reflector --info -p https -l256 -f32 --score 8 --sort rate --save /etc/pacman.d/mirrorlist'
+alias mrl='sudo reflector -p https -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist'
 alias grep='grep --color'
 alias la='ls -a'
 alias ll='ls -l'
