@@ -9,7 +9,6 @@ install () {
 
 install .bash_profile           ~/
 install .bashrc                 ~/
-install .cinnamon               ~/
 #install .vimrc                  ~/
 install .xinitrc                ~/
 install git                     ~/.config/
