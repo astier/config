@@ -1,46 +1,34 @@
-# 3.2
-
 # Include all available syntax-definitions
 include "/usr/share/nano/*.nanorc"
-
 
 # Settings
 set afterends       # NextWord-Function jumps to the end of a word
 set atblanks        # Wrap lines at blank characters
 set autoindent      # Intend new lines based on the previous line
-set boldtext        # Line-numbers, title-, status- and help-bar are bold without video
-unset historylog      # Save past searches, replacements and commands
-unset linenumbers     # Show line-numbers
-set locking         # Lock file for other procsses
 set morespace       # Remove blank line after the tile-bar
-set multibuffer     # Enable opening files within nano and switching between them
+set multibuffer     # Open multiple files in different buffers/tabs
 set nohelp          # Remove help-bar at the bottom (activate via <ALT>+X)
 set nowrap          # Disable hard-wrap
-unset positionlog     # Store and reuse cursor-position
 set quickblank      # Statusbar messages disappears after 1 keystroke instead of 25
-unset regexp          # Use regex for searching
-unset smarthome       # Navigation with the home-button
 set smooth          # Smooth scrolling
 set softwrap        # Enable soft-wrap
-unset suspend         # Enable to suspend nano
 set tabsize 4       # Tabs are represented as 4 spaces
 set tabstospaces    # Insert spaces instead of a tab when tab is pressed
 set trimblanks      # Trim whitespace during hard-wrapping and justify-command
-
+set zap             # Enable deleting without copying to the buffer
 
 # KEY-BINDINGS
 # ^=Ctrl, M-=Alt
 
 # Basics
 bind ^Q exit all            # Quit nano, menues and tabs/buffers
-bind ^D cancel all          # Cancel the current command
 bind M-H help all           # Open/Close extensive help
 bind ^H nohelp all          # Open/Close quick help
-bind ^W writeout all        # Specify file-name and save file
 bind ^O insert all          # Open a new or existing file in a new tab/buffer
 
 # Editing
 bind ^C copytext all        # Copy/yank the current line or selected text
+bind ^D zap all             # Delete line or selected text
 bind ^X cut all             # Cut the current line or selected text
 bind ^V uncut all           # Paste the copied text
 bind ^U undo all            # Undo the last command
