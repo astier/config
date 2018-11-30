@@ -1,14 +1,14 @@
 # Exit if not interactive
 [[ $- != *i* ]] && return
 
-HISTCONTROL=erasedups:ignorespace
+HISTCONTROL=erasedups
 PS1='\[\e[32m\][\w]\$\[\e[m\] '
 
 set -o vi
 shopt -s autocd
 shopt -s cdspell
 
-alias cfb='$EDITOR ~/.bashrc && src '
+alias cfb='$EDITOR ~/.bashrc && src'
 alias df='df -h'
 alias htop='htop -t'
 alias mrl='sudo reflector -p https -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist'
