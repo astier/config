@@ -1,9 +1,0 @@
-[Trigger]
-Type = Package
-Operation = Upgrade
-Target = *
-
-[Action]
-Description = Remove orphans...
-When = PostTransaction
-Exec = pacman -Rns "$(pacman -Qdtq)"
