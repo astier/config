@@ -1,0 +1,10 @@
+[Trigger]
+Type = Package
+Operation = Upgrade
+Operation = Remove
+Target = *
+
+[Action]
+Description = Clear pacman-cache...
+When = PostTransaction
+Exec = pacman -Sc

@@ -4,7 +4,8 @@ Type = Package
 Target = pacman-mirrorlist
 
 [Action]
-Description = Updating pacman-mirrorlist with reflector and removing pacnew...
+Description = Update mirrorlist...
 When = PostTransaction
 Depends = reflector
-Exec = mrl
+Exec = sudo reflector -p https -l64 -f16 --score 8 --sort rate --save 
+/etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist
