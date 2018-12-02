@@ -1,5 +1,5 @@
 export EDITOR=nano
-export PATH="$PATH:/home/aleks/miniconda3/bin"
+export PATH="$PATH:$HOME/miniconda3/bin:$HOME/bin"
 
 # Load .bashrc
 [[ -f ~/.bashrc ]] && . ~/.bashrc
