@@ -18,4 +18,3 @@ install pacman.conf             /etc/
 install journald.conf           /etc/systemd/
 install logind.conf             /etc/systemd/
 install getty@tty1.service.d    /etc/systemd/system/
-install 00-keyboard.conf        /etc/X11/xorg.conf.d/
