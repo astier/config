@@ -12,4 +12,4 @@
 [core]
 	excludesfile = ~/.config/git/ignore
 [credential]
-	helper = cache
+	helper = cache --timeout=3600
