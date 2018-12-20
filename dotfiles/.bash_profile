@@ -1,4 +1,4 @@
-export EDITOR=nano
+export EDITOR=nvim
 export PATH="$PATH:$HOME/miniconda3/bin:$HOME/bin"
 
 # setxkbmap -option caps:swapescape
