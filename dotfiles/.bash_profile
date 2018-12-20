@@ -1,6 +1,8 @@
 export EDITOR=nano
 export PATH="$PATH:$HOME/miniconda3/bin:$HOME/bin"
 
+# setxkbmap -option caps:swapescape
+
 # Load .bashrc
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
