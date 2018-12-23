@@ -28,3 +28,9 @@ noremap <up> <nop>
 noremap <down> <nop>
 noremap <bs> <nop>
 noremap <del> <nop>
+noremap! <left> <nop>
+noremap! <right> <nop>
+noremap! <up> <nop>
+noremap! <down> <nop>
+noremap! <bs> <nop>
+noremap! <del> <nop>
