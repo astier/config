@@ -7,4 +7,3 @@ sh install.sh
 ```
 
 **WARNING:** The script removes old configuration-files without making any backup.
-TEST
