@@ -1,11 +1,14 @@
 {
+    "bashIde.path": "/usr/bin/bash-language-server",
     "code-runner.respectShebang": false,
     "code-runner.runInTerminal": true,
     "cSpell.userWords": [
         "aleks",
         "aleksandrs",
+        "bootloader",
         "dotfiles",
         "keras",
+        "kurwa",
         "lstm",
         "numpy",
         "pygame",
@@ -14,7 +17,8 @@
         "relu",
         "stier",
         "submodels",
-        "symlinks"
+        "symlinks",
+        "systemd"
     ],
     "debug.toolBarLocation": "docked",
     "editor.cursorBlinking": "solid",
@@ -28,7 +32,9 @@
     "files.exclude": {
         "**/__pycache__": true
     },
+    "git.confirmSync": false,
     "git.enableSmartCommit": true,
+    "git.showPushSuccessNotification": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "python.formatting.autopep8Args": [
         "-aa"
