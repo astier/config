@@ -7,10 +7,11 @@ install () {
     echo Installed: $TARGET
 }
 
-install .bash_profile       ~/
-install .bashrc             ~/
-install .xinitrc            ~/
-install git                 ~/.config/
-install nvim                ~/.config/
-install pacman/pacman.conf  /etc/
-install pacman/hooks/       /etc/pacman.d/
+install .bash_profile           ~/
+install .bashrc                 ~/
+install .xinitrc                ~/
+install git                     ~/.config/
+install nvim                    ~/.config/
+install vscode/settings.json    ~/.config/Code/User/
+install pacman/pacman.conf      /etc/
+install pacman/hooks/           /etc/pacman.d/
