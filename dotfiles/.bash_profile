@@ -1,5 +1,5 @@
 export EDITOR=nvim
-export PATH="$PATH:$HOME/miniconda3/bin:$HOME/bin"
+export PATH="$PATH:~/miniconda3/bin:~/bin"
 
 setxkbmap -option caps:swapescape
 

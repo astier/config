@@ -11,10 +11,5 @@ install .bash_profile           ~/
 install .bashrc                 ~/
 install .xinitrc                ~/
 install git                     ~/.config/
-install nano                    ~/.config/
 install nvim                    ~/.config/
 install pacman.conf             /etc/
-install hooks                   /etc/pacman.d/
-install journald.conf           /etc/systemd/
-install logind.conf             /etc/systemd/
-install getty@tty1.service.d    /etc/systemd/system/
