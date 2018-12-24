@@ -34,7 +34,6 @@
     },
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
-    "git.showPushSuccessNotification": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "python.formatting.autopep8Args": [
         "-aa"
