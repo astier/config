@@ -1,4 +1,3 @@
-# Exit if not interactive
 [[ $- != *i* ]] && return
 
 HISTCONTROL=erasedups

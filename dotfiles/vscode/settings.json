@@ -24,7 +24,7 @@
     "editor.cursorBlinking": "solid",
     "editor.fontSize": 13,
     "editor.minimap.enabled": false,
-    "editor.wordWrap": "bounded",
+    "editor.wordWrap": "on",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.openEditors.visible": 0,
@@ -78,5 +78,6 @@
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.settings.enableNaturalLanguageSearch": false,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "editor.accessibilitySupport": "off"
 }

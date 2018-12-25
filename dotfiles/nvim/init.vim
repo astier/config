@@ -19,7 +19,7 @@ set smartcase
 "set cursorline
 set laststatus=1
 set title
-set titlestring=NVIM\ -\ %t 
+set titlestring=NVim\ -\ %t 
 
 " Hard-Mode
 noremap <left> <nop>

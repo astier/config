@@ -1,8 +1,6 @@
 export EDITOR=nvim
 export PATH="$PATH:~/miniconda3/bin:~/bin"
 
-setxkbmap -option caps:swapescape
-
 # Load .bashrc
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
