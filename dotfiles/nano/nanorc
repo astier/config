@@ -1,0 +1,53 @@
+# Include all available syntax-definitions
+include "/usr/share/nano/*.nanorc"
+
+# Settings
+set afterends       # NextWord-Function jumps to the end of a word
+set atblanks        # Wrap lines at blank characters
+set autoindent      # Intend new lines based on the previous line
+set morespace       # Remove blank line after the tile-bar
+set multibuffer     # Open multiple files in different buffers/tabs
+set nohelp          # Remove help-bar at the bottom (activate via <ALT>+X)
+set nowrap          # Disable hard-wrap
+set quickblank      # Statusbar messages disappears after 1 keystroke instead of 25
+set smooth          # Smooth scrolling
+set softwrap        # Enable soft-wrap
+set tabsize 4       # Tabs are represented as 4 spaces
+set tabstospaces    # Insert spaces instead of a tab when tab is pressed
+set trimblanks      # Trim whitespace during hard-wrapping and justify-command
+set zap             # Enable deleting without copying to the buffer
+
+# KEY-BINDINGS
+# ^=Ctrl, M-=Alt
+
+# Basics
+bind ^Q exit all            # Quit nano, menues and tabs/buffers
+bind M-H help all           # Open/Close extensive help
+bind ^H nohelp all          # Open/Close quick help
+bind ^O insert all          # Open a new or existing file in a new tab/buffer
+
+# Editing
+bind ^C copytext all        # Copy/yank the current line or selected text
+bind ^D zap all             # Delete line or selected text
+bind ^X cut all             # Cut the current line or selected text
+bind ^V uncut all           # Paste the copied text
+bind ^U undo all            # Undo the last command
+bind ^R redo all            # Redo the last command
+bind M-, cutwordleft all    # Cut to the next beginning of a word to the left
+bind M-. cutwordright all   # Cut to the next beginning of a word to the right
+bind M-C comment all        # Un-/Comment the current line
+
+# Searching
+bind M-F whereis all        # Search occurences of the specified text
+bind M-R replace all        # Replace occurences of the specified text with other specified text
+bind ^P findprevious all    # Jump curser backwards to the previous match from the search-command
+bind ^N findnext all        # Jump curser forward to the next match from the search-command
+bind ^G gotoline all        # Jump the curser to the defined line and column
+
+# Useful
+bind M-V mark all           # Turn on/off visual mode (like in vim for selecting text)
+bind M-P curpos all         # Show current position: line, column, character
+bind M-W wordcount all      # Show number of words, lines and characters
+bind M-S speller all        # Turn on/off spellchecker
+bind M-M recordmacro all    # Start/Stop recording a macro
+bind M-E runmacro all       # Execute recorded macro

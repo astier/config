@@ -1,7 +1,7 @@
 [[ $- != *i* ]] && return
 
 HISTCONTROL=erasedups
-PS1='\[\e[32m\][\w]\$\[\e[m\] '
+PS1='\[\e[32m\][\W]\$\[\e[m\] '
 
 set -o vi
 shopt -s autocd

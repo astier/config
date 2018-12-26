@@ -21,9 +21,11 @@
         "systemd"
     ],
     "debug.toolBarLocation": "docked",
+    "editor.accessibilitySupport": "off",
     "editor.cursorBlinking": "solid",
     "editor.fontSize": 13,
     "editor.minimap.enabled": false,
+    "editor.suggest.localityBonus": true,
     "editor.wordWrap": "on",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -34,7 +36,6 @@
     },
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
-    "latex-workshop.view.pdf.viewer": "tab",
     "python.formatting.autopep8Args": [
         "-aa"
     ],
@@ -77,7 +78,7 @@
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.iconTheme": "material-icon-theme",
+    "workbench.quickOpen.closeOnFocusLost": false,
     "workbench.settings.enableNaturalLanguageSearch": false,
-    "workbench.startupEditor": "none",
-    "editor.accessibilitySupport": "off"
+    "workbench.startupEditor": "none"
 }
