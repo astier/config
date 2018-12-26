@@ -8,6 +8,7 @@ shopt -s autocd
 shopt -s cdspell
 
 alias cfb='$EDITOR ~/.bashrc && src'
+alias cfv='$EDITOR ~/.config/nvim/init.vim'
 alias df='df -h'
 alias htop='htop -t'
 alias mrl='sudo reflector -p https -l64 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist'

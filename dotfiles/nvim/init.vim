@@ -1,6 +1,7 @@
 " General
 let mapleader=' '
 set confirm
+set mouse=a
 set scrolloff=100
 
 " Tabs
@@ -18,19 +19,7 @@ set smartcase
 "highlight CursorLine cterm=none ctermbg=239
 "set cursorline
 set laststatus=1
+"set number
+"set relativenumber
 set title
 set titlestring=NVim\ -\ %t 
-
-" Hard-Mode
-noremap <left> <nop>
-noremap <right> <nop>
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <bs> <nop>
-noremap <del> <nop>
-noremap! <left> <nop>
-noremap! <right> <nop>
-noremap! <up> <nop>
-noremap! <down> <nop>
-noremap! <bs> <nop>
-noremap! <del> <nop>
