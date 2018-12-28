@@ -4,7 +4,6 @@ HISTCONTROL=erasedups
 PS1='\[\e[32m\][\W]\$\[\e[m\] '
 
 set -o vi
-shopt -s autocd
 shopt -s cdspell
 
 alias cfb='$EDITOR ~/.bashrc && src'
