@@ -16,10 +16,6 @@ set ignorecase
 set smartcase
 
 " Appearance
-"highlight CursorLine cterm=none ctermbg=239
-"set cursorline
 set laststatus=1
-"set number
-"set relativenumber
 set title
 set titlestring=NVim\ -\ %t 

@@ -6,6 +6,7 @@ PS1='\[\e[32m\][\W]\$\[\e[m\] '
 set -o vi
 shopt -s cdspell
 
+alias ..='cd ..'
 alias cfb='$EDITOR ~/.bashrc && src'
 alias cfv='$EDITOR ~/.config/nvim/init.vim'
 alias df='df -h'
