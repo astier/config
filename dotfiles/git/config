@@ -10,7 +10,7 @@
 	cm = commit -m
 	d = diff
     pl = pull
-    ps = push
+    p = push
 	s = status
 
 [core]
