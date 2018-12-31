@@ -50,14 +50,14 @@ noremap <leader>c :edit $MYVIMRC<cr>
 
 " Resize
 au vimresized * wincmd =
-nnoremap + :res +1<cr>
-nnoremap - :res -1<cr>
-nnoremap <a-+> :vertical res +1<cr>
-nnoremap <a--> :vertical res -1<cr>
-tnoremap + :res +1<cr>
-tnoremap - :res -1<cr>
-tnoremap <a-+> :vertical res +1<cr>
-tnoremap <a--> :vertical res -1<cr>
+nnoremap <silent>+ :res +1<cr>
+nnoremap <silent>- :res -1<cr>
+nnoremap <silent><a-+> :vertical res +1<cr>
+nnoremap <silent><a--> :vertical res -1<cr>
+tnoremap <silent>+ :res +1<cr>
+tnoremap <silent>- :res -1<cr>
+tnoremap <silent><a-+> :vertical res +1<cr>
+tnoremap <silent><a--> :vertical res -1<cr>
 
 " Windows
 nnoremap <a-h> <c-w>h
@@ -74,16 +74,16 @@ tnoremap <a-c> <c-\><c-n><c-w>c
 " Terminal
 au termopen * :set nonu nornu | :startinsert
 au bufenter * if &buftype == 'terminal' | :startinsert | endif
-nnoremap <leader>ts :sp<cr>:term<cr>
-nnoremap <leader>tv :vsp<cr>:term<cr>
+nnoremap <silent><leader>ts :sp<cr>:term<cr>
+nnoremap <silent><leader>tv :vsp<cr>:term<cr>
 tnoremap ,<esc> <c-\><c-n>
 
 " NERDTree
 au StdinReadPre * let s:std_in=1
 au VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-nnoremap <a-f> :NERDTreeFocus<cr>
-tnoremap <a-f> <c-\><c-n>:NERDTreeFocus<cr>
+nnoremap <silent><a-f> :NERDTreeFocus<cr>
+tnoremap <silent><a-f> <c-\><c-n>:NERDTreeFocus<cr>
 
 " Misc
 au bufenter * set fo-=cro
