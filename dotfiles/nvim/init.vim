@@ -10,31 +10,38 @@ call plug#end()
 
 " General
 let mapleader=' '
-let g:loaded_matchparen=1
 set autochdir
 set confirm
-set expandtab
-set ignorecase
 set mouse=a
 set number
 set relativenumber
 set scrolloff=100
-set shiftwidth=4
-set smartcase
-set softtabstop=4
 set splitright
 set splitbelow
-set tabstop=4
 set title
 set titlestring=NVIM\ -\ %t
+
+" Tabs
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+" Search
+noremap <leader>h :noh<cr>
+set ignorecase
+set smartcase
 
 " Theme
 colorscheme hybrid_material
 let g:airline_theme='hybrid'
+let g:airline_powerline_fonts = 1
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
 "let g:hybrid_transparent_background = 1
+let g:loaded_matchparen=1
 set background=dark
+set noshowmode
 set termguicolors
 
 " Vimrc
@@ -80,6 +87,5 @@ tnoremap <a-f> <c-\><c-n>:NERDTreeFocus<cr>
 
 " Misc
 au bufenter * set fo-=cro
-noremap <leader>h :noh<cr>
 noremap <leader>s :%s//g<left><left>
 nnoremap <cr> o<esc>
