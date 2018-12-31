@@ -1,3 +1,4 @@
+export DOTFILES=~/Projects/dotfiles/dotfiles
 export EDITOR=nvim
 export PATH="$PATH:~/miniconda3/bin:~/bin"
 
