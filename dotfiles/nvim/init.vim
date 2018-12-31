@@ -1,7 +1,9 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
