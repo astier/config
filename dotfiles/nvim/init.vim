@@ -1,6 +1,7 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
+Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -10,13 +11,13 @@ call plug#end()
 " General
 let mapleader=' '
 let g:loaded_matchparen=1
-let g:airline_theme='luna'
 set autochdir
 set confirm
 set expandtab
 set ignorecase
-set laststatus=1
 set mouse=a
+set number
+set relativenumber
 set scrolloff=100
 set shiftwidth=4
 set smartcase
@@ -26,6 +27,15 @@ set splitbelow
 set tabstop=4
 set title
 set titlestring=NVIM\ -\ %t
+
+" Theme
+colorscheme hybrid_material
+let g:airline_theme='hybrid'
+let g:enable_bold_font = 1
+let g:enable_italic_font = 1
+"let g:hybrid_transparent_background = 1
+set background=dark
+set termguicolors
 
 " Vimrc
 au bufwritepost init.vim :so $MYVIMRC
@@ -62,9 +72,9 @@ nnoremap <leader>tv :vsp<cr>:term<cr>
 tnoremap ,<esc> <c-\><c-n>
 
 " NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+au StdinReadPre * let s:std_in=1
+au VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nnoremap <a-f> :NERDTreeFocus<cr>
 tnoremap <a-f> <c-\><c-n>:NERDTreeFocus<cr>
 
