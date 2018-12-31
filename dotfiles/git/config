@@ -3,13 +3,15 @@
 	name = astier
 
 [alias]
-	c = commit
-	s = status
-	a = add
-	cm = commit -m
 	aa = add -A
-	d = diff
+	a = add
 	cam = commit -am
+	c = commit
+	cm = commit -m
+	d = diff
+    pl = pull
+    ps = push
+	s = status
 
 [core]
 	excludesfile = ~/.config/git/ignore
