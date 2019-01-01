@@ -26,6 +26,9 @@ alias v='nvim'
 
 # Git
 alias ga='git add'
+alias gaa='git add --all'
+alias gl='git log'
+alias glo='git log --oneline'
 alias gs='git status'
 alias gp='git push'
 alias gd='git diff'
