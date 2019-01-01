@@ -40,7 +40,7 @@ let g:airline_theme='hybrid'
 let g:airline_powerline_fonts = 1
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
-"let g:hybrid_transparent_background = 1
+let g:hybrid_transparent_background = 1
 let g:loaded_matchparen=1
 set background=dark
 set noshowmode
@@ -74,10 +74,10 @@ tnoremap <a-l> <c-\><c-n><c-w>l
 tnoremap <a-c> <c-\><c-n><c-w>c
 
 " Terminal
-au termopen * :set nonu nornu | :startinsert
-au bufenter * if &buftype == 'terminal' | :startinsert | endif
-nnoremap <silent><leader>ts :sp<cr>:term<cr>
-nnoremap <silent><leader>tv :vsp<cr>:term<cr>
+au termopen * :set nonu nornu | startinsert
+au bufenter * if &buftype == 'terminal' | startinsert | endif
+nnoremap <silent><leader>ts :sp<cr>:te<cr>
+nnoremap <silent><leader>tv :vsp<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
 
 " NERDTree
