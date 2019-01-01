@@ -52,14 +52,14 @@ noremap <leader>c :edit $MYVIMRC<cr>
 
 " Resize
 au vimresized * wincmd =
-nnoremap <silent>+ :res +1<cr>
-nnoremap <silent>- :res -1<cr>
+nnoremap <silent><a-.> :res +1<cr>
+nnoremap <silent><a-,> :res -1<cr>
 nnoremap <silent><a-+> :vertical res +1<cr>
 nnoremap <silent><a--> :vertical res -1<cr>
-tnoremap <silent>+ :res +1<cr>
-tnoremap <silent>- :res -1<cr>
-tnoremap <silent><a-+> :vertical res +1<cr>
-tnoremap <silent><a--> :vertical res -1<cr>
+tnoremap <silent><a-.> <c-\><c-n>:res +1<cr>:startinsert<cr>
+tnoremap <silent><a-,> <c-\><c-n>:res -1<cr>:startinsert<cr>
+tnoremap <silent><a-+> <c-\><c-n>:vertical res +1<cr>:startinsert<cr>
+tnoremap <silent><a--> <c-\><c-n>:vertical res -1<cr>:startinsert<cr>
 
 " Navigation
 nnoremap <a-h> <c-w>h
@@ -84,11 +84,12 @@ tnoremap ,<esc> <c-\><c-n>
 au StdinReadPre * let s:std_in=1
 au VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-nnoremap <silent><a-f> :NERDTreeFocus<cr>
-tnoremap <silent><a-f> <c-\><c-n>:NERDTreeFocus<cr>
+nnoremap <silent><a-e> :NERDTreeFocus<cr>
+tnoremap <silent><a-e> <c-\><c-n>:NERDTreeFocus<cr>
 
 " Misc
 au bufenter * set fo-=cro
 noremap <leader>s :%s//g<left><left>
 nnoremap <cr> o<esc>
-nnoremap <silent><a-g> :Goyo<cr>
+nnoremap <silent><a-f> :Goyo<cr>
+tnoremap <silent><a-f> <c-\><c-n>:Goyo<cr>:startinsert<cr>
