@@ -1,4 +1,5 @@
 " Plugins
+
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
@@ -40,9 +41,8 @@ let g:airline_theme='hybrid'
 let g:airline_powerline_fonts = 1
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
-let g:hybrid_transparent_background = 1
+"let g:hybrid_transparent_background = 1
 let g:loaded_matchparen=1
-set background=dark
 set noshowmode
 set termguicolors
 
@@ -61,7 +61,7 @@ tnoremap <silent>- :res -1<cr>
 tnoremap <silent><a-+> :vertical res +1<cr>
 tnoremap <silent><a--> :vertical res -1<cr>
 
-" Windows
+" Navigation
 nnoremap <a-h> <c-w>h
 nnoremap <a-j> <c-w>j
 nnoremap <a-k> <c-w>k
@@ -91,3 +91,4 @@ tnoremap <silent><a-f> <c-\><c-n>:NERDTreeFocus<cr>
 au bufenter * set fo-=cro
 noremap <leader>s :%s//g<left><left>
 nnoremap <cr> o<esc>
+nnoremap <silent><a-g> :Goyo<cr>
