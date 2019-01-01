@@ -24,6 +24,16 @@ alias sd='source deactivate'
 alias m='sudo reflector -p https -l64 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist'
 alias v='nvim'
 
+# Git
+alias ga='git add'
+alias gs='git status'
+alias gp='git push'
+alias gd='git diff'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+alias gpl='git pull'
+
 # Dotfiles
 alias cfb='$EDITOR ~/.bashrc && . ~/.bashrc'
 alias cfv='$EDITOR ~/.config/nvim/init.vim'
