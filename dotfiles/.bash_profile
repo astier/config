@@ -1,6 +1,7 @@
 export DOTFILES=~/Projects/dotfiles/dotfiles
+export BROWSER=firefox
 export EDITOR=nvim
-export PATH="$PATH:~/miniconda3/bin:~/bin"
+export PATH=$PATH:~/miniconda3/bin:~/bin
 
 powerline-daemon -q
 export POWERLINE_BASH_CONTINUATION=1
