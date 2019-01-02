@@ -9,20 +9,16 @@ set -o vi
 shopt -s cdspell
 
 # Defaults
-#alias df='df -h'
-alias htop='htop -t'
+alias df='df -h'
 alias grep='grep --color'
 alias la='ls -a'
 alias ll='ls -l'
 alias ls='ls --color --group-directories-first -h'
-alias pacman='sudo pacman'
 
-# Shortcuts
-alias ..='cd ..'
-alias sa='source activate'
-alias sd='source deactivate'
-alias m='sudo reflector -p https -l64 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist'
-alias v='nvim'
+# Dotfiles
+alias cfb='$EDITOR ~/.bashrc && . ~/.bashrc'
+alias cfv='$EDITOR ~/.config/nvim/init.vim'
+alias cft='$EDITOR ~/.config/termite/config'
 
 # Git
 alias ga='git add'
@@ -37,9 +33,16 @@ alias gcm='git commit -m'
 alias gcam='git commit -am'
 alias gpl='git pull'
 
-# Dotfiles
-alias cfb='$EDITOR ~/.bashrc && . ~/.bashrc'
-alias cfv='$EDITOR ~/.config/nvim/init.vim'
-alias cft='$EDITOR ~/.config/termite/config'
+# Pacman
+alias pacman='sudo pacman'
+alias pi='sudo pacman -S'
+alias pr='sudo pacman -Rns'
+
+# Misc
+alias ..='cd ..'
+alias sa='source activate'
+alias sd='source deactivate'
+alias m='sudo reflector -p https -l64 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist'
+alias v='nvim'
 
 . /usr/share/powerline/bindings/bash/powerline.sh
