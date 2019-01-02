@@ -1,5 +1,4 @@
 " Plugins
-
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
@@ -12,28 +11,13 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " General
-let mapleader=' '
+let mapleader=','
 set autochdir
 set confirm
 set mouse=a
-set number
-set relativenumber
-set scrolloff=100
-set splitright
-set splitbelow
-set title
-set titlestring=NVIM\ -\ %t
-
-" Tabs
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-
-" Search
-noremap <leader>h :noh<cr>
-set ignorecase
-set smartcase
+set number relativenumber
+set splitright splitbelow
+set title titlestring=NVIM\ -\ %t
 
 " Theme
 colorscheme hybrid_material
@@ -41,14 +25,13 @@ let g:airline_theme='hybrid'
 let g:airline_powerline_fonts = 1
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
-"let g:hybrid_transparent_background = 1
 let g:loaded_matchparen=1
 set noshowmode
 set termguicolors
 
 " Vimrc
-au bufwritepost init.vim :so $MYVIMRC
-noremap <leader>c :edit $MYVIMRC<cr>
+au bufwritepost $MYVIMRC :so $MYVIMRC
+noremap <silent><space>c :edit $MYVIMRC<cr>
 
 " Resize
 au vimresized * wincmd =
@@ -66,19 +49,27 @@ nnoremap <a-h> <c-w>h
 nnoremap <a-j> <c-w>j
 nnoremap <a-k> <c-w>k
 nnoremap <a-l> <c-w>l
-nnoremap <a-c> <c-w>c
 tnoremap <a-h> <c-\><c-n><c-w>h
 tnoremap <a-j> <c-\><c-n><c-w>j
 tnoremap <a-k> <c-\><c-n><c-w>k
 tnoremap <a-l> <c-\><c-n><c-w>l
-tnoremap <a-c> <c-\><c-n><c-w>c
+
+" Windows
+nnoremap <leader>s <c-w>s
+nnoremap <leader>v <c-w>v
+nnoremap <leader>c <c-w>c
+tnoremap <leader>s <c-\><c-n><c-w>s
+tnoremap <leader>v <c-\><c-n><c-w>v
+tnoremap <leader>c <c-\><c-n><c-w>c
 
 " Terminal
 au termopen * :set nonu nornu | startinsert
 au bufenter * if &buftype == 'terminal' | startinsert | endif
 nnoremap <silent><leader>ts :sp<cr>:te<cr>
 nnoremap <silent><leader>tv :vsp<cr>:te<cr>
-tnoremap ,<esc> <c-\><c-n>
+tnoremap <silent><leader>ts <c-\><c-n>:sp<cr>:te<cr>
+tnoremap <silent><leader>tv <c-\><c-n>:vsp<cr>:te<cr>
+tnoremap <leader><esc> <c-\><c-n>
 
 " NERDTree
 au StdinReadPre * let s:std_in=1
@@ -87,9 +78,12 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTre
 nnoremap <silent><a-e> :NERDTreeFocus<cr>
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeFocus<cr>
 
-" Misc
-au bufenter * set fo-=cro
-noremap <leader>s :%s//g<left><left>
-nnoremap <cr> o<esc>
+" Goyo
 nnoremap <silent><a-f> :Goyo<cr>
 tnoremap <silent><a-f> <c-\><c-n>:Goyo<cr>:startinsert<cr>
+
+" Misc
+au bufenter * set fo-=cro
+nnoremap <leader>r :%s//g<left><left>
+nnoremap <cr> o<esc>
+nnoremap <silent><a-h> :noh<cr>
