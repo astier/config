@@ -9,7 +9,7 @@ set -o vi
 shopt -s cdspell
 
 # Defaults
-alias df='df -h'
+#alias df='df -h'
 alias htop='htop -t'
 alias grep='grep --color'
 alias la='ls -a'
