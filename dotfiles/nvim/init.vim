@@ -19,6 +19,7 @@ nnoremap <cr> o<esc>
 nnoremap <silent><a-h> :noh<cr>
 set autochdir
 set confirm
+set cursorline
 set mouse=a
 set number relativenumber
 set splitright splitbelow
