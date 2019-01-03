@@ -11,14 +11,39 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-" General
+" Misc
+au bufenter * set fo-=cro
 let mapleader=','
+nnoremap <leader>r :%s//g<left><left>
+nnoremap <cr> o<esc>
+nnoremap <silent><a-h> :noh<cr>
 set autochdir
 set confirm
 set mouse=a
 set number relativenumber
 set splitright splitbelow
 set title titlestring=NVIM\ -\ %t
+
+" Navigation
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
+nnoremap <a-k> <c-w>k
+nnoremap <a-l> <c-w>l
+tnoremap <a-h> <c-\><c-n><c-w>h
+tnoremap <a-j> <c-\><c-n><c-w>j
+tnoremap <a-k> <c-\><c-n><c-w>k
+tnoremap <a-l> <c-\><c-n><c-w>l
+
+" Resize
+au vimresized * wincmd =
+nnoremap <silent><a-.> :res +1<cr>
+nnoremap <silent><a-,> :res -1<cr>
+nnoremap <silent><a-+> :vertical res +1<cr>
+nnoremap <silent><a--> :vertical res -1<cr>
+tnoremap <silent><a-.> <c-\><c-n>:res +1<cr>:startinsert<cr>
+tnoremap <silent><a-,> <c-\><c-n>:res -1<cr>:startinsert<cr>
+tnoremap <silent><a-+> <c-\><c-n>:vertical res +1<cr>:startinsert<cr>
+tnoremap <silent><a--> <c-\><c-n>:vertical res -1<cr>:startinsert<cr>
 
 " Theme
 colorscheme hybrid_material
@@ -33,27 +58,6 @@ set termguicolors
 " Vimrc
 au bufwritepost $MYVIMRC :so $MYVIMRC
 noremap <silent><space>c :edit $MYVIMRC<cr>
-
-" Resize
-au vimresized * wincmd =
-nnoremap <silent><a-.> :res +1<cr>
-nnoremap <silent><a-,> :res -1<cr>
-nnoremap <silent><a-+> :vertical res +1<cr>
-nnoremap <silent><a--> :vertical res -1<cr>
-tnoremap <silent><a-.> <c-\><c-n>:res +1<cr>:startinsert<cr>
-tnoremap <silent><a-,> <c-\><c-n>:res -1<cr>:startinsert<cr>
-tnoremap <silent><a-+> <c-\><c-n>:vertical res +1<cr>:startinsert<cr>
-tnoremap <silent><a--> <c-\><c-n>:vertical res -1<cr>:startinsert<cr>
-
-" Navigation
-nnoremap <a-h> <c-w>h
-nnoremap <a-j> <c-w>j
-nnoremap <a-k> <c-w>k
-nnoremap <a-l> <c-w>l
-tnoremap <a-h> <c-\><c-n><c-w>h
-tnoremap <a-j> <c-\><c-n><c-w>j
-tnoremap <a-k> <c-\><c-n><c-w>k
-tnoremap <a-l> <c-\><c-n><c-w>l
 
 " Windows
 nnoremap <leader>s <c-w>s
@@ -72,19 +76,13 @@ tnoremap <silent><leader>ts <c-\><c-n>:sp<cr>:te<cr>
 tnoremap <silent><leader>tv <c-\><c-n>:vsp<cr>:te<cr>
 tnoremap <leader><esc> <c-\><c-n>
 
+" Goyo
+nnoremap <silent><a-f> :Goyo<cr>
+tnoremap <silent><a-f> <c-\><c-n>:Goyo<cr>:startinsert<cr>
+
 " NERDTree
 au StdinReadPre * let s:std_in=1
 au VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nnoremap <silent><a-e> :NERDTreeFocus<cr>
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeFocus<cr>
-
-" Goyo
-nnoremap <silent><a-f> :Goyo<cr>
-tnoremap <silent><a-f> <c-\><c-n>:Goyo<cr>:startinsert<cr>
-
-" Misc
-au bufenter * set fo-=cro
-nnoremap <leader>r :%s//g<left><left>
-nnoremap <cr> o<esc>
-nnoremap <silent><a-h> :noh<cr>
