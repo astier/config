@@ -19,7 +19,7 @@ nnoremap <silent>,h :noh<cr>
 set autochdir
 set autowriteall
 set confirm
-"set cursorline
+set cursorline
 set mouse=a
 set number relativenumber
 set splitright splitbelow
@@ -72,8 +72,8 @@ tnoremap <silent>,t <c-\><c-n>:vsp<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
 
 " Bbye
-nnoremap ,qw :Bw<cr>
-nnoremap ,qa :bufdo :Bw<cr>
+nnoremap <silent>,qw :Bw<cr>
+nnoremap <silent>,qa :bufdo :Bw<cr>
 
 " Git-Gutter
 set updatetime=1000
