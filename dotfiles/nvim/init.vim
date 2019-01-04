@@ -2,6 +2,7 @@
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-surround'
@@ -78,7 +79,9 @@ nnoremap <silent>,qa :bufdo :Bw<cr>
 " Git-Gutter
 set updatetime=1000
 
-" Goyo
+" Goyo & Limelight
+au! User GoyoEnter Limelight
+au! User GoyoLeave Limelight!
 nnoremap <silent>,f :Goyo<cr>
 tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
 
