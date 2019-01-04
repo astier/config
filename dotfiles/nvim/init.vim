@@ -14,7 +14,7 @@ call plug#end()
 " Misc
 au bufenter * set fo-=cro
 let mapleader=' '
-nnoremap <leader>r :%s//g<left><left>
+nnoremap ,r :%s//g<left><left>
 nnoremap <cr> o<esc>
 nnoremap <silent>,h :noh<cr>
 set autochdir
@@ -26,6 +26,10 @@ set number relativenumber
 set splitright splitbelow
 set title titlestring=NVIM\ -\ %t
 
+" Vimrc
+au bufwritepost $MYVIMRC :so $MYVIMRC
+nnoremap <silent>,, :e $MYVIMRC<cr>
+
 " Theme
 colorscheme hybrid_material
 let g:airline_theme='hybrid'
@@ -35,10 +39,6 @@ let g:enable_italic_font = 1
 let g:loaded_matchparen=1
 set noshowmode
 set termguicolors
-
-" Vimrc
-au bufwritepost $MYVIMRC :so $MYVIMRC
-nnoremap <silent><leader>c :edit $MYVIMRC<cr>
 
 " Navigation
 nnoremap <a-h> <c-w>h
@@ -51,31 +51,33 @@ tnoremap <a-k> <c-\><c-n><c-w>k
 tnoremap <a-l> <c-\><c-n><c-w>l
 
 " Resize
-au vimresized * wincmd =
 nnoremap <silent><a-.> :res +1<cr>
 nnoremap <silent><a-,> :res -1<cr>
-nnoremap <silent><a-+> :vertical res +1<cr>
-nnoremap <silent><a--> :vertical res -1<cr>
-tnoremap <silent><a-.> <c-\><c-n>:res +1<cr>:startinsert<cr>
-tnoremap <silent><a-,> <c-\><c-n>:res -1<cr>:startinsert<cr>
-tnoremap <silent><a-+> <c-\><c-n>:vertical res +1<cr>:startinsert<cr>
-tnoremap <silent><a--> <c-\><c-n>:vertical res -1<cr>:startinsert<cr>
+nnoremap <silent><a-+> :vert res +1<cr>
+nnoremap <silent><a--> :vert res -1<cr>
+tnoremap <silent><a-.> <c-\><c-n>:res +1<cr>:star<cr>
+tnoremap <silent><a-,> <c-\><c-n>:res -1<cr>:star<cr>
+tnoremap <silent><a-+> <c-\><c-n>:vert res +1<cr>:star<cr>
+tnoremap <silent><a--> <c-\><c-n>:vert res -1<cr>:star<cr>
 
 " Windows
-nnoremap ,w <c-w>v
-nnoremap ,c <c-w>c
-tnoremap ,c <c-\><c-n><c-w>c
+nnoremap ,w :vsp<cr>
+nnoremap ,c :clo<cr>
+tnoremap ,c <c-\><c-n>:clo<cr>
 
 " Terminal
-au bufenter * if &buftype == 'terminal' | startinsert | endif
-au termopen * :set nonu nornu | startinsert
-nnoremap <silent>,t <c-w>s:te<cr>
-tnoremap <silent>,t <c-\><c-n><c-w>v:te<cr>
+au bufenter * if &buftype == 'terminal' | star | endif
+au termopen * :set nonu nornu | star
+nnoremap <silent>,t :bo sp<cr>:te<cr>
+tnoremap <silent>,t <c-\><c-n>:vsp<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
+
+" Git-Gutter
+set updatetime=1000
 
 " Goyo
 nnoremap <silent>,f :Goyo<cr>
-tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:startinsert<cr>
+tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
 
 " NERDTree
 au StdinReadPre * let s:std_in=1
