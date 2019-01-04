@@ -72,6 +72,10 @@ nnoremap <silent>,t :bo sp<cr>:te<cr>
 tnoremap <silent>,t <c-\><c-n>:vsp<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
 
+" Bbye
+nnoremap ,qw :Bw<cr>
+nnoremap ,qa :bufdo :Bw<cr>
+
 " Git-Gutter
 set updatetime=1000
 
