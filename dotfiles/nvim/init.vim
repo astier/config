@@ -4,7 +4,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'moll/vim-bbye'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -20,7 +19,7 @@ nnoremap <silent>,h :noh<cr>
 set autochdir
 set autowriteall
 set confirm
-set cursorline
+"set cursorline
 set mouse=a
 set number relativenumber
 set splitright splitbelow
