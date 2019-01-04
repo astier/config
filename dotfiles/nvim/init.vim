@@ -73,6 +73,7 @@ tnoremap <silent>,t <c-\><c-n>:vsp<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
 
 " Git-Gutter
+autocmd BufWinLeave * GitGutterAll
 set updatetime=1000
 
 " Goyo
