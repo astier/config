@@ -10,6 +10,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
 call plug#end()
 
 " Misc
@@ -18,10 +19,10 @@ let mapleader=' '
 nnoremap ,r :%s//g<left><left>
 nnoremap <cr> o<esc>
 nnoremap <silent>,h :noh<cr>
-set autochdir
 set autowriteall
 set confirm
 set cursorline
+set expandtab shiftwidth=4    
 set mouse=a
 set number relativenumber
 set splitright splitbelow
@@ -69,6 +70,7 @@ tnoremap <silent><a--> <c-\><c-n>:vert res -1<cr>:star<cr>
 
 " Windows
 nnoremap <silent>,v :vsp<cr>
+nnoremap <silent>,s :sp<cr>
 nnoremap <silent>,c :clo<cr>
 tnoremap <silent>,c <c-\><c-n>:clo<cr>
 
@@ -99,3 +101,8 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTre
 let NERDTreeChDirMode=2
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
+
+" LaTeX
+inoremap ,m <esc>:-1read $DOTFILES/nvim/snippets/latex/main.tex<cr>
+inoremap ,e <esc>:-1read $DOTFILES/nvim/snippets/latex/enumerate.tex<cr>j10la
+inoremap ,i <esc>:-1read $DOTFILES/nvim/snippets/latex/itemize.tex<cr>j10la
