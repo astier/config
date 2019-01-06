@@ -2,7 +2,6 @@
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-surround'
@@ -14,11 +13,12 @@ call plug#end()
 " Misc
 au bufenter * set fo-=cro
 let mapleader=' '
-nnoremap ,r :%s//g<left><left>
+nnoremap <silent>,, :e $MYVIMRC<cr>
 nnoremap <cr> o<esc>
 nnoremap <silent>,h :noh<cr>
+nnoremap ,r :%s//g<left><left>
 set autochdir
-set autowriteall
+set autowrite
 set confirm
 set cursorline
 set expandtab shiftwidth=4    
@@ -26,17 +26,13 @@ set mouse=a
 set number relativenumber
 set splitright splitbelow
 set title titlestring=NVIM\ -\ %t
-
-" Vimrc
-au bufwritepost $MYVIMRC :so $MYVIMRC
-nnoremap <silent>,, :e $MYVIMRC<cr>
+set updatetime=100
 
 " Theme
 colorscheme hybrid_material
 let g:airline_theme='hybrid'
 let g:airline_powerline_fonts = 1
 let g:enable_italic_font = 1
-let g:loaded_matchparen=1
 set noshowmode
 set termguicolors
 
@@ -61,15 +57,11 @@ nnoremap <silent><a-.> :res +1<cr>
 nnoremap <silent><a-,> :res -1<cr>
 nnoremap <silent><a-+> :vert res +1<cr>
 nnoremap <silent><a--> :vert res -1<cr>
+nnoremap <silent>,c :clo<cr>
 tnoremap <silent><a-.> <c-\><c-n>:res +1<cr>:star<cr>
 tnoremap <silent><a-,> <c-\><c-n>:res -1<cr>:star<cr>
 tnoremap <silent><a-+> <c-\><c-n>:vert res +1<cr>:star<cr>
 tnoremap <silent><a--> <c-\><c-n>:vert res -1<cr>:star<cr>
-
-" Windows
-nnoremap <silent>,v :vsp<cr>
-nnoremap <silent>,s :sp<cr>
-nnoremap <silent>,c :clo<cr>
 tnoremap <silent>,c <c-\><c-n>:clo<cr>
 
 " Terminal
@@ -83,12 +75,7 @@ tnoremap ,<esc> <c-\><c-n>
 nnoremap <silent>,w :Bw<cr>
 nnoremap <silent>,q :bufdo :Bw<cr>
 
-" Git-Gutter
-set updatetime=100
-
 " Goyo & Limelight
-au! User GoyoEnter Limelight
-au! User GoyoLeave Limelight!
 nnoremap <silent>,f :Goyo<cr>
 tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
 
