@@ -10,9 +10,8 @@ install () {
 install .bash_profile           ~/
 install .bashrc                 ~/
 install .xinitrc                ~/
-install feh                     ~/.config/
 install git                     ~/.config/
+install htop                    ~/.config/
 install nvim                    ~/.config/
-install termite                 ~/.config/
 install pacman/pacman.conf      /etc/
 install pacman/hooks/           /etc/pacman.d/

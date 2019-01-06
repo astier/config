@@ -18,7 +18,6 @@ alias ls='ls --color --group-directories-first -h'
 # Dotfiles
 alias cfb='$EDITOR ~/.bashrc && . ~/.bashrc'
 alias cfv='$EDITOR ~/.config/nvim/init.vim'
-alias cft='$EDITOR ~/.config/termite/config'
 
 # Git
 alias ga='git add'

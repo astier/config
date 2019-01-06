@@ -4,13 +4,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'lervag/vimtex'
+"Plug 'lervag/vimtex'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 call plug#end()
 
 " Misc
@@ -19,6 +19,7 @@ let mapleader=' '
 nnoremap ,r :%s//g<left><left>
 nnoremap <cr> o<esc>
 nnoremap <silent>,h :noh<cr>
+set autochdir
 set autowriteall
 set confirm
 set cursorline
@@ -36,7 +37,6 @@ nnoremap <silent>,, :e $MYVIMRC<cr>
 colorscheme hybrid_material
 let g:airline_theme='hybrid'
 let g:airline_powerline_fonts = 1
-let g:enable_bold_font = 0
 let g:enable_italic_font = 1
 let g:loaded_matchparen=1
 set noshowmode
@@ -86,7 +86,7 @@ nnoremap <silent>,w :Bw<cr>
 nnoremap <silent>,q :bufdo :Bw<cr>
 
 " Git-Gutter
-set updatetime=1000
+set updatetime=100
 
 " Goyo & Limelight
 au! User GoyoEnter Limelight
