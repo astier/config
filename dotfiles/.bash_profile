@@ -1,5 +1,11 @@
-export EDITOR=vi
+#!/usr/bin/env bash
+
+export EDITOR=nvim
 export PATH=$PATH:~/miniconda3/bin:~/bin
+
+powerline-daemon -q
+export POWERLINE_BASH_CONTINUATION=1
+export POWERLINE_BASH_SELECT=1
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
