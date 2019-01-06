@@ -17,7 +17,6 @@ alias ls='ls --color --group-directories-first -h'
 
 # Dotfiles
 alias cfb='$EDITOR ~/.bashrc && . ~/.bashrc'
-alias cfv='$EDITOR ~/.config/nvim/init.vim'
 
 # Git
 alias ga='git add'
@@ -42,6 +41,3 @@ alias ..='cd ..'
 alias sa='source activate'
 alias sd='source deactivate'
 alias m='sudo reflector -p https -l64 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist'
-alias v='nvim'
-
-. /usr/share/powerline/bindings/bash/powerline.sh
