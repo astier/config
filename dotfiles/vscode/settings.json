@@ -1,0 +1,46 @@
+{
+    "bashIde.path": "/usr/bin/bash-language-server",
+    "code-runner.respectShebang": false,
+    "code-runner.runInTerminal": true,
+    "debug.toolBarLocation": "docked",
+    "editor.cursorBlinking": "solid",
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.openEditors.visible": 0,
+    "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "python.formatting.autopep8Args": [
+        "-aa"
+    ],
+    "python.autoComplete.addBrackets": true,
+    "python.jediEnabled": false,
+    "python.linting.pylintArgs": [
+        "-d C0103, C0111, W0511",
+        "--max-line-length=79"
+    ],
+    "python.linting.pylintUseMinimalCheckers": false,
+    "python.pythonPath": "~/miniconda3/envs/isy/bin/python",
+    "search.smartCase": true,
+    "search.useGlobalIgnoreFiles": true,
+    "terminal.integrated.copyOnSelection": true,
+    "window.menuBarVisibility": "toggle",
+    "window.title": "VSCode${separator}${rootName}${separator}${activeEditorShort}${dirty}",
+    "workbench.colorTheme": "Material Theme Palenight High Contrast",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.startupEditor": "none",
+    "cSpell.userWords": [
+        "PYGAME",
+        "numpy",
+        "randn"
+    ]
+}
