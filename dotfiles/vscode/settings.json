@@ -59,5 +59,6 @@
         "numpy",
         "randn",
         "symlinks"
-    ]
+    ],
+    "vim.foldfix": true
 }
