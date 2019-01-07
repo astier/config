@@ -1,6 +1,7 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-bufferline'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'moll/vim-bbye'
@@ -21,7 +22,7 @@ set autochdir
 set autowrite
 set confirm
 set cursorline
-set expandtab shiftwidth=4    
+set expandtab shiftwidth=4
 set mouse=a
 set number relativenumber
 set splitright splitbelow
