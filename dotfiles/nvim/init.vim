@@ -58,12 +58,17 @@ nnoremap <silent><a-.> :res +1<cr>
 nnoremap <silent><a-,> :res -1<cr>
 nnoremap <silent><a-+> :vert res +1<cr>
 nnoremap <silent><a--> :vert res -1<cr>
-nnoremap <silent>,c :clo<cr>
 tnoremap <silent><a-.> <c-\><c-n>:res +1<cr>:star<cr>
 tnoremap <silent><a-,> <c-\><c-n>:res -1<cr>:star<cr>
 tnoremap <silent><a-+> <c-\><c-n>:vert res +1<cr>:star<cr>
 tnoremap <silent><a--> <c-\><c-n>:vert res -1<cr>:star<cr>
+
+" Windows
+nnoremap <silent>,c :clo<cr>
 tnoremap <silent>,c <c-\><c-n>:clo<cr>
+nnoremap <silent>,w :Bw<cr>
+nnoremap <silent>,q :qa<cr>
+tnoremap <silent>,q <c-\><c-n>:qa<cr>
 
 " Terminal
 au bufenter * if &buftype == 'terminal' | star | endif
@@ -71,10 +76,6 @@ au termopen * :set nonu nornu | star
 nnoremap <silent>,t :bo sp<cr>:te<cr>
 tnoremap <silent>,t <c-\><c-n>:vsp<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
-
-" Bbye
-nnoremap <silent>,w :Bw<cr>
-nnoremap <silent>,q :bufdo :Bw<cr>
 
 " Goyo & Limelight
 nnoremap <silent>,f :Goyo<cr>
