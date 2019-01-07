@@ -55,9 +55,12 @@
     "workbench.startupEditor": "none",
     "cSpell.userWords": [
         "PYGAME",
+        "aleksandrs",
         "dotfiles",
+        "keras",
         "numpy",
         "randn",
+        "stier",
         "symlinks"
     ],
     "vim.foldfix": true
