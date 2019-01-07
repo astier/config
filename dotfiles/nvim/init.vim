@@ -19,7 +19,7 @@ nnoremap <cr> o<esc>
 nnoremap <silent>,h :noh<cr>
 nnoremap ,r :%s//g<left><left>
 set autochdir
-set autowrite
+set autowriteall
 set confirm
 set cursorline
 set expandtab shiftwidth=4
@@ -67,8 +67,8 @@ tnoremap <silent><a--> <c-\><c-n>:vert res -1<cr>:star<cr>
 nnoremap <silent>,c :clo<cr>
 tnoremap <silent>,c <c-\><c-n>:clo<cr>
 nnoremap <silent>,w :Bw<cr>
-nnoremap <silent>,q :qa<cr>
-tnoremap <silent>,q <c-\><c-n>:qa<cr>
+nnoremap <silent>,q :xa<cr>
+tnoremap <silent>,q <c-\><c-n>:xa<cr>
 
 " Terminal
 au bufenter * if &buftype == 'terminal' | star | endif
