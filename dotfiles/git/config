@@ -1,6 +1,6 @@
 [user]
-	email = aleksandrs.stier@uni-bielefeld.de
-	name = astier
+	email = sub@pewds.lol
+	name = aleks
 
 [alias]
 	aa = add -A
@@ -9,8 +9,8 @@
 	c = commit
 	cm = commit -m
 	d = diff
-    pl = pull
-    p = push
+        pl = pull
+        p = push
 	s = status
 
 [core]
