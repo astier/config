@@ -30,9 +30,6 @@ set mouse=a
 set number relativenumber
 set splitright splitbelow
 set title titlestring=NVIM\ -\ %t
-set updatetime=100
-
-autocmd WinLeave * if bufname('') =~ '^term://' | GitGutterAll | endif
 
 " Theme
 colorscheme hybrid_material
@@ -81,6 +78,10 @@ au termopen * :set nonu nornu | star
 nnoremap <silent>,t :bo sp<cr>:te<cr>
 tnoremap <silent>,t <c-\><c-n>:vsp<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
+
+" GitGutter
+autocmd WinLeave * if bufname('') =~ '^term://' | GitGutterAll | endif
+set updatetime=100
 
 " Goyo & Limelight
 nnoremap <silent>,f :Goyo<cr>
