@@ -25,7 +25,6 @@
     "latex-workshop.latex.autoBuild.onSave.enabled": false,
     "latex-workshop.latex.clean.enabled": true,
     "latex-workshop.latex.clean.onFailBuild.enabled": true,
-    "latex-workshop.latex.outputDir": "./output",
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "markdown.extension.tableFormatter.normalizeIndentation": true,
