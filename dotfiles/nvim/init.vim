@@ -5,7 +5,6 @@ Plug 'bling/vim-bufferline'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -29,7 +28,7 @@ set expandtab shiftwidth=4
 set breakindent linebreak
 set mouse=a
 set number relativenumber
-set splitright splitbelow
+set splitbelow splitright
 set title titlestring=NVIM\ -\ %t
 set updatetime=100
 
@@ -78,7 +77,7 @@ tnoremap <silent>,q <c-\><c-n>:xa<cr>
 au BufEnter * if &buftype == 'terminal' | star | endif
 au TermOpen * :set nonu nornu | star
 nnoremap <silent>,t :bo sp<cr>:te<cr>
-tnoremap <silent>,t <c-\><c-n>:vsp<cr>:te<cr>
+tnoremap <silent>,t <c-\><c-n>:vs<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
 
 " Goyo & Limelight
