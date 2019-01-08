@@ -25,11 +25,14 @@ set autowriteall
 set confirm
 set cursorline
 set expandtab shiftwidth=4
+set breakindent linebreak
 set mouse=a
 set number relativenumber
 set splitright splitbelow
 set title titlestring=NVIM\ -\ %t
 set updatetime=100
+
+autocmd WinLeave * if bufname('') =~ '^term://' | GitGutterAll | endif
 
 " Theme
 colorscheme hybrid_material
