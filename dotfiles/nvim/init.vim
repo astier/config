@@ -88,6 +88,11 @@ tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
 
 " NERDTree
 let NERDTreeChDirMode=2
+let NERDTreeIgnore=['__pycache__']
+let NERDTreeMinimalUI=1
+let NERDTreeMouseMode=2
+let NERDTreeShowBookmarks=1
+let NERDTreeShowHidden=1
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
