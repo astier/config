@@ -79,8 +79,8 @@ nnoremap <silent>,q :xa<cr>
 tnoremap <silent>,q <c-\><c-n>:xa<cr>
 
 " Terminal
-au BufEnter * if &buftype == 'terminal' | star | endif
 au TermOpen * :set nonu nornu | star
+au BufEnter term://* star
 nnoremap <silent>,t :bo sp<cr>:te<cr>
 tnoremap <silent>,t <c-\><c-n>:vs<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
