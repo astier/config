@@ -15,16 +15,16 @@ call plug#end()
 " Misc
 au BufEnter * set fo-=cro
 let mapleader=' '
-nnoremap <silent>,, :e $MYVIMRC<cr>
-nnoremap <cr> o<esc>
-nnoremap <silent>,h :noh<cr>
 nnoremap ,r :%s//g<left><left>
+nnoremap <cr> o<esc>
+nnoremap <silent>,, :e $MYVIMRC<cr>
+nnoremap <silent>,h :noh<cr>
 set autochdir
 set autowriteall
+set breakindent linebreak
 set confirm
 set cursorline
 set expandtab shiftwidth=4
-set breakindent linebreak
 set mouse=a
 set number relativenumber
 set splitbelow splitright
