@@ -61,6 +61,13 @@ noremap k gk
 noremap $ g$
 noremap 0 g0
 
+" Brackets
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+
 " Resize
 nnoremap <silent><a-.> :res +1<cr>
 nnoremap <silent><a-,> :res -1<cr>
