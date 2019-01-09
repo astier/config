@@ -1,7 +1,6 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-bufferline'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
@@ -16,7 +15,6 @@ call plug#end()
 " Misc
 au BufEnter * set fo-=cro
 let mapleader=' '
-let g:bufferline_echo = 0
 nnoremap <silent>,, :e $MYVIMRC<cr>
 nnoremap <cr> o<esc>
 nnoremap <silent>,h :noh<cr>
@@ -33,10 +31,16 @@ set splitbelow splitright
 set title titlestring=NVIM\ -\ %t
 set updatetime=100
 
-" Theme
+" Theme & Airline
 colorscheme hybrid_material
-let g:airline_theme='hybrid'
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#wordcount#enabled = 0
 let g:airline_powerline_fonts = 1
+let g:airline_section_c = '%t'
+let g:airline_theme='hybrid'
 let g:enable_italic_font = 1
 set noshowmode
 set termguicolors
@@ -92,7 +96,6 @@ let NERDTreeIgnore=['__pycache__']
 let NERDTreeMinimalUI=1
 let NERDTreeMouseMode=2
 let NERDTreeShowBookmarks=1
-let NERDTreeShowHidden=1
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
