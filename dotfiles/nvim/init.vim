@@ -36,7 +36,9 @@ colorscheme hybrid_material
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#excludes = ['bash$']
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#middle_click_preserves_windows = 1
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
