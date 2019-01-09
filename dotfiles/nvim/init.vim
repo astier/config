@@ -16,6 +16,7 @@ call plug#end()
 " Misc
 au BufEnter * set fo-=cro
 let mapleader=' '
+let g:bufferline_echo = 0
 nnoremap <silent>,, :e $MYVIMRC<cr>
 nnoremap <cr> o<esc>
 nnoremap <silent>,h :noh<cr>
@@ -86,9 +87,6 @@ nnoremap <silent>,f :Goyo<cr>
 tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
 
 " NERDTree
-au StdinReadPre * let s:std_in=1
-au VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-au BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeChDirMode=2
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
