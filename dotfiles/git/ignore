@@ -4,3 +4,9 @@ __pycache__
 *.nav
 *.snm
 *.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
