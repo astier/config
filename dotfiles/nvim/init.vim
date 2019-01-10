@@ -4,6 +4,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'lervag/vimtex'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -109,6 +110,16 @@ nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
 " LaTeX
-inoremap ,m <esc>:-1read $DOTFILES/nvim/snippets/latex/article.tex<cr>
-inoremap ,e <esc>:-1read $DOTFILES/nvim/snippets/latex/enumerate.tex<cr>j10la
-inoremap ,i <esc>:-1read $DOTFILES/nvim/snippets/latex/itemize.tex<cr>j10la
+let g:tex_flavor = 'latex'
+function CR()
+    if search('\\item\s\w', 'bn', line("."))
+        return "\r\\item "
+    endif
+    return "\r"
+endfunction
+au FileType tex inoremap <expr><buffer> <CR> CR()
+au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
+au FileType tex inoremap <silent><buffer>,j <esc>/\~<cr>s
+au FileType tex inoremap <silent><buffer>,a <esc>:-1read $DOTFILES/nvim/snippets/latex/article.tex<cr>7j7ls
+au FileType tex inoremap <silent><buffer>,e <esc>:read $DOTFILES/nvim/snippets/latex/enumerate.tex<cr>:norm =ae<cr>j9la
+au FileType tex inoremap <silent><buffer>,i <esc>:read $DOTFILES/nvim/snippets/latex/itemize.tex<cr>:norm =ae<cr>j9la
