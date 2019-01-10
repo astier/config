@@ -20,6 +20,8 @@ nnoremap ,r :%s//g<left><left>
 nnoremap <cr> o<esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
 nnoremap <silent>,h :noh<cr>
+nnoremap <silent>,s :wa<cr>
+tnoremap <silent>,s <c-\><c-n>:wa<cr>i
 set autochdir
 set autowriteall
 set breakindent linebreak
