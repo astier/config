@@ -16,6 +16,7 @@ call plug#end()
 " Misc
 au BufEnter * set fo-=cro
 let mapleader=' '
+let maplocalleader=' '
 nnoremap ,r :%s//g<left><left>
 nnoremap <cr> o<esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
@@ -125,3 +126,6 @@ au FileType tex inoremap <silent><buffer>,j <esc>/\~<cr>s
 au FileType tex inoremap <silent><buffer>,a <esc>:-1read $DOTFILES/nvim/snippets/latex/article.tex<cr>7j7ls
 au FileType tex inoremap <silent><buffer>,e <esc>:read $DOTFILES/nvim/snippets/latex/enumerate.tex<cr>:norm =ae<cr>j9la
 au FileType tex inoremap <silent><buffer>,i <esc>:read $DOTFILES/nvim/snippets/latex/itemize.tex<cr>:norm =ae<cr>j9la
+au FileType tex inoremap <silent><buffer>,sa \section{}<left>
+au FileType tex inoremap <silent><buffer>,sb \subsection{}<left>
+au FileType tex inoremap <silent><buffer>,sc \subsubsection{}<left>
