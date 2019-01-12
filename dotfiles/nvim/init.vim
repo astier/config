@@ -39,6 +39,7 @@ set updatetime=100
 colorscheme hybrid_material
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffers_label = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#excludes = ['bash$']
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -60,6 +61,8 @@ tnoremap <a-h> <c-\><c-n><c-w>h
 tnoremap <a-j> <c-\><c-n><c-w>j
 tnoremap <a-k> <c-\><c-n><c-w>k
 tnoremap <a-l> <c-\><c-n><c-w>l
+nnoremap <silent><a-i> :bp<cr>
+nnoremap <silent><a-o> :bn<cr>
 
 " Wrap
 noremap j gj
