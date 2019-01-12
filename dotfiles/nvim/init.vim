@@ -114,6 +114,21 @@ tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
 " LaTeX
 let g:tex_flavor = 'latex'
+let g:vimtex_view_general_viewer = 'evince'
+let g:vimtex_compiler_latexmk = {
+    \ 'backend' : 'nvim',
+    \ 'background' : 1,
+    \ 'build_dir' : 'output',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode'
+    \ ],
+\}
 function CR()
     if search('\\item\s\w', 'bn', line("."))
         return "\r\\item "
