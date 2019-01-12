@@ -18,7 +18,7 @@ au BufEnter * set fo-=cro
 let mapleader=' '
 let maplocalleader=' '
 nnoremap ,r :%s//g<left><left>
-nnoremap <cr> o<esc>
+nnoremap <cr> a<cr><esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
 nnoremap <silent>,h :noh<cr>
 nnoremap <silent>,s :wa<cr>
@@ -66,13 +66,6 @@ noremap j gj
 noremap k gk
 noremap $ g$
 noremap 0 g0
-
-" Brackets
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
 
 " Resize
 nnoremap <silent><a-.> :res +1<cr>
