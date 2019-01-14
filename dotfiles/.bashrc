@@ -2,13 +2,10 @@
 
 [[ $- != *i* ]] && return
 
-# Parameters
+# Settings
 HISTCONTROL=erasedups
 PS1='\[\e[32m\][\W]\$\[\e[m\] '
-
-# Settings
 set -o vi
-shopt -s cdspell
 
 # Defaults
 alias df='df -h'
@@ -33,14 +30,10 @@ alias gcm='git commit -m'
 alias gcam='git commit -am'
 alias gpl='git pull'
 
-# Pacman
-alias pacman='sudo pacman'
-alias pi='sudo pacman -S'
-alias pr='sudo pacman -Rns'
-
 # Misc
 alias ..='cd ..'
 alias sa='source activate'
 alias sd='source deactivate'
 alias m='sudo reflector -p https -l64 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist'
+alias pacman='sudo pacman'
 alias v='nvim'
