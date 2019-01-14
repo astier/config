@@ -17,6 +17,7 @@ call plug#end()
 au BufEnter * set fo-=cro
 let mapleader=' '
 let maplocalleader=' '
+let g:python3_host_prog = '~/miniconda3/bin/python'
 nnoremap ,r :%s//g<left><left>
 nnoremap <cr> a<cr><esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
@@ -39,7 +40,7 @@ set updatetime=100
 colorscheme hybrid_material
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#buffers_label = ''
+let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#excludes = ['bash$']
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -63,12 +64,14 @@ tnoremap <a-k> <c-\><c-n><c-w>k
 tnoremap <a-l> <c-\><c-n><c-w>l
 nnoremap <silent><a-i> :bp<cr>
 nnoremap <silent><a-o> :bn<cr>
+tnoremap <silent><a-i> <c-\><c-n>:bp<cr>
+tnoremap <silent><a-o> <c-\><c-n>:bn<cr>
 
 " Wrap
-noremap j gj
-noremap k gk
-noremap $ g$
-noremap 0 g0
+nnoremap j gj
+nnoremap k gk
+nnoremap $ g$
+nnoremap 0 g0
 
 " Resize
 nnoremap <silent><a-.> :res +1<cr>
@@ -100,11 +103,14 @@ nnoremap <silent>,f :Goyo<cr>
 tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
 
 " NERDTree
+let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeChDirMode=2
-let NERDTreeIgnore=['__pycache__']
+let NERDTreeIgnore=['__pycache__', '.git']
 let NERDTreeMinimalUI=1
 let NERDTreeMouseMode=2
 let NERDTreeShowBookmarks=1
+let NERDTreeShowHidden=1
+let NERDTreeStatusline='NERD'
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
