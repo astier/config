@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 install () {
-    TARGET=$1 DESTINATION=$2$(basename $TARGET)
-    sudo rm -rf $DESTINATION
-    sudo ln -rs dotfiles/$TARGET $DESTINATION &&
-    echo Installed: $TARGET
+    TARGET=$1 DESTINATION=$2$(basename "$TARGET")
+    sudo rm -rf "$DESTINATION"
+    sudo ln -rs dotfiles/"$TARGET" "$DESTINATION" &&
+    echo Installed: "$TARGET"
 }
 
 install .bash_profile           ~/
