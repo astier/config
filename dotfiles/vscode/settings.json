@@ -1,5 +1,21 @@
 {
     "bashIde.path": "/usr/bin/bash-language-server",
+    "cSpell.userWords": [
+        "aleks",
+        "aleksandrs",
+        "bootloader",
+        "bootup",
+        "cryptsetup",
+        "dotfiles",
+        "keras",
+        "luks",
+        "numpy",
+        "pycache",
+        "PYGAME",
+        "randn",
+        "stier",
+        "systemd"
+    ],
     "code-runner.respectShebang": false,
     "code-runner.runInTerminal": true,
     "debug.toolBarLocation": "docked",
@@ -43,6 +59,9 @@
     "search.smartCase": true,
     "search.useGlobalIgnoreFiles": true,
     "terminal.integrated.copyOnSelection": true,
+    "vim.foldfix": true,
+    "vim.hlsearch": true,
+    "vim.visualstar": true,
     "window.menuBarVisibility": "toggle",
     "window.title": "VSCode${separator}${rootName}${separator}${activeEditorShort}${dirty}",
     "workbench.colorTheme": "Material Theme Palenight High Contrast",
@@ -51,16 +70,5 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.settings.openDefaultSettings": false,
-    "workbench.startupEditor": "none",
-    "cSpell.userWords": [
-        "PYGAME",
-        "aleksandrs",
-        "dotfiles",
-        "keras",
-        "numpy",
-        "randn",
-        "stier",
-        "symlinks"
-    ],
-    "vim.foldfix": true
+    "workbench.startupEditor": "none"
 }
