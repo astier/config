@@ -64,11 +64,12 @@
     "vim.visualstar": true,
     "window.menuBarVisibility": "toggle",
     "window.title": "VSCode${separator}${rootName}${separator}${activeEditorShort}${dirty}",
-    "workbench.colorTheme": "Material Theme Palenight High Contrast",
+    "workbench.colorTheme": "Nord",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.settings.openDefaultSettings": false,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "files.trimTrailingWhitespace": true
 }
