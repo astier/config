@@ -4,7 +4,6 @@ export PATH=$PATH:~/miniconda3/bin:~/bin
 export EDITOR=nvim
 export DOTFILES=~/Projects/dotfiles/dotfiles
 
-neofetch
 powerline-daemon -q
 export POWERLINE_BASH_CONTINUATION=1
 export POWERLINE_BASH_SELECT=1
