@@ -5,10 +5,11 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
@@ -17,9 +18,8 @@ call plug#end()
 au BufEnter * set fo-=cro
 let mapleader=' '
 let maplocalleader=' '
-let g:python3_host_prog = '~/miniconda3/bin/python'
 nnoremap ,r :%s//g<left><left>
-nnoremap <cr> a<cr><esc>
+nnoremap <cr> o<esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
 nnoremap <silent>,h :noh<cr>
 nnoremap <silent>,s :wa<cr>
@@ -32,6 +32,7 @@ set cursorline
 set expandtab shiftwidth=4
 set mouse=a
 set number relativenumber
+set path+=**
 set splitbelow splitright
 set title titlestring=NVIM\ -\ %t
 set updatetime=100
@@ -40,11 +41,12 @@ set updatetime=100
 colorscheme hybrid_material
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#buffers_label = 'B'
+let g:airline#extensions#tabline#buffers_label = 'BUFFERS'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#excludes = ['bash$']
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#middle_click_preserves_windows = 1
+let g:airline#extensions#tabline#tabs_label = 'TABS'
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
@@ -91,14 +93,14 @@ nnoremap <silent>,q :xa<cr>
 tnoremap <silent>,q <c-\><c-n>:xa<cr>
 
 " Terminal
-au TermOpen * :set nonu nornu | star
 au BufEnter term://* star
+au TermOpen * :set nonu nornu | star
 nnoremap <silent>,t :bo sp<cr>:te<cr>
-tnoremap <silent>,t <c-\><c-n>:vs<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
+tnoremap <silent>,t <c-\><c-n>:vs<cr>:te<cr>
 
 " Goyo & Limelight
-autocmd VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
+au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
 nnoremap <silent>,f :Goyo<cr>
 tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
 
@@ -110,7 +112,7 @@ let NERDTreeMinimalUI=1
 let NERDTreeMouseMode=2
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
-let NERDTreeStatusline='NERD'
+let NERDTreeStatusline='NERDTree'
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
@@ -131,13 +133,7 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode'
     \ ],
 \}
-function CR()
-    if search('\\item\s\w', 'bn', line("."))
-        return "\r\\item "
-    endif
-    return "\r"
-endfunction
-au FileType tex inoremap <expr><buffer> <CR> CR()
+au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
 au FileType tex inoremap <silent><buffer>,j <esc>/\~<cr>s
 au FileType tex inoremap <silent><buffer>,a <esc>:-1read $DOTFILES/nvim/snippets/latex/article.tex<cr>7j7ls
