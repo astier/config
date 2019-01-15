@@ -13,9 +13,7 @@ alias grep='grep --color'
 alias la='ls -a'
 alias ll='ls -l'
 alias ls='ls --color --group-directories-first -h'
-
-# Dotfiles
-alias cfb='$EDITOR ~/.bashrc && . ~/.bashrc'
+alias pacman='sudo pacman'
 
 # Git
 alias ga='git add'
@@ -35,4 +33,3 @@ alias ..='cd ..'
 alias sa='source activate'
 alias sd='source deactivate'
 alias m='sudo reflector -p https -l64 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist'
-alias pacman='sudo pacman'
