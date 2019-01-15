@@ -1,5 +1,4 @@
 __pycache__
-.mypy_cache
 .vscode
 *.aux
 *.fdb_latexmk
