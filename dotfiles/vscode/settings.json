@@ -31,6 +31,7 @@
     "files.autoSave": "afterDelay",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
     "files.exclude": {
         "**/__pycache__": true
     },
@@ -47,6 +48,8 @@
     "markdown.extension.toc.githubCompatibility": true,
     "python.autoComplete.addBrackets": true,
     "python.jediEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
     "python.linting.pylintUseMinimalCheckers": false,
     "python.pythonPath": "~/miniconda3/envs/isy/bin/python",
     "python.formatting.autopep8Args": [
@@ -63,7 +66,8 @@
     "vim.hlsearch": true,
     "vim.visualstar": true,
     "window.menuBarVisibility": "toggle",
-    "window.title": "VSCode${separator}${rootName}${separator}${activeEditorShort}${dirty}",
+    "window.title": "VSCode${separator}${rootName}",
+    "window.zoomLevel": 0,
     "workbench.colorTheme": "Nord",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -71,5 +75,4 @@
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.settings.openDefaultSettings": false,
     "workbench.startupEditor": "none",
-    "files.trimTrailingWhitespace": true
 }

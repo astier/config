@@ -1,12 +1,13 @@
 __pycache__
+.mypy_cache
 .vscode
-*.nav
-*.snm
-*.gz
 *.aux
 *.fdb_latexmk
 *.fls
+*.gz
 *.log
+*.nav
 *.out
-*.toc
 *.pdf
+*.snm
+*.toc
