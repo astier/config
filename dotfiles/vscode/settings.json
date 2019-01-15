@@ -3,16 +3,20 @@
     "cSpell.userWords": [
         "aleks",
         "aleksandrs",
+        "bootctl",
         "bootloader",
         "bootup",
         "cryptsetup",
         "dotfiles",
         "keras",
+        "lstm",
         "luks",
         "numpy",
         "pycache",
-        "PYGAME",
+        "pygame",
         "randn",
+        "rint",
+        "sklearn",
         "stier",
         "systemd"
     ],
@@ -49,7 +53,6 @@
     "python.autoComplete.addBrackets": true,
     "python.jediEnabled": false,
     "python.linting.flake8Enabled": true,
-    "python.linting.mypyEnabled": true,
     "python.linting.pylintUseMinimalCheckers": false,
     "python.pythonPath": "~/miniconda3/envs/isy/bin/python",
     "python.formatting.autopep8Args": [
@@ -68,11 +71,11 @@
     "window.menuBarVisibility": "toggle",
     "window.title": "VSCode${separator}${rootName}",
     "window.zoomLevel": 0,
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "Material Theme Palenight High Contrast",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.settings.openDefaultSettings": false,
-    "workbench.startupEditor": "none",
+    "workbench.startupEditor": "none"
 }
