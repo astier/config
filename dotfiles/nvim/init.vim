@@ -7,40 +7,45 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Misc
-au BufEnter * set fo-=cro
-au FileType python setlocal colorcolumn=79
-au FocusGained,BufEnter * :checkt
 let mapleader=' '
 let maplocalleader=' '
-nnoremap ,r :%s//g<left><left>
+au BufEnter * set fo-=cro
 nnoremap <cr> o<esc>
-nnoremap <silent><esc> :noh<cr><esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
-nnoremap <silent>,s :wa<cr>
-tnoremap <silent>,s <c-\><c-n>:wa<cr>i
-nnoremap * #
-nnoremap # *
 set autochdir
-set autowriteall
 set breakindent linebreak
-set confirm
-set cursorline
 set expandtab shiftwidth=4
 set mouse=a
 set number relativenumber
-set path+=**
 set splitbelow splitright
 set title titlestring=NVIM\ -\ %t
-set updatetime=100
+set updatetime=500
+
+" Save
+au FocusGained,BufEnter * checkt
+au CursorHold * update
+set autowriteall
+set confirm
+
+" Search
+nnoremap * #
+nnoremap # *
+nnoremap <silent><esc> :noh<cr><esc>
+nnoremap ,r :%s//g<left><left>
 
 " Theme & Airline
 colorscheme hybrid_material
@@ -57,6 +62,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
 let g:airline_theme='hybrid'
 let g:enable_italic_font = 1
+set cursorline
 set noshowmode
 set termguicolors
 
@@ -120,6 +126,26 @@ let NERDTreeShowHidden=1
 let NERDTreeStatusline='NERDTree'
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
+
+" Python
+au FileType python setlocal colorcolumn=79
+let g:ale_fixers = {'python': ['yapf']}
+let g:ale_linters = {'python': ['pyls', 'pylint']}
+let g:python3_host_prog = '~/miniconda3/bin/python'
+let g:asyncomplete_remove_duplicates = 1
+let g:asyncomplete_smart_completion = 1
+let g:lsp_preview_keep_focus = 0
+au! CompleteDone * if pumvisible() == 0 | pclose | endif
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
+nnoremap <silent>gh :LspHover<cr>
 
 " LaTeX
 let g:tex_flavor = 'latex'

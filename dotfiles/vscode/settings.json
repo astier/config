@@ -1,5 +1,7 @@
 {
     "bashIde.path": "/usr/bin/bash-language-server",
+    "bracketPairColorizer.showHorizontalScopeLine": false,
+    "bracketPairColorizer.showVerticalScopeLine": false,
     "cSpell.userWords": [
         "aleks",
         "aleksandrs",
