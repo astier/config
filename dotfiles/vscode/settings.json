@@ -34,6 +34,7 @@
     "editor.cursorBlinking": "solid",
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
+    "editor.rulers": [79],
     "editor.suggest.localityBonus": true,
     "editor.wordWrap": "on",
     "explorer.confirmDelete": false,
@@ -57,15 +58,14 @@
     "latex-workshop.view.pdf.viewer": "tab",
     "markdown.extension.tableFormatter.normalizeIndentation": true,
     "markdown.extension.toc.githubCompatibility": true,
+    "materialTheme.showReloadNotification": false,
     "python.autoComplete.addBrackets": true,
+    "python.formatting.provider": "yapf",
     "python.jediEnabled": false,
     "python.linting.pylintUseMinimalCheckers": false,
     "python.pythonPath": "~/miniconda3/envs/isy/bin/python",
-    "python.formatting.autopep8Args": [
-        "-aa"
-    ],
     "python.linting.pylintArgs": [
-        "-d C0103, C0111, W0511",
+        "-d C0102, C0103, C0111, C0200, R0913, R0914, W0511",
         "--max-line-length=79"
     ],
     "search.smartCase": true,
@@ -77,12 +77,11 @@
     "window.menuBarVisibility": "toggle",
     "window.title": "VSCode${separator}${rootName}",
     "window.zoomLevel": 0,
-    "workbench.colorTheme": "Material Theme Palenight High Contrast",
+    "workbench.colorTheme": "Nord",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.settings.openDefaultSettings": false,
     "workbench.startupEditor": "none",
-    "materialTheme.showReloadNotification": false,
 }
