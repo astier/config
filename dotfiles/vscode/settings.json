@@ -67,7 +67,7 @@
     "python.linting.pylintUseMinimalCheckers": false,
     "python.pythonPath": "~/miniconda3/envs/isy/bin/python",
     "python.linting.pylintArgs": [
-        "-d C0102, C0103, C0111, C0200, R0913, R0914, W0511",
+        "-d C0102, C0103, C0111, C0200, R0903, R0913, R0914, W0511",
         "--max-line-length=79"
     ],
     "search.smartCase": true,
