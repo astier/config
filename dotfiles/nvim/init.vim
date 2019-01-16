@@ -12,18 +12,23 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Misc
 au BufEnter * set fo-=cro
+au FileType python setlocal colorcolumn=79
+au FocusGained,BufEnter * :checkt
 let mapleader=' '
 let maplocalleader=' '
 nnoremap ,r :%s//g<left><left>
 nnoremap <cr> o<esc>
+nnoremap <silent><esc> :noh<cr><esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
-nnoremap <silent>,h :noh<cr>
 nnoremap <silent>,s :wa<cr>
 tnoremap <silent>,s <c-\><c-n>:wa<cr>i
+nnoremap * #
+nnoremap # *
 set autochdir
 set autowriteall
 set breakindent linebreak
@@ -88,7 +93,7 @@ tnoremap <silent><a--> <c-\><c-n>:vert res -1<cr>:star<cr>
 " Windows
 nnoremap <silent>,c :clo<cr>
 tnoremap <silent>,c <c-\><c-n>:clo<cr>
-nnoremap <silent>,w :Bw<cr>
+nnoremap <silent>,d :Bw<cr>
 nnoremap <silent>,q :xa<cr>
 tnoremap <silent>,q <c-\><c-n>:xa<cr>
 
