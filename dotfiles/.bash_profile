@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export PATH=$PATH:~/miniconda3/bin:~/bin
-export EDITOR=vi
+export EDITOR=nvim
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 

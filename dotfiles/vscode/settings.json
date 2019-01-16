@@ -77,11 +77,12 @@
     "window.menuBarVisibility": "toggle",
     "window.title": "VSCode${separator}${rootName}",
     "window.zoomLevel": 0,
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "Material Theme Palenight High Contrast",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.settings.openDefaultSettings": false,
     "workbench.startupEditor": "none",
+    "materialTheme.showReloadNotification": false,
 }
