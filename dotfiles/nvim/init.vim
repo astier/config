@@ -29,12 +29,12 @@ nnoremap <silent>,, :e $MYVIMRC<cr>
 set autochdir
 set breakindent linebreak
 set expandtab shiftwidth=4
-set foldlevel=10
+set foldlevel=100
 set mouse=a
 set number relativenumber
 set splitbelow splitright
 set title titlestring=NVIM\ -\ %t
-set updatetime=500
+set updatetime=100
 
 " Save
 au FocusGained,BufEnter * checkt
