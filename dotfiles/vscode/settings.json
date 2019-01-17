@@ -55,7 +55,7 @@
     "latex-workshop.chktex.enabled": true,
     "latex-workshop.latex.autoBuild.onSave.enabled": false,
     "latex-workshop.latex.clean.onFailBuild.enabled": true,
-    "latex-workshop.latex.outputDir": "./output",
+    "latex-workshop.latex.outputDir": "./tex",
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "markdown.extension.tableFormatter.normalizeIndentation": true,

@@ -1,13 +1,4 @@
 __pycache__
 .idea
 .vscode
-*.aux
-*.fdb_latexmk
-*.fls
-*.gz
-*.log
-*.nav
-*.out
-*.pdf
-*.snm
-*.toc
+tex

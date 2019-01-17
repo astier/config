@@ -134,7 +134,7 @@ nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
 " Python
-au FileType python setlocal colorcolumn=79
+au FileType python setlocal colorcolumn=80
 au FileType python set foldmethod=indent
 let g:ale_fixers = {'python': ['yapf']}
 let g:ale_linters = {'python': ['pyls', 'pylint']}
@@ -161,7 +161,7 @@ let g:vimtex_view_general_viewer = 'evince'
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
-    \ 'build_dir' : 'output',
+    \ 'build_dir' : 'tex',
     \ 'callback' : 1,
     \ 'continuous' : 1,
     \ 'executable' : 'latexmk',
@@ -172,7 +172,7 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode'
     \ ],
 \}
-au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
+au FileType tex inoremap <expr><buffer><CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
 au FileType tex inoremap <silent><buffer>,j <esc>/\~<cr>s
 au FileType tex inoremap <silent><buffer>,a <esc>:-1read $DOTFILES/nvim/snippets/latex/article.tex<cr>7j7ls
