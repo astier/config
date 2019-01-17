@@ -29,6 +29,7 @@ nnoremap <silent>,, :e $MYVIMRC<cr>
 set autochdir
 set breakindent linebreak
 set expandtab shiftwidth=4
+set foldlevel=10
 set mouse=a
 set number relativenumber
 set splitbelow splitright
@@ -134,6 +135,7 @@ tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
 " Python
 au FileType python setlocal colorcolumn=79
+au FileType python set foldmethod=indent
 let g:ale_fixers = {'python': ['yapf']}
 let g:ale_linters = {'python': ['pyls', 'pylint']}
 let g:python3_host_prog = '~/miniconda3/bin/python'
