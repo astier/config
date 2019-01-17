@@ -2,49 +2,37 @@
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
-Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Misc
 let mapleader=' '
 let maplocalleader=' '
 au BufEnter * set fo-=cro
+au FocusGained,BufEnter * checkt
 nnoremap <cr> o<esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
 set autochdir
+set autowriteall
 set breakindent linebreak
+set confirm
 set expandtab shiftwidth=4
-set foldlevel=100
 set mouse=a
 set number relativenumber
 set splitbelow splitright
 set title titlestring=NVIM\ -\ %t
 set updatetime=100
 
-" Save
-au FocusGained,BufEnter * checkt
-au CursorHold * up
-set autowriteall
-set confirm
-
 " Search
-nnoremap * #
-nnoremap # *
+nnoremap # *<s-n>
 nnoremap <silent><esc> :noh<cr><esc>
 nnoremap ,r :%s//g<left><left>
 
@@ -83,8 +71,6 @@ tnoremap <a-k> <c-\><c-n><c-w>k
 tnoremap <a-l> <c-\><c-n><c-w>l
 nnoremap <silent><a-i> :bp<cr>
 nnoremap <silent><a-o> :bn<cr>
-tnoremap <silent><a-i> <c-\><c-n>:bp<cr>
-tnoremap <silent><a-o> <c-\><c-n>:bn<cr>
 
 " Wrap
 nnoremap j gj
@@ -133,28 +119,6 @@ let NERDTreeStatusline='NERDTree'
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
-" Python
-au FileType python setlocal colorcolumn=80
-au FileType python set foldmethod=indent
-let g:ale_fixers = {'python': ['autopep8']}
-let g:ale_linters = {'python': ['pyls', 'pylint']}
-let g:python3_host_prog = '~/miniconda3/bin/python'
-let g:asyncomplete_remove_duplicates = 1
-let g:asyncomplete_smart_completion = 1
-let g:lsp_preview_keep_focus = 0
-au! CompleteDone * if pumvisible() == 0 | pclose | endif
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
-nnoremap <silent>gh :LspHover<cr>
-nnoremap <silent>,af :ALEFix<cr>
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
-
 " LaTeX
 let g:tex_flavor = 'latex'
 let g:vimtex_view_general_viewer = 'evince'
@@ -181,3 +145,4 @@ au FileType tex inoremap <silent><buffer>,i <esc>:read $DOTFILES/nvim/snippets/l
 au FileType tex inoremap <silent><buffer>,sa \section{}<left>
 au FileType tex inoremap <silent><buffer>,sb \subsection{}<left>
 au FileType tex inoremap <silent><buffer>,sc \subsubsection{}<left>
+au FileType tex inoremap $ $$<left>
