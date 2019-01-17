@@ -38,7 +38,7 @@ set updatetime=100
 
 " Save
 au FocusGained,BufEnter * checkt
-au CursorHold * update
+au CursorHold * up
 set autowriteall
 set confirm
 
@@ -136,7 +136,7 @@ tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 " Python
 au FileType python setlocal colorcolumn=80
 au FileType python set foldmethod=indent
-let g:ale_fixers = {'python': ['yapf']}
+let g:ale_fixers = {'python': ['autopep8']}
 let g:ale_linters = {'python': ['pyls', 'pylint']}
 let g:python3_host_prog = '~/miniconda3/bin/python'
 let g:asyncomplete_remove_duplicates = 1
