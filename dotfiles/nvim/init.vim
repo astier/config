@@ -66,6 +66,11 @@ set cursorline
 set noshowmode
 set termguicolors
 
+" Brackets
+inoremap { {}<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+
 " Navigation
 nnoremap <a-h> <c-w>h
 nnoremap <a-j> <c-w>j
@@ -143,9 +148,10 @@ if executable('pyls')
         \ 'whitelist': ['python'],
         \ })
 endif
+nnoremap <silent>gh :LspHover<cr>
+nnoremap <silent>,af :ALEFix<cr>
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
-nnoremap <silent>gh :LspHover<cr>
 
 " LaTeX
 let g:tex_flavor = 'latex'
