@@ -8,6 +8,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -30,6 +31,7 @@ set number relativenumber
 set splitbelow splitright
 set title titlestring=NVIM\ -\ %t
 set updatetime=100
+silent! call repeat#set("\<Plug>vim-surround", v:count)
 
 " Search
 nnoremap # *<s-n>
