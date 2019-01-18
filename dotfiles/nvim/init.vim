@@ -1,12 +1,13 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
+Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -17,21 +18,21 @@ call plug#end()
 " Misc
 let mapleader=' '
 let maplocalleader=' '
-au BufEnter * set fo-=cro
+au BufEnter * se fo-=cro
 au FocusGained,BufEnter * checkt
 nnoremap <cr> o<esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
-set autochdir
-set autowriteall
-set breakindent linebreak
-set confirm
-set expandtab shiftwidth=4
-set mouse=a
-set number relativenumber
-set splitbelow splitright
-set title titlestring=NVIM\ -\ %t
-set updatetime=100
-silent! call repeat#set("\<Plug>vim-surround", v:count)
+se autochdir
+se autowriteall
+se breakindent linebreak
+se confirm
+se expandtab shiftwidth=4
+se mouse=a
+se number relativenumber
+se splitbelow splitright
+se title titlestring=NVIM\ -\ %t
+se updatetime=100
+silent! call repeat#se("\<Plug>vim-surround", v:count)
 
 " Search
 nnoremap # *<s-n>
@@ -39,7 +40,7 @@ nnoremap <silent><esc> :noh<cr><esc>
 nnoremap ,r :%s//g<left><left>
 
 " Theme & Airline
-colorscheme hybrid_material
+colorscheme nord
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffers_label = 'B'
@@ -53,9 +54,9 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
 let g:airline_theme='hybrid'
 let g:enable_italic_font = 1
-set cursorline
-set noshowmode
-set termguicolors
+se cursorline
+se noshowmode
+se termguicolors
 
 " Brackets
 inoremap { {}<left>
@@ -99,7 +100,7 @@ tnoremap <silent>,q <c-\><c-n>:xa<cr>
 
 " Terminal
 au BufEnter term://* star
-au TermOpen * :set nonu nornu | star
+au TermOpen * :se nonu nornu | star
 nnoremap <silent>,t :bo sp<cr>:te<cr>
 tnoremap <silent>,t <c-\><c-n>:vs<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
