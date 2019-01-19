@@ -7,6 +7,7 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -40,7 +41,7 @@ nnoremap <silent><esc> :noh<cr><esc>
 nnoremap ,r :%s//g<left><left>
 
 " Theme & Airline
-colorscheme nord
+colorscheme hybrid_material
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffers_label = 'B'
