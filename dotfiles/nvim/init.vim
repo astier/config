@@ -36,14 +36,13 @@ se updatetime=100
 silent! call repeat#se("\<Plug>vim-surround", v:count)
 
 " Search
-nnoremap # *<s-n>
+nnoremap <silent># *<s-n>
 nnoremap <silent><esc> :noh<cr><esc>
 nnoremap ,r :%s//g<left><left>
 
 " Theme & Airline
 colorscheme hybrid_material
 let g:airline#extensions#tabline#buffer_min_count = 2
-let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#excludes = ['bash$']
