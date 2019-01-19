@@ -76,6 +76,8 @@ tnoremap <a-k> <c-\><c-n><c-w>k
 tnoremap <a-l> <c-\><c-n><c-w>l
 nnoremap <silent><a-i> :bp<cr>
 nnoremap <silent><a-o> :bn<cr>
+tnoremap <silent><a-i> <c-\><c-n>:bp<cr>
+tnoremap <silent><a-o> <c-\><c-n>:bn<cr>
 
 " Wrap
 nnoremap j gj
@@ -93,7 +95,7 @@ tnoremap <silent><a-,> <c-\><c-n>:res -1<cr>:star<cr>
 tnoremap <silent><a-+> <c-\><c-n>:vert res +1<cr>:star<cr>
 tnoremap <silent><a--> <c-\><c-n>:vert res -1<cr>:star<cr>
 
-" Windows
+" Windows & Buffers
 nnoremap <silent>,c :clo<cr>
 tnoremap <silent>,c <c-\><c-n>:clo<cr>
 nnoremap <silent>,d :Bw<cr>
@@ -107,7 +109,7 @@ nnoremap <silent>,t :bo sp<cr>:te<cr>
 tnoremap <silent>,t <c-\><c-n>:vs<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
 
-" Goyo & Limelight
+" Goyo
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
 nnoremap <silent>,f :Goyo<cr>
 tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
