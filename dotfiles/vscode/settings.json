@@ -1,4 +1,6 @@
 {
+    "autoDocstring.docstringFormat": "google",
+    "autoDocstring.guessTypes": false,
     "bashIde.path": "/usr/bin/bash-language-server",
     "bracketPairColorizer.showHorizontalScopeLine": false,
     "bracketPairColorizer.showVerticalScopeLine": false,
