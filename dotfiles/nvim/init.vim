@@ -2,7 +2,6 @@
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'heavenshell/vim-pydocstring'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
