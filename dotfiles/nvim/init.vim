@@ -2,6 +2,7 @@
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
+Plug 'heavenshell/vim-pydocstring'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
@@ -9,6 +10,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
