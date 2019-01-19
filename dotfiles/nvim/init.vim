@@ -8,7 +8,7 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -32,6 +32,7 @@ se confirm
 se expandtab shiftwidth=4
 se mouse=a
 se number relativenumber
+se scrolloff=5
 se splitbelow splitright
 se title titlestring=NVIM\ -\ %t
 se updatetime=100
