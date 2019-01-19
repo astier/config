@@ -25,9 +25,7 @@ alias gp='git push'
 alias gd='git diff'
 alias gc='git commit'
 alias gcm='git commit -m'
-alias gcmp='git commit -m && git push'
 alias gcam='git commit -am'
-alias gcamp='git commit -am && git push'
 alias gpl='git pull'
 
 # Misc
