@@ -7,7 +7,7 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -25,11 +25,7 @@ au FocusGained,BufEnter * checkt
 nnoremap <cr> o<esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
 se autochdir
-se autowriteall
-se breakindent linebreak
-se confirm
 se expandtab shiftwidth=4
-set hidden
 se mouse=a
 se number relativenumber
 se scrolloff=5
@@ -37,6 +33,12 @@ se splitbelow splitright
 se title titlestring=NVIM\ -\ %t
 se updatetime=100
 silent! call repeat#se("\<Plug>vim-surround", v:count)
+
+" Save
+nnoremap <silent>,s :wa<cr>
+se autowriteall
+se confirm
+se hidden
 
 " Search
 nnoremap <silent># *<s-n>
@@ -84,6 +86,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap $ g$
 nnoremap 0 g0
+se breakindent linebreak
 
 " Resize
 nnoremap <silent><a-.> :res +1<cr>
