@@ -29,6 +29,7 @@ se autowriteall
 se breakindent linebreak
 se confirm
 se expandtab shiftwidth=4
+set hidden
 se mouse=a
 se number relativenumber
 se scrolloff=5
@@ -47,7 +48,6 @@ colorscheme hybrid_material
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#excludes = ['bash$']
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#middle_click_preserves_windows = 1
 let g:airline#extensions#tabline#tabs_label = 'T'
@@ -99,15 +99,23 @@ tnoremap <silent><a--> <c-\><c-n>:vert res -1<cr>:star<cr>
 nnoremap <silent>,c :clo<cr>
 tnoremap <silent>,c <c-\><c-n>:clo<cr>
 nnoremap <silent>,d :Bw<cr>
+tnoremap <silent>,d <c-\><c-n>:Bw<cr>
 nnoremap <silent>,q :xa<cr>
 tnoremap <silent>,q <c-\><c-n>:xa<cr>
 
 " Terminal
 au BufEnter term://* star
 au TermOpen * :se nonu nornu | star
-nnoremap <silent>,t :bo sp<cr>:te<cr>
-tnoremap <silent>,t <c-\><c-n>:vs<cr>:te<cr>
 tnoremap ,<esc> <c-\><c-n>
+nnoremap <silent>,tt :te<cr>
+tnoremap <silent>,tt <c-\><c-n>:te<cr>
+nnoremap <silent>,tv :vs<cr>:te<cr>
+tnoremap <silent>,tv <c-\><c-n>:vs<cr>:te<cr>
+nnoremap <silent>,ts :sp<cr>:te<cr>
+tnoremap <silent>,ts <c-\><c-n>:sp<cr>:te<cr>
+nnoremap <silent>,tb :bo sp<cr>:te<cr>
+tnoremap <silent>,tb <c-\><c-n>:bo sp<cr>:te<cr>
+tnoremap <silent>,t <c-\><c-n>:vs<cr>:te<cr>
 
 " Goyo
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif

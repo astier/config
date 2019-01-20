@@ -89,7 +89,7 @@
     "window.menuBarVisibility": "toggle",
     "window.title": "VSCode${separator}${rootName}",
     "window.zoomLevel": 0,
-    "workbench.colorTheme": "Material Theme Palenight High Contrast",
+    "workbench.colorTheme": "Nord",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.iconTheme": "material-icon-theme",
