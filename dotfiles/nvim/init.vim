@@ -19,6 +19,7 @@ call plug#end()
 
 " Misc
 let mapleader=' '
+let g:python3_host_prog = '~/miniconda3/bin/python'
 let maplocalleader=' '
 au BufEnter * se fo-=cro
 au FocusGained,BufEnter * checkt
