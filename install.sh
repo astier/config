@@ -12,7 +12,6 @@ install .bashrc                     ~/
 install .pylintrc                   ~/
 install .xinitrc                    ~/
 install git                         ~/.config/
-install htop                        ~/.config/
 install nvim                        ~/.config/
 install pacman/pacman.conf          /etc/
 install pacman/hooks/               /etc/pacman.d/
