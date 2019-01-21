@@ -128,11 +128,11 @@ tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
 
 " NERDTree
 let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeChDirMode=2
+" let NERDTreeChDirMode=2
 let NERDTreeIgnore=['__pycache__', '.git']
 let NERDTreeMinimalUI=1
 let NERDTreeMouseMode=2
-let NERDTreeShowBookmarks=1
+" let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 let NERDTreeStatusline='NERDTree'
 nnoremap <silent>,e :NERDTreeToggle<cr>
