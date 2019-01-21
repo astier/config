@@ -6,8 +6,6 @@
 HISTCONTROL=ignoreboth
 PS1="\[\e[32m\][\W]\$\[\e[m\] "
 set -o vi
-shopt -s autocd
-shopt -s cdspell
 
 # Defaults
 alias df="df -h"
@@ -35,7 +33,15 @@ alias gcam="git commit -am"
 alias gpl="git pull"
 
 # Misc
+alias ..="cd .."
+alias ...="cd /"
 alias sa="source activate"
 alias sd="source deactivate"
 alias m="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias v="nvim"
+
+# Bookmarks
+alias ja="cd ~/Projects/arch-installer/"
+alias js="cd ~/Projects/scripts/"
+alias jd="cd ~/Projects/dotfiles/"
+alias jm="cd ~/Projects/multi-desire-planer/"
