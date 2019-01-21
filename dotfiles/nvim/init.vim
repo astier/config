@@ -67,6 +67,9 @@ se termguicolors
 inoremap { {}<left>
 inoremap ( ()<left>
 inoremap [ []<left>
+inoremap ' ''<left>
+inoremap "" ""<left>
+inoremap "<cr> "
 
 " Navigation
 nnoremap <a-h> <c-w>h
