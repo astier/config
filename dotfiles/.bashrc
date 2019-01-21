@@ -47,3 +47,5 @@ alias js="cd ~/Projects/scripts/"
 alias jd="cd ~/Projects/dotfiles/"
 alias jm="cd ~/Projects/multi-desire-planer/"
 cd() { builtin cd "$@" && ls -A; }
+
+ . /usr/share/powerline/bindings/bash/powerline.sh
