@@ -33,14 +33,14 @@ alias gcam="git commit -am"
 alias gpl="git pull"
 
 # Misc
-alias ..="cd .."
-alias ...="cd /"
 alias sa="source activate"
 alias sd="source deactivate"
 alias m="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias v="nvim"
 
 # Bookmarks
+alias ..="cd .."
+alias ...="cd /"
 alias ja="cd ~/Projects/arch-installer/"
 alias js="cd ~/Projects/scripts/"
 alias jd="cd ~/Projects/dotfiles/"
