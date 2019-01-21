@@ -2,17 +2,6 @@
 	email = aleksandrs.stier@uni-bielefeld.de
 	name = astier
 
-[alias]
-	aa = add -A
-	a = add
-	cam = commit -am
-	c = commit
-	cm = commit -m
-	d = diff
-        pl = pull
-        p = push
-	s = status
-
 [core]
 	excludesfile = ~/.config/git/ignore
 
