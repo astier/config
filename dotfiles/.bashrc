@@ -10,7 +10,7 @@ set -o vi
 # Defaults
 alias df="df -h"
 alias grep="grep --color"
-alias la="ls -a"
+alias la="ls -A"
 alias ll="ls -l"
 alias ls="ls --color --group-directories-first -h"
 alias pacman="sudo pacman"
@@ -45,3 +45,4 @@ alias ja="cd ~/Projects/arch-installer/"
 alias js="cd ~/Projects/scripts/"
 alias jd="cd ~/Projects/dotfiles/"
 alias jm="cd ~/Projects/multi-desire-planer/"
+cd() { builtin cd "$@" && ls -A; }
