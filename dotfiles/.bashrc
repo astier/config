@@ -16,36 +16,35 @@ alias ls="ls --color --group-directories-first -h"
 alias pacman="sudo pacman"
 
 # Dotfiles
-alias dot="/usr/bin/git --git-dir=$HOME/Projects/dot/ --work-tree=/"
 alias cfb="$EDITOR ~/.bashrc && . ~/.bashrc"
 
 # Git
 alias ga="git add"
 alias gaa="git add --all"
+alias gc="git commit"
+alias gcam="git commit -am"
+alias gcm="git commit -m"
+alias gd="git diff"
 alias gl="git log"
 alias glo="git log --oneline"
-alias gs="git status"
 alias gp="git push"
-alias gd="git diff"
-alias gc="git commit"
-alias gcm="git commit -m"
-alias gcam="git commit -am"
 alias gpl="git pull"
+alias gs="git status"
 
 # Misc
 alias c="clear"
+alias m="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias sa="source activate"
 alias sd="source deactivate"
-alias m="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias v="nvim"
 
 # Bookmarks
-alias ..="cd .."
 alias ...="cd /"
+alias ..="cd .."
 alias ja="cd ~/Projects/arch-installer/"
-alias js="cd ~/Projects/scripts/"
 alias jd="cd ~/Projects/dotfiles/"
 alias jm="cd ~/Projects/multi-desire-planer/"
+alias js="cd ~/Projects/scripts/"
 cd() { builtin cd "$@" && ls -A; }
 
  . /usr/share/powerline/bindings/bash/powerline.sh
