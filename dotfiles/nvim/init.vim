@@ -141,6 +141,10 @@ let NERDTreeStatusline='NERDTree'
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
+" Python
+au FileType python inoremap <buffer>,b breakpoint()<left>
+au FileType python inoremap <buffer>,p print()<left>
+
 " LaTeX
 let g:tex_flavor = 'latex'
 let g:vimtex_view_general_viewer = 'evince'
