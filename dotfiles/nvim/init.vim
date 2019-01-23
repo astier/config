@@ -5,11 +5,9 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
@@ -20,7 +18,6 @@ call plug#end()
 " Misc
 let mapleader=' '
 let maplocalleader=' '
-let g:python3_host_prog = '~/miniconda3/bin/python'
 au BufEnter * se fo-=cro
 au FocusGained,BufEnter * checkt
 nnoremap <cr> o<esc>
@@ -122,7 +119,6 @@ nnoremap <silent>,ts :sp<cr>:te<cr>
 tnoremap <silent>,ts <c-\><c-n>:sp<cr>:te<cr>
 nnoremap <silent>,tb :bo sp<cr>:te<cr>
 tnoremap <silent>,tb <c-\><c-n>:bo sp<cr>:te<cr>
-tnoremap <silent>,t <c-\><c-n>:vs<cr>:te<cr>
 
 " Goyo
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
@@ -135,15 +131,10 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeIgnore=['__pycache__', '.git']
 let NERDTreeMinimalUI=1
 let NERDTreeMouseMode=2
-" let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 let NERDTreeStatusline='NERDTree'
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
-
-" Python
-au FileType python inoremap <buffer>,b breakpoint()<esc>
-au FileType python inoremap <buffer>,p print()<left>
 
 " LaTeX
 let g:tex_flavor = 'latex'
