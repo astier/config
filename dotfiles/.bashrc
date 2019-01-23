@@ -14,9 +14,11 @@ alias la="ls -A"
 alias ll="ls -l"
 alias ls="ls --color --group-directories-first -h"
 alias pacman="sudo pacman"
+alias rm="rm -fr"
 
 # Dotfiles
-alias cfb="$EDITOR ~/.bashrc && . ~/.bashrc"
+alias ob="$EDITOR ~/.bashrc && . ~/.bashrc"
+alias on="$EDITOR ~/Dropbox/Notes/notes"
 
 # Git
 alias ga="git add"
