@@ -30,7 +30,7 @@ se scrolloff=5
 se splitbelow splitright
 se title titlestring=%t
 se updatetime=100
-silent! call repeat#se("\<Plug>vim-surround", v:count)
+silent! call repeat#se('\<Plug>vim-surround', v:count)
 
 " Save
 nnoremap <silent>,s :wa<cr>
@@ -111,14 +111,8 @@ tnoremap <silent>,q <c-\><c-n>:xa<cr>
 au BufEnter term://* star
 au TermOpen * :se nonu nornu | star
 tnoremap ,<esc> <c-\><c-n>
-nnoremap <silent>,tt :te<cr>
-tnoremap <silent>,tt <c-\><c-n>:te<cr>
-nnoremap <silent>,tv :vs<cr>:te<cr>
-tnoremap <silent>,tv <c-\><c-n>:vs<cr>:te<cr>
-nnoremap <silent>,ts :sp<cr>:te<cr>
-tnoremap <silent>,ts <c-\><c-n>:sp<cr>:te<cr>
-nnoremap <silent>,tb :bo sp<cr>:te<cr>
-tnoremap <silent>,tb <c-\><c-n>:bo sp<cr>:te<cr>
+nnoremap <silent>,t :te<cr>
+tnoremap <silent>,t <c-\><c-n>:te<cr>
 
 " Goyo
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
@@ -127,8 +121,7 @@ tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
 
 " NERDTree
 let NERDTreeAutoDeleteBuffer = 1
-" let NERDTreeChDirMode=2
-let NERDTreeIgnore=['__pycache__', '.git']
+let NERDTreeIgnore=['.git']
 let NERDTreeMinimalUI=1
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
