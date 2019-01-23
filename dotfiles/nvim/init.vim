@@ -19,8 +19,8 @@ call plug#end()
 
 " Misc
 let mapleader=' '
-let g:python3_host_prog = '~/miniconda3/bin/python'
 let maplocalleader=' '
+let g:python3_host_prog = '~/miniconda3/bin/python'
 au BufEnter * se fo-=cro
 au FocusGained,BufEnter * checkt
 nnoremap <cr> o<esc>
@@ -31,7 +31,7 @@ se mouse=a
 se number relativenumber
 se scrolloff=5
 se splitbelow splitright
-se title titlestring=NVIM\ -\ %t
+se title titlestring=%t
 se updatetime=100
 silent! call repeat#se("\<Plug>vim-surround", v:count)
 
@@ -142,7 +142,7 @@ nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
 " Python
-au FileType python inoremap <buffer>,b breakpoint()<left>
+au FileType python inoremap <buffer>,b breakpoint()<esc>
 au FileType python inoremap <buffer>,p print()<left>
 
 " LaTeX
@@ -166,8 +166,10 @@ au FileType tex inoremap <expr><buffer><CR> getline('.') =~ '\item\s\w' ? '<cr>\
 au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
 au FileType tex inoremap <silent><buffer>,j <esc>/\~<cr>s
 au FileType tex inoremap <silent><buffer>,a <esc>:-1read $DOTFILES/nvim/snippets/latex/article.tex<cr>7j7ls
-au FileType tex inoremap <silent><buffer>,e <esc>:read $DOTFILES/nvim/snippets/latex/enumerate.tex<cr>:norm =ae<cr>j9la
-au FileType tex inoremap <silent><buffer>,i <esc>:read $DOTFILES/nvim/snippets/latex/itemize.tex<cr>:norm =ae<cr>j9la
+au FileType tex inoremap <silent><buffer>,b <esc>:-1read $DOTFILES/nvim/snippets/latex/beamer.tex<cr>6j7ls
+au FileType tex inoremap <silent><buffer>,e <esc>:read $DOTFILES/nvim/snippets/latex/enumerate.tex<cr>:norm =ae<cr>j10li
+au FileType tex inoremap <silent><buffer>,i <esc>:read $DOTFILES/nvim/snippets/latex/itemize.tex<cr>:norm =ae<cr>j10li
+au FileType tex inoremap <silent><buffer>,f <esc>:read $DOTFILES/nvim/snippets/latex/frame.tex<cr>:norm =ae<cr>j16li
 au FileType tex inoremap <silent><buffer>,sa \section{}<left>
 au FileType tex inoremap <silent><buffer>,sb \subsection{}<left>
 au FileType tex inoremap <silent><buffer>,sc \subsubsection{}<left>
