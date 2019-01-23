@@ -4,11 +4,6 @@ export PATH=$PATH:~/miniconda3/bin:~/bin
 export EDITOR=nvim
 export DOTFILES=~/Projects/dotfiles/dotfiles
 
-neofetch
-powerline-daemon -q
-export POWERLINE_BASH_CONTINUATION=1
-export POWERLINE_BASH_SELECT=1
-
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 if [[ "$(tty)" = "/dev/tty1" && "$(whoami)" != "root" ]]; then
