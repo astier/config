@@ -1,24 +1,18 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugins')
 Plug '907th/vim-auto-save'
-Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python', 'tex']}
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye'
-Plug 'prabirshrestha/async.vim', { 'for': 'python'}
-Plug 'prabirshrestha/vim-lsp', { 'for': 'python'}
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
-Plug 'Yggdroot/indentLine', { 'for': 'python'}
-Plug 'zchee/deoplete-jedi', { 'for': 'python'}
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -32,7 +26,7 @@ se autochdir
 se expandtab shiftwidth=4
 se mouse=a
 se number relativenumber
-se signcolumn=yes
+" se signcolumn=yes
 se scrolloff=5
 se splitbelow splitright
 se title titlestring=%t
@@ -139,43 +133,16 @@ let NERDTreeStatusline='NERDTree'
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
-" ALE & Deoplete
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['black', 'isort'],
-\}
-let g:ale_linters = {'python': ['pyls', 'pylint']}
-let g:deoplete#enable_at_startup = 1
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
-nnoremap <silent>,af :ALEFix<cr>
-nnoremap <silent>,ah :LspHover<cr>
-nnoremap <silent>,ar :LspRename<cr>
-
-" Python
-au FileType python setl colorcolumn=80
-au FileType python setl foldmethod=indent
-au FileType python setl foldlevel=99
-au! CompleteDone * if pumvisible() == 0 | pclose | endif
-let g:lsp_preview_keep_focus = 0
-let g:python3_host_prog = $HOME.'/miniconda3/bin/python'
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
-
 " LaTeX
 let g:tex_flavor = 'latex'
 let g:vimtex_view_general_viewer = 'evince'
+let g:indentLine_fileTypeExclude = ['tex']
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
     \ 'build_dir' : 'tex',
     \ 'callback' : 1,
-    \ 'continuous' : 1,
+    \ 'continuous' : 0,
     \ 'executable' : 'latexmk',
     \ 'options' : [
     \   '-verbose',
