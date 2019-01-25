@@ -16,6 +16,17 @@ alias ls="ls --color --group-directories-first -h"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 
+# Bookmarks
+alias ...="cd /"
+alias ..="cd .."
+alias ja="cd ~/Projects/arch-installer/"
+alias jd="cd ~/Projects/dotfiles/dotfiles/"
+alias jm="cd ~/Projects/multi-desire-planer/"
+alias jn="cd ~/Dropbox/Notes/"
+alias js="cd ~/Projects/scripts/"
+alias jy="cd ~/Dropbox/ISY/S3/MYO/"
+cd() { builtin cd "$@" && ls -A; }
+
 # Dotfiles
 alias ob="$EDITOR ~/.bashrc && . ~/.bashrc"
 alias on="$EDITOR ~/Dropbox/Notes/notes"
@@ -39,14 +50,3 @@ alias m="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pac
 alias sa="source activate"
 alias sd="source deactivate"
 alias v="nvim"
-
-# Bookmarks
-alias ...="cd /"
-alias ..="cd .."
-alias ja="cd ~/Projects/arch-installer/"
-alias jd="cd ~/Projects/dotfiles/dotfiles/"
-alias jm="cd ~/Projects/multi-desire-planer/"
-alias jn="cd ~/Dropbox/Notes/"
-alias js="cd ~/Projects/scripts/"
-alias jy="cd ~/Dropbox/ISY/S3/MYO/"
-cd() { builtin cd "$@" && ls -A; }
