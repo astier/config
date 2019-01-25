@@ -43,6 +43,8 @@ alias glo="git log --oneline"
 alias gp="git push"
 alias gpl="git pull"
 alias gs="git status"
+alias go="git checkout"
+alias go-="git checkout --"
 
 # Misc
 alias c="clear"
