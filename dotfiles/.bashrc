@@ -46,6 +46,7 @@ alias ..="cd .."
 alias ja="cd ~/Projects/arch-installer/"
 alias jd="cd ~/Projects/dotfiles/dotfiles/"
 alias jm="cd ~/Projects/multi-desire-planer/"
+alias jn="cd ~/Dropbox/Notes/"
 alias js="cd ~/Projects/scripts/"
-alias jy="cd ~/Dropbox/Career/ISY/S3/MYO/"
+alias jy="cd ~/Dropbox/ISY/S3/MYO/"
 cd() { builtin cd "$@" && ls -A; }

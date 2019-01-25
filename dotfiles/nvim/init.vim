@@ -121,7 +121,7 @@ tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
 
 " NERDTree
 let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeIgnore=['.git']
+let NERDTreeIgnore=['.git', '__pycache__', 'tags']
 let NERDTreeMinimalUI=1
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
