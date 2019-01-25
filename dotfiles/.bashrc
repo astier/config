@@ -28,8 +28,11 @@ alias jy="cd ~/Dropbox/ISY/S3/MYO/"
 cd() { builtin cd "$@" && ls -A; }
 
 # Dotfiles
+alias oab="$EDITOR ~/Projects/arch-installer/arch_base.sh"
+alias oad="$EDITOR ~/Projects/arch-installer/arch_desktop.sh"
 alias ob="$EDITOR ~/.bashrc && . ~/.bashrc"
 alias on="$EDITOR ~/Dropbox/Notes/notes"
+alias ov="$EDITOR ~/Projects/dotfiles/dotfiles/nvim/init.vim"
 
 # Git
 alias ga="git add"
