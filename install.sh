@@ -9,6 +9,7 @@ install () {
 
 install .bash_profile               ~/
 install .bashrc                     ~/
+install .pylintrc                   ~/
 install .xinitrc                    ~/
 install git                         ~/.config/
 install nvim                        ~/.config/
