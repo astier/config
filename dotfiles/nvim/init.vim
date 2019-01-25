@@ -16,7 +16,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale', {'for': ['python', 'tex']}
+Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'zchee/deoplete-jedi', { 'for': 'python'}
 Plug 'ryanoasis/vim-devicons'
@@ -140,7 +140,10 @@ nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
 " ALE & Deoplete
-let g:ale_fixers = {'python': ['autopep8', 'isort']}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['autopep8', 'isort'],
+\}
 let g:ale_linters = {'python': ['pyls', 'pylint']}
 let g:deoplete#enable_at_startup = 1
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
