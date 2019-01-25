@@ -46,7 +46,7 @@ alias gs="git status"
 
 # Misc
 alias c="clear"
-alias m="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
+alias m="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias sa="source activate"
 alias sd="source deactivate"
 alias v="nvim"
