@@ -139,13 +139,21 @@ let NERDTreeStatusline='NERDTree'
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
-" Python
-au FileType python setlocal colorcolumn=80
-au FileType python set foldmethod=indent
-au! CompleteDone * if pumvisible() == 0 | pclose | endif
+" ALE & Deoplete
 let g:ale_fixers = {'python': ['autopep8', 'isort']}
 let g:ale_linters = {'python': ['pyls', 'pylint']}
 let g:deoplete#enable_at_startup = 1
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
+nnoremap <silent>,af :ALEFix<cr>
+nnoremap <silent>,ah :LspHover<cr>
+nnoremap <silent>,ar :LspRename<cr>
+
+" Python
+au FileType python setl colorcolumn=80
+au FileType python setl foldmethod=indent
+au FileType python setl foldlevel=99
+au! CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:lsp_preview_keep_focus = 0
 let g:python3_host_prog = $HOME.'/miniconda3/bin/python'
 if executable('pyls')
@@ -155,12 +163,6 @@ if executable('pyls')
         \ 'whitelist': ['python'],
         \ })
 endif
-nnoremap <silent>,ah :LspHover<cr>
-nnoremap <silent>,af :ALEFix<cr>
-nnoremap <silent>,ar :LspRename<cr>
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
-se foldlevel=100
 
 " LaTeX
 let g:tex_flavor = 'latex'
