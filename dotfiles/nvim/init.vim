@@ -1,17 +1,24 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugins')
+Plug '907th/vim-auto-save'
+Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python', 'tex']}
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye'
-Plug 'scrooloose/nerdtree'
+Plug 'prabirshrestha/async.vim', { 'for': 'python'}
+Plug 'prabirshrestha/vim-lsp', { 'for': 'python'}
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale', {'for': ['python', 'tex']}
+Plug 'Yggdroot/indentLine'
+Plug 'zchee/deoplete-jedi', { 'for': 'python'}
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -19,13 +26,13 @@ call plug#end()
 let mapleader=' '
 let maplocalleader=' '
 au BufEnter * se fo-=cro
-au FocusGained,BufEnter * checkt
 nnoremap <cr> o<esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
 se autochdir
 se expandtab shiftwidth=4
 se mouse=a
 se number relativenumber
+se signcolumn=yes
 se scrolloff=5
 se splitbelow splitright
 se title titlestring=%t
@@ -33,10 +40,12 @@ se updatetime=100
 silent! call repeat#se('\<Plug>vim-surround', v:count)
 
 " Save
-nnoremap <silent>,s :wa<cr>
-se autowriteall
-se confirm
-se hidden
+au FocusGained,BufEnter * checkt
+let g:auto_save = 1
+let g:auto_save_silent = 1
+" nnoremap <silent>,s :wa<cr>
+" se autowriteall
+" se confirm
 
 " Search
 nnoremap <silent># *<s-n>
@@ -113,6 +122,7 @@ au TermOpen * :se nonu nornu | star
 tnoremap ,<esc> <c-\><c-n>
 nnoremap <silent>,t :te<cr>
 tnoremap <silent>,t <c-\><c-n>:te<cr>
+se hidden
 
 " Goyo
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
@@ -128,6 +138,29 @@ let NERDTreeShowHidden=1
 let NERDTreeStatusline='NERDTree'
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
+
+" Python
+au FileType python setlocal colorcolumn=80
+au FileType python set foldmethod=indent
+au! CompleteDone * if pumvisible() == 0 | pclose | endif
+let g:ale_fixers = {'python': ['autopep8', 'isort']}
+let g:ale_linters = {'python': ['pyls', 'pylint']}
+let g:deoplete#enable_at_startup = 1
+let g:lsp_preview_keep_focus = 0
+let g:python3_host_prog = $HOME.'/miniconda3/bin/python'
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+nnoremap <silent>,ah :LspHover<cr>
+nnoremap <silent>,af :ALEFix<cr>
+nnoremap <silent>,ar :LspRename<cr>
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
+se foldlevel=100
 
 " LaTeX
 let g:tex_flavor = 'latex'
