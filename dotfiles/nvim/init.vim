@@ -142,7 +142,7 @@ tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 " ALE & Deoplete
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['autopep8', 'isort'],
+\   'python': ['black', 'isort'],
 \}
 let g:ale_linters = {'python': ['pyls', 'pylint']}
 let g:deoplete#enable_at_startup = 1

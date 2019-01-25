@@ -50,3 +50,5 @@ alias m="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pac
 alias sa="source activate"
 alias sd="source deactivate"
 alias v="nvim"
+
+. /usr/share/powerline/bindings/bash/powerline.sh
