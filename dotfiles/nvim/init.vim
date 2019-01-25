@@ -106,7 +106,7 @@ tnoremap <silent><a--> <c-\><c-n>:vert res -1<cr>:star<cr>
 nnoremap <silent>,c :clo<cr>
 tnoremap <silent>,c <c-\><c-n>:clo<cr>
 nnoremap <silent>,d :Bw<cr>
-tnoremap <silent>,d <c-\><c-n>:Bw<cr>
+tnoremap <silent>,d <c-\><c-n>:Bw!<cr>
 nnoremap <silent>,q :xa<cr>
 tnoremap <silent>,q <c-\><c-n>:xa<cr>
 
