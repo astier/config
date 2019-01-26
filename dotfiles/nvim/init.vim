@@ -132,6 +132,8 @@ nnoremap <silent>,f :Goyo<cr>
 tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
 
 " NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeIgnore=['.git', '__pycache__', 'tags']
 let NERDTreeMinimalUI=1
@@ -144,7 +146,7 @@ tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 " ALE & Deoplete
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['black', 'isort'],
+\   'python': ['black', 'isort', 'remove_trailing_lines', 'trim_whitespace'],
 \}
 let g:ale_linters = {'python': ['pylint']}
 let g:ale_python_black_options = '-l79'
