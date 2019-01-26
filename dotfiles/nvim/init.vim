@@ -1,24 +1,32 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugins')
 Plug '907th/vim-auto-save'
+Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python', 'tex', 'vim']}
+Plug 'Shougo/neco-vim', {'for': 'vim'}
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye'
+Plug 'prabirshrestha/async.vim', { 'for': 'python'}
+Plug 'prabirshrestha/vim-lsp', { 'for': 'python'}
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
+Plug 'Yggdroot/indentLine', { 'for': 'python'}
+Plug 'zchee/deoplete-jedi', { 'for': 'python'}
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Misc
 let mapleader=' '
 let maplocalleader=' '
+let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
 au BufEnter * se fo-=cro
 nnoremap <cr> o<esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
@@ -26,7 +34,7 @@ se autochdir
 se expandtab shiftwidth=4
 se mouse=a
 se number relativenumber
-" se signcolumn=yes
+se signcolumn=yes
 se scrolloff=5
 se splitbelow splitright
 se title titlestring=%t
@@ -47,7 +55,7 @@ nnoremap <silent><esc> :noh<cr><esc>
 nnoremap ,r :%s//g<left><left>
 
 " Theme & Airline
-colorscheme hybrid_material
+colorscheme nord
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#enabled = 1
@@ -112,7 +120,7 @@ tnoremap <silent>,q <c-\><c-n>:xa<cr>
 
 " Terminal
 au BufEnter term://* star
-au TermOpen * :se nonu nornu | star
+au TermOpen * :setl nonu nornu scl=no | star
 tnoremap ,<esc> <c-\><c-n>
 nnoremap <silent>,t :te<cr>
 tnoremap <silent>,t <c-\><c-n>:te<cr>
@@ -133,16 +141,48 @@ let NERDTreeStatusline='NERDTree'
 nnoremap <silent>,e :NERDTreeToggle<cr>
 tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 
-" LaTeX
-let g:tex_flavor = 'latex'
+" ALE & Deoplete
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black', 'isort'],
+\}
+let g:ale_linters = {'python': ['pylint']}
+let g:ale_python_black_options = '-l79'
+let g:ale_python_pylint_options = '--disable=C0102,C0103,C0111,C0330,C0200,R0903,R0913,R0914,W0511 --max-line-length=79'
+let g:ale_python_black_executable = nvi.'black'
+let g:deoplete#enable_at_startup = 1
+au! CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
+nnoremap <silent>,af :ALEFix<cr>
+nnoremap <silent>,ah :LspHover<cr>
+nnoremap <silent>,ar :LspRename<cr>
+nnoremap <silent>,ad :LspDefinition<cr>
+
+" LSP
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_preview_keep_focus = 0
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+
+" Python
+au FileType python setl colorcolumn=80
+au FileType python inoremap <silent><buffer>,d <esc>:read $DOTFILES/nvim/snippets/python/def.py<cr>:norm =ae<cr>4li
+let g:python3_host_prog = nvi.'python'
+
+" VimTex
 let g:vimtex_view_general_viewer = 'evince'
-let g:indentLine_fileTypeExclude = ['tex']
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
     \ 'build_dir' : 'tex',
     \ 'callback' : 1,
-    \ 'continuous' : 0,
+    \ 'continuous' : 1,
     \ 'executable' : 'latexmk',
     \ 'options' : [
     \   '-verbose',
@@ -151,6 +191,10 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode'
     \ ],
 \}
+
+" LaTeX
+let g:tex_flavor = 'latex'
+let g:indentLine_fileTypeExclude = ['tex']
 au FileType tex inoremap <expr><buffer><CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
 au FileType tex inoremap <silent><buffer>,j <esc>/\~<cr>s
