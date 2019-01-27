@@ -69,9 +69,6 @@
         "-d C0102, C0103, C0111, C0200, C0330, R0903, R0913, R0914, W0511",
         "--max-line-length=79"
     ],
-    "python.formatting.autopep8Args": [
-        "-aa"
-    ],
     "python.formatting.blackArgs": ["-l79"],
     "search.smartCase": true,
     "search.useGlobalIgnoreFiles": true,
