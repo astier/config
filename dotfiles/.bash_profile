@@ -2,7 +2,6 @@
 
 export PATH=$PATH:~/miniconda3/bin:~/bin
 export EDITOR=nvim
-export DOTFILES=~/Projects/dotfiles/dotfiles
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
