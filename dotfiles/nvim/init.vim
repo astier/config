@@ -13,7 +13,6 @@ se expandtab shiftwidth=4
 se laststatus=1
 se mouse=a
 se noshowmode
-se number relativenumber
 se scrolloff=5
 se splitbelow splitright
 se termguicolors
