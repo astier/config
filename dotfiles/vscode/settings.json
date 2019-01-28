@@ -2,6 +2,7 @@
     "cSpell.userWords": [
         "aleks",
         "aleksandrs",
+        "astier",
         "bielefeld",
         "bootctl",
         "bootloader",
@@ -48,6 +49,7 @@
     },
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
+    "git.rebaseWhenSync": true,
     "keyboard.dispatch": "keyCode",
     "latex-workshop.chktex.enabled": true,
     "latex-workshop.latex.autoBuild.onSave.enabled": false,
