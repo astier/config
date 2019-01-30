@@ -10,6 +10,7 @@
         "conda",
         "cryptsetup",
         "dotfiles",
+        "isnan",
         "keras",
         "lstm",
         "luks",
@@ -27,11 +28,11 @@
         "systemd",
         "tanh"
     ],
-    "code-runner.respectShebang": false,
-    "code-runner.runInTerminal": true,
     "debug.toolBarLocation": "docked",
     "editor.accessibilitySupport": "off",
     "editor.cursorBlinking": "solid",
+    "editor.hover.enabled": false,
+    "editor.hover.sticky": false,
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
     "editor.rulers": [79],
@@ -90,6 +91,4 @@
     "workbench.startupEditor": "none",
     "latex-workshop.latex.outDir": "%DIR%/tex",
     "python.formatting.provider": "black",
-    "editor.hover.sticky": false,
-    "editor.hover.enabled": false,
 }
