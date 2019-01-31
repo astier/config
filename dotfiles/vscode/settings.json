@@ -91,7 +91,7 @@
     "window.menuBarVisibility": "toggle",
     "window.title": "VSCode${separator}${rootName}",
     "window.zoomLevel": 0,
-    "vim.normalModeKeyBindings": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "cr"
@@ -101,6 +101,28 @@
                 "<esc>"
             ]
         },
+        {
+            "before": [":"],
+            "commands": [
+                "workbench.action.showCommands",
+            ]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        {
+            "before": ["0"],
+            "after": ["g", "0"]
+        },
+        {
+            "before": ["$"],
+            "after": ["g", "$"]
+        }
     ],
     "workbench.colorTheme": "Nord",
     "workbench.editor.enablePreview": false,
