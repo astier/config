@@ -91,6 +91,17 @@
     "window.menuBarVisibility": "toggle",
     "window.title": "VSCode${separator}${rootName}",
     "window.zoomLevel": 0,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "cr"
+            ],
+            "after": [
+                "o",
+                "<esc>"
+            ]
+        },
+    ],
     "workbench.colorTheme": "Nord",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
