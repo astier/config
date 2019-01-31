@@ -28,6 +28,11 @@
         "systemd",
         "tanh"
     ],
+    "code-runner.executorMap": {
+        "python": "$pythonPath $fullFileName",
+    },
+    "code-runner.respectShebang": false,
+    "code-runner.runInTerminal": true,
     "debug.toolBarLocation": "docked",
     "editor.accessibilitySupport": "off",
     "editor.cursorBlinking": "solid",
@@ -35,7 +40,9 @@
     "editor.hover.sticky": false,
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
-    "editor.rulers": [79],
+    "editor.rulers": [
+        79
+    ],
     "editor.suggest.localityBonus": true,
     "editor.wordWrap": "on",
     "explorer.confirmDelete": false,
@@ -72,7 +79,9 @@
         "-d C0102, C0103, C0111, C0200, C0330, R0903, R0913, R0914, W0511",
         "--max-line-length=79"
     ],
-    "python.formatting.blackArgs": ["-l79"],
+    "python.formatting.blackArgs": [
+        "-l79"
+    ],
     "search.smartCase": true,
     "search.useGlobalIgnoreFiles": true,
     "terminal.integrated.copyOnSelection": true,
