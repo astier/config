@@ -26,6 +26,11 @@ cd() { builtin cd "$@" && ls -A; }
 alias ob="$EDITOR ~/.bashrc && . ~/.bashrc"
 alias on="$EDITOR ~/Dropbox/Notes/notes"
 
+# Templates
+TMP="~/Projects/templates"
+alias tla="cp $TMP/latex/article.tex ."
+alias tlb="cp $TMP/latex/beamer.tex ."
+
 # Git
 alias ga="git add"
 alias gaa="git add --all"
