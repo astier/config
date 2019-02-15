@@ -81,7 +81,6 @@
     "markdown.preview.markEditorSelection": false,
     "markdown.preview.scrollEditorWithPreview": false,
     "markdown.preview.scrollPreviewWithEditor": false,
-    "materialTheme.showReloadNotification": false,
     "python.autoComplete.addBrackets": true,
     "python.formatting.provider": "black",
     "python.jediEnabled": false,
