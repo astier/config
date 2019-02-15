@@ -11,6 +11,10 @@
         "cdist",
         "conda",
         "cryptsetup",
+        "datapoint",
+        "datapoints",
+        "dataset",
+        "datasets",
         "dotfiles",
         "imresize",
         "isnan",
@@ -30,8 +34,10 @@
         "scipy",
         "sklearn",
         "stier",
+        "supination",
         "systemd",
-        "tanh"
+        "tanh",
+        "transition"
     ],
     "code-runner.executorMap": {
         "python": "$pythonPath $fullFileName",
@@ -130,7 +136,7 @@
             "after": ["g", "$"]
         }
     ],
-    "workbench.colorTheme": "Material Theme Palenight High Contrast",
+    "workbench.colorTheme": "Lichen (rainglow)",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.iconTheme": "material-icon-theme",
