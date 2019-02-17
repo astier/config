@@ -49,10 +49,11 @@ alias go="git checkout"
 alias go-="git checkout --"
 
 # Misc
-alias c="clear"
-alias m="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
+alias c="cd"
+alias cl="clear"
+alias md="mkdir"
+alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias sa="source activate"
 alias sd="conda deactivate"
-alias md="mkdir"
 alias u='yay'
 alias v="nvim"
