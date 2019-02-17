@@ -2,32 +2,30 @@
 
 [[ $- != *i* ]] && return
 
-# Settings
+# Bash
 HISTCONTROL=ignoreboth
 PS1="\[\e[32m\][\W]\$\[\e[m\] "
 set -o vi
+shopt -s autocd cdspell
+
+# Scripts & Functions
+. /usr/share/bashmarks/bashmarks.sh
+cd() { builtin cd "$@" && ls -A; }
 
 # Defaults
+alias cal='cal -m'
 alias df="df -h"
 alias dfx="df -hx tmpfs"
 alias grep="grep --color"
-alias l="ls -A"
-alias ll="ls -l"
 alias ls="ls --color --group-directories-first -h"
+alias la="ls -A"
+alias ll="ls -l"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 
-# Bookmarks
-alias ...="cd /"
-alias ..="cd .."
-alias jn="cd ~/Dropbox/Notes/"
-alias jm="cd ~/Dropbox/ISY/S3/MYO/"
-alias ja="cd ~/Projects/arch-installer/"
-alias jd="cd ~/Projects/dotfiles/dotfiles/"
-cd() { builtin cd "$@" && ls -A; }
-
 # Dotfiles
 alias ob="$EDITOR ~/.bashrc && . ~/.bashrc"
+alias obp="$EDITOR ~/.bash_profile"
 alias on="$EDITOR ~/Dropbox/Notes/notes"
 
 # Templates
@@ -55,5 +53,6 @@ alias c="clear"
 alias m="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias sa="source activate"
 alias sd="conda deactivate"
+alias md="mkdir"
 alias u='yay'
 alias v="nvim"
