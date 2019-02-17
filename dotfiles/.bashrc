@@ -55,4 +55,5 @@ alias c="clear"
 alias m="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias sa="source activate"
 alias sd="conda deactivate"
+alias u='yay'
 alias v="nvim"
