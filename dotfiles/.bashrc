@@ -10,7 +10,6 @@ shopt -s autocd cdspell
 
 # Scripts & Functions
 . /usr/share/bashmarks/bashmarks.sh
-cd() { builtin cd "$@" && ls -A; }
 
 # Defaults
 alias cal='cal -m'
@@ -22,6 +21,7 @@ alias la="ls -A"
 alias ll="ls -l"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
+cd() { builtin cd "$@" && ls -A; }
 
 # Dotfiles
 alias ob="$EDITOR ~/.bashrc && . ~/.bashrc"
