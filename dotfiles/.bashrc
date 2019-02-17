@@ -27,6 +27,7 @@ alias rm="rm -fr"
 alias ob="$EDITOR ~/.bashrc && . ~/.bashrc"
 alias obp="$EDITOR ~/.bash_profile"
 alias on="$EDITOR ~/Dropbox/Notes/notes"
+alias ov="$EDITOR $DOTFILES/nvim/init.vim"
 
 # Templates
 TMP="$HOME/Projects/templates"
