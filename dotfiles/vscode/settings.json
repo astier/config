@@ -113,26 +113,48 @@
             ]
         },
         {
-            "before": [":"],
+            "before": [
+                ":"
+            ],
             "commands": [
                 "workbench.action.showCommands",
             ]
         },
         {
-            "before": ["j"],
-            "after": ["g", "j"]
+            "before": [
+                "j"
+            ],
+            "after": [
+                "g",
+                "j"
+            ]
         },
         {
-            "before": ["k"],
-            "after": ["g", "k"]
+            "before": [
+                "k"
+            ],
+            "after": [
+                "g",
+                "k"
+            ]
         },
         {
-            "before": ["0"],
-            "after": ["g", "0"]
+            "before": [
+                "0"
+            ],
+            "after": [
+                "g",
+                "0"
+            ]
         },
         {
-            "before": ["$"],
-            "after": ["g", "$"]
+            "before": [
+                "$"
+            ],
+            "after": [
+                "g",
+                "$"
+            ]
         }
     ],
     "workbench.colorTheme": "Lichen (rainglow)",
@@ -141,4 +163,7 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.startupEditor": "none",
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": true,
+    "code-runner.runInTerminal": true,
 }

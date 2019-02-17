@@ -9,6 +9,7 @@ set -o vi
 
 # Defaults
 alias df="df -h"
+alias dfx="df -hx tmpfs"
 alias grep="grep --color"
 alias l="ls -A"
 alias ll="ls -l"
@@ -20,6 +21,9 @@ alias rm="rm -fr"
 alias ...="cd /"
 alias ..="cd .."
 alias jn="cd ~/Dropbox/Notes/"
+alias jm="cd ~/Dropbox/ISY/S3/MYO/"
+alias ja="cd ~/Projects/arch-installer/"
+alias jd="cd ~/Projects/dotfiles/dotfiles/"
 cd() { builtin cd "$@" && ls -A; }
 
 # Dotfiles
@@ -27,7 +31,7 @@ alias ob="$EDITOR ~/.bashrc && . ~/.bashrc"
 alias on="$EDITOR ~/Dropbox/Notes/notes"
 
 # Templates
-TMP="~/Projects/templates"
+TMP="$HOME/Projects/templates"
 alias tla="cp $TMP/latex/article.tex ."
 alias tlb="cp $TMP/latex/beamer.tex ."
 
