@@ -10,6 +10,7 @@ install () {
 install .bash_profile               ~/
 install .bashrc                     ~/
 install .xinitrc                    ~/
+install bashmarks/.sdirs            ~/
 install git                         ~/.config/
 install nvim                        ~/.config/
 install pacman/pacman.conf          /etc/

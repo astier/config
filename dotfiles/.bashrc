@@ -24,10 +24,10 @@ alias rm="rm -fr"
 cd() { builtin cd "$@" && ls -A; }
 
 # Dotfiles
-alias ob="$EDITOR ~/.bashrc && . ~/.bashrc"
-alias obp="$EDITOR ~/.bash_profile"
-alias on="$EDITOR ~/Dropbox/Notes/notes"
+alias ob="$EDITOR $DOTFILES/.bashrc && . ~/.bashrc"
 alias ov="$EDITOR $DOTFILES/nvim/init.vim"
+alias oa="$EDITOR ~/Projects/arch-installer/arch_desktop.sh"
+alias on="$EDITOR ~/Dropbox/Notes/notes"
 
 # Templates
 TMP="$HOME/Projects/templates"
@@ -52,7 +52,6 @@ alias go-="git checkout --"
 # Misc
 alias c="cd"
 alias cl="clear"
-alias md="mkdir"
 alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias sa="source activate"
 alias sd="conda deactivate"

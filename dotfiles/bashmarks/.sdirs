@@ -1,0 +1,5 @@
+export DIR_p="$HOME/Projects"
+export DIR_a="$HOME/Projects/arch-installer"
+export DIR_d="$HOME/Projects/dotfiles/dotfiles"
+export DIR_m="$HOME/Dropbox/ISY/S3/MYO"
+export DIR_db="$HOME/Dropbox"
