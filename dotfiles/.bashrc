@@ -8,9 +8,6 @@ PS1="\[\e[32m\][\W]\$\[\e[m\] "
 set -o vi
 shopt -s autocd cdspell
 
-# Scripts & Functions
-. /usr/share/bashmarks/bashmarks.sh
-
 # Defaults
 alias cal='cal -m'
 alias df="df -h"
@@ -57,3 +54,6 @@ alias sa="source activate"
 alias sd="conda deactivate"
 alias u='yay'
 alias v="nvim"
+
+# Scripts
+. /usr/share/bashmarks/bashmarks.sh

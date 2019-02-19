@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export PATH=$PATH:~/miniconda3/bin:~/bin
+export BROWSER=firefox
 export EDITOR=nvim
 export DOTFILES=~/Projects/dotfiles/dotfiles
 
