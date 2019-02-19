@@ -30,11 +30,12 @@ size_hints = false
 # "off", "left" or "right"
 scrollbar = off
 
+
 [colors]
 # Default
-foreground = #dcdccc
+foreground = #c5c8c6
 foreground_bold = #ffffff
-background = #3f3f3f
+background = #263238
 highlight = #2f2f2f
 color0 = #3f3f3f
 color1 = #705050
@@ -53,11 +54,14 @@ color13 = #ec93d3
 color14 = #93e0e3
 color15 = #ffffff
 
-# [hints]
+
+[hints]
 # active_foreground = #e68080
 # active_background = #3f3f3f
+# foreground_bold = #ffffff
 # 20% background transparency (requires a compositor)
 # background = rgba(63, 63, 63, 0.8)
+# highlight = #2f2f2f
 # cursor = #dcdccc
 # cursor_foreground = #dcdccc
 # padding = 2
