@@ -21,6 +21,7 @@ cd() { builtin cd "$@" && ls -A; }
 alias jp="cd ~/Projects/"
 alias ja="cd ~/Projects/arch-installer/"
 alias jd="cd ~/Projects/dotfiles/dotfiles/"
+alias js="cd ~/Projects/suckless/"
 alias jm="cd ~/Dropbox/ISY/S3/MYO/"
 alias jn="cd ~/Dropbox/Notes/"
 

@@ -14,3 +14,4 @@ install git                         ~/.config/
 install nvim                        ~/.config/
 install pacman/pacman.conf          /etc/
 install pacman/hooks/               /etc/pacman.d/
+install st/st.desktop               /usr/share/applications/
