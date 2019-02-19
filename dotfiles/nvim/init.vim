@@ -1,7 +1,7 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugins')
 Plug '907th/vim-auto-save'
-Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python', 'tex', 'vim']}
+Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python', 'sh', 'tex', 'vim']}
 Plug 'Shougo/neco-vim', {'for': 'vim'}
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
