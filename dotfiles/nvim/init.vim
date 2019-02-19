@@ -5,7 +5,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python',
 Plug 'Shougo/neco-vim', {'for': 'vim'}
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye'
 Plug 'prabirshrestha/async.vim', { 'for': 'python'}
@@ -52,9 +51,12 @@ nnoremap <silent># *<s-n>
 nnoremap <silent><esc> :noh<cr><esc>
 nnoremap ,r :%s//g<left><left>
 
-" Theme & Airline
-colorscheme hybrid_material
-let g:hybrid_transparent_background = 1
+" Theme
+let g:enable_italic_font = 1
+let g:enable_bold_font = 1
+se cursorline
+
+" Airline
 let g:airline#extensions#ale#enabled = 0
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#buffers_label = 'B'
@@ -65,12 +67,8 @@ let g:airline#extensions#tabline#tabs_label = 'T'
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
-let g:airline_theme='hybrid'
-let g:enable_italic_font = 1
-let g:enable_bold_font = 1
-se cursorline
+let g:airline_theme='angr'
 se noshowmode
-se termguicolors
 
 " Brackets
 inoremap { {}<left>
