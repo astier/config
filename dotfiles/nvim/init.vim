@@ -54,6 +54,7 @@ nnoremap ,r :%s//g<left><left>
 
 " Theme & Airline
 colorscheme hybrid_material
+let g:hybrid_transparent_background = 1
 let g:airline#extensions#ale#enabled = 0
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#buffers_label = 'B'
@@ -66,25 +67,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
 let g:airline_theme='hybrid'
 let g:enable_italic_font = 1
-" let g:airline_mode_map = {
-"   \ '__' : '-',
-"   \ 'c'  : 'C',
-"   \ 'i'  : 'I',
-"   \ 'ic' : 'I',
-"   \ 'ix' : 'I',
-"   \ 'n'  : 'N',
-"   \ 'ni' : 'N',
-"   \ 'no' : 'N',
-"   \ 'R'  : 'R',
-"   \ 'Rv' : 'R',
-"   \ 's'  : 'S',
-"   \ 'S'  : 'S',
-"   \ '' : 'S',
-"   \ 't'  : 'T',
-"   \ 'v'  : 'V',
-"   \ 'V'  : 'V',
-"   \ '' : 'V',
-" \ }
+let g:enable_bold_font = 1
 se cursorline
 se noshowmode
 se termguicolors
