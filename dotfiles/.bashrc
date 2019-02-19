@@ -11,16 +11,20 @@ shopt -s autocd cdspell
 # Defaults
 alias cal='cal -m'
 alias df="df -h"
-alias dfx="df -hx tmpfs"
 alias grep="grep --color"
 alias ls="ls --color --group-directories-first -h"
-alias la="ls -A"
-alias ll="ls -l"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 cd() { builtin cd "$@" && ls -A; }
 
-# Dotfiles
+# Directories
+alias jp="cd ~/Projects/"
+alias ja="cd ~/Projects/arch-installer/"
+alias jd="cd ~/Projects/dotfiles/dotfiles/"
+alias jm="cd ~/Dropbox/ISY/S3/MYO/"
+alias jn="cd ~/Dropbox/Notes/"
+
+# Files
 alias ob="$EDITOR $DOTFILES/.bashrc && . ~/.bashrc"
 alias ov="$EDITOR $DOTFILES/nvim/init.vim"
 alias oa="$EDITOR ~/Projects/arch-installer/arch_desktop.sh"
@@ -40,20 +44,18 @@ alias gcm="git commit -m"
 alias gd="git diff"
 alias gl="git log"
 alias glo="git log --oneline"
+alias go-="git checkout --"
+alias go="git checkout"
 alias gp="git push"
 alias gpl="git pull"
 alias gs="git status"
-alias go="git checkout"
-alias go-="git checkout --"
 
 # Misc
 alias c="cd"
 alias cl="clear"
-alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
+alias l="ls -A"
+alias m="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias sa="source activate"
 alias sd="conda deactivate"
 alias u='yay'
 alias v="nvim"
-
-# Scripts
-. /usr/share/bashmarks/bashmarks.sh
