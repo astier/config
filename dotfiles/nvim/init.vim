@@ -36,7 +36,7 @@ se number relativenumber
 se signcolumn=yes
 se scrolloff=5
 se splitbelow splitright
-se title titlestring=%t
+" se title titlestring=nvim
 se updatetime=100
 silent! call repeat#se('\<Plug>vim-surround', v:count)
 
