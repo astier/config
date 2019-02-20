@@ -19,15 +19,18 @@ cd() { builtin cd "$@" && ls -A; }
 
 # Directories
 alias jp="cd ~/Projects/"
+alias jdo="cd ~/Downloads/"
 alias ja="cd ~/Projects/arch-installer/"
 alias jd="cd $DOTFILES"
 alias jdm="cd ~/Projects/dmenu/"
+alias jdw="cd ~/Projects/dwm/"
 alias js="cd ~/Projects/st/"
 alias jm="cd ~/Dropbox/ISY/S3/MYO/"
 alias jn="cd ~/Dropbox/Notes/"
 
 # Files
 alias ob="$EDITOR $DOTFILES/.bashrc && . ~/.bashrc"
+alias ox="$EDITOR $DOTFILES/.xinitrc"
 alias ov="$EDITOR $DOTFILES/nvim/init.vim"
 alias oa="$EDITOR ~/Projects/arch-installer/arch_desktop.sh"
 alias on="$EDITOR ~/Dropbox/Notes/notes"
