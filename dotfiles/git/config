@@ -13,3 +13,5 @@
 
 [credential "https://gitlab.ub.uni-bielefeld.de"]
 	username = astier
+[push]
+	followTags = true
