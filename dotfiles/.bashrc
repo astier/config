@@ -55,6 +55,7 @@ alias gpl="git pull"
 alias gs="git status"
 
 # Misc
+alias -- -="cd -"
 alias c="cd"
 alias cl="clear"
 alias l="ls -A"
