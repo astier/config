@@ -33,12 +33,12 @@ setxkbmap -option caps:swapescape
 compton &
 xbanish &
 feh --bg-fill ~/Dropbox/Pictures/Wallpapers/city-dark.jpg
+numlockx
 
 while true; do
     DATE=$(date +%H:%M)
     BAT=$(cat /sys/class/power_supply/BAT0/capacity)
-    WIFI=$(cat /sys/class/net/wlp1s0/opestate)
-    xsetroot -name "$WIFI | $BAT% | $DATE"
+    xsetroot -name "  $BAT%   $DATE "
     sleep 60
 done &
 
