@@ -27,6 +27,7 @@ alias jdw="cd ~/Projects/dwm/"
 alias js="cd ~/Projects/st/"
 alias jm="cd ~/Dropbox/ISY/S3/MYO/"
 alias jn="cd ~/Dropbox/Notes/"
+alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
 
 # Files
 alias ob="$EDITOR $DOTFILES/.bashrc && . ~/.bashrc"
