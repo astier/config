@@ -30,7 +30,7 @@ au BufEnter * se fo-=cro
 nnoremap <cr> o<esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
 se autochdir
-se expandtab shiftwidth=4
+se tabstop=4 shiftwidth=4
 se mouse=a
 se number relativenumber
 se signcolumn=yes
