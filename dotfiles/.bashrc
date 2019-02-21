@@ -13,6 +13,7 @@ alias cal='cal -m'
 alias df="df -h"
 alias grep="grep --color"
 alias ls="ls --color --group-directories-first -h"
+# alias maim="maim ~/Dropbox/Pictures/$(date +%s).png"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 cd() { builtin cd "$@" && ls -A; }

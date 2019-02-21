@@ -30,5 +30,17 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 setxkbmap -option caps:swapescape
+compton &
 xbanish &
-exec cinnamon-session
+feh --bg-fill ~/Dropbox/Pictures/Wallpapers/city-dark.jpg
+
+while true; do
+    DATE=$(date +%H:%M)
+    BAT=$(cat /sys/class/power_supply/BAT0/capacity)
+    WIFI=$(cat /sys/class/net/wlp1s0/opestate)
+    xsetroot -name "$WIFI | $BAT% | $DATE"
+    sleep 60
+done &
+
+# exec cinnamon-session
+exec dwm
