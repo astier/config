@@ -147,13 +147,13 @@ tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
 " ALE & Deoplete
 let g:ale_fixers = {
     \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \ 'python': ['isort', 'black', 'remove_trailing_lines', 'trim_whitespace'],
+    \ 'python': ['isort', 'black'],
 \}
-let g:ale_linters = {
-    \ 'python': ['pylint'],
-    \ 'sh': ['shellcheck'],
-    \ 'tex': ['chktex'],
-\}
+" let g:ale_linters = {
+"     \ 'python': ['pylint'],
+"     \ 'sh': ['shellcheck'],
+"     \ 'tex': ['chktex'],
+" \}
 let g:ale_python_black_options = '-l79'
 let g:ale_python_pylint_options = '--disable=C0102,C0103,C0111,C0330,C0200,R0903,R0913,R0914,W0511 --max-line-length=79'
 let g:ale_python_black_executable = nvi.'black'
@@ -178,7 +178,7 @@ if executable('pyls')
 endif
 
 " Python
-au FileType python setl colorcolumn=80
+" au FileType python setl colorcolumn=80
 au FileType python inoremap <silent><buffer>,d <esc>:read $DOTFILES/nvim/snippets/python/def.py<cr>:norm =ae<cr>4li
 let g:python3_host_prog = nvi.'python'
 
