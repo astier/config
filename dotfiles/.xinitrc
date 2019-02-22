@@ -43,8 +43,7 @@ done &
 while true; do
 	DATE=$(date +%H:%M)
 	BAT=$(cat /sys/class/power_supply/BAT0/capacity)
-	VOL=$(amixer get Master | awk -F'[][]' 'END{ print $2 }')
-	xsetroot -name "  $VOL   $BAT%   $DATE "
+	xsetroot -name "  $BAT%   $DATE "
 	sleep 60
 done &
 
