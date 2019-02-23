@@ -22,11 +22,22 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python'}
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
+" Hard-Mode
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
 " Misc
 let mapleader=' '
 let maplocalleader=' '
 let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
 au BufEnter * se fo-=cro
+au BufWritePost * GitGutter
 nnoremap <cr> o<esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
 nnoremap <silent>,as :setl spell<cr>
@@ -37,9 +48,7 @@ se number relativenumber
 se signcolumn=yes
 se scrolloff=5
 se splitbelow splitright
-" se title titlestring=nvim
-se updatetime=100
-silent! call repeat#se('\<Plug>vim-surround', v:count)
+sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " Save
 au FocusGained,BufEnter * checkt
@@ -49,7 +58,7 @@ se autowriteall
 se confirm
 
 " Search
-nnoremap <silent># *<s-n>
+nnoremap <silent># *
 nnoremap <silent><esc> :noh<cr><esc>
 nnoremap ,r :%s//g<left><left>
 
