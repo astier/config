@@ -65,7 +65,7 @@ alias gpl="git pull"
 alias grh="git reset --hard"
 alias gcn="git clean -f"
 alias gs="git status"
-alias gp="git format-patch --stdout HEAD^ > "
+alias gpa="git format-patch --stdout HEAD^ > "
 
 # Misc
 alias -- -="cd -"
