@@ -29,11 +29,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 	unset f
 fi
 
+numlockx
 setxkbmap -option caps:swapescape
 compton &
+dropbox &
 xbanish &
-feh --bg-fill ~/Dropbox/Pictures/Wallpapers/city-dark.jpg
-numlockx
 
 while true; do
 	feh --randomize --bg-fill ~/Dropbox/Pictures/Wallpapers/
@@ -41,11 +41,8 @@ while true; do
 done &
 
 while true; do
-	DATE=$(date +%H:%M)
-	BAT=$(cat /sys/class/power_supply/BAT0/capacity)
-	xsetroot -name "  $BAT%   $DATE "
+	statusbar
 	sleep 60
 done &
 
-# exec cinnamon-session
 exec dwm
