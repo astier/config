@@ -1,6 +1,7 @@
+*.o
+*.orig
+*.rej
 .idea
 .vscode
 __pycache__
 tex
-*.o
-*.rej
