@@ -11,6 +11,7 @@ shopt -s autocd cdspell
 # Defaults
 alias cal='cal -m'
 alias df="df -h"
+alias du="du -h"
 alias grep="grep --color"
 alias ls="ls --color --group-directories-first -h"
 # alias maim="maim ~/Dropbox/Pictures/$(date +%s).png"
@@ -25,7 +26,8 @@ alias ja="cd ~/Projects/arch-installer/"
 alias jd="cd $DOTFILES"
 alias jdm="cd ~/Projects/dmenu/"
 alias jdw="cd ~/Projects/dwm/"
-alias js="cd ~/Projects/st/"
+alias jst="cd ~/Projects/st/"
+alias jsc="cd ~/Projects/scripts/"
 alias jm="cd ~/Dropbox/ISY/S3/MYO/"
 alias jn="cd ~/Dropbox/Notes/"
 alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
