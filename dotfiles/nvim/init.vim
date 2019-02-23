@@ -29,6 +29,7 @@ let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
 au BufEnter * se fo-=cro
 nnoremap <cr> o<esc>
 nnoremap <silent>,, :e $MYVIMRC<cr>
+nnoremap <silent>,as :setl spell<cr>
 se autochdir
 se tabstop=4 shiftwidth=4
 se mouse=a
