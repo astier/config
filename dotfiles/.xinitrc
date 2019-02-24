@@ -32,7 +32,6 @@ fi
 numlockx
 setxkbmap -option caps:swapescape
 compton &
-dropbox &
 xbanish &
 
 while true; do
