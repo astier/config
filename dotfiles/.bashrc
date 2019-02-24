@@ -34,6 +34,7 @@ alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
 
 # Files
 alias ob="$EDITOR $DOTFILES/.bashrc && . ~/.bashrc"
+alias obp="$EDITOR $DOTFILES/.bash_profile"
 alias ox="$EDITOR $DOTFILES/.xinitrc"
 alias ov="$EDITOR $DOTFILES/nvim/init.vim"
 alias oa="$EDITOR ~/Projects/arch-installer/arch_desktop.sh"
