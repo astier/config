@@ -7,9 +7,9 @@ install () {
     echo Installed: "$TARGET"
 }
 
-install .bash_profile               ~/
-install .bashrc                     ~/
-install .xinitrc                    ~/
+install bash/.bash_profile          ~/
+install bash/.bashrc                ~/
+install xorg/.xinitrc               ~/
 install feh                         ~/.config/
 install git                         ~/.config/
 install gtk-3.0/                    ~/.config/
