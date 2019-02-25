@@ -1,29 +1,23 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Merge in defaults and keymaps
-sysresources=/etc/X11/xinit/.Xresources
-if [ -f $sysresources ]; then
-	xrdb -merge $sysresources
-fi
+XINIT=/etc/X11/xinit
+sysresources=$XINIT/.Xresources
+[[ -f $sysresources ]] && xrdb -merge $sysresources
 
-sysmodmap=/etc/X11/xinit/.Xmodmap
-if [ -f $sysmodmap ]; then
-	xmodmap $sysmodmap
-fi
+sysmodmap=$XINIT/.Xmodmap
+[[ -f $sysmodmap ]] && xmodmap $sysmodmap
 
 userresources=$HOME/.Xresources
-if [ -f "$userresources" ]; then
-	xrdb -merge "$userresources"
-fi
+[[ -f "$userresources" ]] && xrdb -merge "$userresources"
 
 usermodmap=$HOME/.Xmodmap
-if [ -f "$usermodmap" ]; then
-	xmodmap "$usermodmap"
-fi
+[[ -f "$usermodmap" ]] && xmodmap "$usermodmap"
 
 # Start some nice programs
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
-	for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+XINITRC=$XINIT/xinitrc.d
+if [ -d $XINITRC ] ; then
+	for f in "$XINITRC"/?*.sh ; do
 		[ -x "$f" ] && . "$f"
 	done
 	unset f
@@ -40,7 +34,7 @@ while true; do
 done &
 
 while true; do
-	statusbar
+	dstatus
 	sleep 60
 done &
 
