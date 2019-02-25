@@ -126,8 +126,8 @@ nnoremap <silent>,c :clo<cr>
 tnoremap <silent>,c <c-\><c-n>:clo<cr>
 nnoremap <silent>,d :Bw<cr>
 tnoremap <silent>,d <c-\><c-n>:Bw!<cr>
-nnoremap <silent>,q :xa<cr>
-tnoremap <silent>,q <c-\><c-n>:xa<cr>
+nnoremap <silent>,q :qa<cr>
+tnoremap <silent>,q <c-\><c-n>:qa<cr>
 
 " Terminal
 au BufEnter term://* star
