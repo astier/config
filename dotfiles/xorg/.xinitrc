@@ -23,6 +23,12 @@ if [ -d $XINITRC ] ; then
 	unset f
 fi
 
+# Swap ESC with CAPS and ALT-RIGHT/GR with WIN
+# Defining and loading Xmodmap resulted in a buggy CAPS
+setxkbmap -option caps:swapescape
+xmodmap -e "keycode 108 = Super_L"
+xmodmap -e "keycode 133 = ISO_Level3_Shift"
+
 numlockx
 compton &
 xbanish &

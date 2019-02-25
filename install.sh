@@ -9,7 +9,6 @@ install () {
 
 install bash/.bash_profile          ~/
 install bash/.bashrc                ~/
-install xorg/.Xmodmap               ~/
 install xorg/.xinitrc               ~/
 install feh                         ~/.config/
 install git                         ~/.config/
