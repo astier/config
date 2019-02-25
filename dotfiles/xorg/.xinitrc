@@ -24,7 +24,6 @@ if [ -d $XINITRC ] ; then
 fi
 
 numlockx
-setxkbmap -option caps:swapescape
 compton &
 xbanish &
 
