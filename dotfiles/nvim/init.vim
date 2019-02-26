@@ -14,9 +14,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-Plug 'Yggdroot/indentLine', { 'for': 'python'}
 Plug 'zchee/deoplete-jedi', { 'for': 'python'}
-Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Hard-Mode
