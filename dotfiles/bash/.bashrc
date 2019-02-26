@@ -18,6 +18,7 @@ shopt -s autocd cdspell
 
 # Defaults
 alias cal='cal -m'
+alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
 alias grep="grep --color"
