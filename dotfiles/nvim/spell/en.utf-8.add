@@ -17,3 +17,6 @@ LUKS
 dwmstatus
 X11
 statusbar
+usr
+env
+keycode

@@ -39,8 +39,8 @@ let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
 au BufEnter * se fo-=cro
 au BufWritePost * GitGutter
 nnoremap <cr> o<esc>
-nnoremap <silent>,, :e $MYVIMRC<cr>
-nnoremap <silent>,as :setl spell<cr>
+nnoremap <silent><a-v><a-v> :e $MYVIMRC<cr>
+nnoremap <silent><a-v><a-s> :setl spell<cr>
 se autochdir
 se tabstop=4 shiftwidth=4
 se mouse=a
@@ -112,35 +112,35 @@ nnoremap 0 g0
 se breakindent linebreak
 
 " Resize
-nnoremap <silent><a-.> :res +1<cr>
-nnoremap <silent><a-,> :res -1<cr>
-nnoremap <silent><a-+> :vert res +1<cr>
-nnoremap <silent><a--> :vert res -1<cr>
-tnoremap <silent><a-.> <c-\><c-n>:res +1<cr>:star<cr>
-tnoremap <silent><a-,> <c-\><c-n>:res -1<cr>:star<cr>
-tnoremap <silent><a-+> <c-\><c-n>:vert res +1<cr>:star<cr>
-tnoremap <silent><a--> <c-\><c-n>:vert res -1<cr>:star<cr>
+nnoremap <silent><a-J> :res +1<cr>
+nnoremap <silent><a-K> :res -1<cr>
+nnoremap <silent><a-L> :vert res +1<cr>
+nnoremap <silent><a-H> :vert res -1<cr>
+tnoremap <silent><a-J> <c-\><c-n>:res +1<cr>:star<cr>
+tnoremap <silent><a-K> <c-\><c-n>:res -1<cr>:star<cr>
+tnoremap <silent><a-L> <c-\><c-n>:vert res +1<cr>:star<cr>
+tnoremap <silent><a-H> <c-\><c-n>:vert res -1<cr>:star<cr>
 
 " Windows & Buffers
-nnoremap <silent>,c :clo<cr>
-tnoremap <silent>,c <c-\><c-n>:clo<cr>
-nnoremap <silent>,d :Bw<cr>
-tnoremap <silent>,d <c-\><c-n>:Bw!<cr>
-nnoremap <silent>,q :qa<cr>
-tnoremap <silent>,q <c-\><c-n>:qa<cr>
+nnoremap <silent><a-c> :clo<cr>
+tnoremap <silent><a-c> <c-\><c-n>:clo<cr>
+nnoremap <silent><a-d> :Bw<cr>
+tnoremap <silent><a-d> <c-\><c-n>:Bw!<cr>
+nnoremap <silent><a-q> :qa<cr>
+tnoremap <silent><a-q> <c-\><c-n>:qa<cr>
 
 " Terminal
 au BufEnter term://* star
 au TermOpen * :setl nonu nornu scl=no | star
 tnoremap ,<esc> <c-\><c-n>
-nnoremap <silent>,t :te<cr>
-tnoremap <silent>,t <c-\><c-n>:te<cr>
+nnoremap <silent><a-s> :te<cr>
+tnoremap <silent><a-s> <c-\><c-n>:te<cr>
 se hidden
 
 " Goyo
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
-nnoremap <silent>,f :Goyo<cr>
-tnoremap <silent>,f <c-\><c-n>:Goyo<cr>:star<cr>
+nnoremap <silent><a-m> :Goyo<cr>
+tnoremap <silent><a-m> <c-\><c-n>:Goyo<cr>:star<cr>
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -151,8 +151,8 @@ let NERDTreeMinimalUI=1
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeStatusline='NERDTree'
-nnoremap <silent>,e :NERDTreeToggle<cr>
-tnoremap <silent>,e <c-\><c-n>:NERDTreeToggle<cr>
+nnoremap <silent><a-e> :NERDTreeToggle<cr>
+tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr>
 
 " ALE & Deoplete
 let g:ale_fixers = {
@@ -171,10 +171,10 @@ let g:deoplete#enable_at_startup = 1
 au! CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
-nnoremap <silent>,af :ALEFix<cr>
-nnoremap <silent>,ah :LspHover<cr>
-nnoremap <silent>,ar :LspRename<cr>
-nnoremap <silent>,ad :LspDefinition<cr>
+nnoremap <silent><a-a>f :ALEFix<cr>
+nnoremap <silent><a-a>h :LspHover<cr>
+nnoremap <silent><a-a>r :LspRename<cr>
+nnoremap <silent><a-a>d :LspDefinition<cr>
 
 " LSP
 let g:lsp_diagnostics_enabled = 0
@@ -213,7 +213,7 @@ let g:vimtex_compiler_progname = 'nvr'
 " LaTeX
 let g:tex_flavor = 'latex'
 let g:indentLine_fileTypeExclude = ['tex']
-nnoremap <silent>,ac :VimtexCompile<cr>
+nnoremap <silent><a-a>c :VimtexCompile<cr>
 au FileType tex inoremap <expr><buffer><CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
 au FileType tex inoremap <silent><buffer>,j <esc>/\~<cr>s
