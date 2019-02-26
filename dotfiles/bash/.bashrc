@@ -2,9 +2,17 @@
 
 [[ $- != *i* ]] && return
 
-# Bash
+# Prompt
+. ~/.config/git/git-prompt.sh
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GREEN="\[\e[32m\]"
+WHITE="\[\e[m\]"
+PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')] ${WHITE}"
+
+# Settings
 HISTCONTROL=ignoreboth
-PS1="\[\e[32m\][\W]\$\[\e[m\] "
 set -o vi
 shopt -s autocd cdspell
 
@@ -68,7 +76,7 @@ alias gp="git push"
 alias gpl="git pull"
 alias grh="git reset --hard"
 alias gcn="git clean -f"
-alias gs="git status"
+alias gs="git status -s"
 alias gpa="git format-patch --stdout HEAD^ > "
 
 # Misc
