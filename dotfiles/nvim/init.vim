@@ -10,12 +10,9 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye'
 Plug 'prabirshrestha/async.vim', { 'for': 'python'}
 Plug 'prabirshrestha/vim-lsp', { 'for': 'python'}
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine', { 'for': 'python'}
 Plug 'zchee/deoplete-jedi', { 'for': 'python'}
@@ -69,19 +66,9 @@ let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
 se termguicolors
 
-" Airline
-let g:airline#extensions#ale#enabled = 0
-let g:airline#extensions#tabline#buffer_min_count = 2
-let g:airline#extensions#tabline#buffers_label = 'B'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#middle_click_preserves_windows = 1
-let g:airline#extensions#tabline#tabs_label = 'T'
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline_powerline_fonts = 1
-let g:airline_section_c = '%t'
-let g:airline_theme='angr'
+" Statuslin
 se noshowmode
+se laststatus=0
 
 " Brackets
 inoremap { {}<left>
@@ -141,18 +128,6 @@ se hidden
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
 nnoremap <silent><a-m> :Goyo<cr>
 tnoremap <silent><a-m> <c-\><c-n>:Goyo<cr>:star<cr>
-
-" NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeIgnore=['.git', '__pycache__', 'tags']
-let NERDTreeMinimalUI=1
-let NERDTreeMouseMode=2
-let NERDTreeShowHidden=1
-let NERDTreeStatusline='NERDTree'
-nnoremap <silent><a-e> :NERDTreeToggle<cr>
-tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr>
 
 " ALE & Deoplete
 let g:ale_fixers = {
