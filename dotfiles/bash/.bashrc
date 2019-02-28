@@ -79,7 +79,8 @@ alias gpl="git pull"
 alias grh="git reset --hard"
 alias gcn="git clean -f"
 alias gs="git status -s"
-alias gpa="git format-patch --stdout HEAD^ > "
+alias gpa="git format-patch --stdout HEAD^ >"
+alias gsm="git send-email --subject-prefix="" --to"
 
 # Misc
 alias -- -="cd -"
