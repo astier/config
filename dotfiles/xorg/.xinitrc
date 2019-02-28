@@ -30,15 +30,7 @@ xmodmap -e "keycode 133 = ISO_Level3_Shift"
 numlockx
 compton &
 xbanish &
-
-while true; do
-	feh --randomize --bg-fill ~/Dropbox/Pictures/Wallpapers/
-	sleep 600
-done &
-
-while true; do
-	dstatus
-	sleep 60
-done &
+dstatus &
+wpr &
 
 exec dwm
