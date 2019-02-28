@@ -1,6 +1,6 @@
 [user]
-	email = aleksandrs.stier@uni-bielefeld.de
-	name = astier
+	email = aleks.stier@icloud.com
+	name = aleks
 
 [core]
 	excludesfile = ~/.config/git/ignore
@@ -13,5 +13,9 @@
 
 [credential "https://gitlab.ub.uni-bielefeld.de"]
 	username = astier
-[push]
-	followTags = true
+
+[sendemail]
+	smtpserver = smtp.mail.me.com
+	smtpencryption = tls
+	smtpserverport = 587
+	smtpuser = aleks.stier@icloud.com
