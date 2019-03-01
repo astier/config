@@ -27,6 +27,7 @@ alias ls="ls --color --group-directories-first -h"
 # alias maim="maim ~/Dropbox/Pictures/$(date +%s).png"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
+alias sxiv="sxiv -b"
 cd() { builtin cd "$@" && ls -A; }
 
 # Directories
