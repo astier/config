@@ -12,9 +12,8 @@
 # where C/M/S indicate Ctrl/Meta(Alt)/Shift modifier states and KEY is the X
 # keysym as listed in /usr/include/X11/keysymdef.h without the "XK_" prefix.
 
-while read file; do
+while read -r file; do
 	case "$1" in
-	"t")      xsetroot -name "$file - $1" ;;
 	"w")      wps "$file" ;;
 	"d")      rm "$file" ;;
 	esac
