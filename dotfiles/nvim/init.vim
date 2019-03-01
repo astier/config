@@ -17,20 +17,12 @@ Plug 'w0rp/ale'
 Plug 'zchee/deoplete-jedi', { 'for': 'python'}
 call plug#end()
 
-" Hard-Mode
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-
 " Misc
 let mapleader=' '
 let maplocalleader=' '
 let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 au BufEnter * se fo-=cro
 au BufWritePost * GitGutter
 nnoremap <cr> o<esc>
