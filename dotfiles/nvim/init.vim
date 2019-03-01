@@ -13,7 +13,7 @@ Plug 'prabirshrestha/vim-lsp', { 'for': 'python'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex']}
 Plug 'zchee/deoplete-jedi', { 'for': 'python'}
 call plug#end()
 
@@ -62,8 +62,8 @@ se termguicolors
 inoremap { {}<left>
 inoremap ( ()<left>
 inoremap [ []<left>
-inoremap ' ''<left>
-inoremap " ""<left>
+inoremap '' ''<left>
+inoremap "" ""<left>
 
 " Navigation
 nnoremap <a-h> <c-w>h
@@ -121,22 +121,16 @@ let g:ale_fixers = {
     \ '*': ['remove_trailing_lines', 'trim_whitespace'],
     \ 'python': ['isort', 'black'],
 \}
-" let g:ale_linters = {
-"     \ 'python': ['pylint'],
-"     \ 'sh': ['shellcheck'],
-"     \ 'tex': ['chktex'],
-" \}
 let g:ale_python_black_options = '-l79'
 let g:ale_python_pylint_options = '--disable=C0102,C0103,C0111,C0330,C0200,R0903,R0913,R0914,W0511 --max-line-length=79'
 let g:ale_python_black_executable = nvi.'black'
+nnoremap <silent><a-a><a-f> :ALEFix<cr>
+
+" Deoplete
 let g:deoplete#enable_at_startup = 1
 au! CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
-nnoremap <silent><a-a>f :ALEFix<cr>
-nnoremap <silent><a-a>h :LspHover<cr>
-nnoremap <silent><a-a>r :LspRename<cr>
-nnoremap <silent><a-a>d :LspDefinition<cr>
 
 " LSP
 let g:lsp_diagnostics_enabled = 0
@@ -148,11 +142,13 @@ if executable('pyls')
         \ 'whitelist': ['python'],
 \ })
 endif
+nnoremap <silent><a-a><a-h> :LspHover<cr>
+nnoremap <silent><a-a><a-r> :LspRename<cr>
+nnoremap <silent><a-a><a-d> :LspDefinition<cr>
 
 " Python
-" au FileType python setl colorcolumn=80
-au FileType python inoremap <silent><buffer>,d <esc>:read $DOTFILES/nvim/snippets/python/def.py<cr>:norm =ae<cr>4li
 let g:python3_host_prog = nvi.'python'
+au FileType python inoremap <silent><buffer>,d <esc>:read $DOTFILES/nvim/snippets/python/def.py<cr>:norm =ae<cr>4li
 
 " VimTex
 let g:vimtex_compiler_progname = 'nvr'
