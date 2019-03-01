@@ -31,7 +31,7 @@ nnoremap <silent><a-v><a-s> :setl spell<cr>
 se autochdir
 se tabstop=4 shiftwidth=4
 se mouse=a
-se number relativenumber
+se nu rnu
 se signcolumn=yes
 se scrolloff=5
 se splitbelow splitright
@@ -41,7 +41,7 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 au FocusGained,BufEnter * checkt
 let g:auto_save = 1
 let g:auto_save_silent = 1
-se autowriteall
+" se autowriteall
 se confirm
 
 " Search
