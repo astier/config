@@ -24,41 +24,39 @@ let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 au BufEnter * se fo-=cro
-au BufWritePost * GitGutter
 nnoremap <cr> o<esc>
 nnoremap <silent><a-v><a-v> :e $MYVIMRC<cr>
 nnoremap <silent><a-v><a-s> :setl spell<cr>
 se autochdir
-se tabstop=4 shiftwidth=4
+se confirm
 se mouse=a
-se nu rnu
-se signcolumn=yes
-se scrolloff=5
+se scrolloff=2
 se splitbelow splitright
+se tabstop=4 shiftwidth=4
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " Save
 au FocusGained,BufEnter * checkt
 let g:auto_save = 1
 let g:auto_save_silent = 1
-" se autowriteall
-se confirm
+se noswapfile
 
 " Search
 nnoremap <silent># *
 nnoremap <silent><esc> :noh<cr><esc>
 nnoremap ,r :%s//g<left><left>
 
-" Theme
+" Appearance
+au BufWritePost * GitGutter
 let g:enable_italic_font = 1
 let g:enable_bold_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
-se termguicolors
-
-" Statuslin
+se laststatus=1
 se noshowmode
-se laststatus=0
+se number relativenumber
+se signcolumn=yes
+se termguicolors
 
 " Brackets
 inoremap { {}<left>
@@ -112,7 +110,6 @@ au TermOpen * :setl nonu nornu scl=no | star
 tnoremap ,<esc> <c-\><c-n>
 nnoremap <silent><a-s> :te<cr>
 tnoremap <silent><a-s> <c-\><c-n>:te<cr>
-se hidden
 
 " Goyo
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
