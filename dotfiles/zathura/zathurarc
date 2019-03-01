@@ -1,0 +1,6 @@
+set highlight-color "#5294e2"
+set incremental-search true
+set inputbar-fg "#5294e2"
+set selection-clipboard clipboard
+set selection-notification false
+set statusbar-home-tilde true
