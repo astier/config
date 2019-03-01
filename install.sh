@@ -16,3 +16,4 @@ install nvim                        ~/.config/
 install pacman/pacman.conf          /etc/
 install pacman/hooks/               /etc/pacman.d/
 install systemd/logind.conf         /etc/systemd/
+install sxiv                        /usr/local/share/
