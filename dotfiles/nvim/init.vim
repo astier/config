@@ -55,7 +55,6 @@ colorscheme hybrid_material
 se laststatus=0
 se noruler
 se noshowmode
-se number relativenumber
 se signcolumn=yes
 se termguicolors
 
