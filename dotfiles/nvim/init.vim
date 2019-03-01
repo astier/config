@@ -166,6 +166,8 @@ au FileType python inoremap <silent><buffer>,d <esc>:read $DOTFILES/nvim/snippet
 let g:python3_host_prog = nvi.'python'
 
 " VimTex
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
@@ -180,12 +182,9 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode'
     \ ],
 \}
-let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_compiler_progname = 'nvr'
 
 " LaTeX
 let g:tex_flavor = 'latex'
-let g:indentLine_fileTypeExclude = ['tex']
 nnoremap <silent><a-a>c :VimtexCompile<cr>
 au FileType tex inoremap <expr><buffer><CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
