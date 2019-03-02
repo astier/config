@@ -26,7 +26,6 @@ alias grep="grep --color"
 alias ls="ls --color --group-directories-first -h"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
-alias sxiv="sxiv -b ."
 cd() { builtin cd "$@" && ls -A; }
 
 # Shortcuts
@@ -43,7 +42,6 @@ alias p="patch -p1 < "
 alias r="rm"
 alias sa="source activate"
 alias sd="conda deactivate"
-alias s='sxiv'
 alias y='yay'
 
 # Directories
@@ -63,7 +61,7 @@ alias jsx="cd ~/Projects/sxiv/"
 alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
 
 # Files
-alias o="xdg-open"
+alias o="open"
 alias oa="\$EDITOR ~/Projects/arch-installer/arch_desktop.sh"
 alias ob="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
 alias obp="\$EDITOR \$DOTFILES/bash/.bash_profile"

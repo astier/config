@@ -13,7 +13,7 @@
 
 while read -r file; do
 	case "$1" in
-	"w")      wps "$file" ;;
-	"d")      rm "$file" ;;
+	"w") wps "$file" ;;
+	"d") rm "$file" ;;
 	esac
 done

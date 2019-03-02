@@ -44,7 +44,8 @@ se noswapfile
 " Search
 nnoremap <silent># *
 nnoremap <silent><esc> :noh<cr><esc>
-nnoremap ,r :%s//g<left><left>
+nnoremap <a-r><a-r> :%s//g<left><left>
+nnoremap <a-r><a-w> #:%s///g<left><left>
 
 " Appearance
 au BufWritePost * GitGutter
