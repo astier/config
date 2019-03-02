@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PATH=$PATH:~/miniconda3/bin:~/bin
+export PATH=$PATH:~/miniconda3/bin:~/.local/bin
 export EDITOR=nvim
 export DOTFILES=~/Projects/dotfiles/dotfiles
 
