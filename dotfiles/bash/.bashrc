@@ -43,7 +43,7 @@ alias pa="patch -p1 < "
 alias r="rm"
 alias sa="source activate"
 alias sd="conda deactivate"
-alias y='yay'
+alias u='yay'
 
 # Directories
 alias ja="cd ~/Projects/arch-installer/"
