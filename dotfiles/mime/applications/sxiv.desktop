@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=sxiv -b .
+Exec=sxiv -b %d
 Icon=image-viewer
 MimeType=image/*;
 Name=sxiv
