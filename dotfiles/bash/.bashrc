@@ -57,7 +57,8 @@ alias jp="cd ~/Projects/"
 alias jsc="cd ~/Projects/scripts/scripts/"
 alias jsi="cd ~/Projects/sites/"
 alias jst="cd ~/Projects/st/"
-alias jsx="cd ~/Projects/sxiv/"
+alias jxi="cd ~/Projects/sxiv/"
+alias jxa="cd ~/Projects/sxrap/"
 alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
 
 # Files
