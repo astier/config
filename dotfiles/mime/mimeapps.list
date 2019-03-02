@@ -1,0 +1,7 @@
+[Default Applications]
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+image/jpeg=sxiv.desktop
+image/png=sxiv.desktop
+text/plain=nvim.desktop
+text/x-python=nvim.desktop
+text/x-shellscript=nvim.desktop

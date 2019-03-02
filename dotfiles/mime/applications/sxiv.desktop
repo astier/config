@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=sxiv -b
+Icon=image-viewer
+MimeType=image/*;
+Name=sxiv
+Terminal=false
+Type=Application
