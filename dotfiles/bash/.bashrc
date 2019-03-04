@@ -32,7 +32,7 @@ cd() { builtin cd "$@" && ls -A; }
 alias -- -="cd -"
 alias -- ,="cd .."
 alias c="cd"
-alias cl="clear"
+alias d="clear"
 alias l="ls -A"
 alias ll="ls -Al"
 alias m="mv"
