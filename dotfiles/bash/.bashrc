@@ -47,7 +47,7 @@ alias sd="conda deactivate"
 alias u='yay'
 
 # Directories
-alias ja="cd ~/Projects/arch-installer/"
+alias ja="cd ~/Projects/arch/"
 alias jd="cd \$DOTFILES"
 alias jdm="cd ~/Projects/dmenu/"
 alias jdo="cd ~/Downloads/"
@@ -64,7 +64,7 @@ alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
 
 # Files
 alias o="open"
-alias oa="\$EDITOR ~/Projects/arch-installer/arch_desktop.sh"
+alias oa="\$EDITOR ~/Projects/arch/arch_desktop.sh"
 alias ob="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
 alias obp="\$EDITOR \$DOTFILES/bash/.bash_profile"
 alias on="\$EDITOR ~/Dropbox/Notes/notes"
