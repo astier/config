@@ -118,7 +118,7 @@ au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
 nnoremap <silent><a-m> :Goyo<cr>
 tnoremap <silent><a-m> <c-\><c-n>:Goyo<cr>:star<cr>
 
-" ALE & Deoplete
+" ALE
 let g:ale_fixers = {
     \ '*': ['remove_trailing_lines', 'trim_whitespace'],
     \ 'python': ['isort', 'black'],
@@ -153,19 +153,19 @@ let g:python3_host_prog = nvi.'python'
 au FileType python inoremap <silent><buffer>,d <esc>:read $DOTFILES/nvim/snippets/python/def.py<cr>:norm =ae<cr>4li
 
 " VimTex
-let g:vimtex_compiler_progname = nvi.'nvr'
-let g:vimtex_view_general_viewer = 'zathura'
+" let g:vimtex_compiler_progname = nvi.'nvr'
+let g:vimtex_view_general_viewer = 'firefox'
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
     \ 'build_dir' : 'tex',
-    \ 'callback' : 1,
-    \ 'continuous' : 1,
+    \ 'callback' : 0,
+    \ 'continuous' : 0,
     \ 'executable' : 'latexmk',
     \ 'options' : [
     \   '-verbose',
     \   '-file-line-error',
-    \   '-synctex=1',
+    \   '-synctex=0',
     \   '-interaction=nonstopmode'
     \ ],
 \}
