@@ -37,6 +37,7 @@ se tabstop=4 shiftwidth=4
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " Save
+au BufWritePost * GitGutter
 au FocusGained,BufEnter * checkt
 let g:auto_save = 1
 let g:auto_save_silent = 1
@@ -49,7 +50,6 @@ nnoremap <a-r><a-r> :%s//g<left><left>
 nnoremap <a-r><a-w> #:%s///g<left><left>
 
 " Appearance
-au BufWritePost * GitGutter
 let g:enable_italic_font = 1
 let g:enable_bold_font = 1
 let g:hybrid_transparent_background = 1
