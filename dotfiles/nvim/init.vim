@@ -54,11 +54,17 @@ let g:enable_italic_font = 1
 let g:enable_bold_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
-se laststatus=0
+se laststatus=1
 se noruler
 se noshowmode
 se signcolumn=yes
 se termguicolors
+
+" Search
+nnoremap <silent># *
+nnoremap <silent><esc> :noh<cr><esc>
+nnoremap <a-r><a-r> :%s//g<left><left>
+nnoremap <a-r><a-w> #:%s///g<left><left>
 
 " Brackets
 inoremap { {}<left>
