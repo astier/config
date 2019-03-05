@@ -26,7 +26,8 @@ let g:loaded_netrwPlugin = 1
 au BufEnter * se fo-=cro
 nnoremap <cr> o<esc>
 nnoremap <silent><a-v><a-v> :e $MYVIMRC<cr>
-nnoremap <silent><a-v><a-s> :setl spell<cr>
+nnoremap <silent><a-s><a-s> :setl spell<cr>
+nnoremap <silent><a-s><a-d> :setl nospell<cr>
 se autochdir
 se confirm
 se mouse=a
