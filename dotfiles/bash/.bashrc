@@ -69,6 +69,7 @@ alias oa="\$EDITOR ~/Projects/arch/arch_desktop.sh"
 alias ob="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
 alias obp="\$EDITOR \$DOTFILES/bash/.bash_profile"
 alias on="\$EDITOR ~/Dropbox/Notes/notes"
+alias or="\$EDITOR ~/.newsboat/urls"
 alias ov="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ox="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
