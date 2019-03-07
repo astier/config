@@ -32,6 +32,7 @@ cd() { builtin cd "$@" && ls -A; }
 alias -- -="cd -"
 alias -- ,="cd .."
 alias c="cd"
+alias r="rm"
 alias d="clear"
 alias dd="cd; clear"
 alias l="ls"
@@ -47,6 +48,7 @@ alias u='yay'
 # Directories
 alias ja="cd ~/Projects/arch/"
 alias jc="cd ~/.config/"
+alias jl="cd ~/.local/share/"
 alias jd="cd \$DOTFILES"
 alias jdm="cd ~/Projects/dmenu/"
 alias jdo="cd ~/Downloads/"
