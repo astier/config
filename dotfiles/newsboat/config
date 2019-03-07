@@ -1,7 +1,12 @@
-auto-reload yes
 articlelist-title-format "%T"
+articlelist-format "%f %t"
+auto-reload yes
+color info white black
+color listfocus white black
+color listfocus_unread white black
+feedlist-title-format "FEEDS"
+feedlist-format "%n  %t"
+help-title-format "HELP"
 itemview-title-format "%T"
-feedlist-title-format "Feeds"
-help-title-format "Help"
 max-items 4
 show-keymap-hint no
