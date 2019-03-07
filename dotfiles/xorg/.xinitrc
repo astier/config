@@ -31,6 +31,6 @@ numlockx
 compton &
 xbanish &
 dstatus &
-wpr &
+wpr ~/Dropbox/Pictures/Wallpapers/ &
 
 exec dwm

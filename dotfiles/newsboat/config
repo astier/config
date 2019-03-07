@@ -1,0 +1,7 @@
+auto-reload yes
+articlelist-title-format "%T"
+itemview-title-format "%T"
+feedlist-title-format "Feeds"
+help-title-format "Help"
+max-items 4
+show-keymap-hint no
