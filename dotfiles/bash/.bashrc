@@ -26,6 +26,7 @@ alias grep="grep --color"
 alias ls="ls --color --group-directories-first -Ah"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
+alias top="top -1 -u \$USER"
 cd() { builtin cd "$@" && ls -A; }
 
 # Shortcuts
