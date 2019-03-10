@@ -44,7 +44,7 @@ alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pa
 alias pa="patch -p1 < "
 alias sa="source activate"
 alias sd="conda deactivate"
-alias u='yay'
+alias y='yay'
 
 # Directories
 alias ja="cd ~/Projects/arch/"
