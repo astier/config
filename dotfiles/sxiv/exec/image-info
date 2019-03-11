@@ -3,9 +3,9 @@
 # Called by sxiv(1) whenever an image gets loaded.
 # The output is displayed in sxiv's status bar.
 # Arguments:
-#   $1: path to image file
-#   $2: image width
-#   $3: image height
+#	$1: path to image file
+#	$2: image width
+#	$3: image height
 
 s="  " # field separator
 

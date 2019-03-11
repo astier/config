@@ -21,7 +21,7 @@ call plug#end()
 let mapleader=' '
 let maplocalleader=' '
 let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
-let g:loaded_netrw       = 1
+let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 au BufEnter * se fo-=cro
 nnoremap <cr> o<esc>
@@ -126,8 +126,8 @@ tnoremap <silent><a-m> <c-\><c-n>:Goyo<cr>:star<cr>
 
 " ALE
 let g:ale_fixers = {
-    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \ 'python': ['isort', 'black'],
+	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+	\ 'python': ['isort', 'black'],
 \}
 let g:ale_python_black_options = '-l79'
 let g:ale_python_pylint_options = '--disable=C0102,C0103,C0111,C0330,C0200,R0903,R0913,R0914,W0511 --max-line-length=79'
@@ -144,10 +144,10 @@ inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
 let g:lsp_diagnostics_enabled = 0
 let g:lsp_preview_keep_focus = 0
 if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
+	au User lsp_setup call lsp#register_server({
+		\ 'name': 'pyls',
+		\ 'cmd': {server_info->['pyls']},
+		\ 'whitelist': ['python'],
 \ })
 endif
 nnoremap <silent><a-a><a-h> :LspHover<cr>
@@ -162,18 +162,18 @@ au FileType python inoremap <silent><buffer>,d <esc>:read $DOTFILES/nvim/snippet
 " let g:vimtex_compiler_progname = nvi.'nvr'
 let g:vimtex_view_general_viewer = 'firefox'
 let g:vimtex_compiler_latexmk = {
-    \ 'backend' : 'nvim',
-    \ 'background' : 1,
-    \ 'build_dir' : 'tex',
-    \ 'callback' : 0,
-    \ 'continuous' : 0,
-    \ 'executable' : 'latexmk',
-    \ 'options' : [
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=0',
-    \   '-interaction=nonstopmode'
-    \ ],
+	\ 'backend' : 'nvim',
+	\ 'background' : 1,
+	\ 'build_dir' : 'tex',
+	\ 'callback' : 0,
+	\ 'continuous' : 0,
+	\ 'executable' : 'latexmk',
+	\ 'options' : [
+	\	'-verbose',
+	\	'-file-line-error',
+	\	'-synctex=0',
+	\	'-interaction=nonstopmode'
+	\ ],
 \}
 
 " LaTeX
