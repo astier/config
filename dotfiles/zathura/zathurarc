@@ -6,5 +6,5 @@ set selection-clipboard clipboard
 set selection-notification false
 set statusbar-basename true
 set recolor true
-set recolor-darkcolor "#b9c9d4"
-set recolor-lightcolor "#383c4a"
+set recolor-darkcolor "#cce2f0"
+set recolor-lightcolor "#4b5162"
