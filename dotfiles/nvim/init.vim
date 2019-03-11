@@ -1,6 +1,5 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugins')
-Plug '907th/vim-auto-save'
 Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python', 'sh', 'tex', 'vim']}
 Plug 'Shougo/neco-vim', {'for': 'vim'}
 Plug 'airblade/vim-gitgutter'
@@ -29,7 +28,6 @@ nnoremap <silent><a-v><a-v> :e $MYVIMRC<cr>
 nnoremap <silent><a-s><a-s> :setl spell<cr>
 nnoremap <silent><a-s><a-d> :setl nospell<cr>
 se autochdir
-se confirm
 se mouse=a
 se scrolloff=2
 se splitbelow splitright
@@ -37,10 +35,8 @@ se tabstop=4 shiftwidth=4
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " Save
-au BufWritePost * GitGutter
 au FocusGained,BufEnter * checkt
-let g:auto_save = 1
-let g:auto_save_silent = 1
+au InsertLeave,TextChanged * silent w | GitGutter
 se noswapfile
 
 " Search
@@ -114,7 +110,7 @@ tnoremap <silent><a-q> <c-\><c-n>:qa<cr>
 
 " Terminal
 au BufEnter term://* star
-au TermOpen * :setl nonu nornu scl=no | star
+au TermOpen * setl nonu nornu scl=no | star
 tnoremap ,<esc> <c-\><c-n>
 nnoremap <silent><a-s> :te<cr>
 tnoremap <silent><a-s> <c-\><c-n>:te<cr>
