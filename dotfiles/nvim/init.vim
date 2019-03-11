@@ -36,7 +36,7 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " Save
 au FocusGained,BufEnter * checkt
-au InsertLeave,TextChanged * silent w | GitGutter
+au InsertLeave,TextChanged * if &buftype == '' | silent w | GitGutter | endif
 se noswapfile
 
 " Search
