@@ -65,7 +65,7 @@ alias jsx="cd ~/Projects/sxiv/"
 alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
 
 # Files
-alias o="open"
+alias o="xdg-open"
 alias oa="\$EDITOR ~/Projects/arch/arch_desktop.sh"
 alias ob="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
 alias obp="\$EDITOR \$DOTFILES/bash/.bash_profile"
