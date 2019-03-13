@@ -1,5 +1,5 @@
 [Default Applications]
-application/pdf=firefox.desktop;
+application/pdf=org.pwmt.zathura.desktop;
 image/jpeg=sxrap.desktop
 image/png=sxrap.desktop
 text/plain=nvim.desktop
