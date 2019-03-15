@@ -23,6 +23,7 @@ let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 au BufEnter * se fo-=cro
 nnoremap <cr> o<esc>
+nnoremap <a-cr> O<esc>
 nnoremap <silent><a-v><a-v> :e $MYVIMRC<cr>
 nnoremap <silent><esc> :noh<cr><esc>
 nnoremap <a-r><a-r> :%s//g<left><left>
