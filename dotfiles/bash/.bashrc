@@ -22,7 +22,6 @@ alias cal='cal -m'
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
-# alias feh="feh --scale-down --image-bg black --geometry +0+0 --no-fehbg"
 alias grep="grep --color"
 alias ls="ls --color --group-directories-first -Ah"
 alias mv="mv -i"
