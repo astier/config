@@ -29,6 +29,8 @@ nnoremap <silent><esc> :noh<cr><esc>
 nnoremap <a-r><a-r> :%s//g<left><left>
 nnoremap <silent><a-s><a-s> :setl spell<cr>
 nnoremap <silent><a-s><a-d> :setl nospell<cr>
+vnoremap <a-y> "+y
+nnoremap <a-p> "+p
 se autochdir
 se mouse=a
 se scrolloff=2

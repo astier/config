@@ -1,7 +1,0 @@
-[Desktop Entry]
-Exec=nvim
-Icon=nvim
-Name=Neovim
-MimeType=text/*;
-Terminal=true
-Type=Application

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Exec=sxrap
-Icon=image-viewer
-MimeType=image/*;
-Name=sxrap
-Terminal=false
-Type=Application
-Comment=A sxiv wrapper which enables to open an image and navigate to other images in the same CWD.

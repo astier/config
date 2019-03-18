@@ -10,12 +10,11 @@ install () {
 install bash/.bash_profile			~/
 install bash/.bashrc				~/
 install xorg/.xinitrc				~/
+install feh							~/.config/
 install git							~/.config/
 install gtk-3.0/					~/.config/
-install mime/applications			~/.local/share/
 install mime/mimeapps.list			~/.config/
 install nvim						~/.config/
-install sxiv						~/.config/
 install zathura						~/.config/
 install pacman/pacman.conf			/etc/
 install pacman/hooks/				/etc/pacman.d/

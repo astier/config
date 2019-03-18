@@ -22,6 +22,7 @@ alias cal='cal -m'
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
+# alias feh="feh --scale-down --image-bg black --geometry +0+0 --no-fehbg"
 alias grep="grep --color"
 alias ls="ls --color --group-directories-first -Ah"
 alias mv="mv -i"
@@ -48,6 +49,8 @@ alias r="rm"
 alias sa="source activate"
 alias sd="conda deactivate"
 alias y='yay'
+alias su="systemctl suspend"
+alias po="poweroff"
 
 # Directories
 alias ja="cd ~/Projects/arch/"
@@ -66,7 +69,7 @@ alias jsc="cd ~/Projects/scripts/scripts/"
 alias jsi="cd ~/Projects/sites/"
 alias jst="cd ~/Projects/st/"
 alias jsx="cd ~/Projects/sxiv/"
-alias jw="cd ~/Dropbox/pics/Wallpapers/"
+alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
 
 # Files
 alias o="xdg-open"
