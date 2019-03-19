@@ -28,6 +28,8 @@ alias mv="mv -i"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
+
+# Functions
 cd() {
 	if [ "$1" == "" ]; then
 		builtin cd && clear
@@ -83,23 +85,31 @@ alias ov="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ox="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
 # Git
-alias g="git log --all --graph --decorate --oneline -n16"
 alias ga="git add --all"
-alias gaf="git add"
+alias gaa="git add"
+
 alias gb="git branch"
 alias gbd="git branch -d"
-alias gc="git commit"
-alias gcam="git commit -am"
+
+alias gs="git status -s"
 alias gcl="git clone"
-alias gcm="git commit -m"
-alias gcn="git clean -f"
 alias gd="git diff"
+
+alias gc="git commit -am"
+alias gca="git commit -m"
+alias gcam="git commit"
+
+alias g="git log --all --graph --decorate --oneline -n16"
 alias gg="git log --all --graph --decorate --oneline"
 alias gl="git log --date=auto:human"
+
 alias go-="git checkout --"
 alias go="git checkout"
+
+alias gp="git push"
 alias gpl="git pull"
-alias gps="git push"
+
+alias gcn="git clean -f"
 alias grh="git reset --hard"
 alias grr="git reset --hard; git clean -f"
-alias gs="git status -s"
+
