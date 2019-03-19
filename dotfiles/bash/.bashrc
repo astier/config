@@ -55,8 +55,6 @@ alias r="rm"
 alias sa="source activate"
 alias sd="conda deactivate"
 alias y='yay'
-alias su="systemctl suspend"
-alias po="poweroff"
 
 # Directories
 alias ja="cd ~/Projects/arch/"
