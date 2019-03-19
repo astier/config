@@ -32,7 +32,7 @@ cd() {
 	if [ "$1" == "" ]; then
 		builtin cd && clear
 	else
-		builtin cd "$1" && ls -A
+		builtin cd "$@" && ls -A
 	fi
 }
 
