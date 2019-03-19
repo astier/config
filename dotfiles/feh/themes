@@ -1,1 +1,1 @@
-feh --scale-down --image-bg black --geometry +0+0 --no-fehbg --on-last-slide hold --edit
+feh --scale-down --image-bg black --geometry +0+0 --no-fehbg --on-last-slide hold --edit --quiet
