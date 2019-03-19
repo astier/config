@@ -33,9 +33,8 @@ cd() { builtin cd "$@" && ls -A; }
 # Shortcuts
 alias -- ,="cd .."
 alias -- -="cd -"
-alias c="cd"
+alias c="cd; clear"
 alias d="clear"
-alias dd="cd; clear"
 alias l="ls"
 alias ll="ls -l"
 alias m="mv"
