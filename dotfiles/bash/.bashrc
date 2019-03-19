@@ -28,7 +28,13 @@ alias mv="mv -i"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
-cd() { if [ "$1" == "" ]; then builtin cd && clear else builtin cd "$1" && ls -A fi }
+cd() {
+	if [ "$1" == "" ]; then
+		builtin cd && clear
+	else
+		builtin cd "$1" && ls -A
+	fi
+}
 
 # Shortcuts
 alias -- ,="cd .."
