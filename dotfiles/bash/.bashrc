@@ -13,9 +13,9 @@ WHITE="\[\e[m\]"
 PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')] ${WHITE}"
 
 # Settings
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth:erasedups
 set -o vi
-shopt -s autocd cdspell
+shopt -s autocd cdspell checkwinsize
 
 # Defaults
 alias cal='cal -m'
