@@ -29,12 +29,11 @@ alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 
-# Functions
 cd() {
 	if [ "$1" == "" ]; then
 		builtin cd && clear
 	else
-		builtin cd "$@" && ls -A
+		builtin cd "$@" && ls
 	fi
 }
 
