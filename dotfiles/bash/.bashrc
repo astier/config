@@ -15,7 +15,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')] ${WHITE}"
 # Settings
 HISTCONTROL=ignoreboth:erasedups
 set -o vi
-shopt -s autocd cdspell checkwinsize
+shopt -s autocd cdspell checkwinsize histappend
 
 # Defaults
 alias cal='cal -m'
