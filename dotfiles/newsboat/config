@@ -1,6 +1,7 @@
 articlelist-title-format "%T"
 articlelist-format "%f %t"
 auto-reload yes
+browser "mpv %u"
 color info black green
 color listfocus white blue
 color listfocus_unread white blue
@@ -8,5 +9,5 @@ feedlist-title-format "FEEDS"
 feedlist-format "%n  %t"
 help-title-format "HELP"
 itemview-title-format "%T"
-max-items 4
+max-items 8
 show-keymap-hint no
