@@ -14,7 +14,6 @@ install feh							~/.config/
 install git							~/.config/
 install gtk-3.0/					~/.config/
 install mime/mimeapps.list			~/.config/
-install newsboat                    ~/.config/
 install nvim						~/.config/
 install zathura						~/.config/
 install pacman/pacman.conf			/etc/
