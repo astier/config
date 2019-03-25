@@ -64,15 +64,15 @@ alias y='yay'
 
 # Directories
 alias ja="cd ~/Projects/arch/"
+alias jb="cd ~/Dropbox/"
 alias jc="cd ~/.config/"
-alias jl="cd ~/.local/share/"
 alias jd="cd \$DOTFILES"
-alias jdb="cd ~/Dropbox/"
 alias jdm="cd ~/Projects/dmenu/"
-alias jdo="cd ~/Downloads/"
 alias jdw="cd ~/Projects/dwm/"
+alias jl="cd ~/.local/share/"
 alias jm="cd ~/Dropbox/ISY/S3/MYO/"
 alias jn="cd ~/Dropbox/Notes/"
+alias jo="cd ~/Downloads/"
 alias jp="cd ~/Projects/"
 alias js="cd ~/Projects/scripts/scripts/"
 alias jst="cd ~/Projects/st/"
