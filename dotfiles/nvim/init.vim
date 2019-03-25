@@ -157,7 +157,6 @@ let g:vimtex_compiler_latexmk = {
 
 " LaTeX
 let g:tex_flavor = 'latex'
-nnoremap <silent><a-a>c :VimtexCompile<cr>
 au FileType tex inoremap <expr><buffer><CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
 au FileType tex inoremap <silent><buffer>,j <esc>/\~<cr>s
