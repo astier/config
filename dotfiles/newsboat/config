@@ -1,7 +1,6 @@
 articlelist-title-format "%T"
 articlelist-format "%f %t"
 auto-reload yes
-browser "mpv %u"
 color info black green
 color listfocus white blue
 color listfocus_unread white blue
