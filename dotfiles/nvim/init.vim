@@ -42,7 +42,7 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " Save
 au FocusGained,BufEnter * checkt
-au InsertLeave,TextChanged * GitGutter
+au BufWritePost * GitGutter
 let g:auto_save = 1
 let g:auto_save_silent = 1
 se confirm
