@@ -1,5 +1,6 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugins')
+Plug '907th/vim-auto-save'
 Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python', 'sh', 'tex', 'vim']}
 Plug 'Shougo/neco-vim', {'for': 'vim'}
 Plug 'airblade/vim-gitgutter'
@@ -41,8 +42,10 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " Save
 au FocusGained,BufEnter * checkt
-au InsertLeave,TextChanged * if &buftype == '' | silent w | GitGutter | endif
-se noswapfile
+au InsertLeave,TextChanged * GitGutter
+let g:auto_save = 1
+let g:auto_save_silent = 1
+se confirm
 
 " Appearance
 let g:enable_italic_font = 1
