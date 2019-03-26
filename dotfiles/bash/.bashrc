@@ -116,4 +116,5 @@ alias gpl="git pull"
 
 alias gcn="git clean -f"
 alias grh="git reset --hard"
+alias grs="git reset --soft"
 alias grr="git reset --hard; git clean -f"
