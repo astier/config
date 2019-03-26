@@ -3,6 +3,7 @@ call plug#begin('~/.local/share/nvim/plugins')
 Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python', 'sh', 'tex', 'vim']}
 Plug 'Shougo/neco-vim', {'for': 'vim'}
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye'
@@ -105,6 +106,11 @@ au BufEnter term://* star
 au TermOpen * setl nonu nornu scl=no | star
 nnoremap <silent><a-t> :te<cr>
 set hidden
+
+" Goyo
+au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
+nnoremap <silent><a-f> :Goyo<cr>
+tnoremap <silent><a-f> <c-\><c-n>:Goyo<cr>:star<cr>
 
 " ALE
 let g:ale_fixers = {'python': ['isort', 'black']}
