@@ -41,20 +41,11 @@ cd() {
 	fi
 }
 
-bat() {
-	bat_dir=/sys/class/power_supply/BAT0
-	if [ ! -d "$bat_dir" ]; then
-		echo "No battery found."
-	else
-		echo "$(cat $bat_dir/capacity)"
-	fi
-}
-
 # Shortcuts
 alias -- ,="cd .."
 alias -- -="cd -"
 alias c="cd"
-alias b="bat"
+alias b="echo $(cat /sys/class/power_supply/BAT0/capacity)"
 alias d="clear"
 alias dl="clear; ls"
 alias l="ls"
