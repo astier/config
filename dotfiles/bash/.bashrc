@@ -15,7 +15,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')] ${WHITE}"
 # Settings
 HISTCONTROL=ignoreboth:erasedups
 set -o vi
-shopt -s autocd cdspell checkwinsize histappend
+shopt -s autocd cdspell checkwinsize
 
 # Defaults
 alias cal='cal -m'
@@ -28,7 +28,6 @@ alias lsblk="lsblk -o name,fstype,label,size,mountpoint"
 alias mv="mv -i"
 alias mount="sudo mount"
 alias umount="sudo umount"
-alias newsboat="newsboat -u ~/Dropbox/Documents/Misc/urls"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
@@ -55,9 +54,7 @@ alias m="mv"
 alias mai="sudo make install clean"
 alias md="mkdir"
 alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
-alias n="newsboat"
 alias p="cp"
-alias pa="patch -p1 < "
 alias r="rm"
 alias sa="source activate"
 alias sd="conda deactivate"
@@ -86,7 +83,6 @@ alias oa="\$EDITOR ~/Projects/arch/arch_desktop.sh"
 alias ob="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
 alias obp="\$EDITOR \$DOTFILES/bash/.bash_profile"
 alias on="\$EDITOR ~/Dropbox/Notes/notes"
-alias ou="\$EDITOR ~/Dropbox/Documents/Misc/urls"
 alias ov="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ox="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
