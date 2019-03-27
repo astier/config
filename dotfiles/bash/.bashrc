@@ -42,9 +42,6 @@ cd() {
 }
 
 # Shortcuts
-alias -- ,="cd .."
-alias -- -="cd -"
-alias c="cd"
 alias b="echo $(cat /sys/class/power_supply/BAT0/capacity)"
 alias d="clear"
 alias dl="clear; ls"
@@ -62,6 +59,9 @@ alias sd="conda deactivate"
 alias y='yay'
 
 # Directories
+alias -- ,="cd .."
+alias -- -="cd -"
+alias j="cd"
 alias ja="cd ~/Projects/arch/"
 alias jb="cd ~/Dropbox/"
 alias jc="cd ~/.config/"
