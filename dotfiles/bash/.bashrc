@@ -34,7 +34,8 @@ alias top="top -1 -u \$USER"
 
 cd() {
 	if [ "$1" == "" ]; then
-		builtin cd && clear
+		builtin cd
+		clear
 	else
 		builtin cd "$@" && ls
 	fi
