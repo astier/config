@@ -42,7 +42,7 @@ cd() {
 }
 
 # Shortcuts
-alias b="echo $(cat /sys/class/power_supply/BAT0/capacity)"
+alias b="echo \$(cat /sys/class/power_supply/BAT0/capacity)"
 alias d="clear"
 alias dl="clear; ls"
 alias l="ls"
