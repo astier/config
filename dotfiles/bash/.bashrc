@@ -81,6 +81,7 @@ alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
 # Files
 alias o="open"
 alias oa="\$EDITOR ~/Projects/arch/arch_desktop.sh"
+alias oab="\$EDITOR ~/Projects/arch/arch_base.sh"
 alias ob="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
 alias obp="\$EDITOR \$DOTFILES/bash/.bash_profile"
 alias on="\$EDITOR ~/Dropbox/Notes/notes"
@@ -94,9 +95,9 @@ alias gaa="git add"
 alias gb="git branch"
 alias gbd="git branch -d"
 
-alias gs="git status -s"
 alias gcl="git clone"
 alias gd="git diff"
+alias gs="git status -s"
 
 alias gc="git commit -am"
 alias gca="git commit -m"
