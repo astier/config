@@ -76,6 +76,7 @@ tnoremap <a-k> <c-\><c-n><c-w>k
 tnoremap <a-l> <c-\><c-n><c-w>l
 
 " Windows-Resize
+au VimResized * wincmd =
 nnoremap <silent><a-J> :res +1<cr>
 nnoremap <silent><a-K> :res -1<cr>
 nnoremap <silent><a-L> :vert res +1<cr>
