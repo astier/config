@@ -18,12 +18,12 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python'}
 call plug#end()
 
 " Misc
+au BufEnter * se fo-=cro
 let mapleader=' '
 let maplocalleader=' '
-let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
-au BufEnter * se fo-=cro
+let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
 nnoremap <cr> o<esc>
 nnoremap <a-cr> O<esc>
 nnoremap <silent><a-v><a-v> :e $MYVIMRC<cr>
@@ -33,6 +33,7 @@ nnoremap <silent><a-s><a-s> :setl spell<cr>
 nnoremap <silent><a-s><a-d> :setl nospell<cr>
 vnoremap <a-y> "+y
 nnoremap <a-p> "+p
+nnoremap # *
 se autochdir
 se mouse=a
 se scrolloff=2

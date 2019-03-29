@@ -110,6 +110,7 @@ alias gl="git log --date=auto:human"
 
 alias go-="git checkout --"
 alias go="git checkout"
+alias gob="git checkout -b"
 
 alias gp="git push"
 alias gpl="git pull"
