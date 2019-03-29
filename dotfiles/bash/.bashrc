@@ -104,6 +104,7 @@ alias gs="git status -s"
 alias gc="git commit -am"
 alias gca="git commit -m"
 alias gcam="git commit"
+gcp() { git commit -am "$1" && git push; }
 
 alias g="git log --all --graph --decorate --oneline -n16"
 alias gg="git log --all --graph --decorate --oneline"
