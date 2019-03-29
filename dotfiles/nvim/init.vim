@@ -146,8 +146,8 @@ nnoremap <silent><a-a><a-d> :LspDefinition<cr>
 
 " Python
 let g:python3_host_prog = nvi.'python'
-au FileType python inoremap <silent><buffer>,d <esc>:read $DOTFILES/nvim/snippets/python/def.py<cr>:norm =ae<cr>4li
-au FileType python inoremap <silent><buffer>,b breakpoint()<esc>
+au FileType python inoremap <silent><buffer><a-b> breakpoint()<esc>
+au FileType python inoremap <silent><buffer><a-d> <esc>:read $DOTFILES/nvim/snippets/python/def.py<cr>:norm =ae<cr>4li
 
 " VimTex
 let g:vimtex_compiler_progname = nvi.'nvr'
