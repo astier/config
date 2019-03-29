@@ -44,8 +44,8 @@ cd() {
 
 # Shortcuts
 alias b="echo \$(cat /sys/class/power_supply/BAT0/capacity)"
+alias c="cp"
 alias d="clear"
-alias dl="clear; ls"
 alias l="ls"
 alias ll="ls -l"
 alias lb="lsblk"
@@ -54,8 +54,6 @@ alias ma="sudo make install clean"
 alias md="mkdir"
 alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias n="newsboat"
-alias p="cp"
-alias pa="patch -p1 < "
 alias r="rm"
 alias sa="source activate"
 alias sd="conda deactivate"
