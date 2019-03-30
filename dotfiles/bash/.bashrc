@@ -11,7 +11,7 @@ GIT_PS1_SHOWUPSTREAM="auto"
 GREEN="\[\e[32m\]"
 WHITE="\[\e[m\]"
 num_jobs() {
-	num_jobs=$(jobs | grep -c Stopped)
+	num_jobs=$(jobs | wc -l)
 	[[ "$num_jobs" -gt 0 ]] && echo " $num_jobs"
 }
 PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')\$(num_jobs)] ${WHITE}"
@@ -101,11 +101,11 @@ alias gcl="git clone"
 alias gd="git diff"
 alias gs="git status -s"
 
-alias gc="git commit"
+alias gcc="git commit"
 alias gca="git commit -a"
 alias gcam="git commit -am"
 alias gcm="git commit -m"
-gcp() { git add --all; git commit -m "$1" && git push; }
+gc() { git add --all; git commit -m "$1" && git push; }
 
 alias g="git log --all --graph --decorate --oneline -n16"
 alias gg="git log --all --graph --decorate --oneline"
