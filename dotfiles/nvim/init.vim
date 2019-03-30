@@ -1,6 +1,4 @@
-" Plugins
 call plug#begin('~/.local/share/nvim/plugins')
-Plug '907th/vim-auto-save'
 Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python', 'sh', 'tex', 'vim']}
 Plug 'Shougo/neco-vim', {'for': 'vim'}
 Plug 'airblade/vim-gitgutter'
@@ -18,35 +16,29 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python'}
 call plug#end()
 
 " Misc
-au BufEnter * se fo-=cro
 let mapleader=' '
 let maplocalleader=' '
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
-nnoremap <cr> o<esc>
-nnoremap <a-cr> O<esc>
 nnoremap <silent><a-v><a-v> :e $MYVIMRC<cr>
-nnoremap <silent><esc> :noh<cr><esc>
-nnoremap <a-r><a-r> :%s//g<left><left>
 nnoremap <silent><a-s><a-s> :setl spell<cr>
 nnoremap <silent><a-s><a-d> :setl nospell<cr>
-vnoremap <a-y> "+y
-nnoremap <a-p> "+p
-nnoremap <silent># *
 se autochdir
-se mouse=a
-se scrolloff=2
-se splitbelow splitright
-se tabstop=4 shiftwidth=4
-sil! cal repeat#se('\<Plug>vim-surround', v:count)
-
-" Save
-au FocusGained,BufEnter * checkt
-au BufWritePost * GitGutter
-let g:auto_save = 1
-let g:auto_save_silent = 1
+se autowriteall
 se confirm
+se mouse=a
+
+" Search & Replace
+nnoremap <silent><esc> :noh<cr><esc>
+nnoremap <a-r> :%s//g<left><left>
+nnoremap <silent># *
+
+" Modifications
+au BufEnter * se fo-=cro
+au FocusGained,BufEnter * checkt
+nnoremap <cr> o<esc>
+nnoremap <a-cr> O<esc>
+nnoremap <a-p> "+p
+vnoremap <a-y> "+y
+se tabstop=4 shiftwidth=4
 
 " Appearance
 let g:enable_italic_font = 1
@@ -88,6 +80,7 @@ tnoremap <silent><a-L> <c-\><c-n>:vert res +1<cr>:star<cr>
 tnoremap <silent><a-H> <c-\><c-n>:vert res -1<cr>:star<cr>
 nnoremap <silent><a-c> :clo<cr>
 tnoremap <silent><a-c> <c-\><c-n>:clo<cr>
+se splitbelow splitright
 
 " Buffers
 nnoremap <silent><a-i> :bp<cr>
@@ -111,6 +104,13 @@ au BufEnter term://* star
 au TermOpen * setl nonu nornu scl=no | star
 nnoremap <silent><a-t> :te<cr>
 set hidden
+
+" Plugins
+au InsertLeave,TextChanged * GitGutter
+let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " Goyo
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
