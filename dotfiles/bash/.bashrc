@@ -10,7 +10,11 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="auto"
 GREEN="\[\e[32m\]"
 WHITE="\[\e[m\]"
-PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')] ${WHITE}"
+num_jobs() {
+	num_jobs=$(jobs | grep -c Stopped)
+	[[ "$num_jobs" -gt 0 ]] && echo " $num_jobs"
+}
+PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')\$(num_jobs)] ${WHITE}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
@@ -34,7 +38,7 @@ alias top="top -1 -u \$USER"
 
 cd() {
 	if [ "$1" == "" ]; then
-		builtin cd
+		builtin cd || exit
 		clear
 	else
 		builtin cd "$@" && ls
@@ -89,9 +93,7 @@ alias ov="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ox="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
 # Git
-alias ga="git add --all"
-alias gaa="git add"
-
+alias ga="git add"
 alias gb="git branch"
 alias gbd="git branch -d"
 
@@ -102,7 +104,7 @@ alias gs="git status -s"
 alias gc="git commit -am"
 alias gca="git commit -m"
 alias gcam="git commit"
-gcp() { git commit -am "$1" && git push; }
+gcp() { git add --all; git commit -m "$1" && git push; }
 
 alias g="git log --all --graph --decorate --oneline -n16"
 alias gg="git log --all --graph --decorate --oneline"
