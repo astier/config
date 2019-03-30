@@ -33,7 +33,7 @@ nnoremap <silent><a-s><a-s> :setl spell<cr>
 nnoremap <silent><a-s><a-d> :setl nospell<cr>
 vnoremap <a-y> "+y
 nnoremap <a-p> "+p
-nnoremap # *
+nnoremap <silent># *
 se autochdir
 se mouse=a
 se scrolloff=2
