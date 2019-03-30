@@ -101,9 +101,10 @@ alias gcl="git clone"
 alias gd="git diff"
 alias gs="git status -s"
 
-alias gc="git commit -am"
-alias gca="git commit -m"
-alias gcam="git commit"
+alias gc="git commit"
+alias gca="git commit -a"
+alias gcam="git commit -am"
+alias gcm="git commit -m"
 gcp() { git add --all; git commit -m "$1" && git push; }
 
 alias g="git log --all --graph --decorate --oneline -n16"
@@ -114,7 +115,7 @@ alias go-="git checkout --"
 alias go="git checkout"
 alias gob="git checkout -b"
 
-alias gp="git push"
+alias gps="git push"
 alias gpl="git pull"
 
 alias gcn="git clean -f"
