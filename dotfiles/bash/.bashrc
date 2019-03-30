@@ -49,6 +49,7 @@ cd() {
 alias b="echo \$(cat /sys/class/power_supply/BAT0/capacity)"
 alias c="cp"
 alias d="clear"
+alias f="fg"
 alias l="ls"
 alias ll="ls -l"
 alias lb="lsblk"
@@ -56,6 +57,7 @@ alias m="mv"
 alias ma="sudo make install clean"
 alias md="mkdir"
 alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
+alias p="python"
 alias r="rm"
 alias sa="source activate"
 alias sd="conda deactivate"
@@ -94,6 +96,7 @@ alias ox="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
 # Git
 alias ga="git add"
+alias gaa="git add --all"
 alias gb="git branch"
 alias gbd="git branch -d"
 
