@@ -1,4 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugins')
+Plug '907th/vim-auto-save'
 Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python', 'sh', 'tex', 'vim']}
 Plug 'Shougo/neco-vim', {'for': 'vim'}
 Plug 'airblade/vim-gitgutter'
@@ -16,29 +17,30 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python'}
 call plug#end()
 
 " Misc
+au BufEnter * se fo-=cro
 let mapleader=' '
 let maplocalleader=' '
 nnoremap <silent><a-v><a-v> :e $MYVIMRC<cr>
 nnoremap <silent><a-s><a-s> :setl spell<cr>
 nnoremap <silent><a-s><a-d> :setl nospell<cr>
+nnoremap <cr> o<esc>
+nnoremap <a-cr> O<esc>
+nnoremap <a-p> "+p
+vnoremap <a-y> "+y
 se autochdir
-se autowriteall
-se confirm
 se mouse=a
+se tabstop=4 shiftwidth=4
 
 " Search & Replace
 nnoremap <silent><esc> :noh<cr><esc>
 nnoremap <a-r> :%s//g<left><left>
 nnoremap <silent># *
 
-" Modifications
-au BufEnter * se fo-=cro
+" Save
 au FocusGained,BufEnter * checkt
-nnoremap <cr> o<esc>
-nnoremap <a-cr> O<esc>
-nnoremap <a-p> "+p
-vnoremap <a-y> "+y
-se tabstop=4 shiftwidth=4
+let g:auto_save = 1
+let g:auto_save_silent = 1
+se confirm
 
 " Appearance
 let g:enable_italic_font = 1
