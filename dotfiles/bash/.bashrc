@@ -35,6 +35,7 @@ alias umount="sudo umount"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
+alias zip="zip -r"
 
 cd() {
 	if [ "$1" == "" ]; then
