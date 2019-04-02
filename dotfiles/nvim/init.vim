@@ -41,6 +41,7 @@ au FocusGained,BufEnter * checkt
 let g:auto_save = 1
 let g:auto_save_silent = 1
 se confirm
+se noswapfile
 
 " Appearance
 let g:enable_italic_font = 1
