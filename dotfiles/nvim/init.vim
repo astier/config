@@ -1,19 +1,19 @@
 call plug#begin('~/.local/share/nvim/plugins')
 Plug '907th/vim-auto-save'
-Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' , 'for': ['python', 'sh', 'tex', 'vim']}
-Plug 'Shougo/neco-vim', {'for': 'vim'}
+Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' }
+Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye'
-Plug 'prabirshrestha/async.vim', { 'for': 'python'}
-Plug 'prabirshrestha/vim-lsp', { 'for': 'python'}
+Plug 'prabirshrestha/async.vim', { 'for': 'python' }
+Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex']}
-Plug 'zchee/deoplete-jedi', { 'for': 'python'}
+Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 call plug#end()
 
 " Misc
