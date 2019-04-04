@@ -19,4 +19,7 @@ install zathura						~/.config/
 install pacman/pacman.conf			/etc/
 install pacman/hooks/				/etc/pacman.d/
 install systemd/logind.conf			/etc/systemd/
-install systemd/network				/etc/systemd/
+# sudo cp -r $DOTFILES/systemd/network/* /etc/systemd/network/
+sudo rm /etc/systemd/network/*
+sudo ln "$DOTFILES"/systemd/network/20-en.network /etc/systemd/network/
+sudo ln "$DOTFILES"/systemd/network/30-wl.network /etc/systemd/network/
