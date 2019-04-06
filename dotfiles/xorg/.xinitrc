@@ -27,10 +27,8 @@ fi
 xmodmap -e "keycode 108 = Super_L"
 xmodmap -e "keycode 133 = ISO_Level3_Shift"
 
-numlockx
 compton &
 xbanish &
-dstatus &
 wpr ~/Dropbox/Pictures/Wallpapers/ &
 
 exec dwm
