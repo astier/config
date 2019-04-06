@@ -47,7 +47,6 @@ cd() {
 }
 
 # Shortcuts
-alias b="echo \$(cat /sys/class/power_supply/BAT0/capacity)"
 alias c="cp"
 alias d="clear"
 alias f="fg"
