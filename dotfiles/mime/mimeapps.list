@@ -3,5 +3,6 @@ application/pdf=org.pwmt.zathura.desktop;
 image/jpeg=sxrap.desktop
 image/png=sxrap.desktop
 text/plain=nvim.desktop
+text/x-diff=nvim.desktop
 text/x-python=nvim.desktop
 text/x-shellscript=nvim.desktop
