@@ -2,7 +2,7 @@
 
 install () {
 	TARGET=$1 DESTINATION=$2$(basename "$TARGET")
-	sudo rm -rf "$DESTINATION"
+	sudo rm -fr "$DESTINATION"
 	sudo ln -rs dotfiles/"$TARGET" "$DESTINATION" &&
 	echo Installed: "$TARGET"
 }
@@ -20,5 +20,4 @@ install pacman/pacman.conf			/etc/
 install pacman/hooks/				/etc/pacman.d/
 install systemd/logind.conf			/etc/systemd/
 sudo rm /etc/systemd/network/*
-sudo ln "$DOTFILES"/systemd/network/en.network /etc/systemd/network/
-sudo ln "$DOTFILES"/systemd/network/wl.network /etc/systemd/network/
+sudo ln "$DOTFILES"/systemd/network/* /etc/systemd/network/
