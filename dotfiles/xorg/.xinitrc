@@ -23,6 +23,7 @@ if [ -d $XINITRC ] ; then
 	unset f
 fi
 
+setxkbmap -option caps:swapescape
 # Swap ALT-RIGHT/GR with WIN_LEFT
 xmodmap -e "keycode 108 = Super_L"
 xmodmap -e "keycode 133 = ISO_Level3_Shift"
