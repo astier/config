@@ -10,7 +10,7 @@ install () {
 install bash/.bash_profile			~/
 install bash/.bashrc				~/
 install .inputrc					~/
-install X11/.xinitrc				~/
+install xorg/.xinitrc				~/
 install feh							~/.config/
 install git							~/.config/
 install gtk-3.0						~/.config/
@@ -20,7 +20,7 @@ install zathura						~/.config/
 install pacman/pacman.conf			/etc/
 install pacman/hooks/				/etc/pacman.d/
 install systemd/logind.conf			/etc/systemd/
-install X11/10-monitor.conf			/etc/X11/xorg.conf.d/
+install xorg/10-monitor.conf		/etc/X11/xorg.conf.d/
 sudo rm /etc/systemd/network/*
 sudo ln ~/Projects/dotfiles/dotfiles/systemd/network/* /etc/systemd/network/ &&
 echo Installed: networkd
