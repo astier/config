@@ -20,5 +20,5 @@ install pacman/pacman.conf			/etc/
 install pacman/hooks/				/etc/pacman.d/
 install systemd/logind.conf			/etc/systemd/
 sudo rm /etc/systemd/network/*
-sudo ln dotfiles/systemd/network/* /etc/systemd/network/
+sudo ln ~/Projects/dotfiles/dotfiles/systemd/network/* /etc/systemd/network/ &&
 echo Installed: networkd
