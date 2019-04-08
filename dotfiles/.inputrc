@@ -1,0 +1,41 @@
+$include /etc/inputrc
+
+# Misc
+set editing-mode vi
+# Disable echo ^C after Ctrl+C is pressed
+set echo-control-characters off
+# Partially complete the word and show all possible completions
+# set show-all-if-unmodified on
+
+# Backward-Search
+$if mode=vi
+set keymap vi-command
+# these are for vi-command mode
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+j: history-search-forward
+k: history-search-backward
+set keymap vi-insert
+# these are for vi-insert mode
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+$endif
+
+# vi-cursor-shapes
+set show-mode-in-prompt on
+$if term=linux
+	set vi-ins-mode-string \1\e[?0c\2
+	set vi-cmd-mode-string \1\e[?8c\2
+$else
+	set vi-ins-mode-string \1\e[6 q\2
+	set vi-cmd-mode-string \1\e[2 q\2
+$endif
+
+# Color files by types
+set colored-stats On
+# Color the common prefix
+set colored-completion-prefix On
+# Mark symlinked directories
+set mark-symlinked-directories On
+# Color the common prefix in menu-complete
+set menu-complete-display-prefix On
