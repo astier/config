@@ -28,6 +28,7 @@ xmodmap -e "keycode 108 = Super_L"
 xmodmap -e "keycode 133 = ISO_Level3_Shift"
 
 numlockx
+xset s off
 compton &
 dstatus &
 xbanish &
