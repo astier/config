@@ -34,8 +34,8 @@ dstatus &
 xbanish &
 
 while true; do
-	bgm ~/Dropbox/Pictures/Wallpapers/
+	bgm ~/Wallpapers/Cityscapes/
 	sleep 900
-done
+done &
 
 exec dwm
