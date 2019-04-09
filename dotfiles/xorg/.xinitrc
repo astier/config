@@ -32,6 +32,10 @@ xset s off dpms 0 0 0
 compton &
 dstatus &
 xbanish &
-wpr ~/Dropbox/Pictures/Wallpapers/ &
+
+while true; do
+	wpm ~/Dropbox/Pictures/Wallpapers/
+	sleep 900
+done
 
 exec dwm

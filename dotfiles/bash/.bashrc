@@ -38,7 +38,7 @@ alias top="top -1 -u \$USER"
 alias zip="zip -r"
 
 cd() {
-	if [ "$1" == "" ]; then
+	if [ "$#" == 0 ]; then
 		builtin cd || exit
 		clear
 	else
@@ -69,6 +69,7 @@ alias -- ,="cd .."
 alias -- -="cd -"
 alias j="cd"
 alias ja="cd ~/Projects/arch/"
+alias jas="cd ~/Dropbox/ISY/S4/ASE/"
 alias jb="cd ~/Dropbox/"
 alias jc="cd ~/.config/"
 alias jd="cd \$DOTFILES"
@@ -125,3 +126,9 @@ alias gcn="git clean -f"
 alias grh="git reset --hard"
 alias grs="git reset --soft"
 alias grr="git reset --hard; git clean -f"
+
+##### AMiRo ENVIRONMENT CONFIGURATION #####
+# DO NOT EDIT THESE LINES MANUALLY!
+export PATH=$PATH:/home/aleks/Dropbox/ISY/S4/ASE/gcc-arm-embedded
+##### AMiRo ENVIRONMENT CONFIGURATION #####
+

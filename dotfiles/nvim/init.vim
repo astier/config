@@ -55,9 +55,9 @@ se signcolumn=yes
 se termguicolors
 
 " Brackets
-inoremap { {}<left>
-inoremap ( ()<left>
-inoremap [ []<left>
+inoremap {{ {}<left>
+inoremap (( ()<left>
+inoremap [[ []<left>
 inoremap '' ''<left>
 inoremap "" ""<left>
 
