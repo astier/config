@@ -34,7 +34,7 @@ dstatus &
 xbanish &
 
 while true; do
-	wpm ~/Dropbox/Pictures/Wallpapers/
+	bgm ~/Dropbox/Pictures/Wallpapers/
 	sleep 900
 done
 
