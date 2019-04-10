@@ -1,4 +1,5 @@
 [Default Applications]
+application/json=nvim.desktop
 text/plain=nvim.desktop
 text/x-diff=nvim.desktop
 text/x-python=nvim.desktop
