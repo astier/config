@@ -47,8 +47,7 @@ cd() {
 }
 
 # Shortcuts
-alias b="bgm"
-alias bd="bgm -d"
+alias bd="b -d"
 alias c="cp"
 alias d="clear"
 alias f="fg"

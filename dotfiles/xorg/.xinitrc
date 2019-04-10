@@ -29,13 +29,10 @@ xmodmap -e "keycode 133 = ISO_Level3_Shift"
 
 numlockx
 xset s off dpms 0 0 0
+
+b -l ~/Wallpapers/Cityscapes/ 900 &
 compton &
 dstatus &
 xbanish &
-
-while true; do
-	bgm ~/Wallpapers/Cityscapes/
-	sleep 900
-done &
 
 exec dwm

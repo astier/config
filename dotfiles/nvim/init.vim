@@ -26,6 +26,7 @@ nnoremap <silent><a-s><a-d> :setl nospell<cr>
 nnoremap <cr> o<esc>
 nnoremap <a-cr> O<esc>
 nnoremap <a-p> "+p
+nnoremap <a-a> ggVG
 vnoremap <a-y> "+y
 se autochdir
 se mouse=a
