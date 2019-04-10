@@ -88,6 +88,7 @@ alias jst="cd ~/Projects/st/"
 alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
 
 # Files
+alias o="xdg-open"
 alias oa="\$EDITOR ~/Projects/arch/arch_desktop.sh"
 alias oab="\$EDITOR ~/Projects/arch/arch_base.sh"
 alias ob="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
