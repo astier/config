@@ -110,7 +110,7 @@ nnoremap <silent><a-t> :te<cr>
 set hidden
 
 " Plugins
-au InsertLeave,TextChanged * GitGutter
+au BufWritePost * GitGutter
 let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
