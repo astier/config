@@ -65,6 +65,11 @@ alias p="python"
 alias r="rm"
 alias sa="source activate"
 alias sd="conda deactivate"
+alias t="touch"
+alias xc="x -c"
+alias xs="x -s"
+alias xp="x -p"
+alias xm="x -m"
 alias y='yay'
 
 # Directories

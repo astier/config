@@ -34,7 +34,7 @@ se tabstop=4 shiftwidth=4
 
 " Search & Replace
 nnoremap <silent><esc> :noh<cr><esc>
-nnoremap <a-r> :%s//g<left><left>
+nnoremap <a-r> :%s///g<left><left>
 nnoremap <silent># *
 
 " Save
