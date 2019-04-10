@@ -18,6 +18,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')\$(num_jobs)] ${WHITE}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
+HISTSIZE=1024
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
