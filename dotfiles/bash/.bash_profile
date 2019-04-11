@@ -7,4 +7,4 @@ export BROWSER=firefox
 export DOTFILES=~/Projects/dotfiles/dotfiles
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
-[[ "$(tty)" = "/dev/tty1" && "$(root)" != "aleks" ]] && startx
+[[ "$(tty)" = "/dev/tty1" && "$(whoami)" != "root" ]] && startx
