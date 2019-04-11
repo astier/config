@@ -52,6 +52,7 @@ cd() {
 alias bd="b -d"
 alias c="cp"
 alias d="clear"
+alias dl="clear; ls"
 alias f="fg"
 alias i="iwctl"
 alias l="ls"
@@ -68,9 +69,8 @@ alias sa="source activate"
 alias sd="conda deactivate"
 alias t="touch"
 alias xc="x -c"
-alias xs="x -s"
-alias xp="x -p"
 alias xm="x -m"
+alias xp="x -p"
 alias y='yay'
 
 # Directories
