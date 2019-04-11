@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 [[ $- != *i* ]] && return
-[[ $(tty) =~ ^\/dev\/pts\/.* ]] && . /usr/share/powerline/bindings/bash/powerline.sh
 
 # Prompt
 . ~/.config/git/git-prompt.sh
@@ -92,7 +91,6 @@ alias jm="cd ~/Dropbox/ISY/S3/MYO/"
 alias jn="cd ~/Dropbox/Notes/"
 alias jo="cd ~/Downloads/"
 alias jp="cd ~/Projects/"
-alias jpl="cd ~/.config/powerline/themes/shell"
 alias js="cd ~/Projects/scripts/scripts/"
 alias jst="cd ~/Projects/st/"
 alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
