@@ -19,6 +19,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')\$(num_jobs)] ${WHITE}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
+HISTIGNORE="bd:d:dl:cal:f:i:ii:l:ll:lb:ma:mai:ml:sa *:sd:x:xc:xm:xp:y:,:-:j:ja:jb:jc:jd:jdm:jdw:jl:ji:jn:jo:jp:js:jst:jw:oa:oab:ob:obp:on:ov:ox:ga *:gaa:gb *:gbd *:gd:gs:gca:g:gg:gl:gps:gpl:gcn:grr"
 HISTSIZE=1024
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
@@ -116,7 +117,6 @@ alias gcl="git clone"
 alias gd="git diff"
 alias gs="git status -s"
 
-alias gcc="git commit"
 alias gca="git commit -a"
 alias gcam="git commit -am"
 alias gcm="git commit -m"
