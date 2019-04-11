@@ -8,13 +8,14 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="auto"
+NO_COLOR="\[\e[m\]"
 GREEN="\[\e[32m\]"
-WHITE="\[\e[m\]"
+RED='\e[0;31m'
 num_jobs() {
 	num_jobs=$(jobs | wc -l)
 	[[ "$num_jobs" -gt 0 ]] && echo " $num_jobs"
 }
-PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')\$(num_jobs)] ${WHITE}"
+PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
