@@ -9,8 +9,8 @@ GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="auto"
 NO_COLOR="\[\e[m\]"
+RED="\[\e[31m\]"
 GREEN="\[\e[32m\]"
-RED='\e[0;31m'
 num_jobs() {
 	num_jobs=$(jobs | wc -l)
 	[[ "$num_jobs" -gt 0 ]] && echo " $num_jobs"
