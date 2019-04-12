@@ -17,7 +17,10 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE=",:-:a:aa:ac:ad:adb:ado:adm:adw:al:ai:ap:asc:ast:aw:aab:aad:ab:abp:an:av:ax:b:bd:d:dl:cal:f:i:ii:l:ll:lb:ma:mai:ml:sd:x:xc:xm:xp:y:gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr:history:df"
+HISTIGNORE="cal:df:top:d:bd:dl:f:i:ii:l:ll:lb:ma:mai:ml:sd:xc:xm:xp:y"
+HISTIGNORE+=":,:-:j:ja:jas:jc:jd:jdb:jdm:jdo:jdw:ji:jl:jm:jp:jsc:jst:jw"
+HISTIGNORE+=":a:aa:aab:ab:an:ap:av:ax"
+HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
@@ -89,11 +92,11 @@ a() {
 	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
 	else nvim "$@"; fi
 }
-alias aa="\$EDITOR ~/Projects/arch/arch_base.sh"
-alias aad="\$EDITOR ~/Projects/arch/arch_desktop.sh"
+alias aa="\$EDITOR ~/Projects/arch/arch_desktop.sh"
+alias aab="\$EDITOR ~/Projects/arch/arch_base.sh"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias ap="\$EDITOR \$DOTFILES/bash/.bash_profile"
 alias an="\$EDITOR ~/Dropbox/Notes/notes"
+alias ap="\$EDITOR \$DOTFILES/bash/.bash_profile"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
