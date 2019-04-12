@@ -40,6 +40,7 @@ alias zip="zip -r"
 
 # Shortcuts
 alias bd="b -d"
+alias dl="clear; ls"
 alias f="fg"
 alias i="iwctl"
 alias ii="networkctl"
