@@ -12,14 +12,14 @@ NO_COLOR="\[\e[m\]"
 RED="\[\e[31m\]"
 GREEN="\[\e[32m\]"
 num_jobs() {
-	num_jobs=$(jobs | wc -l)
-	[[ "$num_jobs" -gt 0 ]] && echo " $num_jobs"
+	NUM_JOBS=$(jobs | wc -l)
+	[[ "$NUM_JOBS" -gt 0 ]] && echo "$NUM_JOBS"
 }
-PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
+PS1="${GREEN}[\W\$(__git_ps1 ' (%s)') ${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="bd:d:dl:cal:f:i:ii:l:ll:lb:ma:mai:ml:sa *:sd:x:xc:xm:xp:y:,:-:j:ja:jb:jc:jd:jdm:jdw:jl:ji:jn:jo:jp:js:jst:jw:oa:oab:ob:obp:on:ov:ox:ga *:gaa:gb *:gbd *:gd:gs:gca:g:gg:gl:gps:gpl:gcn:grr"
+HISTIGNORE=",:-:a:aa:ac:ad:adb:ado:adm:adw:al:ai:ap:asc:ast:aw:aab:aad:ab:abp:an:av:ax:bd:d:cal:f:i:ii:l:ll:lb:ma:mai:ml:sd:x:xc:xm:xp:y:gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
@@ -81,16 +81,15 @@ alias -- ,="cd .."
 alias -- -="cd -"
 alias aa="cd ~/Projects/arch/"
 alias aas="cd ~/Dropbox/ISY/S4/ASE/"
-alias ab="cd ~/Dropbox/"
+alias adb="cd ~/Dropbox/"
+alias ado="cd ~/Downloads/"
 alias ac="cd ~/.config/"
 alias ad="cd \$DOTFILES"
 alias adm="cd ~/Projects/dmenu/"
 alias adw="cd ~/Projects/dwm/"
-alias al="cd ~/.local/share/"
+alias al="cd ~/.local/"
 alias ai="cd ~/Dropbox/ISY/"
 alias am="cd ~/Dropbox/ISY/S3/MYO/"
-alias an="cd ~/Dropbox/Notes/"
-alias ao="cd ~/Downloads/"
 alias ap="cd ~/Projects/"
 alias asc="cd ~/Projects/scripts/scripts/"
 alias ast="cd ~/Projects/st/"
