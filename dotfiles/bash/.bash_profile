@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 export PATH=$PATH:~/miniconda3/bin:~/.local/bin
 export EDITOR=nvim
 export VISUAL=nvim
