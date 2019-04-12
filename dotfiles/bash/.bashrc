@@ -40,12 +40,15 @@ alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 alias zip="zip -r"
 
-cd() {
+a() {
 	if [ "$#" == 0 ]; then
-		builtin cd || exit
-		clear
+		cd && clear
+	elif [ -d "$1" ]; then
+		cd "$@" && ls
+	elif [ "$#" == 1 ] && [ -f "$1" ]; then
+		xdg-open "$@"
 	else
-		builtin cd "$@" && ls
+		nvim "$@"
 	fi
 }
 
@@ -78,32 +81,31 @@ alias y='yay'
 # Directories
 alias -- ,="cd .."
 alias -- -="cd -"
-alias j="cd"
-alias ja="cd ~/Projects/arch/"
-alias jas="cd ~/Dropbox/ISY/S4/ASE/"
-alias jb="cd ~/Dropbox/"
-alias jc="cd ~/.config/"
-alias jd="cd \$DOTFILES"
-alias jdm="cd ~/Projects/dmenu/"
-alias jdw="cd ~/Projects/dwm/"
-alias jl="cd ~/.local/share/"
-alias ji="cd ~/Dropbox/ISY/"
-alias jm="cd ~/Dropbox/ISY/S3/MYO/"
-alias jn="cd ~/Dropbox/Notes/"
-alias jo="cd ~/Downloads/"
-alias jp="cd ~/Projects/"
-alias js="cd ~/Projects/scripts/scripts/"
-alias jst="cd ~/Projects/st/"
-alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
+alias aa="cd ~/Projects/arch/"
+alias aas="cd ~/Dropbox/ISY/S4/ASE/"
+alias ab="cd ~/Dropbox/"
+alias ac="cd ~/.config/"
+alias ad="cd \$DOTFILES"
+alias adm="cd ~/Projects/dmenu/"
+alias adw="cd ~/Projects/dwm/"
+alias al="cd ~/.local/share/"
+alias ai="cd ~/Dropbox/ISY/"
+alias am="cd ~/Dropbox/ISY/S3/MYO/"
+alias an="cd ~/Dropbox/Notes/"
+alias ao="cd ~/Downloads/"
+alias ap="cd ~/Projects/"
+alias asc="cd ~/Projects/scripts/scripts/"
+alias ast="cd ~/Projects/st/"
+alias aw="cd ~/Dropbox/Pictures/Wallpapers/"
 
 # Files
-alias oa="\$EDITOR ~/Projects/arch/arch_desktop.sh"
-alias oab="\$EDITOR ~/Projects/arch/arch_base.sh"
-alias ob="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias obp="\$EDITOR \$DOTFILES/bash/.bash_profile"
-alias on="\$EDITOR ~/Dropbox/Notes/notes"
-alias ov="\$EDITOR \$DOTFILES/nvim/init.vim"
-alias ox="\$EDITOR \$DOTFILES/xorg/.xinitrc"
+alias aab="\$EDITOR ~/Projects/arch/arch_base.sh"
+alias aad="\$EDITOR ~/Projects/arch/arch_desktop.sh"
+alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
+alias abp="\$EDITOR \$DOTFILES/bash/.bash_profile"
+alias an="\$EDITOR ~/Dropbox/Notes/notes"
+alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
+alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
 # Git
 alias ga="git add"
@@ -129,6 +131,7 @@ alias go="git checkout"
 alias gob="git checkout -b"
 
 alias gps="git push"
+alias gpsf="git push -f"
 alias gpl="git pull"
 
 alias gcn="git clean -f"
