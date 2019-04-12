@@ -40,23 +40,8 @@ alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 alias zip="zip -r"
 
-a() {
-	if [ "$#" == 0 ]; then
-		cd && clear
-	elif [ -d "$1" ]; then
-		cd "$@" && ls
-	elif [ "$#" == 1 ] && [ -f "$1" ]; then
-		xdg-open "$@"
-	else
-		nvim "$@"
-	fi
-}
-
 # Shortcuts
 alias bd="b -d"
-alias c="cp"
-alias d="clear"
-alias dl="clear; ls"
 alias f="fg"
 alias i="iwctl"
 alias ii="networkctl"
@@ -68,8 +53,8 @@ alias ma="make; make clean"
 alias mai="sudo make install clean"
 alias md="mkdir"
 alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
-alias p="python"
-alias r="rm"
+alias p="cp"
+alias py="python"
 alias sa="source activate"
 alias sd="conda deactivate"
 alias t="touch"
@@ -77,6 +62,19 @@ alias xc="x -c"
 alias xm="x -m"
 alias xp="x -p"
 alias y='yay'
+d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
+
+a() {
+	if [ "$#" == 0 ]; then
+		cd && clear
+	elif [ -d "$1" ]; then
+		cd "$@" && ls
+	elif [ "$#" == 1 ] && [ -f "$1" ]; then
+		xdg-open "$@"
+	else
+		nvim "$@"
+	fi
+}
 
 # Directories
 alias -- ,="cd .."
