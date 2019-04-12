@@ -39,6 +39,7 @@ alias top="top -1 -u \$USER"
 alias zip="zip -r"
 
 # Shortcuts
+d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
 alias bd="b -d"
 alias dl="clear; ls"
 alias f="fg"
@@ -61,44 +62,37 @@ alias xc="x -c"
 alias xm="x -m"
 alias xp="x -p"
 alias y='yay'
-d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
-
-a() {
-	if [ "$#" == 0 ]; then
-		cd && clear
-	elif [ -d "$1" ]; then
-		cd "$@" && ls
-	elif [ "$#" == 1 ] && [ -f "$1" ]; then
-		xdg-open "$@"
-	else
-		nvim "$@"
-	fi
-}
 
 # Directories
-alias -- ,="a .."
-alias -- -="a -"
-alias aa="a ~/Projects/arch/"
-alias aas="a ~/Dropbox/ISY/S4/ASE/"
-alias adb="a ~/Dropbox/"
-alias ado="a ~/Downloads/"
-alias ac="a ~/.config/"
-alias ad="a \$DOTFILES"
-alias adm="a ~/Projects/dmenu/"
-alias adw="a ~/Projects/dwm/"
-alias al="a ~/.local/"
-alias ai="a ~/Dropbox/ISY/"
-alias am="a ~/Dropbox/ISY/S3/MYO/"
-alias ap="a ~/Projects/"
-alias asc="a ~/Projects/scripts/scripts/"
-alias ast="a ~/Projects/st/"
-alias aw="a ~/Dropbox/Pictures/Wallpapers/"
+j() { if [ "$#" == 0 ]; then cd && clear; else cd "$@" && ls; fi }
+alias -- ,="j .."
+alias -- -="j -"
+alias ja="j ~/Projects/arch/"
+alias jas="j ~/Dropbox/ISY/S4/ASE/"
+alias jc="j ~/.config/"
+alias jd="j \$DOTFILES"
+alias jdb="j ~/Dropbox/"
+alias jdm="j ~/Projects/dmenu/"
+alias jdo="j ~/Downloads/"
+alias jdw="j ~/Projects/dwm/"
+alias ji="j ~/Dropbox/ISY/"
+alias jl="j ~/.local/"
+alias jm="j ~/Dropbox/ISY/S3/MYO/"
+alias jp="j ~/Projects/"
+alias jsc="j ~/Projects/scripts/scripts/"
+alias jst="j ~/Projects/st/"
+alias jw="j ~/Dropbox/Pictures/Wallpapers/"
 
 # Files
-alias aab="\$EDITOR ~/Projects/arch/arch_base.sh"
+a() {
+	if [ "$#" == 0 ]; then feh
+	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
+	else nvim "$@"; fi
+}
+alias aa="\$EDITOR ~/Projects/arch/arch_base.sh"
 alias aad="\$EDITOR ~/Projects/arch/arch_desktop.sh"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias abp="\$EDITOR \$DOTFILES/bash/.bash_profile"
+alias ap="\$EDITOR \$DOTFILES/bash/.bash_profile"
 alias an="\$EDITOR ~/Dropbox/Notes/notes"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
