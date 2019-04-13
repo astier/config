@@ -19,12 +19,13 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="cal:df:top:d:bd:dl:f:i:ii:l:ll:lb:ma:mai:ml:sd:xc:xm:xp:y"
 HISTIGNORE+=":,:-:ja:jas:jc:jd:jdb:jdm:jdo:jdw:ji:jl:jm:jp:jsc:jst:jw"
-HISTIGNORE+="ao:aa:ab:ad:an:ap:av:ax"
+HISTIGNORE+=":a:ao:aa:ab:ad:an:ap:av:ax"
 HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
 # Defaults
+cd() { builtin cd "$@" && ls; }
 alias -- ,="a .."
 alias -- -="a -"
 alias cal='cal -m'
@@ -73,7 +74,7 @@ alias y='yay'
 a() {
 	if [ "$#" == 0 ]; then cd && clear
 	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
-	elif [ "$#" == 1 ] && [ -d "$1" ]; then cd "$@" && ls
+	elif [ "$#" == 1 ] && [ -d "$1" ]; then cd "$@" || exit
 	else nvim "$@"; fi
 }
 
