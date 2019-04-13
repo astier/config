@@ -18,7 +18,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 # Settings
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="cal:df:top:d:bd:dl:f:i:ii:l:ll:lb:ma:mai:ml:sd:xc:xm:xp:y"
-HISTIGNORE+=":,:-:ja:jas:jc:jd:jdb:jdm:jdo:jdw:ji:jl:jm:jp:jsc:jst:jw"
+HISTIGNORE+=":,:-:j:ja:jas:jc:jd:jdb:jdm:jdo:jdw:ji:jl:jm:jp:jsc:jst:jw"
 HISTIGNORE+=":a:ao:aa:ab:ad:an:ap:av:ax"
 HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
 set -o noclobber vi
@@ -39,12 +39,9 @@ alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 alias zip="zip -r"
-cd() { builtin cd "$@" && ls; }
 
 # Shortcuts
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
-alias -- ,="cd .."
-alias -- -="cd -"
 alias bd="b -d"
 alias dl="clear; ls"
 alias f="fg"
@@ -68,9 +65,30 @@ alias xm="x -m"
 alias xp="x -p"
 alias y='yay'
 
+# Directories
+cd() { if [ "$#" == 0 ]; then builtin cd && clear; else builtin cd "$@" && ls; fi }
+alias -- ,="cd .."
+alias -- -="cd -"
+alias j="cd"
+alias ja="cd ~/Projects/arch/"
+alias jas="cd ~/Dropbox/ISY/S4/ASE/"
+alias jc="cd ~/.config/"
+alias jd="cd \$DOTFILES"
+alias jdb="cd ~/Dropbox/"
+alias jdm="cd ~/Projects/dmenu/"
+alias jdo="cd ~/Downloads/"
+alias jdw="cd ~/Projects/dwm/"
+alias ji="cd ~/Dropbox/ISY/"
+alias jl="cd ~/.local/"
+alias jm="cd ~/Dropbox/ISY/S3/MYO/"
+alias jp="cd ~/Projects/"
+alias jsc="cd ~/Projects/scripts/scripts/"
+alias jst="cd ~/Projects/st/"
+alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
+
 # Aperire
 a() {
-	if [ "$#" == 0 ]; then cd && clear
+	if [ "$#" == 0 ]; then feh
 	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
 	elif [ "$#" == 1 ] && [ -d "$1" ]; then cd "$@" || exit
 	else nvim "$@"; fi
@@ -84,23 +102,6 @@ alias an="\$EDITOR ~/Dropbox/Notes/notes"
 alias ap="\$EDITOR \$DOTFILES/bash/.bash_profile"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
-
-# Directories
-alias ja="a ~/Projects/arch/"
-alias jas="a ~/Dropbox/ISY/S4/ASE/"
-alias jc="a ~/.config/"
-alias jd="a \$DOTFILES"
-alias jdb="a ~/Dropbox/"
-alias jdm="a ~/Projects/dmenu/"
-alias jdo="a ~/Downloads/"
-alias jdw="a ~/Projects/dwm/"
-alias ji="a ~/Dropbox/ISY/"
-alias jl="a ~/.local/"
-alias jm="a ~/Dropbox/ISY/S3/MYO/"
-alias jp="a ~/Projects/"
-alias jsc="a ~/Projects/scripts/scripts/"
-alias jst="a ~/Projects/st/"
-alias jw="a ~/Dropbox/Pictures/Wallpapers/"
 
 # Git
 alias ga="git add"
