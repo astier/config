@@ -18,13 +18,15 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 # Settings
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="cal:df:top:d:bd:dl:f:i:ii:l:ll:lb:ma:mai:ml:sd:xc:xm:xp:y"
-HISTIGNORE+=":,:-:j:ja:jas:jc:jd:jdb:jdm:jdo:jdw:ji:jl:jm:jp:jsc:jst:jw"
-HISTIGNORE+=":o:oa:ob:od:on:op:ov:ox"
+HISTIGNORE+=":,:-:ja:jas:jc:jd:jdb:jdm:jdo:jdw:ji:jl:jm:jp:jsc:jst:jw"
+HISTIGNORE+="ao:aa:ab:ad:an:ap:av:ax"
 HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
 # Defaults
+alias -- ,="a .."
+alias -- -="a -"
 alias cal='cal -m'
 alias cp='cp -ir'
 alias df="df -h"
@@ -67,39 +69,39 @@ alias xm="x -m"
 alias xp="x -p"
 alias y='yay'
 
-# Directories
-j() { if [ "$#" == 0 ]; then cd && clear; else cd "$@" && ls; fi }
-alias -- ,="j .."
-alias -- -="j -"
-alias ja="j ~/Projects/arch/"
-alias jas="j ~/Dropbox/ISY/S4/ASE/"
-alias jc="j ~/.config/"
-alias jd="j \$DOTFILES"
-alias jdb="j ~/Dropbox/"
-alias jdm="j ~/Projects/dmenu/"
-alias jdo="j ~/Downloads/"
-alias jdw="j ~/Projects/dwm/"
-alias ji="j ~/Dropbox/ISY/"
-alias jl="j ~/.local/"
-alias jm="j ~/Dropbox/ISY/S3/MYO/"
-alias jp="j ~/Projects/"
-alias jsc="j ~/Projects/scripts/scripts/"
-alias jst="j ~/Projects/st/"
-alias jw="j ~/Dropbox/Pictures/Wallpapers/"
-
-# Files
-o() {
-	if [ "$#" == 0 ]; then feh
+# Aperire
+a() {
+	if [ "$#" == 0 ]; then cd && clear
 	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
+	elif [ "$#" == 1 ] && [ -d "$1" ]; then cd "$@" && ls
 	else nvim "$@"; fi
 }
-alias oa="\$EDITOR ~/Projects/arch/arch_base.sh"
-alias ob="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias od="\$EDITOR ~/Projects/arch/arch_desktop.sh"
-alias on="\$EDITOR ~/Dropbox/Notes/notes"
-alias op="\$EDITOR \$DOTFILES/bash/.bash_profile"
-alias ov="\$EDITOR \$DOTFILES/nvim/init.vim"
-alias ox="\$EDITOR \$DOTFILES/xorg/.xinitrc"
+
+# Files
+alias aa="\$EDITOR ~/Projects/arch/arch_base.sh"
+alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
+alias ad="\$EDITOR ~/Projects/arch/arch_desktop.sh"
+alias an="\$EDITOR ~/Dropbox/Notes/notes"
+alias ap="\$EDITOR \$DOTFILES/bash/.bash_profile"
+alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
+alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
+
+# Directories
+alias ja="a ~/Projects/arch/"
+alias jas="a ~/Dropbox/ISY/S4/ASE/"
+alias jc="a ~/.config/"
+alias jd="a \$DOTFILES"
+alias jdb="a ~/Dropbox/"
+alias jdm="a ~/Projects/dmenu/"
+alias jdo="a ~/Downloads/"
+alias jdw="a ~/Projects/dwm/"
+alias ji="a ~/Dropbox/ISY/"
+alias jl="a ~/.local/"
+alias jm="a ~/Dropbox/ISY/S3/MYO/"
+alias jp="a ~/Projects/"
+alias jsc="a ~/Projects/scripts/scripts/"
+alias jst="a ~/Projects/st/"
+alias jw="a ~/Dropbox/Pictures/Wallpapers/"
 
 # Git
 alias ga="git add"
