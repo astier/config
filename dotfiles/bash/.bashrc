@@ -19,7 +19,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="cal:df:top:d:bd:dl:f:i:ii:l:ll:lb:ma:mai:ml:sd:xc:xm:xp:y"
 HISTIGNORE+=":,:-:j:ja:jas:jc:jd:jdb:jdm:jdo:jdw:ji:jl:jm:jp:jsc:jst:jw"
-HISTIGNORE+=":a:aa:aab:ab:an:ap:av:ax"
+HISTIGNORE+=":o:oa:ob:od:on:op:ov:ox"
 HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
@@ -43,6 +43,7 @@ alias zip="zip -r"
 
 # Shortcuts
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
+alias a="cat"
 alias bd="b -d"
 alias dl="clear; ls"
 alias f="fg"
@@ -87,18 +88,18 @@ alias jst="j ~/Projects/st/"
 alias jw="j ~/Dropbox/Pictures/Wallpapers/"
 
 # Files
-a() {
+o() {
 	if [ "$#" == 0 ]; then feh
 	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
 	else nvim "$@"; fi
 }
-alias aa="\$EDITOR ~/Projects/arch/arch_desktop.sh"
-alias aab="\$EDITOR ~/Projects/arch/arch_base.sh"
-alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias an="\$EDITOR ~/Dropbox/Notes/notes"
-alias ap="\$EDITOR \$DOTFILES/bash/.bash_profile"
-alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
-alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
+alias oa="\$EDITOR ~/Projects/arch/arch_base.sh"
+alias ob="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
+alias od="\$EDITOR ~/Projects/arch/arch_desktop.sh"
+alias on="\$EDITOR ~/Dropbox/Notes/notes"
+alias op="\$EDITOR \$DOTFILES/bash/.bash_profile"
+alias ov="\$EDITOR \$DOTFILES/nvim/init.vim"
+alias ox="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
 # Git
 alias ga="git add"
