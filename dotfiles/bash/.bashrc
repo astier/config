@@ -25,7 +25,6 @@ set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
 # Defaults
-cd() { builtin cd "$@" && ls; }
 alias cal='cal -m'
 alias cp='cp -ir'
 alias df="df -h"
@@ -41,12 +40,12 @@ alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 alias zip="zip -r"
+cd() { builtin cd "$@" && ls; }
 
 # Shortcuts
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
 alias -- ,="cd .."
 alias -- -="cd -"
-alias a="cat"
 alias bd="b -d"
 alias dl="clear; ls"
 alias f="fg"
