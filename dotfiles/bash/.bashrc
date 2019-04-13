@@ -26,8 +26,6 @@ shopt -s autocd cdspell checkwinsize histappend
 
 # Defaults
 cd() { builtin cd "$@" && ls; }
-alias -- ,="a .."
-alias -- -="a -"
 alias cal='cal -m'
 alias cp='cp -ir'
 alias df="df -h"
@@ -46,6 +44,8 @@ alias zip="zip -r"
 
 # Shortcuts
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
+alias -- ,="cd .."
+alias -- -="cd -"
 alias a="cat"
 alias bd="b -d"
 alias dl="clear; ls"
