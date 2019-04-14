@@ -17,7 +17,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="cal:df:top:d:bd:dl:f:i:ii:l:ll:lb:ma:mai:ml:sd:xc:xm:xp:y"
+HISTIGNORE="b:bd:cal:df:top:d:dl:f:i:ii:l:ll:lb:ma:mai:ml:sd:x:xc:xm:xp:y"
 HISTIGNORE+=":,:-:j:ja:jas:jc:jd:jdb:jdm:jdo:jdw:ji:jl:jm:jp:jsc:jst:jw"
 HISTIGNORE+=":a:ao:aa:ab:ad:an:ap:av:ax"
 HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
@@ -25,6 +25,7 @@ set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
 # Defaults
+alias cal="cal -m"
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
@@ -79,7 +80,7 @@ alias jdm="cd ~/Projects/dmenu/"
 alias jdo="cd ~/Downloads/"
 alias jdw="cd ~/Projects/dwm/"
 alias ji="cd ~/Dropbox/ISY/"
-alias jl="cd ~/.local/"
+alias jl="cd ~/.local/share"
 alias jm="cd ~/Dropbox/ISY/S3/MYO/"
 alias jp="cd ~/Projects/"
 alias jsc="cd ~/Projects/scripts/scripts/"
