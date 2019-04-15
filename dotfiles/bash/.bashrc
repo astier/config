@@ -71,7 +71,7 @@ a() {
 	else nvim "$@"; fi
 }
 
-# Bookmarks (ar and as already existing commands'
+# Bookmarks (ar and as already existing commands)
 alias -- ,="cd .."
 alias -- -="cd -"
 alias aa="cd ~/Projects/arch"
