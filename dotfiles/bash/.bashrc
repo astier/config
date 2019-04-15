@@ -17,7 +17,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="cal:df:history:top:bd:d:f:i:l:lb:ll:ma:mai:ml:sd:x:xc:xm:xp:y"
+HISTIGNORE="cal:df:history:top:bd:d:c:f:i:l:lb:ll:ma:mai:ml:sd:x:xc:xm:xp:y"
 HISTIGNORE+=":,:-:a:aa:aad:ab:ac:ad:adb:adm:ado:adw:ai:al:am:an:ap:asc:ase:ast:av:aw:ax"
 HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
 set -o noclobber vi
@@ -42,6 +42,7 @@ alias top="top -1 -u \$USER"
 # Shortcuts
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
 alias bd="b -d"
+alias c="cat"
 alias f="fg"
 alias i="iwctl"
 alias l="ls"
