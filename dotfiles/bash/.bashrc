@@ -17,9 +17,8 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="b:bd:c:cal:df:top:d:dl:f:i:ii:l:ll:lb:ma:mai:ml:r:sd:x:xc:xm:xp:y"
-HISTIGNORE+=":,:-:ja:jas:jb:jc:jd:jdm:jdw:ji:jl:jm:jo:jp:jsc:jst:jw"
-HISTIGNORE+=":a:ao:aa:ab:ad:an:ap:av:ax"
+HISTIGNORE="cal:df:history:top:bd:d:f:i:l:lb:ll:ma:mai:ml:sd:x:xc:xm:xp:y"
+HISTIGNORE+=":,:-:a:aa:aad:ab:ac:ad:adb:adm:ado:adw:ai:al:am:an:ap:asc:ase:ast:av:aw:ax"
 HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
@@ -41,22 +40,20 @@ alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 
 # Shortcuts
+d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
 alias bd="b -d"
-alias c="clear"
 alias f="fg"
 alias i="iwctl"
-alias ii="networkctl"
 alias l="ls"
-alias ll="ls -l"
 alias lb="lsblk"
+alias ll="ls -l"
 alias m="mv"
 alias ma="make; make clean"
 alias mai="sudo make install clean"
-alias d="mkdir"
+alias md="mkdir"
 alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias p="cp"
 alias py="python"
-alias r="rm"
 alias sa="source activate"
 alias sd="conda deactivate"
 alias t="touch"
@@ -65,27 +62,8 @@ alias xm="x -m"
 alias xp="x -p"
 alias y='yay'
 
-# Directories
 cd() { if [ "$#" == 0 ]; then builtin cd && clear; else builtin cd "$@" && ls; fi }
-alias -- ,="cd .."
-alias -- -="cd -"
-alias ja="cd ~/Projects/arch/"
-alias jb="cd ~/Dropbox/"
-alias jas="cd ~/Dropbox/ISY/S4/ASE/"
-alias jc="cd ~/.config/"
-alias jd="cd \$DOTFILES"
-alias jdm="cd ~/Projects/dmenu/"
-alias jdw="cd ~/Projects/dwm/"
-alias ji="cd ~/Dropbox/ISY/"
-alias jl="cd ~/.local/share"
-alias jm="cd ~/Dropbox/ISY/S3/MYO/"
-alias jo="cd ~/Downloads/"
-alias jp="cd ~/Projects/"
-alias jsc="cd ~/Projects/scripts/scripts/"
-alias jst="cd ~/Projects/st/"
-alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
 
-# Aperire
 a() {
 	if [ "$#" == 0 ]; then cd
 	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
@@ -93,13 +71,29 @@ a() {
 	else nvim "$@"; fi
 }
 
-# Files
-alias aa="\$EDITOR ~/Projects/arch/arch_base.sh"
+# Bookmarks (ar and as already existing commands'
+alias -- ,="cd .."
+alias -- -="cd -"
+alias aa="cd ~/Projects/arch"
+alias aad="\$EDITOR ~/Projects/arch/arch_desktop.sh"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias ad="\$EDITOR ~/Projects/arch/arch_desktop.sh"
+alias ac="cd ~/.config/"
+alias ad="cd \$DOTFILES"
+alias adb="cd ~/Dropbox"
+alias adm="cd ~/Projects/dmenu"
+alias ado="cd ~/Downloads"
+alias adw="cd ~/Projects/dwm"
+alias ai="cd ~/Dropbox/ISY/S4"
+alias al="cd ~/.local/share"
+alias am="cd ~/Dropbox/ISY/S3/MYO"
 alias an="\$EDITOR ~/Dropbox/Notes/notes"
 alias ap="\$EDITOR \$DOTFILES/bash/.bash_profile"
+alias ap="cd ~/Projects"
+alias asc="cd ~/Projects/scripts/scripts"
+alias ase="cd ~/Dropbox/ISY/S4/ASE"
+alias ast="cd ~/Projects/st"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
+alias aw="cd ~/Dropbox/Pictures/Wallpapers"
 alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
 # Git
