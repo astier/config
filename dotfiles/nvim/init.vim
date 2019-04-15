@@ -155,7 +155,7 @@ au FileType python inoremap <silent><buffer><a-d> <esc>:read $DOTFILES/nvim/snip
 
 " VimTex
 let g:vimtex_compiler_progname = nvi.'nvr'
-let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_general_viewer = 'firefox'
 let g:vimtex_compiler_latexmk = {
 	\ 'backend' : 'nvim',
 	\ 'background' : 1,

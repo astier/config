@@ -17,8 +17,8 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="b:bd:cal:df:top:d:dl:f:i:ii:l:ll:lb:ma:mai:ml:sd:x:xc:xm:xp:y"
-HISTIGNORE+=":,:-:j:ja:jas:jc:jd:jdb:jdm:jdo:jdw:ji:jl:jm:jp:jsc:jst:jw"
+HISTIGNORE="b:bd:c:cal:df:top:d:dl:f:i:ii:l:ll:lb:ma:mai:ml:r:sd:x:xc:xm:xp:y"
+HISTIGNORE+=":,:-:ja:jas:jb:jc:jd:jdm:jdw:ji:jl:jm:jo:jp:jsc:jst:jw"
 HISTIGNORE+=":a:ao:aa:ab:ad:an:ap:av:ax"
 HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
 set -o noclobber vi
@@ -39,12 +39,10 @@ alias umount="sudo umount"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
-alias zip="zip -r"
 
 # Shortcuts
-d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
 alias bd="b -d"
-alias dl="clear; ls"
+alias c="clear"
 alias f="fg"
 alias i="iwctl"
 alias ii="networkctl"
@@ -54,10 +52,11 @@ alias lb="lsblk"
 alias m="mv"
 alias ma="make; make clean"
 alias mai="sudo make install clean"
-alias md="mkdir"
+alias d="mkdir"
 alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
 alias p="cp"
 alias py="python"
+alias r="rm"
 alias sa="source activate"
 alias sd="conda deactivate"
 alias t="touch"
@@ -70,18 +69,17 @@ alias y='yay'
 cd() { if [ "$#" == 0 ]; then builtin cd && clear; else builtin cd "$@" && ls; fi }
 alias -- ,="cd .."
 alias -- -="cd -"
-alias j="cd"
 alias ja="cd ~/Projects/arch/"
+alias jb="cd ~/Dropbox/"
 alias jas="cd ~/Dropbox/ISY/S4/ASE/"
 alias jc="cd ~/.config/"
 alias jd="cd \$DOTFILES"
-alias jdb="cd ~/Dropbox/"
 alias jdm="cd ~/Projects/dmenu/"
-alias jdo="cd ~/Downloads/"
 alias jdw="cd ~/Projects/dwm/"
 alias ji="cd ~/Dropbox/ISY/"
 alias jl="cd ~/.local/share"
 alias jm="cd ~/Dropbox/ISY/S3/MYO/"
+alias jo="cd ~/Downloads/"
 alias jp="cd ~/Projects/"
 alias jsc="cd ~/Projects/scripts/scripts/"
 alias jst="cd ~/Projects/st/"
@@ -89,7 +87,7 @@ alias jw="cd ~/Dropbox/Pictures/Wallpapers/"
 
 # Aperire
 a() {
-	if [ "$#" == 0 ]; then feh
+	if [ "$#" == 0 ]; then cd
 	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
 	elif [ "$#" == 1 ] && [ -d "$1" ]; then cd "$@" || exit
 	else nvim "$@"; fi
@@ -138,6 +136,6 @@ alias grr="git reset --hard; git clean -f"
 
 ##### AMiRo ENVIRONMENT CONFIGURATION #####
 # DO NOT EDIT THESE LINES MANUALLY!
-export PATH=$PATH:/home/aleks/Dropbox/ISY/S4/ASE/gcc-arm-embedded
+export PATH=$PATH:/home/aleks/Projects/ase/gcc-arm-embedded
 ##### AMiRo ENVIRONMENT CONFIGURATION #####
 
