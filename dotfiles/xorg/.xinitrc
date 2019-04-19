@@ -2,17 +2,15 @@
 
 # Merge in defaults and keymaps
 XINIT=/etc/X11/xinit
+
 sysresources=$XINIT/.Xresources
 [[ -f $sysresources ]] && xrdb -merge $sysresources
 
 sysmodmap=$XINIT/.Xmodmap
 [[ -f $sysmodmap ]] && xmodmap $sysmodmap
 
-userresources=$HOME/.Xresources
-[[ -f "$userresources" ]] && xrdb -merge "$userresources"
-
-usermodmap=$HOME/.Xmodmap
-[[ -f "$usermodmap" ]] && xmodmap "$usermodmap"
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
 # Start some nice programs
 XINITRC=$XINIT/xinitrc.d
