@@ -57,6 +57,7 @@ alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pa
 alias n="newsboat"
 alias p="cp"
 alias py="python"
+alias s="sudo"
 alias sa="source activate"
 alias sd="conda deactivate"
 alias t="touch"
