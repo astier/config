@@ -39,6 +39,7 @@ alias newsboat="newsboat -u ~/Dropbox/Documents/Misc/urls"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
+alias maf="make && make flash && gtkterm -c AMiRo"
 
 # Shortcuts
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
