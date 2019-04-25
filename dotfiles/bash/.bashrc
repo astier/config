@@ -63,7 +63,7 @@ alias t="touch"
 alias xc="x -c"
 alias xm="x -m"
 alias xp="x -p"
-alias y='yay'
+alias y='yay && pacman -U /var/cache/pacman/pkg/iwd-0.16-4-x86_64.pkg.tar.xz'
 
 cd() { if [ "$#" == 0 ]; then builtin cd && clear; else builtin cd "$@" && ls; fi }
 
