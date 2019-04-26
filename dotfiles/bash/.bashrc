@@ -42,6 +42,7 @@ alias maf="make && make flash && gtkterm -c AMiRo"
 
 # Shortcuts
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
+alias b="cat /sys/class/power_supply/BAT0/capacity"
 alias bd="b -d"
 alias c="cat"
 alias f="fg"
