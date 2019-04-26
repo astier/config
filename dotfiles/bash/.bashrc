@@ -17,9 +17,9 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="cal:df:history:poweroff:pwd:reboot:top"
+HISTIGNORE="cal:df:feh:history:poweroff:pwd:reboot:top"
 HISTIGNORE+=":bd:d:c:f:i:l:lb:ll:ma:mai:ml:sd:x:xc:xm:xp:y"
-HISTIGNORE+=":,:-:a:aa:aad:ab:ac:ad:adb:adm:ado:adw:ai:al:am:an:ap:asc:ase:ast:av:aw:ax"
+HISTIGNORE+=":,:-:a:aa:aad:ab:ac:ad:adb:ado:ai:al:am:an:ap:asc:ase:ast:av:aw:awm:ax"
 HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
