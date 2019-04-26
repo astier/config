@@ -28,9 +28,8 @@ xmodmap -e "keycode 133 = ISO_Level3_Shift"
 numlockx
 xset s off -dpms
 
-b -l ~/Dropbox/Pictures/Wallpapers/ 900 &
+b -l ~/Dropbox/Pictures/Wallpapers/ &
 compton &
-dstatus &
 xbanish &
 
 exec dwm
