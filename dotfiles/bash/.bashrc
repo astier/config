@@ -25,6 +25,7 @@ set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
 # Defaults
+alias cal="cal -m"
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
