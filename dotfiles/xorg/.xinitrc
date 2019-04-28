@@ -12,7 +12,7 @@ sysmodmap=$XINIT/.Xmodmap
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
-# Start some nice programs
+# Start programs
 XINITRC=$XINIT/xinitrc.d
 if [ -d $XINITRC ] ; then
 	for f in "$XINITRC"/?*.sh ; do
@@ -25,11 +25,11 @@ fi
 xmodmap -e "keycode 108 = Super_L"
 xmodmap -e "keycode 133 = ISO_Level3_Shift"
 
+# Start programs
+b -l ~/Dropbox/Pictures/Wallpapers/ &
+compton -b
 numlockx
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 xset s off -dpms
-
-b -l ~/Dropbox/Pictures/Wallpapers/ &
-compton &
 
 exec dwm
