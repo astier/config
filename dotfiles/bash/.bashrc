@@ -17,7 +17,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # Settings
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="cal:df:feh:history:poweroff:pwd:reboot:top"
+HISTIGNORE="df:feh::poweroff:pwd:reboot:top"
 HISTIGNORE+=":bd:d:c:f:i:l:lb:ll:ma:mai:ml:sd:x:xc:xm:xp:y"
 HISTIGNORE+=":,:-:a:aa:aad:ab:ac:ad:adb:ado:ai:al:am:an:ap:asc:ase:ast:av:aw:awm:ax"
 HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
@@ -45,7 +45,6 @@ d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
 alias bd="b -d"
 alias c="cat"
 alias f="fg"
-alias i="cat /sys/class/power_supply/BAT0/capacity; date +%H:%M"
 alias ii="iwctl"
 alias l="ls"
 alias lb="lsblk"
