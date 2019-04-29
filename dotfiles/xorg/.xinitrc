@@ -30,6 +30,7 @@ b -l ~/Dropbox/Pictures/Wallpapers/ &
 # compton -b --backend glx --vsync --config /dev/null
 compton -b
 numlockx
+st &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 xset s off -dpms
 
