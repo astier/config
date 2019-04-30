@@ -29,7 +29,6 @@ xmodmap -e "keycode 133 = ISO_Level3_Shift"
 b -l ~/Dropbox/Pictures/Wallpapers/ &
 compton -bf --backend glx --vsync --config /dev/null
 numlockx
-st &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 xset s off -dpms
 
