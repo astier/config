@@ -118,7 +118,9 @@ gc() { git add --all; git commit -m "$1" && git push; }
 
 alias g="git log --all --graph --decorate --oneline -n16"
 alias gg="git log --all --graph --decorate --oneline"
+alias ggg="git log --oneline --grep"
 alias gl="git log --date=auto:human"
+alias glg="git log --grep"
 
 alias go-="git checkout --"
 alias go="git checkout"
