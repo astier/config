@@ -18,9 +18,9 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 # Settings
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="df:poweroff:reboot"
-HISTIGNORE+=":bd:d:c:f:i:l:lb:ll:ma:ml:sd:x:xc:xm:xp:y"
-HISTIGNORE+=":,:-:a:aa:aad:ab:ac:ad:adb:ado:ai:al:am:an:ap:asc:ase:ast:av:aw:awm:ax"
-HISTIGNORE+=":gaa:gd:gs:gca:g:gg:gl:gps:gpsf:gpl:gcn:grh:grr"
+HISTIGNORE+=":c:d:dl:f:i:ii:l:lb:ll:ma:maf:mai:ml:py:sd:x:xc:xm:xp:y"
+HISTIGNORE+=":,:-:a:aa:ab:ac:ad:adb:ado:adw:ai:al:am:an:ann:anp:ap:asc:ase:ast:av:ax"
+HISTIGNORE+=":gaa:gd:gs:gc:gca:g:gg:gl:go-:gps:gpsf:gpl:gcn:grr"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
@@ -33,17 +33,15 @@ alias grep="grep --color"
 alias ls="ls --color --group-directories-first -Ah"
 alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
 alias mkdir="mkdir -p"
-alias mv="mv -i"
 alias mount="sudo mount"
-alias umount="sudo umount"
+alias mv="mv -i"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
-alias maf="make && make flash && gtkterm -c AMiRo"
+alias umount="sudo umount"
 
 # Shortcuts
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
-alias bd="b -d"
 alias c="cat"
 alias dl="clear; ls"
 alias f="fg"
@@ -53,6 +51,7 @@ alias lb="lsblk"
 alias ll="ls -l"
 alias m="mv"
 alias ma="make; make clean"
+alias maf="make && make flash && gtkterm -c AMiRo"
 alias mai="sudo make install clean"
 alias md="mkdir"
 alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist; cat /etc/pacman.d/mirrorlist"
@@ -80,25 +79,23 @@ a() {
 alias -- ,="cd .."
 alias -- -="cd -"
 alias aa="cd ~/Projects/arch"
-alias aad="\$EDITOR ~/Projects/arch/arch_desktop.sh"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias abp="\$EDITOR \$DOTFILES/bash/.bash_profile"
 alias ac="cd ~/.config/"
 alias ad="cd \$DOTFILES"
-alias adw="cd ~/Projects/dwm"
 alias adb="cd ~/Dropbox"
 alias ado="cd ~/Downloads"
+alias adw="cd ~/Projects/dwm"
 alias ai="cd ~/Dropbox/ISY/S4"
 alias al="cd ~/.local/share"
 alias am="cd ~/Dropbox/ISY/S3/MYO"
-alias an="\$EDITOR ~/Dropbox/Notes/notes"
+alias an="\$EDITOR ~/Dropbox/Notes"
+alias ann="\$EDITOR ~/Dropbox/Notes/notes"
 alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
 alias ap="cd ~/Projects"
 alias asc="cd ~/Projects/scripts/scripts"
 alias ase="cd ~/Dropbox/ISY/S4/ASE"
 alias ast="cd ~/Projects/st"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
-alias aw="cd ~/Dropbox/Pictures/Wallpapers"
 alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
 # Git
@@ -111,10 +108,11 @@ alias gcl="git clone"
 alias gd="git diff"
 alias gs="git status -s"
 
+alias gc="git commit"
 alias gca="git commit -a"
 alias gcam="git commit -am"
 alias gcm="git commit -m"
-gc() { git add --all; git commit -m "$1" && git push; }
+gcp() { git add --all && git commit -m "$1" && git push; }
 
 alias g="git log --all --graph --decorate --oneline -n16"
 alias gg="git log --all --graph --decorate --oneline"
@@ -126,14 +124,14 @@ alias go-="git checkout --"
 alias go="git checkout"
 alias gob="git checkout -b"
 
+alias gpl="git pull"
 alias gps="git push"
 alias gpsf="git push -f"
-alias gpl="git pull"
 
 alias gcn="git clean -f"
 alias grh="git reset --hard"
-alias grs="git reset --soft"
 alias grr="git reset --hard; git clean -f"
+alias grs="git reset --soft"
 
 ##### AMiRo ENVIRONMENT CONFIGURATION #####
 # DO NOT EDIT THESE LINES MANUALLY!
