@@ -22,7 +22,7 @@ HISTIGNORE+=":c:d:dl:f:i:ii:l:lb:ll:ma:maf:mai:ml:py:x:xc:xm:xp:y"
 HISTIGNORE+=":,:-:a:aa:ab:ac:ad:adb:ado:adw:ai:al:am:an:ann:anp:ap:asc:ase:ast:av:ax"
 HISTIGNORE+=":gaa:gd:gs:gc:gca:g:gg:gl:go-:gps:gpsf:gpl:gcn:grr"
 set -o noclobber vi
-shopt -s cdspell checkwinsize histappend
+shopt -s autocd cdspell checkwinsize histappend
 
 # Defaults
 alias cal="cal -m"
@@ -64,33 +64,34 @@ alias xm="x -m"
 alias xp="x -p"
 alias y='yay && pacman -U /var/cache/pacman/pkg/iwd-0.16-4-x86_64.pkg.tar.xz'
 
+cd() { builtin cd "$@" && ls; }
+
 a() {
-	if [ "$#" == 0 ]; then cd && ls
+	if [ "$#" == 0 ]; then cd || exit 1
 	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
-	elif [ "$#" == 1 ] && [ -d "$1" ]; then cd "$@" && ls
+	elif [ "$#" == 1 ] && [ -d "$1" ]; then cd "$@" || exit 1
 	else nvim "$@"; fi
 }
 
 # Bookmarks (ar and as already existing commands)
-alias -- ,="a .."
-alias -- -="a -"
-alias aa="a ~/Projects/arch"
+alias -- -="cd -"
+alias aa="cd ~/Projects/arch"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias ac="a ~/.config/"
-alias ad="a \$DOTFILES"
-alias adb="a ~/Dropbox"
-alias ado="a ~/Downloads"
-alias adw="a ~/Projects/dwm"
-alias ai="a ~/Dropbox/ISY/S4"
-alias al="a ~/.local/share"
-alias am="a ~/Dropbox/ISY/S3/MYO"
-alias an="a ~/Dropbox/Notes"
+alias ac="cd ~/.config/"
+alias ad="cd \$DOTFILES"
+alias adb="cd ~/Dropbox"
+alias ado="cd ~/Downloads"
+alias adw="cd ~/Projects/dwm"
+alias ai="cd ~/Dropbox/ISY/S4"
+alias al="cd ~/.local/share"
+alias am="cd ~/Dropbox/ISY/S3/MYO"
+alias an="cd ~/Dropbox/Notes"
 alias ann="\$EDITOR ~/Dropbox/Notes/notes"
 alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
-alias ap="a ~/Projects"
-alias asc="a ~/Projects/scripts/scripts"
-alias ase="a ~/Dropbox/ISY/S4/ASE"
-alias ast="a ~/Projects/st"
+alias ap="cd ~/Projects"
+alias asc="cd ~/Projects/scripts/scripts"
+alias ase="cd ~/Dropbox/ISY/S4/ASE"
+alias ast="cd ~/Projects/st"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
