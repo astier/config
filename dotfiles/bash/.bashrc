@@ -22,7 +22,7 @@ HISTIGNORE+=":c:d:dl:f:i:ii:l:lb:ll:ma:maf:mai:ml:py:sd:x:xc:xm:xp:y"
 HISTIGNORE+=":,:-:a:aa:ab:ac:ad:adb:ado:adw:ai:al:am:an:ann:anp:ap:asc:ase:ast:av:ax"
 HISTIGNORE+=":gaa:gd:gs:gc:gca:g:gg:gl:go-:gps:gpsf:gpl:gcn:grr"
 set -o noclobber vi
-shopt -s autocd cdspell checkwinsize histappend
+shopt -s cdspell checkwinsize histappend
 
 # Defaults
 alias cal="cal -m"
@@ -58,43 +58,39 @@ alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pa
 alias p="cp"
 alias py="python"
 alias s="sudo"
-alias sa="source activate"
-alias sd="conda deactivate"
 alias t="touch"
 alias xc="x -c"
 alias xm="x -m"
 alias xp="x -p"
 alias y='yay && pacman -U /var/cache/pacman/pkg/iwd-0.16-4-x86_64.pkg.tar.xz'
 
-cd() { if [ "$#" == 0 ]; then builtin cd && clear; else builtin cd "$@" && ls; fi }
-
 a() {
-	if [ "$#" == 0 ]; then cd
+	if [ "$#" == 0 ]; then cd && ls
 	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
-	elif [ "$#" == 1 ] && [ -d "$1" ]; then cd "$@" || exit
+	elif [ "$#" == 1 ] && [ -d "$1" ]; then cd "$@" && ls
 	else nvim "$@"; fi
 }
 
 # Bookmarks (ar and as already existing commands)
-alias -- ,="cd .."
-alias -- -="cd -"
-alias aa="cd ~/Projects/arch"
+alias -- ,="a .."
+alias -- -="a -"
+alias aa="a ~/Projects/arch"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias ac="cd ~/.config/"
-alias ad="cd \$DOTFILES"
-alias adb="cd ~/Dropbox"
-alias ado="cd ~/Downloads"
-alias adw="cd ~/Projects/dwm"
-alias ai="cd ~/Dropbox/ISY/S4"
-alias al="cd ~/.local/share"
-alias am="cd ~/Dropbox/ISY/S3/MYO"
-alias an="cd ~/Dropbox/Notes"
+alias ac="a ~/.config/"
+alias ad="a \$DOTFILES"
+alias adb="a ~/Dropbox"
+alias ado="a ~/Downloads"
+alias adw="a ~/Projects/dwm"
+alias ai="a ~/Dropbox/ISY/S4"
+alias al="a ~/.local/share"
+alias am="a ~/Dropbox/ISY/S3/MYO"
+alias an="a ~/Dropbox/Notes"
 alias ann="\$EDITOR ~/Dropbox/Notes/notes"
 alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
-alias ap="cd ~/Projects"
-alias asc="cd ~/Projects/scripts/scripts"
-alias ase="cd ~/Dropbox/ISY/S4/ASE"
-alias ast="cd ~/Projects/st"
+alias ap="a ~/Projects"
+alias asc="a ~/Projects/scripts/scripts"
+alias ase="a ~/Dropbox/ISY/S4/ASE"
+alias ast="a ~/Projects/st"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
@@ -131,9 +127,3 @@ alias gcn="git clean -f"
 alias grh="git reset --hard"
 alias grr="git reset --hard; git clean -f"
 alias grs="git reset --soft"
-
-##### AMiRo ENVIRONMENT CONFIGURATION #####
-# DO NOT EDIT THESE LINES MANUALLY!
-export PATH=$PATH:/home/aleks/Projects/ase/gcc-arm-embedded
-##### AMiRo ENVIRONMENT CONFIGURATION #####
-
