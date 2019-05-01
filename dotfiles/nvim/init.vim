@@ -111,7 +111,6 @@ set hidden
 
 " Plugins
 au BufWritePost * GitGutter
-let nvi = $HOME.'/miniconda3/envs/nvi/bin/'
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
@@ -124,7 +123,6 @@ tnoremap <silent><a-f> <c-\><c-n>:Goyo<cr>:star<cr>
 " ALE
 let g:ale_fixers = {'python': ['isort', 'black']}
 let g:ale_python_black_options = '-l79'
-let g:ale_python_black_executable = nvi.'black'
 let g:ale_python_pylint_options = '--disable=C0102,C0103,C0111,C0330,C0200,R0903,R0913,R0914,W0511 --max-line-length=79'
 nnoremap <silent><a-a><a-f> :ALEFix<cr>
 
@@ -149,12 +147,13 @@ nnoremap <silent><a-a><a-r> :LspRename<cr>
 nnoremap <silent><a-a><a-d> :LspDefinition<cr>
 
 " Python
-let g:python3_host_prog = nvi.'python'
+let g:loaded_python_provider = 1
+let g:python3_host_prog = '/bin/python'
 au FileType python inoremap <silent><buffer><a-b> breakpoint()<esc>
 au FileType python inoremap <silent><buffer><a-d> <esc>:read $DOTFILES/nvim/snippets/python/def.py<cr>:norm =ae<cr>4li
 
 " VimTex
-let g:vimtex_compiler_progname = nvi.'nvr'
+let g:vimtex_compiler_progname = '/bin/nvr'
 let g:vimtex_view_general_viewer = 'firefox'
 let g:vimtex_compiler_latexmk = {
 	\ 'backend' : 'nvim',
