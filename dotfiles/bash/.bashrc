@@ -120,7 +120,6 @@ alias ggg="git log --oneline --grep"
 alias gl="git log --date=auto:human"
 alias glg="git log --grep"
 
-alias go-="git checkout --"
 alias go="git checkout"
 alias gob="git checkout -b"
 
