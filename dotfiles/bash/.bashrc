@@ -92,6 +92,7 @@ alias ap="cd ~/Projects"
 alias asc="cd ~/Projects/scripts/scripts"
 alias ase="cd ~/Dropbox/ISY/S4/ASE"
 alias ast="cd ~/Projects/st"
+alias at="\$EDITOR /tmp/scratch"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
