@@ -10,20 +10,15 @@ sysmodmap=$XINIT/.Xmodmap
 [[ -f $sysmodmap ]] && xmodmap $sysmodmap
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
 # Start programs
 XINITRC=$XINIT/xinitrc.d
 if [ -d $XINITRC ] ; then
 	for f in "$XINITRC"/?*.sh ; do
-		[ -x "$f" ] && . "$f"
+		[ -x "$f" ] && . $f
 	done
 	unset f
 fi
-
-# Swap ALT-RIGHT/GR with WIN_LEFT
-xmodmap -e "keycode 108 = Super_L"
-xmodmap -e "keycode 133 = ISO_Level3_Shift"
 
 # Start programs
 compton -b --backend glx --vsync --config /dev/null
@@ -33,4 +28,5 @@ st &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 xset s off -dpms
 
+sleep 1 && [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap &
 exec dwm
