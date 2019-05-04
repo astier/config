@@ -3,12 +3,13 @@
 # Merge in defaults and keymaps
 XINIT=/etc/X11/xinit
 
-sysresources=$XINIT/.Xresources
-[[ -f $sysresources ]] && xrdb -merge $sysresources
-
 sysmodmap=$XINIT/.Xmodmap
 [[ -f $sysmodmap ]] && xmodmap $sysmodmap
 
+sysresources=$XINIT/.Xresources
+[[ -f $sysresources ]] && xrdb -merge $sysresources
+
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap &
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # Start programs
@@ -28,5 +29,4 @@ st &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 xset s off -dpms
 
-sleep 2 && [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap &
 exec dwm
