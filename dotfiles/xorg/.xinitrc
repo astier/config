@@ -29,4 +29,5 @@ unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 xmodmap -e "keycode 135 = Return"
 xset s off -dpms
 
+st &
 exec dwm
