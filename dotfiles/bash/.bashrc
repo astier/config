@@ -100,6 +100,7 @@ alias ase="cd ~/Dropbox/ISY/S4/ASE"
 alias ast="cd ~/Projects/st"
 alias at="\$EDITOR /tmp/scratch"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
+alias aw="cd ~/Dropbox/Pictures/Wallpapers"
 alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
 # Git
