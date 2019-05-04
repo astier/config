@@ -28,5 +28,5 @@ st &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 xset s off -dpms
 
-sleep 1 && [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap &
+sleep 2 && [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap &
 exec dwm
