@@ -26,7 +26,8 @@ compton -b --backend glx --vsync --config /dev/null
 feh --bg-fill ~/Dropbox/Pictures/30343F.png
 numlockx
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
-xmodmap -e "keycode 135 = Return"
+xmodmap -e "keycode 47 = Return"
+xmodmap -e "keycode 135 = odiaeresis"
 xset s off -dpms
 
 st &
