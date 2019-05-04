@@ -79,6 +79,7 @@ a() {
 }
 
 # Bookmarks (ar and as already existing commands)
+alias -- ,="cd .."
 alias -- -="cd -"
 alias aa="cd ~/Projects/arch"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
