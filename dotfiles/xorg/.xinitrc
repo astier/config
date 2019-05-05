@@ -21,14 +21,16 @@ if [ -d $XINITRC ] ; then
 	unset f
 fi
 
-# Start programs
-compton -b --backend glx --vsync --config /dev/null
-feh --bg-fill ~/Dropbox/Pictures/30343F.png
-numlockx
-unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
+# Config
 xmodmap -e "keycode 47 = Return"
 xmodmap -e "keycode 135 = odiaeresis"
 xset s off -dpms
 
+# Programs
+compton -bf --backend glx --vsync --config /dev/null
+feh --bg-fill ~/Dropbox/Pictures/30343F.png
+numlockx
 st &
+unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
+
 exec dwm
