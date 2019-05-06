@@ -27,10 +27,10 @@ xmodmap -e "keycode 135 = odiaeresis"
 xset s off -dpms
 
 # Programs
-compton -b --backend glx --vsync --config /dev/null
-feh --bg-fill ~/Dropbox/Pictures/30343F.png
+b -l &
+# compton -b --backend glx --vsync --config /dev/null
+compton -b
 numlockx
-st &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 
 exec dwm
