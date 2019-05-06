@@ -71,10 +71,10 @@ alias xm="x -m"
 alias xp="x -p"
 alias y='yay && pacman -U /var/cache/pacman/pkg/iwd-0.16-4-x86_64.pkg.tar.xz'
 
-cd() { builtin cd "$@" && ls; }
+cd() { if [ "$#" == 0 ]; then builtin cd; else builtin cd "$@" && ls; fi }
 
 a() {
-	if [ "$#" == 0 ]; then cd || exit 1
+	if [ "$#" == 0 ]; then cd && ls || exit 1
 	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
 	elif [ "$#" == 1 ] && [ -d "$1" ]; then cd "$@" || exit 1
 	else nvim "$@"; fi
