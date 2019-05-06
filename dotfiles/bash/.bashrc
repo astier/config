@@ -42,6 +42,7 @@ alias umount="sudo umount"
 
 # Shortcuts
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
+alias bd="b -d"
 alias c="cat"
 alias da="cd; clear"
 alias dl="clear; ls"

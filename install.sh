@@ -10,6 +10,7 @@ install () {
 install bash/.bash_profile			~/
 install bash/.bashrc				~/
 install .inputrc					~/
+install .tmux.conf					~/
 install xorg/.xinitrc				~/
 install feh							~/.config/
 install git							~/.config/

@@ -31,6 +31,7 @@ b -l &
 # compton -b --backend glx --vsync --config /dev/null
 compton -b
 numlockx
+st -e tmux &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 
 exec dwm
