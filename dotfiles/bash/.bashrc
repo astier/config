@@ -83,6 +83,8 @@ a() {
 alias -- ,="cd .."
 alias -- -="cd -"
 alias aa="cd ~/Projects/arch"
+alias aab="\$EDITOR ~/Projects/arch/base.sh"
+alias aad="\$EDITOR ~/Projects/arch/desktop.sh"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
 alias ac="cd ~/.config/"
 alias ad="cd \$DOTFILES"
