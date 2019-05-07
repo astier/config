@@ -117,8 +117,8 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " Goyo
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
-nnoremap <silent><a-f> :Goyo<cr>
-tnoremap <silent><a-f> <c-\><c-n>:Goyo<cr>:star<cr>
+nnoremap <silent><a-g> :Goyo<cr>
+tnoremap <silent><a-g> <c-\><c-n>:Goyo<cr>:star<cr>
 
 " ALE
 let g:ale_fixers = {'python': ['isort', 'black']}
