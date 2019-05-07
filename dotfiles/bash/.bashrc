@@ -66,7 +66,10 @@ alias sd="systemctl suspend"
 alias sl="slock"
 alias sp="poweroff"
 alias sr="reboot"
-alias t="touch"
+alias ta="tmux a"
+alias td="tmux a -t 0 || tmux new -s 0"
+alias tl="tmux ls"
+alias tk="tmux kill-server"
 alias xc="x -c"
 alias xm="x -m"
 alias xp="x -p"
@@ -142,3 +145,8 @@ alias grh="git reset --hard"
 alias grr="git reset --hard; git clean -f"
 alias grs="git reset --soft"
 alias grv="git revert"
+
+##### AMiRo ENVIRONMENT CONFIGURATION #####
+# DO NOT EDIT THESE LINES MANUALLY!
+export PATH=$PATH:/home/aleks/Projects/ase/gcc-arm-embedded
+##### AMiRo ENVIRONMENT CONFIGURATION #####
