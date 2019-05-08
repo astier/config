@@ -23,9 +23,9 @@ fi
 
 # Config
 xmodmap -e "keycode 47 = Return"
-xmodmap -e "keycode 135 = odiaeresis"
+xmodmap -e "keycode 133 = odiaeresis"
 xmodmap -e "keycode 48 = BackSpace"
-xmodmap -e "keycode 133 = adiaeresis"
+xmodmap -e "keycode 135 = adiaeresis"
 xset s off -dpms
 
 # Programs
