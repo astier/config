@@ -22,8 +22,8 @@ if [ -d $XINITRC ] ; then
 fi
 
 # Config
-xmodmap -e "keycode 133 = BackSpace"
-xmodmap -e "keycode 135 = Return"
+xmodmap -e "keycode 47 = Return"
+xmodmap -e "keycode 135 = odiaeresis"
 xset s off -dpms
 
 # Programs
