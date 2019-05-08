@@ -83,13 +83,17 @@ alias sl="slock"
 alias sp="poweroff"
 alias sr="reboot"
 
-cd() { if [ "$#" == 0 ]; then builtin cd; else builtin cd "$@" && ls; fi }
+cd() { if [ "$#" == 0 ]; then builtin cd || return ; else builtin cd "$@" && ls; fi }
 
 a() {
-	if [ "$#" == 0 ]; then cd && ls || exit 1
-	elif [ "$#" == 1 ] && [ -f "$1" ]; then xdg-open "$@"
-	elif [ "$#" == 1 ] && [ -d "$1" ]; then cd "$@" || exit 1
-	else nvim "$@"; fi
+	[[ "$#" == 0 ]] && cd && ls && return
+	[[ -d "$1" ]] && cd "$@" && return
+	mimetype=$(file -b --mime-type "$1")
+	if [ "$mimetype" == "application/pdf" ]; then $BROWSER "$@"
+	elif [[ "$mimetype" =~ ^image\/\w* ]]; then feh "$@"
+	elif [[ "$mimetype" =~ ^video\/\w* ]]; then $BROWSER "$@"
+	elif [[ "$mimetype" =~ ^audio\/\w* ]]; then $BROWSER "$@"
+	else $EDITOR "$@"; fi
 }
 
 # Bookmarks (ar and as already existing commands)

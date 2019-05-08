@@ -1,6 +1,8 @@
 [Default Applications]
 application/json=nvim.desktop
 application/pdf=firefox.desktop
+image/jpeg=feh.desktop
+image/png=feh.desktop
 inode/x-empty=nvim.desktop
 text/plain=nvim.desktop
 text/x-diff=nvim.desktop
