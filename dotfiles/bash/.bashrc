@@ -70,6 +70,7 @@ alias ta="tmux a"
 alias td="tmux a -t 0 || tmux new -c ~ -s 0 \; neww \; selectw -t 0"
 alias tk="tmux kill-server"
 alias tl="tmux ls"
+tn() { sh -c "tmux new -s $* \\; neww \\; selectw -t 0"; }
 
 # x
 alias xc="x -c"
