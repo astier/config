@@ -21,11 +21,12 @@ au BufEnter * se fo-=cro
 let mapleader=' '
 let maplocalleader=' '
 nnoremap <silent><a-v><a-v> :e $MYVIMRC<cr>
-nnoremap <silent><a-s><a-s> :setl spell<cr>
-nnoremap <silent><a-s><a-d> :setl nospell<cr>
+" nnoremap <silent><a-s><a-s> :setl spell<cr>
+" nnoremap <silent><a-s><a-d> :setl nospell<cr>
 nnoremap <a-a> ggVG
 nnoremap <a-cr> O<esc>
 nnoremap <a-p> "+p
+nnoremap <a-s> <c-z>
 nnoremap <cr> o<esc>
 vnoremap <a-y> "+y
 se autochdir
