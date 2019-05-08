@@ -62,18 +62,24 @@ alias pa="patch -p1 <"
 alias pq="pacman -Qet"
 alias py="python"
 alias s="sudo"
+alias y='yay && pacman -U /var/cache/pacman/pkg/iwd-0.16-4-x86_64.pkg.tar.xz'
+
+# tmux
+alias ta="tmux a"
+alias td="tmux a -t 0 || tmux new -c ~ -s 0 \; neww \; selectw -t 0"
+alias tk="tmux kill-server"
+alias tl="tmux ls"
+
+# x
+alias xc="x -c"
+alias xm="x -m"
+alias xp="x -p"
+
+# Powermanagement
 alias sd="systemctl suspend"
 alias sl="slock"
 alias sp="poweroff"
 alias sr="reboot"
-alias ta="tmux a"
-alias td="tmux a -t 0 || tmux new -c ~ -s 0"
-alias tl="tmux ls"
-alias tk="tmux kill-server"
-alias xc="x -c"
-alias xm="x -m"
-alias xp="x -p"
-alias y='yay && pacman -U /var/cache/pacman/pkg/iwd-0.16-4-x86_64.pkg.tar.xz'
 
 cd() { if [ "$#" == 0 ]; then builtin cd; else builtin cd "$@" && ls; fi }
 
