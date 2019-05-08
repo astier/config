@@ -66,8 +66,8 @@ alias s="sudo"
 alias y='yay && pacman -U /var/cache/pacman/pkg/iwd-0.16-4-x86_64.pkg.tar.xz'
 
 # tmux
+alias t="tmux a -t 0 || tmux new -c ~ -s 0 \; neww \; selectw -t 0"
 alias ta="tmux a"
-alias td="tmux a -t 0 || tmux new -c ~ -s 0 \; neww \; selectw -t 0"
 alias tk="tmux kill-server"
 alias tl="tmux ls"
 tn() { sh -c "tmux new -s $* \\; neww \\; selectw -t 0"; }
