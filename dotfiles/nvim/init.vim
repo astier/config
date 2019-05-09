@@ -44,18 +44,20 @@ let g:auto_save_silent = 1
 se confirm
 se noswapfile
 
-" Appearance
+" Colorscheme
 let g:enable_italic_font = 1
 let g:enable_bold_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
+se termguicolors
+
+" Statusline
 se laststatus=0
 se statusline=\ 
 se noruler
 se noshowcmd
 se noshowmode
 se signcolumn=yes
-se termguicolors
 
 " Brackets
 inoremap {{ {}<left>
