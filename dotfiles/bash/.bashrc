@@ -9,10 +9,7 @@ GIT_PS1_SHOWUPSTREAM="auto"
 NO_COLOR="\[\e[m\]"
 RED="\[\e[31m\]"
 GREEN="\[\e[32m\]"
-num_jobs() {
-	NUM_JOBS=$(jobs | wc -l)
-	[[ "$NUM_JOBS" -gt 0 ]] && echo " $NUM_JOBS"
-}
+num_jobs() { NUM_JOBS=$(jobs | wc -l) && [[ "$NUM_JOBS" -gt 0 ]] && echo " $NUM_JOBS"; }
 PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # Settings
