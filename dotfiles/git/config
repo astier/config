@@ -3,19 +3,34 @@
 	name = aleks
 
 [core]
+	editor = nvim
 	excludesfile = ~/.config/git/ignore
 
 [credential]
 	helper = cache --timeout=7200
-
 [credential "https://github.com"]
 	username = astier
-
 [credential "https://gitlab.ub.uni-bielefeld.de"]
 	username = astier
 
+[help]
+	autocorrect = 0
+
+[diff]
+	tool = vimdiff
+[difftool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	keepBackup = false
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 [sendemail]
-	smtpserver = smtp.mail.me.com
 	smtpencryption = tls
+	smtpserver = smtp.mail.me.com
 	smtpserverport = 587
 	smtpuser = aleks.stier@icloud.com
