@@ -133,6 +133,7 @@ alias gbd="git branch -D"
 
 alias gcl="git clone"
 alias gd="git diff"
+alias gdt="git difftool"
 alias gs="git status -s"
 
 alias gc="git commit"
