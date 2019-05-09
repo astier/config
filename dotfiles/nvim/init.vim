@@ -38,7 +38,7 @@ nnoremap <a-r> :%s///g<left><left>
 nnoremap <silent># *
 
 " Save
-au FocusGained,BufEnter * checkt
+au FocusGained,BufEnter,VimResume,WinEnter * checkt
 let g:auto_save = 1
 let g:auto_save_silent = 1
 se confirm

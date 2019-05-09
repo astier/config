@@ -105,6 +105,7 @@ alias aaa="\$EDITOR ~/Projects/arch/*.sh"
 alias aab="\$EDITOR ~/Projects/arch/base.sh"
 alias aad="\$EDITOR ~/Projects/arch/desktop.sh"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
+alias abp="\$EDITOR \$DOTFILES/bash/.bash_profile"
 alias ac="cd ~/.config/"
 alias ad="cd \$DOTFILES"
 alias adb="cd ~/Dropbox"
@@ -128,13 +129,18 @@ alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 # Git
 alias ga="git add"
 alias gaa="git add --all"
+
 alias gb="git branch"
 alias gbd="git branch -D"
 
 alias gcl="git clone"
+alias gs="git status -s"
+
 alias gd="git diff"
 alias gdt="git difftool"
-alias gs="git status -s"
+
+alias gm="git merge"
+alias gmt="git mergetool"
 
 alias gc="git commit"
 alias gca="git commit -a"
