@@ -29,7 +29,7 @@ xmodmap -e "keycode 135 = adiaeresis"
 xset s off -dpms
 
 # Programs
-compton -b --vsync --config /dev/null
+compton -b --backend glx --vsync --config /dev/null
 feh --bg-fill ~/Dropbox/Pictures/30343F.png
 firefox &
 numlockx
