@@ -14,7 +14,7 @@
 	username = astier
 
 [help]
-	autocorrect = 0
+	autocorrect = 1
 
 [diff]
 	tool = vimdiff
