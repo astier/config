@@ -7,6 +7,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'prabirshrestha/async.vim', { 'for': 'python' }
 Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }
 Plug 'tpope/vim-commentary'
@@ -16,22 +17,20 @@ Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 call plug#end()
 
-" Misc
-au BufEnter * se fo-=cro
+" Leaders
 let mapleader=' '
 let maplocalleader=' '
-nnoremap <silent><a-v><a-v> :e $MYVIMRC<cr>
-" nnoremap <silent><a-s><a-s> :setl spell<cr>
-" nnoremap <silent><a-s><a-d> :setl nospell<cr>
-nnoremap <a-a> ggVG
-nnoremap <a-cr> O<esc>
-nnoremap <a-p> "+p
+
+" Misc
+au BufEnter * se fo-=cro
 nnoremap <a-s> <c-z>
-nnoremap <cr> o<esc>
-vnoremap <a-y> "+y
 se autochdir
 se mouse=a
 se tabstop=4 shiftwidth=4
+nnoremap <cr> o<esc>
+nnoremap <a-cr> O<esc>
+nnoremap <a-p> "+p
+vnoremap <a-y> "+y
 
 " Search & Replace
 nnoremap <silent><esc> :noh<cr><esc>
@@ -50,8 +49,10 @@ let g:enable_italic_font = 1
 let g:enable_bold_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
-se laststatus=1
+se laststatus=0
+se statusline=\ 
 se noruler
+se noshowcmd
 se noshowmode
 se signcolumn=yes
 se termguicolors
@@ -98,10 +99,10 @@ nnoremap <silent><a-q> :qa<cr>
 tnoremap <silent><a-q> <c-\><c-n>:qa<cr>
 
 " Wrap
-nnoremap j gj
-nnoremap k gk
 nnoremap $ g$
 nnoremap 0 g0
+nnoremap j gj
+nnoremap k gk
 se breakindent linebreak
 
 " Terminal
@@ -112,9 +113,11 @@ set hidden
 
 " Plugins
 au BufWritePost * GitGutter
+sil! cal repeat#se('\<Plug>vim-surround', v:count)
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
-sil! cal repeat#se('\<Plug>vim-surround', v:count)
+let g:show_spaces_that_precede_tabs=1
+let g:strip_whitelines_at_eof=1
 
 " Goyo
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
@@ -122,10 +125,13 @@ nnoremap <silent><a-g> :Goyo<cr>
 tnoremap <silent><a-g> <c-\><c-n>:Goyo<cr>:star<cr>
 
 " ALE
-let g:ale_fixers = {'python': ['isort', 'black']}
+let g:ale_fixers = {
+	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+	\ 'python': ['isort', 'black'],
+\}
 let g:ale_python_black_options = '-l79'
 let g:ale_python_pylint_options = '--disable=C0102,C0103,C0111,C0330,C0200,R0903,R0913,R0914,W0511 --max-line-length=79'
-nnoremap <silent><a-a><a-f> :ALEFix<cr>
+let g:ale_lint_on_text_changed = 'never'
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -141,11 +147,8 @@ if executable('pyls')
 		\ 'name': 'pyls',
 		\ 'cmd': {server_info->['pyls']},
 		\ 'whitelist': ['python'],
-\ })
+\})
 endif
-nnoremap <silent><a-a><a-h> :LspHover<cr>
-nnoremap <silent><a-a><a-r> :LspRename<cr>
-nnoremap <silent><a-a><a-d> :LspDefinition<cr>
 
 " Python
 let g:loaded_python_provider = 1
