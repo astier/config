@@ -89,10 +89,11 @@ a() {
 	[[ "$#" == 0 ]] && cd && ls && return
 	[[ -d "$1" ]] && cd "$@" && return
 	mimetype=$(file -b --mime-type "$1")
+	mime=$(echo "$mimetype" | cut -d/ -f1)
 	if [ "$mimetype" == "application/pdf" ]; then $BROWSER "$@"
-	elif [[ "$mimetype" =~ ^image\/\w* ]]; then feh "$@"
-	elif [[ "$mimetype" =~ ^video\/\w* ]]; then $BROWSER "$@"
-	elif [[ "$mimetype" =~ ^audio\/\w* ]]; then $BROWSER "$@"
+	elif [ "$mime" == "image" ]; then (feh "$@" &)
+	elif [ "$mime" == "video" ]; then $BROWSER "$@"
+	elif [ "$mime" == "audio" ]; then $BROWSER "$@"
 	else $EDITOR "$@"; fi
 }
 
