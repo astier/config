@@ -29,10 +29,11 @@ xmodmap -e "keycode 135 = adiaeresis"
 xset s off -dpms
 
 # Programs
-b -l &
-# compton -b --backend glx --vsync --config /dev/null
-compton -b
+compton -b --vsync --config /dev/null
+feh --bg-fill ~/Dropbox/Pictures/30343F.png
+firefox &
 numlockx
+st &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 
 exec dwm
