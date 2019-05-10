@@ -66,7 +66,8 @@ inoremap [[ []<left>
 inoremap '' ''<left>
 inoremap "" ""<left>
 
-" Windows-Navigation
+" Navigation
+nnoremap <a-w> <c-w>
 nnoremap <a-h> <c-w>h
 nnoremap <a-j> <c-w>j
 nnoremap <a-k> <c-w>k
@@ -75,8 +76,12 @@ tnoremap <a-h> <c-\><c-n><c-w>h
 tnoremap <a-j> <c-\><c-n><c-w>j
 tnoremap <a-k> <c-\><c-n><c-w>k
 tnoremap <a-l> <c-\><c-n><c-w>l
+nnoremap <silent><a-i> :bp<cr>
+nnoremap <silent><a-o> :bn<cr>
+tnoremap <silent><a-i> <c-\><c-n>:bp<cr>
+tnoremap <silent><a-o> <c-\><c-n>:bn<cr>
 
-" Windows-Resize
+" Resize
 au VimResized * wincmd =
 nnoremap <silent><a-J> :res +1<cr>
 nnoremap <silent><a-K> :res -1<cr>
@@ -86,19 +91,17 @@ tnoremap <silent><a-J> <c-\><c-n>:res +1<cr>:star<cr>
 tnoremap <silent><a-K> <c-\><c-n>:res -1<cr>:star<cr>
 tnoremap <silent><a-L> <c-\><c-n>:vert res +1<cr>:star<cr>
 tnoremap <silent><a-H> <c-\><c-n>:vert res -1<cr>:star<cr>
-nnoremap <silent><a-c> :clo<cr>
-tnoremap <silent><a-c> <c-\><c-n>:clo<cr>
 se splitbelow splitright
 
-" Buffers
-nnoremap <silent><a-i> :bp<cr>
-nnoremap <silent><a-o> :bn<cr>
-tnoremap <silent><a-i> <c-\><c-n>:bp<cr>
-tnoremap <silent><a-o> <c-\><c-n>:bn<cr>
-nnoremap <silent><a-d> :Bw<cr>
-tnoremap <silent><a-d> <c-\><c-n>:Bw!<cr>
+" Kill
 nnoremap <silent><a-q> :qa<cr>
+nnoremap <silent><a-c> :clo<cr>
+nnoremap <silent><a-d><a-d> :Bw<cr>:clo<cr>
+nnoremap <silent><a-d><a-c> :Bw<cr>:clo<cr>
 tnoremap <silent><a-q> <c-\><c-n>:qa<cr>
+tnoremap <silent><a-c> <c-\><c-n>:clo<cr>
+tnoremap <silent><a-d><a-d> <c-\><c-n>:Bw!<cr>:clo<cr>
+tnoremap <silent><a-d><a-c> <c-\><c-n>:Bw!<cr>:clo<cr>
 
 " Wrap
 nnoremap $ g$
