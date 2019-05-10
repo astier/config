@@ -3,7 +3,6 @@ Plug '907th/vim-auto-save'
 Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' }
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye'
@@ -123,11 +122,6 @@ let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:show_spaces_that_precede_tabs=1
 let g:strip_whitelines_at_eof=1
-
-" Goyo
-au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
-nnoremap <silent><a-g> :Goyo<cr>
-tnoremap <silent><a-g> <c-\><c-n>:Goyo<cr>:star<cr>
 
 " ALE
 let g:ale_fixers = {
