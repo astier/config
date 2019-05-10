@@ -15,7 +15,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 # Settings
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="df:poweroff:reboot"
-HISTIGNORE+=":c:d:dl:f:i:ii:l:lb:ll:ma:ml:py:x:xc:xm:xp:y"
+HISTIGNORE+=":c:d:dl:f:i:ii:l:lb:ll:ma:ml:py:sd:sl:sp:sr:t:ta:tl:x:xc:xm:xp:y"
 HISTIGNORE+=":,:-:a:aa:ab:ac:ad:adb:ado:adw:ai:al:am:an:anp:ap:asc:ase:ast:ax"
 HISTIGNORE+=":gaa:gd:gs:gc:gca:g:gg:gl:go-:gpl:gcn:grr"
 set -o noclobber vi
@@ -64,7 +64,6 @@ alias y='yay && pacman -U /var/cache/pacman/pkg/iwd-0.16-4-x86_64.pkg.tar.xz'
 # tmux
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
 alias ta="tmux a"
-alias tk="tmux kill-server"
 alias tl="tmux ls"
 alias tn="tmux new -s"
 
