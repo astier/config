@@ -7,10 +7,10 @@ install () {
 	echo Installed: "$TARGET"
 }
 
-install bash/.bash_profile			~/
-install bash/.bashrc				~/
 install .inputrc					~/
 install .tmux.conf					~/
+install bash/.bash_profile			~/
+install bash/.bashrc				~/
 install xorg/.xinitrc				~/
 install feh							~/.config/
 install git							~/.config/
