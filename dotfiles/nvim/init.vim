@@ -1,5 +1,4 @@
 call plug#begin('~/.local/share/nvim/plugins')
-Plug '907th/vim-auto-save'
 Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' }
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'airblade/vim-gitgutter'
@@ -38,8 +37,7 @@ nnoremap <silent># *
 
 " Save
 au FocusGained,BufEnter,VimResume * checkt
-let g:auto_save = 1
-let g:auto_save_silent = 1
+se autowriteall
 se confirm
 se noswapfile
 
@@ -116,7 +114,7 @@ nnoremap <silent><a-t> :te<cr>
 set hidden
 
 " Plugins
-au BufWritePost * GitGutter
+au InsertLeave,TextChanged * GitGutter
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
