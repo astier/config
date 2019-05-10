@@ -32,8 +32,9 @@ vnoremap <a-y> "+y
 
 " Search & Replace
 nnoremap <silent><esc> :noh<cr><esc>
-nnoremap <a-r> :%s///g<left><left>
+nnoremap <a-r> :%s/\<<C-r><C-w>\>//g<left><left>
 nnoremap <silent># *
+se inccommand=nosplit
 
 " Save
 au FocusGained,BufEnter,VimResume * checkt
