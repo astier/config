@@ -6,13 +6,10 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'prabirshrestha/async.vim', { 'for': 'python' }
-Plug 'prabirshrestha/vim-lsp', { 'for': 'python' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
 call plug#end()
 
 " Leaders
@@ -127,10 +124,7 @@ let g:strip_whitelines_at_eof=1
 " ALE
 let g:ale_fixers = {
 	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-	\ 'python': ['isort', 'black'],
 \}
-let g:ale_python_black_options = '-l79'
-let g:ale_python_pylint_options = '--disable=C0102,C0103,C0111,C0330,C0200,R0903,R0913,R0914,W0511 --max-line-length=79'
 let g:ale_lint_on_text_changed = 'never'
 
 " Deoplete
@@ -138,17 +132,6 @@ let g:deoplete#enable_at_startup = 1
 au! CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
-
-" LSP
-let g:lsp_diagnostics_enabled = 0
-let g:lsp_preview_keep_focus = 0
-if executable('pyls')
-	au User lsp_setup call lsp#register_server({
-		\ 'name': 'pyls',
-		\ 'cmd': {server_info->['pyls']},
-		\ 'whitelist': ['python'],
-\})
-endif
 
 " VimTex
 let g:vimtex_compiler_progname = '/bin/nvr'
@@ -179,7 +162,3 @@ au FileType tex inoremap <silent><buffer>,f <esc>:read $DOTFILES/nvim/snippets/l
 au FileType tex inoremap <silent><buffer>,sa \section{}<left>
 au FileType tex inoremap <silent><buffer>,sb \subsection{}<left>
 au FileType tex inoremap <silent><buffer>,sc \subsubsection{}<left>
-
-" Python
-au FileType python inoremap <silent><buffer><a-b> breakpoint()<esc>
-au FileType python inoremap <silent><buffer><a-d> <esc>:read $DOTFILES/nvim/snippets/python/def.py<cr>:norm =ae<cr>4li
