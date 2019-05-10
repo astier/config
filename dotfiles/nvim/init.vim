@@ -21,13 +21,15 @@ let maplocalleader=' '
 
 " Misc
 au BufEnter * se fo-=cro
-nnoremap <a-s> <c-z>
+let g:loaded_python_provider = 1
+let g:python3_host_prog = '/bin/python'
 se autochdir
 se mouse=a
 se tabstop=4 shiftwidth=4
 nnoremap <cr> o<esc>
 nnoremap <a-cr> O<esc>
 nnoremap <a-p> "+p
+nnoremap <a-s> <c-z>
 vnoremap <a-y> "+y
 
 " Search & Replace
@@ -148,12 +150,6 @@ if executable('pyls')
 \})
 endif
 
-" Python
-let g:loaded_python_provider = 1
-let g:python3_host_prog = '/bin/python'
-au FileType python inoremap <silent><buffer><a-b> breakpoint()<esc>
-au FileType python inoremap <silent><buffer><a-d> <esc>:read $DOTFILES/nvim/snippets/python/def.py<cr>:norm =ae<cr>4li
-
 " VimTex
 let g:vimtex_compiler_progname = '/bin/nvr'
 let g:vimtex_view_general_viewer = 'zathura'
@@ -183,3 +179,7 @@ au FileType tex inoremap <silent><buffer>,f <esc>:read $DOTFILES/nvim/snippets/l
 au FileType tex inoremap <silent><buffer>,sa \section{}<left>
 au FileType tex inoremap <silent><buffer>,sb \subsection{}<left>
 au FileType tex inoremap <silent><buffer>,sc \subsubsection{}<left>
+
+" Python
+au FileType python inoremap <silent><buffer><a-b> breakpoint()<esc>
+au FileType python inoremap <silent><buffer><a-d> <esc>:read $DOTFILES/nvim/snippets/python/def.py<cr>:norm =ae<cr>4li
