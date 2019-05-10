@@ -93,11 +93,11 @@ se splitbelow splitright
 " Kill
 nnoremap <silent><a-q> :qa<cr>
 nnoremap <silent><a-c> :clo<cr>
-nnoremap <silent><a-d><a-d> :Bw<cr>:clo<cr>
-nnoremap <silent><a-d><a-c> :Bw<cr>:clo<cr>
+nnoremap <silent><a-d><a-d> :wa<cr>:Bw<cr>
+nnoremap <silent><a-d><a-c> :wa<cr>:Bw<cr>:clo<cr>
 tnoremap <silent><a-q> <c-\><c-n>:qa<cr>
 tnoremap <silent><a-c> <c-\><c-n>:clo<cr>
-tnoremap <silent><a-d><a-d> <c-\><c-n>:Bw!<cr>:clo<cr>
+tnoremap <silent><a-d><a-d> <c-\><c-n>:Bw!<cr>
 tnoremap <silent><a-d><a-c> <c-\><c-n>:Bw!<cr>:clo<cr>
 
 " Wrap
