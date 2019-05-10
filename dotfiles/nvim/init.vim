@@ -21,14 +21,14 @@ let maplocalleader=' '
 au BufEnter * se fo-=cro
 let g:loaded_python_provider = 1
 let g:python3_host_prog = '/bin/python'
-se autochdir
+" se autochdir
 se mouse=a
 se tabstop=4 shiftwidth=4
 nnoremap <cr> o<esc>
 nnoremap <a-cr> O<esc>
 nnoremap <a-p> "+p
-nnoremap <a-s> <c-z>
 vnoremap <a-y> "+y
+nnoremap <a-s> <c-z>
 
 " Search & Replace
 nnoremap <silent><esc> :noh<cr><esc>
