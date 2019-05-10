@@ -15,7 +15,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 # Settings
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="df:poweroff:reboot"
-HISTIGNORE+=":c:d:dl:f:i:ii:l:lb:ll:ma:ml:py:sd:sl:sp:sr:t:ta:tl:x:xc:xm:xp:y"
+HISTIGNORE+=":c:d:dl:e:f:i:ii:l:lb:ll:ma:ml:py:sd:sl:sp:sr:t:ta:tl:x:xc:xm:xp:y"
 HISTIGNORE+=":,:-:a:aa:ab:ac:ad:adb:ado:adw:ai:al:am:an:anp:ap:asc:ase:ast:ax"
 HISTIGNORE+=":gaa:gd:gs:gc:gca:g:gg:gl:go-:gpl:gcn:grr"
 set -o noclobber vi
