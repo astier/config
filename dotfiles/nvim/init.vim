@@ -68,8 +68,8 @@ let NERDTreeMinimalUI=1
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeStatusline='NERD'
-nnoremap <silent><a-e> :NERDTreeToggle<cr>
-tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr>
+nnoremap <silent><a-e> :NERDTreeToggle<cr><c-w>=
+tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
 
 " VimTex
 let g:vimtex_compiler_progname = '/bin/nvr'
@@ -150,7 +150,7 @@ nnoremap <silent><a-c> :clo<cr>
 nnoremap <silent><a-d> :Bd<cr>
 tnoremap <silent><a-q> <c-\><c-n>:qa<cr>
 tnoremap <silent><a-c> <c-\><c-n>:clo<cr>
-tnoremap <silent><a-d><a-d> <c-\><c-n>:Bd!<cr>
+tnoremap <silent><a-d> <c-\><c-n>:Bd!<cr>
 
 " Navigation
 nnoremap <a-w> <c-w>
