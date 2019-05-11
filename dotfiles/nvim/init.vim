@@ -24,6 +24,7 @@ let g:python3_host_prog = '/bin/python'
 " se autochdir
 se mouse=a
 se tabstop=4 shiftwidth=4
+nnoremap Q <nop>
 nnoremap <cr> o<esc>
 nnoremap <a-cr> O<esc>
 nnoremap <a-p> "+p
