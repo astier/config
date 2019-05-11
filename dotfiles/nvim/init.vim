@@ -79,6 +79,8 @@ nnoremap <silent><a-i> :bp<cr>
 nnoremap <silent><a-o> :bn<cr>
 tnoremap <silent><a-i> <c-\><c-n>:bp<cr>
 tnoremap <silent><a-o> <c-\><c-n>:bn<cr>
+nnoremap <a-i> <c-y>
+nnoremap <a-,> <c-e>
 
 " Resize
 au VimResized * wincmd =
