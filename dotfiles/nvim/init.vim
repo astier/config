@@ -49,6 +49,21 @@ let g:vimtex_compiler_latexmk = {
 	\ ],
 \}
 
+" Colorscheme
+let g:enable_italic_font = 1
+" let g:enable_bold_font = 1
+let g:hybrid_transparent_background = 1
+colorscheme hybrid_material
+" se termguicolors
+
+" Statusline
+se laststatus=0
+se statusline=\ 
+se noruler
+se noshowcmd
+se noshowmode
+se signcolumn=yes
+
 " Terminal
 au BufEnter term://* star
 au TermOpen * setl nonu nornu scl=no | star
@@ -68,21 +83,6 @@ nnoremap <a-cr> O<esc>
 nnoremap <a-p> "+p
 vnoremap <a-y> "+y
 nnoremap <a-s> <c-z>
-
-" Colorscheme
-let g:enable_italic_font = 1
-" let g:enable_bold_font = 1
-let g:hybrid_transparent_background = 1
-colorscheme hybrid_material
-" se termguicolors
-
-" Statusline
-se laststatus=0
-se statusline=\ 
-se noruler
-se noshowcmd
-se noshowmode
-se signcolumn=yes
 
 " Search & Replace
 nnoremap <silent><esc> :noh<cr><esc>
