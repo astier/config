@@ -6,6 +6,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -51,6 +52,18 @@ let g:vimtex_compiler_latexmk = {
 	\	'-interaction=nonstopmode'
 	\ ],
 \}
+
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeIgnore=['.git', '__pycache__', 'tags']
+let NERDTreeMinimalUI=1
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=1
+let NERDTreeStatusline='NERD'
+nnoremap <silent><a-e> :NERDTreeToggle<cr>
+tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr>
 
 " Airline
 let g:airline#extensions#ale#enabled = 0
