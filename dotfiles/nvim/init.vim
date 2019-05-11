@@ -16,7 +16,51 @@ call plug#end()
 let mapleader=' '
 let maplocalleader=' '
 
-" Misc
+" Plugins-Misc
+au BufWritePost * GitGutter
+sil! cal repeat#se('\<Plug>vim-surround', v:count)
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:show_spaces_that_precede_tabs=1
+let g:strip_whitelines_at_eof=1
+
+" ALE
+let g:ale_fixers = {
+	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+let g:ale_lint_on_text_changed = 'never'
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+au! CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+" VimTex
+let g:vimtex_compiler_progname = '/bin/nvr'
+let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_compiler_latexmk = {
+	\ 'backend' : 'nvim',
+	\ 'background' : 1,
+	\ 'build_dir' : 'tex',
+	\ 'callback' : 1,
+	\ 'continuous' : 0,
+	\ 'executable' : 'latexmk',
+	\ 'options' : [
+	\	'-verbose',
+	\	'-file-line-error',
+	\	'-synctex=1',
+	\	'-interaction=nonstopmode'
+	\ ],
+\}
+
+" Terminal
+au BufEnter term://* star
+au TermOpen * setl nonu nornu scl=no | star
+nnoremap <silent><a-t> :te<cr>
+set hidden
+
+" Settings-Misc
 au BufEnter * se fo-=cro
 let g:loaded_python_provider = 1
 let g:python3_host_prog = '/bin/python'
@@ -29,19 +73,6 @@ nnoremap <a-cr> O<esc>
 nnoremap <a-p> "+p
 vnoremap <a-y> "+y
 nnoremap <a-s> <c-z>
-
-" Search & Replace
-nnoremap <silent><esc> :noh<cr><esc>
-nnoremap <a-r> :%s/\<<C-r><C-w>\>//g<left><left>
-nnoremap <silent># *
-se inccommand=nosplit
-
-" Save
-au FocusGained,BufEnter,VimResume * checkt
-let g:auto_save = 1
-let g:auto_save_silent = 1
-se confirm
-se noswapfile
 
 " Colorscheme
 let g:enable_italic_font = 1
@@ -57,6 +88,19 @@ se noruler
 se noshowcmd
 se noshowmode
 se signcolumn=yes
+
+" Search & Replace
+nnoremap <silent><esc> :noh<cr><esc>
+nnoremap <a-r> :%s/\<<C-r><C-w>\>//g<left><left>
+nnoremap <silent># *
+se inccommand=nosplit
+
+" Save
+au FocusGained,BufEnter,VimResume * checkt
+let g:auto_save = 1
+let g:auto_save_silent = 1
+se confirm
+se noswapfile
 
 " Brackets
 inoremap {{ {}<left>
@@ -109,51 +153,7 @@ nnoremap j gj
 nnoremap k gk
 se breakindent linebreak
 
-" Terminal
-au BufEnter term://* star
-au TermOpen * setl nonu nornu scl=no | star
-nnoremap <silent><a-t> :te<cr>
-set hidden
-
-" Plugins
-au BufWritePost * GitGutter
-sil! cal repeat#se('\<Plug>vim-surround', v:count)
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let g:show_spaces_that_precede_tabs=1
-let g:strip_whitelines_at_eof=1
-
-" ALE
-let g:ale_fixers = {
-	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\}
-let g:ale_lint_on_text_changed = 'never'
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-au! CompleteDone * if pumvisible() == 0 | pclose | endif
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
-
-" VimTex
-let g:vimtex_compiler_progname = '/bin/nvr'
-let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_compiler_latexmk = {
-	\ 'backend' : 'nvim',
-	\ 'background' : 1,
-	\ 'build_dir' : 'tex',
-	\ 'callback' : 1,
-	\ 'continuous' : 0,
-	\ 'executable' : 'latexmk',
-	\ 'options' : [
-	\	'-verbose',
-	\	'-file-line-error',
-	\	'-synctex=1',
-	\	'-interaction=nonstopmode'
-	\ ],
-\}
-
-" LaTeX
+" LaTeX-Snippets
 let g:tex_flavor = 'latex'
 au FileType tex inoremap <expr><buffer><CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
