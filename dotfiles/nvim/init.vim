@@ -5,6 +5,7 @@ Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'airblade/vim-gitgutter'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
@@ -164,10 +165,10 @@ se splitbelow splitright
 " Kill
 nnoremap <silent><a-q> :qa<cr>
 nnoremap <silent><a-c> :clo<cr>
-nnoremap <silent><a-d> :bd<cr>
+nnoremap <silent><a-d> :Bd<cr>
 tnoremap <silent><a-q> <c-\><c-n>:qa<cr>
 tnoremap <silent><a-c> <c-\><c-n>:clo<cr>
-tnoremap <silent><a-d> <c-\><c-n>:bd!<cr>
+tnoremap <silent><a-d><a-d> <c-\><c-n>:Bd!<cr>
 
 " Wrap
 nnoremap $ g$
