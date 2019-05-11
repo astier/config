@@ -67,17 +67,16 @@ nnoremap <silent><a-e> :NERDTreeToggle<cr>
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr>
 
 " Airline
-let g:airline#extensions#ale#enabled = 0
-let g:airline#extensions#tabline#buffer_min_count = 2
-let g:airline#extensions#tabline#buffers_label = 'B'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#middle_click_preserves_windows = 1
-let g:airline#extensions#tabline#tabs_label = 'T'
-let g:airline#extensions#wordcount#enabled = 0
+let g:airline_theme='hybrid'
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
-let g:airline_theme='hybrid'
+let g:airline#extensions#ale#enabled = 0
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffers_label = 'B'
+let g:airline#extensions#tabline#tabs_label = 'T'
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#middle_click_preserves_windows = 1
 
 " Statusline
 se laststatus=0
