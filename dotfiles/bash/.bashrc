@@ -39,6 +39,7 @@ alias umount="sudo umount"
 
 # Shortcuts
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
+alias bd="b -d"
 alias c="cat"
 alias da="cd; clear"
 alias dl="clear; ls"
@@ -118,6 +119,7 @@ alias ase="cd ~/Dropbox/ISY/S4/ASE"
 alias ast="cd ~/Projects/st"
 alias at="\$EDITOR /tmp/scratch"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
+alias aw="cd ~/Dropbox/Pictures/Wallpapers"
 alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
 # Git

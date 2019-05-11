@@ -26,8 +26,8 @@ xmodmap -e "keycode 47 = Return"
 xmodmap -e "keycode 133 = odiaeresis"
 
 # Programs
+b -l &
 compton -b --backend glx --vsync --config /dev/null
-feh --bg-fill ~/Dropbox/Pictures/black.jpg
 firefox &
 numlockx
 st &
