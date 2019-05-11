@@ -3,6 +3,7 @@ Plug '907th/vim-auto-save'
 Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' }
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye'
@@ -66,6 +67,11 @@ let NERDTreeShowHidden=1
 let NERDTreeStatusline='NERD'
 nnoremap <silent><a-e> :NERDTreeToggle<cr>
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr>
+
+" Goyo
+au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
+nnoremap <silent><a-g> :Goyo<cr>
+tnoremap <silent><a-g> <c-\><c-n>:Goyo<cr>:star<cr>
 
 " indentLine
 let g:indentLine_fileTypeExclude = ['man', 'tex']
@@ -180,7 +186,7 @@ nnoremap 0 g0
 " nnoremap k gk
 se breakindent linebreak
 
-" LaTeX-Snippets
+" LaTeX
 let g:tex_flavor = 'latex'
 au FileType tex inoremap <expr><buffer><CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
