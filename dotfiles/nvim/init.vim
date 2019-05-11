@@ -9,6 +9,8 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
 call plug#end()
 
@@ -49,12 +51,18 @@ let g:vimtex_compiler_latexmk = {
 	\ ],
 \}
 
-" Colorscheme
-let g:enable_italic_font = 1
-" let g:enable_bold_font = 1
-let g:hybrid_transparent_background = 1
-colorscheme hybrid_material
-" se termguicolors
+" Airline
+let g:airline#extensions#ale#enabled = 0
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#buffers_label = 'B'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#middle_click_preserves_windows = 1
+let g:airline#extensions#tabline#tabs_label = 'T'
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline_powerline_fonts = 1
+let g:airline_section_c = '%t'
+let g:airline_theme='hybrid'
 
 " Statusline
 se laststatus=0
@@ -63,6 +71,13 @@ se noruler
 se noshowcmd
 se noshowmode
 se signcolumn=yes
+
+" Colorscheme
+let g:enable_italic_font = 1
+" let g:enable_bold_font = 1
+let g:hybrid_transparent_background = 1
+colorscheme hybrid_material
+" se termguicolors
 
 " Terminal
 au BufEnter term://* star
