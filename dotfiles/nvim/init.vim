@@ -77,7 +77,8 @@ let g:enable_italic_font = 1
 " let g:enable_bold_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
-" se termguicolors
+se cursorline
+se termguicolors
 
 " Terminal
 au BufEnter term://* star
