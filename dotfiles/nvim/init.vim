@@ -14,6 +14,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
+Plug 'Yggdroot/indentLine'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -65,6 +66,10 @@ let NERDTreeShowHidden=1
 let NERDTreeStatusline='NERD'
 nnoremap <silent><a-e> :NERDTreeToggle<cr>
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr>
+
+" indentLine
+let g:indentLine_fileTypeExclude = ['man', 'tex']
+let g:indentLine_char = '▏'
 
 " Airline
 let g:airline_theme='hybrid'
