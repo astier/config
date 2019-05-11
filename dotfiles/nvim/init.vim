@@ -19,16 +19,11 @@ let maplocalleader=' '
 " Plugins-Misc
 au BufWritePost * GitGutter
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
+let g:ale_lint_on_text_changed = 'never'
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:show_spaces_that_precede_tabs=1
 let g:strip_whitelines_at_eof=1
-
-" ALE
-let g:ale_fixers = {
-	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\}
-let g:ale_lint_on_text_changed = 'never'
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
