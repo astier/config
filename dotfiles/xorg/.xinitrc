@@ -24,7 +24,6 @@ fi
 # Config
 xmodmap -e "keycode 47 = Return"
 xmodmap -e "keycode 133 = odiaeresis"
-xset s off -dpms
 
 # Programs
 compton -b --backend glx --vsync --config /dev/null
