@@ -87,10 +87,12 @@ a() {
 	mimetype=$(file -b --mime-type "$1")
 	mime=$(echo "$mimetype" | cut -d/ -f1)
 	if [ "$mimetype" == "application/pdf" ]; then zathura --fork "$@"
+	elif [ "$mime" == "text" ]; then $EDITOR "$@"
 	elif [ "$mime" == "image" ]; then (feh "$@" &)
 	elif [ "$mime" == "video" ]; then $BROWSER "$@"
 	elif [ "$mime" == "audio" ]; then $BROWSER "$@"
-	else $EDITOR "$@"; fi
+	elif [ ! -f "$1" ] && [ ! -d "$1" ]; then $EDITOR "$@"
+	else echo Filetype "$mimetype" is not associated with any program.; fi
 }
 
 # Bookmarks (ar and as already existing commands)
