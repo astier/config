@@ -159,6 +159,7 @@ alias gps="git push"
 alias gpsf="git push -f"
 
 alias gcn="git clean -f"
+alias grb="git rebase -i"
 alias grh="git reset --hard"
 alias grr="git reset --hard; git clean -f"
 alias grs="git reset --soft"
