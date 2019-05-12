@@ -152,6 +152,7 @@ alias glg="git log --grep"
 
 alias go="git checkout"
 alias gob="git checkout -b"
+alias gom="git checkout master"
 
 alias gpl="git pull"
 alias gps="git push"
