@@ -95,7 +95,7 @@ let g:vimtex_compiler_latexmk = {
 au BufEnter * se fo-=cro
 let g:loaded_python_provider = 1
 let g:python3_host_prog = '/bin/python'
-" se autochdir
+se autochdir
 se mouse=a
 se tabstop=4 shiftwidth=4
 nnoremap Q <nop>
