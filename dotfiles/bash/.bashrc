@@ -60,7 +60,7 @@ alias pa="patch -p1 <"
 alias pq="pacman -Qet"
 alias py="python"
 alias s="sudo"
-alias y='yay && pacman -U /var/cache/pacman/pkg/iwd-0.16-4-x86_64.pkg.tar.xz'
+alias y='yay'
 
 # tmux
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
