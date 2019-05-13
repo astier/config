@@ -19,7 +19,6 @@ install nvim						~/.config/
 install zathura						~/.config/
 install pacman/pacman.conf			/etc/
 install pacman/hooks/				/etc/pacman.d/
-install xorg/10-monitor.conf		/etc/X11/xorg.conf.d/
 
 sudo rm /etc/systemd/logind.conf
 sudo ln ~/Projects/dotfiles/dotfiles/systemd/logind.conf /etc/systemd/logind.conf &&
