@@ -27,8 +27,8 @@ xmodmap -e "keycode 133 = odiaeresis"
 xset s off -dpms
 
 # Programs
-b -l &
 compton -b --backend glx --vsync --config /dev/null
+feh --bg-fill ~/Dropbox/Pictures/black.jpg
 firefox &
 numlockx
 st &
