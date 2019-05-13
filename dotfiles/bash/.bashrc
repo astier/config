@@ -92,7 +92,7 @@ a() {
 	elif [ "$mime" == "video" ]; then $BROWSER "$@"
 	elif [ "$mime" == "audio" ]; then $BROWSER "$@"
 	elif [ ! -f "$1" ] && [ ! -d "$1" ]; then $EDITOR "$@"
-	else echo Filetype "$mimetype" is not associated with any program.; fi
+	else echo Filetype "$mimetype" is not associated with any program. >&2 ; fi
 }
 
 # Bookmarks (ar and as already existing commands)
