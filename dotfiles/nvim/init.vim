@@ -7,6 +7,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
@@ -73,6 +74,24 @@ let NERDTreeShowHidden=1
 let NERDTreeStatusline='NERD'
 nnoremap <silent><a-e> :NERDTreeToggle<cr><c-w>=
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
+
+" VimTex
+let g:vimtex_compiler_progname = '/bin/nvr'
+let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_compiler_latexmk = {
+	\ 'backend' : 'nvim',
+	\ 'background' : 1,
+	\ 'build_dir' : 'tex',
+	\ 'callback' : 1,
+	\ 'continuous' : 0,
+	\ 'executable' : 'latexmk',
+	\ 'options' : [
+	\	'-verbose',
+	\	'-file-line-error',
+	\	'-synctex=1',
+	\	'-interaction=nonstopmode'
+	\ ],
+\}
 
 " Misc
 au BufEnter * se fo-=cro
@@ -163,3 +182,15 @@ nnoremap 0 g0
 " nnoremap j gj
 " nnoremap k gk
 se breakindent linebreak
+
+" LaTeX
+let g:tex_flavor = 'latex'
+au FileType tex inoremap <expr><buffer><CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
+au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
+au FileType tex inoremap <silent><buffer>,j <esc>/\~<cr>s
+au FileType tex inoremap <silent><buffer>,e <esc>:read $DOTFILES/nvim/snippets/latex/enumerate.tex<cr>:norm =ae<cr>j10li
+au FileType tex inoremap <silent><buffer>,i <esc>:read $DOTFILES/nvim/snippets/latex/itemize.tex<cr>:norm =ae<cr>j10li
+au FileType tex inoremap <silent><buffer>,f <esc>:read $DOTFILES/nvim/snippets/latex/frame.tex<cr>:norm =ae<cr>j16li
+au FileType tex inoremap <silent><buffer>,sa \section{}<left>
+au FileType tex inoremap <silent><buffer>,sb \subsection{}<left>
+au FileType tex inoremap <silent><buffer>,sc \subsubsection{}<left>
