@@ -4,6 +4,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' }
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'machakann/vim-highlightedyank'
@@ -119,13 +120,6 @@ au BufEnter term://* star
 au TermOpen * setl nonu nornu scl=no | star
 nnoremap <silent><a-t> :te<cr>
 set hidden
-
-" Brackets
-inoremap {{ {}<left>
-inoremap (( ()<left>
-inoremap [[ []<left>
-inoremap '' ''<left>
-inoremap "" ""<left>
 
 " Kill
 nnoremap <silent><a-q> :qa<cr>
