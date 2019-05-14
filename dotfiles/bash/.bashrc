@@ -87,7 +87,7 @@ a() {
 	[[ -d "$1" ]] && cd "$@" && return
 	mimetype=$(file -b --mime-type "$1")
 	mime=$(echo "$mimetype" | cut -d/ -f1)
-	if [ "$mimetype" == "application/pdf" ]; then zathura --fork "$@"
+	if [ "$mimetype" == "application/pdf" ]; then $BROWSER "$@"
 	elif [ "$mime" == "text" ]; then $EDITOR "$@"
 	elif [ "$mime" == "image" ]; then (feh "$@" &)
 	elif [ "$mime" == "video" ]; then $BROWSER "$@"
