@@ -185,8 +185,8 @@ se splitbelow splitright
 " Wrap
 nnoremap $ g$
 nnoremap 0 g0
-" nnoremap j gj
-" nnoremap k gk
+nnoremap j gj
+nnoremap k gk
 se breakindent linebreak
 
 " LaTeX
