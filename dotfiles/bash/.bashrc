@@ -42,6 +42,7 @@ d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
 alias bd="b -d"
 alias c="cat"
 alias da="cd; clear"
+alias du="du -s"
 alias dl="clear; ls"
 alias e="exit"
 alias f="fg"
