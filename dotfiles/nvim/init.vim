@@ -46,6 +46,12 @@ let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#tabs_label = 'T'
 let g:airline#extensions#tabline#middle_click_preserves_windows = 1
 
+" ALE
+let g:ale_fixers = {
+	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+let g:ale_lint_on_text_changed = 'never'
+
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 au! CompleteDone * if pumvisible() == 0 | pclose | endif
