@@ -13,13 +13,12 @@ Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
-Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Leaders
@@ -37,15 +36,45 @@ let g:strip_whitelines_at_eof=1
 
 " Airline
 let g:airline_theme='hybrid'
-let g:airline_powerline_fonts = 1
-let g:airline_section_c = '%t'
+let g:airline_powerline_fonts = 0
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#tabs_label = 'T'
 let g:airline#extensions#tabline#middle_click_preserves_windows = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = '|'
+function! ReadOnly() abort
+  if &readonly || !&modifiable
+    return ' '
+  else
+    return ''
+endfunction
+let g:airline_section_c = '%t'
+let g:airline_section_z = '%l:%c%{ReadOnly()}'
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'c'  : 'C',
+      \ 'i'  : 'I',
+      \ 'ic' : 'I',
+      \ 'ix' : 'I',
+      \ 'n'  : 'N',
+      \ 'ni' : 'N',
+      \ 'no' : 'N',
+      \ 'R'  : 'R',
+      \ 'Rv' : 'R',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ 't'  : 'T',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+\}
 
 " ALE
 let g:ale_fixers = {
@@ -71,8 +100,6 @@ let g:indentLine_char = '▏'
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeIgnore=['.git', '__pycache__', 'tags']
 let NERDTreeMinimalUI=1
