@@ -21,11 +21,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
 call plug#end()
 
-" Leaders
+" LEADERS
 let mapleader=' '
 let maplocalleader=' '
 
-" Misc
+" MISC
 au BufWritePost * GitGutter
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 let g:ale_lint_on_text_changed = 'never'
@@ -34,7 +34,7 @@ let g:loaded_netrwPlugin = 1
 let g:show_spaces_that_precede_tabs=1
 let g:strip_whitelines_at_eof=1
 
-" Airline
+" AIRLINE
 let g:airline_theme='hybrid'
 let g:airline_powerline_fonts = 0
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
@@ -82,22 +82,22 @@ let g:ale_fixers = {
 \}
 let g:ale_lint_on_text_changed = 'never'
 
-" Deoplete
+" DEOPLETE
 let g:deoplete#enable_at_startup = 1
 au! CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
-" Goyo
+" GOYO
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
 nnoremap <silent><a-g> :Goyo<cr>
 tnoremap <silent><a-g> <c-\><c-n>:Goyo<cr>:star<cr>
 
-" indentLine
+" INDENTLINE
 let g:indentLine_fileTypeExclude = ['man', 'tex']
 let g:indentLine_char = '▏'
 
-" NERDTree
+" NERDTREE
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 let NERDTreeAutoDeleteBuffer = 1
@@ -109,7 +109,7 @@ let NERDTreeStatusline='NERD'
 nnoremap <silent><a-e> :NERDTreeToggle<cr><c-w>=
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
 
-" VimTex
+" VIMTEX
 let g:vimtex_compiler_progname = '/bin/nvr'
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_latexmk = {
@@ -127,7 +127,7 @@ let g:vimtex_compiler_latexmk = {
 	\ ],
 \}
 
-" Misc
+" MISC
 au BufEnter * se fo-=cro
 let g:loaded_python_provider = 1
 let g:python3_host_prog = '/bin/python'
@@ -141,27 +141,27 @@ nnoremap <a-p> "+p
 vnoremap <a-y> "+y
 nnoremap <a-s> <c-z>
 
-" Colorscheme
+" COLORSCHEME
 let g:enable_italic_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
 se cursorline
 se termguicolors
 
-" Save
+" SAVE
 au FocusGained,BufEnter,VimResume * checkt
 let g:auto_save = 1
 let g:auto_save_silent = 1
 se confirm
 se noswapfile
 
-" Search & Replace
+" SEARCH & REPLACE
 nnoremap <silent><esc> :noh<cr><esc>
 nnoremap <a-r> :%s/\<<C-r><C-w>\>//g<left><left>
 nnoremap <silent># *
 se inccommand=nosplit
 
-" Statusline
+" STATUSLINE
 se laststatus=0
 se statusline=\ 
 se noruler
@@ -169,13 +169,13 @@ se noshowcmd
 se noshowmode
 se signcolumn=yes
 
-" Terminal
+" TERMINAL
 au BufEnter term://* star
 au TermOpen * setl nonu nornu scl=no | star
 nnoremap <silent><a-t> :te<cr>
 set hidden
 
-" Kill
+" KILL
 nnoremap <silent><a-q> :qa<cr>
 nnoremap <silent><a-c> :clo<cr>
 nnoremap <silent><a-d> :Bd<cr>
@@ -183,7 +183,7 @@ tnoremap <silent><a-q> <c-\><c-n>:qa<cr>
 tnoremap <silent><a-c> <c-\><c-n>:clo<cr>
 tnoremap <silent><a-d> <c-\><c-n>:Bd!<cr>
 
-" Navigation
+" NAVIGATION
 nnoremap <a-w> <c-w>
 nnoremap <a-h> <c-w>h
 nnoremap <a-j> <c-w>j
@@ -198,7 +198,7 @@ nnoremap <silent><a-o> :bn<cr>
 tnoremap <silent><a-i> <c-\><c-n>:bp<cr>
 tnoremap <silent><a-o> <c-\><c-n>:bn<cr>
 
-" Resize
+" RESIZE
 au VimResized * wincmd =
 nnoremap <silent><a-J> :res +1<cr>
 nnoremap <silent><a-K> :res -1<cr>
@@ -210,14 +210,14 @@ tnoremap <silent><a-L> <c-\><c-n>:vert res +1<cr>:star<cr>
 tnoremap <silent><a-H> <c-\><c-n>:vert res -1<cr>:star<cr>
 se splitbelow splitright
 
-" Wrap
+" WRAP
 nnoremap $ g$
 nnoremap 0 g0
 nnoremap j gj
 nnoremap k gk
 se breakindent linebreak
 
-" LaTeX
+" LATEX
 let g:tex_flavor = 'latex'
 au FileType tex inoremap <expr><buffer><CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
