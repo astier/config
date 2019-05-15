@@ -28,7 +28,6 @@ let maplocalleader=' '
 " MISC
 au BufWritePost * GitGutter
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
-let g:ale_lint_on_text_changed = 'never'
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:show_spaces_that_precede_tabs=1
