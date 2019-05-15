@@ -109,7 +109,7 @@ nnoremap <silent><a-e> :NERDTreeToggle<cr><c-w>=
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
 
 " VIMTEX
-let g:vimtex_compiler_progname = '/bin/nvr'
+let g:vimtex_compiler_progname = '/usr/bin/nvr'
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_latexmk = {
 	\ 'backend' : 'nvim',
