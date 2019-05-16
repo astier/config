@@ -5,7 +5,7 @@ set inputbar-fg white
 set page-padding 2
 set recolor false
 set recolor-darkcolor "#c5c8c6"
-set recolor-lightcolor "#383c4a"
+set recolor-lightcolor "#2F343F"
 set selection-clipboard clipboard
 set selection-notification false
 set statusbar-basename true
