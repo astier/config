@@ -22,6 +22,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
 call plug#end()
+let g:airline_theme='hybrid'
 
 " LEADERS
 let mapleader=' '
@@ -37,9 +38,7 @@ let g:show_spaces_that_precede_tabs=1
 let g:strip_whitelines_at_eof=1
 
 " AIRLINE
-let g:airline_theme='angr'
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-let g:airline#extensions#branch#custom_head = 'gitbranch#name'
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -49,28 +48,9 @@ let g:airline#extensions#tabline#middle_click_preserves_windows = 1
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
-let g:airline_symbols.branch = '|'
+let g:airline_section_a = '%{gitbranch#name()}'
 let g:airline_section_c = '%t'
 let g:airline_section_z = '%l:%c'
-let g:airline_mode_map = {
-	\ '__' : '-',
-	\ 'c'  : 'C',
-	\ 'i'  : 'I',
-	\ 'ic' : 'I',
-	\ 'ix' : 'I',
-	\ 'n'  : 'N',
-	\ 'ni' : 'N',
-	\ 'no' : 'N',
-	\ 'R'  : 'R',
-	\ 'Rv' : 'R',
-	\ 's'  : 'S',
-	\ 'S'  : 'S',
-	\ '' : 'S',
-	\ 't'  : 'T',
-	\ 'v'  : 'V',
-	\ 'V'  : 'V',
-	\ '' : 'V',
-\}
 
 " ALE
 let g:ale_fixers = {
@@ -190,6 +170,7 @@ nnoremap <silent><a-d> :Bd<cr>
 tnoremap <silent><a-q> <c-\><c-n>:qa<cr>
 tnoremap <silent><a-c> <c-\><c-n>:clo<cr>
 tnoremap <silent><a-d> <c-\><c-n>:Bd!<cr>
+inoremap <silent><a-q> <esc>:qa<cr>
 
 " NAVIGATION
 nnoremap <a-w> <c-w>
