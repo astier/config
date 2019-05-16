@@ -85,7 +85,7 @@ cd() { if [ "$#" == 0 ]; then builtin cd || return ; else builtin cd "$@" && ls;
 a() {
 	[[ "$#" == 0 ]] && cd && ls && return
 	[[ -d "$1" ]] && cd "$@" && return
-	mimetype=$(file -b --mime-type "$1")
+	mimetype=$(file -bL --mime-type "$1")
 	mime=$(echo "$mimetype" | cut -d/ -f1)
 	if [ "$mime" == "text" ]; then $EDITOR "$@"
 	elif [ "$mimetype" == "application/pdf" ]; then $BROWSER "$@"
@@ -174,3 +174,5 @@ alias grv="git revert"
 # DO NOT EDIT THESE LINES MANUALLY!
 export PATH=$PATH:/home/aleks/Projects/ase/gcc-arm-embedded
 ##### AMiRo ENVIRONMENT CONFIGURATION #####
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

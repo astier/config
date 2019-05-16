@@ -1,7 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugins')
 Plug '907th/vim-auto-save'
-Plug 'Shougo/deoplete.nvim', { 'do': ': UpdateRemotePlugins' }
-Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
@@ -10,6 +8,8 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'moll/vim-bbye'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
@@ -81,8 +81,7 @@ let g:ale_fixers = {
 \}
 let g:ale_lint_on_text_changed = 'never'
 
-" DEOPLETE
-let g:deoplete#enable_at_startup = 1
+" COC
 au! CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
