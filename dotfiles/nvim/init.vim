@@ -2,6 +2,7 @@ call plug#begin('~/.local/share/nvim/plugins')
 Plug '907th/vim-auto-save'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
@@ -13,7 +14,6 @@ Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
@@ -36,6 +36,7 @@ let g:strip_whitelines_at_eof=1
 " AIRLINE
 let g:airline_theme='angr'
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline#extensions#branch#custom_head = 'gitbranch#name'
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
