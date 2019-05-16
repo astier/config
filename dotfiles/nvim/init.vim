@@ -34,7 +34,7 @@ let g:show_spaces_that_precede_tabs=1
 let g:strip_whitelines_at_eof=1
 
 " AIRLINE
-let g:airline_theme='hybrid'
+let g:airline_theme='angr'
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
