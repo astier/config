@@ -65,8 +65,8 @@ let g:ale_fixers = {
 let g:ale_lint_on_text_changed = 'never'
 
 " COC
-set nowritebackup
-set shortmess+=c
+se nowritebackup
+se shortmess+=c
 " Trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 " Confirm completion
@@ -141,8 +141,8 @@ let g:enable_italic_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
 se termguicolors
-" hi! vertsplit gui=standout
-" set fillchars+=vert:\ 
+" hi vertsplit guibg=black
+" se fillchars+=vert:\ 
 
 " SAVE
 au FocusGained,BufEnter,VimResume * checkt
@@ -169,7 +169,7 @@ se signcolumn=yes
 au BufEnter term://* star
 au TermOpen * setl nonu nornu scl=no | star
 nnoremap <silent><a-t> :te<cr>
-set hidden
+se hidden
 
 " KILL
 nnoremap <silent><a-q> :qa<cr>
