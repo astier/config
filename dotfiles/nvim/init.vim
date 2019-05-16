@@ -79,10 +79,22 @@ let g:ale_fixers = {
 let g:ale_lint_on_text_changed = 'never'
 
 " COC
-au! CompleteDone * if pumvisible() == 0 | pclose | endif
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<cr>"
+set nowritebackup
 set shortmess+=c
+" Trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+" Confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Manage Completion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " GOYO
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
