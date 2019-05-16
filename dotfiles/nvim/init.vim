@@ -46,14 +46,8 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.branch = '|'
-function! ReadOnly() abort
-  if &readonly || !&modifiable
-    return ' '
-  else
-    return ''
-endfunction
 let g:airline_section_c = '%t'
-let g:airline_section_z = '%l:%c%{ReadOnly()}'
+let g:airline_section_z = '%l:%c'
 let g:airline_mode_map = {
       \ '__' : '-',
       \ 'c'  : 'C',
