@@ -35,13 +35,12 @@ let g:strip_whitelines_at_eof=1
 
 " AIRLINE
 let g:airline_theme='hybrid'
-let g:airline_powerline_fonts = 0
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#buffers_label = 'B'
-let g:airline#extensions#tabline#tabs_label = 'T'
+let g:airline#extensions#tabline#buffers_label = ''
+let g:airline#extensions#tabline#tabs_label = ''
 let g:airline#extensions#tabline#middle_click_preserves_windows = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
