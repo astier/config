@@ -38,19 +38,25 @@ let g:strip_whitelines_at_eof=1
 
 " AIRLINE
 let g:airline_theme='hybrid'
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#buffers_label = ''
-let g:airline#extensions#tabline#tabs_label = ''
 let g:airline#extensions#tabline#middle_click_preserves_windows = 1
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
+let g:airline#extensions#tabline#tabs_label = 'T'
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline_section_a = '%{gitbranch#name()}'
 let g:airline_section_c = '%t'
+let g:airline_section_x = ''
 let g:airline_section_z = '%l:%c'
+" Stop truncating branch
+" Remove explicit minwidth constraint
+au VimEnter * let hunks = airline#parts#get("hunks")
+au VimEnter * unlet hunks.minwidth
+au VimEnter * let branch = airline#parts#get("branch")
+au VimEnter * unlet branch.minwidth
+" Must recreate the section to remove minwidth constraints
+au VimEnter * let g:airline_section_b = airline#section#create(['hunks', 'branch'])
 
 " ALE
 let g:ale_fixers = {
