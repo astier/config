@@ -22,7 +22,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
 call plug#end()
-let g:airline_theme='hybrid'
 
 " LEADERS
 let mapleader=' '
@@ -38,6 +37,7 @@ let g:show_spaces_that_precede_tabs=1
 let g:strip_whitelines_at_eof=1
 
 " AIRLINE
+let g:airline_theme='hybrid'
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
@@ -94,7 +94,7 @@ let NERDTreeIgnore=['.git', '__pycache__', 'tags']
 let NERDTreeMinimalUI=1
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
-let NERDTreeStatusline='NERD'
+let NERDTreeStatusline='NERDTree'
 nnoremap <silent><a-e> :NERDTreeToggle<cr><c-w>=
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
 
@@ -135,6 +135,8 @@ let g:enable_italic_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
 se termguicolors
+" hi! vertsplit gui=standout
+" set fillchars+=vert:\ 
 
 " SAVE
 au FocusGained,BufEnter,VimResume * checkt
