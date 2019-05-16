@@ -47,29 +47,29 @@ let g:airline#extensions#tabline#buffers_label = ''
 let g:airline#extensions#tabline#tabs_label = ''
 let g:airline#extensions#tabline#middle_click_preserves_windows = 1
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 let g:airline_symbols.branch = '|'
 let g:airline_section_c = '%t'
 let g:airline_section_z = '%l:%c'
 let g:airline_mode_map = {
-      \ '__' : '-',
-      \ 'c'  : 'C',
-      \ 'i'  : 'I',
-      \ 'ic' : 'I',
-      \ 'ix' : 'I',
-      \ 'n'  : 'N',
-      \ 'ni' : 'N',
-      \ 'no' : 'N',
-      \ 'R'  : 'R',
-      \ 'Rv' : 'R',
-      \ 's'  : 'S',
-      \ 'S'  : 'S',
-      \ '' : 'S',
-      \ 't'  : 'T',
-      \ 'v'  : 'V',
-      \ 'V'  : 'V',
-      \ '' : 'V',
+	\ '__' : '-',
+	\ 'c'  : 'C',
+	\ 'i'  : 'I',
+	\ 'ic' : 'I',
+	\ 'ix' : 'I',
+	\ 'n'  : 'N',
+	\ 'ni' : 'N',
+	\ 'no' : 'N',
+	\ 'R'  : 'R',
+	\ 'Rv' : 'R',
+	\ 's'  : 'S',
+	\ 'S'  : 'S',
+	\ '' : 'S',
+	\ 't'  : 'T',
+	\ 'v'  : 'V',
+	\ 'V'  : 'V',
+	\ '' : 'V',
 \}
 
 " ALE
@@ -87,13 +87,13 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Manage Completion
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 function! s:check_back_space() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+  return !col || getline('.')[col - 1]	=~# '\s'
 endfunction
 
 " GOYO
