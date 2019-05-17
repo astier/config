@@ -1,6 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
-" Functionality
+" Useful
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex', { 'for': 'tex' }
@@ -8,16 +8,20 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
+" Ctags
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
+
 " Statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/vim-gitbranch'
 
-" File Explorer
+" Explorer
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'moll/vim-bbye'
 
-" Visual Aid
+" Visual
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/goyo.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
@@ -42,12 +46,10 @@ let maplocalleader=' '
 
 " MISC
 au BufWritePost * GitGutter
-sil! cal repeat#se('\<Plug>vim-surround', v:count)
 let g:AutoPairsFlyMode = 1
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
-let g:show_spaces_that_precede_tabs=1
-let g:strip_whitelines_at_eof=1
+sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " AIRLINE
 let g:airline_theme='hybrid'
@@ -61,7 +63,7 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline_section_a = '%{gitbranch#name()}'
 let g:airline_section_c = '%t'
 let g:airline_section_x = ''
-let g:airline_section_z = '%l:%c'
+let g:airline_section_z = '%l/%L:%c'
 " Stop truncating branch
 " Remove explicit minwidth constraint
 au VimEnter * let hunks = airline#parts#get("hunks")
@@ -96,13 +98,18 @@ inoremap <silent><expr> <TAB>
 	\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+" BETTER-WHITESPACE
+let g:better_whitespace_filetypes_blacklist = ['help']
+let g:show_spaces_that_precede_tabs=1
+let g:strip_whitelines_at_eof=1
+
 " GOYO
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
 nnoremap <silent><a-g> :Goyo<cr>
 tnoremap <silent><a-g> <c-\><c-n>:Goyo<cr>:star<cr>
 
 " INDENTLINE
-let g:indentLine_fileTypeExclude = ['man', 'tex']
+let g:indentLine_fileTypeExclude = ['help', 'man', 'tex']
 let g:indentLine_char = '▏'
 
 " NERDTREE
@@ -116,6 +123,14 @@ let NERDTreeShowHidden=1
 let NERDTreeStatusline='NERDTree'
 nnoremap <silent><a-e> :NERDTreeToggle<cr><c-w>=
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
+
+" Tagbar
+let g:tagbar_sort = 0
+let g:tagbar_compact = 1
+let g:tagbar_indent = 1
+let g:tagbar_singleclick = 1
+let g:tagbar_silent = 1
+nnoremap <silent><a-t> :TagbarToggle<cr>
 
 " VIMTEX
 let g:vimtex_compiler_progname = '/usr/bin/nvr'
@@ -142,6 +157,7 @@ let g:python3_host_prog = '/bin/python'
 se autochdir
 se mouse=a
 se tabstop=4 shiftwidth=4
+se updatetime=400
 nnoremap Q <nop>
 nnoremap <cr> o<esc>
 nnoremap <a-cr> O<esc>
@@ -156,6 +172,7 @@ colorscheme hybrid_material
 se termguicolors
 " hi vertsplit guibg=black
 " se fillchars+=vert:\ 
+se fillchars+=eob:#
 
 " SAVE
 au FocusGained,BufEnter,VimResume * checkt
@@ -181,7 +198,6 @@ se signcolumn=yes
 " TERMINAL
 au BufEnter term://* star
 au TermOpen * setl nonu nornu scl=no | star
-nnoremap <silent><a-t> :te<cr>
 se hidden
 
 " KILL
