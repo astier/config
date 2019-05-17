@@ -109,7 +109,7 @@ nnoremap <silent><a-g> :Goyo<cr>
 tnoremap <silent><a-g> <c-\><c-n>:Goyo<cr>:star<cr>
 
 " INDENTLINE
-let g:indentLine_fileTypeExclude = ['help', 'man', 'tex']
+" let g:indentLine_fileTypeExclude = ['help', 'man', 'tex']
 let g:indentLine_char = '▏'
 
 " NERDTREE

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 install () {
 	TARGET=$1 DESTINATION=$2$(basename "$TARGET")
