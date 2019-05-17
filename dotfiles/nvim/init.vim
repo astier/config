@@ -1,26 +1,39 @@
 call plug#begin('~/.local/share/nvim/plugins')
-Plug '907th/vim-auto-save'
-Plug 'Shougo/neco-vim', { 'for': 'vim' }
-Plug 'Yggdroot/indentLine'
+
+" Functionality
 Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/vim-gitbranch'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/goyo.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'machakann/vim-highlightedyank'
-Plug 'moll/vim-bbye'
-Plug 'neoclide/coc-neco', { 'for': 'vim' }
-Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+
+" Statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/vim-gitbranch'
+
+" File Explorer
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'moll/vim-bbye'
+
+" Visual Aid
+Plug 'Yggdroot/indentLine'
+Plug 'junegunn/goyo.vim'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'machakann/vim-highlightedyank'
+Plug 'ntpeters/vim-better-whitespace'
+
+" Autocompletion & LSP
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
+Plug 'neoclide/coc-neco', { 'for': 'vim' }
+Plug 'Shougo/neco-vim', { 'for': 'vim' }
+
+" Linter & Fixer
 Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
+Plug '907th/vim-auto-save'
+
 call plug#end()
 
 " LEADERS
