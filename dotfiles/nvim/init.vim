@@ -109,7 +109,7 @@ nnoremap <silent><a-g> :Goyo<cr>
 tnoremap <silent><a-g> <c-\><c-n>:Goyo<cr>:star<cr>
 
 " INDENTLINE
-" let g:indentLine_fileTypeExclude = ['help', 'man', 'tex']
+let g:indentLine_fileTypeExclude = ['help', 'man', 'tex']
 let g:indentLine_char = '▏'
 
 " NERDTREE
@@ -124,7 +124,7 @@ let NERDTreeStatusline='NERDTree'
 nnoremap <silent><a-e> :NERDTreeToggle<cr><c-w>=
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
 
-" Tagbar
+" TAGBAR
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1
 let g:tagbar_indent = 1
