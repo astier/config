@@ -76,7 +76,9 @@ au VimEnter * let g:airline_section_b = airline#section#create(['hunks', 'branch
 " ALE
 let g:ale_fixers = {
 	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+	\ 'sh': ['shfmt'],
 \}
+let g:ale_sh_shfmt_options = '-ci -sr -p -s'
 let g:ale_lint_on_text_changed = 'never'
 
 " COC
