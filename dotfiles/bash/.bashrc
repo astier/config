@@ -17,7 +17,7 @@ HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="df:poweroff:reboot"
 HISTIGNORE+=":c:d:dl:e:f:i:ii:l:lb:ll:ma:ml:py:sd:sl:sp:sr:t:ta:tl:x:xc:xm:xp:y"
 HISTIGNORE+=":,:-:a:aa:ab:ac:ad:adb:ado:adw:ai:al:am:an:anp:ap:asc:ase:ast:ax"
-HISTIGNORE+=":gaa:gd:gs:gc:gca:g:gg:gl:go-:gpl:gcn:grr"
+HISTIGNORE+=":gaa:gs:gc:gca:g:gg:gl:go-:gpl:gcn"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
