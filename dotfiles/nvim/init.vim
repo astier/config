@@ -36,10 +36,6 @@ Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
 
 call plug#end()
 
-" LEADERS
-let mapleader=' '
-let maplocalleader=' '
-
 " MISC
 au BufWritePost * GitGutter
 let g:AutoPairsFlyMode = 1
@@ -152,6 +148,8 @@ let g:vimtex_compiler_latexmk = {
 
 " MISC
 au BufEnter * se fo-=cro
+let mapleader=' '
+let maplocalleader=' '
 let g:loaded_python_provider = 1
 let g:python3_host_prog = '/bin/python'
 se autochdir
