@@ -53,14 +53,16 @@ alias ma="make; make clean"
 alias maf="make && make flash && (gtkterm -c AMiRo &)"
 alias mai="sudo make install clean"
 alias md="mkdir"
-alias ml="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist"
 alias p="cp"
 alias pa="patch -p1 <"
 alias pq="pacman -Qet"
 alias py="python"
 alias r="sudo \$(fc -ln -1)"
 alias s="sudo"
-alias y='yay'
+alias t="touch"
+alias u="yay"
+alias um="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist"
+alias uu="um && echo && u"
 
 # tmux
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
