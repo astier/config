@@ -40,6 +40,7 @@ call plug#end()
 " LEADERS
 let mapleader=' '
 let maplocalleader=' '
+
 " MISC
 au BufWritePost * GitGutter
 let g:AutoPairsFlyMode = 1
@@ -115,8 +116,6 @@ let g:indentLine_char = '▏'
 " NERDTREE
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" let g:NERDTreeDirArrowExpandable = ''
-" let g:NERDTreeDirArrowCollapsible = ''
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeIgnore=['.git', '__pycache__', 'tags']
 let NERDTreeMinimalUI=1
@@ -157,6 +156,7 @@ au BufEnter * se fo-=cro
 let g:loaded_python_provider = 1
 let g:python3_host_prog = '/bin/python'
 se autochdir
+se fillchars+=fold:\ 
 se mouse=a
 se tabstop=4 shiftwidth=4
 se updatetime=400
@@ -171,9 +171,8 @@ nnoremap <a-s> <c-z>
 let g:enable_italic_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
+hi GitGutterDelete guifg=#CC6666
 se termguicolors
-" hi vertsplit guibg=black
-" se fillchars+=vert:\ 
 
 " SAVE
 au FocusGained,BufEnter,VimResume * checkt
