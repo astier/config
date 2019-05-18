@@ -155,6 +155,7 @@ alias gc="git commit"
 alias gca="git commit -a"
 alias gcam="git commit -am"
 alias gcm="git commit -m"
+alias gcr="git commit -am tmp && git rebase -i HEAD~2"
 gcp() { git add --all && git commit -m "$1" && git push; }
 
 alias g="git log --all --graph --decorate --oneline -n16"
