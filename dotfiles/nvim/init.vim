@@ -1,25 +1,24 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
 " Useful
+Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
-Plug 'jiangmiao/auto-pairs'
-Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'moll/vim-bbye'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
-" Ctags
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
-
 " Statusline
+Plug 'itchyny/vim-gitbranch'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'itchyny/vim-gitbranch'
 
-" Explorer
+" Navigation
+Plug 'andymass/vim-matchup'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'moll/vim-bbye'
 
 " Visual
 Plug 'Yggdroot/indentLine'
@@ -28,15 +27,13 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
 
-" Autocompletion & LSP
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
-Plug 'neoclide/coc-neco', { 'for': 'vim' }
+" IDE
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
-
-" Linter & Fixer
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'neoclide/coc-neco', { 'for': 'vim' }
+Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
-Plug '907th/vim-auto-save'
 
 call plug#end()
 
@@ -53,6 +50,7 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " AIRLINE
 let g:airline_theme='onedark'
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -117,6 +115,8 @@ let g:indentLine_char = '▏'
 " NERDTREE
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" let g:NERDTreeDirArrowExpandable = ''
+" let g:NERDTreeDirArrowCollapsible = ''
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeIgnore=['.git', '__pycache__', 'tags']
 let NERDTreeMinimalUI=1
