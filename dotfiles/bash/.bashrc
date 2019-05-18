@@ -16,7 +16,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="df:poweroff:reboot"
 HISTIGNORE+=":c:d:dl:e:f:i:ii:l:lb:ll:ma:ml:py:sd:sl:sp:sr:t:ta:tl:x:xc:xm:xp:y"
-HISTIGNORE+=":,:-:a:aa:ab:ac:ad:adb:ado:adw:ai:al:am:an:anp:ap:asc:ase:ast:ax"
+HISTIGNORE+=":,:-:a:aa:ac:ad:adb:ado:adw:ai:al:am:an:anp:ap:asc:ase:ast:ax"
 HISTIGNORE+=":gaa:gs:gc:gca:g:gg:gl:go-:gpl:gcn"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
@@ -61,6 +61,7 @@ alias p="cp"
 alias pa="patch -p1 <"
 alias pq="pacman -Qet"
 alias py="python"
+alias r="sudo \$(fc -ln -1)"
 alias s="sudo"
 alias y='yay'
 
