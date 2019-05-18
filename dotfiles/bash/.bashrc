@@ -36,7 +36,7 @@ alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 
 # Shortcuts
-d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi }
+d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi; }
 alias bd="b -d"
 alias c="cat"
 alias da="cd; clear"
@@ -82,21 +82,28 @@ alias sl="slock"
 alias sp="poweroff"
 alias sr="reboot"
 
-cd() { if [ "$#" == 0 ]; then builtin cd || return ; else builtin cd "$@" && ls; fi }
+cd() { if [ "$#" == 0 ]; then builtin cd || return; else builtin cd "$@" && ls; fi; }
 
 a() {
 	[[ "$#" == 0 ]] && cd && ls && return
 	[[ -d "$1" ]] && cd "$@" && return
 	mimetype=$(file -bL --mime-type "$1")
 	mime=$(echo "$mimetype" | cut -d/ -f1)
-	if [ "$mime" == "text" ]; then $EDITOR "$@"
-	elif [ "$mimetype" == "application/pdf" ]; then $BROWSER "$@"
-	elif [ "$mimetype" == "application/x-gzip" ]; then tar -zxf "$@"
-	elif [ "$mime" == "image" ]; then (feh "$@" &)
-	elif [ "$mime" == "video" ]; then $BROWSER "$@"
-	elif [ "$mime" == "audio" ]; then $BROWSER "$@"
-	elif [ ! -f "$1" ] && [ ! -d "$1" ]; then $EDITOR "$@"
-	else echo Filetype "$mimetype" is not associated with any program. >&2 ; fi
+	if [ "$mime" == "text" ]; then
+		$EDITOR "$@"
+	elif [ "$mimetype" == "application/pdf" ]; then
+		$BROWSER "$@"
+	elif [ "$mimetype" == "application/x-gzip" ]; then
+		tar -zxf "$@"
+	elif [ "$mime" == "image" ]; then
+		(feh "$@" &)
+	elif [ "$mime" == "video" ]; then
+		$BROWSER "$@"
+	elif [ "$mime" == "audio" ]; then
+		$BROWSER "$@"
+	elif [ ! -f "$1" ] && [ ! -d "$1" ]; then
+		$EDITOR "$@"
+	else echo Filetype "$mimetype" is not associated with any program. >&2; fi
 }
 
 # Bookmarks (ar and as already existing commands)
