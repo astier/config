@@ -40,7 +40,6 @@ call plug#end()
 " LEADERS
 let mapleader=' '
 let maplocalleader=' '
-
 " MISC
 au BufWritePost * GitGutter
 let g:AutoPairsFlyMode = 1
@@ -50,7 +49,7 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " AIRLINE
 let g:airline_theme='onedark'
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
