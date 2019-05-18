@@ -9,7 +9,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 " Navigation
-Plug 'andymass/vim-matchup'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
