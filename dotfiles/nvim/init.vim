@@ -1,6 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
-" Useful
+" Utils
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'moll/vim-bbye'
@@ -8,17 +8,17 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
-" Statusline
-Plug 'itchyny/vim-gitbranch'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 " Navigation
 Plug 'andymass/vim-matchup'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+
+" Statusline
+Plug 'itchyny/vim-gitbranch'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Visual
 Plug 'Yggdroot/indentLine'
@@ -50,11 +50,12 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 " AIRLINE
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#buffers_label = 'B'
+let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffers_label = 'B'
+let g:airline#extensions#tabline#tabs_label = 'T'
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#middle_click_preserves_windows = 1
-let g:airline#extensions#tabline#tabs_label = 'T'
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline_section_a = '%{gitbranch#name()}'
