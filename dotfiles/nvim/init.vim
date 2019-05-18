@@ -174,7 +174,6 @@ colorscheme hybrid_material
 se termguicolors
 " hi vertsplit guibg=black
 " se fillchars+=vert:\ 
-se fillchars+=eob:#
 
 " SAVE
 au FocusGained,BufEnter,VimResume * checkt
