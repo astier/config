@@ -93,26 +93,24 @@ alias sr="reboot"
 
 cd() { if [ "$#" == 0 ]; then builtin cd || return; else builtin cd "$@" && ls; fi; }
 
+# Aperire. Similar to xdg-open but does what I actually want and is faster.
 a() {
-	[[ "$#" == 0 ]] && cd && ls && return
-	[[ -d "$1" ]] && cd "$@" && return
+	[ "$#" == 0 ] && cd && ls && return
+	[ -d "$1" ] && cd "$@" && return
+	[ ! -f "$1" ] && [ ! -d "$1" ] && $EDITOR "$@" && return
 	mimetype=$(file -bL --mime-type "$1")
 	mime=$(echo "$mimetype" | cut -d/ -f1)
-	if [ "$mime" == "text" ]; then
-		$EDITOR "$@"
-	elif [ "$mimetype" == "application/pdf" ]; then
-		$BROWSER "$@"
-	elif [ "$mimetype" == "application/x-gzip" ]; then
-		tar -zxf "$@"
-	elif [ "$mime" == "image" ]; then
-		(feh "$@" &)
-	elif [ "$mime" == "video" ]; then
-		$BROWSER "$@"
-	elif [ "$mime" == "audio" ]; then
-		$BROWSER "$@"
-	elif [ ! -f "$1" ] && [ ! -d "$1" ]; then
-		$EDITOR "$@"
-	else echo Filetype "$mimetype" is not associated with any program. >&2; fi
+	case $mime in
+		"text") $EDITOR "$@" ;;
+		"image") (feh "$@" &) ;;
+		"video") $BROWSER "$@" ;;
+		"audio") $BROWSER "$@" ;;
+		*) echo Mimetype "$mimetype" is not associated with any program. >&2 ;;
+	esac
+	case $mimetype in
+		"application/pdf") $BROWSER "$@" ;;
+		"application/x-gzip") tar -zxf "$@" ;;
+	esac
 }
 
 # Bookmarks (ar and as already existing commands)
