@@ -1,0 +1,5 @@
+{
+	"coc.source.file.ignoreHidden": false,
+	"suggest.maxCompleteItemCount": 8,
+	"diagnostic.displayByAle": true,
+}

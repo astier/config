@@ -13,7 +13,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Statusline
 Plug 'itchyny/vim-gitbranch'
@@ -30,22 +30,48 @@ Plug 'ntpeters/vim-better-whitespace'
 " IDE
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'neoclide/coc-json', { 'for': 'json' }
 Plug 'neoclide/coc-neco', { 'for': 'vim' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
+Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': './install.sh' }
+Plug 'w0rp/ale'
 
 call plug#end()
 
+" LEADERS
+let mapleader=' '
+let maplocalleader=' '
 
-" MISC
+" MISC-PLUGINS
 au BufWritePost * GitGutter
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutToggle = ''
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
+let g:loaded_python_provider = 1
+let g:loaded_ruby_provider = 1
+let g:node_host_prog = '~/.yarn/bin/neovim-node-host'
+let g:python3_host_prog = '/bin/python'
 nnoremap <c-p> :FZF<cr>
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
+
+" COC
+" Trigger completion via <c-space>
+inoremap <silent><expr> <c-space> coc#refresh()
+" Confirm completion via <cr>
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+	\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Backspace-function to help update completion after backspace
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]	=~# '\s'
+endfunction
+" Manage Completion via TAB
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
 
 " AIRLINE
 let g:airline_theme='onedark'
@@ -72,6 +98,7 @@ au VimEnter * unlet branch.minwidth
 au VimEnter * let g:airline_section_b = airline#section#create(['hunks', 'branch'])
 
 " ALE
+let g:ale_disable_lsp = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
@@ -83,25 +110,6 @@ let g:ale_fixers = {
 	\ 'sh': ['shfmt'],
 \}
 let g:ale_sh_shfmt_options = '-ci -sr -p -s'
-
-" COC
-se nowritebackup
-se shortmess+=c
-" Trigger completion
-inoremap <silent><expr> <c-space> coc#refresh()
-" Confirm completion
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" Manage Completion
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]	=~# '\s'
-endfunction
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " BETTER-WHITESPACE
 let g:better_whitespace_filetypes_blacklist = ['help']
@@ -157,17 +165,13 @@ let g:vimtex_compiler_latexmk = {
 	\ ],
 \}
 
-" MISC
+" MISC-VIM
 au BufEnter * se fo-=cro
-let mapleader=' '
-let maplocalleader=' '
-let g:loaded_python_provider = 1
-let g:python3_host_prog = '/bin/python'
 se autochdir
 se fillchars+=fold:\ 
 se mouse=a
+se shortmess+=c
 se tabstop=4 shiftwidth=4
-se updatetime=400
 nnoremap Q <nop>
 nnoremap <cr> o<esc>
 nnoremap <a-cr> O<esc>
