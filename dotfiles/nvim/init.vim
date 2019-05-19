@@ -109,14 +109,16 @@ let g:indentLine_fileTypeExclude = ['help', 'man', 'tex']
 let g:indentLine_char = '▏'
 
 " NERDTREE
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeIgnore=['.git', '__pycache__', 'tags']
-let NERDTreeMinimalUI=1
-let NERDTreeMouseMode=2
-let NERDTreeShowHidden=1
-let NERDTreeStatusline='NERDTree'
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/.NERDTreeBookmarks'
+let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags']
+let g:NERDTreeMinimalMenu = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeQuitOnOpen = 2
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeStatusline = 'NERDTree'
 nnoremap <silent><a-e> :NERDTreeToggle<cr><c-w>=
 tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
 
