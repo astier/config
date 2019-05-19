@@ -139,18 +139,11 @@ alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 # Git
 alias ga="git add"
 alias gaa="git add --all"
-
-alias gb="git branch"
+alias gam="git commit --amend"
 alias gbd="git branch -D"
-
 alias gcl="git clone"
 alias gs="git status -s"
-
 alias gd="git diff"
-alias gdt="git difftool"
-
-alias gm="git merge"
-alias gmt="git mergetool"
 
 alias gc="git commit"
 alias gca="git commit -a"
