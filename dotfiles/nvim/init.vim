@@ -10,6 +10,7 @@ Plug 'tpope/vim-surround'
 
 " Navigation
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -36,11 +37,14 @@ Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
 
 call plug#end()
 
+
 " MISC
 au BufWritePost * GitGutter
 let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutToggle = ''
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
+nnoremap <c-p> :FZF<cr>
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " AIRLINE
@@ -168,6 +172,7 @@ nnoremap Q <nop>
 nnoremap <cr> o<esc>
 nnoremap <a-cr> O<esc>
 nnoremap <a-p> "+p
+inoremap <a-p> <esc>"+pa
 vnoremap <a-y> "+y
 nnoremap <a-s> <c-z>
 
