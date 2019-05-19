@@ -175,7 +175,8 @@ nnoremap <a-s> <c-z>
 let g:enable_italic_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
-hi GitGutterDelete guifg=#CC6666
+hi cursorline guibg=#282C34
+hi gitgutterdelete guifg=#CC6666
 se termguicolors
 
 " SAVE
