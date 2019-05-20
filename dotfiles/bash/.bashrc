@@ -1,6 +1,6 @@
 [[ $- != *i* ]] && return
 
-# Prompt
+# PROMPT
 . ~/.config/git/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
@@ -12,7 +12,7 @@ GREEN="\[\e[32m\]"
 num_jobs() { NUM_JOBS=$(jobs | wc -l) && [[ "$NUM_JOBS" -gt 0 ]] && echo " $NUM_JOBS"; }
 PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
-# Settings
+# SETTINGS
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="df:poweroff:reboot"
 HISTIGNORE+=":c:d:dl:e:f:i:ii:l:lb:ll:ma:ml:py:sd:sl:sp:sr:t:ta:tl:x:xc:xm:xp:y"
@@ -21,7 +21,7 @@ HISTIGNORE+=":gaa:gs:gc:gca:g:gg:gl:go-:gpl:gcn"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
-# Defaults
+# DEFAULTS
 alias cal="cal -m"
 alias cp='cp -ir'
 alias df="df -h"
@@ -37,7 +37,7 @@ alias shfmt="shfmt -ci -sr -p -s"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 
-# Shortcuts
+# SHORTCUTS
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi; }
 alias bd="b -d"
 alias c="cat"
@@ -68,18 +68,18 @@ alias u="yay"
 alias um="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist"
 alias uu="um && echo && u"
 
-# tmux
+# TMUX
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
 alias ta="tmux a"
 alias tl="tmux ls"
 alias tn="tmux new -s"
 
-# x
+# X
 alias xc="x -c"
 alias xm="x -m"
 alias xp="x -p"
 
-# Powermanagement
+# POWERMANAGEMENT
 alias sd="systemctl suspend"
 alias sl="slock"
 alias sp="poweroff"
@@ -87,7 +87,7 @@ alias sr="reboot"
 
 cd() { if [ "$#" == 0 ]; then builtin cd || return; else builtin cd "$@" && ls; fi; }
 
-# Aperire. Similar to xdg-open but does what I actually want and is faster.
+# APERIRE. Similar to xdg-open but does what I actually want and is faster.
 a() {
 	[ "$#" == 0 ] && cd && ls && return
 	[ -d "$1" ] && cd "$@" && return
@@ -107,36 +107,39 @@ a() {
 	esac
 }
 
-# Bookmarks (ar and as already existing commands)
+# BOOKMARKS (ar and as are already existing commands)
 alias -- ,="cd .."
 alias -- -="cd -"
+
+alias ac="cd ~/.config/"
+alias ao="cd ~/Downloads"
+alias al="cd ~/.local/share"
+
+alias adb="cd ~/Dropbox"
+alias ai="cd ~/Dropbox/ISY/S4"
+alias am="cd ~/Dropbox/ISY/S3/MYO"
+alias an="\$EDITOR ~/Dropbox/Notes/notes"
+alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
+alias aos="cd ~/Dropbox/ISY/S4/ASE/Code/amiro-os"
+alias ase="cd ~/Dropbox/ISY/S4/ASE"
+
+alias ap="cd ~/Projects"
 alias aa="cd ~/Projects/arch"
 alias aaa="\$EDITOR ~/Projects/arch/*.sh"
 alias aab="\$EDITOR ~/Projects/arch/base.sh"
 alias aad="\$EDITOR ~/Projects/arch/desktop.sh"
+alias adw="cd ~/Projects/dwm"
+alias asc="cd ~/Projects/scripts/scripts"
+alias ast="cd ~/Projects/st"
+
+alias ad="cd \$DOTFILES"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
 alias abp="\$EDITOR \$DOTFILES/bash/.bash_profile"
-alias ac="cd ~/.config/"
-alias ad="cd \$DOTFILES"
-alias adb="cd ~/Dropbox"
-alias ado="cd ~/Downloads"
-alias adw="cd ~/Projects/dwm"
-alias ai="cd ~/Dropbox/ISY/S4"
-alias al="cd ~/.local/share"
-alias am="cd ~/Dropbox/ISY/S3/MYO"
-alias an="cd ~/Dropbox/Notes"
-alias ann="\$EDITOR ~/Dropbox/Notes/notes"
-alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
-alias ap="cd ~/Projects"
-alias asc="cd ~/Projects/scripts/scripts"
-alias ase="cd ~/Dropbox/ISY/S4/ASE"
-alias aos="cd ~/Dropbox/ISY/S4/ASE/Code/amiro-os"
-alias ast="cd ~/Projects/st"
 alias at="\$EDITOR /tmp/scratch"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
 
-# Git
+# GIT
 alias ga="git add"
 alias gaa="git add --all"
 alias gam="git commit --amend"
@@ -176,10 +179,10 @@ alias grv="git revert"
 
 ##### AMiRo ENVIRONMENT CONFIGURATION #####
 # DO NOT EDIT THESE LINES MANUALLY!
-export PATH=$PATH:/home/aleks/Projects/ase/gcc-arm-embedded
+export PATH=$PATH:~/Projects/ase/gcc-arm-embedded
 ##### AMiRo ENVIRONMENT CONFIGURATION #####
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
 
 # # Use one nvim-adress per tmux-window and export EDITOR as nvr.
 # # This enables to open files in the same nvim-instance from any
