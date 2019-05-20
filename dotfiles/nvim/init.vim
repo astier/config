@@ -3,6 +3,7 @@ call plug#begin('~/.local/share/nvim/plugins')
 " Utils
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
+Plug 'jiangmiao/auto-pairs'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -10,7 +11,6 @@ Plug 'tpope/vim-surround'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
