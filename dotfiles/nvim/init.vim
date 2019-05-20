@@ -236,6 +236,7 @@ tnoremap <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
 tnoremap <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
 tnoremap <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
 tnoremap <silent> <a-b> <c-\><c-n>:TmuxNavigatePrevious<cr>
+nnoremap <a-w> <c-w>
 
 " BUFFER-NAVIGATION
 nnoremap <silent> <a-i> :bp<cr>
