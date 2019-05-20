@@ -1,5 +1,9 @@
 {
+	"coc.preferences.codeLens.enable": true,
 	"coc.source.file.ignoreHidden": false,
-	"suggest.maxCompleteItemCount": 8,
 	"diagnostic.displayByAle": true,
+	"suggest.enablePreview": true,
+	"suggest.maxCompleteItemCount": 8,
+	"suggest.snippetIndicator": "►",
+	"suggest.noselect": false,
 }
