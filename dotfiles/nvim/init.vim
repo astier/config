@@ -28,6 +28,11 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
 
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'neoclide/coc-snippets'
+
 " IDE
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
@@ -57,6 +62,7 @@ nnoremap <leader>f :FZF<cr>
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " COC
+let g:coc_global_extensions = [ 'coc-ultisnips' ]
 " Trigger completion via <c-space>
 inoremap <silent><expr> <c-space> coc#refresh()
 " Confirm completion via <cr>
@@ -149,6 +155,7 @@ let g:tagbar_silent = 1
 nnoremap <silent> <a-t> :TagbarToggle<cr>
 
 " VIMTEX
+au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 let g:vimtex_compiler_progname = '/usr/bin/nvr'
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_latexmk = {
@@ -262,15 +269,3 @@ nnoremap 0 g0
 nnoremap j gj
 nnoremap k gk
 se breakindent linebreak
-
-" LATEX
-let g:tex_flavor = 'latex'
-au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
-au FileType tex nnoremap <silent><buffer> ,j /\~<cr>s
-au FileType tex inoremap <silent><buffer> ,j <esc>/\~<cr>s
-au FileType tex inoremap <silent><buffer> ,e <esc>:read $DOTFILES/nvim/snippets/latex/enumerate.tex<cr>:norm =ae<cr>j10li
-au FileType tex inoremap <silent><buffer> ,i <esc>:read $DOTFILES/nvim/snippets/latex/itemize.tex<cr>:norm =ae<cr>j10li
-au FileType tex inoremap <silent><buffer> ,f <esc>:read $DOTFILES/nvim/snippets/latex/frame.tex<cr>:norm =ae<cr>j16li
-au FileType tex inoremap <silent><buffer> ,sa \section{}<left>
-au FileType tex inoremap <silent><buffer> ,sb \subsection{}<left>
-au FileType tex inoremap <silent><buffer> ,sc \subsubsection{}<left>
