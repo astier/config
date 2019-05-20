@@ -21,12 +21,27 @@ HISTIGNORE+=":gaa:gs:gc:gca:g:gg:gl:go-:gpl:gcn"
 set -o noclobber vi
 shopt -s autocd cdspell checkwinsize histappend
 
+# FZF
+export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/\.git/*' ! -iname '*\.jpg' ! -iname '*\.jpeg' ! -iname '*\.png' ! -iname '*\.pdf' ! -iname '*\.gif' ! -iname '*\.css' ! -iname '*\.html' ! -iname '*\.js' ! -iname '*\.htm' ! -iname '*\.docx' ! -iname '*\.doc' ! -iname '*\.odt' ! -iname '*\.zip' ! -iname '*\.tar.gz' | sed 's/^.\///'"
+export FZF_DEFAULT_OPTS="--ansi --border --cycle -m --reverse --tabstop=4 --color=gutter:#2F343F,bg+:#2F343F"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS"
+export FZF_CTRL_R_OPTS="$FZF_DEFAULT_OPTS"
+export FZF_COMPLETION_TRIGGER="*"
+export FZF_TMUX=1
+fzf_dir=/usr/share/fzf
+[ -f $fzf_dir/completion.bash ] && . $fzf_dir/completion.bash
+[ -f $fzf_dir/key-bindings.bash ] && . $fzf_dir/key-bindings.bash
+
+# MISC-EXPORTS
+export PATH=$PATH:~/Projects/ase/gcc-arm-embedded
+export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
+
 # DEFAULTS
 alias cal="cal -m"
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
-alias fzf="fzf --layout=reverse"
 alias grep="grep --color"
 alias ls="ls --color --group-directories-first -Ah"
 alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
@@ -42,11 +57,10 @@ d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi; }
 alias bd="b -d"
 alias c="cat"
 alias da="cd; clear"
-alias du="du -s"
 alias dl="clear; ls"
 alias e="exit"
 alias f="fg"
-alias ff="fzf | xargs -r \$EDITOR"
+alias ff="fzf-tmux | xargs -r \$EDITOR"
 alias ii="iwctl"
 alias l="ls"
 alias lb="lsblk"
@@ -176,20 +190,3 @@ alias grr="git reset --hard; git clean -f"
 alias grq="git rebase -i HEAD~2"
 alias grs="git reset --soft"
 alias grv="git revert"
-
-##### AMiRo ENVIRONMENT CONFIGURATION #####
-# DO NOT EDIT THESE LINES MANUALLY!
-export PATH=$PATH:~/Projects/ase/gcc-arm-embedded
-##### AMiRo ENVIRONMENT CONFIGURATION #####
-
-export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
-
-# # Use one nvim-adress per tmux-window and export EDITOR as nvr.
-# # This enables to open files in the same nvim-instance from any
-# # tmux-pane in the same tmux-window.
-# if [ -n "$TMUX" ]; then
-# 	NVIM_LISTEN_ADDRESS=/tmp/nvim_$USER_$(tmux display -p "#{window_id}")
-# 	export NVIM_LISTEN_ADDRESS
-# 	export EDITOR="nvr -s"
-# fi
-
