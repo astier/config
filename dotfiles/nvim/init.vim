@@ -226,7 +226,6 @@ inoremap <silent> <a-q> <esc>:qa<cr>
 
 " WINDOW-NAVIGATION
 let g:tmux_navigator_no_mappings = 1
-let g:tmux_navigator_disable_when_zoomed = 1
 nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
