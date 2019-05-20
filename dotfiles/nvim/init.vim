@@ -9,6 +9,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 " Navigation
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
@@ -67,7 +68,7 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1]	=~# '\s'
 endfunction
 " Manage Completion via TAB
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <TAB>
 	\ pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
@@ -118,8 +119,8 @@ let g:strip_whitelines_at_eof=1
 
 " GOYO
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
-nnoremap <silent><a-g> :Goyo<cr>
-tnoremap <silent><a-g> <c-\><c-n>:Goyo<cr>:star<cr>
+nnoremap <silent> <a-g> :Goyo<cr>
+tnoremap <silent> <a-g> <c-\><c-n>:Goyo<cr>:star<cr>
 
 " INDENTLINE
 let g:indentLine_fileTypeExclude = ['help', 'man', 'tex']
@@ -136,8 +137,8 @@ let g:NERDTreeMouseMode = 2
 let g:NERDTreeQuitOnOpen = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = 'NERDTree'
-nnoremap <silent><a-e> :NERDTreeToggle<cr><c-w>=
-tnoremap <silent><a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
+nnoremap <silent> <a-e> :NERDTreeToggle<cr><c-w>=
+tnoremap <silent> <a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
 
 " TAGBAR
 let g:tagbar_sort = 0
@@ -145,7 +146,7 @@ let g:tagbar_compact = 1
 let g:tagbar_indent = 1
 let g:tagbar_singleclick = 1
 let g:tagbar_silent = 1
-nnoremap <silent><a-t> :TagbarToggle<cr>
+nnoremap <silent> <a-t> :TagbarToggle<cr>
 
 " VIMTEX
 let g:vimtex_compiler_progname = '/usr/bin/nvr'
@@ -196,9 +197,9 @@ se confirm
 se noswapfile
 
 " SEARCH & REPLACE
-nnoremap <silent><esc> :noh<cr><esc>
+nnoremap <silent> <esc> :noh<cr><esc>
 nnoremap <a-r> :%s/\<<C-r><C-w>\>//g<left><left>
-nnoremap <silent># *
+nnoremap <silent> # *
 se inccommand=nosplit
 
 " STATUSLINE
@@ -215,39 +216,44 @@ au TermOpen * setl nonu nornu scl=no | star
 se hidden
 
 " KILL
-nnoremap <silent><a-q> :qa<cr>
-nnoremap <silent><a-c> :clo<cr>
-nnoremap <silent><a-d> :Bd<cr>
-tnoremap <silent><a-q> <c-\><c-n>:qa<cr>
-tnoremap <silent><a-c> <c-\><c-n>:clo<cr>
-tnoremap <silent><a-d> <c-\><c-n>:Bd!<cr>
-inoremap <silent><a-q> <esc>:qa<cr>
+nnoremap <silent> <a-q> :qa<cr>
+nnoremap <silent> <a-c> :clo<cr>
+nnoremap <silent> <a-d> :Bd<cr>
+tnoremap <silent> <a-q> <c-\><c-n>:qa<cr>
+tnoremap <silent> <a-c> <c-\><c-n>:clo<cr>
+tnoremap <silent> <a-d> <c-\><c-n>:Bd!<cr>
+inoremap <silent> <a-q> <esc>:qa<cr>
 
-" NAVIGATION
-nnoremap <a-w> <c-w>
-nnoremap <a-h> <c-w>h
-nnoremap <a-j> <c-w>j
-nnoremap <a-k> <c-w>k
-nnoremap <a-l> <c-w>l
-tnoremap <a-h> <c-\><c-n><c-w>h
-tnoremap <a-j> <c-\><c-n><c-w>j
-tnoremap <a-k> <c-\><c-n><c-w>k
-tnoremap <a-l> <c-\><c-n><c-w>l
-nnoremap <silent><a-i> :bp<cr>
-nnoremap <silent><a-o> :bn<cr>
-tnoremap <silent><a-i> <c-\><c-n>:bp<cr>
-tnoremap <silent><a-o> <c-\><c-n>:bn<cr>
+" WINDOW-NAVIGATION
+let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_disable_when_zoomed = 1
+nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <a-b> :TmuxNavigatePrevious<cr>
+tnoremap <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
+tnoremap <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
+tnoremap <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
+tnoremap <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
+tnoremap <silent> <a-b> <c-\><c-n>:TmuxNavigatePrevious<cr>
+
+" BUFFER-NAVIGATION
+nnoremap <silent> <a-i> :bp<cr>
+nnoremap <silent> <a-o> :bn<cr>
+tnoremap <silent> <a-i> <c-\><c-n>:bp<cr>
+tnoremap <silent> <a-o> <c-\><c-n>:bn<cr>
 
 " RESIZE
 au VimResized * wincmd =
-nnoremap <silent><a-J> :res +1<cr>
-nnoremap <silent><a-K> :res -1<cr>
-nnoremap <silent><a-L> :vert res +1<cr>
-nnoremap <silent><a-H> :vert res -1<cr>
-tnoremap <silent><a-J> <c-\><c-n>:res +1<cr>:star<cr>
-tnoremap <silent><a-K> <c-\><c-n>:res -1<cr>:star<cr>
-tnoremap <silent><a-L> <c-\><c-n>:vert res +1<cr>:star<cr>
-tnoremap <silent><a-H> <c-\><c-n>:vert res -1<cr>:star<cr>
+nnoremap <silent> <a-J> :res +1<cr>
+nnoremap <silent> <a-K> :res -1<cr>
+nnoremap <silent> <a-L> :vert res +1<cr>
+nnoremap <silent> <a-H> :vert res -1<cr>
+tnoremap <silent> <a-J> <c-\><c-n>:res +1<cr>:star<cr>
+tnoremap <silent> <a-K> <c-\><c-n>:res -1<cr>:star<cr>
+tnoremap <silent> <a-L> <c-\><c-n>:vert res +1<cr>:star<cr>
+tnoremap <silent> <a-H> <c-\><c-n>:vert res -1<cr>:star<cr>
 se splitbelow splitright
 
 " WRAP
@@ -259,12 +265,12 @@ se breakindent linebreak
 
 " LATEX
 let g:tex_flavor = 'latex'
-au FileType tex inoremap <expr><buffer><CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
-au FileType tex nnoremap <silent><buffer>,j /\~<cr>s
-au FileType tex inoremap <silent><buffer>,j <esc>/\~<cr>s
-au FileType tex inoremap <silent><buffer>,e <esc>:read $DOTFILES/nvim/snippets/latex/enumerate.tex<cr>:norm =ae<cr>j10li
-au FileType tex inoremap <silent><buffer>,i <esc>:read $DOTFILES/nvim/snippets/latex/itemize.tex<cr>:norm =ae<cr>j10li
-au FileType tex inoremap <silent><buffer>,f <esc>:read $DOTFILES/nvim/snippets/latex/frame.tex<cr>:norm =ae<cr>j16li
-au FileType tex inoremap <silent><buffer>,sa \section{}<left>
-au FileType tex inoremap <silent><buffer>,sb \subsection{}<left>
-au FileType tex inoremap <silent><buffer>,sc \subsubsection{}<left>
+au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
+au FileType tex nnoremap <silent><buffer> ,j /\~<cr>s
+au FileType tex inoremap <silent><buffer> ,j <esc>/\~<cr>s
+au FileType tex inoremap <silent><buffer> ,e <esc>:read $DOTFILES/nvim/snippets/latex/enumerate.tex<cr>:norm =ae<cr>j10li
+au FileType tex inoremap <silent><buffer> ,i <esc>:read $DOTFILES/nvim/snippets/latex/itemize.tex<cr>:norm =ae<cr>j10li
+au FileType tex inoremap <silent><buffer> ,f <esc>:read $DOTFILES/nvim/snippets/latex/frame.tex<cr>:norm =ae<cr>j16li
+au FileType tex inoremap <silent><buffer> ,sa \section{}<left>
+au FileType tex inoremap <silent><buffer> ,sb \subsection{}<left>
+au FileType tex inoremap <silent><buffer> ,sc \subsubsection{}<left>
