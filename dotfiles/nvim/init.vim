@@ -53,7 +53,7 @@ let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
 let g:node_host_prog = '~/.yarn/bin/neovim-node-host'
 let g:python3_host_prog = '/bin/python'
-nnoremap <c-p> :FZF<cr>
+nnoremap <leader>f :FZF<cr>
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " COC
