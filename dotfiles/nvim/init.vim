@@ -177,7 +177,7 @@ se fillchars+=fold:\
 se mouse=a
 se shortmess+=c
 se tabstop=4 shiftwidth=4
-se updatetime=200
+se updatetime=400
 nnoremap Q <nop>
 nnoremap <cr> o<esc>
 nnoremap <a-cr> O<esc>
