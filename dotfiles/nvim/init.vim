@@ -148,8 +148,8 @@ tnoremap <silent> <a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
 " TAGBAR
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1
+let g:tagbar_iconchars = ['▸', '▾']
 let g:tagbar_indent = 1
-let g:tagbar_singleclick = 1
 let g:tagbar_silent = 1
 nnoremap <silent> <a-t> :TagbarToggle<cr>
 
@@ -174,11 +174,11 @@ let g:vimtex_compiler_latexmk = {
 
 " MISC-VIM
 au BufEnter * se fo-=cro
-se autochdir
 se fillchars+=fold:\ 
 se mouse=a
 se shortmess+=c
 se tabstop=4 shiftwidth=4
+se updatetime=200
 nnoremap Q <nop>
 nnoremap <cr> o<esc>
 nnoremap <a-cr> O<esc>
@@ -207,6 +207,8 @@ nnoremap <silent> <esc> :noh<cr><esc>
 nnoremap <a-r> :%s/\<<C-r><C-w>\>//g<left><left>
 nnoremap <silent> # *
 se inccommand=nosplit
+se ignorecase
+se smartcase
 
 " STATUSLINE
 se laststatus=0
