@@ -23,9 +23,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Snippets
-Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
-Plug 'honza/vim-snippets', { 'for': [ 'tex' ] }
-Plug 'neoclide/coc-snippets', { 'for': [ 'tex' ] }
+Plug 'SirVer/ultisnips', { 'for': [ 'sh', 'tex' ] }
+Plug 'honza/vim-snippets', { 'for': [ 'sh', 'tex' ] }
+Plug 'neoclide/coc-snippets', { 'for': [ 'sh', 'tex' ] }
 
 " IDE
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
