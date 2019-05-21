@@ -29,9 +29,9 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'neoclide/coc-snippets'
+Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
+Plug 'honza/vim-snippets', { 'for': [ 'tex' ] }
+Plug 'neoclide/coc-snippets', { 'for': [ 'tex' ] }
 
 " IDE
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
@@ -40,7 +40,7 @@ Plug 'neoclide/coc-json', { 'for': 'json' }
 Plug 'neoclide/coc-neco', { 'for': 'vim' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': './install.sh' }
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
 
 call plug#end()
 
@@ -87,7 +87,6 @@ let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#tabs_label = 'T'
-let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#middle_click_preserves_windows = 1
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
