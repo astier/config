@@ -142,8 +142,8 @@ let g:NERDTreeMouseMode = 2
 let g:NERDTreeQuitOnOpen = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = 'NERDTree'
-nnoremap <silent> <a-e> :NERDTreeToggle<cr><c-w>=
-tnoremap <silent> <a-e> <c-\><c-n>:NERDTreeToggle<cr><c-w>=
+nnoremap <silent> <leader>e :NERDTreeToggle<cr><c-w>=
+tnoremap <silent> <leader>e <c-\><c-n>:NERDTreeToggle<cr><c-w>=
 
 " TAGBAR
 let g:tagbar_sort = 0
@@ -151,7 +151,7 @@ let g:tagbar_compact = 1
 let g:tagbar_iconchars = ['▸', '▾']
 let g:tagbar_indent = 1
 let g:tagbar_silent = 1
-nnoremap <silent> <a-t> :TagbarToggle<cr>
+nnoremap <silent> <leader>t :TagbarToggle<cr>
 
 " VIMTEX
 au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
