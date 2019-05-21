@@ -36,7 +36,7 @@ Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': './install.sh' }
 Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
 
-" Visual
+" Theme
 Plug 'Yggdroot/indentLine'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'machakann/vim-highlightedyank'
