@@ -109,15 +109,16 @@ a() {
 	mimetype=$(file -bL --mime-type "$1")
 	mime=$(echo "$mimetype" | cut -d/ -f1)
 	case $mime in
-		"text") $EDITOR "$@" ;;
-		"image") (feh "$@" &) ;;
-		"video") $BROWSER "$@" ;;
-		"audio") $BROWSER "$@" ;;
-		*) echo Mimetype "$mimetype" is not associated with any program. >&2 ;;
+		"text") $EDITOR "$@" && return ;;
+		"image") (feh "$@" &) && return ;;
+		"video") $BROWSER "$@" && return ;;
+		"audio") $BROWSER "$@" && return ;;
 	esac
 	case $mimetype in
+		"application/json") $EDITOR "$@" ;;
 		"application/pdf") $BROWSER "$@" ;;
 		"application/x-gzip") tar -zxf "$@" ;;
+		*) echo Mimetype "$mimetype" is not associated with any program. >&2 ;;
 	esac
 }
 
