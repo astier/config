@@ -177,6 +177,7 @@ let g:vimtex_compiler_latexmk = {
 " MISC-VIM
 au BufEnter * se fo-=cro
 se fillchars+=fold:\ 
+se autochdir
 se mouse=a
 se shortmess+=c
 se tabstop=4 shiftwidth=4
