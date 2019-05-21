@@ -4,6 +4,7 @@ call plug#begin('~/.local/share/nvim/plugins')
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/goyo.vim'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -21,13 +22,6 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Visual
-Plug 'Yggdroot/indentLine'
-Plug 'junegunn/goyo.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'machakann/vim-highlightedyank'
-Plug 'ntpeters/vim-better-whitespace'
-
 " Snippets
 Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
 Plug 'honza/vim-snippets', { 'for': [ 'tex' ] }
@@ -41,6 +35,13 @@ Plug 'neoclide/coc-neco', { 'for': 'vim' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': './install.sh' }
 Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
+
+" Visual
+Plug 'Yggdroot/indentLine'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'machakann/vim-highlightedyank'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -90,7 +91,7 @@ let g:airline#extensions#tabline#tabs_label = 'T'
 let g:airline#extensions#tabline#middle_click_preserves_windows = 1
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-let g:airline_section_a = '%{gitbranch#name()}'
+let g:airline_section_a = '⎇  %{gitbranch#name()}'
 let g:airline_section_x = ''
 let g:airline_section_z = '%l/%L:%c'
 " Stop truncating branch
@@ -134,6 +135,8 @@ let g:indentLine_char = '▏'
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/.NERDTreeBookmarks'
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags']
 let g:NERDTreeMinimalMenu = 1
 let g:NERDTreeMinimalUI = 1
