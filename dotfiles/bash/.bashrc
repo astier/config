@@ -134,7 +134,7 @@ alias ai="cd ~/Dropbox/ISY/S4"
 alias am="cd ~/Dropbox/ISY/S3/MYO"
 alias an="\$EDITOR ~/Dropbox/Notes/notes"
 alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
-alias aos="cd ~/Dropbox/ISY/S4/ASE/Code/amiro-os"
+alias aos="cd ~/Dropbox/ISY/S4/ASE/Code/amiro-os/devices"
 alias ase="cd ~/Dropbox/ISY/S4/ASE"
 
 alias ap="cd ~/Projects"
