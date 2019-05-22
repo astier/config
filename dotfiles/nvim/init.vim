@@ -213,6 +213,7 @@ au BufEnter * se fo-=cro
 se fillchars+=fold:\ 
 se autochdir
 se mouse=a
+se path-=/usr/include
 se shortmess+=c
 se tabstop=4 shiftwidth=4
 se updatetime=400
