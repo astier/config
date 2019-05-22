@@ -11,14 +11,14 @@ Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': './install.sh' }
 Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
 
-" Navigation
+" NAVIGATION
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim', { 'on': 'FZF' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" Visual
+" VISUAL
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/vim-gitbranch'
 Plug 'kristijanhusak/vim-hybrid-material'
@@ -28,7 +28,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Utils
+" UTILS
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
