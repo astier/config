@@ -1,7 +1,9 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
-" LSP
+" IDE
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
+Plug 'SirVer/ultisnips', { 'for': 'tex' }
+Plug 'honza/vim-snippets', { 'for': 'tex' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc-json', { 'for': 'json' }
 Plug 'neoclide/coc-neco', { 'for': 'vim' }
@@ -11,33 +13,26 @@ Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim', { 'on': 'FZF' }
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" Snippets
-Plug 'SirVer/ultisnips', { 'for': [ 'sh', 'tex' ] }
-Plug 'honza/vim-snippets', { 'for': [ 'sh', 'tex' ] }
-Plug 'neoclide/coc-snippets', { 'for': [ 'sh', 'tex' ] }
-
-" Statusline
-Plug 'itchyny/vim-gitbranch'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" Theme
+" Visual
 Plug 'Yggdroot/indentLine'
+Plug 'itchyny/vim-gitbranch'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Utils
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -134,6 +129,7 @@ let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
 let g:node_host_prog = '~/.yarn/bin/neovim-node-host'
 let g:python3_host_prog = '/bin/python'
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 nnoremap <leader>f :FZF<cr>
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
