@@ -1,5 +1,38 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
+" LSP
+Plug 'Shougo/neco-vim', { 'for': 'vim' }
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'neoclide/coc-json', { 'for': 'json' }
+Plug 'neoclide/coc-neco', { 'for': 'vim' }
+Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
+Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': './install.sh' }
+Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
+
+" Navigation
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" Snippets
+Plug 'SirVer/ultisnips', { 'for': [ 'sh', 'tex' ] }
+Plug 'honza/vim-snippets', { 'for': [ 'sh', 'tex' ] }
+Plug 'neoclide/coc-snippets', { 'for': [ 'sh', 'tex' ] }
+
+" Statusline
+Plug 'itchyny/vim-gitbranch'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Theme
+Plug 'Yggdroot/indentLine'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'machakann/vim-highlightedyank'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'ryanoasis/vim-devicons'
+
 " Utils
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
@@ -10,76 +43,15 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
-" Navigation
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
-" Statusline
-Plug 'itchyny/vim-gitbranch'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" Snippets
-Plug 'SirVer/ultisnips', { 'for': [ 'sh', 'tex' ] }
-Plug 'honza/vim-snippets', { 'for': [ 'sh', 'tex' ] }
-Plug 'neoclide/coc-snippets', { 'for': [ 'sh', 'tex' ] }
-
-" IDE
-Plug 'Shougo/neco-vim', { 'for': 'vim' }
-Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'neoclide/coc-json', { 'for': 'json' }
-Plug 'neoclide/coc-neco', { 'for': 'vim' }
-Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
-Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': './install.sh' }
-Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
-
-" Theme
-Plug 'Yggdroot/indentLine'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'machakann/vim-highlightedyank'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'ryanoasis/vim-devicons'
-
 call plug#end()
 
 " LEADERS
 let mapleader=' '
 let maplocalleader=' '
 
-" MISC-PLUGINS
-au BufWritePost * GitGutter
-let g:AutoPairsFlyMode = 1
-let g:AutoPairsShortcutToggle = ''
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let g:loaded_python_provider = 1
-let g:loaded_ruby_provider = 1
-let g:node_host_prog = '~/.yarn/bin/neovim-node-host'
-let g:python3_host_prog = '/bin/python'
-nnoremap <leader>f :FZF<cr>
-sil! cal repeat#se('\<Plug>vim-surround', v:count)
-
-" COC
-let g:coc_global_extensions = [ 'coc-ultisnips' ]
-" Trigger completion via <c-space>
-inoremap <silent><expr> <c-space> coc#refresh()
-" Confirm completion via <cr>
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-	\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" Backspace-function to help update completion after backspace
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]	=~# '\s'
-endfunction
-" Manage Completion via TAB
-inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
+"""""""""""
+" PLUGINS "
+"""""""""""
 
 " AIRLINE
 let g:airline_theme='onedark'
@@ -117,19 +89,53 @@ let g:ale_fixers = {
 \}
 let g:ale_sh_shfmt_options = '-ci -sr -p -s'
 
+" AUTO-PAIR
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutToggle = ''
+
 " BETTER-WHITESPACE
 let g:better_whitespace_filetypes_blacklist = ['help']
 let g:show_spaces_that_precede_tabs=1
 let g:strip_whitelines_at_eof=1
 
+" COC
+let g:coc_global_extensions = [ 'coc-ultisnips' ]
+" Trigger completion via <c-space>
+inoremap <silent><expr> <c-space> coc#refresh()
+" Confirm completion via <cr>
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+	\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Backspace-function to help update completion after backspace
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]	=~# '\s'
+endfunction
+" Manage Completion via TAB
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
+
 " GOYO
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
-nnoremap <silent> <a-g> :Goyo<cr>
-tnoremap <silent> <a-g> <c-\><c-n>:Goyo<cr>:star<cr>
+nnoremap <silent> <leader>g :Goyo<cr>
+tnoremap <silent> <leader>g <c-\><c-n>:Goyo<cr>:star<cr>
 
 " INDENTLINE
 let g:indentLine_fileTypeExclude = ['help', 'man', 'tex']
 let g:indentLine_char = '▏'
+
+" MISC
+au BufWritePost * GitGutter
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_python_provider = 1
+let g:loaded_ruby_provider = 1
+let g:node_host_prog = '~/.yarn/bin/neovim-node-host'
+let g:python3_host_prog = '/bin/python'
+nnoremap <leader>f :FZF<cr>
+sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " NERDTREE
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -174,7 +180,25 @@ let g:vimtex_compiler_latexmk = {
 	\ ],
 \}
 
-" MISC-VIM
+""""""""""""""""""
+" VANILLA-NEOVIM "
+""""""""""""""""""
+
+" COLORSCHEME
+let g:enable_italic_font = 1
+let g:hybrid_transparent_background = 1
+colorscheme hybrid_material
+hi cursorline guibg=#282C34
+hi gitgutterdelete guifg=#CC6666
+se termguicolors
+
+" KILL
+nnoremap <silent> <leader>q :qa<cr>
+nnoremap <silent> <leader>c :clo<cr>
+nnoremap <silent> <leader>d :Bd<cr>
+nnoremap <silent> <leader>x :Bd<cr>:clo<cr>
+
+" MISC
 au BufEnter * se fo-=cro
 se fillchars+=fold:\ 
 se autochdir
@@ -184,19 +208,28 @@ se tabstop=4 shiftwidth=4
 se updatetime=400
 nnoremap Q <nop>
 nnoremap <cr> o<esc>
-nnoremap <a-cr> O<esc>
-nnoremap <a-p> "+p
-inoremap <a-p> <esc>"+pa
-vnoremap <a-y> "+y
-nnoremap <a-s> <c-z>
+nnoremap <leader>p "+p
+vnoremap <leader>y "+y
+nnoremap <leader>s <c-z>
 
-" COLORSCHEME
-let g:enable_italic_font = 1
-let g:hybrid_transparent_background = 1
-colorscheme hybrid_material
-hi cursorline guibg=#282C34
-hi gitgutterdelete guifg=#CC6666
-se termguicolors
+" NAVIGATION
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <a-b> :TmuxNavigatePrevious<cr>
+nnoremap <silent> <a-i> :bp<cr>
+nnoremap <silent> <a-o> :bn<cr>
+nnoremap <leader>w <c-w>
+
+" RESIZE
+au VimResized * wincmd =
+nnoremap <silent> <a-J> :res +1<cr>
+nnoremap <silent> <a-K> :res -1<cr>
+nnoremap <silent> <a-L> :vert res +1<cr>
+nnoremap <silent> <a-H> :vert res -1<cr>
+se splitbelow splitright
 
 " SAVE
 au FocusGained,BufEnter,VimResume * checkt
@@ -207,7 +240,8 @@ se noswapfile
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh<cr><esc>
-nnoremap <a-r> :%s/\<<C-r><C-w>\>//g<left><left>
+nnoremap <leader>rw :%s/\<<C-r><C-w>\>//g<left><left>
+nnoremap <leader>rr :%s///g<left><left><left>
 nnoremap <silent> # *
 se inccommand=nosplit
 se ignorecase
@@ -225,47 +259,6 @@ se signcolumn=yes
 au BufEnter term://* star
 au TermOpen * setl nonu nornu scl=no | star
 se hidden
-
-" KILL
-nnoremap <silent> <a-q> :qa<cr>
-nnoremap <silent> <a-c> :clo<cr>
-nnoremap <silent> <a-d> :Bd<cr>
-tnoremap <silent> <a-q> <c-\><c-n>:qa<cr>
-tnoremap <silent> <a-c> <c-\><c-n>:clo<cr>
-tnoremap <silent> <a-d> <c-\><c-n>:Bd!<cr>
-inoremap <silent> <a-q> <esc>:qa<cr>
-
-" WINDOW-NAVIGATION
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <a-b> :TmuxNavigatePrevious<cr>
-tnoremap <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
-tnoremap <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
-tnoremap <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
-tnoremap <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
-tnoremap <silent> <a-b> <c-\><c-n>:TmuxNavigatePrevious<cr>
-nnoremap <a-w> <c-w>
-
-" BUFFER-NAVIGATION
-nnoremap <silent> <a-i> :bp<cr>
-nnoremap <silent> <a-o> :bn<cr>
-tnoremap <silent> <a-i> <c-\><c-n>:bp<cr>
-tnoremap <silent> <a-o> <c-\><c-n>:bn<cr>
-
-" RESIZE
-au VimResized * wincmd =
-nnoremap <silent> <a-J> :res +1<cr>
-nnoremap <silent> <a-K> :res -1<cr>
-nnoremap <silent> <a-L> :vert res +1<cr>
-nnoremap <silent> <a-H> :vert res -1<cr>
-tnoremap <silent> <a-J> <c-\><c-n>:res +1<cr>:star<cr>
-tnoremap <silent> <a-K> <c-\><c-n>:res -1<cr>:star<cr>
-tnoremap <silent> <a-L> <c-\><c-n>:vert res +1<cr>:star<cr>
-tnoremap <silent> <a-H> <c-\><c-n>:vert res -1<cr>:star<cr>
-se splitbelow splitright
 
 " WRAP
 nnoremap $ g$
