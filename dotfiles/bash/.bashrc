@@ -116,6 +116,7 @@ a() {
 	esac
 	case $mimetype in
 		"application/json") $EDITOR "$@" ;;
+		"inode/x-empty") $EDITOR "$@" ;;
 		"application/pdf") $BROWSER "$@" ;;
 		"application/x-gzip") tar -zxf "$@" ;;
 		*) echo Mimetype "$mimetype" is not associated with any program. >&2 ;;
