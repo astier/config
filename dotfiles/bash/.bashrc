@@ -126,9 +126,10 @@ a() {
 alias -- ,="cd .."
 alias -- -="cd -"
 
-alias ac="cd ~/.config/"
+alias ac="cd ~/.config"
 alias ao="cd ~/Downloads"
 alias al="cd ~/.local/share"
+alias avi="cd ~/Videos"
 
 alias adb="cd ~/Dropbox"
 alias ai="cd ~/Dropbox/ISY/S4"
