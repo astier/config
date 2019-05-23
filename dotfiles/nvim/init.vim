@@ -24,9 +24,9 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 
 " UTILS
 Plug '907th/vim-auto-save'
@@ -52,7 +52,6 @@ let maplocalleader=' '
 " AIRLINE
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#tabs_label = 'T'
