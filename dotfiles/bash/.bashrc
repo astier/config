@@ -142,6 +142,7 @@ alias an="\$EDITOR ~/Dropbox/Notes/notes"
 alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
 alias aos="cd ~/Dropbox/ISY/S4/ASE/Code/amiro-os/devices"
 alias ase="cd ~/Dropbox/ISY/S4/ASE"
+alias aw="cd ~/Dropbox/Pictures/Wallpapers"
 
 alias ap="cd ~/Projects"
 alias aa="cd ~/Projects/arch"
