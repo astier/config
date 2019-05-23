@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 [[ $- != *i* ]] && return
 
 # PROMPT
@@ -172,7 +174,7 @@ alias gcm="git commit -m"
 alias gcr="git commit -am tmp && git rebase -i HEAD~2"
 gcp() { git add --all && git commit -m "$1" && git push; }
 
-alias g="git log --all --graph --decorate --oneline -n16"
+g() { n=8; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
 alias gg="git log --all --graph --decorate --oneline"
 alias ggg="git log --oneline --grep"
 alias gl="git log --date=auto:human"
