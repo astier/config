@@ -179,6 +179,7 @@ alias gg="git log --all --graph --decorate --oneline"
 alias ggg="git log --oneline --grep"
 alias gl="git log --date=auto:human"
 alias glg="git log --grep"
+alias gso="git show"
 
 alias go="git checkout"
 alias gob="git checkout -b"
