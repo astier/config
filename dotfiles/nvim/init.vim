@@ -202,7 +202,8 @@ se termguicolors
 
 
 " KILL
-nnoremap <silent> <leader>q :qa<cr>
+nnoremap <silent> <a-q> :qa<cr>
+inoremap <silent> <a-q> <esc>:qa<cr>
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :Bd<cr>
 nnoremap <silent> <leader>x :Bd<cr>:clo<cr>
@@ -219,7 +220,7 @@ se tabstop=4 shiftwidth=4
 se updatetime=400
 nnoremap Q <nop>
 nnoremap <cr> o<esc>
-nnoremap <leader>p "+p
+nnoremap <a-p> "+p
 vnoremap <leader>y "+y
 nnoremap <leader>s <c-z>
 
