@@ -125,7 +125,7 @@ tnoremap <silent> <leader>g <c-\><c-n>:Goyo<cr>:star<cr>
 
 
 " INDENTLINE
-let g:indentLine_fileTypeExclude = ['help', 'man', 'tex']
+let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
 let g:indentLine_char = '▏'
 
 
