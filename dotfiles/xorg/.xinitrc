@@ -30,6 +30,7 @@ xset s off -dpms
 b -l &
 # compton -b --backend glx --vsync --config /dev/null
 compton -b
+(dstatus &)
 (firefox &)
 numlockx
 (st &)
