@@ -2,8 +2,8 @@ call plug#begin('~/.local/share/nvim/plugins')
 
 " IDE
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
-Plug 'SirVer/ultisnips', { 'for': 'tex' }
-Plug 'honza/vim-snippets', { 'for': 'tex' }
+Plug 'SirVer/ultisnips', { 'for': [ 'sh', 'tex' ] }
+Plug 'honza/vim-snippets', { 'for': [ 'sh', 'tex' ] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc-json', { 'for': 'json' }
 Plug 'neoclide/coc-neco', { 'for': 'vim' }
