@@ -26,7 +26,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
 
 " UTILS
 Plug '907th/vim-auto-save'
@@ -51,14 +50,13 @@ let maplocalleader=' '
 
 " AIRLINE
 let g:airline_theme='onedark'
-let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#tabs_label = 'T'
 let g:airline#extensions#tabline#middle_click_preserves_windows = 1
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-let g:airline_section_a = '⎇  %{gitbranch#name()}'
+let g:airline_section_a = '%{gitbranch#name()}'
 let g:airline_section_x = ''
 let g:airline_section_z = '%l/%L:%c'
 let g:airline_skip_empty_sections = 1
@@ -146,8 +144,6 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/.NERDTreeBookmarks'
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags']
 let g:NERDTreeMinimalMenu = 1
 let g:NERDTreeMinimalUI = 1
