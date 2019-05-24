@@ -133,6 +133,7 @@ alias -- -="cd -"
 alias ac="cd ~/.config"
 alias ao="cd ~/Downloads"
 alias al="cd ~/.local/share"
+alias asn="cd ~/.local/share/nvim/plugins/vim-snippets/UltiSnips"
 alias avi="cd ~/Videos"
 
 alias adb="cd ~/Dropbox"
