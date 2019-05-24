@@ -28,7 +28,8 @@ xset s off -dpms
 
 # Programs
 b -l &
-compton -b --backend glx --vsync --config /dev/null
+# compton -b --backend glx --vsync --config /dev/null
+compton -b
 (firefox &)
 numlockx
 (st &)
