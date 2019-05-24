@@ -1,7 +1,7 @@
 {
 	"coc.preferences.codeLens.enable": true,
 	"coc.source.file.ignoreHidden": false,
-	"coc.source.ultisnips.filetypes": ["tex"]
+	"coc.source.ultisnips.filetypes": ["tex"],
 	"diagnostic.displayByAle": true,
 	"suggest.maxCompleteItemCount": 8,
 	"suggest.noselect": false,
