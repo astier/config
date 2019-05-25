@@ -192,9 +192,9 @@ alias gpl="git pull"
 alias gps="git push"
 alias gpsf="git push -f"
 
+grh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
 alias gcn="git clean -f"
 alias grb="git rebase -i"
-alias grh="git reset --hard"
 alias grr="git reset --hard; git clean -f"
 alias grq="git rebase -i HEAD~2"
 alias grs="git reset --soft"
