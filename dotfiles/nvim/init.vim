@@ -1,9 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
-" IDE
+" AUTOCOMPLETION, LINTING, FORMATING, LSP
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
-Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
-Plug 'honza/vim-snippets', { 'for': [ 'tex' ] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc-json', { 'for': 'json' }
 Plug 'neoclide/coc-neco', { 'for': 'vim' }
@@ -17,6 +15,11 @@ Plug 'junegunn/fzf.vim', { 'on': 'FZF' }
 Plug 'ludovicchabant/vim-gutentags', { 'for': [ 'tex' ] }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" SNIPPETS
+Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
+Plug 'honza/vim-snippets', { 'for': [ 'tex' ] }
+Plug 'neoclide/coc-snippets', { 'for': [ 'tex' ] }
 
 " VISUAL
 Plug 'Yggdroot/indentLine'
