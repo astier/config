@@ -60,15 +60,6 @@ let g:airline_section_a = '%{gitbranch#name()}'
 let g:airline_section_x = ''
 let g:airline_section_z = '%l/%L:%c'
 let g:airline_skip_empty_sections = 1
-" Stop truncating branch
-" Remove explicit minwidth constraint
-au VimEnter * let hunks = airline#parts#get("hunks")
-au VimEnter * unlet hunks.minwidth
-au VimEnter * let branch = airline#parts#get("branch")
-au VimEnter * unlet branch.minwidth
-" Must recreate the section to remove minwidth constraints
-au VimEnter * let g:airline_section_b = airline#section#create(['hunks', 'branch'])
-
 
 " ALE
 let g:ale_disable_lsp = 1
