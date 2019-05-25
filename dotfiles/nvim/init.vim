@@ -43,7 +43,6 @@ call plug#end()
 let mapleader=' '
 let maplocalleader=' '
 
-
 """""""""""
 " PLUGINS "
 """""""""""
@@ -76,17 +75,14 @@ let g:ale_fixers = {
 \}
 let g:ale_sh_shfmt_options = '-ci -sr -p -s'
 
-
 " AUTO-PAIR
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutToggle = ''
-
 
 " BETTER-WHITESPACE
 let g:better_whitespace_filetypes_blacklist = ['help']
 let g:show_spaces_that_precede_tabs=1
 let g:strip_whitelines_at_eof=1
-
 
 " COC
 let g:coc_global_extensions = [ 'coc-ultisnips' ]
@@ -107,17 +103,14 @@ inoremap <silent><expr> <TAB>
 	\ <SID>check_back_space() ? "\<TAB>" :
 	\ coc#refresh()
 
-
 " GOYO
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
 nnoremap <silent> <leader>g :Goyo<cr>
 tnoremap <silent> <leader>g <c-\><c-n>:Goyo<cr>:star<cr>
 
-
 " INDENTLINE
 let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
 let g:indentLine_char = '▏'
-
 
 " MISC
 au BufWritePost * GitGutter
@@ -130,7 +123,6 @@ let g:python3_host_prog = '/bin/python'
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 nnoremap <leader>f :FZF<cr>
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
-
 
 " NERDTREE
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -146,7 +138,6 @@ let g:NERDTreeStatusline = 'NERDTree'
 nnoremap <silent> <leader>e :NERDTreeToggle<cr><c-w>=
 tnoremap <silent> <leader>e <c-\><c-n>:NERDTreeToggle<cr><c-w>=
 
-
 " TAGBAR
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1
@@ -154,7 +145,6 @@ let g:tagbar_iconchars = ['▸', '▾']
 let g:tagbar_indent = 1
 let g:tagbar_silent = 1
 nnoremap <silent> <leader>t :TagbarToggle<cr>
-
 
 " VIMTEX
 au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
@@ -175,7 +165,6 @@ let g:vimtex_compiler_latexmk = {
 	\ ],
 \}
 
-
 """"""""""""""""""
 " VANILLA-NEOVIM "
 """"""""""""""""""
@@ -188,14 +177,12 @@ hi cursorline guibg=#282C34
 hi gitgutterdelete guifg=#CC6666
 se termguicolors
 
-
 " KILL
 nnoremap <silent> <leader>q :qa<cr>
 inoremap <silent> <a-q> <esc>:qa<cr>
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :Bd<cr>
 nnoremap <silent> <leader>x :Bd<cr>:clo<cr>
-
 
 " MISC
 au BufEnter * se fo-=cro
@@ -213,7 +200,6 @@ inoremap <a-p> <esc>"+pa
 vnoremap <leader>y "+y
 nnoremap <leader>s <c-z>
 
-
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
@@ -225,7 +211,6 @@ nnoremap <silent> <a-i> :bp<cr>
 nnoremap <silent> <a-o> :bn<cr>
 nnoremap <leader>w <c-w>
 
-
 " RESIZE
 au VimResized * wincmd =
 nnoremap <silent> <a-J> :res +1<cr>
@@ -234,14 +219,12 @@ nnoremap <silent> <a-L> :vert res +1<cr>
 nnoremap <silent> <a-H> :vert res -1<cr>
 se splitbelow splitright
 
-
 " SAVE
 au FocusGained,BufEnter,VimResume * checkt
 let g:auto_save = 1
 let g:auto_save_silent = 1
 se confirm
 se noswapfile
-
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh<cr><esc>
@@ -252,7 +235,6 @@ se inccommand=nosplit
 se ignorecase
 se smartcase
 
-
 " STATUSLINE
 se laststatus=0
 se statusline=\ 
@@ -261,12 +243,10 @@ se noshowcmd
 se noshowmode
 se signcolumn=yes
 
-
 " TERMINAL
 au BufEnter term://* star
 au TermOpen * setl nonu nornu scl=no | star
 se hidden
-
 
 " WRAP
 nnoremap $ g$
