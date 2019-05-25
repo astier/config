@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/aleks/Projects/dotfiles/dotfiles/nvim'
-let g:netrw_dirhist_2='/home/aleks/Projects/dotfiles/dotfiles/nvim/spell'
-let g:netrw_dirhist_3='/home/aleks/Projects/dotfiles/dotfiles/nvim'
-let g:netrw_dirhist_4='/home/aleks/Projects/dotfiles/dotfiles/nvim/UltiSnips'
-let g:netrw_dirhist_5='/home/aleks/Projects/dotfiles/dotfiles/nvim'
-let g:netrw_dirhist_6='/home/aleks/Projects/dotfiles/dotfiles/nvim/UltiSnips'
