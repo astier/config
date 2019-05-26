@@ -21,17 +21,9 @@ if [ -d $XINITRC ] ; then
 	unset f
 fi
 
-# Config
-xmodmap -e "keycode 47 = Return"
-xmodmap -e "keycode 133 = odiaeresis"
-xset s off -dpms
-
-# Programs
 compton -b --backend glx --vsync --config /dev/null
 feh --bg-fill ~/Dropbox/Pictures/black.jpg
 (firefox &)
-numlockx
 (st &)
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
-
 exec dwm
