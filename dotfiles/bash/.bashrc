@@ -100,7 +100,7 @@ alias xp="x -p"
 alias sd="systemctl suspend"
 alias sl="slock"
 alias sp="poweroff"
-alias sr="reboot"
+# alias sr="reboot"
 
 cd() { if [ "$#" == 0 ]; then builtin cd || return; else builtin cd "$@" && ls; fi; }
 
@@ -141,7 +141,7 @@ alias ai="cd ~/Dropbox/ISY/S4"
 alias am="cd ~/Dropbox/ISY/S3/MYO"
 alias an="\$EDITOR ~/Dropbox/Notes/notes"
 alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
-alias aos="cd ~/Dropbox/ISY/S4/ASE/Code/amiro-os/devices"
+alias aos="cd ~/Projects/ase/amiro-os/devices"
 alias ase="cd ~/Dropbox/ISY/S4/ASE"
 alias aw="cd ~/Dropbox/Pictures/Wallpapers"
 
