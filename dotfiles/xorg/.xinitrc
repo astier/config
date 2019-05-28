@@ -25,8 +25,9 @@ xmodmap -e "keycode 47 = Return"
 xmodmap -e "keycode 36 = colon"
 xmodmap -e "keycode 107 = semicolon"
 
+b -l &
 compton -b --backend glx --vsync --config /dev/null
-feh --bg-fill ~/Dropbox/Pictures/black.jpg
+# feh --bg-fill ~/Dropbox/Pictures/black.jpg
 (firefox &)
 (st &)
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
