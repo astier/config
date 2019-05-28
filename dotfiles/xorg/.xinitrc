@@ -21,6 +21,10 @@ if [ -d $XINITRC ] ; then
 	unset f
 fi
 
+xmodmap -e "keycode 47 = Return"
+xmodmap -e "keycode 36 = semicolon"
+xmodmap -e "keycode 107 = colon"
+
 compton -b --backend glx --vsync --config /dev/null
 feh --bg-fill ~/Dropbox/Pictures/black.jpg
 (firefox &)
