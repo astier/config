@@ -152,7 +152,7 @@ nnoremap <silent> <leader>t :TagbarToggle<cr>
 " VIMTEX
 au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 let g:vimtex_compiler_progname = '/usr/bin/nvr'
-let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_general_viewer = 'firefox'
 let g:vimtex_compiler_latexmk = {
 	\ 'backend' : 'nvim',
 	\ 'background' : 1,
