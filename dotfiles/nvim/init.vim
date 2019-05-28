@@ -232,7 +232,7 @@ se noswapfile
 nnoremap <silent> <esc> :noh<cr><esc>
 nnoremap <leader>rw :%s/\<<C-r><C-w>\>//g<left><left>
 nnoremap <leader>rr :%s///g<left><left><left>
-nnoremap <silent> # *
+nnoremap <silent> , *
 se inccommand=nosplit
 se ignorecase
 se smartcase
