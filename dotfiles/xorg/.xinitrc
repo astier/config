@@ -22,8 +22,8 @@ if [ -d $XINITRC ] ; then
 fi
 
 xmodmap -e "keycode 47 = Return"
-xmodmap -e "keycode 36 = semicolon"
-xmodmap -e "keycode 107 = colon"
+xmodmap -e "keycode 36 = colon"
+xmodmap -e "keycode 107 = semicolon"
 
 compton -b --backend glx --vsync --config /dev/null
 feh --bg-fill ~/Dropbox/Pictures/black.jpg
