@@ -21,6 +21,9 @@ install nvim/onedark.vim ~/.local/share/nvim/plugins/vim-airline-themes/autoload
 install pacman/pacman.conf /etc/
 install pacman/hooks/ /etc/pacman.d/
 
+sudo rm /etc/systemd/journald.conf
+sudo ln ~/Projects/dotfiles/dotfiles/systemd/journald.conf /etc/systemd/journald.conf &&
+	echo Installed: journald
 sudo rm /etc/systemd/logind.conf
 sudo ln ~/Projects/dotfiles/dotfiles/systemd/logind.conf /etc/systemd/logind.conf &&
 	echo Installed: logind
