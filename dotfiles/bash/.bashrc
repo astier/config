@@ -191,6 +191,8 @@ alias go="git checkout"
 alias gob="git checkout -b"
 alias gom="git checkout master"
 
+alias gf="git fetch"
+alias gm="git merge"
 alias gpl="git pull"
 alias gps="git push"
 alias gpsf="git push -f"
