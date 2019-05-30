@@ -52,6 +52,7 @@ let maplocalleader=' '
 
 " AIRLINE
 let g:airline_theme='onedark'
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffers_label = 'B'
 let g:airline#extensions#tabline#tabs_label = 'T'
@@ -131,7 +132,7 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/.NERDTreeBookmarks'
-let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags']
+let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', 'tex']
 let g:NERDTreeMinimalMenu = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeMouseMode = 2
