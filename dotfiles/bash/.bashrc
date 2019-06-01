@@ -116,7 +116,7 @@ a() {
 	case $mime in
 		"text") $EDITOR "$@" && return ;;
 		"image") (feh "$@" &) && return ;;
-		"video") mpv "$@" && return ;;
+		"video") (mpv "$@" &) && return ;;
 		"audio") $BROWSER "$@" && return ;;
 	esac
 	case $mimetype in
