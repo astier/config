@@ -96,7 +96,7 @@ alias xc="x -c"
 alias xm="x -m"
 alias xp="x -p"
 
-# POWERMANAGEMENT
+# POWER-MANAGEMENT
 alias sd="systemctl suspend"
 alias sl="slock"
 alias sp="poweroff"
