@@ -16,6 +16,7 @@ install feh ~/.config/
 install git ~/.config/
 install gtk-3.0 ~/.config/
 install mimeapps.list ~/.config/
+install newsboat ~/.config/
 install nvim ~/.config/
 install nvim/onedark.vim ~/.local/share/nvim/plugins/vim-airline-themes/autoload/airline/themes/
 install pacman/pacman.conf /etc/
