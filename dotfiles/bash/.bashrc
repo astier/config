@@ -129,8 +129,7 @@ a() {
 }
 
 # BOOKMARKS (ar and as are already existing commands)
-alias -- ,="cd .."
-alias -- -="cd -"
+alias -- ,="cd -"
 
 alias ac="cd ~/.config"
 alias ao="cd ~/Downloads"
