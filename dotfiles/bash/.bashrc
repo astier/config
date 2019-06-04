@@ -85,7 +85,6 @@ alias s="sudo"
 alias t="touch"
 alias u="yay"
 alias um="sudo reflector -p https -l16 -f8 --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist"
-alias uu="um && echo && u"
 
 # TMUX
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
@@ -102,7 +101,7 @@ alias xp="x -p"
 alias sd="systemctl suspend"
 alias sl="slock"
 alias sp="poweroff"
-# alias sr="reboot"
+alias sr="reboot"
 
 cd() { if [ "$#" == 0 ]; then builtin cd || return; else builtin cd "$@" && ls; fi; }
 
