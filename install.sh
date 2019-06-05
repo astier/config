@@ -19,6 +19,8 @@ install mimeapps.list ~/.config/
 install newsboat ~/.config/
 install nvim ~/.config/
 install nvim/onedark.vim ~/.local/share/nvim/plugins/vim-airline-themes/autoload/airline/themes/
+install vscode/settings.json ~/.config/Code/User/
+install vscode/settings.json "$HOME/.config/Code - OSS/User/"
 install zathura ~/.config/
 install pacman/pacman.conf /etc/
 install pacman/hooks/ /etc/pacman.d/
