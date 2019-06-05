@@ -11,7 +11,7 @@ Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
 
 " NAVIGATION
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf.vim', { 'on': 'FZF' }
+Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags', { 'for': [ 'tex' ] }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
