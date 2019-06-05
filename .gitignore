@@ -1,7 +1,8 @@
-urls
-history.cmdline
-history.search
-cache.db
-bookmarks
 *.add
 *.add.spl
+.netrwhist
+bookmarks
+cache.db
+history.cmdline
+history.search
+urls
