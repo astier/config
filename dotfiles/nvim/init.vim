@@ -102,9 +102,9 @@ let g:indentLine_char = '▏'
 au BufWritePost * GitGutter
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
+let g:loaded_node_provider = 1
 let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
-let g:node_host_prog = '~/.yarn/bin/neovim-node-host'
 let g:python3_host_prog = '/bin/python'
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 nnoremap <leader>f :FZF<cr>
