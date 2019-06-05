@@ -7,7 +7,7 @@ Plug 'neoclide/coc-json', { 'for': 'json' }
 Plug 'neoclide/coc-neco', { 'for': 'vim' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': './install.sh' }
-Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
+Plug 'w0rp/ale', { 'for': [ 'sh', 'tex', 'vim' ] }
 
 " NAVIGATION
 Plug 'christoomey/vim-tmux-navigator'
