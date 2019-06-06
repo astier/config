@@ -18,6 +18,7 @@ install gtk-3.0 ~/.config/
 install mimeapps.list ~/.config/
 install newsboat ~/.config/
 install nvim ~/.config/
+install nvim/onedark.vim ~/.local/share/nvim/plugins/vim-airline-themes/autoload/airline/themes/
 install vscode/settings.json ~/.config/Code/User/
 install vscode/settings.json "$HOME/.config/Code - OSS/User/"
 install zathura ~/.config/
