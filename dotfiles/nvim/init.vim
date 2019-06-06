@@ -107,8 +107,12 @@ let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
 let g:python3_host_prog = '/bin/python'
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
-nnoremap <leader>f :FZF<cr>
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
+
+" FZF
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>a :Tags<cr>
 
 " NERDTREE
 let g:NERDTreeAutoDeleteBuffer = 1
