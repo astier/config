@@ -165,6 +165,7 @@ let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
 hi cursorline guibg=#282C34
 hi gitgutterdelete guifg=#CC6666
+se cursorline
 se termguicolors
 
 " KILL
