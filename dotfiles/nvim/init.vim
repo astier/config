@@ -32,6 +32,7 @@ Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
