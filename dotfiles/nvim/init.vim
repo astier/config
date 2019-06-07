@@ -207,6 +207,7 @@ nnoremap <leader>p "+p
 inoremap <a-p> <esc>"+pa
 vnoremap <leader>y "+y
 nnoremap <leader>s <c-z>
+nnoremap n nzz
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
