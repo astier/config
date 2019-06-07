@@ -207,7 +207,6 @@ nnoremap <leader>p "+p
 inoremap <a-p> <esc>"+pa
 vnoremap <leader>y "+y
 nnoremap <leader>s <c-z>
-nnoremap n nzz
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
@@ -240,6 +239,8 @@ nnoremap <silent> <esc> :noh<cr><esc>
 nnoremap <leader>rw :%s/\<<C-r><C-w>\>//g<left><left>
 nnoremap <leader>rr :%s///g<left><left><left>
 nnoremap <silent> , *
+nnoremap n nzz
+nnoremap N Nzz
 se inccommand=nosplit
 se ignorecase
 se smartcase
