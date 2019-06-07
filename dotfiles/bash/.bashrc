@@ -20,7 +20,7 @@ HISTIGNORE="df:poweroff:reboot"
 HISTIGNORE+=":c:d:dl:e:f:i:l:lb:ll:ma:ml:py:sd:sl:sp:sr:t:ta:tl:x:xc:xm:xp:y"
 HISTIGNORE+=":,:-:a:aa:ac:ad:adb:ado:adw:ai:al:am:ap:asc:ase:ast:ax"
 HISTIGNORE+=":gaa:gs:gc:gca:g:gg:gl:go-:gcn"
-set -o noclobber vi
+set -o vi
 shopt -s autocd cdspell checkwinsize histappend
 
 # FZF
@@ -75,8 +75,8 @@ alias md="mkdir"
 alias n="newsboat"
 alias p="cp"
 alias pa="patch -p1 <"
-alias pd="pacman -Qetq | fzf -m --preview 'pacman -Qi {1}' | sudo pacman -Rns -"
-alias pi="pacman -Slq | fzf -m --preview 'pacman -Si {1}' | sudo pacman -S -"
+alias pd="pacman -Qetq | fzf -m --preview 'pacman -Qi {1}' > /tmp/pd; xargs -ra /tmp/pd sudo pacman -Rns"
+alias pi="pacman -Slq | fzf -m --preview 'pacman -Si {1}' > /tmp/pi; xargs -ra /tmp/pi sudo pacman -S"
 alias py="python"
 alias r="sudo \$(fc -ln -1)"
 alias s="sudo"
