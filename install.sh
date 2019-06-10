@@ -9,16 +9,16 @@ install() {
 
 install .inputrc ~/
 install .tmux.conf ~/
+install .xinitrc ~/
 install bash/.bash_profile ~/
 install bash/.bashrc ~/
-install .xinitrc ~/
 install feh ~/.config/
 install git ~/.config/
 install gtk-3.0 ~/.config/
 install newsboat ~/.config/
 install nvim ~/.config/
-install pacman/pacman.conf /etc/
 install pacman/hooks/ /etc/pacman.d/
+install pacman/pacman.conf /etc/
 
 sudo rm /etc/systemd/journald.conf
 sudo ln ~/Projects/dotfiles/dotfiles/systemd/journald.conf /etc/systemd/journald.conf &&
