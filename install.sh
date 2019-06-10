@@ -11,7 +11,7 @@ install .inputrc ~/
 install .tmux.conf ~/
 install bash/.bash_profile ~/
 install bash/.bashrc ~/
-install xorg/.xinitrc ~/
+install .xinitrc ~/
 install feh ~/.config/
 install git ~/.config/
 install gtk-3.0 ~/.config/
