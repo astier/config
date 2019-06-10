@@ -29,7 +29,7 @@ xmodmap -e "keycode 107 = semicolon"
 
 compton -b --backend glx --vsync --config /dev/null
 dstatus &
-feh --bg-fill ~/Dropbox/Pictures/black.jpg
+feh --bg-fill ~/Dropbox/pictures/black.jpg
 (firefox &)
 (st &)
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
