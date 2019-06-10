@@ -15,7 +15,6 @@ install xorg/.xinitrc ~/
 install feh ~/.config/
 install git ~/.config/
 install gtk-3.0 ~/.config/
-install mimeapps.list ~/.config/
 install newsboat ~/.config/
 install nvim ~/.config/
 install vscode/settings.json ~/.config/Code/User/
