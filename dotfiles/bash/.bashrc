@@ -175,7 +175,6 @@ alias gd="git diff"
 alias gc="git commit"
 alias gca="git add --all && git commit"
 alias gcr="git commit -am tmp && git rebase -i HEAD~2"
-alias gcp="git add --all && git commit && git push"
 
 g() { n=8; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
 alias gg="git log --all --graph --decorate --oneline"
