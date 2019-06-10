@@ -38,6 +38,7 @@ fzf_dir=/usr/share/fzf
 # MISC-EXPORTS
 export PATH=$PATH:~/Projects/ase/gcc-arm-embedded
 export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
+. /opt/ros/melodic/setup.bash
 
 # DEFAULTS
 alias cal="cal -m"
