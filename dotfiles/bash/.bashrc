@@ -113,8 +113,8 @@ a() {
 	mime=$(echo "$mimetype" | cut -d/ -f1)
 	case $mime in
 		"text") $EDITOR "$@" && return ;;
-		"image") (feh "$@" &) && return ;;
-		"video") (mpv "$@" &) && return ;;
+		"image") $BROWSER "$@" && return ;;
+		"video") $BROWSER "$@" && return ;;
 		"audio") $BROWSER "$@" && return ;;
 	esac
 	case $mimetype in
