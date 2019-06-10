@@ -159,7 +159,7 @@ alias abp="\$EDITOR \$DOTFILES/bash/.bash_profile"
 alias at="\$EDITOR /tmp/scratch"
 alias au="\$EDITOR ~/Dropbox/documents/misc/urls"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
-alias ax="\$EDITOR \$DOTFILES/xorg/.xinitrc"
+alias ax="\$EDITOR \$DOTFILES/.xinitrc"
 
 # GIT
 alias ga="git add"
