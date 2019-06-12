@@ -39,6 +39,7 @@ fzf_dir=/usr/share/fzf
 export PATH=$PATH:~/Projects/ase/gcc-arm-embedded
 export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
 . /opt/ros/melodic/setup.bash
+alias ros="cd ~/Projects/catkin_ws && . devel/setup.bash && echo \$ROS_PACKAGE_PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
