@@ -144,6 +144,7 @@ a() {
 alias -- ,="cd -"
 
 alias ac="cd ~/.config"
+alias aca="cd ~/.cache"
 alias ao="cd ~/Downloads"
 alias al="cd ~/.local/share"
 alias asn="cd ~/.local/share/nvim/plugins/vim-snippets/UltiSnips"
