@@ -7,6 +7,7 @@ install() {
 		echo Installed: "$TARGET"
 }
 
+install .condarc ~/
 install .inputrc ~/
 install .tmux.conf ~/
 install .xinitrc ~/
