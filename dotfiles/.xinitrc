@@ -28,4 +28,4 @@ xmodmap -e "keycode 36 = colon"
 xmodmap -e "keycode 107 = semicolon"
 
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
-exec cinnamon
+exec cinnamon-session

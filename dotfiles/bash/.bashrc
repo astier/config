@@ -18,7 +18,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="df:poweroff:reboot"
 HISTIGNORE+=":c:d:dl:e:f:i:l:lb:ll:ma:ml:py:sd:sl:sp:sr:t:ta:tl:x:xc:xm:xp:y"
-HISTIGNORE+=":,:-:a:aa:ac:ad:adb:ado:adw:ai:al:am:ap:asc:ase:ast:ax"
+HISTIGNORE+=":,:-:a:aa:ac:ad:ao:ai:al:am:ap:asc:ase:ax"
 HISTIGNORE+=":gaa:gs:gc:gca:g:gg:gl:go-:gcn"
 set -o vi
 shopt -s autocd cdspell checkwinsize histappend
@@ -38,23 +38,6 @@ fzf_dir=/usr/share/fzf
 # MISC-EXPORTS
 export PATH=$PATH:~/Projects/ase/gcc-arm-embedded
 export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
-. /opt/ros/melodic/setup.bash
-alias ros="cd ~/Projects/catkin_ws && . devel/setup.bash && echo \$ROS_PACKAGE_PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/aleks/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/aleks/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/aleks/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/aleks/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # DEFAULTS
 alias cal="cal -m"
@@ -89,7 +72,6 @@ alias maf="make && make flash && (gtkterm -c AMiRo &)"
 alias mai="sudo make install clean"
 alias md="mkdir"
 alias p="cp"
-alias pa="patch -p1 <"
 alias pd="pacman -Qetq | fzf -m --preview 'pacman -Qi {1}' > /tmp/pd; xargs -ra /tmp/pd sudo pacman -Rns"
 alias pi="pacman -Slq | fzf -m --preview 'pacman -Si {1}' > /tmp/pi; xargs -ra /tmp/pi sudo pacman -S"
 alias py="python"
@@ -148,10 +130,9 @@ alias aca="cd ~/.cache"
 alias ao="cd ~/Downloads"
 alias al="cd ~/.local/share"
 alias asn="cd ~/.local/share/nvim/plugins/vim-snippets/UltiSnips"
-alias avi="cd ~/Videos"
 
 alias add="cd ~/Dropbox"
-alias ai="cd ~/Dropbox/uni/s4"
+alias au="cd ~/Dropbox/uni"
 alias am="cd ~/Dropbox/uni/s3/MYO"
 alias an="cd ~/Dropbox/notes"
 alias ani="\$EDITOR ~/Dropbox/notes/ideas"
@@ -162,10 +143,7 @@ alias ase="cd ~/Dropbox/uni/s4/ASE"
 
 alias ap="cd ~/Projects"
 alias aa="cd ~/Projects/arch"
-alias adm="cd ~/Projects/dmenu"
-alias adw="cd ~/Projects/dwm"
 alias asc="cd ~/Projects/scripts/scripts"
-alias ast="cd ~/Projects/st"
 
 alias ad="cd \$DOTFILES"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
