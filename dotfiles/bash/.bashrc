@@ -84,7 +84,7 @@ alias uu="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pa
 
 # TMUX
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
-alias ta="tmux a"
+alias ta="tmux a -t"
 alias tl="tmux ls"
 alias tn="tmux new -s"
 
