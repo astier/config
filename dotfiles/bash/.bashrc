@@ -66,6 +66,7 @@ alias top="top -1 -u \$USER"
 
 # SHORTCUTS
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi; }
+di() { $BROWSER https://www.dict.cc/?s="$1"; }
 alias bd="b -d"
 alias c="cat"
 alias da="cd; clear"
