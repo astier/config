@@ -93,6 +93,7 @@ alias s="sudo"
 alias t="touch"
 alias u="yay"
 alias uu="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && yay"
+alias wpc="gsettings get org.gnome.desktop.background picture-uri | grep -Eo '/home/[a-zA-Z0-9/._]+'"
 
 # TMUX
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
