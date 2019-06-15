@@ -23,9 +23,12 @@ Plug 'neoclide/coc-snippets', { 'for': [ 'tex' ] }
 
 " VISUAL
 Plug 'Yggdroot/indentLine'
+Plug 'itchyny/vim-gitbranch'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " UTILS
 Plug '907th/vim-auto-save'
@@ -47,6 +50,21 @@ let maplocalleader=' '
 """""""""""
 " PLUGINS "
 """""""""""
+
+" AIRLINE
+let g:airline_theme='monochrome'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffers_label = 'B'
+let g:airline#extensions#tabline#tabs_label = 'T'
+let g:airline#extensions#tabline#middle_click_preserves_windows = 1
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline_section_a = '%{gitbranch#name()}'
+let g:airline_section_c = '%f'
+let g:airline_section_x = ''
+let g:airline_section_z = '%l/%L:%c'
+let g:airline_skip_empty_sections = 1
 
 " ALE
 let g:ale_disable_lsp = 1
@@ -229,7 +247,8 @@ se ignorecase
 se smartcase
 
 " STATUSLINE
-se laststatus=1
+se laststatus=0
+se statusline=\ 
 se noruler
 se noshowcmd
 se noshowmode
