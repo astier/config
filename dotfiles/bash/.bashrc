@@ -153,12 +153,14 @@ alias ann="\$EDITOR ~/Dropbox/Notes/notes"
 alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
 alias aos="cd ~/Projects/ase/amiro-os/devices"
 alias ase="cd ~/Dropbox/uni/s4/ASE"
-alias aw="cd ~/Dropbox/Pictures/Wallpapers"
 
 alias ap="cd ~/Projects"
 alias aa="cd ~/Projects/arch"
 alias asc="cd ~/Projects/scripts/scripts"
-alias ast="cd ~/Projects/st"
+
+alias asu="cd ~/Projects/suckless"
+alias adw="cd ~/Projects/suckless/dwm"
+alias ast="cd ~/Projects/suckless/st"
 
 alias ad="cd \$DOTFILES"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
