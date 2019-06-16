@@ -182,7 +182,7 @@ let g:vimtex_compiler_latexmk = {
 let g:enable_italic_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
-hi cursorline guibg=#404552
+hi cursorline guibg=#383c4a
 hi gitgutterdelete guifg=#CC6666
 se cursorline
 se termguicolors
