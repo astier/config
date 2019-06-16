@@ -39,11 +39,11 @@ fzf_dir=/usr/share/fzf
 # Use one nvim-adress per tmux-window and export EDITOR as nvr.
 # This enables to open files in the same nvim-instance from any
 # tmux-pane in the same tmux-window.
-if [ -n "$TMUX" ]; then
-	NVIM_LISTEN_ADDRESS=/tmp/nvim_$USER_$(tmux display -p "#{window_id}")
-	export NVIM_LISTEN_ADDRESS
-	export EDITOR="nvr -s"
-fi
+# if [ -n "$TMUX" ]; then
+# 	NVIM_LISTEN_ADDRESS=/tmp/nvim_$USER_$(tmux display -p "#{window_id}")
+# 	export NVIM_LISTEN_ADDRESS
+# 	export EDITOR="nvr -s"
+# fi
 
 # MISC-EXPORTS
 export PATH=$PATH:~/Projects/ase/gcc-arm-embedded
