@@ -157,11 +157,7 @@ alias ase="cd ~/Dropbox/uni/s4/ASE"
 alias ap="cd ~/Projects"
 alias aa="cd ~/Projects/arch"
 alias asc="cd ~/Projects/scripts/scripts"
-
-alias asu="cd ~/Projects/suckless"
-alias adm="cd ~/Projects/suckless/dmenu"
-alias adw="cd ~/Projects/suckless/dwm"
-alias ast="cd ~/Projects/suckless/st"
+alias ast="cd ~/Projects/st"
 
 alias ad="cd \$DOTFILES"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
