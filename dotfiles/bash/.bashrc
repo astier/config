@@ -48,6 +48,7 @@ fzf_dir=/usr/share/fzf
 # MISC-EXPORTS
 export PATH=$PATH:~/Projects/ase/gcc-arm-embedded
 export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
+source /opt/ros/melodic/setup.bash
 
 # DEFAULTS
 alias cal="cal -m"
@@ -117,7 +118,7 @@ cd() { if [ "$#" == 0 ]; then builtin cd || return; else builtin cd "$@" && ls; 
 a() {
 	[ "$#" == 0 ] && cd && ls && return
 	[ -d "$1" ] && cd "$@" && return
-	[ ! -f "$1" ] && [ ! -d "$1" ] && $EDITOR "$@" && return
+	[ ! -f "$1" ] && [ ! -d "$1" ] && echo "$* doesn't exist." && return
 	mimetype=$(file -bL --mime-type "$1")
 	mime=$(echo "$mimetype" | cut -d/ -f1)
 	case $mime in
@@ -137,6 +138,7 @@ a() {
 
 # BOOKMARKS (ar and as are already existing commands)
 alias -- ,="cd -"
+alias af="\$EDITOR"
 
 alias ac="cd ~/.config"
 alias aca="cd ~/.cache"
@@ -153,6 +155,7 @@ alias ann="\$EDITOR ~/Dropbox/Notes/notes"
 alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
 alias aos="cd ~/Projects/ase/amiro-os/devices"
 alias ase="cd ~/Dropbox/uni/s4/ASE"
+alias ros="cd ~/Projects/ase/catkin_ws && . devel/setup.sh"
 
 alias ap="cd ~/Projects"
 alias aa="cd ~/Projects/arch"
