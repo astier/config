@@ -25,4 +25,10 @@ xmodmap -e "keycode 47 = Return"
 xmodmap -e "keycode 36 = colon"
 xmodmap -e "keycode 107 = semicolon"
 
-exec cinnamon-session
+b -l &
+dstatus &
+firefox &
+st &
+unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
+xcompmgr &
+exec dwm

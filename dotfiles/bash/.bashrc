@@ -26,14 +26,6 @@ shopt -s autocd cdspell checkwinsize histappend
 # FZF
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname 'tags' ! -iname '*\.jpg' ! -iname '*\.jpeg' ! -iname '*\.png' ! -iname '*\.pdf' ! -iname '*\.gif' ! -iname '*\.css' ! -iname '*\.html' ! -iname '*\.js' ! -iname '*\.htm' ! -iname '*\.docx' ! -iname '*\.doc' ! -iname '*\.odt' ! -iname '*\.zip' ! -iname '*\.tar.gz' | sed 's/^.\///'"
 export FZF_DEFAULT_OPTS="--ansi --border --cycle -m --reverse --tabstop=4 --color=gutter:#2F343F,bg+:#2F343F"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS"
-export FZF_CTRL_R_OPTS="$FZF_DEFAULT_OPTS"
-export FZF_COMPLETION_TRIGGER="*"
-export FZF_TMUX=1
-fzf_dir=/usr/share/fzf
-[ -f $fzf_dir/completion.bash ] && . $fzf_dir/completion.bash
-[ -f $fzf_dir/key-bindings.bash ] && . $fzf_dir/key-bindings.bash
 
 # TMUX
 # Use one nvim-adress per tmux-window and export EDITOR as nvr.
@@ -48,7 +40,7 @@ fzf_dir=/usr/share/fzf
 # MISC-EXPORTS
 export PATH=$PATH:~/Projects/ase/gcc-arm-embedded
 export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
-source /opt/ros/melodic/setup.bash
+[ -f /opt/ros/melodic/setup.bash ] && . /opt/ros/melodic/setup.bash
 
 # DEFAULTS
 alias cal="cal -m"
@@ -68,7 +60,6 @@ alias top="top -1 -u \$USER"
 # SHORTCUTS
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi; }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
-alias bd="b -d"
 alias c="cat"
 alias da="cd; clear"
 alias dl="clear; ls"
@@ -102,7 +93,7 @@ alias tl="tmux ls"
 alias tn="tmux new -s"
 
 # X
-alias xc="x -c"
+alias xc="x -c; x"
 alias xm="x -m"
 alias xp="x -p"
 
@@ -138,13 +129,13 @@ a() {
 
 # BOOKMARKS (ar and as are already existing commands)
 alias -- ,="cd -"
-alias af="\$EDITOR"
-
 alias ac="cd ~/.config"
 alias aca="cd ~/.cache"
+alias af="\$EDITOR"
 alias ao="cd ~/Downloads"
 alias al="cd ~/.local/share"
 alias asn="cd ~/.local/share/nvim/plugins/vim-snippets/UltiSnips"
+alias at="\$EDITOR /tmp/scratch"
 
 alias add="cd ~/Dropbox"
 alias au="cd ~/Dropbox/Uni"
@@ -153,7 +144,6 @@ alias an="cd ~/Dropbox/Notes"
 alias ani="\$EDITOR ~/Dropbox/Notes/ideas"
 alias ann="\$EDITOR ~/Dropbox/Notes/notes"
 alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
-alias aos="cd ~/Projects/ase/amiro-os/devices"
 alias ase="cd ~/Dropbox/uni/s4/ASE"
 alias ros="cd ~/Projects/ase/catkin_ws && . devel/setup.sh"
 
@@ -162,9 +152,14 @@ alias aa="cd ~/Projects/arch"
 alias asc="cd ~/Projects/scripts/scripts"
 alias ast="cd ~/Projects/st"
 
+alias asu="cd ~/Projects/suckless"
+alias adm="cd ~/Projects/suckless/dmenu"
+alias adw="cd ~/Projects/suckless/dwm"
+alias asi="cd ~/Projects/suckless/sites"
+alias ast="cd ~/Projects/suckless/st"
+
 alias ad="cd \$DOTFILES"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias at="\$EDITOR /tmp/scratch"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ax="\$EDITOR \$DOTFILES/.xinitrc"
 
