@@ -147,6 +147,7 @@ alias an="cd ~/Dropbox/Notes"
 alias ani="\$EDITOR ~/Dropbox/Notes/ideas"
 alias ann="\$EDITOR ~/Dropbox/Notes/notes"
 alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
+alias ans="\$EDITOR ~/Dropbox/Notes/scratch"
 alias ase="cd ~/Dropbox/uni/s4/ASE"
 alias aw="cd ~/Dropbox/Pictures/Wallpapers"
 
