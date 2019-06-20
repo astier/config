@@ -32,7 +32,7 @@
     geometry = "300x5-20+40"
 
     # Show how many messages are currently hidden (because of geometry).
-    indicate_hidden = yes
+    indicate_hidden = no
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
