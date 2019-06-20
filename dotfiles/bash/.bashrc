@@ -82,7 +82,7 @@ alias pi="yay -Slq | fzf -m --preview 'yay -Si {1}' > /tmp/pi; xargs -ra /tmp/pi
 alias py="python"
 alias r="sudo \$(fc -ln -1)"
 alias s="sudo"
-alias t="touch"
+alias to="touch"
 alias u="yay"
 alias uu="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && yay"
 
