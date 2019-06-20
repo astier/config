@@ -51,11 +51,13 @@ alias grep="grep --color"
 alias ls="ls --color --group-directories-first -Ah"
 alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
 alias mkdir="mkdir -p"
+alias mount="sudo mount"
 alias mv="mv -i"
 alias pacman="sudo pacman"
 alias shfmt="shfmt -ci -sr -p -s"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
+alias umount="sudo umount"
 
 # SHORTCUTS
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi; }
