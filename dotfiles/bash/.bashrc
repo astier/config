@@ -111,7 +111,7 @@ cd() { if [ "$#" == 0 ]; then builtin cd || return; else builtin cd "$@" && ls; 
 a() {
 	[ "$#" == 0 ] && cd && ls && return
 	[ -d "$1" ] && cd "$@" && return
-	[ ! -f "$1" ] && [ ! -d "$1" ] && echo "$* doesn't exist." && return
+	[ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
 	mimetype=$(file -bL --mime-type "$1")
 	mime=$(echo "$mimetype" | cut -d/ -f1)
 	case $mime in
@@ -125,7 +125,7 @@ a() {
 		"inode/x-empty") $EDITOR "$@" ;;
 		"application/pdf") $BROWSER "$@" ;;
 		"application/x-gzip") tar -zxf "$@" ;;
-		*) echo Mimetype "$mimetype" is not associated with any program. >&2 ;;
+		*) echo No association with mimetype: "$mimetype" >&2 ;;
 	esac
 }
 
