@@ -153,6 +153,9 @@ alias aw="cd ~/Dropbox/Pictures/Wallpapers"
 
 alias ap="cd ~/Projects"
 alias aa="cd ~/Projects/arch"
+alias aaa="cd ~/Projects/arch && \$EDITOR base.sh desktop.sh"
+alias aab="cd ~/Projects/arch && \$EDITOR base.sh"
+alias aad="cd ~/Projects/arch && \$EDITOR desktop.sh"
 alias asc="cd ~/Projects/scripts/scripts"
 alias ast="cd ~/Projects/st"
 
