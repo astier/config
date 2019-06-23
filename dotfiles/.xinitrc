@@ -30,7 +30,6 @@ xmodmap -e "keycode 36 = colon"
 xmodmap -e "keycode 107 = semicolon"
 
 # Start programs
-dstatus &
 firefox &
 hsetroot
 st &
