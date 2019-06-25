@@ -21,11 +21,20 @@ if [ -d $XINITRC ] ; then
 	unset f
 fi
 
+# Some GUIs will start with a gray screen when this is not set (see man dwm)
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # Make the return-key easier to reach
 xmodmap -e "keycode 47 = Return"
 xmodmap -e "keycode 36 = colon"
 xmodmap -e "keycode 107 = semicolon"
 
 # Start programs
+dstatus &
+firefox &
+hsetroot
+st &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
-exec cinnamon-session
+xcompmgr &
+
+exec dwm
