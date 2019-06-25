@@ -28,3 +28,7 @@ sudo ln ~/Projects/dotfiles/dotfiles/systemd/journald.conf /etc/systemd/journald
 sudo rm /etc/systemd/logind.conf
 sudo ln ~/Projects/dotfiles/dotfiles/systemd/logind.conf /etc/systemd/logind.conf &&
 	echo Installed: logind
+
+sudo rm /etc/systemd/network/*
+sudo ln ~/Projects/dotfiles/dotfiles/systemd/network/* /etc/systemd/network/ &&
+	echo Installed: networkd
