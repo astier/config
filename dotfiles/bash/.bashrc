@@ -163,12 +163,6 @@ alias aad="cd ~/Projects/arch && \$EDITOR desktop.sh"
 alias asc="cd ~/Projects/scripts/scripts"
 alias ast="cd ~/Projects/st"
 
-alias asu="cd ~/Projects/suckless"
-alias adm="cd ~/Projects/suckless/dmenu"
-alias adw="cd ~/Projects/suckless/dwm"
-alias asi="cd ~/Projects/suckless/sites"
-alias ast="cd ~/Projects/suckless/st"
-
 alias ad="cd \$DOTFILES"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
