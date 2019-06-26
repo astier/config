@@ -20,6 +20,7 @@ install git ~/.config/
 install gtk-3.0 ~/.config/
 install newsboat ~/.config/
 install nvim ~/.config/
+install zathura ~/.config/
 
 install pacman/hooks/ /etc/pacman.d/
 install pacman/pacman.conf /etc/
