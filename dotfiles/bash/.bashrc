@@ -17,7 +17,7 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 # SETTINGS
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="df:poweroff:reboot"
-HISTIGNORE+=":c:d:dl:e:f:i:l:lb:ll:ma:ml:py:sd:sl:sp:sr:t:ta:tl:x:xc:xm:xp:y"
+HISTIGNORE+=":c:d:dl:e:f:i:l:lb:ll:ma:ml:n:py:sd:sl:sp:sr:t:ta:tl:uu:x:xc:xm:xp:y"
 HISTIGNORE+=":,:-:a:aa:ac:ad:ao:ai:al:am:ap:asc:ase:ax"
 HISTIGNORE+=":gaa:gs:gc:gca:g:gg:gl:go-:gcn"
 set -o vi
