@@ -146,7 +146,7 @@ alias ion="sudo ip link set dev wlan0 up"
 alias add="cd ~/Dropbox"
 alias adu="cd ~/Dropbox/Uni"
 alias am="cd ~/Dropbox/Uni/s3/MYO"
-alias ase="cd ~/Dropbox/uni/s4/ASE"
+alias ase="cd ~/Dropbox/Uni/s4/ASE"
 alias adp="cd ~/Dropbox/Pictures"
 
 alias an="cd ~/Dropbox/Notes"
