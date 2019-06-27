@@ -59,6 +59,9 @@ alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 alias umount="sudo umount"
 
+alias maf="make && make flash && (gtkterm -c AMiRo &)"
+alias ros="cd ~/Projects/ase/catkin_ws && . devel/setup.sh && ls"
+
 # SHORTCUTS
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi; }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
@@ -73,7 +76,6 @@ alias lb="lsblk"
 alias ll="ls -l"
 alias m="mv"
 alias ma="make; make clean"
-alias maf="make && make flash && (gtkterm -c AMiRo &)"
 alias mai="sudo make install clean"
 alias md="mkdir"
 alias p="cp"
@@ -115,15 +117,14 @@ a() {
 	mime=$(echo "$mimetype" | cut -d/ -f1)
 	case $mime in
 		"text") $EDITOR "$@" && return ;;
-		"image") (feh "$@" &) && return ;;
-		"video") (mpv "$@" &) && return ;;
+		"image") $BROWSER "$@" && return ;;
+		"video") $BROWSER "$@" && return ;;
 		"audio") $BROWSER "$@" && return ;;
 	esac
 	case $mimetype in
 		"application/json") $EDITOR "$@" ;;
 		"inode/x-empty") $EDITOR "$@" ;;
 		"application/pdf") $BROWSER "$@" ;;
-		"application/x-gzip") tar -zxf "$@" ;;
 		*) echo No association with mimetype: "$mimetype" >&2 ;;
 	esac
 }
@@ -137,7 +138,6 @@ alias ao="cd ~/Downloads"
 alias al="cd ~/.local/share"
 alias asn="cd ~/.local/share/nvim/plugins/vim-snippets/UltiSnips"
 alias att="\$EDITOR /tmp/scratch"
-alias ros="cd ~/Projects/ase/catkin_ws && . devel/setup.sh"
 
 alias i="tstatus"
 alias ii="networkctl"
@@ -154,7 +154,6 @@ alias ann="\$EDITOR ~/Dropbox/Notes/notes"
 alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
 alias at="\$EDITOR ~/Dropbox/Notes/todo"
 alias ase="cd ~/Dropbox/uni/s4/ASE"
-alias aw="cd ~/Dropbox/Pictures/Wallpapers"
 
 alias ap="cd ~/Projects"
 alias aa="cd ~/Projects/arch"
