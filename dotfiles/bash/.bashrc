@@ -87,7 +87,7 @@ alias r="sudo \$(fc -ln -1)"
 alias s="sudo"
 alias to="touch"
 alias u="yay"
-alias uu="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && yay"
+alias uu="sudo reflector -p https -l32 -f16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && echo && yay"
 
 # TMUX
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
