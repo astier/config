@@ -18,7 +18,6 @@ install dunst ~/.config/
 install feh ~/.config/
 install git ~/.config/
 install gtk-3.0 ~/.config/
-install newsboat ~/.config/
 install nvim ~/.config/
 install zathura ~/.config/
 
