@@ -30,8 +30,7 @@ xmodmap -e "keycode 36 = colon"
 xmodmap -e "keycode 107 = semicolon"
 
 # Start programs
-b -l &
-dstatus &
+feh --bg-fill ~/Dropbox/Pictures/black.jpg
 firefox &
 st &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
