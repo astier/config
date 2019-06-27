@@ -53,7 +53,7 @@ alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
 alias mkdir="mkdir -p"
 alias mount="sudo mount"
 alias mv="mv -i"
-alias newsboat="newsboat -u ~/Dropbox/Documents/misc/urls"
+alias newsboat="newsboat -u ~/Dropbox/Notes/urls"
 alias pacman="sudo pacman"
 alias shfmt="shfmt -ci -sr -p -s"
 alias rm="rm -fr"
@@ -174,7 +174,7 @@ alias ast="cd ~/Projects/suckless/st"
 
 alias ad="cd \$DOTFILES"
 alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias au="\$EDITOR ~/Dropbox/Documents/misc/urls"
+alias au="\$EDITOR ~/Dropbox/Notes/urls"
 alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
 alias ax="\$EDITOR \$DOTFILES/.xinitrc"
 
@@ -195,7 +195,7 @@ alias gca="git add --all && git commit"
 alias gcr="git commit -am tmp && git rebase -i HEAD~2"
 alias gcp="git add --all && git commit && git push"
 
-g() { n=8; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+g() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
 alias gg="git log --all --graph --decorate --oneline"
 alias ggg="git log --oneline --grep"
 alias gl="git log --date=auto:human"
