@@ -37,10 +37,12 @@ export FZF_DEFAULT_OPTS="--ansi --border --cycle -m --reverse --tabstop=4 --colo
 # 	export EDITOR="nvr -s"
 # fi
 
-# MISC-EXPORTS
+# TEMPORARY
 export PATH=$PATH:~/Projects/ase/gcc-arm-embedded
 export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
 [ -f /opt/ros/melodic/setup.bash ] && . /opt/ros/melodic/setup.bash
+alias maf="make && make flash && (gtkterm -c AMiRo &)"
+alias ros="cd ~/Projects/ase/catkin_ws && . devel/setup.sh"
 
 # DEFAULTS
 alias cal="cal -m"
@@ -58,9 +60,6 @@ alias shfmt="shfmt -ci -sr -p -s"
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 alias umount="sudo umount"
-
-alias maf="make && make flash && (gtkterm -c AMiRo &)"
-alias ros="cd ~/Projects/ase/catkin_ws && . devel/setup.sh && ls"
 
 # SHORTCUTS
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi; }
