@@ -43,7 +43,6 @@ export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
 [ -f /opt/ros/melodic/setup.bash ] && . /opt/ros/melodic/setup.bash
 alias maf="make && make flash && (gtkterm -c AMiRo &)"
 alias ros="cd ~/projects/ase/catkin_ws && . devel/setup.sh"
-alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
 # DEFAULTS
 alias cal="cal -m"
@@ -145,10 +144,12 @@ alias iof="sudo ip link set dev wlan0 down"
 alias ion="sudo ip link set dev wlan0 up"
 
 alias add="cd ~/Dropbox"
-alias adu="cd ~/Dropbox/uni"
-alias am="cd ~/Dropbox/uni/s3/myo"
+alias api="cd ~/Dropbox/pictures"
+
+alias au="cd ~/Dropbox/uni"
 alias ase="cd ~/Dropbox/uni/s4/ase"
-alias adp="cd ~/Dropbox/pictures"
+alias myo="cd ~/Dropbox/uni/s3/myo"
+alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
 alias an="cd ~/Dropbox/Notes"
 alias ani="\$EDITOR ~/Dropbox/notes/ideas"
