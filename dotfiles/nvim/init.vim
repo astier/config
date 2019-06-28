@@ -32,7 +32,7 @@ Plug 'vim-airline/vim-airline-themes'
 " UTILS
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
-Plug 'jiangmiao/auto-pairs'
+Plug 'cohama/lexima.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
@@ -198,6 +198,7 @@ nnoremap <silent> <leader>x :Bd<cr>:clo<cr>
 
 " MISC
 au BufEnter * se fo-=cro
+se autochdir
 se fillchars+=fold:\ 
 se mouse=a
 se path-=/usr/include
