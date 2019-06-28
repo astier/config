@@ -38,11 +38,12 @@ export FZF_DEFAULT_OPTS="--ansi --border --cycle -m --reverse --tabstop=4 --colo
 # fi
 
 # TEMPORARY
-export PATH=$PATH:~/Projects/ase/gcc-arm-embedded
+export PATH=$PATH:~/projects/ase/gcc-arm-embedded
 export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
 [ -f /opt/ros/melodic/setup.bash ] && . /opt/ros/melodic/setup.bash
 alias maf="make && make flash && (gtkterm -c AMiRo &)"
-alias ros="cd ~/Projects/ase/catkin_ws && . devel/setup.sh"
+alias ros="cd ~/projects/ase/catkin_ws && . devel/setup.sh"
+alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
 # DEFAULTS
 alias cal="cal -m"
@@ -144,36 +145,36 @@ alias iof="sudo ip link set dev wlan0 down"
 alias ion="sudo ip link set dev wlan0 up"
 
 alias add="cd ~/Dropbox"
-alias adu="cd ~/Dropbox/Uni"
-alias am="cd ~/Dropbox/Uni/s3/MYO"
-alias ase="cd ~/Dropbox/Uni/s4/ASE"
-alias adp="cd ~/Dropbox/Pictures"
+alias adu="cd ~/Dropbox/uni"
+alias am="cd ~/Dropbox/uni/s3/myo"
+alias ase="cd ~/Dropbox/uni/s4/ase"
+alias adp="cd ~/Dropbox/pictures"
 
 alias an="cd ~/Dropbox/Notes"
-alias ani="\$EDITOR ~/Dropbox/Notes/ideas"
-alias anl="\$EDITOR ~/Dropbox/Notes/learn"
-alias ann="\$EDITOR ~/Dropbox/Notes/notes"
-alias anp="\$EDITOR ~/Dropbox/Notes/pms.md"
-alias at="\$EDITOR ~/Dropbox/Notes/todo"
+alias ani="\$EDITOR ~/Dropbox/notes/ideas"
+alias anl="\$EDITOR ~/Dropbox/notes/learn"
+alias ann="\$EDITOR ~/Dropbox/notes/notes"
+alias anp="\$EDITOR ~/Dropbox/notes/pms.md"
+alias at="\$EDITOR ~/Dropbox/notes/todo"
 
-alias ap="cd ~/Projects"
-alias aa="cd ~/Projects/arch"
-alias aaa="cd ~/Projects/arch && \$EDITOR base.sh desktop.sh"
-alias aab="cd ~/Projects/arch && \$EDITOR base.sh"
-alias aad="cd ~/Projects/arch && \$EDITOR desktop.sh"
-alias asc="cd ~/Projects/scripts/scripts"
-alias ast="cd ~/Projects/st"
+alias ap="cd ~/projects"
+alias aa="cd ~/projects/arch"
+alias aaa="cd ~/projects/arch && \$EDITOR base.sh desktop.sh"
+alias aab="cd ~/projects/arch && \$EDITOR base.sh"
+alias aad="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias asc="cd ~/projects/scripts/scripts"
+alias ast="cd ~/projects/st"
 
-alias asu="cd ~/Projects/suckless"
-alias adm="cd ~/Projects/suckless/dmenu"
-alias adw="cd ~/Projects/suckless/dwm"
-alias asi="cd ~/Projects/suckless/sites"
-alias ast="cd ~/Projects/suckless/st"
+alias asu="cd ~/projects/suckless"
+alias adm="cd ~/projects/suckless/dmenu"
+alias adw="cd ~/projects/suckless/dwm"
+alias asi="cd ~/projects/suckless/sites"
+alias ast="cd ~/projects/suckless/st"
 
-alias ad="cd \$DOTFILES"
-alias ab="\$EDITOR \$DOTFILES/bash/.bashrc && . ~/.bashrc"
-alias av="\$EDITOR \$DOTFILES/nvim/init.vim"
-alias ax="\$EDITOR \$DOTFILES/.xinitrc"
+alias ad="cd ~/projects/dotfiles/dotfiles"
+alias ab="\$EDITOR ~/projects/dotfiles/dotfiles/bash/.bashrc && . ~/.bashrc"
+alias av="\$EDITOR ~/projects/dotfiles/dotfiles/nvim/init.vim"
+alias ax="\$EDITOR ~/projects/dotfiles/dotfiles/.xinitrc"
 
 # GIT
 alias ga="git add"
