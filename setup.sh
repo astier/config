@@ -23,14 +23,14 @@ install pacman/pacman.conf /etc/
 install st.desktop /usr/share/applications/
 
 [ ! -d /etc/systemd/system/getty@tty1.service.d ] && sudo mkdir /etc/systemd/system/getty@tty1.service.d
-sudo ln -f ~/Projects/dotfiles/dotfiles/systemd/getty@tty1.service.d/override.conf /etc/systemd/system/getty@tty1.service.d/ &&
+sudo ln -f ~/projects/dotfiles/dotfiles/systemd/getty@tty1.service.d/override.conf /etc/systemd/system/getty@tty1.service.d/ &&
 	echo Installed: getty@tty1.service.d
 
-sudo ln -f ~/Projects/dotfiles/dotfiles/systemd/journald.conf /etc/systemd/ &&
+sudo ln -f ~/projects/dotfiles/dotfiles/systemd/journald.conf /etc/systemd/ &&
 	echo Installed: journald
 
-sudo ln -f ~/Projects/dotfiles/dotfiles/systemd/logind.conf /etc/systemd/ &&
+sudo ln -f ~/projects/dotfiles/dotfiles/systemd/logind.conf /etc/systemd/ &&
 	echo Installed: logind
 
-sudo ln -f ~/Projects/dotfiles/dotfiles/systemd/network/* /etc/systemd/network/ &&
+sudo ln -f ~/projects/dotfiles/dotfiles/systemd/network/* /etc/systemd/network/ &&
 	echo Installed: networkd
