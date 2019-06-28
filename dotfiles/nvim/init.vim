@@ -24,7 +24,6 @@ Plug 'neoclide/coc-snippets', { 'for': [ 'tex' ] }
 " VISUAL
 Plug 'Yggdroot/indentLine'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'machakann/vim-highlightedyank'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
