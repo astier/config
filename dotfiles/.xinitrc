@@ -16,6 +16,7 @@ xmodmap -e "keycode 107 = semicolon"
 
 # Start programs
 firefox &
+dunst &
 hsetroot
 st &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
