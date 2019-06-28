@@ -198,7 +198,6 @@ nnoremap <silent> <leader>x :Bd<cr>:clo<cr>
 
 " MISC
 au BufEnter * se fo-=cro
-se autochdir
 se fillchars+=fold:\ 
 se mouse=a
 se path-=/usr/include
