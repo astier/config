@@ -61,9 +61,13 @@ alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 alias umount="sudo umount"
 
-# SHORTCUTS
+# FUNCTIONS
+cd() { if [ "$#" == 0 ]; then builtin cd || return; else builtin cd "$@" && ls; fi; }
 d() { if [ "$#" == 0 ]; then clear; else rm "$@"; fi; }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
+flash() { sudo dd bs=4M if="$2" of="$1" status=progress oflag=sync; }
+
+# SHORTCUTS
 alias c="cat"
 alias da="cd; clear"
 alias dl="clear; ls"
@@ -104,8 +108,6 @@ alias sd="systemctl suspend"
 alias sl="slock"
 alias sp="poweroff"
 alias sr="reboot"
-
-cd() { if [ "$#" == 0 ]; then builtin cd || return; else builtin cd "$@" && ls; fi; }
 
 # APERIRE. Similar to xdg-open but does what I actually want and is faster.
 a() {
