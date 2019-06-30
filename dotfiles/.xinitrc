@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Start programs
-XINITRC=$XINIT/xinitrc.d
+XINITRC=/etc/X11/xinit/xinitrc.d
 if [ -d $XINITRC ] ; then
 	for f in "$XINITRC"/?*.sh ; do
 		[ -x "$f" ] && . $f
