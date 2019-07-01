@@ -25,7 +25,6 @@ Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'cohama/lexima.vim'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'moll/vim-bbye'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -139,8 +138,7 @@ se termguicolors
 " KILL
 nnoremap <silent> <leader>q :qa<cr>
 nnoremap <silent> <leader>c :clo<cr>
-nnoremap <silent> <leader>d :Bd<cr>
-nnoremap <silent> <leader>x :Bd<cr>:clo<cr>
+nnoremap <silent> <leader>d :bd<cr>
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
