@@ -1,27 +1,20 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
-" MISC
 Plug '907th/vim-auto-save'
-Plug 'airblade/vim-gitgutter'
-Plug 'cohama/lexima.vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-
-" AUTOCOMPLETION, LINTING, FORMATTING, LSP, SNIPPETS
 Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'cohama/lexima.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
-
-" NAVIGATION
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf.vim'
-
-" VISUAL
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
 
 call plug#end()
 
