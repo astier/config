@@ -174,11 +174,6 @@ se noshowcmd
 se noshowmode
 se signcolumn=yes
 
-" TERMINAL
-au BufEnter term://* star
-au TermOpen * setl nonu nornu scl=no | star
-se hidden
-
 " WRAP
 nnoremap $ g$
 nnoremap 0 g0
