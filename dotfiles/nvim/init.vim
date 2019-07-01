@@ -10,6 +10,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 " AUTOCOMPLETION, LINTING, FORMATTING, LSP, SNIPPETS
+Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc-neco', { 'for': 'vim' }
@@ -21,10 +22,6 @@ Plug 'w0rp/ale', { 'for': [ 'sh', 'tex', 'vim' ] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags', { 'for': [ 'tex' ] }
-
-" SNIPPETS
-Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
-Plug 'honza/vim-snippets', { 'for': [ 'tex' ] }
 
 " VISUAL
 Plug 'Yggdroot/indentLine'
