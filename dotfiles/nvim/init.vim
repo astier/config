@@ -51,12 +51,11 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_info_str = 'I'
 let g:ale_echo_msg_format = '[%linter%][%severity%][%code%] %s'
-" bibclean, gitlint, markdownlint, vint, alex, write-good
+let g:ale_sh_shfmt_options = '-ci -sr -p -s'
 let g:ale_fixers = {
 	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
 	\ 'sh': ['shfmt'],
 \}
-let g:ale_sh_shfmt_options = '-ci -sr -p -s'
 
 " AUTO-PAIR
 let g:AutoPairsFlyMode = 1
