@@ -10,9 +10,7 @@ Plug 'tpope/vim-surround'
 
 " AUTOCOMPLETION, LINTING, FORMATTING, LSP, SNIPPETS
 Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
-Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'neoclide/coc-neco', { 'for': 'vim' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale', { 'for': [ 'sh', 'tex', 'vim' ] }
