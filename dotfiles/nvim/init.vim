@@ -3,7 +3,6 @@ call plug#begin('~/.local/share/nvim/plugins')
 " AUTOCOMPLETION, LINTING, FORMATTING, LSP
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'neoclide/coc-json', { 'for': 'json' }
 Plug 'neoclide/coc-neco', { 'for': 'vim' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
