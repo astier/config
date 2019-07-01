@@ -17,7 +17,6 @@ Plug 'ludovicchabant/vim-gutentags', { 'for': [ 'tex' ] }
 " SNIPPETS
 Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
 Plug 'honza/vim-snippets', { 'for': [ 'tex' ] }
-Plug 'neoclide/coc-snippets', { 'for': [ 'tex' ] }
 
 " VISUAL
 Plug 'Yggdroot/indentLine'
