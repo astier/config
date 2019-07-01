@@ -109,7 +109,7 @@ se splitbelow splitright
 se tabstop=4 shiftwidth=4
 nnoremap Q <nop>
 nnoremap <cr> o<esc>
-nnoremap <leader>z <c-z>
+nnoremap <leader>s <c-z>
 
 " COLORSCHEME
 let g:enable_italic_font = 1
