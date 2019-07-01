@@ -13,7 +13,6 @@ Plug 'w0rp/ale', { 'for': [ 'sh', 'tex', 'vim' ] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags', { 'for': [ 'tex' ] }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " SNIPPETS
 Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
@@ -112,20 +111,6 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>t :Tags<cr>
-
-" NERDTREE
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/.NERDTreeBookmarks'
-let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', 'tex']
-let g:NERDTreeMinimalMenu = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeQuitOnOpen = 2
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeStatusline = 'NERDTree'
-nnoremap <silent> <leader>e :NERDTreeToggle<cr><c-w>=
-tnoremap <silent> <leader>e <c-\><c-n>:NERDTreeToggle<cr><c-w>=
 
 " VIMTEX
 au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
