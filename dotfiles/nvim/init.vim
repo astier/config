@@ -42,6 +42,7 @@ let maplocalleader=' '
 " MISC
 au BufWritePost * GitGutter
 let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
+let g:indentLine_char = '▏'
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:loaded_node_provider = 1
