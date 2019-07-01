@@ -116,11 +116,13 @@ let g:vimtex_compiler_latexmk = {
 " MISC
 au BufEnter * se fo-=cro
 au FocusGained,BufEnter,VimResume * checkt
+au VimResized * wincmd =
 se confirm
 se fillchars+=fold:\ 
 se mouse=a
 se path-=/usr/include
 se shortmess+=c
+se splitbelow splitright
 se tabstop=4 shiftwidth=4
 nnoremap Q <nop>
 nnoremap <cr> o<esc>
@@ -153,14 +155,6 @@ nnoremap <silent> <a-b> :TmuxNavigatePrevious<cr>
 nnoremap <silent> <a-i> :bp<cr>
 nnoremap <silent> <a-o> :bn<cr>
 nnoremap <leader>w <c-w>
-
-" RESIZE
-au VimResized * wincmd =
-nnoremap <silent> <a-J> :res +1<cr>
-nnoremap <silent> <a-K> :res -1<cr>
-nnoremap <silent> <a-L> :vert res +1<cr>
-nnoremap <silent> <a-H> :vert res -1<cr>
-se splitbelow splitright
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh<cr><esc>
