@@ -1,7 +1,9 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
-" AUTOCOMPLETION, LINTING, FORMATTING, LSP
+" AUTOCOMPLETION, LINTING, FORMATTING, LSP, SNIPPETS
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
+Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
+Plug 'honza/vim-snippets', { 'for': [ 'tex' ] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc-neco', { 'for': 'vim' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
@@ -12,10 +14,6 @@ Plug 'w0rp/ale', { 'for': [ 'sh', 'tex', 'vim' ] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags', { 'for': [ 'tex' ] }
-
-" SNIPPETS
-Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
-Plug 'honza/vim-snippets', { 'for': [ 'tex' ] }
 
 " VISUAL
 Plug 'Yggdroot/indentLine'
@@ -43,6 +41,18 @@ let maplocalleader=' '
 " PLUGINS "
 """""""""""
 
+" MISC
+au BufWritePost * GitGutter
+let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_node_provider = 1
+let g:loaded_python_provider = 1
+let g:loaded_ruby_provider = 1
+let g:python3_host_prog = '/bin/python'
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
+sil! cal repeat#se('\<Plug>vim-surround', v:count)
+
 " ALE
 let g:ale_disable_lsp = 1
 let g:ale_lint_on_text_changed = 'never'
@@ -56,9 +66,10 @@ let g:ale_fixers = {
 	\ 'sh': ['shfmt'],
 \}
 
-" AUTO-PAIR
-let g:AutoPairsFlyMode = 1
-let g:AutoPairsShortcutToggle = ''
+" AUTO-SAVE
+let g:auto_save = 1
+let g:auto_save_silent = 1
+se noswapfile
 
 " BETTER-WHITESPACE
 let g:better_whitespace_filetypes_blacklist = ['help']
@@ -67,12 +78,9 @@ let g:strip_whitelines_at_eof=1
 
 " COC
 let g:coc_global_extensions = [ 'coc-ultisnips' ]
-" Trigger completion via <c-space>
 inoremap <silent><expr> <c-space> coc#refresh()
-" Confirm completion via <cr>
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 	\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" Select completions via c-j/k
 inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <c-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 
@@ -80,21 +88,6 @@ inoremap <expr> <c-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
 nnoremap <silent> <leader>g :Goyo<cr>
 tnoremap <silent> <leader>g <c-\><c-n>:Goyo<cr>:star<cr>
-
-" INDENTLINE
-let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
-let g:indentLine_char = '▏'
-
-" MISC
-au BufWritePost * GitGutter
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let g:loaded_node_provider = 1
-let g:loaded_python_provider = 1
-let g:loaded_ruby_provider = 1
-let g:python3_host_prog = '/bin/python'
-let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
-sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " FZF
 nnoremap <leader>f :Files<cr>
@@ -124,6 +117,22 @@ let g:vimtex_compiler_latexmk = {
 " VANILLA-NEOVIM "
 """"""""""""""""""
 
+" MISC
+au BufEnter * se fo-=cro
+au FocusGained,BufEnter,VimResume * checkt
+se confirm
+se fillchars+=fold:\ 
+se mouse=a
+se path-=/usr/include
+se shortmess+=c
+se tabstop=4 shiftwidth=4
+nnoremap Q <nop>
+nnoremap <cr> o<esc>
+nnoremap <leader>p "+p
+inoremap <a-p> <esc>"+pa
+vnoremap <leader>y "+y
+nnoremap <leader>s <c-z>
+
 " COLORSCHEME
 let g:enable_italic_font = 1
 let g:hybrid_transparent_background = 1
@@ -135,25 +144,9 @@ se termguicolors
 
 " KILL
 nnoremap <silent> <leader>q :qa<cr>
-inoremap <silent> <a-q> <esc>:qa<cr>
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :Bd<cr>
 nnoremap <silent> <leader>x :Bd<cr>:clo<cr>
-
-" MISC
-au BufEnter * se fo-=cro
-se fillchars+=fold:\ 
-se mouse=a
-se path-=/usr/include
-se shortmess+=c
-se tabstop=4 shiftwidth=4
-se updatetime=400
-nnoremap Q <nop>
-nnoremap <cr> o<esc>
-nnoremap <leader>p "+p
-inoremap <a-p> <esc>"+pa
-vnoremap <leader>y "+y
-nnoremap <leader>s <c-z>
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
@@ -173,13 +166,6 @@ nnoremap <silent> <a-K> :res -1<cr>
 nnoremap <silent> <a-L> :vert res +1<cr>
 nnoremap <silent> <a-H> :vert res -1<cr>
 se splitbelow splitright
-
-" SAVE
-au FocusGained,BufEnter,VimResume * checkt
-let g:auto_save = 1
-let g:auto_save_silent = 1
-se confirm
-se noswapfile
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh<cr><esc>
