@@ -74,17 +74,9 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Confirm completion via <cr>
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 	\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" Backspace-function to help update completion after backspace
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]	=~# '\s'
-endfunction
-" Manage Completion via TAB
-inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
+" Select completions via c-j/k
+inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <expr> <c-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 
 " GOYO
 au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
