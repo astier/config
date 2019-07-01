@@ -160,12 +160,10 @@ nnoremap <leader>w <c-w>
 nnoremap <silent> <esc> :noh<cr><esc>
 nnoremap <leader>rw :%s/\<<C-r><C-w>\>//g<left><left>
 nnoremap <leader>rr :%s///g<left><left><left>
-nnoremap <silent> , *
+nnoremap <silent> , *``
 nnoremap n nzz
 nnoremap N Nzz
 se inccommand=nosplit
-se ignorecase
-se smartcase
 
 " STATUSLINE
 se laststatus=1
