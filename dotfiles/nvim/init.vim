@@ -149,7 +149,9 @@ nnoremap <leader>rr :%s///g<left><left><left>
 nnoremap <silent> , *``
 nnoremap n nzz
 nnoremap N Nzz
+se ignorecase
 se inccommand=nosplit
+se smartcase
 
 " STATUSLINE
 se laststatus=1
