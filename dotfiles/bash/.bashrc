@@ -148,7 +148,7 @@ alias add="cd ~/Dropbox"
 alias api="cd ~/Dropbox/pictures"
 
 alias au="cd ~/Dropbox/uni"
-alias ase="cd ~/Dropbox/uni/s4/ase"
+alias ase="cd ~/Dropbox/uni/s4/ase/exercises/2"
 alias myo="cd ~/Dropbox/uni/s3/myo"
 alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
