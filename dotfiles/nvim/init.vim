@@ -4,7 +4,6 @@ call plug#begin('~/.local/share/nvim/plugins')
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'cohama/lexima.vim'
-Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
