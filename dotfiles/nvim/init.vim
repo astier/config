@@ -24,7 +24,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'cohama/lexima.vim'
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-commentary'
@@ -83,11 +82,6 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 	\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <c-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-
-" GOYO
-au VimResized * if exists('#goyo') | exe "normal \<c-w>=" | endif
-nnoremap <silent> <leader>g :Goyo<cr>
-tnoremap <silent> <leader>g <c-\><c-n>:Goyo<cr>:star<cr>
 
 " FZF
 nnoremap <leader>f :Files<cr>
