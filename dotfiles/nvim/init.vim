@@ -13,7 +13,6 @@ Plug 'w0rp/ale', { 'for': [ 'sh', 'tex', 'vim' ] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags', { 'for': [ 'tex' ] }
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " SNIPPETS
@@ -112,7 +111,7 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 " FZF
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>a :Tags<cr>
+nnoremap <leader>t :Tags<cr>
 
 " NERDTREE
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -127,14 +126,6 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = 'NERDTree'
 nnoremap <silent> <leader>e :NERDTreeToggle<cr><c-w>=
 tnoremap <silent> <leader>e <c-\><c-n>:NERDTreeToggle<cr><c-w>=
-
-" TAGBAR
-let g:tagbar_sort = 0
-let g:tagbar_compact = 1
-let g:tagbar_iconchars = ['▸', '▾']
-let g:tagbar_indent = 1
-let g:tagbar_silent = 1
-nnoremap <silent> <leader>t :TagbarToggle<cr>
 
 " VIMTEX
 au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
