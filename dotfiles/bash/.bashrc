@@ -153,6 +153,7 @@ alias myo="cd ~/Dropbox/uni/s3/myo"
 alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
 alias an="cd ~/Dropbox/Notes"
+alias anb="\$EDITOR ~/Dropbox/notes/bugs"
 alias ani="\$EDITOR ~/Dropbox/notes/ideas"
 alias anl="\$EDITOR ~/Dropbox/notes/learn"
 alias ann="\$EDITOR ~/Dropbox/notes/notes"
