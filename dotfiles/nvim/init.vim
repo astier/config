@@ -1,5 +1,14 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
+" MISC
+Plug '907th/vim-auto-save'
+Plug 'airblade/vim-gitgutter'
+Plug 'cohama/lexima.vim'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+
 " AUTOCOMPLETION, LINTING, FORMATTING, LSP, SNIPPETS
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
@@ -21,15 +30,6 @@ Plug 'honza/vim-snippets', { 'for': [ 'tex' ] }
 Plug 'Yggdroot/indentLine'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ntpeters/vim-better-whitespace'
-
-" UTILS
-Plug '907th/vim-auto-save'
-Plug 'airblade/vim-gitgutter'
-Plug 'cohama/lexima.vim'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 
 call plug#end()
 
