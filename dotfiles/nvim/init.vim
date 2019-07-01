@@ -13,7 +13,7 @@ Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'w0rp/ale', { 'for': [ 'sh', 'tex', 'vim' ] }
+Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
 
 " NAVIGATION
 Plug 'christoomey/vim-tmux-navigator'
