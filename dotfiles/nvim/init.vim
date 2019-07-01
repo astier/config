@@ -70,6 +70,7 @@ let g:ale_fixers = {
 " AUTO-SAVE
 let g:auto_save = 1
 let g:auto_save_silent = 1
+se confirm
 se noswapfile
 
 " BETTER-WHITESPACE
@@ -117,7 +118,6 @@ let g:vimtex_compiler_latexmk = {
 au BufEnter * se fo-=cro
 au FocusGained,BufEnter,VimResume * checkt
 au VimResized * wincmd =
-se confirm
 se fillchars+=fold:\ 
 se mouse=a
 se path-=/usr/include
@@ -126,10 +126,7 @@ se splitbelow splitright
 se tabstop=4 shiftwidth=4
 nnoremap Q <nop>
 nnoremap <cr> o<esc>
-nnoremap <leader>p "+p
-inoremap <a-p> <esc>"+pa
-vnoremap <leader>y "+y
-nnoremap <leader>s <c-z>
+nnoremap <leader>z <c-z>
 
 " COLORSCHEME
 let g:enable_italic_font = 1
@@ -140,10 +137,16 @@ hi gitgutterdelete guifg=#CC6666
 se cursorline
 se termguicolors
 
+" COPY & PASTE
+nnoremap <a-p> "+p
+inoremap <a-p> <esc>"+pa
+vnoremap <leader>y "+y
+
 " KILL
 nnoremap <silent> <leader>q :qa<cr>
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :bd<cr>
+inoremap <silent> <a-q> <esc>:qa<cr>
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
