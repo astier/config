@@ -6,7 +6,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc-json', { 'for': 'json' }
 Plug 'neoclide/coc-neco', { 'for': 'vim' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
-Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': './install.sh' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale', { 'for': [ 'sh', 'tex', 'vim' ] }
 
 " NAVIGATION
