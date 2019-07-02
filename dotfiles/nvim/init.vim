@@ -145,8 +145,8 @@ nnoremap <leader>w <c-w>
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh<cr><esc>
-nnoremap <leader>rw :%s/\<<C-r><C-w>\>//g<left><left>
-nnoremap <leader>rr :%s///g<left><left><left>
+nnoremap <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
+nnoremap <leader>rr :%s///gI<left><left><left><left>
 nnoremap <silent> , *``
 nnoremap n nzz
 nnoremap N Nzz
