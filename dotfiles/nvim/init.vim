@@ -102,6 +102,7 @@ au BufEnter * se fo-=cro
 au FocusGained,BufEnter,VimResume * checkt
 au VimResized * wincmd =
 se fillchars+=fold:\ 
+set iskeyword-=_
 se mouse=a
 se path-=/usr/include
 se shortmess+=c
