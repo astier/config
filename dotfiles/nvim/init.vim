@@ -54,7 +54,6 @@ let g:ale_fixers = {
 " AUTO-SAVE
 let g:auto_save = 1
 let g:auto_save_silent = 1
-se confirm
 se noswapfile
 
 " BETTER-WHITESPACE
@@ -94,6 +93,7 @@ let g:vimtex_compiler_latexmk = {
 au BufEnter * se fo-=cro
 au FocusGained,BufEnter,VimResume * checkt
 au VimResized * wincmd =
+se confirm
 se fillchars+=fold:\ 
 se iskeyword-=_
 se mouse=a
