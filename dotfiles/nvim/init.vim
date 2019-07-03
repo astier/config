@@ -13,7 +13,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale', { 'for': [ 'sh', 'tex' ] }
 
 call plug#end()
 
@@ -34,19 +33,6 @@ let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
 let g:python3_host_prog = '/bin/python'
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
-
-" ALE
-let g:ale_disable_lsp = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_info_str = 'I'
-let g:ale_echo_msg_format = '[%linter%][%severity%][%code%] %s'
-let g:ale_sh_shfmt_options = '-ci -sr -p -s'
-let g:ale_fixers = {
-	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-	\ 'sh': ['shfmt'],
-\}
 
 " AUTO-SAVE
 let g:auto_save = 1
