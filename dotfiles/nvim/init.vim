@@ -28,6 +28,7 @@ let maplocalleader=' '
 
 " MISC
 au BufWritePost * GitGutter
+let g:coc_global_extensions = [ 'coc-ultisnips' ]
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:loaded_node_provider = 1
@@ -60,14 +61,6 @@ se noswapfile
 let g:better_whitespace_filetypes_blacklist = ['help']
 let g:show_spaces_that_precede_tabs=1
 let g:strip_whitelines_at_eof=1
-
-" COC
-let g:coc_global_extensions = [ 'coc-ultisnips' ]
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-	\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-inoremap <expr> <c-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 
 " FZF
 nnoremap <leader>f :Files<cr>
@@ -102,7 +95,7 @@ au BufEnter * se fo-=cro
 au FocusGained,BufEnter,VimResume * checkt
 au VimResized * wincmd =
 se fillchars+=fold:\ 
-set iskeyword-=_
+se iskeyword-=_
 se mouse=a
 se path-=/usr/include
 se shortmess+=c
@@ -142,6 +135,11 @@ nnoremap <silent> <a-b> :TmuxNavigatePrevious<cr>
 nnoremap <silent> <a-i> :bp<cr>
 nnoremap <silent> <a-o> :bn<cr>
 nnoremap <leader>w <c-w>
+
+" PUM
+se completeopt=menu,noinsert
+inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <expr> <c-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh<cr><esc>
