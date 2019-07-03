@@ -1,7 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
 Plug '907th/vim-auto-save'
-Plug 'SirVer/ultisnips', { 'for': [ 'tex' ] }
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
@@ -28,14 +27,12 @@ let maplocalleader=' '
 
 " MISC
 au BufWritePost * GitGutter
-let g:coc_global_extensions = [ 'coc-ultisnips' ]
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:loaded_node_provider = 1
 let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
 let g:python3_host_prog = '/bin/python'
-let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " ALE
