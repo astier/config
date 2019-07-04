@@ -1,10 +1,10 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 
 call plug#end()
@@ -12,6 +12,13 @@ call plug#end()
 " LEADERS
 let mapleader=' '
 let maplocalleader=' '
+
+" DEOPLETE
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option({
+	\ 'min_pattern_length': 1,
+	\ 'smart_case': v:true,
+\})
 
 " MISC
 au BufEnter * se fo-=cro
