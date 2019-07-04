@@ -25,7 +25,7 @@ shopt -s autocd cdspell checkwinsize histappend
 
 # FZF
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname 'tags' ! -iname '*\.jpg' ! -iname '*\.jpeg' ! -iname '*\.png' ! -iname '*\.pdf' ! -iname '*\.gif' ! -iname '*\.css' ! -iname '*\.html' ! -iname '*\.js' ! -iname '*\.htm' ! -iname '*\.docx' ! -iname '*\.doc' ! -iname '*\.odt' ! -iname '*\.zip' ! -iname '*\.tar.gz' | sed 's/^.\///'"
-export FZF_DEFAULT_OPTS="--ansi --border --cycle -m --reverse --tabstop=4 --color=gutter:#2F343F,bg+:#2F343F"
+export FZF_DEFAULT_OPTS="--ansi --cycle -m --reverse --tabstop=4 --color=bg+:-1,fg+:-1,border:#000000"
 
 # TMUX
 # Use one nvim-adress per tmux-window and export EDITOR as nvr.
