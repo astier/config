@@ -7,7 +7,6 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
 
 call plug#end()
@@ -27,11 +26,6 @@ let g:loaded_node_provider = 1
 let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
 let g:python3_host_prog = '/bin/python'
-
-" BETTER-WHITESPACE
-let g:better_whitespace_filetypes_blacklist = ['help']
-let g:show_spaces_that_precede_tabs=1
-let g:strip_whitelines_at_eof=1
 
 " FZF
 nnoremap <leader>f :Files<cr>
