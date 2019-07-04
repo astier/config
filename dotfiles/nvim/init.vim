@@ -4,8 +4,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 
@@ -31,25 +29,6 @@ let g:python3_host_prog = '/bin/python'
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>t :Tags<cr>
-
-" VIMTEX
-au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
-let g:vimtex_compiler_progname = '/usr/bin/nvr'
-let g:vimtex_view_general_viewer = 'firefox'
-let g:vimtex_compiler_latexmk = {
-	\ 'backend' : 'nvim',
-	\ 'background' : 1,
-	\ 'build_dir' : 'tex',
-	\ 'callback' : 1,
-	\ 'continuous' : 0,
-	\ 'executable' : 'latexmk',
-	\ 'options' : [
-	\	'-verbose',
-	\	'-file-line-error',
-	\	'-synctex=1',
-	\	'-interaction=nonstopmode'
-	\ ],
-\}
 
 """"""""""""""""""
 " VANILLA-NEOVIM "
