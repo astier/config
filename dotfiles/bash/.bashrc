@@ -27,16 +27,6 @@ shopt -s autocd cdspell checkwinsize histappend
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname 'tags' ! -iname '*\.jpg' ! -iname '*\.jpeg' ! -iname '*\.png' ! -iname '*\.pdf' ! -iname '*\.gif' ! -iname '*\.css' ! -iname '*\.html' ! -iname '*\.js' ! -iname '*\.htm' ! -iname '*\.docx' ! -iname '*\.doc' ! -iname '*\.odt' ! -iname '*\.zip' ! -iname '*\.tar.gz' | sed 's/^.\///'"
 export FZF_DEFAULT_OPTS="--ansi --cycle -m --reverse --tabstop=4 --color=bg+:-1,fg+:-1,border:#000000"
 
-# TMUX
-# Use one nvim-adress per tmux-window and export EDITOR as nvr.
-# This enables to open files in the same nvim-instance from any
-# tmux-pane in the same tmux-window.
-# if [ -n "$TMUX" ]; then
-# 	NVIM_LISTEN_ADDRESS=/tmp/nvim_$USER_$(tmux display -p "#{window_id}")
-# 	export NVIM_LISTEN_ADDRESS
-# 	export EDITOR="nvr -s"
-# fi
-
 # TEMPORARY
 export PATH=$PATH:~/projects/ase/gcc-arm-embedded
 export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
