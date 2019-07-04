@@ -1,7 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
 Plug '907th/vim-auto-save'
-Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim'
@@ -25,7 +24,6 @@ let maplocalleader=' '
 """""""""""
 
 " MISC
-au BufWritePost * GitGutter
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:loaded_node_provider = 1
@@ -93,7 +91,6 @@ let g:enable_italic_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
 hi cursorline guibg=#383c4a
-hi gitgutterdelete guifg=#CC6666
 se cursorline
 se termguicolors
 
@@ -140,7 +137,6 @@ se laststatus=1
 se noruler
 se noshowcmd
 se noshowmode
-se signcolumn=yes
 
 " WRAP
 nnoremap $ g$
