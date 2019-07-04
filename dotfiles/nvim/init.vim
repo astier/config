@@ -1,17 +1,20 @@
 call plug#begin('~/.local/share/nvim/plugins')
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-commentary'
-
 call plug#end()
 
 " LEADERS
 let mapleader=' '
 let maplocalleader=' '
+
+" AUTOCOMMANDS
+au BufEnter * se fo-=cro
+au FocusGained,BufEnter,VimResume * checkt
+au VimResized * wincmd =
 
 " DEOPLETE
 let g:deoplete#enable_at_startup = 1
@@ -19,22 +22,6 @@ call deoplete#custom#option({
 	\ 'min_pattern_length': 1,
 	\ 'smart_case': v:true,
 \})
-
-" MISC
-au BufEnter * se fo-=cro
-au FocusGained,BufEnter,VimResume * checkt
-au VimResized * wincmd =
-se autowriteall
-se confirm
-se fillchars+=fold:\ 
-se iskeyword-=_
-se mouse=a
-se path-=/usr/include
-se splitbelow splitright
-se tabstop=4 shiftwidth=4
-nnoremap Q <nop>
-nnoremap <cr> o<esc>
-nnoremap <leader>s <c-z>
 
 " COLORSCHEME
 let g:enable_italic_font = 1
@@ -49,10 +36,21 @@ nnoremap <a-p> "+p
 inoremap <a-p> <esc>"+pa
 vnoremap <leader>y "+y
 
+" FZF
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>t :Tags<cr>
+
 " KILL
 nnoremap <silent> <leader>q :qa<cr>
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :bd<cr>
+
+" MAPPINGS
+nnoremap Q <nop>
+nnoremap <cr> o<esc>
+nnoremap <leader>s <c-z>
+nnoremap <leader>w <c-w>
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
@@ -63,18 +61,26 @@ nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <a-b> :TmuxNavigatePrevious<cr>
 nnoremap <silent> <a-i> :bp<cr>
 nnoremap <silent> <a-o> :bn<cr>
-nnoremap <leader>w <c-w>
 
-" PLUGINS
+" NETRW
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
+
+" SETTINGS
+se autowriteall
+se confirm
+se fillchars+=fold:\ 
+se iskeyword-=_
+se mouse=a
+se path-=/usr/include
+se splitbelow splitright
+se tabstop=4 shiftwidth=4
+
+" PROVIDERS
 let g:loaded_node_provider = 1
 let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
 let g:python3_host_prog = '/bin/python'
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>t :Tags<cr>
 
 " PUM
 se completeopt=menu,noinsert
