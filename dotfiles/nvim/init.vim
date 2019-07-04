@@ -1,6 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
-Plug '907th/vim-auto-save'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim'
@@ -31,11 +30,6 @@ let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
 let g:python3_host_prog = '/bin/python'
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
-
-" AUTO-SAVE
-let g:auto_save = 1
-let g:auto_save_silent = 1
-se noswapfile
 
 " BETTER-WHITESPACE
 let g:better_whitespace_filetypes_blacklist = ['help']
@@ -74,6 +68,7 @@ let g:vimtex_compiler_latexmk = {
 au BufEnter * se fo-=cro
 au FocusGained,BufEnter,VimResume * checkt
 au VimResized * wincmd =
+se autowriteall
 se confirm
 se fillchars+=fold:\ 
 se iskeyword-=_
