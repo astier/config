@@ -13,27 +13,6 @@ call plug#end()
 let mapleader=' '
 let maplocalleader=' '
 
-"""""""""""
-" PLUGINS "
-"""""""""""
-
-" MISC
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let g:loaded_node_provider = 1
-let g:loaded_python_provider = 1
-let g:loaded_ruby_provider = 1
-let g:python3_host_prog = '/bin/python'
-
-" FZF
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>t :Tags<cr>
-
-""""""""""""""""""
-" VANILLA-NEOVIM "
-""""""""""""""""""
-
 " MISC
 au BufEnter * se fo-=cro
 au FocusGained,BufEnter,VimResume * checkt
@@ -79,6 +58,17 @@ nnoremap <silent> <a-b> :TmuxNavigatePrevious<cr>
 nnoremap <silent> <a-i> :bp<cr>
 nnoremap <silent> <a-o> :bn<cr>
 nnoremap <leader>w <c-w>
+
+" PLUGINS
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_node_provider = 1
+let g:loaded_python_provider = 1
+let g:loaded_ruby_provider = 1
+let g:python3_host_prog = '/bin/python'
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>t :Tags<cr>
 
 " PUM
 se completeopt=menu,noinsert
