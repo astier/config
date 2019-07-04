@@ -9,8 +9,6 @@ Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -29,7 +27,6 @@ let g:loaded_node_provider = 1
 let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
 let g:python3_host_prog = '/bin/python'
-sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " BETTER-WHITESPACE
 let g:better_whitespace_filetypes_blacklist = ['help']
