@@ -13,6 +13,7 @@ let maplocalleader=' '
 
 " AUTOCOMMANDS
 au BufEnter * se fo-=cro
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
 au FocusGained,BufEnter,VimResume * checkt
 au VimResized * wincmd =
 
