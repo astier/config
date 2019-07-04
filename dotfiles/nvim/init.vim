@@ -103,7 +103,6 @@ vnoremap <leader>y "+y
 nnoremap <silent> <leader>q :qa<cr>
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :bd<cr>
-inoremap <silent> <a-q> <esc>:qa<cr>
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
