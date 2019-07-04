@@ -1,5 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugins')
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ajh17/VimCompletesMe'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim'
@@ -16,13 +16,6 @@ au BufEnter * se fo-=cro
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
 au FocusGained,BufEnter,VimResume * checkt
 au VimResized * wincmd =
-
-" DEOPLETE
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option({
-	\ 'min_pattern_length': 1,
-	\ 'smart_case': v:true,
-\})
 
 " COLORSCHEME
 let g:enable_italic_font = 1
@@ -69,25 +62,21 @@ let g:loaded_netrwPlugin = 1
 
 " SETTINGS
 se autowriteall
+se completeopt=menuone,noinsert
 se confirm
 se fillchars+=fold:\ 
 se iskeyword-=_
 se mouse=a
 se path-=/usr/include
+se shortmess+=c
 se splitbelow splitright
 se tabstop=4 shiftwidth=4
 
 " PROVIDERS
 let g:loaded_node_provider = 1
 let g:loaded_python_provider = 1
+let g:loaded_python3_provider = 1
 let g:loaded_ruby_provider = 1
-let g:python3_host_prog = '/bin/python'
-
-" PUM
-se completeopt=menu,noinsert
-se shortmess+=c
-inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-inoremap <expr> <c-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh<cr><esc>
