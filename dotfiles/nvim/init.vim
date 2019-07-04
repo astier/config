@@ -23,7 +23,6 @@ se fillchars+=fold:\
 se iskeyword-=_
 se mouse=a
 se path-=/usr/include
-se shortmess+=c
 se splitbelow splitright
 se tabstop=4 shiftwidth=4
 nnoremap Q <nop>
@@ -72,6 +71,7 @@ nnoremap <leader>t :Tags<cr>
 
 " PUM
 se completeopt=menu,noinsert
+se shortmess+=c
 inoremap <expr> <c-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <c-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 
