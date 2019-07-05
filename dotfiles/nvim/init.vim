@@ -35,6 +35,15 @@ nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>t :Tags<cr>
 
+" STANDARD-PLUGINS
+let g:loaded_gzip = 1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_tar      = 1
+let g:loaded_tarPlugin= 1
+let g:loaded_zip = 1
+let g:loaded_zipPlugin= 1
+
 " KILL
 nnoremap <silent> <leader>q :qa<cr>
 nnoremap <silent> <leader>c :clo<cr>
@@ -55,10 +64,6 @@ nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <a-b> :TmuxNavigatePrevious<cr>
 nnoremap <silent> <a-i> :bp<cr>
 nnoremap <silent> <a-o> :bn<cr>
-
-" NETRW
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
 
 " SETTINGS
 se autowriteall
