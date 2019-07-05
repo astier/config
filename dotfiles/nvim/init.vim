@@ -2,7 +2,6 @@ call plug#begin('~/.local/share/nvim/plugins')
 Plug 'ajh17/VimCompletesMe'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
-Plug 'junegunn/fzf.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-commentary'
 call plug#end()
@@ -29,11 +28,6 @@ se termguicolors
 nnoremap <a-p> "+p
 inoremap <a-p> <esc>"+pa
 vnoremap <leader>y "+y
-
-" FZF
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>t :Tags<cr>
 
 " STANDARD-PLUGINS
 let g:loaded_gzip = 1
