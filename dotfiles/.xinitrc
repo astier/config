@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# Start programs
 XINITRC=/etc/X11/xinit/xinitrc.d
 if [ -d $XINITRC ] ; then
 	for f in "$XINITRC"/?*.sh ; do
@@ -9,15 +8,12 @@ if [ -d $XINITRC ] ; then
 	unset f
 fi
 
-# Make the return-key easier to reach
 xmodmap -e "keycode 47 = Return"
 xmodmap -e "keycode 36 = colon"
 xmodmap -e "keycode 107 = semicolon"
 
-# Start programs
 firefox &
 st &
 unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 xcompmgr &
-
 exec dwm
