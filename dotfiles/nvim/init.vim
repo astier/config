@@ -19,11 +19,6 @@ au BufWritePost * GitGutter
 au FocusGained,BufEnter,VimResume * checkt
 au VimResized * wincmd =
 
-" AUTO-SAVE
-let g:auto_save = 1
-let g:auto_save_silent = 1
-se noswapfile
-
 " COLORSCHEME
 let g:enable_italic_font = 1
 let g:hybrid_transparent_background = 1
@@ -68,10 +63,14 @@ nnoremap <silent> <a-b> :TmuxNavigatePrevious<cr>
 nnoremap <silent> <a-i> :bp<cr>
 nnoremap <silent> <a-o> :bn<cr>
 
-" SETTINGS
-se autowriteall
-se completeopt=menuone,noinsert
+" SAVE
+let g:auto_save = 1
+let g:auto_save_silent = 1
+se noswapfile
 se confirm
+
+" SETTINGS
+se completeopt=menuone,noinsert
 se fillchars+=fold:\ 
 se iskeyword-=_
 se mouse=a
