@@ -1,4 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugins')
+Plug '907th/vim-auto-save'
+Plug 'airblade/vim-gitgutter'
 Plug 'ajh17/VimCompletesMe'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
@@ -13,14 +15,21 @@ let maplocalleader=' '
 " AUTOCOMMANDS
 au BufEnter * se fo-=cro
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
+au BufWritePost * GitGutter
 au FocusGained,BufEnter,VimResume * checkt
 au VimResized * wincmd =
+
+" AUTO-SAVE
+let g:auto_save = 1
+let g:auto_save_silent = 1
+se noswapfile
 
 " COLORSCHEME
 let g:enable_italic_font = 1
 let g:hybrid_transparent_background = 1
 colorscheme hybrid_material
 hi cursorline guibg=#383c4a
+hi gitgutterdelete guifg=#CC6666
 se cursorline
 se termguicolors
 
@@ -94,6 +103,7 @@ se laststatus=1
 se noruler
 se noshowcmd
 se noshowmode
+se signcolumn=yes
 
 " WRAP
 nnoremap $ g$
