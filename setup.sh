@@ -13,7 +13,6 @@ install .xinitrc ~/
 install bash/.bash_profile ~/
 install bash/.bashrc ~/
 
-install dunst ~/.config/
 install git ~/.config/
 install gtk-3.0 ~/.config/
 install nvim ~/.config/
