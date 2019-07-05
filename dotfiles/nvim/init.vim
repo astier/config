@@ -8,7 +8,6 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-commentary'
 call plug#end()
 
-" LEADERS
 let mapleader=' '
 let maplocalleader=' '
 
@@ -28,20 +27,6 @@ hi gitgutterdelete guifg=#CC6666
 se cursorline
 se termguicolors
 
-" COPY & PASTE
-nnoremap <a-p> "+p
-inoremap <a-p> <esc>"+pa
-vnoremap <leader>y "+y
-
-" STANDARD-PLUGINS
-let g:loaded_gzip = 1
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let g:loaded_tar      = 1
-let g:loaded_tarPlugin= 1
-let g:loaded_zip = 1
-let g:loaded_zipPlugin= 1
-
 " KILL
 nnoremap <silent> <leader>q :qa<cr>
 nnoremap <silent> <leader>c :clo<cr>
@@ -52,6 +37,8 @@ nnoremap Q <nop>
 nnoremap <cr> o<esc>
 nnoremap <leader>s <c-z>
 nnoremap <leader>w <c-w>
+nnoremap <leader>p "+p
+vnoremap <leader>y "+y
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
@@ -62,6 +49,12 @@ nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <a-b> :TmuxNavigatePrevious<cr>
 nnoremap <silent> <a-i> :bp<cr>
 nnoremap <silent> <a-o> :bn<cr>
+
+" PROVIDERS
+let g:loaded_node_provider = 1
+let g:loaded_python_provider = 1
+let g:loaded_python3_provider = 1
+let g:loaded_ruby_provider = 1
 
 " SAVE
 let g:auto_save = 1
@@ -80,12 +73,6 @@ se shortmess+=c
 se splitbelow splitright
 se tabstop=4 shiftwidth=4
 
-" PROVIDERS
-let g:loaded_node_provider = 1
-let g:loaded_python_provider = 1
-let g:loaded_python3_provider = 1
-let g:loaded_ruby_provider = 1
-
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh<cr><esc>
 nnoremap <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
@@ -96,6 +83,15 @@ nnoremap N Nzz
 se ignorecase
 se inccommand=nosplit
 se smartcase
+
+" STANDARD-PLUGINS
+let g:loaded_gzip = 1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_tar      = 1
+let g:loaded_tarPlugin= 1
+let g:loaded_zip = 1
+let g:loaded_zipPlugin= 1
 
 " STATUSLINE
 se laststatus=1
