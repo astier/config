@@ -19,7 +19,6 @@ install nvim ~/.config/
 
 install pacman/hooks/ /etc/pacman.d/
 install pacman/pacman.conf /etc/
-install st.desktop /usr/share/applications/
 
 [ ! -d /etc/systemd/system/getty@tty1.service.d ] && sudo mkdir /etc/systemd/system/getty@tty1.service.d
 sudo ln -f ~/projects/dotfiles/dotfiles/systemd/getty@tty1.service.d/override.conf /etc/systemd/system/getty@tty1.service.d/ &&

@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=st
-Comment=suckless-terminal
-Exec=st
-Icon=utilities-terminal
-Type=Application
-Categories=TerminalEmulator;
