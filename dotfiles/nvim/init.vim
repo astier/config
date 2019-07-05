@@ -73,6 +73,7 @@ se fillchars+=fold:\
 se iskeyword-=_
 se mouse=a
 se path-=/usr/include
+se path+=**
 se shortmess+=c
 se splitbelow splitright
 se tabstop=4 shiftwidth=4
