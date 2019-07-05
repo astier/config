@@ -65,7 +65,6 @@ se confirm
 " SETTINGS
 se completeopt=menuone,noinsert
 se fillchars+=fold:\ 
-se iskeyword-=_
 se mouse=a
 se path-=/usr/include
 se path+=**
