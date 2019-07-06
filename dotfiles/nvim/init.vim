@@ -1,38 +1,21 @@
-call plug#begin('~/.local/share/nvim/plugins')
-Plug '907th/vim-auto-save'
-Plug 'airblade/vim-gitgutter'
-Plug 'lifepillar/vim-mucomplete'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'cohama/lexima.vim'
-Plug 'junegunn/fzf.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'tpope/vim-commentary'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-call plug#end()
-
+" LEADERS
 let mapleader=' '
 let maplocalleader=' '
 
 " AUTOCOMMANDS
-au BufEnter * se fo-=cro
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
-au BufWritePost * GitGutter
-au FocusGained,BufEnter,VimResume * checkt
-au VimResized * wincmd =
+au bufenter * se fo-=cro
+au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
+au focusgained,bufenter,vimresume * checkt
+au vimresized * wincmd =
 
-" COLORSCHEME
-let g:enable_italic_font = 1
-let g:hybrid_transparent_background = 1
-colorscheme hybrid_material
-hi cursorline guibg=#383c4a
-hi gitgutterdelete guifg=#CC6666
-se cursorline
-se termguicolors
+" APPEARANCE
+au vimenter * hi search ctermfg=black ctermbg=gray
+au vimenter * hi visual ctermfg=gray ctermbg=black
+colo peachpuff
+se fillchars+=fold:\ 
+se fillchars+=eob:\ 
 
 " COMPLETION
-let g:mucomplete#always_use_completeopt = 1
-let g:mucomplete#enable_auto_at_startup = 1
 se completeopt=menuone,noinsert
 se shortmess+=c
 
@@ -64,29 +47,20 @@ nnoremap <leader>p "+p
 vnoremap <leader>y "+y
 
 " NAVIGATION
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <a-b> :TmuxNavigatePrevious<cr>
-nnoremap <silent> <a-i> :bp<cr>
-nnoremap <silent> <a-o> :bn<cr>
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>t :Tags<cr>
+nnoremap <silent> <a-h> <c-w>h
+nnoremap <silent> <a-j> <c-w>j
+nnoremap <silent> <a-k> <c-w>k
+nnoremap <silent> <a-l> <c-w>l
+nnoremap <silent> <a-e> :bp<cr>
+nnoremap <silent> <a-r> :bn<cr>
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
-
-" SAVE
-se autowriteall
-let g:auto_save = 1
-let g:auto_save_silent = 1
-se noswapfile
-se confirm
+nnoremap <leader>b :ls<cr>:b<space>
+nnoremap <leader>f :fin<space>
 
 " SETTINGS
-se fillchars+=fold:\ 
+se autowriteall
+se confirm
 se mouse=a
 se path-=/usr/include
 se path+=**
@@ -105,26 +79,10 @@ se inccommand=nosplit
 se smartcase
 
 " STATUSLINE
-let g:airline_theme='hybrid'
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#tabline#buffer_min_count = 2
-let g:airline#extensions#tabline#buffers_label = ''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#tabs_label = 'T'
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-let g:airline_section_a = ''
-let g:airline_section_c = '%f'
-let g:airline_section_x = ''
-let g:airline_section_z = ''
-let g:airline_section_error = ''
-let g:airline_section_warning = ''
-let g:airline_skip_empty_sections = 1
 se laststatus=1
 se noruler
 se noshowcmd
 se noshowmode
-se signcolumn=yes
 
 " WRAP
 nnoremap $ g$
