@@ -1,7 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugins')
 Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
-Plug 'ajh17/VimCompletesMe'
+Plug 'lifepillar/vim-mucomplete'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim'
@@ -37,6 +37,12 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g
 au BufWritePost * GitGutter
 au FocusGained,BufEnter,VimResume * checkt
 au VimResized * wincmd =
+
+" AUTOCOMPLETION
+let g:mucomplete#always_use_completeopt = 1
+let g:mucomplete#enable_auto_at_startup = 1
+se completeopt=menuone,noinsert
+se shortmess+=c
 
 " COLORSCHEME
 let g:enable_italic_font = 1
@@ -91,12 +97,10 @@ se noswapfile
 se confirm
 
 " SETTINGS
-se completeopt=menuone,noinsert
 se fillchars+=fold:\ 
 se mouse=a
 se path-=/usr/include
 se path+=**
-se shortmess+=c
 se splitbelow splitright
 se tabstop=4 shiftwidth=4
 
