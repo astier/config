@@ -51,6 +51,7 @@ nnoremap <silent> <a-i> :bp<cr>
 nnoremap <silent> <a-o> :bn<cr>
 
 " PROVIDERS
+let g:loaded_matchparen = 1
 let g:loaded_node_provider = 1
 let g:loaded_python_provider = 1
 let g:loaded_python3_provider = 1
