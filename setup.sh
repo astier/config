@@ -21,6 +21,9 @@ install mkinitcpio.conf /etc
 install pacman/hooks/ /etc/pacman.d
 install pacman/pacman.conf /etc
 
+sudo iptables-restore < dotfiles/iptables.rules &&
+	echo Installed: iptables
+
 sudo cp -f dotfiles/loader/loader.conf /boot &&
 	sudo cp -f dotfiles/loader/entries/arch.conf /boot/loader/entries &&
 	echo Installed: boot
