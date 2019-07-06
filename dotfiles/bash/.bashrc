@@ -23,6 +23,10 @@ HISTIGNORE+=":gaa:gs:gc:gca:g:gg:gl:go-:gcn"
 set -o vi
 shopt -s autocd cdspell checkwinsize histappend
 
+# FZF
+export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname 'tags' ! -iname '*\.jpg' ! -iname '*\.jpeg' ! -iname '*\.png' ! -iname '*\.pdf' ! -iname '*\.gif' ! -iname '*\.css' ! -iname '*\.html' ! -iname '*\.js' ! -iname '*\.htm' ! -iname '*\.docx' ! -iname '*\.doc' ! -iname '*\.odt' ! -iname '*\.zip' ! -iname '*\.tar.gz' | sed 's/^.\///'"
+export FZF_DEFAULT_OPTS="--ansi --cycle -m --reverse --tabstop=4 --color=bg+:-1,fg+:-1,border:#000000"
+
 # TEMPORARY
 export PATH=$PATH:~/projects/ase/gcc-arm-embedded
 export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
@@ -59,6 +63,7 @@ alias da="cd; clear"
 alias dl="clear; ls"
 alias e="exit"
 alias f="fg"
+alias ff="fzf-tmux | xargs -r \$EDITOR"
 alias l="ls"
 alias lb="lsblk"
 alias ll="ls -l"
@@ -68,6 +73,8 @@ alias mai="sudo make install clean"
 alias md="mkdir"
 alias p="cp"
 alias pa="patch -p1 <"
+alias pd="yay -Qetq | fzf -m --preview 'yay -Qi {1}' > /tmp/pd; xargs -ra /tmp/pd yay -Rns"
+alias pi="yay -Slq | fzf -m --preview 'yay -Si {1}' > /tmp/pi; xargs -ra /tmp/pi yay -S"
 alias py="python"
 alias r="sudo \$(fc -ln -1)"
 alias s="sudo"

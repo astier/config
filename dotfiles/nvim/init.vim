@@ -4,6 +4,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ajh17/VimCompletesMe'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
@@ -45,6 +46,11 @@ hi cursorline guibg=#383c4a
 hi gitgutterdelete guifg=#CC6666
 se cursorline
 se termguicolors
+
+" FZF
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>t :Tags<cr>
 
 " KILL
 nnoremap <silent> <leader>q :qa<cr>
