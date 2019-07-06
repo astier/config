@@ -64,6 +64,8 @@ nnoremap <leader>s <c-z>
 nnoremap <leader>w <c-w>
 nnoremap <leader>p "+p
 vnoremap <leader>y "+y
+nnoremap <c-j> 4<c-e>
+nnoremap <c-k> 4<c-y>
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
