@@ -15,6 +15,15 @@ colo peachpuff
 se fillchars+=fold:\ 
 se fillchars+=eob:\ 
 
+" CLIPBOARD
+nnoremap <a-c> "+yy
+vnoremap <a-c> "+y
+inoremap <a-v> <esc>"+pi
+nnoremap <a-v> "+p
+vnoremap <a-v> dk"+p
+nnoremap <a-x> "+dd
+vnoremap <a-x> "+d
+
 " COMPLETION
 se completeopt=menuone,noinsert
 se shortmess+=c
@@ -43,8 +52,6 @@ let g:loaded_zipPlugin= 1
 nnoremap Q <nop>
 nnoremap <cr> o<esc>
 nnoremap <leader>w <c-w>
-nnoremap <leader>p "+p
-vnoremap <leader>y "+y
 
 " NAVIGATION
 nnoremap <silent> <a-h> <c-w>h
