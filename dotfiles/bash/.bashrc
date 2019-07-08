@@ -210,3 +210,7 @@ alias grr="git reset --hard; git clean -f"
 alias grq="git rebase -i HEAD~2"
 alias grs="git reset --soft"
 alias grv="git revert"
+
+alias gst="git stash"
+alias gsp="git stash pop"
+alias gsd="git stash drop"
