@@ -18,13 +18,13 @@ se fillchars+=eob:\
 se fillchars+=fold:\ 
 
 " CLIPBOARD
-nnoremap <a-c> "+yy
-vnoremap <a-c> "+y
-inoremap <a-v> <esc>"+pi
-nnoremap <a-v> "+p
-vnoremap <a-v> dk"+p
-nnoremap <a-x> "+dd
-vnoremap <a-x> "+d
+nnoremap <c-c> "+yy
+vnoremap <c-c> "+y
+inoremap <c-v> <esc>"+pi
+nnoremap <c-v> "+p
+vnoremap <c-v> dk"+p
+nnoremap <c-x> "+dd
+vnoremap <c-x> "+d
 
 " COMPLETION
 fu Completion()
