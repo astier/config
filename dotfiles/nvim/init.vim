@@ -49,9 +49,11 @@ let g:loaded_zip = 1
 let g:loaded_zipPlugin= 1
 
 " MAPPINGS
-nnoremap Q <nop>
 nnoremap <cr> o<esc>
 nnoremap <leader>w <c-w>
+nnoremap <silent> gs vip:sort<cr>
+vnoremap <silent> gs :sort<cr>
+nnoremap Q <nop>
 
 " NAVIGATION
 nnoremap <silent> <a-h> <c-w>h
