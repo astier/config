@@ -69,7 +69,6 @@ alias md="mkdir"
 alias p="cp"
 alias pa="patch -p1 <"
 alias pq="pacman -Qt"
-alias pi="yay -Slq | fzf -m --preview 'yay -Si {1}' > /tmp/pi; xargs -ra /tmp/pi yay -S"
 alias py="python"
 alias r="sudo \$(fc -ln -1)"
 alias s="sudo"
@@ -179,7 +178,6 @@ alias gd="git diff"
 alias gc="git commit"
 alias gca="git add --all && git commit"
 alias gcr="git commit -am tmp && git rebase -i HEAD~2"
-alias gcp="git add --all && git commit && git push"
 
 g() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
 alias gg="git log --all --graph --decorate --oneline"
@@ -202,7 +200,6 @@ grh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
 alias gcn="git clean -f"
 alias grb="git rebase -i"
 alias grr="git reset --hard; git clean -f"
-alias grq="git rebase -i HEAD~2"
 alias grs="git reset --soft"
 alias grv="git revert"
 
