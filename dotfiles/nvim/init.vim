@@ -4,16 +4,18 @@ let maplocalleader=' '
 
 " AUTOCOMMANDS
 au bufenter * se fo-=cro
-au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
+au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au focusgained,bufenter,vimresume * checkt
 au vimresized * wincmd =
 
 " APPEARANCE
+au vimenter * hi pmenu ctermfg=black ctermbg=gray
+au vimenter * hi pmenusel ctermfg=black ctermbg=white
 au vimenter * hi search ctermfg=black ctermbg=gray
 au vimenter * hi visual ctermfg=gray ctermbg=black
 colo peachpuff
-se fillchars+=fold:\ 
 se fillchars+=eob:\ 
+se fillchars+=fold:\ 
 
 " CLIPBOARD
 nnoremap <a-c> "+yy
@@ -25,6 +27,21 @@ nnoremap <a-x> "+dd
 vnoremap <a-x> "+d
 
 " COMPLETION
+fu Completion()
+	let prefix_line = strpart(getline('.'), -1, col('.'))
+	let prefix_word = matchstr(prefix_line, "[^ \t]*$")
+	if (strlen(prefix_word)==0)
+		retu "\<tab>"
+	elsei (match(prefix_word, '\/') != -1)
+		retu "\<c-x>\<c-f>"
+	el
+		retu "\<c-x>\<c-n>"
+	en
+endf
+inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<cr>"
+inoremap <expr> <esc> pumvisible() ? "\<c-e>" : "\<esc>"
+inoremap <expr> <s-tab> pumvisible() ? "\<C-p>" : Completion()
+inoremap <expr> <tab> pumvisible() ? "\<C-n>" : Completion()
 se completeopt=menuone,noinsert
 se shortmess+=c
 
