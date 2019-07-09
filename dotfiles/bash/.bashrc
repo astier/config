@@ -25,7 +25,6 @@ shopt -s autocd cdspell checkwinsize histappend
 
 # TEMPORARY
 export PATH=$PATH:~/projects/ase/gcc-arm-embedded
-export PATH=~/.yarn/bin:~/.config/yarn/global/node_modules/.bin:$PATH
 [ -f /opt/ros/melodic/setup.bash ] && . /opt/ros/melodic/setup.bash
 alias maf="make && make flash && (gtkterm -c AMiRo &)"
 alias ros="cd ~/projects/ase/catkin_ws && . devel/setup.sh"
