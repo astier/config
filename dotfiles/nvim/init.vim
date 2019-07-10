@@ -6,6 +6,7 @@ let maplocalleader=' '
 au bufenter * se fo-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au focusgained,bufenter,vimresume * checkt
+au focuslost * :wa
 au vimresized * wincmd =
 
 " APPEARANCE
