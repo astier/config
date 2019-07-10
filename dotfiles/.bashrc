@@ -157,7 +157,7 @@ alias asi="cd ~/projects/suckless/sites"
 alias ast="cd ~/projects/suckless/st"
 
 alias ad="cd ~/projects/dotfiles/dotfiles"
-alias ab="\$EDITOR ~/projects/dotfiles/dotfiles/bash/.bashrc && . ~/.bashrc"
+alias ab="\$EDITOR ~/projects/dotfiles/dotfiles/.bashrc && . ~/.bashrc"
 alias av="\$EDITOR ~/projects/dotfiles/dotfiles/nvim/init.vim"
 alias ax="\$EDITOR ~/projects/dotfiles/dotfiles/.xinitrc"
 

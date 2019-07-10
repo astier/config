@@ -10,8 +10,8 @@ install() {
 install .inputrc ~
 install .tmux.conf ~
 install .xinitrc ~
-install bash/.bash_profile ~
-install bash/.bashrc ~
+install .bash_profile ~
+install .bashrc ~
 
 install git ~/.config
 install gtk-3.0 ~/.config
