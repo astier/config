@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 install() {
-	TARGET=$1 DESTINATION=$2$(basename "$TARGET")
+	TARGET=$1 DESTINATION=$2/$(basename "$TARGET")
 	sudo rm -fr "$DESTINATION"
 	sudo ln -rs dotfiles/"$TARGET" "$DESTINATION" &&
 		echo Installed: "$TARGET"
