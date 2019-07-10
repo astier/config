@@ -72,7 +72,7 @@ alias py="python"
 alias r="sudo \$(fc -ln -1)"
 alias s="sudo"
 alias to="touch"
-alias u="sudo reflector -p https -f16 -l8 --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && echo && yay"
+alias u="sudo reflector -p https -f16 -l4 --sort rate --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && echo && yay"
 
 # TMUX
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
@@ -119,7 +119,6 @@ alias aca="cd ~/.cache"
 alias af="\$EDITOR"
 alias ao="cd ~/Downloads"
 alias al="cd ~/.local/share"
-alias asn="cd ~/.local/share/nvim/plugins/vim-snippets/UltiSnips"
 alias att="\$EDITOR /tmp/scratch"
 
 alias i="tstatus"
@@ -129,6 +128,7 @@ alias ion="sudo ip link set dev wlan0 up"
 
 alias add="cd ~/Dropbox"
 alias api="cd ~/Dropbox/pictures"
+alias apw="cd ~/Dropbox/pictures/wallpapers"
 
 alias au="cd ~/Dropbox/uni"
 alias ase="cd ~/Dropbox/uni/s4/ase/exercises/2"
@@ -149,7 +149,6 @@ alias aaa="cd ~/projects/arch && \$EDITOR base.sh desktop.sh"
 alias aab="cd ~/projects/arch && \$EDITOR base.sh"
 alias aad="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias asc="cd ~/projects/scripts/scripts"
-alias ast="cd ~/projects/st"
 
 alias asu="cd ~/projects/suckless"
 alias adm="cd ~/projects/suckless/dmenu"

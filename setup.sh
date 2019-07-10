@@ -18,7 +18,7 @@ install gtk-3.0 ~/.config
 install nvim ~/.config
 
 install mkinitcpio.conf /etc
-install pacman/hooks/ /etc/pacman.d
+install pacman/hooks /etc/pacman.d
 install pacman/pacman.conf /etc
 
 sudo iptables-restore < dotfiles/iptables.rules &&
