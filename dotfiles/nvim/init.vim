@@ -68,6 +68,7 @@ let g:loaded_zipPlugin= 1
 
 " MAPPINGS
 nnoremap <cr> o<esc>
+nnoremap g<cr> O<esc>
 nnoremap <leader>w <c-w>
 nnoremap <silent> gs vip:sort<cr>
 vnoremap <silent> gs :sort<cr>
