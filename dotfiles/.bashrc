@@ -28,6 +28,7 @@ alias maf="make && make flash && (gtkterm -c AMiRo &)"
 alias ros="cd ~/projects/ase/catkin_ws && . devel/setup.sh"
 
 # DEFAULTS
+alias as="echo Remapped to do nothing because I always accidentally hit it."
 alias cal="cal -m"
 alias cp='cp -ir'
 alias df="df -h"
