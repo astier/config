@@ -4,6 +4,7 @@ Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-commentary'
 
@@ -90,11 +91,13 @@ nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
-nnoremap <leader>b :ls<cr>:b<space>
-nnoremap <leader>f :fin<space>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>t :Tags<cr>
 
 " GitGutter
 au bufwritepost * GitGutter
