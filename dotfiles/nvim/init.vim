@@ -26,7 +26,7 @@ se fillchars+=fold:\
 " CLIPBOARD
 nnoremap <c-c> "+yy
 vnoremap <c-c> "+y
-inoremap <c-v> <esc>"+pi
+inoremap <c-v> <esc>"+pa
 nnoremap <c-v> "+p
 vnoremap <c-v> dk"+p
 nnoremap <c-x> "+dd
