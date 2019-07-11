@@ -1,4 +1,6 @@
-
+call plug#begin('~/.local/share/nvim/plugins')
+Plug 'christoomey/vim-tmux-navigator'
+call plug#end()
 
 " LEADERS
 let mapleader=' '
@@ -77,11 +79,11 @@ vnoremap <silent> gs :sort<cr>
 nnoremap Q <nop>
 
 " NAVIGATION
-nnoremap <silent> <a-h> <c-w>h
-nnoremap <silent> <a-j> <c-w>j
-nnoremap <silent> <a-k> <c-w>k
-nnoremap <silent> <a-l> <c-w>l
-nnoremap <silent> <a-e> :bp<cr>
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
