@@ -1,6 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
-Plug '907th/vim-auto-save'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
@@ -20,6 +19,7 @@ let maplocalleader=' '
 au bufenter * se fo-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au focusgained,bufenter,vimresume * checkt
+au focuslost * silent :wa
 au vimresized * wincmd =
 
 " CLIPBOARD
@@ -101,22 +101,18 @@ nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>t :Tags<cr>
 
-" GitGutter
-au bufwritepost * GitGutter
-let g:auto_save = 1
-let g:auto_save_silent = 1
-se noswapfile
-se signcolumn=yes
-
 " SETTINGS
+se autowriteall
 se confirm
 se fillchars+=eob:\ 
 se fillchars+=fold:\ 
 se mouse=a
 se path+=**
 se path-=/usr/include
+se signcolumn=yes
 se splitbelow splitright
 se tabstop=4 shiftwidth=4
+se updatetime=100
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh<cr><esc>
