@@ -1,7 +1,9 @@
 call plug#begin('~/.local/share/nvim/plugins')
+
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-commentary'
+
 call plug#end()
 
 " LEADERS
