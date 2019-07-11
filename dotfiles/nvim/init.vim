@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugins')
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-commentary'
 call plug#end()
 
@@ -15,13 +16,15 @@ au focuslost * silent :wa
 au vimresized * wincmd =
 
 " APPEARANCE
-au vimenter * hi pmenu ctermfg=black ctermbg=gray
-au vimenter * hi pmenusel ctermfg=black ctermbg=white
-au vimenter * hi search ctermfg=black ctermbg=gray
-au vimenter * hi visual ctermfg=gray ctermbg=black
-colo peachpuff
+let g:enable_italic_font = 1
+let g:hybrid_transparent_background = 1
+colorscheme hybrid_material
+hi cursorline guibg=#383c4a
+hi gitgutterdelete guifg=#CC6666
+se cursorline
 se fillchars+=eob:\ 
 se fillchars+=fold:\ 
+se termguicolors
 
 " CLIPBOARD
 nnoremap <c-c> "+yy
