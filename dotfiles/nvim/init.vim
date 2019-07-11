@@ -1,5 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
+Plug '907th/vim-auto-save'
+Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
@@ -15,19 +17,7 @@ let maplocalleader=' '
 au bufenter * se fo-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au focusgained,bufenter,vimresume * checkt
-au focuslost * silent :wa
 au vimresized * wincmd =
-
-" APPEARANCE
-let g:enable_italic_font = 1
-let g:hybrid_transparent_background = 1
-colorscheme hybrid_material
-hi cursorline guibg=#383c4a
-hi gitgutterdelete guifg=#CC6666
-se cursorline
-se fillchars+=eob:\ 
-se fillchars+=fold:\ 
-se termguicolors
 
 " CLIPBOARD
 nnoremap <c-c> "+yy
@@ -56,6 +46,15 @@ inoremap <expr> <s-tab> pumvisible() ? "\<C-p>" : Completion()
 inoremap <expr> <tab> pumvisible() ? "\<C-n>" : Completion()
 se completeopt=menuone,noinsert
 se shortmess+=c
+
+" COLORSCHEME
+let g:enable_italic_font = 1
+let g:hybrid_transparent_background = 1
+colorscheme hybrid_material
+hi cursorline guibg=#383c4a
+hi gitgutterdelete guifg=#CC6666
+se cursorline
+se termguicolors
 
 " KILL
 nnoremap <leader>s <c-z>
@@ -97,12 +96,20 @@ nnoremap <c-k> 4<c-y>
 nnoremap <leader>b :ls<cr>:b<space>
 nnoremap <leader>f :fin<space>
 
+" GitGutter
+au bufwritepost * GitGutter
+let g:auto_save = 1
+let g:auto_save_silent = 1
+se noswapfile
+se signcolumn=yes
+
 " SETTINGS
-se autowriteall
 se confirm
+se fillchars+=eob:\ 
+se fillchars+=fold:\ 
 se mouse=a
-se path-=/usr/include
 se path+=**
+se path-=/usr/include
 se splitbelow splitright
 se tabstop=4 shiftwidth=4
 
