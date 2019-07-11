@@ -10,6 +10,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 " LEADERS
