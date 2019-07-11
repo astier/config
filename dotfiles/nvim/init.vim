@@ -1,6 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'cohama/lexima.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-commentary'
 
