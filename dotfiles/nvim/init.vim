@@ -6,6 +6,8 @@ Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -113,6 +115,7 @@ se signcolumn=yes
 se splitbelow splitright
 se tabstop=4 shiftwidth=4
 se updatetime=100
+sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh<cr><esc>
