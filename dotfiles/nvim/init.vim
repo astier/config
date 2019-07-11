@@ -1,15 +1,14 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -52,13 +51,20 @@ inoremap <expr> <tab> pumvisible() ? "\<C-n>" : Completion()
 se completeopt=menuone,noinsert
 se shortmess+=c
 
-" COLORSCHEME
-let g:enable_italic_font = 1
-let g:hybrid_transparent_background = 1
-colorscheme hybrid_material
-hi cursorline guibg=#383c4a
-hi gitgutterdelete guifg=#CC6666
+" APPEARANCE
+let g:nord_bold = 0
+let g:nord_bold_vertical_split_line = 1
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
+let g:nord_uniform_diff_background = 1
+let g:nord_uniform_status_lines = 1
+colorscheme nord
 se cursorline
+se fillchars+=eob:\ 
+se fillchars+=fold:\ 
+se fillchars+=vert:\ 
+se signcolumn=yes
 se termguicolors
 
 " KILL
@@ -106,12 +112,9 @@ nnoremap <leader>t :Tags<cr>
 " SETTINGS
 se autowriteall
 se confirm
-se fillchars+=eob:\ 
-se fillchars+=fold:\ 
 se mouse=a
 se path+=**
 se path-=/usr/include
-se signcolumn=yes
 se splitbelow splitright
 se tabstop=4 shiftwidth=4
 se updatetime=100
@@ -129,7 +132,6 @@ se inccommand=nosplit
 se smartcase
 
 " STATUSLINE
-let g:airline_theme='hybrid'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#tabline#buffer_min_count = 2
