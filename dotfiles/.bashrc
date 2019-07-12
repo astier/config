@@ -174,7 +174,7 @@ alias gbd="git branch -D"
 alias gbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs -r \$BROWSER"
 alias gcl="git clone"
 alias gfp="git format-patch --stdout HEAD^ >"
-alias gs="git status -s"
+alias gs="git status -bs"
 alias gd="git diff"
 
 alias gc="git commit"
