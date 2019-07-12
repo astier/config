@@ -1,11 +1,9 @@
 $include /etc/inputrc
 
-# Misc
+# vi
 set editing-mode vi
 # Disable echo ^C after Ctrl+C is pressed
 set echo-control-characters off
-# Partially complete the word and show all possible completions
-# set show-all-if-unmodified on
 
 # Backward-Search
 set keymap vi-command
