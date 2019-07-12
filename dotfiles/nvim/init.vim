@@ -84,6 +84,13 @@ se fillchars+=vert:\
 se signcolumn=yes
 se termguicolors
 
+" FZF
+au filetype fzf set laststatus=0 noshowmode noruler
+  \| au bufleave <buffer> set laststatus=2 showmode ruler
+nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>t :Tags<cr>
+
 " KILL
 nnoremap <leader>s <c-z>
 nnoremap <silent> <leader>c :clo<cr>
@@ -121,9 +128,6 @@ nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>t :Tags<cr>
 
 " SETTINGS
 se autowriteall
