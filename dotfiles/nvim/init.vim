@@ -36,7 +36,7 @@ let g:ale_fixers = {
 au bufenter * se fo-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au focusgained,bufenter,vimresume * checkt
-au focuslost * silent :wa
+au focuslost * sil! :wa
 au vimresized * wincmd =
 
 " CLIPBOARD
