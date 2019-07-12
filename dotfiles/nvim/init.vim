@@ -77,7 +77,6 @@ nnoremap <silent> <leader>q :qa<cr>
 
 " LOADED
 let g:loaded_gzip = 1
-let g:loaded_matchparen = 1
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:loaded_node_provider = 1
