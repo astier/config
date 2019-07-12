@@ -36,7 +36,7 @@ let g:ale_fixers = {
 au bufenter * se fo-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au focusgained,bufenter,vimresume * checkt
-au focuslost * sil! :wa
+au focuslost * sil! wa
 au vimresized * wincmd =
 
 " CLIPBOARD
@@ -85,8 +85,8 @@ se signcolumn=yes
 se termguicolors
 
 " FZF
-au filetype fzf set laststatus=0 noshowmode noruler
-  \| au bufleave <buffer> set laststatus=2 showmode ruler
+au filetype fzf se ls=0
+  \| au bufleave <buffer> se ls=2
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>t :Tags<cr>
