@@ -3,9 +3,11 @@
 install() {
 	TARGET=$1 DESTINATION=$2/$(basename "$TARGET")
 	sudo rm -fr "$DESTINATION"
-	sudo ln -rs dotfiles/"$TARGET" "$DESTINATION" &&
+	sudo ln -rs "$TARGET" "$DESTINATION" &&
 		echo Installed: "$TARGET"
 }
+
+cd dotfiles || exit
 
 install .aliases ~
 install .bash_profile ~
@@ -23,11 +25,11 @@ install mkinitcpio.conf /etc
 install pacman/hooks /etc/pacman.d
 install pacman/pacman.conf /etc
 
-sudo iptables-restore < dotfiles/iptables.rules &&
+sudo iptables-restore < iptables.rules &&
 	echo Installed: iptables
 
-sudo cp -f dotfiles/loader/loader.conf /boot &&
-	sudo cp -f dotfiles/loader/entries/arch.conf /boot/loader/entries &&
+sudo cp -f loader/loader.conf /boot &&
+	sudo cp -f loader/entries/arch.conf /boot/loader/entries &&
 	echo Installed: boot
 
 [ ! -d /etc/systemd/system/getty@tty1.service.d ] && sudo mkdir /etc/systemd/system/getty@tty1.service.d
