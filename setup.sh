@@ -7,11 +7,11 @@ install() {
 		echo Installed: "$TARGET"
 }
 
+install .bashrc ~
 install .inputrc ~
+install .profile ~
 install .tmux.conf ~
 install .xinitrc ~
-install .bash_profile ~
-install .bashrc ~
 
 install git ~/.config
 install gtk-3.0 ~/.config
