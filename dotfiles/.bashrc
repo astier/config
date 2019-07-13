@@ -19,13 +19,15 @@ HISTIGNORE+=":c:d:dl:e:f:i:l:lb:ll:ma:ml:n:py:sd:sl:sp:sr:t:ta:tl:uu:x:xc:xm:xp:
 HISTIGNORE+=":,:-:a:aa:ac:ad:ao:ai:al:am:ap:asc:ase:ax"
 HISTIGNORE+=":gaa:gs:gc:gca:g:gg:gl:go-:gcn"
 set -o vi
-shopt -s autocd cdspell checkwinsize histappend
+[[ $DISPLAY ]] && shopt -s checkwinsize
+shopt -s autocd cdspell histappend
 
 # FZF
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname 'tags' ! -iname '*\.jpg' ! -iname '*\.jpeg' ! -iname '*\.png' ! -iname '*\.pdf' ! -iname '*\.gif' ! -iname '*\.css' ! -iname '*\.html' ! -iname '*\.js' ! -iname '*\.htm' ! -iname '*\.docx' ! -iname '*\.doc' ! -iname '*\.odt' ! -iname '*\.zip' ! -iname '*\.tar.gz' | sed 's/^.\///'"
 export FZF_DEFAULT_OPTS="--ansi --cycle -m --reverse --tabstop=4 --color=bg+:-1,fg+:-1,border:#000000"
 
-# TEMPORARY
+# MISC
+[ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 export PATH=$PATH:~/projects/ase/gcc-arm-embedded
 [ -f /opt/ros/melodic/setup.bash ] && . /opt/ros/melodic/setup.bash
 alias maf="make && make flash && (gtkterm -c AMiRo &)"
