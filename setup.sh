@@ -7,6 +7,8 @@ install() {
 		echo Installed: "$TARGET"
 }
 
+install .aliases ~
+install .bash_profile ~
 install .bashrc ~
 install .inputrc ~
 install .profile ~
