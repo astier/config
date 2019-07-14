@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator', { 'on': [ 'TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp' ] }
@@ -66,6 +67,8 @@ se completeopt=menuone,noinsert
 se shortmess+=c
 
 " APPEARANCE
+let g:indentLine_char = '▏'
+let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
 let g:nord_bold = 0
 let g:nord_bold_vertical_split_line = 1
 let g:nord_italic = 1
