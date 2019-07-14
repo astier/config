@@ -6,6 +6,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator', { 'on': [ 'TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp' ] }
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': [ 'Buffers', 'Files', 'Tags' ] }
+Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -177,3 +178,21 @@ nnoremap 0 g0
 nnoremap j gj
 nnoremap k gk
 se breakindent linebreak
+
+" VIMTEX
+au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
+let g:vimtex_view_general_viewer = 'firefox'
+let g:vimtex_compiler_latexmk = {
+	\ 'backend' : 'nvim',
+	\ 'background' : 1,
+	\ 'build_dir' : 'tex',
+	\ 'callback' : 1,
+	\ 'continuous' : 1,
+	\ 'executable' : 'latexmk',
+	\ 'options' : [
+		\ '-verbose',
+		\ '-file-line-error',
+		\ '-synctex=0',
+		\ '-interaction=nonstopmode'
+	\ ],
+\}
