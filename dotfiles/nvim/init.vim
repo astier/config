@@ -115,8 +115,8 @@ let g:loaded_zipPlugin= 1
 nnoremap <cr> o<esc>
 nnoremap g<cr> O<esc>
 nnoremap <leader>w <c-w>
-nnoremap <silent> gs vip:sort<cr>
-vnoremap <silent> gs :sort<cr>
+nnoremap <silent> gs vip:sort u<cr>
+vnoremap <silent> gs :sort u<cr>
 nnoremap Q <nop>
 
 " NAVIGATION
