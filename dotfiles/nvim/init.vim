@@ -5,6 +5,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator', { 'on': [ 'TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp' ] }
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': [ 'Buffers', 'Files', 'Tags' ] }
+Plug 'moll/vim-bbye', { 'on': 'Bdelete' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -94,7 +95,7 @@ nnoremap <silent> <leader>t :Tags<cr>
 " KILL
 nnoremap <leader>s <c-z>
 nnoremap <silent> <leader>c :clo<cr>
-nnoremap <silent> <leader>d :bd<cr>
+nnoremap <silent> <leader>d :Bd<cr>
 nnoremap <silent> <leader>q :qa<cr>
 
 " LOADED
