@@ -12,8 +12,6 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale', { 'for': [ 'sh', 'tex', 'zsh' ] }
 
-Plug 'ryanoasis/vim-devicons'
-
 call plug#end()
 
 " LEADERS
