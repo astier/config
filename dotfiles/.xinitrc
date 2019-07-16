@@ -15,6 +15,5 @@ xmodmap -e "keycode 107 = semicolon"
 bstatus
 firefox &
 st &
-unclutter --timeout 4 --jitter 20 --ignore-scrolling -b
 xcompmgr &
 exec dwm
