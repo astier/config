@@ -16,6 +16,7 @@ install .inputrc ~
 install .profile ~
 install .tmux.conf ~
 install .xinitrc ~
+install .Xmodmap ~
 
 install git ~/.config
 install gtk-3.0 ~/.config
