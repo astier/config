@@ -9,6 +9,7 @@ install() {
 
 cd dotfiles || exit
 
+install .Xmodmap ~
 install .aliases ~
 install .bash_profile ~
 install .bashrc ~
@@ -16,22 +17,16 @@ install .inputrc ~
 install .profile ~
 install .tmux.conf ~
 install .xinitrc ~
-install .Xmodmap ~
 
 install git ~/.config
 install gtk-3.0 ~/.config
 install nvim ~/.config
 
 install mkinitcpio.conf /etc
-install pacman/hooks /etc/pacman.d
-install pacman/pacman.conf /etc
+install pacman.conf /etc
 
 sudo iptables-restore < iptables.rules &&
 	echo Installed: iptables
-
-sudo cp -f loader/loader.conf /boot &&
-	sudo cp -f loader/entries/arch.conf /boot/loader/entries &&
-	echo Installed: boot
 
 [ ! -d /etc/systemd/system/getty@tty1.service.d ] && sudo mkdir /etc/systemd/system/getty@tty1.service.d
 sudo ln -f ~/projects/dotfiles/dotfiles/systemd/getty@tty1.service.d/override.conf /etc/systemd/system/getty@tty1.service.d &&
