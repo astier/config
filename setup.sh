@@ -11,12 +11,12 @@ cd dotfiles || exit
 
 install .Xmodmap ~
 install .aliases ~
-install .bash_profile ~
-install .bashrc ~
-install .inputrc ~
 install .profile ~
 install .tmux.conf ~
 install .xinitrc ~
+install bash/.bash_profile ~
+install bash/.bashrc ~
+install bash/.inputrc ~
 
 install git ~/.config
 install gtk-3.0 ~/.config
