@@ -1,6 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
 Plug '907th/vim-auto-save'
+Plug 'SirVer/ultisnips', { 'for': [ 'snippets', 'tex' ] }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
@@ -87,13 +88,13 @@ nnoremap <silent> <leader>q :qa<cr>
 " LOADED
 let g:loaded_gzip = 1
 let g:loaded_node_provider = 1
-let g:loaded_python3_provider = 1
 let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
 let g:loaded_tar      = 1
 let g:loaded_tarPlugin= 1
 let g:loaded_zip = 1
 let g:loaded_zipPlugin= 1
+let g:python3_host_prog = '/bin/python'
 
 " MAPPINGS
 nnoremap <cr> o<esc>
@@ -145,6 +146,10 @@ nnoremap N Nzz
 se ignorecase
 se inccommand=nosplit
 se smartcase
+
+" SNIPPETS
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
 
 " STATUSLINE
 au bufenter * se ls=1 noru nosc nosmd

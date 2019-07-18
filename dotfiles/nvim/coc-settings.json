@@ -1,7 +1,6 @@
 {
 
 	"coc.source.file.ignoreHidden": false,
-	"coc.source.ultisnips.filetypes": ["tex"],
 	"diagnostic.enable": false,
 	"suggest.maxCompleteItemCount": 8,
 	"suggest.noselect": false,
