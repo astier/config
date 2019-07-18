@@ -148,6 +148,7 @@ se smartcase
 " STATUSLINE
 au bufenter * se ls=1 noru nosc nosmd
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#coc#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#enabled = 1
