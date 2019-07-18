@@ -22,4 +22,5 @@ shopt -s autocd cdspell histappend
 [ -r /opt/ros/melodic/setup.bash ] && . /opt/ros/melodic/setup.bash
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 [ -r ~/.aliases ] && . ~/.aliases
+[ -r ~/.fzf.bash ] && . ~/.fzf.bash
 export PATH=$PATH:~/projects/ase/gcc-arm-embedded
