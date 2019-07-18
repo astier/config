@@ -8,6 +8,7 @@ Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf', { 'dir': '~/projects/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': [ 'Buffers', 'Files', 'Tags' ] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'lifepillar/vim-mucomplete'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -50,21 +51,15 @@ nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
 
 " COMPLETION
-fu Completion()
-	let prefix_line = strpart(getline('.'), -1, col('.'))
-	let prefix_word = matchstr(prefix_line, "[^ \t]*$")
-	if (strlen(prefix_word)==0)
-		retu "\<tab>"
-	elsei (match(prefix_word, '\/') != -1)
-		retu "\<c-x>\<c-f>"
-	el
-		retu "\<c-x>\<c-n>"
-	en
-endf
-inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<cr>"
 inoremap <expr> <esc> pumvisible() ? "\<c-e>" : "\<esc>"
-inoremap <expr> <s-tab> pumvisible() ? "\<C-p>" : Completion()
-inoremap <expr> <tab> pumvisible() ? "\<C-n>" : Completion()
+let g:mucomplete#always_use_completeopt = 1
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#minimum_prefix_length = 1
+let g:mucomplete#chains = {
+	\ 'default' : ['path', 'keyn'],
+	\ 'tex'     : ['path', 'omni', 'keyn'],
+	\ 'vim'     : ['path', 'keyn']
+\}
 se completeopt=menuone,noinsert
 se shortmess+=c
 
