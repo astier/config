@@ -10,7 +10,8 @@ Plug 'junegunn/fzf', { 'dir': '~/projects/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': [ 'Buffers', 'Files', 'Tags' ] }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'lifepillar/vim-mucomplete'
+Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -50,6 +51,7 @@ colorscheme nord
 se fillchars+=eob:\ 
 se fillchars+=fold:\ 
 se fillchars+=vert:\ 
+se shortmess+=c
 se signcolumn=yes
 se termguicolors
 
@@ -68,19 +70,6 @@ nnoremap <c-v> "+p
 vnoremap <c-v> dk"+p
 nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
-
-" COMPLETION
-inoremap <expr> <esc> pumvisible() ? "\<c-e>" : "\<esc>"
-let g:mucomplete#always_use_completeopt = 1
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#minimum_prefix_length = 1
-let g:mucomplete#chains = {
-	\ 'default' : ['path', 'keyn'],
-	\ 'tex'     : ['path', 'omni', 'keyn'],
-	\ 'vim'     : ['path', 'keyn']
-\}
-se completeopt=menuone,noinsert
-se shortmess+=c
 
 " FZF
 au filetype fzf se ls=0
