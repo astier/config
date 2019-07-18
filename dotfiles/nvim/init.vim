@@ -47,7 +47,6 @@ let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
-se cursorline
 se fillchars+=eob:\ 
 se fillchars+=fold:\ 
 se fillchars+=vert:\ 
