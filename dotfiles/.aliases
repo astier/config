@@ -115,16 +115,14 @@ alias myo="cd ~/Dropbox/uni/s3/myo"
 alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
 alias an="cd ~/Dropbox/Notes"
-alias anb="cd ~/Dropbox/notes && \$EDITOR bugs"
 alias ani="cd ~/Dropbox/notes && \$EDITOR ideas"
-alias anl="cd ~/Dropbox/notes && \$EDITOR learn"
-alias ann="cd ~/Dropbox/notes && \$EDITOR notes"
 alias anp="cd ~/Dropbox/notes && \$EDITOR pms.md"
 alias at="cd ~/Dropbox/notes && \$EDITOR todo"
 
 alias ap="cd ~/projects"
 alias aar="cd ~/projects/arch"
 alias asc="cd ~/projects/scripts/scripts"
+
 alias asu="cd ~/projects/suckless"
 alias adm="cd ~/projects/suckless/dmenu"
 alias adw="cd ~/projects/suckless/dwm"
