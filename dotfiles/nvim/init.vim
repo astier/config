@@ -79,7 +79,7 @@ nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>t :Tags<cr>
 
 " KILL
-nnoremap <leader>s <c-z>
+nnoremap <leader>z <c-z>
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :bd<cr>
 nnoremap <silent> <leader>q :qa<cr>
@@ -98,7 +98,8 @@ let g:loaded_zipPlugin= 1
 " MAPPINGS
 nnoremap <cr> o<esc>
 nnoremap g<cr> O<esc>
-nnoremap <leader>w <c-w>
+nnoremap <leader>s <c-w>s
+nnoremap <leader>v <c-w>v
 nnoremap <silent> gs vip:sort u<cr>
 vnoremap <silent> gs :sort u<cr>
 nnoremap <silent> <leader>g :Goyo<cr>
