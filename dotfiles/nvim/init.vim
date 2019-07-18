@@ -1,5 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
+Plug '907th/vim-auto-save'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
@@ -56,8 +57,8 @@ se termguicolors
 " AUTOCOMMANDS
 au bufenter * se fo-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
+au bufwritepost * GitGutter
 au focusgained,bufenter,vimresume * checkt
-au focuslost * sil! wa
 au vimresized * wincmd =
 
 " CLIPBOARD
@@ -131,15 +132,18 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 nnoremap <silent> <leader>e :Explore<cr>
 
-" SETTINGS
-se autowriteall
+" SAVE
+let g:auto_save = 1
+let g:auto_save_silent = 1
 se confirm
+se noswapfile
+
+" SETTINGS
 se mouse=a
 se path+=**
 se path-=/usr/include
 se splitbelow splitright
 se tabstop=4 shiftwidth=4
-se updatetime=100
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " SEARCH & REPLACE
