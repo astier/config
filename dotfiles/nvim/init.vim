@@ -35,6 +35,24 @@ let g:ale_fixers = {
 	\ 'sh': ['shfmt'],
 \}
 
+" APPEARANCE
+let g:indentLine_char = '▏'
+let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
+let g:nord_bold = 0
+let g:nord_bold_vertical_split_line = 1
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
+let g:nord_uniform_diff_background = 1
+let g:nord_uniform_status_lines = 1
+colorscheme nord
+se cursorline
+se fillchars+=eob:\ 
+se fillchars+=fold:\ 
+se fillchars+=vert:\ 
+se signcolumn=yes
+se termguicolors
+
 " AUTOCOMMANDS
 au bufenter * se fo-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
@@ -63,24 +81,6 @@ let g:mucomplete#chains = {
 \}
 se completeopt=menuone,noinsert
 se shortmess+=c
-
-" APPEARANCE
-let g:indentLine_char = '▏'
-let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
-let g:nord_bold = 0
-let g:nord_bold_vertical_split_line = 1
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-let g:nord_underline = 1
-let g:nord_uniform_diff_background = 1
-let g:nord_uniform_status_lines = 1
-colorscheme nord
-se cursorline
-se fillchars+=eob:\ 
-se fillchars+=fold:\ 
-se fillchars+=vert:\ 
-se signcolumn=yes
-se termguicolors
 
 " FZF
 au filetype fzf se ls=0
