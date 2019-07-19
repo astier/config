@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=xmodmap
+Comment=Load .Xmodmap
+Exec=xmodmap /home/aleks/.Xmodmap
