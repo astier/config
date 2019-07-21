@@ -185,7 +185,7 @@ let g:vimtex_compiler_latexmk = {
 	\ 'background' : 1,
 	\ 'build_dir' : 'tex',
 	\ 'callback' : 1,
-	\ 'continuous' : 1,
+	\ 'continuous' : 0,
 	\ 'executable' : 'latexmk',
 	\ 'options' : [
 		\ '-verbose',
