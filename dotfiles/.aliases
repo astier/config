@@ -29,24 +29,6 @@ d() { if [ $# -eq 0 ]; then clear; else rm "$@"; fi; }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
 flash() { sudo dd bs=4M if="$2" of="$1" status=progress oflag=sync; }
 
-i() {
-	if [ $# -eq 0 ]; then
-		yay -Slq | fzf -m --preview 'yay -Si {1}' > /tmp/i
-		xargs -ra /tmp/i yay -S
-	else
-		yay -S "$@"
-	fi
-}
-
-r() {
-	if [ $# -eq 0 ]; then
-		yay -Qetq | fzf -m --preview 'yay -Qi {1}' > /tmp/r
-		xargs -ra /tmp/r yay -Rns
-	else
-		yay -Rns "$@"
-	fi
-}
-
 # SHORTCUTS
 alias c="cat"
 alias da="cd; clear"
@@ -67,7 +49,7 @@ alias py="python"
 alias re="sudo \$(fc -ln -1)"
 alias s="sudo"
 alias to="touch"
-alias u="utils -u && yay"
+alias u="utils -u && pacman -Syu"
 
 # TMUX
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
