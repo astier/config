@@ -118,6 +118,7 @@ alias aa="cd ~/projects/arch"
 alias aaa="cd ~/projects/arch && \$EDITOR base.sh desktop.sh"
 alias aab="cd ~/projects/arch && \$EDITOR base.sh"
 alias aad="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias aur="cd ~/projects/aur"
 alias asc="cd ~/projects/scripts/scripts"
 
 alias asu="cd ~/projects/suckless"
