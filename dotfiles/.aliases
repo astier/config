@@ -18,6 +18,7 @@ alias mount="sudo mount"
 alias mv="mv -i"
 alias pacman="sudo pacman"
 alias shfmt="shfmt -ci -sr -p -s"
+alias sudo="sudo "
 alias rm="rm -fr"
 alias top="top -1 -u \$USER"
 alias umount="sudo umount"
@@ -31,7 +32,7 @@ flash() { sudo dd bs=4M if="$2" of="$1" status=progress oflag=sync; }
 i() {
 	if [ $# -eq 0 ]; then
 		yay -Slq | fzf -m --preview 'yay -Si {1}' > /tmp/i
-		xargs -ra /tmp/pi yay -S
+		xargs -ra /tmp/i yay -S
 	else
 		yay -S "$@"
 	fi
@@ -40,7 +41,7 @@ i() {
 r() {
 	if [ $# -eq 0 ]; then
 		yay -Qetq | fzf -m --preview 'yay -Qi {1}' > /tmp/r
-		xargs -ra /tmp/pd yay -Rns
+		xargs -ra /tmp/r yay -Rns
 	else
 		yay -Rns "$@"
 	fi
