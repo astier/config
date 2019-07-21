@@ -1,23 +1,23 @@
 call plug#begin('~/.local/share/nvim/plugins')
 
 Plug '907th/vim-auto-save'
-Plug 'SirVer/ultisnips', { 'for': [ 'snippets', 'tex' ] }
+Plug 'SirVer/ultisnips', { 'for': ['snippets', 'tex'] }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'christoomey/vim-tmux-navigator', { 'on': [ 'TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp' ] }
+Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf', { 'dir': '~/projects/fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim', { 'on': [ 'Buffers', 'Files', 'Tags' ] }
+Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'w0rp/ale', { 'for': [ 'sh', 'tex', 'zsh' ] }
+Plug 'w0rp/ale', { 'for': ['sh', 'tex'] }
 
 call plug#end()
 
