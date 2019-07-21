@@ -28,13 +28,28 @@ d() { if [ $# -eq 0 ]; then clear; else rm "$@"; fi; }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
 flash() { sudo dd bs=4M if="$2" of="$1" status=progress oflag=sync; }
 
+i() {
+	if [ $# -eq 0 ]; then
+		yay -Slq | fzf -m --preview 'yay -Si {1}' > /tmp/pi; xargs -ra /tmp/pi yay -S
+	else
+		yay -S "$@"
+	fi
+}
+
+r() {
+	if [ $# -eq 0 ]; then
+		yay -Qetq | fzf -m --preview 'yay -Qi {1}' > /tmp/pd; xargs -ra /tmp/pd yay -Rns
+	else
+		yay -Rns "$@"
+	fi
+}
+
 # SHORTCUTS
 alias c="cat"
 alias da="cd; clear"
 alias dl="clear; ls"
 alias e="exit"
 alias f="fg"
-alias i="yay -Slq | fzf -m --preview 'yay -Si {1}' > /tmp/pi; xargs -ra /tmp/pi yay -S"
 alias l="ls"
 alias lb="lsblk"
 alias ll="ls -l"
@@ -46,7 +61,6 @@ alias p="cp"
 alias pa="patch -p1 <"
 alias pm="pulsemixer"
 alias py="python"
-alias r="yay -Qetq | fzf -m --preview 'yay -Qi {1}' > /tmp/pd; xargs -ra /tmp/pd yay -Rns"
 alias re="sudo \$(fc -ln -1)"
 alias s="sudo"
 alias to="touch"
