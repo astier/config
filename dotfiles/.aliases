@@ -30,7 +30,8 @@ flash() { sudo dd bs=4M if="$2" of="$1" status=progress oflag=sync; }
 
 i() {
 	if [ $# -eq 0 ]; then
-		yay -Slq | fzf -m --preview 'yay -Si {1}' > /tmp/pi; xargs -ra /tmp/pi yay -S
+		yay -Slq | fzf -m --preview 'yay -Si {1}' > /tmp/i
+		xargs -ra /tmp/pi yay -S
 	else
 		yay -S "$@"
 	fi
@@ -38,7 +39,8 @@ i() {
 
 r() {
 	if [ $# -eq 0 ]; then
-		yay -Qetq | fzf -m --preview 'yay -Qi {1}' > /tmp/pd; xargs -ra /tmp/pd yay -Rns
+		yay -Qetq | fzf -m --preview 'yay -Qi {1}' > /tmp/r
+		xargs -ra /tmp/pd yay -Rns
 	else
 		yay -Rns "$@"
 	fi
@@ -163,7 +165,12 @@ alias gc="git commit"
 alias gca="git add --all && git commit"
 alias gcr="git commit -am tmp && git rebase -i HEAD~2"
 
-g() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+g() {
+	n=16
+	[ "$#" != 0 ] && n=$1
+	git log --all --graph --decorate --oneline -n"$n"
+}
+
 alias gg="git log --all --graph --decorate --oneline"
 alias ggg="git log --oneline --grep"
 alias gl="git log --date=auto:human"
@@ -180,7 +187,12 @@ alias gpl="git pull"
 alias gps="git push"
 alias gpsf="git push -f"
 
-grh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
+grh() {
+	n=0
+	[ "$#" != 0 ] && n=$1
+	git reset --hard HEAD~"$n"
+}
+
 alias gcn="git clean -f"
 alias grb="git rebase -i"
 alias grr="git reset --hard; git clean -f"
