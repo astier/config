@@ -122,16 +122,12 @@ alias iof="sudo ip link set dev wlan0 down"
 alias ion="sudo ip link set dev wlan0 up"
 
 alias add="cd ~/Dropbox"
-alias api="cd ~/Dropbox/pictures"
-alias apw="cd ~/Dropbox/pictures/wallpapers"
-
 alias au="cd ~/Dropbox/uni"
 alias ase="cd ~/Dropbox/uni/s4/ase/exercises/2"
 alias myo="cd ~/Dropbox/uni/s3/myo"
 alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
 alias an="cd ~/Dropbox/Notes"
-alias ani="cd ~/Dropbox/notes && \$EDITOR ideas"
 alias anp="cd ~/Dropbox/notes && \$EDITOR pms.md"
 alias at="cd ~/Dropbox/notes && \$EDITOR todo"
 
