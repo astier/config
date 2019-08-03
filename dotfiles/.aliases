@@ -48,7 +48,7 @@ alias pm="pulsemixer"
 alias py="python"
 alias re="sudo \$(fc -ln -1)"
 alias to="touch"
-alias u="utils -u && yay"
+alias u="sudo reflector -p https -f16 -l8 --score 4 --sort rate --save /etc/pacman.d/mirrorlist && yay"
 
 # TMUX
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
