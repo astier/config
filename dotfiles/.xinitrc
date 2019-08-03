@@ -10,8 +10,4 @@ if [ -d $XINITRC ]; then
 	unset f
 fi
 
-bstatus
-firefox &
-st &
-xcompmgr &
-exec dwm
+exec cinnamon-session
