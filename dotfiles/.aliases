@@ -99,8 +99,6 @@ alias att="\$EDITOR /tmp/scratch"
 
 alias s="tstatus"
 alias ii="networkctl"
-alias iof="sudo ip link set dev wlan0 down"
-alias ion="sudo ip link set dev wlan0 up"
 
 alias add="cd ~/Dropbox"
 alias ase="cd ~/Dropbox/uni/s4/ase/exercises/2"
@@ -114,7 +112,6 @@ alias aa="cd ~/projects/arch"
 alias aaa="cd ~/projects/arch && \$EDITOR base.sh desktop.sh"
 alias aab="cd ~/projects/arch && \$EDITOR base.sh"
 alias aad="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias aur="cd ~/projects/aur"
 alias asc="cd ~/projects/scripts/scripts"
 
 alias aal="\$EDITOR ~/.aliases && . ~/.aliases"
