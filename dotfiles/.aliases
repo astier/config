@@ -109,6 +109,7 @@ alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
 alias ap="cd ~/projects"
 alias aa="cd ~/projects/arch"
+alias ast="cd ~/projects/st"
 alias aaa="cd ~/projects/arch && \$EDITOR base.sh desktop.sh"
 alias aab="cd ~/projects/arch && \$EDITOR base.sh"
 alias aad="cd ~/projects/arch && \$EDITOR desktop.sh"
