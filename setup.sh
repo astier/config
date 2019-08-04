@@ -21,7 +21,6 @@ install bash/.inputrc ~
 install git ~/.config
 install gtk-3.0 ~/.config
 install nvim ~/.config
-install termite ~/.config
 
 install mkinitcpio.conf /etc
 install pacman.conf /etc
