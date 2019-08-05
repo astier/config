@@ -63,6 +63,8 @@ au focusgained,bufenter,vimresume * checkt
 au vimresized * wincmd =
 
 " CLIPBOARD
+nnoremap <RightMouse> "+p
+vnoremap <RightMouse> "+y
 nnoremap <c-c> "+yy
 vnoremap <c-c> "+y
 inoremap <c-v> <esc>"+pa
