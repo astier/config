@@ -1,0 +1,13 @@
+mod5 + {comma,period}
+	light -{U,A} 16
+mod5 + slash
+	light -S 100
+
+mod5 + {i,o}
+	pulsemixer --change-volume {-,+}4
+
+mod5 + f
+	dmenu_run
+
+mod5 + r
+	pkill -SIGUSR1 sxhkd

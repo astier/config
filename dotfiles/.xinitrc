@@ -10,4 +10,5 @@ if [ -d $XINITRC ]; then
 	unset f
 fi
 
+sxhkd &
 exec cinnamon-session
