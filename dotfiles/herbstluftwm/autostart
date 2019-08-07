@@ -11,14 +11,14 @@ super=Mod4
 # kill
 herbstclient keybind $mod-Shift-q quit
 herbstclient keybind $mod-Shift-r reload
-herbstclient keybind $mod-c close
+herbstclient keybind $super-c close
 
 # focusing clients
 herbstclient keybind $mod-h	focus left
 herbstclient keybind $mod-l	focus right
 herbstclient keybind $mod-j focus down
 herbstclient keybind $mod-k focus up
-herbstclient keybind $mod-n cycle
+herbstclient keybind $super-f cycle
 
 # moving clients
 herbstclient keybind $mod-Control-h shift left
