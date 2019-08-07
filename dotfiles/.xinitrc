@@ -10,5 +10,8 @@ if [ -d $XINITRC ]; then
 	unset f
 fi
 
+bstatus
+dunst &
 sxhkd &
-exec cinnamon-session
+xcompmgr &
+exec herbstluftwm
