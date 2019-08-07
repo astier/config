@@ -20,6 +20,7 @@ install bash/.inputrc ~
 
 install git ~/.config
 install gtk-3.0 ~/.config
+install herbstluftwm ~/.config
 install nvim ~/.config
 install sxhkd ~/.config
 
