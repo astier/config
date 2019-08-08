@@ -1,13 +1,10 @@
+mod4 + shift + r
+	pkill -SIGUSR1 sxhkd
 mod4 + {s,d}
 	light -{U,A} 16
 mod4 + a
 	light -S 100
-
-mod4 + {w,e}
+mod4 + shift + {s,d}
 	pulsemixer --change-volume {-,+}4
-
 mod5 + {f,Return}
 	{dmenu_run,st}
-
-mod4 + shift + r
-	pkill -SIGUSR1 sxhkd

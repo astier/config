@@ -16,9 +16,8 @@ herbstclient keybind $super-c close
 # focusing clients
 herbstclient keybind $mod-h	focus left
 herbstclient keybind $mod-l	focus right
-herbstclient keybind $mod-j focus down
-herbstclient keybind $mod-k focus up
-herbstclient keybind $super-f cycle
+herbstclient keybind $super-e cycle -1
+herbstclient keybind $super-r cycle +1
 
 # moving clients
 herbstclient keybind $mod-Control-h shift left
@@ -27,12 +26,9 @@ herbstclient keybind $mod-Control-k shift up
 herbstclient keybind $mod-Control-l shift right
 
 # frames
-resizestep=0.01
+resizestep=0.02
 herbstclient keybind $mod-Shift-h resize left +$resizestep
 herbstclient keybind $mod-Shift-l resize right +$resizestep
-herbstclient keybind $mod-Shift-s split right  0.5
-herbstclient keybind $mod-Shift-v split bottom 0.5
-herbstclient keybind $mod-Control-r remove
 
 # tags
 tag_names=( {1..2} )
@@ -42,15 +38,15 @@ for i in "${!tag_names[@]}" ; do
 	herbstclient add "${tag_names[$i]}"
 	key="${tag_keys[$i]}"
 	if [ -n "$key" ] ; then
-		herbstclient keybind "$mod-Control-$key" use_index "$i"
+		herbstclient keybind "$mod-$key" use_index "$i"
 		herbstclient keybind "$mod-Shift-$key" move_index "$i"
 	fi
 done
-herbstclient keybind $mod-Shift-period use_index +1 --skip-visible
-herbstclient keybind $mod-Shift-comma  use_index -1 --skip-visible
+herbstclient keybind $mod-i use_index -1 --skip-visible
+herbstclient keybind $mod-o use_index +1 --skip-visible
 
 # layouts
-herbstclient keybind $mod-m spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
+herbstclient keybind $super-f spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
 herbstclient keybind $mod-s spawn /usr/share/doc/herbstluftwm/examples/scratchpad.sh
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
@@ -60,7 +56,7 @@ herbstclient set default_frame_layout 2
 
 # mouse
 herbstclient mouseunbind --all
-herbstclient mousebind $super-Button3 resize
+herbstclient mousebind $super-Button1 resize
 herbstclient set focus_follows_mouse 1
 
 # theme
