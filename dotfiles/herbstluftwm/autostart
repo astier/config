@@ -55,13 +55,11 @@ herbstclient keybind $mod-s spawn /usr/share/doc/herbstluftwm/examples/scratchpa
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
-herbstclient keybind $mod-space cycle_layout 1 max vertical
+herbstclient keybind $super-q cycle_layout 1 max vertical
 herbstclient set default_frame_layout 2
 
 # mouse
 herbstclient mouseunbind --all
-herbstclient mousebind $super-Button1 move
-herbstclient mousebind $super-Button2 zoom
 herbstclient mousebind $super-Button3 resize
 herbstclient set focus_follows_mouse 1
 
