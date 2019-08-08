@@ -12,7 +12,6 @@ fi
 
 b -l
 bstatus
-dunst &
 sxhkd &
 xcompmgr &
 exec herbstluftwm
