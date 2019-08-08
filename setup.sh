@@ -24,7 +24,6 @@ install herbstluftwm ~/.config
 install nvim ~/.config
 install sxhkd ~/.config
 
-install mkinitcpio.conf /etc
 install pacman.conf /etc
 
 sudo iptables-restore < iptables.rules &&
