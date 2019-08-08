@@ -38,7 +38,7 @@ for i in "${!tag_names[@]}" ; do
 	herbstclient add "${tag_names[$i]}"
 	key="${tag_keys[$i]}"
 	if [ -n "$key" ] ; then
-		herbstclient keybind "$mod-$key" use_index "$i"
+		herbstclient keybind "$super-$key" use_index "$i"
 		herbstclient keybind "$mod-Shift-$key" move_index "$i"
 	fi
 done
@@ -103,8 +103,8 @@ herbstclient rule class~.* index=0
 herbstclient rule class~'.*Nautilus|jetbrains-clion|st-256color' index=1
 
 if herbstclient silent new_attr bool my_not_first_autostart ; then
-	herbstclient load 1 '(split horizontal:0.540000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
-	herbstclient load 2 '(split horizontal:0.540000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
+	herbstclient load 1 '(split horizontal:0.545000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
+	herbstclient load 2 '(split horizontal:0.545000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
 	herbstclient spawn "$BROWSER"
 	herbstclient spawn "$TERMINAL"
 fi
