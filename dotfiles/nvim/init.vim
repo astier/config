@@ -10,8 +10,10 @@ Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'moll/vim-bbye', { 'on': 'Bd' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -83,7 +85,7 @@ nnoremap <silent> <leader>t :Tags<cr>
 " KILL
 nnoremap <leader>z <c-z>
 nnoremap <silent> <leader>c :clo<cr>
-nnoremap <silent> <leader>d :bd<cr>
+nnoremap <silent> <leader>d :Bd<cr>
 nnoremap <silent> <leader>q :qa<cr>
 
 " LOADED
@@ -119,6 +121,19 @@ nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
+
+" NERDTREE
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/.NERDTreeBookmarks'
+let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', 'tex']
+let g:NERDTreeMinimalMenu = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeQuitOnOpen = 2
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeStatusline = 'NERDTree'
+nnoremap <silent> <leader>e :NERDTreeToggle<cr><c-w>=
 
 " SAVE
 let g:auto_save = 1
