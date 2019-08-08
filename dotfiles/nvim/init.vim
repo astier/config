@@ -88,6 +88,8 @@ nnoremap <silent> <leader>q :qa<cr>
 
 " LOADED
 let g:loaded_gzip = 1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 let g:loaded_node_provider = 1
 let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
@@ -117,11 +119,6 @@ nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
-
-" NETRW
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-nnoremap <silent> <leader>e :Explore<cr>
 
 " SAVE
 let g:auto_save = 1
