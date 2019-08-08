@@ -10,6 +10,7 @@ if [ -d $XINITRC ]; then
 	unset f
 fi
 
+b -l
 bstatus
 dunst &
 sxhkd &

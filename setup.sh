@@ -18,6 +18,7 @@ install bash/.bash_profile ~
 install bash/.bashrc ~
 install bash/.inputrc ~
 
+install feh ~/.config/
 install git ~/.config
 install gtk-3.0 ~/.config
 install herbstluftwm ~/.config
