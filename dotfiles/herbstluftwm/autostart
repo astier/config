@@ -103,7 +103,8 @@ herbstclient rule class~.* index=0
 herbstclient rule class~'.*Nautilus|jetbrains-clion|st-256color' index=1
 
 if herbstclient silent new_attr bool my_not_first_autostart ; then
-	herbstclient load '(split horizontal:0.540000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
+	herbstclient load 1 '(split horizontal:0.540000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
+	herbstclient load 2 '(split horizontal:0.540000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
 	herbstclient spawn "$BROWSER"
 	herbstclient spawn "$TERMINAL"
 fi
