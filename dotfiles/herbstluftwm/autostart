@@ -105,7 +105,7 @@ herbstclient rule focus=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 herbstclient rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
-herbstclient rule not class~'.*Nautilus|st-256color' index=0
+herbstclient rule class~.* index=0
 herbstclient rule class~'.*Nautilus|jetbrains-clion|st-256color' index=1
 
 if herbstclient silent new_attr bool my_not_first_autostart ; then
