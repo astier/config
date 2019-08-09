@@ -1,100 +1,55 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-# prepare
+# PREPARE
 herbstclient emit_hook reload
 herbstclient keyunbind --all
-
-# keys
 mod=Mod5
 super=Mod4
 
-# kill
+# FAKEFULLSCREEN
+herbstclient keybind $super-x substitute FSRESTORE clients.focus.fullscreen chain , fullscreen on , attr clients.focus.ewmhrequests off , attr clients.focus.ewmhnotify toggle , spawn herbstclient fullscreen FSRESTORE
+
+# KILL
 herbstclient keybind $mod-Shift-q quit
 herbstclient keybind $mod-Shift-r reload
-herbstclient keybind $super-c close
+herbstclient keybind $super-q close
 
-# focusing clients
-herbstclient keybind $mod-h	focus left
-herbstclient keybind $mod-l	focus right
-herbstclient keybind $super-e cycle -1
-herbstclient keybind $super-r cycle +1
+# LAYOUTS
+herbstclient keybind $super-c cycle_layout 1 max vertical
+herbstclient keybind $super-f spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
+herbstclient keybind $mod-y pseudotile toggle
+herbstclient set default_frame_layout 2
+herbstclient set tree_style '╾│ ├└╼─┐'
 
-# moving clients
+# MONITORS
+herbstclient detect_monitors
+herbstclient keybind $mod-BackSpace cycle_monitor
+
+# MOUSE
+herbstclient mouseunbind --all
+herbstclient mousebind $super-Button1 resize
+herbstclient set focus_follows_mouse 1
+
+# MOVING
 herbstclient keybind $mod-Control-h shift left
 herbstclient keybind $mod-Control-j shift down
 herbstclient keybind $mod-Control-k shift up
 herbstclient keybind $mod-Control-l shift right
 
-# frames
+# NAVIGATION
+herbstclient keybind $mod-h	focus left
+herbstclient keybind $mod-l	focus right
+herbstclient keybind $super-e cycle -1
+herbstclient keybind $super-r cycle +1
+herbstclient keybind $mod-k cycle -1
+herbstclient keybind $mod-j cycle +1
+
+# RESIZING
 resizestep=0.02
-herbstclient keybind $mod-Shift-h resize left +$resizestep
-herbstclient keybind $mod-Shift-l resize right +$resizestep
+herbstclient keybind $mod-Shift-h resize left $resizestep
+herbstclient keybind $mod-Shift-l resize right $resizestep
 
-# tags
-tag_names=( {1..2} )
-tag_keys=( {1..2} 0 )
-herbstclient rename default "${tag_names[0]}" || true
-for i in "${!tag_names[@]}" ; do
-	herbstclient add "${tag_names[$i]}"
-	key="${tag_keys[$i]}"
-	if [ -n "$key" ] ; then
-		herbstclient keybind "$super-$key" use_index "$i"
-		herbstclient keybind "$mod-Shift-$key" move_index "$i"
-	fi
-done
-herbstclient keybind $mod-i use_index -1 --skip-visible
-herbstclient keybind $mod-o use_index +1 --skip-visible
-
-# layouts
-herbstclient keybind $super-f spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
-herbstclient keybind $mod-s spawn /usr/share/doc/herbstluftwm/examples/scratchpad.sh
-# The following cycles through the available layouts within a frame, but skips
-# layouts, if the layout change wouldn't affect the actual window positions.
-# I.e. if there are two windows within a frame, the grid layout is skipped.
-herbstclient keybind $super-q cycle_layout 1 max vertical
-herbstclient set default_frame_layout 2
-
-# mouse
-herbstclient mouseunbind --all
-herbstclient mousebind $super-Button1 resize
-herbstclient set focus_follows_mouse 1
-
-# theme
-herbstclient attr theme.tiling.reset 1
-herbstclient attr theme.floating.reset 1
-herbstclient set frame_border_active_color '#222222'
-herbstclient set frame_border_normal_color '#101010'
-herbstclient set frame_bg_normal_color '#565656'
-herbstclient set frame_bg_active_color '#5294e2'
-herbstclient set frame_border_width 0
-herbstclient set always_show_frame 1
-herbstclient set frame_active_opacity 1
-herbstclient set frame_normal_opacity 1
-herbstclient set frame_bg_transparent 1
-herbstclient set frame_transparent_width 0
-herbstclient set frame_gap 0
-
-herbstclient attr theme.active.color '#000000'
-herbstclient attr theme.normal.color '#000000'
-herbstclient attr theme.urgent.color orange
-herbstclient attr theme.inner_width 0
-herbstclient attr theme.inner_color black
-herbstclient attr theme.border_width 1
-herbstclient attr theme.floating.border_width 2
-herbstclient attr theme.floating.outer_width 0
-herbstclient attr theme.floating.outer_color black
-herbstclient attr theme.active.inner_color '#3E4A00'
-herbstclient attr theme.active.outer_color '#3E4A00'
-herbstclient attr theme.background_color '#141414'
-
-herbstclient set window_gap 0
-herbstclient set frame_padding 0
-herbstclient set smart_frame_surroundings 1
-herbstclient set smart_window_surroundings 0
-herbstclient set mouse_recenter_gap 0
-herbstclient set tree_style '╾│ ├└╼─┐'
-
-# rules
+# RULES
 herbstclient unrule -F
 herbstclient rule focus=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
@@ -103,24 +58,26 @@ herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' m
 herbstclient rule class~.* index=0
 herbstclient rule class~'.*Nautilus|jetbrains-clion|st-256color' index=1
 
+# TAGS
+herbstclient rename default 1
+herbstclient add 2
+herbstclient keybind $mod-Shift-i move 1
+herbstclient keybind $mod-Shift-o move 2
+herbstclient keybind $mod-i use 1
+herbstclient keybind $mod-o use 2
+
+# THEME
+herbstclient attr theme.floating.reset 1
+herbstclient attr theme.tiling.reset 1
+herbstclient attr theme.border_width 1
+herbstclient set frame_border_width 0
+herbstclient set frame_gap 0
+
+# INIT DEFAULT LAYOUT
 if herbstclient silent new_attr bool my_not_first_autostart ; then
 	herbstclient load 1 '(split horizontal:0.545000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
 	herbstclient load 2 '(split horizontal:0.545000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
 	herbstclient spawn "$BROWSER"
 	herbstclient spawn "$TERMINAL"
 fi
-herbstclient unlock # just to be sure
-
-# do multi monitor setup here, e.g.:
-# herbstclient set_monitors 1280x1024+0+0 1280x1024+1280+0
-# or simply:
-# herbstclient detect_monitors
-herbstclient keybind $mod-BackSpace cycle_monitor
-
-# # find the panel
-# panel=~/.config/herbstluftwm/panel.sh
-# [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
-# for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
-# 	# start it on each monitor
-# 	"$panel" "$monitor" &
-# done
+herbstclient unlock

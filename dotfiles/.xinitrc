@@ -12,4 +12,4 @@ fi
 
 bstatus
 sxhkd &
-exec herbstluftwm
+exec herbstluftwm -l
