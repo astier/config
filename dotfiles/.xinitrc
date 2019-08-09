@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
-[ -r ~/.Xmodmap ] && xmodmap ~/.Xmodmap
+xmodmap -e keycode 47 = Return
+xmodmap -e keycode 36 = colon
+xmodmap -e keycode 107 = semicolon
 
 bstatus
 sxhkd &

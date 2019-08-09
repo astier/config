@@ -9,7 +9,6 @@ install() {
 
 cd dotfiles || exit
 
-install .Xmodmap ~
 install .aliases ~
 install .profile ~
 install .tmux.conf ~
