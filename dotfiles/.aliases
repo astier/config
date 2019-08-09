@@ -114,7 +114,6 @@ alias aad="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias adm="cd ~/projects/dmenu"
 alias ap="cd ~/projects"
 alias asc="cd ~/projects/scripts/scripts"
-alias asi="cd ~/projects/sites"
 alias ast="cd ~/projects/st"
 
 alias aal="\$EDITOR ~/.aliases && . ~/.aliases"
