@@ -10,8 +10,6 @@ if [ -d $XINITRC ]; then
 	unset f
 fi
 
-b -l
 bstatus
 sxhkd &
-xcompmgr &
 exec herbstluftwm
