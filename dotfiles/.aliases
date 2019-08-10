@@ -116,7 +116,7 @@ alias adm="cd ~/projects/dmenu"
 alias adw="cd ~/projects/dwm"
 alias ap="cd ~/projects"
 alias asc="cd ~/projects/scripts/scripts"
-alias ast="cd ~/projects/sites"
+alias asi="cd ~/projects/sites"
 alias ast="cd ~/projects/st"
 
 alias aal="\$EDITOR ~/.aliases && . ~/.aliases"
