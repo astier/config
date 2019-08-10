@@ -12,7 +12,6 @@ cd dotfiles || exit
 install .aliases ~
 install .profile ~
 install .tmux.conf ~
-install .xinitrc ~
 install bash/.bash_profile ~
 install bash/.bashrc ~
 install bash/.inputrc ~
@@ -21,7 +20,9 @@ install git ~/.config
 install gtk-3.0 ~/.config
 install herbstluftwm ~/.config
 install nvim ~/.config
+install sx ~/.config
 install sxhkd ~/.config
+install xkb ~/.config
 
 install pacman.conf /etc
 
