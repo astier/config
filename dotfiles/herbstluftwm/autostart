@@ -6,6 +6,15 @@ herbstclient keyunbind --all
 mod=Mod5
 super=Mod4
 
+# COMMANDS
+herbstclient keybind $mod-Return spawn st
+herbstclient keybind $mod-f spawn dmenu_run
+herbstclient keybind $super-Shift-e spawn pulsemixer --change-volume +4
+herbstclient keybind $super-Shift-w spawn pulsemixer --change-volume -4
+herbstclient keybind $super-e spawn light -A 8
+herbstclient keybind $super-r spawn light -S 100
+herbstclient keybind $super-w spawn light -U 8
+
 # FAKEFULLSCREEN
 herbstclient keybind $super-x substitute FSRESTORE clients.focus.fullscreen chain , fullscreen on , attr clients.focus.ewmhrequests off , attr clients.focus.ewmhnotify toggle , spawn herbstclient fullscreen FSRESTORE
 
@@ -15,7 +24,7 @@ herbstclient keybind $mod-Shift-r reload
 herbstclient keybind $super-q close
 
 # LAYOUTS
-herbstclient keybind $super-c cycle_layout 1 max vertical
+herbstclient keybind $super-a cycle_layout 1 max vertical
 herbstclient keybind $super-f spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
 herbstclient keybind $mod-y pseudotile toggle
 herbstclient set default_frame_layout 2
@@ -39,8 +48,8 @@ herbstclient keybind $mod-Control-l shift right
 # NAVIGATION
 herbstclient keybind $mod-h focus left
 herbstclient keybind $mod-l focus right
-herbstclient keybind $super-e cycle -1
-herbstclient keybind $super-r cycle +1
+herbstclient keybind $super-s cycle -1
+herbstclient keybind $super-d cycle +1
 herbstclient keybind $mod-k cycle -1
 herbstclient keybind $mod-j cycle +1
 

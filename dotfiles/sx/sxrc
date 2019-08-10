@@ -2,5 +2,4 @@
 
 xkbcomp ~/.config/xkb/xkeymap.xkb "$DISPLAY"
 bstatus
-sxhkd &
 exec herbstluftwm -l
