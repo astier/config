@@ -31,6 +31,7 @@ flash() { sudo dd bs=4M if="$2" of="$1" status=progress oflag=sync; }
 
 # SHORTCUTS
 alias c="cat"
+alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc"
 alias da="cd; clear"
 alias dl="clear; ls"
 alias e="exit"
