@@ -120,7 +120,7 @@ alias ast="cd ~/projects/st"
 alias aal="\$EDITOR ~/.aliases && . ~/.aliases"
 alias ad="cd ~/projects/dotfiles/dotfiles"
 alias av="\$EDITOR ~/.config/nvim/init.vim"
-alias ax="\$EDITOR ~/.xinitrc"
+alias ax="\$EDITOR ~/.config/sx/sxrc"
 
 # GIT
 alias ga="git add"
