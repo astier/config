@@ -1,35 +1,35 @@
 [user]
-	email = aleks.stier@icloud.com
-	name = aleks
+    email = aleks.stier@icloud.com
+    name = aleks
 
 [core]
-	editor = nvim
-	excludesfile = ~/.config/git/ignore
+    editor = nvim
+    excludesfile = ~/.config/git/ignore
 
 [credential]
-	helper = cache --timeout=7200
+    helper = cache --timeout=7200
 [credential "https://github.com"]
-	username = astier
+    username = astier
 [credential "https://gitlab.ub.uni-bielefeld.de"]
-	username = astier
+    username = astier
 
 [help]
-	autocorrect = 1
+    autocorrect = 1
 
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [difftool "vimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [mergetool]
-	keepBackup = false
+    keepBackup = false
 [mergetool "vimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [sendemail]
-	smtpencryption = tls
-	smtpserver = smtp.mail.me.com
-	smtpserverport = 587
-	smtpuser = aleks.stier@icloud.com
+    smtpencryption = tls
+    smtpserver = smtp.mail.me.com
+    smtpserverport = 587
+    smtpuser = aleks.stier@icloud.com

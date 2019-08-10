@@ -37,8 +37,8 @@ herbstclient keybind $mod-Control-k shift up
 herbstclient keybind $mod-Control-l shift right
 
 # NAVIGATION
-herbstclient keybind $mod-h	focus left
-herbstclient keybind $mod-l	focus right
+herbstclient keybind $mod-h focus left
+herbstclient keybind $mod-l focus right
 herbstclient keybind $super-e cycle -1
 herbstclient keybind $super-r cycle +1
 herbstclient keybind $mod-k cycle -1
@@ -75,9 +75,9 @@ herbstclient set frame_gap 0
 
 # INIT DEFAULT LAYOUT
 if herbstclient silent new_attr bool my_not_first_autostart ; then
-	herbstclient load 1 '(split horizontal:0.545000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
-	herbstclient load 2 '(split horizontal:0.545000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
-	herbstclient spawn "$BROWSER"
-	herbstclient spawn "$TERMINAL"
+    herbstclient load 1 '(split horizontal:0.545000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
+    herbstclient load 2 '(split horizontal:0.545000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
+    herbstclient spawn "$BROWSER"
+    herbstclient spawn "$TERMINAL"
 fi
 herbstclient unlock

@@ -1,8 +1,8 @@
 {
 
-	"coc.source.file.ignoreHidden": false,
-	"diagnostic.enable": false,
-	"suggest.maxCompleteItemCount": 8,
-	"suggest.noselect": false,
+    "coc.source.file.ignoreHidden": false,
+    "diagnostic.enable": false,
+    "suggest.maxCompleteItemCount": 8,
+    "suggest.noselect": false,
 
 }

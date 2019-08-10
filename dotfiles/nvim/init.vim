@@ -36,8 +36,8 @@ let g:ale_echo_msg_info_str = 'I'
 let g:ale_echo_msg_format = '[%linter%][%severity%][%code%] %s'
 let g:ale_sh_shfmt_options = '-ci -sr -p -s'
 let g:ale_fixers = {
-	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-	\ 'sh': ['shfmt'],
+    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \ 'sh': ['shfmt'],
 \}
 
 " APPEARANCE
@@ -107,6 +107,7 @@ nnoremap <cr> o<esc>
 nnoremap g<cr> O<esc>
 nnoremap <leader>s <c-w>s
 nnoremap <leader>v <c-w>v
+nnoremap <silent> <leader>i :%retab<cr>
 nnoremap <silent> gs vip:sort u<cr>
 vnoremap <silent> gs :sort u<cr>
 nnoremap <silent> <leader>g :Goyo<cr>
@@ -195,16 +196,16 @@ se breakindent linebreak
 au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 let g:vimtex_view_general_viewer = 'firefox'
 let g:vimtex_compiler_latexmk = {
-	\ 'backend' : 'nvim',
-	\ 'background' : 1,
-	\ 'build_dir' : 'tex',
-	\ 'callback' : 1,
-	\ 'continuous' : 0,
-	\ 'executable' : 'latexmk',
-	\ 'options' : [
-		\ '-verbose',
-		\ '-file-line-error',
-		\ '-synctex=0',
-		\ '-interaction=nonstopmode'
-	\ ],
+    \ 'backend' : 'nvim',
+    \ 'background' : 1,
+    \ 'build_dir' : 'tex',
+    \ 'callback' : 1,
+    \ 'continuous' : 0,
+    \ 'executable' : 'latexmk',
+    \ 'options' : [
+        \ '-verbose',
+        \ '-file-line-error',
+        \ '-synctex=0',
+        \ '-interaction=nonstopmode'
+    \ ],
 \}

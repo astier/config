@@ -70,23 +70,23 @@ alias sr="reboot"
 
 # APERIRE. Similar to xdg-open but does what I actually want and is faster.
 a() {
-	[ $# -eq 0 ] && cd && ls && return
-	[ -d "$1" ] && cd "$@" && return
-	[ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
-	mimetype=$(file -bL --mime-type "$1")
-	mime=$(echo "$mimetype" | cut -d/ -f1)
-	case $mime in
-		"text") $EDITOR "$@" && return ;;
-		"image") $BROWSER "$@" && return ;;
-		"video") $BROWSER "$@" && return ;;
-		"audio") $BROWSER "$@" && return ;;
-	esac
-	case $mimetype in
-		"application/json") $EDITOR "$@" ;;
-		"inode/x-empty") $EDITOR "$@" ;;
-		"application/pdf") $BROWSER "$@" ;;
-		*) echo No association with mimetype: "$mimetype" >&2 ;;
-	esac
+    [ $# -eq 0 ] && cd && ls && return
+    [ -d "$1" ] && cd "$@" && return
+    [ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
+    mimetype=$(file -bL --mime-type "$1")
+    mime=$(echo "$mimetype" | cut -d/ -f1)
+    case $mime in
+        "text") $EDITOR "$@" && return ;;
+        "image") $BROWSER "$@" && return ;;
+        "video") $BROWSER "$@" && return ;;
+        "audio") $BROWSER "$@" && return ;;
+    esac
+    case $mimetype in
+        "application/json") $EDITOR "$@" ;;
+        "inode/x-empty") $EDITOR "$@" ;;
+        "application/pdf") $BROWSER "$@" ;;
+        *) echo No association with mimetype: "$mimetype" >&2 ;;
+    esac
 }
 
 # BOOKMARKS (ar and as are already existing commands)
@@ -139,9 +139,9 @@ alias gca="git add --all && git commit"
 alias gcr="git commit -am tmp && git rebase -i HEAD~2"
 
 g() {
-	n=16
-	[ "$#" != 0 ] && n=$1
-	git log --all --graph --decorate --oneline -n"$n"
+    n=16
+    [ "$#" != 0 ] && n=$1
+    git log --all --graph --decorate --oneline -n"$n"
 }
 
 alias gg="git log --all --graph --decorate --oneline"
@@ -161,9 +161,9 @@ alias gps="git push"
 alias gpsf="git push -f"
 
 grh() {
-	n=0
-	[ "$#" != 0 ] && n=$1
-	git reset --hard HEAD~"$n"
+    n=0
+    [ "$#" != 0 ] && n=$1
+    git reset --hard HEAD~"$n"
 }
 
 alias gcn="git clean -f"
