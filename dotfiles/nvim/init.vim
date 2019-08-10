@@ -143,11 +143,11 @@ se confirm
 se noswapfile
 
 " SETTINGS
+se expandtab shiftwidth=4 tabstop=4
 se mouse=a
 se path+=**
 se path-=/usr/include
 se splitbelow splitright
-se tabstop=4 shiftwidth=4
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " SEARCH & REPLACE
