@@ -14,6 +14,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye', { 'on': 'Bd' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -191,6 +192,11 @@ nnoremap 0 g0
 nnoremap j gj
 nnoremap k gk
 se breakindent linebreak
+
+" BETTER-WHITESPACE
+let g:better_whitespace_filetypes_blacklist = ['help']
+let g:show_spaces_that_precede_tabs=1
+let g:strip_whitelines_at_eof=1
 
 " VIMTEX
 au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
