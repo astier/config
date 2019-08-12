@@ -85,7 +85,7 @@ nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>t :Tags<cr>
 
 " KILL
-nnoremap <leader>z <c-z>
+nnoremap <leader>s <c-z>
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :Bd<cr>
 nnoremap <silent> <leader>q :qa<cr>
@@ -106,7 +106,7 @@ let g:python3_host_prog = '/bin/python'
 " MAPPINGS
 nnoremap <cr> o<esc>
 nnoremap g<cr> O<esc>
-nnoremap <leader>s <c-w>s
+nnoremap <leader>z <c-w>s
 nnoremap <leader>v <c-w>v
 nnoremap <silent> <leader>i :%retab<cr>
 nnoremap <silent> gs vip:sort u<cr>
