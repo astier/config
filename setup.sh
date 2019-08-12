@@ -19,10 +19,11 @@ install bash/.inputrc ~
 install git ~/.config
 install gtk-3.0 ~/.config
 install nvim ~/.config
+install pacman ~/.config
 install sx ~/.config
 install xkb ~/.config
 
-install pacman.conf /etc
+install pacman/pacman.conf /etc
 
 sudo iptables-restore < iptables.rules &&
     echo Installed: iptables
