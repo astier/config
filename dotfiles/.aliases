@@ -113,7 +113,7 @@ alias aa="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias aaa="cd ~/projects/arch && \$EDITOR base.sh desktop.sh"
 alias ap="cd ~/projects"
 alias asc="cd ~/projects/scripts/scripts"
-alias ast="cd ~/projects/st"
+alias ast="cd ~/projects/st && \$EDITOR config.def.h"
 
 alias aal="\$EDITOR ~/.aliases && . ~/.aliases"
 alias ad="cd ~/projects/dotfiles/dotfiles"
