@@ -27,7 +27,7 @@ alias umount="sudo umount"
 cd() { if [ $# -eq 0 ]; then builtin cd || return; else builtin cd "$@" && ls; fi; }
 d() { if [ $# -eq 0 ]; then clear; else rm "$@"; fi; }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
-flash() { sudo dd bs=4M if="$2" of="$1" status=progress oflag=sync; }
+flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 
 # SHORTCUTS
 alias c="cat"
