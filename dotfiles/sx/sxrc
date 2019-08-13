@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
 bstatus
-xkbcomp ~/.config/xkb/xkeymap.xkb "$DISPLAY"
+xkbcomp ~/.config/xkb/xkeymap "$DISPLAY"
 exec dwm
