@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
 bstatus
-firefox &
-st &
 xkbcomp ~/.config/xkb/xkeymap "$DISPLAY"
-exec dwm
+exec herbstluftwm -l
