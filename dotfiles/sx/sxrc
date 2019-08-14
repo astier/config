@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
-bstatus
+wm=herbstluftwm
+bstatus $wm &
 xkbcomp ~/.config/xkb/xkeymap "$DISPLAY"
-exec herbstluftwm -l
+exec $wm -l
