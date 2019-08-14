@@ -56,6 +56,7 @@ alias t="tmux a -t 0 || tmux new -c ~ -s 0"
 alias ta="tmux a -t"
 alias tl="tmux ls"
 alias tn="tmux new -s"
+alias tk="tmux kill -t"
 
 # X
 alias xc="x -c; x"
@@ -109,11 +110,11 @@ alias myo="cd ~/Dropbox/uni/s3/myo"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
 alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
-alias aa="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias aaa="cd ~/projects/arch && \$EDITOR base.sh desktop.sh"
+alias aa="cd ~/projects/arch"
+alias aaa="cd ~/projects/arch && \$EDITOR desktop.sh base.sh"
 alias ap="cd ~/projects"
 alias asc="cd ~/projects/scripts/scripts"
-alias ast="cd ~/projects/st && \$EDITOR config.def.h"
+alias at="cd ~/projects/st"
 
 alias aal="\$EDITOR ~/.aliases && . ~/.aliases"
 alias ad="cd ~/projects/dotfiles/dotfiles"

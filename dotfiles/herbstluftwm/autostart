@@ -8,7 +8,8 @@ super=Mod4
 
 # COMMANDS
 herbstclient keybind $mod-Return spawn st
-herbstclient keybind $mod-f spawn rofi -modi combi -combi-modi window,drun -show combi
+herbstclient keybind $mod-o spawn rofi -combi-modi window,drun -show combi
+herbstclient keybind $super-a spawn rofi -combi-modi window,drun -show combi
 herbstclient keybind $super-Shift-e spawn pulsemixer --change-volume +4
 herbstclient keybind $super-Shift-w spawn pulsemixer --change-volume -4
 herbstclient keybind $super-e spawn light -A 8
@@ -25,11 +26,11 @@ herbstclient keybind $super-q close
 herbstclient keybind $mod-q close
 
 # LAYOUTS
-herbstclient keybind $super-c cycle_layout 1 max vertical
-herbstclient keybind $mod-n cycle_layout 1 max vertical
-herbstclient keybind $super-f spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
-herbstclient keybind $mod-m spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
-herbstclient keybind $mod-y pseudotile toggle
+herbstclient keybind $super-f cycle_layout 1 max vertical
+herbstclient keybind $mod-m cycle_layout 1 max vertical
+herbstclient keybind $super-Shift-f spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
+herbstclient keybind $mod-Shift-m spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
+herbstclient keybind $mod-p pseudotile toggle
 herbstclient set default_frame_layout 2
 herbstclient set tree_style '╾│ ├└╼─┐'
 
@@ -67,14 +68,14 @@ herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseud
 herbstclient rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 herbstclient rule class~.* index=0
-herbstclient rule class~'.*Nautilus|jetbrains-.*|st-256color' index=1
+herbstclient rule class~'Nemo|jetbrains-.*|st-256color' index=1
 herbstclient rule class~'java-lang-Thread' pseudotile=on index=1
 
 # TAGS
 herbstclient rename default 1
 herbstclient add 2
-herbstclient keybind $mod-Shift-o move_index +1
-herbstclient keybind $mod-o use_index +1
+herbstclient keybind $mod-Shift-i move_index +1
+herbstclient keybind $mod-i use_index +1
 
 # THEME
 herbstclient attr theme.floating.reset 1
@@ -90,5 +91,6 @@ if herbstclient silent new_attr bool my_not_first_autostart ; then
     herbstclient load 1 "$layout"
     herbstclient spawn "$BROWSER"
     herbstclient spawn "$TERMINAL"
+    herbstclient pad 0 0 0 7 0
 fi
 herbstclient unlock
