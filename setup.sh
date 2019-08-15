@@ -25,6 +25,7 @@ install sx ~/.config
 install xkb ~/.config
 
 install pacman/pacman.conf /etc
+install mkinitcpio.conf /etc
 
 sudo iptables-restore < iptables.rules &&
     echo Installed: iptables
