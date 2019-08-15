@@ -8,8 +8,8 @@ super=Mod4
 
 # COMMANDS
 herbstclient keybind $mod-Return spawn st
-herbstclient keybind $mod-o spawn rofi -combi-modi window,drun -show combi
-herbstclient keybind $super-a spawn rofi -combi-modi window,drun -show combi
+herbstclient keybind $mod-o spawn rofi -combi-modi window,drun -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
+herbstclient keybind $super-f spawn rofi -combi-modi window,drun -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
 herbstclient keybind $super-Shift-e spawn pulsemixer --change-volume +4
 herbstclient keybind $super-Shift-w spawn pulsemixer --change-volume -4
 herbstclient keybind $super-e spawn light -A 8
@@ -26,7 +26,7 @@ herbstclient keybind $super-q close
 herbstclient keybind $mod-q close
 
 # LAYOUTS
-herbstclient keybind $super-f cycle_layout 1 max vertical
+herbstclient keybind $super-c cycle_layout 1 max vertical
 herbstclient keybind $mod-m cycle_layout 1 max vertical
 herbstclient keybind $super-Shift-f spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
 herbstclient keybind $mod-Shift-m spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
