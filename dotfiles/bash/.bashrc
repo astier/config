@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 [[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && (tmux a -t 0 || tmux new -c ~ -s 0)
 
 # PROMPT
 . ~/.config/git/git-prompt.sh
