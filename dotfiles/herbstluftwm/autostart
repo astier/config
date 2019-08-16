@@ -22,14 +22,15 @@ herbstclient keybind $super-x substitute FSRESTORE clients.focus.fullscreen chai
 # KILL
 herbstclient keybind $mod-Shift-q quit
 herbstclient keybind $mod-Shift-r reload
-herbstclient keybind $super-q close
 herbstclient keybind $mod-q close
+herbstclient keybind $mod-u close
+herbstclient keybind $super-q close
 
 # LAYOUTS
 herbstclient keybind $super-c cycle_layout 1 max vertical
-herbstclient keybind $mod-m cycle_layout 1 max vertical
-herbstclient keybind $super-Shift-f spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
-herbstclient keybind $mod-Shift-m spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
+herbstclient keybind $mod-n cycle_layout 1 max vertical
+herbstclient keybind $super-a spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
+herbstclient keybind $mod-m spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
 herbstclient keybind $mod-p pseudotile toggle
 herbstclient set default_frame_layout 2
 herbstclient set tree_style '╾│ ├└╼─┐'
@@ -74,8 +75,8 @@ herbstclient rule class~'java-lang-Thread' pseudotile=on index=1
 # TAGS
 herbstclient rename default 1
 herbstclient add 2
-herbstclient keybind $mod-Shift-i move_index +1
-herbstclient keybind $mod-i use_index +1
+herbstclient keybind $mod-Shift-o move_index +1
+herbstclient keybind $mod-o use_index +1
 
 # THEME
 herbstclient attr theme.floating.reset 1
