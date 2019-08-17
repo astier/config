@@ -2,7 +2,6 @@
 
 WM=herbstluftwm
 b ~/Dropbox/pictures/wallpapers/eclipse.jpg
-bstatus $WM &
 xkbcomp ~/.config/xkb/xkeymap "$DISPLAY"
 sxhkd &
 exec $WM -l
