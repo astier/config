@@ -63,11 +63,12 @@ alias xc="x -c; x"
 alias xm="x -m"
 alias xp="x -p"
 
-# POWER-MANAGEMENT
+# SYSTEM
+alias ii="networkctl"
+alias s="cat /sys/class/power_supply/BAT0/capacity"
 alias sd="systemctl suspend"
 alias sl="slock"
 alias sp="poweroff"
-alias sr="reboot"
 
 # APERIRE. Similar to xdg-open but does what I actually want and is faster.
 a() {
@@ -100,9 +101,6 @@ alias ao="cd ~/Downloads"
 alias al="cd ~/.local/share"
 alias att="\$EDITOR /tmp/scratch"
 
-alias s="cat /sys/class/power_supply/BAT0/capacity"
-alias ii="networkctl"
-
 alias add="cd ~/Dropbox"
 alias ase="cd ~/Dropbox/uni/s4/ase/exercises/2"
 alias au="cd ~/Dropbox/uni"
@@ -112,12 +110,11 @@ alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
 alias aa="cd ~/projects/arch"
 alias aaa="cd ~/projects/arch && \$EDITOR desktop.sh base.sh"
+alias aal="\$EDITOR ~/.aliases && . ~/.aliases"
+alias ad="cd ~/projects/dotfiles/dotfiles"
 alias ap="cd ~/projects"
 alias asc="cd ~/projects/scripts/scripts"
 alias at="cd ~/projects/st"
-
-alias aal="\$EDITOR ~/.aliases && . ~/.aliases"
-alias ad="cd ~/projects/dotfiles/dotfiles"
 alias av="\$EDITOR ~/.config/nvim/init.vim"
 alias ax="\$EDITOR ~/.config/sx/sxrc"
 
