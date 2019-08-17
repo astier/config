@@ -14,8 +14,8 @@ mod5 + Return
     $TERMINAL
 
 button2
-    herbstclient close
+    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
 button8
     herbstclient cycle
 button9
-    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
+    herbstclient spawn ~/.config/herbstluftwm/maximize.sh
