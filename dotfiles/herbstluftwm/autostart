@@ -8,8 +8,8 @@ super=Mod4
 
 # COMMANDS
 herbstclient keybind $mod-Return spawn st
-herbstclient keybind $mod-f spawn rofi -combi-modi window,drun -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
-herbstclient keybind $super-f spawn rofi -combi-modi window,drun -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
+herbstclient keybind $mod-f spawn rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
+herbstclient keybind $super-f spawn rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
 herbstclient keybind $super-Shift-e spawn pulsemixer --change-volume +4
 herbstclient keybind $super-Shift-w spawn pulsemixer --change-volume -4
 herbstclient keybind $super-e spawn light -A 8
