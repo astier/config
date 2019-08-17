@@ -21,6 +21,7 @@ install gtk-3.0 ~/.config
 install herbstluftwm ~/.config
 install nvim ~/.config
 install pacman ~/.config
+install rofi ~/.config
 install sx ~/.config
 install xkb ~/.config
 
