@@ -100,7 +100,7 @@ alias ao="cd ~/Downloads"
 alias al="cd ~/.local/share"
 alias att="\$EDITOR /tmp/scratch"
 
-alias bat="cat /sys/class/power_supply/BAT0/capacity"
+alias s="cat /sys/class/power_supply/BAT0/capacity"
 alias ii="networkctl"
 
 alias add="cd ~/Dropbox"
