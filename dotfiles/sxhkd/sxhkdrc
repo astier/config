@@ -6,8 +6,10 @@ mod4 + r
     light -S 100
 mod4 + shift + {w,e}
     pulsemixer --change-volume {-,+}6
-mod5 + {f,Return}
-    {dmenu_run,st}
+mod4 + f
+    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
+mod5 + Return
+    $TERMINAL
 
 button2
     herbstclient close
