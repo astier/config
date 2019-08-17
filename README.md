@@ -1,6 +1,3 @@
 My dotfiles and an installation-script.
-
-**WARNING:
-The script replaces the dotfiles on the system with symlinks which refer to the dotfiles in the sub-folder *dotfiles* and doesn't make any backups!
-Do not run it without knowing EXACTLY what it does and which dotfiles are going to be affected.
-This script can lead to irreversable data-lose!**
+Do not run *setup.sh* without knowing exactly what it does.
+This script can lead to irreversable data-lose.
