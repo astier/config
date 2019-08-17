@@ -8,6 +8,8 @@ mod4 + shift + {w,e}
     pulsemixer --change-volume {-,+}6
 mod4 + f
     rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
+mod5 + f
+    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
 mod5 + Return
     $TERMINAL
 
