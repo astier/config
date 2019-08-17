@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 WM=herbstluftwm
-b ~/Dropbox/pictures/wallpapers/eclipse.jpg
 xkbcomp ~/.config/xkb/xkeymap "$DISPLAY"
 sxhkd &
 exec $WM -l
