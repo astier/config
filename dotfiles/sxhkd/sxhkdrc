@@ -1,0 +1,17 @@
+mod4 + shift + r
+    pkill -SIGUSR1 sxhkd
+mod4 + {w,e}
+    light -{U,A} 8
+mod4 + r
+    light -S 100
+mod4 + shift + {w,e}
+    pulsemixer --change-volume {-,+}6
+mod5 + {f,Return}
+    {dmenu_run,st}
+
+button2
+    herbstclient close
+button8
+    herbstclient cycle
+button9
+    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'

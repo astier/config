@@ -2,5 +2,6 @@
 
 WM=herbstluftwm
 bstatus $WM &
+sxhkd &
 xkbcomp ~/.config/xkb/xkeymap "$DISPLAY"
 exec $WM -l

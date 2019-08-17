@@ -23,6 +23,7 @@ install nvim ~/.config
 install pacman ~/.config
 install rofi ~/.config
 install sx ~/.config
+install sxhkd ~/.config
 install xkb ~/.config
 
 install pacman/pacman.conf /etc
