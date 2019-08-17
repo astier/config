@@ -69,6 +69,7 @@ alias s="cat /sys/class/power_supply/BAT0/capacity"
 alias sd="systemctl suspend"
 alias sl="slock"
 alias sp="poweroff"
+alias sr="reboot"
 
 # APERIRE. Similar to xdg-open but does what I actually want and is faster.
 a() {
