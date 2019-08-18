@@ -1,19 +1,19 @@
 mod4 + shift + r
     pkill -SIGUSR1 sxhkd
-mod4 + {w,e}
-    light -{U,A} 8
-mod4 + r
-    light -S 100
-mod4 + shift + {w,e}
-    pulsemixer --change-volume {-,+}6
-mod4 + f
-    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
-mod5 + f
-    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
 mod5 + Return
     $TERMINAL
 mod4 + b
     i3lock -ufo
+
+mod4 + {s,d}
+    light -{U,A} 16
+mod4 + shift + {s,d}
+    pulsemixer --change-volume {-,+}6
+
+mod4 + f
+    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
+mod5 + f
+    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
 
 button2
     rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
