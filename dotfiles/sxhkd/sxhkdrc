@@ -12,6 +12,8 @@ mod5 + f
     rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
 mod5 + Return
     $TERMINAL
+mod4 + b
+    i3lock -ufo
 
 button2
     rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
