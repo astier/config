@@ -108,6 +108,7 @@ alias au="cd ~/Dropbox/uni"
 alias myo="cd ~/Dropbox/uni/s3/myo"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
 alias rdm="cd ~/Dropbox/uni/s3/rdm"
+alias aw="~/Dropbox/pictures/wallpapers"
 
 alias aa="cd ~/projects/arch"
 alias aaa="cd ~/projects/arch && \$EDITOR desktop.sh base.sh"
