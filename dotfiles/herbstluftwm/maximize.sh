@@ -31,12 +31,12 @@ substitute FOCUS clients.focus.winid chain
            # remove the stored layout
            , try remove_attr tags.focus.my_unmaximized_layout
            # do not use gaps in un-maximized layout
-           , set frame_gap 0
+           , set frame_gap 0 , pad 0 0 0 7 0
      : chain , new_attr string tags.focus.my_unmaximized_layout
              # save the current layout in the attribute
              , set_attr tags.focus.my_unmaximized_layout "$layout"
              # use a gap in max layut
-             , set frame_gap 68
+             , set frame_gap 68 , pad 0 0 103 7 103
              # force all windows into a single frame in max layout
              , load "(clients $mode:0 )"
 # both load commands accidentally change the window focus, so restore the
