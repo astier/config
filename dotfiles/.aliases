@@ -88,6 +88,7 @@ a() {
         "application/json") $EDITOR "$@" ;;
         "inode/x-empty") $EDITOR "$@" ;;
         "application/pdf") $BROWSER "$@" ;;
+        "application/gzip") tar -xzf "$@" ;;
         *) echo No association with mimetype: "$mimetype" >&2 ;;
     esac
 }
