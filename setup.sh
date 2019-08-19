@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+[ ! -d ~/.config ] && mkdir ~/.config
+
 install() {
     TARGET=$1 DESTINATION=$2/$(basename "$TARGET")
     sudo rm -fr "$DESTINATION"
