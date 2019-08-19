@@ -7,6 +7,7 @@ alias ros="cd ~/projects/gridworld && . devel/setup.sh"
 # DEFAULTS
 alias as="echo Remapped to do nothing."
 alias cal="cal -m"
+alias clion="sh ~/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.5728.100/bin/clion.sh"
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
