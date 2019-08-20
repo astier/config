@@ -19,6 +19,7 @@ herbstclient keybind $super-q close
 # LAYOUTS
 herbstclient keybind $super-a use_index +1
 herbstclient keybind $mod-m spawn ~/.config/herbstluftwm/maximize.sh
+herbstclient keybind $super-c spawn ~/.config/herbstluftwm/maximize.sh
 herbstclient keybind $mod-p pseudotile toggle
 herbstclient keybind $super-w pseudotile toggle
 herbstclient set default_frame_layout 2
