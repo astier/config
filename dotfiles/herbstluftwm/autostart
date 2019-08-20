@@ -78,8 +78,8 @@ if herbstclient silent new_attr bool my_not_first_autostart ; then
     herbstclient load 1 "$layout"
     herbstclient load 2 "$layout"
     herbstclient pad 0 0 0 7 0
-    herbstclient spawn bstatus
     herbstclient spawn b -l
+    herbstclient spawn bstatus
 fi
 herbstclient spawn ~/.config/herbstluftwm/emptybar.sh
 herbstclient unlock
