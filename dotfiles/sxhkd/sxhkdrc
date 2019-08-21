@@ -16,8 +16,8 @@ mod5 + f
     rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
 
 button2
-    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
-button8
-    herbstclient cycle
-button9
     herbstclient spawn ~/.config/herbstluftwm/maximize.sh
+button8
+    herbstclient cycle +1
+button9
+    herbstclient cycle -1
