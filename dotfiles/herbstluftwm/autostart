@@ -39,6 +39,8 @@ herbstclient keybind $mod-Shift-h shift left
 herbstclient keybind $mod-Shift-j shift down
 herbstclient keybind $mod-Shift-k shift up
 herbstclient keybind $mod-Shift-l shift right
+herbstclient keybind $super-e shift left
+herbstclient keybind $super-r shift right
 
 # NAVIGATION
 herbstclient keybind $mod-l cycle_frame
