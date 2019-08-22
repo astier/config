@@ -74,7 +74,7 @@ alias sr="reboot"
 
 # APERIRE. Similar to xdg-open but does what I actually want and is faster.
 a() {
-    [ $# -eq 0 ] && cd && ls && return
+    [ $# -eq 0 ] && fzf | xargs -r "$EDITOR" && return
     [ -d "$1" ] && cd "$@" && return
     [ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
     mimetype=$(file -bL --mime-type "$1")
