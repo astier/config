@@ -48,7 +48,7 @@ herbstclient keybind $mod-k cycle -1
 herbstclient keybind $mod-j cycle +1
 
 # RESIZING
-resizestep=0.03
+resizestep=0.015
 herbstclient keybind $mod-Control-h resize left $resizestep
 herbstclient keybind $mod-Control-l resize right $resizestep
 
