@@ -52,6 +52,12 @@ alias re="sudo \$(fc -ln -1)"
 alias to="touch"
 alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
 
+# CONDA
+alias coa="conda activate"
+alias cod="conda deactivate"
+alias cou="conda update --all"
+alias coi="conda install"
+
 # TMUX
 alias t="tmux a -t 0 || tmux new -c ~ -s 0"
 alias ta="tmux a -t"

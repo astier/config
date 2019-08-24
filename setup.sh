@@ -12,6 +12,7 @@ install() {
 cd dotfiles || exit
 
 install .aliases ~
+install .condarc ~
 install .profile ~
 install .tmux.conf ~
 install bash/.bash_profile ~
