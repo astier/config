@@ -54,7 +54,7 @@ alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&
 # CONDA
 alias coa="conda activate"
 alias cod="conda deactivate"
-alias cou="conda update --all"
+alias cou="conda update --all --prune"
 alias coi="conda install"
 
 # TMUX
