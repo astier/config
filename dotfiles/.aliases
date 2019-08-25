@@ -142,6 +142,7 @@ alias gd="git diff"
 
 alias gc="git commit"
 alias gca="git add --all && git commit"
+alias gcp="git add --all && git commit && git push"
 alias gcr="git commit -am tmp && git rebase -i HEAD~2"
 
 g() {
