@@ -47,6 +47,8 @@ let g:ale_fixers = {
 " APPEARANCE
 let g:indentLine_char = '▏'
 let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
+let g:indentLine_first_char = '▏'
+let g:indentLine_showFirstIndentLevel = 1
 let g:nord_bold = 0
 let g:nord_bold_vertical_split_line = 1
 let g:nord_italic = 1
