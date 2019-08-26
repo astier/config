@@ -1,12 +1,18 @@
 #!/usr/bin/env sh
 
-# TMP
+# AMIRO & ROS
+alias ase="cd ~/Dropbox/uni/s4/ase/project"
 alias maf="make && make flash && (gtkterm -c AMiRo &)"
 alias ros="cd ~/projects/gridworld && . devel/setup.sh"
+alias rf="rostopic pub -1 /amiro1/cmd_lf std_msgs/Int8 \"data: 0\""
+alias rl="rostopic pub -1 /amiro1/cmd_lf std_msgs/Int8 \"data: 1\""
+alias rr="rostopic pub -1 /amiro1/cmd_lf std_msgs/Int8 \"data: -1\""
+alias rrr="roslaunch gridworld gridworld.launch"
+alias rs="rosservice call /gazebo/reset_simulation"
 
 # DEFAULTS
 alias as="echo Remapped to do nothing."
-alias clion="sh ~/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.5728.100/bin/clion.sh"
+alias clion="sh ~/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6262.62/bin/clion.sh"
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
@@ -110,7 +116,6 @@ alias al="cd ~/.local/share"
 alias att="\$EDITOR /tmp/scratch"
 
 alias add="cd ~/Dropbox"
-alias ase="cd ~/Dropbox/uni/s4/ase/exercises/2"
 alias au="cd ~/Dropbox/uni"
 alias myo="conda activate myo && cd ~/Dropbox/uni/s3/myo"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
