@@ -7,7 +7,7 @@ alias ros="cd ~/projects/gridworld && . devel/setup.sh"
 alias rf="rostopic pub -1 /amiro1/cmd_lf std_msgs/Int8 \"data: 0\""
 alias rl="rostopic pub -1 /amiro1/cmd_lf std_msgs/Int8 \"data: 1\""
 alias rr="rostopic pub -1 /amiro1/cmd_lf std_msgs/Int8 \"data: -1\""
-alias rrr="roslaunch gridworld gridworld.launch"
+alias rrr="catkin_make && roslaunch gridworld gridworld.launch"
 alias rs="rosservice call /gazebo/reset_simulation"
 
 # DEFAULTS
