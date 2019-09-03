@@ -78,7 +78,7 @@ herbstclient set frame_border_width 0
 herbstclient set frame_gap 0
 
 # INIT
-layout='(split horizontal:0.545000:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
+layout='(split horizontal:0.52:1 (clients max:0 0x1000003) (clients max:0 0xc00005))'
 if herbstclient silent new_attr bool my_not_first_autostart ; then
     herbstclient load 1 "$layout"
     herbstclient load 2 "$layout"
