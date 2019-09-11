@@ -3,7 +3,7 @@ mod4 + shift + r
 mod5 + Return
     $TERMINAL
 mod4 + b
-    i3lock -ufo
+    i3lock
 
 mod4 + {s,d}
     light -{U,A} 16

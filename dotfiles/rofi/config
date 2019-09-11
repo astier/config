@@ -12,7 +12,7 @@ rofi.hide-scrollbar:                 true
 rofi.line-margin:                    0
 rofi.line-padding:                   2
 rofi.lines:                          6
-rofi.matching:                       fuzzy
+rofi.matching:                       normal
 rofi.max-history-size:               6
 rofi.modi:                           combi
 rofi.padding:                        0

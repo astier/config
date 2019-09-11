@@ -161,7 +161,7 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 nnoremap <silent> <esc> :noh<cr><esc>
 nnoremap <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
 nnoremap <leader>rr :%s///gI<left><left><left><left>
-nnoremap <silent> , *``
+nnoremap <silent> , *``zz
 nnoremap n nzz
 nnoremap N Nzz
 se ignorecase
