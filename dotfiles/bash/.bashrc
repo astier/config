@@ -27,7 +27,7 @@ shopt -s autocd cdspell histappend
 
 # TMP
 [ -r /opt/ros/melodic/setup.bash ] && . /opt/ros/melodic/setup.bash
-export PATH=$PATH:~/projects/ase/gcc-arm-embedded
+export PATH=$PATH:~/projects/amiro/gcc-arm-embedded
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
