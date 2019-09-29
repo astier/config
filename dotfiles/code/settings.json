@@ -75,18 +75,6 @@
     "latex-workshop.latex.outDir": "%DIR%/tex",
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
-    "python.autoComplete.addBrackets": true,
-    "python.formatting.provider": "black",
-    "python.jediEnabled": false,
-    "python.linting.pylintUseMinimalCheckers": false,
-    "python.pythonPath": "~/miniconda3/envs/isy/bin/python",
-    "python.linting.pylintArgs": [
-        "-d C0102, C0103, C0111, C0200, C0330, R0903, R0913, R0914, W0511",
-        "--max-line-length=79"
-    ],
-    "python.formatting.blackArgs": [
-        "-l79"
-    ],
     "search.smartCase": true,
     "search.useGlobalIgnoreFiles": true,
     "terminal.integrated.copyOnSelection": true,
