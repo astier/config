@@ -25,10 +25,6 @@ shopt -s autocd cdspell histappend
 [ -r ~/.aliases ] && . ~/.aliases
 [ -r ~/.fzf.bash ] && . ~/.fzf.bash
 
-# TMP
-[ -r /opt/ros/melodic/setup.bash ] && . /opt/ros/melodic/setup.bash
-export PATH=$PATH:~/projects/amiro/gcc-arm-embedded
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/aleks/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"

@@ -1,22 +1,7 @@
 #!/usr/bin/env sh
 
-# AMIRO & ROS
-alias ase="cd ~/Dropbox/uni/s4/ase/project"
-alias ami="cd ~/projects/amiro/amiro-os/devices/DiWheelDrive"
-alias mf="pkill gtkterm; make && make flash && (gtkterm -c AMiRo &)"
-alias rb="rostopic pub -1 /amiro1/cmd_lf std_msgs/Int8 \"data: 2\""
-alias rf="rostopic pub -1 /amiro1/cmd_lf std_msgs/Int8 \"data: 0\""
-alias rg="rostopic pub -1 /amiro1/cmd_lf std_msgs/Int8 \"data: 3\""
-alias rl="rostopic pub -1 /amiro1/cmd_lf std_msgs/Int8 \"data: -1\""
-alias ros="cd ~/projects/gridworld && . devel/setup.sh"
-alias rr="rostopic pub -1 /amiro1/cmd_lf std_msgs/Int8 \"data: 1\""
-alias rrr="catkin_make && roslaunch gridworld gridworld.launch"
-alias rpp="rosservice call /gazebo/pause_physics"
-alias rup="rosservice call /gazebo/unpause_physics"
-
 # DEFAULTS
 alias as="echo Remapped to do nothing."
-alias clion="sh ~/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.6262.62/bin/clion.sh"
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
@@ -121,7 +106,6 @@ alias ao="cd ~/Downloads"
 alias att="\$EDITOR /tmp/scratch"
 
 alias add="cd ~/Dropbox"
-alias at="libreoffice ~/Dropbox/misc/tracker.ods"
 alias au="cd ~/Dropbox/uni"
 alias aw="~/Dropbox/pictures/wallpapers"
 alias myo="conda activate myo; cd ~/Dropbox/uni/s3/myo"
