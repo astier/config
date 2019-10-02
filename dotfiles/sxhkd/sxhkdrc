@@ -2,8 +2,6 @@ mod4 + shift + r
     pkill -SIGUSR1 sxhkd
 mod5 + Return
     $TERMINAL
-mod4 + b
-    i3lock
 
 mod4 + {s,d}
     light -{U,A} 16
