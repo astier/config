@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 
+pulsemixer --unmute
 exec herbstluftwm -l
