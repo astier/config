@@ -8,7 +8,7 @@ mod4 + {s,d}
 mod4 + shift + {s,d}
     pulsemixer --change-volume {-,+}6
 mod5 + f
-    dmenu_run
+    j4-dmenu-desktop
 
 button2
     herbstclient spawn ~/.config/herbstluftwm/maximize.sh
