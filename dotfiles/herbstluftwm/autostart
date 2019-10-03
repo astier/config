@@ -12,7 +12,7 @@ herbstclient keybind $super-x substitute FSRESTORE clients.focus.fullscreen chai
 # KILL
 herbstclient keybind $mod-Shift-q quit
 herbstclient keybind $mod-Shift-r reload
-herbstclient keybind $mod-q close
+herbstclient keybind $mod-c close
 herbstclient keybind $mod-u close
 herbstclient keybind $super-q close
 
@@ -20,8 +20,8 @@ herbstclient keybind $super-q close
 herbstclient keybind $super-a use_index +1
 herbstclient keybind $mod-m spawn ~/.config/herbstluftwm/maximize.sh
 herbstclient keybind $super-c spawn ~/.config/herbstluftwm/maximize.sh
-herbstclient keybind $mod-p pseudotile toggle
-herbstclient keybind $super-w pseudotile toggle
+# herbstclient keybind $mod-p pseudotile toggle
+# herbstclient keybind $super-w pseudotile toggle
 herbstclient set default_frame_layout 2
 herbstclient set tree_style '╾│ ├└╼─┐'
 
