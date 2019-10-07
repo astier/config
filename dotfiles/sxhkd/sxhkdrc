@@ -1,11 +1,8 @@
-mod4 + shift + r
+super + shift + r
     pkill -SIGUSR1 sxhkd
-mod5 + Return
-    $TERMINAL
-
-mod4 + {s,d}
+super + {s,d}
     light -{U,A} 16
-mod4 + shift + {s,d}
+super + shift + {s,d}
     pulsemixer --change-volume {-,+}6
 mod5 + f
     dmenu_run
