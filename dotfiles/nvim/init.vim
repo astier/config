@@ -9,7 +9,6 @@ Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigat
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.local/src/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye', { 'on': 'Bd' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
@@ -116,7 +115,6 @@ nnoremap <leader>v <c-w>v
 nnoremap <silent> <leader>i :%retab<cr>
 nnoremap <silent> gs vip:sort u<cr>
 vnoremap <silent> gs :sort u<cr>
-nnoremap <silent> <leader>g :Goyo<cr>
 nnoremap Q <nop>
 
 " NAVIGATION
