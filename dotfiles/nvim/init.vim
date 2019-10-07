@@ -157,6 +157,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 
 " STATUSLINE
+au bufenter * se ls=1 noru nosc nosmd
 se laststatus=1
 se noruler
 se noshowcmd
