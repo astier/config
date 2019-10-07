@@ -7,7 +7,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.local/src/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'moll/vim-bbye', { 'on': 'Bd' }
