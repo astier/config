@@ -7,8 +7,11 @@ mod4 + {s,d}
     light -{U,A} 16
 mod4 + shift + {s,d}
     pulsemixer --change-volume {-,+}6
+
+mod4 + f
+    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
 mod5 + f
-    j4-dmenu-desktop
+    rofi -show combi -me-select-entry '' -me-accept-entry 'MousePrimary'
 
 button2
     herbstclient spawn ~/.config/herbstluftwm/maximize.sh

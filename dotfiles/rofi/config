@@ -1,0 +1,22 @@
+rofi.bw:                             2
+rofi.color-active:                   #3b4252, #eceff4, #eceff4, #000000, #5294e2
+rofi.color-normal:                   #3b4252, #eceff4, #3b4252, #000000, #5294e2
+rofi.color-urgent:                   #3b4252, #eceff4, #eceff4, #000000, #5294e2
+rofi.color-window:                   #3b4252, #000000, #000000, #000000, #5294e2
+rofi.combi-hide-mode-prefix:         true
+rofi.combi-modi:                     window,drun
+rofi.display-combi:
+rofi.display-drun:
+rofi.font:                           mono 10
+rofi.hide-scrollbar:                 true
+rofi.line-margin:                    0
+rofi.line-padding:                   2
+rofi.lines:                          6
+rofi.matching:                       normal
+rofi.max-history-size:               6
+rofi.modi:                           combi
+rofi.padding:                        0
+rofi.scroll-method:                  1
+rofi.separator-style:                solid
+rofi.width:                          16
+rofi.window-format:                  {w}    {c}
