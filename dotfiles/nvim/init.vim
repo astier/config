@@ -16,7 +16,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale', { 'for': [ 'python', 'sh', 'tex'] }
+Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
 
 call plug#end()
 
