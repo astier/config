@@ -54,7 +54,7 @@ let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
-se fcs+=eob:\  fcs+=fold:\  fcs+=vert:\ 
+se fcs+=eob:\ ,fold:\ ,vert:\ 
 se scl=yes shm+=c tgc
 
 " AUTOCOMMANDS
