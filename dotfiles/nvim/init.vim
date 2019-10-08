@@ -89,6 +89,7 @@ nnoremap <silent> <leader>t :Tags<cr>
 nnoremap <leader>s <c-z>
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :Bd<cr>
+nnoremap <silent> <leader>x :bd<cr>
 nnoremap <silent> <leader>q :qa<cr>
 
 " LOADED
