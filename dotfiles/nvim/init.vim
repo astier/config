@@ -17,6 +17,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
+Plug 'zefei/vim-wintabs'
+Plug 'zefei/vim-wintabs-powerline'
 
 call plug#end()
 
@@ -156,8 +158,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 
-" STATUSLINE
-au bufenter * se ls=1 noru nosc nosmd
+" STATUS- & TABLINE
+au winenter * se ls=1 noru nosc nosmd | WintabsAllBuffers
 se laststatus=1
 se noruler
 se noshowcmd
