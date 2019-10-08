@@ -60,9 +60,10 @@ alias tn="tmux new -s"
 alias tk="tmux kill -t"
 
 # X
-alias xc="x -c; x"
+alias x="x -c; x"
 alias xm="x -m"
 alias xp="x -p"
+alias xx="x"
 
 # SYSTEM
 alias ii="networkctl"
