@@ -121,6 +121,7 @@ nnoremap <c-k> 4<c-y>
 
 " NETRW
 let g:netrw_banner = 0
+let g:netrw_dirhistmax = 0
 let g:netrw_liststyle = 3
 nnoremap <silent> <leader>e :Explore<cr>
 
