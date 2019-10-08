@@ -139,12 +139,13 @@ se sb spr
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " SEARCH & REPLACE
-nnoremap <silent> <esc> :noh<cr><esc>
+" au CursorHold * exec 'mat StatusLineTerm /'.expand('<cword>').'/'
+nnoremap <silent> <esc> :noh<cr>:echo<cr><esc>
 nnoremap <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
 nnoremap <leader>rr :%s///gI<left><left><left><left>
-nnoremap <silent> , *``zz
-nnoremap n nzz
-nnoremap N Nzz
+nnoremap <silent> , *``
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
 se ic scs icm=nosplit
 
 " SNIPPETS
