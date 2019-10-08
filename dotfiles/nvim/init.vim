@@ -160,7 +160,8 @@ let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 
 " STATUS- & TABLINE
-au winenter * se ls=1 noru nosc nosmd | WintabsAllBuffers
+au winenter * se ls=1 noru nosc nosmd
+au vimenter,winenter * WintabsAllBuffers
 se laststatus=1
 se noruler
 se noshowcmd
