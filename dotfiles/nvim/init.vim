@@ -81,6 +81,9 @@ vnoremap <c-v> dk"+p
 nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
 
+" COC
+let g:coc_global_extensions = ['coc-python']
+
 " FZF
 au filetype fzf se ls=0 | au bufleave <buffer> se ls=2
 nnoremap <silent> <leader>b :Buffers<cr>
