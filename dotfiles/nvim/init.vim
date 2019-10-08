@@ -65,6 +65,11 @@ au bufwritepost * GitGutter
 au focusgained,bufenter,vimresume * checkt
 au vimresized * wincmd =
 
+" BETTER-WHITESPACE
+let g:better_whitespace_filetypes_blacklist = ['help']
+let g:show_spaces_that_precede_tabs = 1
+let g:strip_whitelines_at_eof = 1
+
 " CLIPBOARD
 nnoremap <RightMouse> "+p
 vnoremap <RightMouse> "+y
@@ -179,11 +184,6 @@ nnoremap 0 g0
 nnoremap j gj
 nnoremap k gk
 se bri lbr
-
-" BETTER-WHITESPACE
-let g:better_whitespace_filetypes_blacklist = ['help']
-let g:show_spaces_that_precede_tabs = 1
-let g:strip_whitelines_at_eof = 1
 
 " VIMTEX
 au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
