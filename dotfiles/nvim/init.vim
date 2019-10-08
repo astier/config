@@ -53,12 +53,8 @@ let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
-se fillchars+=eob:\ 
-se fillchars+=fold:\ 
-se fillchars+=vert:\ 
-se shortmess+=c
-se signcolumn=yes
-se termguicolors
+se fcs+=eob:\  fcs+=fold:\  fcs+=vert:\ 
+se scl=yes shm+=c tgc
 
 " AUTOCOMMANDS
 au bufenter * se fo-=cro
@@ -79,8 +75,7 @@ nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
 
 " FZF
-au filetype fzf se ls=0
-  \| au bufleave <buffer> se ls=2
+au filetype fzf se ls=0 | au bufleave <buffer> se ls=2
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>t :Tags<cr>
@@ -132,15 +127,13 @@ nnoremap <silent> <leader>e :Explore<cr>
 " SAVE
 let g:auto_save = 1
 let g:auto_save_silent = 1
-se confirm
-se noswapfile
+se cf noswf
 
 " SETTINGS
-se expandtab shiftwidth=4 tabstop=4
+se et sw=4 ts=4
 se mouse=a
-se path+=**
-se path-=/usr/include
-se splitbelow splitright
+se pa+=** pa-=/usr/include
+se sb spr
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " SEARCH & REPLACE
@@ -150,9 +143,7 @@ nnoremap <leader>rr :%s///gI<left><left><left><left>
 nnoremap <silent> , *``zz
 nnoremap n nzz
 nnoremap N Nzz
-se ignorecase
-se inccommand=nosplit
-se smartcase
+se ic scs icm=nosplit
 
 " SNIPPETS
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
@@ -162,17 +153,14 @@ let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 " STATUS- & TABLINE
 au winenter * se ls=1 noru nosc nosmd
 au vimenter,winenter * WintabsAllBuffers
-se laststatus=1
-se noruler
-se noshowcmd
-se noshowmode
+se ls=1 noru nosc nosmd
 
 " WRAP
 nnoremap $ g$
 nnoremap 0 g0
 nnoremap j gj
 nnoremap k gk
-se breakindent linebreak
+se bri lbr
 
 " BETTER-WHITESPACE
 let g:better_whitespace_filetypes_blacklist = ['help']
