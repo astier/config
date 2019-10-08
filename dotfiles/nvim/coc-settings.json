@@ -2,6 +2,10 @@
 
     "coc.source.file.ignoreHidden": false,
     "diagnostic.enable": false,
+    "python.analysis.diagnosticEnabled": false,
+    "python.autoComplete.addBrackets": true,
+    "python.autoComplete.showAdvancedMembers": false,
+    "python.linting.enabled": false,
     "suggest.maxCompleteItemCount": 8,
     "suggest.noselect": false,
 
