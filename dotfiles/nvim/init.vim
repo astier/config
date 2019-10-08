@@ -14,6 +14,7 @@ Plug 'moll/vim-bbye', { 'on': 'Bd' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -90,6 +91,8 @@ nnoremap <silent> <leader>q :qa<cr>
 
 " LOADED
 let g:loaded_gzip = 1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 let g:loaded_node_provider = 1
 let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
@@ -120,11 +123,23 @@ nnoremap <silent> <a-r> :bn<cr>
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 
+" NERDTREE
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/.NERDTreeBookmarks'
+let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', 'tex']
+let g:NERDTreeMinimalMenu = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeQuitOnOpen = 2
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeStatusline = 'NERDTree'
+nnoremap <silent> <leader>e :NERDTreeToggle<cr><c-w>=
+
 " NETRW
 let g:netrw_banner = 0
 let g:netrw_dirhistmax = 0
 let g:netrw_liststyle = 3
-nnoremap <silent> <leader>e :Explore<cr>
+" nnoremap <silent> <leader>e :Explore<cr>
 
 " SAVE
 let g:auto_save = 1
