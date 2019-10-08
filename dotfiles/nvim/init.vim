@@ -23,8 +23,8 @@ Plug 'zefei/vim-wintabs-powerline'
 call plug#end()
 
 " LEADERS
-let mapleader=' '
-let maplocalleader=' '
+let mapleader = ' '
+let maplocalleader = ' '
 
 " ALE
 au FileType python nnoremap <silent> <leader>i :ALEFix<cr>
@@ -97,10 +97,10 @@ let g:loaded_gzip = 1
 let g:loaded_node_provider = 1
 let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
-let g:loaded_tar      = 1
-let g:loaded_tarPlugin= 1
+let g:loaded_tar = 1
+let g:loaded_tarPlugin = 1
 let g:loaded_zip = 1
-let g:loaded_zipPlugin= 1
+let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/bin/python'
 
 " MAPPINGS
@@ -155,8 +155,8 @@ se inccommand=nosplit
 se smartcase
 
 " SNIPPETS
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 
 " STATUS- & TABLINE
@@ -175,8 +175,8 @@ se breakindent linebreak
 
 " BETTER-WHITESPACE
 let g:better_whitespace_filetypes_blacklist = ['help']
-let g:show_spaces_that_precede_tabs=1
-let g:strip_whitelines_at_eof=1
+let g:show_spaces_that_precede_tabs = 1
+let g:strip_whitelines_at_eof = 1
 
 " VIMTEX
 au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
