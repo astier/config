@@ -182,13 +182,6 @@ au winenter * se ls=1 noru nosc nosmd
 au vimenter,winenter * WintabsAllBuffers
 se ls=1 noru nosc nosmd
 
-" WRAP
-nnoremap $ g$
-nnoremap 0 g0
-nnoremap j gj
-nnoremap k gk
-se bri lbr
-
 " VIMTEX
 let g:vimtex_view_general_viewer = 'firefox'
 let g:vimtex_compiler_latexmk = {
@@ -205,3 +198,10 @@ let g:vimtex_compiler_latexmk = {
         \ '-interaction=nonstopmode'
     \ ],
 \}
+
+" WRAP
+nnoremap $ g$
+nnoremap 0 g0
+nnoremap j gj
+nnoremap k gk
+se bri lbr
