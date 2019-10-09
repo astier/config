@@ -67,6 +67,7 @@ au vimresized * wincmd =
 
 " BETTER-WHITESPACE
 let g:better_whitespace_filetypes_blacklist = ['help']
+let g:better_whitespace_guicolor = '#bf616a'
 let g:show_spaces_that_precede_tabs = 1
 let g:strip_whitelines_at_eof = 1
 
