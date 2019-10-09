@@ -190,7 +190,6 @@ nnoremap k gk
 se bri lbr
 
 " VIMTEX
-au FileType tex inoremap <expr><buffer> <CR> getline('.') =~ '\item\s\w' ? '<cr>\item ' : '<cr>'
 let g:vimtex_view_general_viewer = 'firefox'
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
