@@ -65,8 +65,8 @@ herbstclient rule title~'Welcome.*' pseudotile=on index=1
 # TAGS
 herbstclient rename default 1
 herbstclient add 2
-herbstclient keybind $mod-Shift-p move_index +1
-herbstclient keybind $mod-p use_index +1
+herbstclient keybind $mod-Control-o move_index +1
+herbstclient keybind $mod-Shift-o use_index +1
 
 # THEME
 herbstclient attr theme.floating.reset 1
