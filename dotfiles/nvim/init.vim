@@ -14,6 +14,7 @@ Plug 'moll/vim-bbye', { 'on': 'Bd' }
 Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
