@@ -141,8 +141,8 @@ alias gca="git add --all && git commit"
 alias gcp="git add --all && git commit && git push"
 alias gcr="git commit -am tmp && git rebase -i HEAD~2"
 
-g() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
-grb() { n=4; [ "$#" != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
+g() { n=32; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+grb() { n=8; [ "$#" != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
 grh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
 
 alias gg="git log --all --graph --decorate --oneline"
