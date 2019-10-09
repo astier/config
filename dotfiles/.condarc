@@ -2,6 +2,5 @@ auto_activate_base: false
 create_default_packages:
     - black
     - isort
-    - jedi
     - pylint
     - rope
