@@ -7,6 +7,10 @@
     "python.autoComplete.showAdvancedMembers": false,
     "python.jediEnabled": false,
     "python.linting.enabled": false,
+    "python.workspaceSymbols.enabled": false,
+    "python.workspaceSymbols.rebuildOnFileSave": false,
+    "python.workspaceSymbols.rebuildOnStart": false,
+    "python.workspaceSymbols.tagFilePath": "${workspaceFolder}/tags",
     "suggest.maxCompleteItemCount": 8,
     "suggest.noselect": false,
 
