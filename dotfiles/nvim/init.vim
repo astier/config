@@ -166,6 +166,14 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " SEARCH & REPLACE
 " au CursorHold * exec 'mat StatusLineTerm /'.expand('<cword>').'/'
+function! CenterSearch()
+    let cmdtype = getcmdtype()
+    if cmdtype == '/' || cmdtype == '?'
+        return "\<enter>zz"
+    endif
+    return "\<enter>"
+endfunction
+cnoremap <silent> <expr> <enter> CenterSearch()
 nnoremap <silent> <esc> :noh<cr>:echo<cr><esc>
 nnoremap <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
 nnoremap <leader>rr :%s///gI<left><left><left><left>
