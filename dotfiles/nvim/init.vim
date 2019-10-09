@@ -63,6 +63,7 @@ se scl=yes shm+=c tgc
 au bufenter * se fo-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au bufwritepost * GitGutter
+au filetype markdown,python,tex setl spell
 au focusgained,bufenter,vimresume * checkt
 au vimresized * wincmd =
 
