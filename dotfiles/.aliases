@@ -60,6 +60,7 @@ alias tn="tmux new -s"
 alias tk="tmux kill -t"
 
 # X
+alias xc="x -c"
 alias xm="x -m"
 alias xp="x -p"
 alias xx="x -c; x"
