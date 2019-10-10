@@ -122,6 +122,7 @@ alias al="\$EDITOR ~/.aliases && . ~/.aliases"
 alias ap="cd ~/projects"
 alias asc="cd ~/projects/scripts/scripts"
 alias asi="cd ~/projects/sites"
+alias asl="cd ~/projects/slock"
 alias asm="cd ~/projects/dmenu"
 alias ast="cd ~/projects/st"
 alias av="\$EDITOR ~/.config/nvim/init.vim"
@@ -144,7 +145,7 @@ alias gca="git add --all && git commit"
 alias gcp="git add --all && git commit && git push"
 alias gcr="git commit -am tmp && git rebase -i HEAD~2"
 
-g() { n=32; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+g() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
 grb() { n=8; [ "$#" != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
 grh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
 
