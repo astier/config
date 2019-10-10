@@ -22,6 +22,7 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
 Plug 'zefei/vim-wintabs'
 Plug 'zefei/vim-wintabs-powerline'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
