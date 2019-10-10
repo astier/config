@@ -192,6 +192,7 @@ let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 " STATUS- & TABLINE
 au winenter * se laststatus=1 noruler noshowcmd noshowmode
 au vimenter,winenter * WintabsAllBuffers
+let g:wintabs_ignored_filetypes = []
 se laststatus=1 noruler noshowcmd noshowmode
 
 " VIMTEX
