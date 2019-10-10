@@ -3,6 +3,10 @@ def fix_indent(snip):
     vim.eval('feedkeys("\<c-f>")')
 endglobal
 
+snippet p "section" b
+\paragraph{$1}
+endsnippet
+
 snippet s "section" b
 \section{$1}
 endsnippet
