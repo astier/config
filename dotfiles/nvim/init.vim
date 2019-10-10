@@ -63,7 +63,7 @@ se signcolumn=yes shortmess+=c termguicolors
 au bufenter * se formatoptions-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au bufwritepost * GitGutter
-au filetype python,tex setl spell
+au filetype gitcommit,python,tex setl spell
 au focusgained,bufenter,vimresume * checkt
 au vimresized * wincmd =
 
