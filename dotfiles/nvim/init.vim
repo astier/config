@@ -135,7 +135,6 @@ nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 
 " NERDTREE
-au vimresume * NERDTreeRefreshRoot
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/.NERDTreeBookmarks'
 let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex']
@@ -198,7 +197,7 @@ se laststatus=1 noruler noshowcmd noshowmode
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_fold_enabled = 1
-let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_general_viewer = 'firefox'
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
