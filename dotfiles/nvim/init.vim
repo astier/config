@@ -135,6 +135,7 @@ nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 
 " NERDTREE
+au vimresume * NERDTreeRefreshRoot
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/.NERDTreeBookmarks'
 let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex']
