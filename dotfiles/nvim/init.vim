@@ -56,11 +56,11 @@ let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
-se fcs+=eob:\ ,fold:\ ,vert:\ 
-se scl=yes shm+=c tgc
+se fillchars+=eob:\ ,fold:-,vert:\ 
+se signcolumn=yes shortmess+=c termguicolors
 
 " AUTOCOMMANDS
-au bufenter * se fo-=cro
+au bufenter * se formatoptions-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au bufwritepost * GitGutter
 au filetype python,tex setl spell
@@ -153,13 +153,14 @@ let g:netrw_liststyle = 3
 " SAVE
 let g:auto_save = 1
 let g:auto_save_silent = 1
-se cf noswf
+se confirm noswapfile
 
 " SETTINGS
-se et sw=4 ts=4
+se expandtab shiftwidth=4 tabstop=4
+se foldlevel=4
 se mouse=a
-se pa+=** pa-=/usr/include
-se sb spr
+se path+=** path-=/usr/include
+se splitbelow splitright
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " SEARCH & REPLACE
@@ -178,7 +179,7 @@ nnoremap <leader>rr :%s///gI<left><left><left><left>
 nnoremap <silent> , *``
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
-se ic scs icm=nosplit
+se ignorecase smartcase inccommand=nosplit
 
 " SNIPPETS
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
@@ -186,13 +187,14 @@ let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 
 " STATUS- & TABLINE
-au winenter * se ls=1 noru nosc nosmd
+au winenter * se laststatus=1 noruler noshowcmd noshowmode
 au vimenter,winenter * WintabsAllBuffers
-se ls=1 noru nosc nosmd
+se laststatus=1 noruler noshowcmd noshowmode
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_view_general_viewer = 'firefox'
+let g:vimtex_fold_enabled = 1
+let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
@@ -213,4 +215,4 @@ nnoremap $ g$
 nnoremap 0 g0
 nnoremap j gj
 nnoremap k gk
-se bri lbr
+se breakindent linebreak
