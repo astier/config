@@ -58,7 +58,7 @@ herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseud
 herbstclient rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 herbstclient rule class~.* index=0
-herbstclient rule class~'Nemo|jetbrains-.*|.*-256color' index=1
+herbstclient rule class~'Nemo|jetbrains-.*|.*-256color|code.*' index=1
 herbstclient rule class='java-lang-Thread' pseudotile=on index=1
 herbstclient rule title~'Welcome.*' pseudotile=on index=1
 

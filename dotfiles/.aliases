@@ -111,7 +111,7 @@ alias add="cd ~/Dropbox"
 alias au="cd ~/Dropbox/uni"
 alias aw="~/Dropbox/pictures/wallpapers"
 alias k="(libreoffice ~/Dropbox/misc/tracker.ods &)"
-alias myo="conda activate myo; cd ~/Dropbox/uni/s3/myo"
+alias myo="conda activate myo; cd ~/Dropbox/uni/s5/myo"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
 alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
