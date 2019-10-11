@@ -13,7 +13,6 @@ Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'ludovicchabant/vim-gutentags', { 'for': ['python', 'tex'] }
 Plug 'moll/vim-bbye', { 'on': 'Bd' }
-Plug 'neoclide/coc-vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
@@ -88,6 +87,24 @@ vnoremap <c-v> dk"+p
 nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
 
+" COC
+au cursorhold * silent call CocActionAsync('highlight')
+au filetype python,tex nmap <silent> gd <Plug>(coc-definition)
+au filetype python,tex nmap <silent> gr <Plug>(coc-references)
+au filetype python,tex nmap <leader>rn <Plug>(coc-rename)
+" au filetype python,tex nmap <leader>qf <Plug>(coc-fix-current)
+" au filetype python,tex nmap <leader>ac <Plug>(coc-codeaction)
+au filetype python,tex nnoremap <silent> K :call <SID>show_documentation()<cr>
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+inoremap <silent> <expr> <c-space> coc#refresh()
+let g:coc_global_extensions = ['coc-python', 'coc-vimtex']
+
 " FZF
 au filetype fzf se ls=0 | au bufleave <buffer> se ls=2
 nnoremap <silent> <leader>b :Buffers<cr>
@@ -102,7 +119,6 @@ nnoremap <silent> <leader>x :bd<cr>
 nnoremap <silent> <leader>q :qa<cr>
 
 " LOADED
-let g:coc_global_extensions = ['coc-python']
 let g:loaded_gzip = 1
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
