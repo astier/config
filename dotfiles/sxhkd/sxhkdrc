@@ -12,4 +12,4 @@ button2
 button8
     herbstclient cycle +1
 button9
-    herbstclient cycle -1
+    herbstclient close
