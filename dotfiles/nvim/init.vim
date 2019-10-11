@@ -107,7 +107,7 @@ let g:coc_global_extensions = ['coc-python', 'coc-vimtex']
 
 " FOLD
 se foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
-se foldlevel=2
+se foldlevel=4
 se foldmethod=expr
 
 " FZF
