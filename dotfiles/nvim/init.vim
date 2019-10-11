@@ -89,7 +89,7 @@ vnoremap <c-x> "+d
 
 " COC
 au cursorhold * silent call CocActionAsync('highlight')
-au filetype python,tex nmap <silent> gd <Plug>(coc-definition)
+au filetype python,tex nmap <silent> gd <Plug>(coc-definition)zz
 au filetype python,tex nmap <silent> gr <Plug>(coc-references)
 au filetype python,tex nmap <leader>rn <Plug>(coc-rename)
 " au filetype python,tex nmap <leader>qf <Plug>(coc-fix-current)
