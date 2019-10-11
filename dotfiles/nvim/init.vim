@@ -59,7 +59,7 @@ let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
-se fillchars+=eob:\ ,fold:-,vert:\ 
+se fillchars+=eob:\ ,vert:\ ,fold:-
 se signcolumn=yes shortmess+=c termguicolors
 
 " AUTOCOMMANDS
@@ -104,6 +104,11 @@ function! s:show_documentation()
 endfunction
 inoremap <silent> <expr> <c-space> coc#refresh()
 let g:coc_global_extensions = ['coc-python', 'coc-vimtex']
+
+" FOLD
+se foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
+se foldlevel=2
+se foldmethod=expr
 
 " FZF
 au filetype fzf se ls=0 | au bufleave <buffer> se ls=2
@@ -179,7 +184,6 @@ se confirm noswapfile
 
 " SETTINGS
 se expandtab shiftwidth=4 tabstop=4
-se foldlevel=4
 se mouse=a
 se path+=** path-=/usr/include
 se splitbelow splitright
