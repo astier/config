@@ -242,7 +242,7 @@ au filetype python nnoremap <leader>rp :call VimuxRunCommand("clear; python " . 
 au filetype python nnoremap <leader>vi :VimuxInspectRunner<cr>
 au filetype python nnoremap <leader>vl :VimuxRunLastCommand<cr>
 au filetype python nnoremap <leader>vp :VimuxPromptCommand<cr>
-au filetype python nnoremap <leader>vq :VimuxCloseRunner<cr>
+au filetype python nnoremap <leader>vd :VimuxCloseRunner<cr>
 au filetype python nnoremap <leader>vx :VimuxInterruptRunner<cr>
 au filetype python nnoremap <leader>vz :call VimuxZoomRunner()<cr>
 
