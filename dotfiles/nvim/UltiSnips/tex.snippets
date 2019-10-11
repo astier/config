@@ -3,7 +3,15 @@ def fix_indent(snip):
     vim.eval('feedkeys("\<c-f>")')
 endglobal
 
-snippet p "section" b
+snippet a "autoref" b
+\autoref{$1}
+endsnippet
+
+snippet em "emph" b
+\emph{$1}
+endsnippet
+
+snippet p "paragraph" b
 \paragraph{$1}
 endsnippet
 

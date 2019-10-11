@@ -149,6 +149,8 @@ nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
+nnoremap <silent> <a-i> :bp<cr>
+nnoremap <silent> <a-o> :bn<cr>
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 
