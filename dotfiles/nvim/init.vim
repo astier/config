@@ -2,9 +2,11 @@ call plug#begin('~/.local/share/nvim/plugins')
 
 Plug '907th/vim-auto-save'
 Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
+Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
@@ -16,13 +18,13 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
 Plug 'zefei/vim-wintabs'
 Plug 'zefei/vim-wintabs-powerline'
+
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
@@ -212,6 +214,15 @@ let g:vimtex_compiler_latexmk = {
         \ '-interaction=nonstopmode'
     \ ],
 \}
+
+" VIMUX
+au filetype python nnoremap <leader>rp :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
+au filetype python nnoremap <leader>vi :VimuxInspectRunner<cr>
+au filetype python nnoremap <leader>vl :VimuxRunLastCommand<cr>
+au filetype python nnoremap <leader>vp :VimuxPromptCommand<cr>
+au filetype python nnoremap <leader>vq :VimuxCloseRunner<cr>
+au filetype python nnoremap <leader>vx :VimuxInterruptRunner<cr>
+au filetype python nnoremap <leader>vz :call VimuxZoomRunner()<cr>
 
 " WRAP
 nnoremap $ g$
