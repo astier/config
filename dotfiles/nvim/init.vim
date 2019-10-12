@@ -2,7 +2,6 @@ cal plug#begin('~/.local/share/nvim/plugins')
 
 Plug '907th/vim-auto-save'
 Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
-Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'benmills/vimux', { 'for': 'python' }
@@ -36,8 +35,6 @@ let g:ale_echo_msg_info_str = 'I'
 let g:ale_echo_msg_format = '[%linter%][%severity%][%code%] %s'
 
 " APPEARANCE
-let g:indentLine_char = '▏'
-let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
 let g:nord_bold = 0
 let g:nord_bold_vertical_split_line = 1
 let g:nord_italic = 1
