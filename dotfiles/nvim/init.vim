@@ -28,7 +28,6 @@ let mapleader = ' '
 let maplocalleader = ' '
 
 " ALE
-au FileType python nnoremap <silent> <leader>i :ALEFix<cr>
 let g:ale_disable_lsp = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_msg_error_str = 'E'
@@ -42,6 +41,7 @@ let g:ale_fixers = {
     \ 'python': ['isort', 'black'],
     \ 'sh': ['shfmt'],
 \}
+nnoremap <silent> <leader>i :ALEFix<cr>
 
 " APPEARANCE
 let g:indentLine_char = '▏'
@@ -87,13 +87,13 @@ nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
 
 " COC
+let g:coc_global_extensions = ['coc-python', 'coc-vimtex']
 au cursorhold * silent cal CocActionAsync('highlight')
-au filetype python,tex nmap <silent> gd <Plug>(coc-definition)zz
-au filetype python,tex nmap <silent> gr <Plug>(coc-references)
-au filetype python,tex nmap <leader>rn <Plug>(coc-rename)
-" au filetype python,tex nmap <leader>qf <Plug>(coc-fix-current)
-" au filetype python,tex nmap <leader>ac <Plug>(coc-codeaction)
-au filetype python,tex nnoremap <silent> K :cal <SID>show_documentation()<cr>
+inoremap <silent> <expr> <c-space> coc#refresh()
+nmap <silent> gd <Plug>(coc-definition)zz
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
+nnoremap <silent> K :cal <SID>show_documentation()<cr>
 fu! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         exe 'h '.expand('<cword>')
@@ -101,8 +101,6 @@ fu! s:show_documentation()
         cal CocAction('doHover')
     en
 endfu
-inoremap <silent> <expr> <c-space> coc#refresh()
-let g:coc_global_extensions = ['coc-python', 'coc-vimtex']
 
 " FOLD
 se foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
@@ -231,13 +229,13 @@ let g:vimtex_compiler_latexmk = {
 \}
 
 " VIMUX
-au filetype python nnoremap <leader>rp :cal VimuxRunCommand("clear; python " . bufname("%"))<cr>
-au filetype python nnoremap <leader>vi :VimuxInspectRunner<cr>
-au filetype python nnoremap <leader>vl :VimuxRunLastCommand<cr>
-au filetype python nnoremap <leader>vp :VimuxPromptCommand<cr>
-au filetype python nnoremap <leader>vd :VimuxCloseRunner<cr>
-au filetype python nnoremap <leader>vx :VimuxInterruptRunner<cr>
-au filetype python nnoremap <leader>vz :cal VimuxZoomRunner()<cr>
+nnoremap <leader>vd :VimuxCloseRunner<cr>
+nnoremap <leader>vi :VimuxInspectRunner<cr>
+nnoremap <leader>vl :VimuxRunLastCommand<cr>
+nnoremap <leader>vp :VimuxPromptCommand<cr>
+nnoremap <leader>vr :cal VimuxRunCommand("clear; run " . bufname("%"))<cr>
+nnoremap <leader>vx :VimuxInterruptRunner<cr>
+nnoremap <leader>vz :cal VimuxZoomRunner()<cr>
 
 " WRAP
 nnoremap $ g$
