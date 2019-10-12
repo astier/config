@@ -18,7 +18,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
+Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex', 'vim'] }
 
 cal plug#end()
 
@@ -28,12 +28,12 @@ let maplocalleader = ' '
 
 " ALE
 let g:ale_disable_lsp = 1
+let g:ale_history_enabled = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_info_str = 'I'
 let g:ale_echo_msg_format = '[%linter%][%severity%][%code%] %s'
-let g:ale_sh_shfmt_options = '-ci -sr -p -s'
 
 " APPEARANCE
 let g:indentLine_char = '▏'
@@ -51,7 +51,7 @@ hi StatusLineNC guibg=#3b4252
 nnoremap <a-s> <c-g>
 se fillchars+=eob:\ ,vert:\ ,fold:-
 se signcolumn=yes shortmess+=c termguicolors
-se stl=\  ls=1 nosc nosmd noru
+se statusline=\  ls=1 nosc nosmd noru
 
 " AUTOCOMMANDS
 au bufenter * se formatoptions-=cro
@@ -172,6 +172,7 @@ let g:auto_save_silent = 1
 se confirm noswapfile
 
 " SETTINGS
+let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a
 se path+=** path-=/usr/include
@@ -195,11 +196,6 @@ nnoremap <silent> , *``
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
-
-" SNIPPETS
-let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
