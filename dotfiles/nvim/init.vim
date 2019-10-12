@@ -10,7 +10,6 @@ Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'ludovicchabant/vim-gutentags', { 'for': ['python', 'tex'] }
-Plug 'moll/vim-bbye', { 'on': 'Bd' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -50,7 +49,7 @@ au bufenter * se formatoptions-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au bufwritepost * GitGutter
 au filetype gitcommit,python,tex setl spell
-au focusgained,bufenter,vimresume * checkt
+au focusgained,vimresume * checkt
 au vimresized * wincmd =
 
 " BETTER-WHITESPACE
@@ -98,8 +97,7 @@ nnoremap <silent> <leader>t :Tags<cr>
 " KILL
 nnoremap <leader>s <c-z>
 nnoremap <silent> <leader>c :clo<cr>
-nnoremap <silent> <leader>d :Bd<cr>
-nnoremap <silent> <leader>x :bd<cr>
+nnoremap <silent> <leader>d :bd<cr>
 nnoremap <silent> <leader>q :qa<cr>
 
 " LOADED
