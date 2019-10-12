@@ -158,12 +158,6 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = 'NERDTree'
 nnoremap <silent> <leader>e :NERDTreeToggle<cr><c-w>=
 
-" NETRW
-let g:netrw_banner = 0
-let g:netrw_dirhistmax = 0
-let g:netrw_liststyle = 3
-" nnoremap <silent> <leader>e :Explore<cr>
-
 " SAVE
 let g:auto_save = 1
 let g:auto_save_silent = 1
