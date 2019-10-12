@@ -1,4 +1,4 @@
-call plug#begin('~/.local/share/nvim/plugins')
+cal plug#begin('~/.local/share/nvim/plugins')
 
 Plug '907th/vim-auto-save'
 Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
@@ -23,7 +23,7 @@ Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
 
 Plug 'ryanoasis/vim-devicons'
 
-call plug#end()
+cal plug#end()
 
 " LEADERS
 let mapleader = ' '
@@ -85,20 +85,20 @@ nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
 
 " COC
-au cursorhold * silent call CocActionAsync('highlight')
+au cursorhold * silent cal CocActionAsync('highlight')
 au filetype python,tex nmap <silent> gd <Plug>(coc-definition)zz
 au filetype python,tex nmap <silent> gr <Plug>(coc-references)
 au filetype python,tex nmap <leader>rn <Plug>(coc-rename)
 " au filetype python,tex nmap <leader>qf <Plug>(coc-fix-current)
 " au filetype python,tex nmap <leader>ac <Plug>(coc-codeaction)
-au filetype python,tex nnoremap <silent> K :call <SID>show_documentation()<cr>
-function! s:show_documentation()
+au filetype python,tex nnoremap <silent> K :cal <SID>show_documentation()<cr>
+fu! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
+        exe 'h '.expand('<cword>')
+    el
+        cal CocAction('doHover')
+    en
+endfu
 inoremap <silent> <expr> <c-space> coc#refresh()
 let g:coc_global_extensions = ['coc-python', 'coc-vimtex']
 
@@ -188,13 +188,13 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " SEARCH & REPLACE
 " au CursorHold * exec 'mat StatusLineTerm /'.expand('<cword>').'/'
-function! CenterSearch()
+fu! CenterSearch()
     let cmdtype = getcmdtype()
     if cmdtype == '/' || cmdtype == '?'
-        return "\<enter>zz"
-    endif
-    return "\<enter>"
-endfunction
+        retu "\<enter>zz"
+    en
+    retu "\<enter>"
+endfu
 cnoremap <silent> <expr> <enter> CenterSearch()
 nnoremap <silent> <esc> :noh<cr>:echo<cr><esc>
 nnoremap <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
@@ -233,13 +233,13 @@ let g:vimtex_compiler_latexmk = {
 \}
 
 " VIMUX
-au filetype python nnoremap <leader>rp :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
+au filetype python nnoremap <leader>rp :cal VimuxRunCommand("clear; python " . bufname("%"))<cr>
 au filetype python nnoremap <leader>vi :VimuxInspectRunner<cr>
 au filetype python nnoremap <leader>vl :VimuxRunLastCommand<cr>
 au filetype python nnoremap <leader>vp :VimuxPromptCommand<cr>
 au filetype python nnoremap <leader>vd :VimuxCloseRunner<cr>
 au filetype python nnoremap <leader>vx :VimuxInterruptRunner<cr>
-au filetype python nnoremap <leader>vz :call VimuxZoomRunner()<cr>
+au filetype python nnoremap <leader>vz :cal VimuxZoomRunner()<cr>
 
 " WRAP
 nnoremap $ g$
