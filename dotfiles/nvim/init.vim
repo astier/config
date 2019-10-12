@@ -20,7 +20,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex', 'vim'] }
 
 " REPLACEABLE
-Plug '907th/vim-auto-save'
 Plug 'ntpeters/vim-better-whitespace'
 
 cal plug#end()
@@ -55,6 +54,7 @@ au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g
 au bufwritepost * GitGutter
 au filetype gitcommit,python,tex setl spell
 au focusgained,vimresume * checkt
+au textchanged,insertleave * nested silent up
 au vimresized * wincmd =
 
 " BETTER-WHITESPACE
@@ -153,13 +153,9 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = 'NERDTree'
 nnoremap <silent> <leader>e :NERDTreeToggle<cr><c-w>=
 
-" SAVE
-let g:auto_save = 1
-let g:auto_save_silent = 1
-se confirm noswapfile
-
 " SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
+se confirm noswapfile
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a
 se path+=** path-=/usr/include
