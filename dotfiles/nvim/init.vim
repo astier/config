@@ -79,7 +79,7 @@ nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
 
 " COC
-let g:coc_global_extensions = ['coc-python', 'coc-vimtex']
+let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
 au cursorhold * silent cal CocActionAsync('highlight')
 inoremap <silent> <expr> <c-space> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)zz
