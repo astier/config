@@ -144,7 +144,7 @@ let g:NERDTreeMouseMode = 2
 let g:NERDTreeQuitOnOpen = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = 'NERDTree'
-nnoremap <silent> <leader>e :NERDTreeToggle<cr><c-w>=
+nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 
 " SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
