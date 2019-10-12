@@ -1,22 +1,27 @@
 cal plug#begin('~/.local/share/nvim/plugins')
 
-Plug '907th/vim-auto-save'
-Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
+" BASICS
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
-Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'ludovicchabant/vim-gutentags', { 'for': ['python', 'tex'] }
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+
+" IDE
+Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
+Plug 'benmills/vimux', { 'for': 'python' }
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'ludovicchabant/vim-gutentags', { 'for': ['python', 'tex'] }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex', 'vim'] }
+
+" REPLACEABLE
+Plug '907th/vim-auto-save'
+Plug 'ntpeters/vim-better-whitespace'
 
 cal plug#end()
 
