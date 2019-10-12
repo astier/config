@@ -2,7 +2,6 @@ call plug#begin('~/.local/share/nvim/plugins')
 
 Plug '907th/vim-auto-save'
 Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
