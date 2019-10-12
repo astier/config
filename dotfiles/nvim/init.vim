@@ -51,7 +51,7 @@ hi StatusLineNC guibg=#3b4252
 nnoremap <a-s> <c-g>
 se fillchars+=eob:\ ,vert:\ ,fold:-
 se signcolumn=yes shortmess+=c termguicolors
-se statusline=\  ls=1 nosc nosmd noru
+se statusline=\  ls=0 nosc nosmd noru
 
 " AUTOCOMMANDS
 au bufenter * se formatoptions-=cro
@@ -98,7 +98,7 @@ se foldlevel=4
 se foldmethod=expr
 
 " FZF
-au filetype fzf se ls=0 | au bufleave <buffer> se ls=1
+au filetype fzf se ls=0
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>t :Tags<cr>
