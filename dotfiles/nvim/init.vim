@@ -89,9 +89,7 @@ nnoremap <silent> K :cal <SID>show_documentation()<cr>
 fu! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         exe 'h '.expand('<cword>')
-    el
-        cal CocAction('doHover')
-    en
+    el | cal CocAction('doHover') | en
 endfu
 
 " FOLD
@@ -183,9 +181,7 @@ sil! cal repeat#se('\<Plug>vim-surround', v:count)
 " au CursorHold * exec 'mat StatusLineTerm /'.expand('<cword>').'/'
 fu! CenterSearch()
     let cmdtype = getcmdtype()
-    if cmdtype == '/' || cmdtype == '?'
-        retu "\<enter>zz"
-    en
+    if cmdtype == '/' || cmdtype == '?' | retu "\<enter>zz" | en
     retu "\<enter>"
 endfu
 cnoremap <silent> <expr> <enter> CenterSearch()
