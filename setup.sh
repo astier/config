@@ -14,6 +14,7 @@ cd dotfiles || exit
 install .aliases ~
 install .condarc ~
 install .profile ~
+install .pylintrc ~
 install .tmux.conf ~
 install bash/.bash_profile ~
 install bash/.bashrc ~
