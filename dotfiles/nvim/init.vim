@@ -20,8 +20,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
-Plug 'zefei/vim-wintabs'
-Plug 'zefei/vim-wintabs-powerline'
 
 Plug 'ryanoasis/vim-devicons'
 
@@ -110,7 +108,7 @@ se foldlevel=4
 se foldmethod=expr
 
 " FZF
-au filetype fzf se ls=0 | au bufleave <buffer> se ls=2
+au filetype fzf se ls=0 | au bufleave <buffer> se ls=1
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>t :Tags<cr>
@@ -212,10 +210,8 @@ let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 
 " STATUS- & TABLINE
-au winenter * se laststatus=1 noruler noshowcmd noshowmode
-au vimenter,winenter * WintabsAllBuffers
-let g:wintabs_ignored_filetypes = []
-se laststatus=1 noruler noshowcmd noshowmode
+nnoremap <a-s> <c-g>
+se stl=\  ls=1 nosc nosmd noru
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
