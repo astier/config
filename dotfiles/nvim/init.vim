@@ -83,7 +83,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rr <Plug>(coc-rename)
 nnoremap <silent> K :cal <SID>show_documentation()<cr>
 fu! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
+    if index(['vim','help'], &filetype) >= 0
         exe 'h '.expand('<cword>')
     el | cal CocAction('doHover') | en
 endfu
