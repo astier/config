@@ -5,7 +5,7 @@ Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'benmills/vimux'
+Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
