@@ -19,9 +19,6 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex', 'vim'] }
 
-" REPLACEABLE
-Plug 'ntpeters/vim-better-whitespace'
-
 cal plug#end()
 
 " LEADERS
@@ -56,12 +53,6 @@ au filetype gitcommit,python,tex setl spell
 au focusgained,vimresume * checkt
 au textchanged,insertleave * nested silent up
 au vimresized * wincmd =
-
-" BETTER-WHITESPACE
-let g:better_whitespace_filetypes_blacklist = ['help']
-let g:better_whitespace_guicolor = '#bf616a'
-let g:show_spaces_that_precede_tabs = 1
-let g:strip_whitelines_at_eof = 1
 
 " CLIPBOARD
 nnoremap <RightMouse> "+p
@@ -124,7 +115,7 @@ nnoremap <a-s> <c-g>
 nnoremap <cr> o<esc>
 nnoremap <leader>z <c-w>s
 nnoremap <leader>v <c-w>v
-nnoremap <silent> <leader>i :%retab<cr>:StripWhitespace<cr>
+nnoremap <silent> <leader>i :%retab<cr>
 nnoremap <silent> gs vip:sort u<cr>
 vnoremap <silent> gs :sort u<cr>
 nnoremap Q <nop>
@@ -206,6 +197,13 @@ nnoremap <leader>vp :VimuxPromptCommand<cr>
 nnoremap <leader>vr :cal VimuxRunCommand("clear; run " . bufname("%"))<cr>
 nnoremap <leader>vx :VimuxInterruptRunner<cr>
 nnoremap <leader>vz :cal VimuxZoomRunner()<cr>
+
+" WHITESPACE
+hi Whitespace guibg=#bf616a
+au bufwinenter * mat Whitespace /\s\+$\| \+\ze\t/
+au insertenter * mat Whitespace /\s\+\%#\@<!$\| \+\ze\t/
+au insertleave * mat Whitespace /\s\+$\| \+\ze\t/
+au bufwinleave * cal clearmatches()
 
 " WRAP
 nnoremap $ g$
