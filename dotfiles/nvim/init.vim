@@ -21,8 +21,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
 
-Plug 'ryanoasis/vim-devicons'
-
 cal plug#end()
 
 " LEADERS
