@@ -29,10 +29,7 @@ let maplocalleader = ' '
 let g:ale_disable_lsp = 1
 let g:ale_history_enabled = 0
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_info_str = 'I'
-let g:ale_echo_msg_format = '[%linter%][%severity%][%code%] %s'
+let g:ale_echo_msg_format = '[%linter%][%code%] %s'
 
 " APPEARANCE
 let g:nord_bold = 0
