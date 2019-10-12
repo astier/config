@@ -54,8 +54,12 @@ let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
+hi StatusLine guibg=#3b4252
+hi StatusLineNC guibg=#3b4252
+nnoremap <a-s> <c-g>
 se fillchars+=eob:\ ,vert:\ ,fold:-
 se signcolumn=yes shortmess+=c termguicolors
+se stl=\  ls=1 nosc nosmd noru
 
 " AUTOCOMMANDS
 au bufenter * se formatoptions-=cro
@@ -206,10 +210,6 @@ se ignorecase smartcase inccommand=nosplit
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
-
-" STATUS- & TABLINE
-nnoremap <a-s> <c-g>
-se stl=\  ls=1 nosc nosmd noru
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
