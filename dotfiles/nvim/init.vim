@@ -116,10 +116,9 @@ let g:python3_host_prog = '/bin/python'
 " MAPPINGS
 nnoremap <a-s> <c-g>
 nnoremap <cr> o<esc>
-nnoremap g<cr> O<esc>
 nnoremap <leader>z <c-w>s
 nnoremap <leader>v <c-w>v
-nnoremap <silent> <leader>i :%retab<cr>
+nnoremap <silent> <leader>i :%retab<cr>:StripWhitespace<cr>
 nnoremap <silent> gs vip:sort u<cr>
 vnoremap <silent> gs :sort u<cr>
 nnoremap Q <nop>
