@@ -32,7 +32,6 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_msg_format = '[%linter%][%code%] %s'
 
 " APPEARANCE
-let g:nord_bold = 0
 let g:nord_bold_vertical_split_line = 1
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
@@ -42,7 +41,6 @@ let g:nord_uniform_status_lines = 1
 colorscheme nord
 hi StatusLine guibg=#3b4252
 hi StatusLineNC guibg=#3b4252
-nnoremap <a-s> <c-g>
 se fillchars+=eob:\ ,vert:\ ,fold:-
 se signcolumn=yes shortmess+=c termguicolors
 se statusline=\  ls=0 nosc nosmd noru
@@ -118,6 +116,7 @@ let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/bin/python'
 
 " MAPPINGS
+nnoremap <a-s> <c-g>
 nnoremap <cr> o<esc>
 nnoremap g<cr> O<esc>
 nnoremap <leader>z <c-w>s
