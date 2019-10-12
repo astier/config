@@ -16,6 +16,7 @@ Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'ludovicchabant/vim-gutentags', { 'for': ['python', 'tex'] }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'sakhnik/nvim-gdb', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex', 'vim'] }
 
@@ -91,8 +92,8 @@ nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>t :Tags<cr>
 
 " KILL
+nnoremap <silent> <a-d> :bp\|bd #<cr>
 nnoremap <silent> <leader>c :clo<cr>
-nnoremap <silent> <leader>d :bp\|bd #<cr>
 nnoremap <silent> <leader>q :qa<cr>
 nnoremap <silent> <leader>s <c-z>
 nnoremap <silent> <leader>x :bd<cr>
