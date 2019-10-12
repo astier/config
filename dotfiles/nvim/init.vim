@@ -75,7 +75,7 @@ au cursorhold * silent cal CocActionAsync('highlight')
 inoremap <silent> <expr> <c-space> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)zz
 nmap <silent> gr <Plug>(coc-references)
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>rr <Plug>(coc-rename)
 nnoremap <silent> K :cal <SID>show_documentation()<cr>
 fu! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
@@ -138,7 +138,7 @@ nnoremap <c-k> 4<c-y>
 
 " NERDTREE
 let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/.NERDTreeBookmarks'
+let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
 let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex']
 let g:NERDTreeMinimalMenu = 1
 let g:NERDTreeMinimalUI = 1
@@ -170,8 +170,8 @@ fu! CenterSearch()
 endfu
 cnoremap <silent> <expr> <enter> CenterSearch()
 nnoremap <silent> <esc> :noh<cr>:echo<cr><esc>
-nnoremap <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
-nnoremap <leader>rr :%s///gI<left><left><left><left>
+nnoremap <leader>re :%s/\<<C-r><C-w>\>//gI<left><left><left>
+nnoremap <leader>rw :%s///gI<left><left><left><left>
 nnoremap <silent> , *``
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
