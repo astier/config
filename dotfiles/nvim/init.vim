@@ -155,7 +155,7 @@ se splitbelow splitright
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " SEARCH & REPLACE
-" au CursorHold * exec 'mat StatusLineTerm /'.expand('<cword>').'/'
+" au CursorHold * exe 'mat StatusLineTerm /'.expand('<cword>').'/'
 fu! CenterSearch()
     let cmdtype = getcmdtype()
     if cmdtype == '/' || cmdtype == '?' | retu "\<enter>zz" | en
@@ -170,8 +170,11 @@ nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
 
-" STATUSLINE
-au vimenter,winenter * WintabsAllBuffers
+" STATUS- & TABLINE
+au vimenter * if len(getbufinfo({'buflisted':1})) < 2 | se stal=1 | en
+au filetype fzf,nerdtree if len(getbufinfo({'buflisted':1})) < 2 | se stal=1 | en
+au bufadd,winenter * if len(getbufinfo({'buflisted':1})) > 1 | exe 'WintabsAllBuffers' | se stal=2 | en
+au bufdelete * if len(getbufinfo({'buflisted':1})) < 3 | se stal=1 | en
 hi StatusLine guibg=#3b4252
 hi StatusLineNC guibg=#3b4252
 highlight WintabsActive guibg=#4c566a guifg=#d8dee9
