@@ -27,6 +27,7 @@ install nvim ~/.config
 install pacman ~/.config
 install sx ~/.config
 install sxhkd ~/.config
+install code/settings.json ~/.config/Code/User/
 install xkb ~/.config
 install xkb/xkb.desktop ~/.config/autostart
 
