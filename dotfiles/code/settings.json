@@ -41,6 +41,7 @@
     "search.smartCase": true,
     "search.useGlobalIgnoreFiles": true,
     "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.inheritEnv": false,
     "vim.foldfix": true,
     "vim.hlsearch": true,
     "vim.visualstar": true,
