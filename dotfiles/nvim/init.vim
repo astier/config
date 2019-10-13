@@ -12,6 +12,7 @@ Plug 'tpope/vim-surround'
 
 " IDE
 Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
+Plug 'Yggdroot/indentLine'
 Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'ludovicchabant/vim-gutentags', { 'for': ['python', 'tex'] }
@@ -35,14 +36,15 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_msg_format = '[%linter%][%code%] %s'
 
 " APPEARANCE
-let g:nord_bold_vertical_split_line = 1
+let g:indentLine_char = '▏'
+let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
-se fillchars+=eob:\ ,vert:\ ,fold:-
+se fillchars+=eob:\ ,vert:\▏,fold:-
 se signcolumn=yes shortmess+=c termguicolors
 
 " AUTOCOMMANDS
@@ -143,7 +145,7 @@ let g:NERDTreeMouseMode = 2
 let g:NERDTreeQuitOnOpen = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
-let g:NERDTreeWinPos = 'right'
+" let g:NERDTreeWinPos = 'right'
 nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 
 " SETTINGS
