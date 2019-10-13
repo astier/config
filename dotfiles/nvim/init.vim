@@ -19,6 +19,8 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'sakhnik/nvim-gdb', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex', 'vim'] }
+Plug 'zefei/vim-wintabs'
+Plug 'zefei/vim-wintabs-powerline'
 
 cal plug#end()
 
@@ -40,11 +42,8 @@ let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
-hi StatusLine guibg=#3b4252
-hi StatusLineNC guibg=#3b4252
 se fillchars+=eob:\ ,vert:\ ,fold:-
 se signcolumn=yes shortmess+=c termguicolors
-se statusline=\  ls=0 nosc nosmd noru
 
 " AUTOCOMMANDS
 au bufenter * se formatoptions-=cro
@@ -170,6 +169,14 @@ nnoremap <silent> , *``
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
+
+" STATUSLINE
+au vimenter,winenter * WintabsAllBuffers
+hi StatusLine guibg=#3b4252
+hi StatusLineNC guibg=#3b4252
+highlight WintabsActive guibg=#4c566a guifg=#d8dee9
+let g:wintabs_ignored_filetypes = []
+se statusline=\  ls=0 nosc nosmd noru
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
