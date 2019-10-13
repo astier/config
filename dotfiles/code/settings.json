@@ -11,19 +11,35 @@
 
     "breadcrumbs.enabled": false,
     "debug.toolBarLocation": "docked",
+    "diffEditor.renderSideBySide": false,
     "editor.accessibilitySupport": "off",
     "editor.cursorBlinking": "solid",
+    "editor.fontFamily": "monospace",
+    "editor.fontSize": 13,
+    "editor.formatOnPaste": true,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.hover.enabled": false,
     "editor.lineNumbers": "off",
+    "editor.minimap.enabled": false,
+    "editor.minimap.renderCharacters": false,
     "editor.renderLineHighlight": "none",
     "editor.rulers": [ 88 ],
     "editor.suggest.localityBonus": true,
+    "editor.suggest.maxVisibleSuggestions": 8,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
     "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 88,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.openEditors.visible": 0,
     "files.autoSave": "afterDelay",
+    "files.enableTrash": false,
+    "files.eol": "\n",
     "files.exclude": { "**/__pycache__": true },
+    "files.hotExit": "off",
     "files.insertFinalNewline": true,
+    "files.simpleDialog.enable": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     "git.confirmSync": false,
@@ -34,6 +50,7 @@
     "latex-workshop.latex.outDir": "%DIR%/tex",
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "browser",
+    "python.autoComplete.addBrackets": true,
     "python.jediEnabled": false,
     "search.smartCase": true,
     "search.useGlobalIgnoreFiles": true,
@@ -41,91 +58,32 @@
     "terminal.integrated.inheritEnv": false,
     "vim.foldfix": true,
     "vim.hlsearch": true,
+    "vim.leader": " ",
     "vim.visualstar": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.menuBarVisibility": "toggle",
     "window.title": "VSCode${separator}${rootName}",
     "window.zoomLevel": 0,
     "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "Nord",
+    "workbench.commandPalette.history": 8,
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.enableExperiments": false,
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": true,
 
     "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "cr"
-            ],
-            "after": [
-                "o",
-                "<esc>"
-            ]
-        },
-        {
-            "before": [
-                ":"
-            ],
-            "commands": [
-                "workbench.action.showCommands",
-            ]
-        },
-        {
-            "before": [
-                "j"
-            ],
-            "after": [
-                "g",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "k"
-            ],
-            "after": [
-                "g",
-                "k"
-            ]
-        },
-        {
-            "before": [
-                "0"
-            ],
-            "after": [
-                "g",
-                "0"
-            ]
-        },
-        {
-            "before": [
-                "$"
-            ],
-            "after": [
-                "g",
-                "$"
-            ]
-        }
-    ],
-    "workbench.colorTheme": "Nord",
-    "editor.fontFamily": "monospace",
-    "editor.glyphMargin": false,
-    "editor.hideCursorInOverviewRuler": true,
-    "editor.hover.sticky": false,
-    "editor.hover.enabled": false,
-    "editor.tabCompletion": "onlySnippets",
-    "editor.wordWrapColumn": 88,
-    "editor.formatOnPaste": true,
-    "diffEditor.renderSideBySide": false,
-    "editor.minimap.renderCharacters": false,
-    "editor.minimap.enabled": false,
-    "editor.suggest.maxVisibleSuggestions": 8,
-    "files.enableTrash": false,
-    "files.eol": "\n",
-    "editor.fontSize": 13,
-    "files.hotExit": "off",
-    "files.simpleDialog.enable": true,
-    "workbench.commandPalette.history": 8,
-    "workbench.enableExperiments": false,
+
+        { "before": [ ":" ], "commands": [ "workbench.action.showCommands" ] },
+        { "before": [ "<leader>", "h", "u" ], "commands": [ "git.revertSelectedRanges" ] },
+        { "before": [ "cr" ], "after": [ "o", "<esc>" ] },
+
+        { "before": [ "$" ], "after": [ "g", "$" ] },
+        { "before": [ "0" ], "after": [ "g", "0" ] },
+        { "before": [ "j" ], "after": [ "g", "j" ] },
+        { "before": [ "k" ], "after": [ "g", "k" ] }
+
+    ]
 }
