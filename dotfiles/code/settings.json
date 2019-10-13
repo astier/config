@@ -1,11 +1,14 @@
 {
-    "breadcrumbs.enabled": false,
     "cSpell.userWords": [
         "datapoint",
         "datapoints",
         "dataset",
         "datasets",
+        "numpy",
+        "rint"
     ],
+
+    "breadcrumbs.enabled": false,
     "debug.toolBarLocation": "docked",
     "editor.accessibilitySupport": "off",
     "editor.cursorBlinking": "solid",
@@ -16,6 +19,7 @@
     "editor.renderLineHighlight": "none",
     "editor.rulers": [ 88 ],
     "editor.suggest.localityBonus": true,
+    "editor.suggestSelection": "first",
     "editor.wordWrap": "on",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -33,15 +37,25 @@
     "latex-workshop.latex.outDir": "%DIR%/tex",
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.viewer": "browser",
+    "python.jediEnabled": false,
     "search.smartCase": true,
     "search.useGlobalIgnoreFiles": true,
     "terminal.integrated.copyOnSelection": true,
     "vim.foldfix": true,
     "vim.hlsearch": true,
     "vim.visualstar": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.menuBarVisibility": "toggle",
     "window.title": "VSCode${separator}${rootName}",
     "window.zoomLevel": 0,
+    "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "Nord",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.startupEditor": "none",
+    "workbench.statusBar.visible": true,
+
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -97,11 +111,4 @@
             ]
         }
     ],
-    "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "Nord",
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "workbench.settings.enableNaturalLanguageSearch": false,
-    "workbench.startupEditor": "none",
-    "workbench.statusBar.visible": true,
 }
