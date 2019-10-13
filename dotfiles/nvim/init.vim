@@ -172,7 +172,7 @@ nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
 
 " STATUS- & TABLINE
-au vimenter * if len(getbufinfo({'buflisted':1})) < 2 | se stal=1 | en
+au vimenter * if len(getbufinfo({'buflisted':1})) < 2 | se stal=1 | else | exe 'WintabsAllBuffers' | en
 au filetype fzf,nerdtree if len(getbufinfo({'buflisted':1})) < 2 | se stal=1 | en
 au bufadd,winenter * if len(getbufinfo({'buflisted':1})) > 1 | exe 'WintabsAllBuffers' | se stal=2 | en
 au bufdelete * if len(getbufinfo({'buflisted':1})) < 3 | se stal=1 | en
