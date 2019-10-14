@@ -116,7 +116,7 @@ alias n="\$EDITOR ~/Dropbox/misc/notes"
 alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
 alias aa="cd ~/projects/arch"
-alias aaa="cd ~/projects/arch && \$EDITOR desktop.sh base.sh"
+alias aaa="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias ab="\$EDITOR ~/.bashrc && . ~/.bashrc"
 alias ad="cd ~/projects/dotfiles/dotfiles"
 alias adm="cd ~/projects/dmenu"
