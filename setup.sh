@@ -20,8 +20,6 @@ install bash/.bash_profile ~
 install bash/.bashrc ~
 install bash/.inputrc ~
 
-install code/settings.json ~/.config/Code/User
-install code/settings.json ~/.config/Code\ -\ OSS/User
 install git ~/.config
 install gtk-3.0 ~/.config
 install herbstluftwm ~/.config
