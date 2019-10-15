@@ -20,10 +20,9 @@ set -o vi
 [[ $DISPLAY ]] && shopt -s checkwinsize
 shopt -s autocd cdspell histappend
 
-# MISC
+# SOURCE
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
-[ -r ~/.aliases ] && . ~/.aliases
-[ -r ~/.fzf.bash ] && . ~/.fzf.bash
+[ -r ~/.config/aliases ] && . ~/.config/aliases
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

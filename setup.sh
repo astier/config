@@ -11,7 +11,6 @@ install() {
 
 cd dotfiles || exit
 
-install .aliases ~
 install .condarc ~
 install .profile ~
 install .pylintrc ~
@@ -20,6 +19,7 @@ install bash/.bash_profile ~
 install bash/.bashrc ~
 install bash/.inputrc ~
 
+install aliases ~/.config
 install git ~/.config
 install gtk-3.0 ~/.config
 install herbstluftwm ~/.config
