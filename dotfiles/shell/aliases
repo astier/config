@@ -28,10 +28,9 @@ flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 # SHORTCUTS
 alias c="cat"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc"
-alias da="cd; clear"
-alias dl="clear; ls"
 alias e="exit"
-alias f="fg"
+alias f="fzf"
+alias g="fg"
 alias l="ls"
 alias lb="lsblk"
 alias ll="ls -l"
@@ -75,9 +74,9 @@ alias sl="slock"
 alias sp="poweroff"
 alias sr="reboot"
 
-# APERIRE. Similar to xdg-open but does what I actually want and is faster.
-a() {
-    [ $# -eq 0 ] && fzf | xargs -r "$EDITOR" && return
+# Similar to xdg-open but does what I actually want and is faster.
+j() {
+    [ $# -eq 0 ] && cd && clear && return
     [ -d "$1" ] && cd "$@" && return
     [ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
     mimetype=$(file -bL --mime-type "$1")
@@ -97,84 +96,81 @@ a() {
     esac
 }
 
-# BOOKMARKS (ar and as are already existing commands)
+# BOOKMARKS
 alias -- ,="cd -"
-alias ...="cd ../.."
-alias ac="cd ~/.config"
-alias aca="cd ~/.cache"
-alias af="\$EDITOR"
-alias ah="cd ~"
-alias alo="cd ~/.local/share"
-alias ao="cd ~/Downloads"
-alias att="\$EDITOR /tmp/scratch"
+alias jc="cd ~/.config"
+alias jca="cd ~/.cache"
+alias jf="\$EDITOR"
+alias jlo="cd ~/.local/share"
+alias jo="cd ~/Downloads"
+alias jtt="\$EDITOR /tmp/scratch"
 
-alias add="cd ~/Dropbox"
-alias au="cd ~/Dropbox/uni"
-alias aw="~/Dropbox/pictures/wallpapers"
-alias k="(libreoffice ~/Dropbox/misc/tracker.ods &)"
+alias jdd="cd ~/Dropbox"
+alias ju="cd ~/Dropbox/uni"
+alias jw="~/Dropbox/pictures/wallpapers"
 alias myo="conda activate myo; cd ~/Dropbox/uni/s5/myo"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
 alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
-alias aa="cd ~/projects/arch"
-alias aaa="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias ab="\$EDITOR ~/.bashrc && . ~/.bashrc"
-alias ad="cd ~/projects/dotfiles"
-alias adm="cd ~/projects/dmenu"
-alias al="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
-alias ap="cd ~/projects"
-alias asc="cd ~/projects/scripts"
-alias asi="cd ~/projects/sites"
-alias asl="cd ~/projects/slock"
-alias ast="cd ~/projects/st"
-alias av="\$EDITOR ~/.config/nvim/init.vim"
-alias ax="\$EDITOR ~/.config/sx/sxrc"
+alias ja="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
+alias jaa="cd ~/projects/arch"
+alias jad="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias jb="\$EDITOR ~/.bashrc && . ~/.bashrc"
+alias jd="cd ~/projects/dotfiles"
+alias jdm="cd ~/projects/dmenu"
+alias jj="cd ~/projects"
+alias jsc="cd ~/projects/scripts"
+alias jsi="cd ~/projects/sites"
+alias jsl="cd ~/projects/slock"
+alias jst="cd ~/projects/st"
+alias jv="\$EDITOR ~/.config/nvim/init.vim"
+alias jx="\$EDITOR ~/.config/sx/sxrc"
 
 # GIT
-alias ga="git add"
-alias gaa="git add --all"
-alias gam="git commit --amend"
-alias gb="git branch"
-alias gbd="git branch -D"
-alias gbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs -r \$BROWSER"
-alias gcl="git clone"
-alias gd="git diff"
-alias gfp="git format-patch --stdout HEAD^ >"
-alias gs="git status -bs"
+a() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+krb() { n=8; [ "$#" != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
+krh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
 
-alias gc="git commit"
-alias gca="git add --all && git commit"
-alias gcp="git add --all && git commit && git push"
-alias gcr="git commit -am tmp && git rebase -i HEAD~2"
+alias ka="git add"
+alias kaa="git add --all"
+alias kam="git commit --amend"
+alias kb="git branch"
+alias kbd="git branch -D"
+alias kbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs -r \$BROWSER"
+alias kcl="git clone"
+alias kd="git diff"
+alias kfp="git format-patch --stdout HEAD^ >"
+alias ks="git status -bs"
 
-g() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
-grb() { n=8; [ "$#" != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
-grh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
+alias kc="git commit"
+alias kca="git add --all && git commit"
+alias kcp="git add --all && git commit && git push"
+alias kcr="git commit -am tmp && git rebase -i HEAD~2"
 
-alias gg="git log --all --graph --decorate --oneline"
-alias ggg="git log --oneline --grep"
-alias gl="git log --date=auto:human"
-alias glg="git log --grep"
-alias gso="git show"
+alias kg="git log --all --graph --decorate --oneline"
+alias kgg="git log --oneline --grep"
+alias kl="git log --date=auto:human"
+alias klg="git log --grep"
+alias kso="git show"
 
-alias go="git checkout"
-alias gob="git checkout -b"
-alias gom="git checkout master"
+alias ko="git checkout"
+alias kob="git checkout -b"
+alias kom="git checkout master"
 
-alias gf="git fetch"
-alias gm="git merge"
-alias gmm="git merge master"
-alias gpl="git pull"
-alias gps="git push"
-alias gpsf="git push -f"
+alias kf="git fetch"
+alias km="git merge"
+alias kmm="git merge master"
+alias kpl="git pull"
+alias kps="git push"
+alias kpsf="git push -f"
 
-alias gcn="git clean -f"
-alias grm="git rebase master"
-alias grr="git reset --hard; git clean -f"
-alias grs="git reset --soft"
-alias grv="git revert"
+alias kcn="git clean -f"
+alias krm="git rebase master"
+alias krr="git reset --hard; git clean -f"
+alias krs="git reset --soft"
+alias krv="git revert"
 
-alias gsd="git stash drop"
-alias gsl="git stash list"
-alias gsp="git stash pop"
-alias gst="git stash"
+alias ksd="git stash drop"
+alias ksl="git stash list"
+alias ksp="git stash pop"
+alias kst="git stash"
