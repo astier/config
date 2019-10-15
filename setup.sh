@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-[ ! -d ~/.config ] && mkdir ~/.config
-
 install() {
     TARGET=$1 DESTINATION=$2/$(basename "$TARGET")
     sudo rm -fr "$DESTINATION"
@@ -9,30 +7,29 @@ install() {
         echo Installed: "$TARGET"
 }
 
+[ ! -d ~/.config ] && mkdir ~/.config
 cd dotfiles || exit
 
 install .condarc ~
-install .profile ~
 install .tmux.conf ~
-install bash/.bash_profile ~
-install bash/.bashrc ~
-
-install aliases ~/.config
-install bash/inputrc ~/.config
 install git ~/.config
 install gtk-3.0 ~/.config
 install herbstluftwm ~/.config
+install mkinitcpio.conf /etc
 install nvim ~/.config
 install pacman ~/.config
+install pacman/pacman.conf /etc
 install pylintrc ~/.config
+install shell/.bash_profile ~
+install shell/.bashrc ~
+install shell/.profile ~
+install shell/aliases ~/.config
+install shell/inputrc ~/.config
 install sx ~/.config
 install sxhkd ~/.config
 install xkb ~/.config
 install xkb/xkb.desktop ~/.config/autostart
 install zathura ~/.config/
-
-install pacman/pacman.conf /etc
-install mkinitcpio.conf /etc
 
 [ ! -d /etc/systemd/system/getty@tty1.service.d ] && sudo mkdir /etc/systemd/system/getty@tty1.service.d
 sudo ln -f ~/projects/dotfiles/dotfiles/systemd/getty@tty1.service.d/override.conf /etc/systemd/system/getty@tty1.service.d &&
