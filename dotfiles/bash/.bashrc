@@ -16,8 +16,9 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # SETTINGS
 HISTCONTROL=ignoreboth:erasedups
-set -o vi
+HISTFILE="$HOME/.config/bash_history"
 [[ $DISPLAY ]] && shopt -s checkwinsize
+set -o vi
 shopt -s autocd cdspell histappend
 
 # SOURCE
