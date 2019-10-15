@@ -16,7 +16,10 @@ PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # SETTINGS
 HISTCONTROL=ignoreboth:erasedups
-HISTFILE="$HOME/.config/bash_history"
+HISTFILE=~/.config/bash_history
+HISTIGNORE=a:b:d:e:f:g:i:k:l:n:r:s:t:u:,:..
+HISTIGNORE+=:as:ac:af:ah:ao:au:aw:aa:ab:ad:al:ap::av:ax
+HISTIGNORE+=:da:lb:ll:pm:pw:py:re:ta:tk:tl:tn:xc:xm:xp:xx:ii:sd:sl:sp:sr:gd:gf
 [[ $DISPLAY ]] && shopt -s checkwinsize
 set -o vi
 shopt -s autocd cdspell histappend
