@@ -29,8 +29,7 @@ flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 alias c="cat"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc"
 alias e="exit"
-alias f="fzf"
-alias g="fg"
+alias f="fg"
 alias l="ls"
 alias lb="lsblk"
 alias ll="ls -l"
@@ -76,7 +75,7 @@ alias sr="reboot"
 
 # Similar to xdg-open but does what I actually want and is faster.
 j() {
-    [ $# -eq 0 ] && cd && clear && return
+    [ $# -eq 0 ] && fzf | xargs -r "$EDITOR" && return
     [ -d "$1" ] && cd "$@" && return
     [ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
     mimetype=$(file -bL --mime-type "$1")
@@ -103,6 +102,7 @@ alias jca="cd ~/.cache"
 alias jf="\$EDITOR"
 alias jlo="cd ~/.local/share"
 alias jo="cd ~/Downloads"
+alias js="cd && clear"
 alias jtt="\$EDITOR /tmp/scratch"
 
 alias jdd="cd ~/Dropbox"
@@ -127,7 +127,7 @@ alias jv="\$EDITOR ~/.config/nvim/init.vim"
 alias jx="\$EDITOR ~/.config/sx/sxrc"
 
 # GIT
-a() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
 krb() { n=8; [ "$#" != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
 krh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
 
