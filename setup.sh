@@ -29,6 +29,7 @@ install sx ~/.config
 install sxhkd ~/.config
 install xkb ~/.config
 install xkb/xkb.desktop ~/.config/autostart
+install zathura ~/.config/
 
 install pacman/pacman.conf /etc
 install mkinitcpio.conf /etc
