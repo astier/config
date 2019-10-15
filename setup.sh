@@ -13,7 +13,6 @@ cd dotfiles || exit
 
 install .condarc ~
 install .profile ~
-install .pylintrc ~
 install .tmux.conf ~
 install bash/.bash_profile ~
 install bash/.bashrc ~
@@ -25,6 +24,7 @@ install gtk-3.0 ~/.config
 install herbstluftwm ~/.config
 install nvim ~/.config
 install pacman ~/.config
+install pylintrc ~/.config
 install sx ~/.config
 install sxhkd ~/.config
 install xkb ~/.config
