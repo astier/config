@@ -15,6 +15,7 @@ alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias shfmt="shfmt -ci -sr -p -s"
 alias sudo="sudo "
+alias tmux="tmux -f ~/.config/tmux.conf"
 alias top="top -1 -u \$USER"
 alias umount="sudo umount"
 

@@ -11,7 +11,6 @@ install() {
 cd dotfiles || exit
 
 install .condarc ~
-install .tmux.conf ~
 install git ~/.config
 install gtk-3.0 ~/.config
 install herbstluftwm ~/.config
@@ -27,6 +26,7 @@ install shell/aliases ~/.config
 install shell/inputrc ~/.config
 install sx ~/.config
 install sxhkd ~/.config
+install tmux.conf ~/.config
 install xkb ~/.config
 install xkb/xkb.desktop ~/.config/autostart
 install zathura ~/.config/
