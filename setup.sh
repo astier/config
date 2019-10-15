@@ -17,9 +17,9 @@ install .pylintrc ~
 install .tmux.conf ~
 install bash/.bash_profile ~
 install bash/.bashrc ~
-install bash/.inputrc ~
 
 install aliases ~/.config
+install bash/inputrc ~/.config
 install git ~/.config
 install gtk-3.0 ~/.config
 install herbstluftwm ~/.config
