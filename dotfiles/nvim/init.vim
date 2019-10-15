@@ -204,7 +204,11 @@ let g:vimtex_compiler_latexmk = {
 \}
 let g:vimtex_compiler_callback_hooks = ['FocusViewer']
 fu! FocusViewer(status)
-    exe 'silent !xdotool search --desktop 0 --class Zathura windowactivate'
+    if system('pidof zathura')
+        exe 'silent !xdotool search --desktop 0 --class Zathura windowactivate'
+    el
+        exe 'VimtexView'
+    en
 endfu
 
 " VIMUX
