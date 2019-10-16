@@ -95,7 +95,7 @@ f() {
     esac
 }
 
-# BOOKMARKS (fi and fc already assigned)
+# FILES
 alias -- ,="cd -"
 alias fca="cd ~/.cache"
 alias fl="cd ~/.local/share"
