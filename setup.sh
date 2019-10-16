@@ -10,7 +10,7 @@ install() {
 [ ! -d ~/.config ] && mkdir ~/.config
 cd dotfiles || exit
 
-install .condarc ~
+install condarc ~/.config
 install git ~/.config
 install gtk-3.0 ~/.config
 install herbstluftwm ~/.config
