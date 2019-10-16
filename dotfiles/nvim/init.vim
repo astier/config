@@ -150,6 +150,7 @@ nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 
 " SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
+se commentstring=//\ %s
 se confirm noswapfile
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a
