@@ -96,7 +96,7 @@ nnoremap <silent> <leader>t :Tags<cr>
 nnoremap <silent> <a-d> :bp\|bd #<cr>
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>q :qa<cr>
-nnoremap <silent> <leader>s <c-z>
+nnoremap <silent> <leader>z <c-z>
 nnoremap <silent> <leader>x :bd<cr>
 
 " LOADED
@@ -115,7 +115,7 @@ let g:python3_host_prog = '/bin/python'
 " MAPPINGS
 nnoremap <a-s> <c-g>
 nnoremap <cr> o<esc>
-nnoremap <leader>z <c-w>s
+nnoremap <leader>s <c-w>s
 nnoremap <leader>v <c-w>v
 nnoremap <silent> <leader>i :%retab<cr>
 nnoremap <silent> gs vip:sort u<cr>
