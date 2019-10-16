@@ -29,7 +29,7 @@ flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 alias c="cat"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc"
 alias e="exit"
-alias f="fg"
+alias g="fg"
 alias l="ls"
 alias lb="lsblk"
 alias ll="ls -l"
@@ -74,7 +74,7 @@ alias sp="poweroff"
 alias sr="reboot"
 
 # Similar to xdg-open but does what I actually want and is faster.
-j() {
+f() {
     [ $# -eq 0 ] && fzf | xargs -r "$EDITOR" && return
     [ -d "$1" ] && cd "$@" && return
     [ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
@@ -95,36 +95,37 @@ j() {
     esac
 }
 
-# BOOKMARKS
+# BOOKMARKS (fi and fc already assigned)
 alias -- ,="cd -"
-alias jc="cd ~/.config"
-alias jca="cd ~/.cache"
-alias jf="\$EDITOR"
-alias jlo="cd ~/.local/share"
-alias jo="cd ~/Downloads"
-alias js="cd && clear"
-alias jtt="\$EDITOR /tmp/scratch"
+alias fca="cd ~/.cache"
+alias fl="cd ~/.local/share"
+alias fn="\$EDITOR"
+alias fo="cd ~/Downloads"
+alias ft="\$EDITOR /tmp/scratch"
+alias h="cd && clear"
 
-alias jdd="cd ~/Dropbox"
-alias ju="cd ~/Dropbox/uni"
-alias jw="~/Dropbox/pictures/wallpapers"
-alias myo="conda activate myo; cd ~/Dropbox/uni/s5/myo"
+alias fdd="cd ~/Dropbox"
+alias ff="conda activate myo; cd ~/Dropbox/uni/s5/myo"
+alias fu="cd ~/Dropbox/uni"
+alias fw="~/Dropbox/pictures/wallpapers"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
-alias rdm="cd ~/Dropbox/uni/s3/rdm"
 
-alias ja="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
-alias jaa="cd ~/projects/arch"
-alias jad="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias jb="\$EDITOR ~/.bashrc && . ~/.bashrc"
-alias jd="cd ~/projects/dotfiles"
-alias jdm="cd ~/projects/dmenu"
-alias jj="cd ~/projects"
-alias jsc="cd ~/projects/scripts"
-alias jsi="cd ~/projects/sites"
-alias jsl="cd ~/projects/slock"
-alias jst="cd ~/projects/st"
-alias jv="\$EDITOR ~/.config/nvim/init.vim"
-alias jx="\$EDITOR ~/.config/sx/sxrc"
+alias a="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
+alias fb="\$EDITOR ~/.bashrc && . ~/.bashrc"
+alias fco="cd ~/.config"
+alias fv="\$EDITOR ~/.config/nvim/init.vim"
+alias fx="\$EDITOR ~/.config/sx/sxrc"
+
+alias fa="cd ~/projects/arch"
+alias fad="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias fd="cd ~/projects/dotfiles"
+alias fj="cd ~/projects"
+alias fsc="cd ~/projects/scripts"
+alias fsi="cd ~/projects/sites"
+alias fsl="cd ~/projects/slock"
+alias fsm="cd ~/projects/dmenu"
+alias fst="cd ~/projects/st"
+alias fsw="cd ~/projects/dwm"
 
 # GIT
 k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
