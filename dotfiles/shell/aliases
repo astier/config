@@ -103,6 +103,7 @@ alias fn="\$EDITOR"
 alias fo="cd ~/Downloads"
 alias ftm="\$EDITOR /tmp/scratch"
 alias h="cd"
+alias hd="cd && clear"
 
 alias fdd="cd ~/Dropbox"
 alias ff="conda activate myo; cd ~/Dropbox/uni/s5/myo"
