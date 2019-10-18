@@ -1,0 +1,5 @@
+/* Set toolkit.legacyUserProfileCustomizations.stylesheets=true */
+/* tabs to bottom */
+#navigator-toolbox {
+  -moz-box-ordinal-group: 2;
+}

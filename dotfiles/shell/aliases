@@ -24,6 +24,7 @@ cd() { if [ $# -eq 0 ]; then builtin cd || return; else builtin cd "$@" && ls; f
 d() { if [ $# -eq 0 ]; then clear; else rm "$@"; fi; }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
+mc() { mkdir "$1" && cd "$1" || return; }
 
 # SHORTCUTS
 alias c="cat"
@@ -120,13 +121,13 @@ alias fx="\$EDITOR ~/.config/sx/sxrc"
 alias fa="cd ~/projects/arch"
 alias fad="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias fd="cd ~/projects/dotfiles"
+alias fdm="cd ~/projects/dmenu"
+alias fdw="cd ~/projects/dwm"
 alias fj="cd ~/projects"
 alias fs="cd ~/projects/scripts"
 alias fsi="cd ~/projects/sites"
 alias fsl="cd ~/projects/slock"
-alias fdm="cd ~/projects/dmenu"
-alias ft="cd ~/projects/st"
-alias fw="cd ~/projects/dwm"
+alias fst="cd ~/projects/st"
 
 # GIT
 g() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
