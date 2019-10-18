@@ -11,7 +11,6 @@ install() {
 cd dotfiles || exit
 
 install gui/gtk-3.0 ~/.config
-install gui/zathura ~/.config/
 install shell/.bash_profile ~
 install shell/.bashrc ~
 install shell/.profile ~
@@ -25,7 +24,6 @@ install tui/git ~/.config
 install tui/nvim ~/.config
 install tui/pylintrc ~/.config
 install tui/tmux.conf ~/.config
-install x/herbstluftwm ~/.config
 install x/sx ~/.config
 install x/sxhkd ~/.config
 install x/xkb ~/.config

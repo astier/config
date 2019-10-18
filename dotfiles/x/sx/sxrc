@@ -1,4 +1,9 @@
 #!/usr/bin/env sh
 
+$BROWSER &
+$TERMINAL &
 pulsemixer --unmute
-exec herbstluftwm -l
+sxhkd &
+xkbcomp ~/.config/xkb "$DISPLAY"
+
+exec dwm

@@ -190,7 +190,7 @@ se statusline=\  ls=0 nosc nosmd noru
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_fold_enabled = 1
-let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_general_viewer = 'firefox'
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
@@ -205,14 +205,6 @@ let g:vimtex_compiler_latexmk = {
         \ '-interaction=nonstopmode'
     \ ],
 \}
-let g:vimtex_compiler_callback_hooks = ['FocusViewer']
-fu! FocusViewer(status)
-    if system('pidof zathura')
-        exe 'silent !wmctrl -xa zathura'
-    el
-        exe 'VimtexView'
-    en
-endfu
 
 " VIMUX
 nnoremap <leader>vd :VimuxCloseRunner<cr>
