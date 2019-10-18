@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Ctrl Alt Backspace
-Exec=sh -c "xkbcomp /home/aleks/.config/xkb/xkeymap $DISPLAY"
-X-GNOME-Autostart-enabled=true

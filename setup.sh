@@ -29,7 +29,6 @@ install x/herbstluftwm ~/.config
 install x/sx ~/.config
 install x/sxhkd ~/.config
 install x/xkb ~/.config
-install x/xkb/xkb.desktop ~/.config/autostart
 
 [ ! -d /etc/systemd/system/getty@tty1.service.d ] && sudo mkdir /etc/systemd/system/getty@tty1.service.d
 sudo ln -f ~/projects/dotfiles/dotfiles/system/systemd/getty@tty1.service.d/override.conf /etc/systemd/system/getty@tty1.service.d &&

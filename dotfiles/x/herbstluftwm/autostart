@@ -84,6 +84,6 @@ if herbstclient silent new_attr bool my_not_first_autostart ; then
     herbstclient spawn "$BROWSER"
     herbstclient spawn "$TERMINAL"
     herbstclient spawn sxhkd
-    herbstclient spawn xkbcomp ~/.config/xkb/xkeymap "$DISPLAY"
+    herbstclient spawn xkbcomp ~/.config/xkb "$DISPLAY"
 fi
 herbstclient unlock

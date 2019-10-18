@@ -1383,7 +1383,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(swapescape)" {
     };
     key <LALT> {         [           Alt_L,          Meta_L ] };
     key <SPCE> {         [           space ] };
-    key <CAPS> {         [          Escape ] };
+    key <CAPS> {         [          Escape, Control ] };
     key <FK01> {
         type= "CTRL+ALT",
         symbols[Group1]= [              F1,              F1,              F1,              F1, XF86Switch_VT_1 ]
