@@ -24,9 +24,9 @@ install shell/.bashrc ~
 install shell/.profile ~
 install shell/aliases ~/.config
 install shell/inputrc ~/.config
+install shell/tmux.conf ~/.config
 install sx ~/.config
 install sxhkd ~/.config
-install tmux.conf ~/.config
 install xkb ~/.config
 install xkb/xkb.desktop ~/.config/autostart
 install zathura ~/.config/
