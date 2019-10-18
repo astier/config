@@ -46,7 +46,7 @@ let g:nord_uniform_diff_background = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
 se fillchars+=eob:\ ,vert:\▏,fold:-
-se signcolumn=yes shortmess+=c termguicolors
+se signcolumn=yes termguicolors
 
 " AUTOCOMMANDS
 au bufenter * se formatoptions-=cro
@@ -81,6 +81,7 @@ fu! s:show_documentation()
         exe 'h '.expand('<cword>')
     el | cal CocAction('doHover') | en
 endfu
+se completeopt=menuone,noinsert shortmess+=c
 
 " FOLD
 se foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
@@ -124,16 +125,15 @@ nnoremap Q <nop>
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
+nnoremap <c-j> 4<c-e>
+nnoremap <c-k> 4<c-y>
 nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
-nnoremap <silent> <a-i> :bp<cr>
-nnoremap <silent> <a-o> :bn<cr>
-nnoremap <c-j> 4<c-e>
-nnoremap <c-k> 4<c-y>
+nnoremap <silent> <leader><leader> :silent! b #<cr>
 
 " NERDTREE
 let g:NERDTreeAutoDeleteBuffer = 1
