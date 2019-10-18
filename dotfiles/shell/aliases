@@ -115,7 +115,7 @@ alias n="\$EDITOR ~/Dropbox/misc/notes"
 alias a="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
 alias fb="\$EDITOR ~/.bashrc && . ~/.bashrc"
 alias fco="cd ~/.config"
-alias fv="\$EDITOR ~/.config/nvim/init.vim"
+alias fm="\$EDITOR ~/.config/nvim/init.vim"
 alias fx="\$EDITOR ~/.config/sx/sxrc"
 
 alias fa="cd ~/projects/arch"

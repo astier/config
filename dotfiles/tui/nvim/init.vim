@@ -2,6 +2,7 @@ cal plug#begin('~/.local/share/nvim/plugins')
 
 " BASICS
 Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
@@ -149,6 +150,8 @@ nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 
 " SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
+let g:rooter_resolve_links = 1
+let g:rooter_silent_chdir = 1
 se commentstring=//\ %s
 se confirm noswapfile
 se expandtab shiftwidth=4 tabstop=4
