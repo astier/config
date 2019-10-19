@@ -25,7 +25,6 @@ install tui/nvim ~/.config
 install tui/pylintrc ~/.config
 install tui/tmux.conf ~/.config
 install x/sx ~/.config
-install x/sxhkd ~/.config
 install x/xkb ~/.config
 
 [ ! -d /etc/systemd/system/getty@tty1.service.d ] && sudo mkdir /etc/systemd/system/getty@tty1.service.d
