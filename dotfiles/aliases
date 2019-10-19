@@ -125,11 +125,11 @@ alias fcd="\$EDITOR config.def.h"
 alias fd="cd ~/projects/dotfiles"
 alias fdm="cd ~/projects/dmenu"
 alias fj="cd ~/projects"
-alias fs="cd ~/projects/scripts"
+alias fsc="cd ~/projects/scripts"
 alias fsi="cd ~/projects/sites"
 alias fsl="cd ~/projects/slock"
 alias fst="cd ~/projects/st"
-alias fw="cd ~/projects/dwm"
+alias fdw="cd ~/projects/dwm"
 
 # GIT
 k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
