@@ -97,7 +97,7 @@ f() {
 }
 
 # FILES (don't use fc or fi)
-alias -- ,="cd -"
+alias -- ,="cd .."
 alias fca="cd ~/.cache"
 alias fl="cd ~/.local/share"
 alias fn="\$EDITOR"
@@ -105,6 +105,7 @@ alias fo="cd ~/Downloads"
 alias ftm="\$EDITOR /tmp/scratch"
 alias h="cd"
 alias hd="cd && clear"
+alias v="cd -"
 
 alias fdd="cd ~/Dropbox"
 alias ff="conda activate myo; cd ~/Dropbox/uni/s5/myo"
@@ -120,14 +121,15 @@ alias fx="\$EDITOR ~/.config/sx/sxrc"
 
 alias fa="cd ~/projects/arch"
 alias fad="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias fcd="\$EDITOR config.def.h"
 alias fd="cd ~/projects/dotfiles"
 alias fdm="cd ~/projects/dmenu"
-alias fw="cd ~/projects/dwm"
 alias fj="cd ~/projects"
 alias fs="cd ~/projects/scripts"
 alias fsi="cd ~/projects/sites"
 alias fsl="cd ~/projects/slock"
 alias fst="cd ~/projects/st"
+alias fw="cd ~/projects/dwm"
 
 # GIT
 k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
@@ -158,7 +160,7 @@ alias kso="git show"
 
 alias ko="git checkout"
 alias kob="git checkout -b"
-alias kom="git checkout master"
+alias kma="git checkout master"
 
 alias kf="git fetch"
 alias km="git merge"
