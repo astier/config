@@ -61,10 +61,10 @@ alias tl="tmux ls"
 alias tn="tmux new -s"
 
 # X
+alias xa="x -a"
 alias xc="x -c"
 alias xm="x -m"
 alias xp="x -p"
-alias xx="x -c; x"
 
 # SYSTEM
 alias ii="networkctl"
