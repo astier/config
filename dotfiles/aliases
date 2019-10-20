@@ -145,6 +145,7 @@ alias kbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs
 alias kcl="git clone"
 alias kd="git diff"
 alias kfp="git format-patch --stdout HEAD^ >"
+alias kr="cd \$(git rev-parse --show-toplevel)"
 alias ks="git status -bs"
 
 alias kc="git commit"
