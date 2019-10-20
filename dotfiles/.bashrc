@@ -22,7 +22,7 @@ HISTIGNORE+=:fs:fc:ff:fh:fo:fu:fw:fa:fb:fd:fl:fp::fv:fx
 HISTIGNORE+=:da:lb:ll:pm:pw:py:re:ta:tk:tl:tn:xc:xm:xp:xx:ii:sd:sl:sp:sr:gd:gf
 [[ $DISPLAY ]] && shopt -s checkwinsize
 set -o vi
-shopt -s autocd cdspell histappend
+shopt -s autocd cdspell cmdhist histappend
 
 # SOURCE
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
