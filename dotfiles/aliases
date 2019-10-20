@@ -19,19 +19,10 @@ alias tmux="tmux -f ~/.config/tmux.conf"
 alias top="top -1 -u \$USER"
 alias umount="sudo umount"
 
-# FUNCTIONS
-c() { if [ $# -eq 0 ]; then cd "$(find . -type d ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname '.git' ! -iname '.' | sed 's/^.\///' | fzf)" || return; else cat "$@"; fi; }
-cd() { if [ $# -eq 0 ]; then builtin cd || return; else builtin cd "$@" && ls; fi; }
-d() { if [ $# -eq 0 ]; then clear; else rm "$@"; fi; }
-di() { $BROWSER https://www.dict.cc/?s="$1"; }
-flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
-mc() { mkdir "$1" && cd "$1" || return; }
-
 # SHORTCUTS
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc"
 alias e="exit"
 alias j="fg"
-alias l="ls"
 alias lb="lsblk"
 alias ll="ls -l"
 alias m="mv"
@@ -74,9 +65,17 @@ alias sl="slock"
 alias sp="poweroff"
 alias sr="reboot"
 
+# FUNCTIONS
+c() { cd "$(find . -type d ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname '.git' ! -iname '.' | sed 's/^.\///' | fzf)" || echo Can not open directory.; }
+cd() { if [ $# -eq 0 ]; then builtin cd || return; else builtin cd "$@" && ls; fi; }
+d() { if [ $# -eq 0 ]; then clear; else rm "$@"; fi; }
+di() { $BROWSER https://www.dict.cc/?s="$1"; }
+flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
+mc() { mkdir "$1" && cd "$1" || return; }
+
 # Similar to xdg-open but does what I actually want and is faster.
 f() {
-    [ $# -eq 0 ] && fzf | xargs -r "$EDITOR" && return
+    [ $# -eq 0 ] && "$EDITOR" "$(fzf)" && return
     [ -d "$1" ] && cd "$@" && return
     [ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
     mimetype=$(file -bL --mime-type "$1")
@@ -94,6 +93,13 @@ f() {
         "application/gzip") tar -xzf "$@" ;;
         *) echo No association with mimetype: "$mimetype" >&2 ;;
     esac
+}
+
+l() {
+    if [ $# -eq 0 ]; then ls
+    elif [ -f "$1" ]; then cat "$1"
+    elif [ -d "$1" ]; then ls "$1";
+    else echo Argument is not a file or directory.; fi
 }
 
 # FILES (don't use fc or fi)
