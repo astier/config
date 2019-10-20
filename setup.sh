@@ -14,6 +14,7 @@ install .bash_profile ~
 install .bashrc ~
 install .profile ~
 install aliases ~/.config
+install bash-completion ~/.local/share
 install condarc ~/.config
 install git ~/.config
 install gtk-3.0 ~/.config
