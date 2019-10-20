@@ -133,6 +133,7 @@ alias fdw="cd ~/projects/dwm"
 
 # GIT
 k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+kgg() { git log --color --oneline --grep "$1" | fzf --ansi --no-sort | cut -d\  -f1 | xsel -b; }
 krb() { n=8; [ "$#" != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
 krh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
 
@@ -154,7 +155,6 @@ alias kcp="git add --all && git commit && git push"
 alias kcr="git commit -am tmp && git rebase -i HEAD~2"
 
 alias kg="git log --all --graph --decorate --oneline"
-alias kgg="git log --oneline --grep"
 alias kl="git log --date=auto:human"
 alias klg="git log --grep"
 alias kso="git show"
