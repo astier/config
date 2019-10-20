@@ -46,6 +46,7 @@ let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
+hi search guibg=#d08770
 se fillchars+=eob:\ ,vert:\▏,fold:-
 se signcolumn=yes termguicolors
 
@@ -187,9 +188,9 @@ au vimenter * if len(getbufinfo({'buflisted':1})) < 2 | se stal=1 | else | exe '
 au filetype fzf,nerdtree if len(getbufinfo({'buflisted':1})) < 2 | se stal=1 | en
 au bufadd,winenter * if len(getbufinfo({'buflisted':1})) > 1 | exe 'WintabsAllBuffers' | se stal=2 | en
 au bufdelete * if len(getbufinfo({'buflisted':1})) < 3 | se stal=1 | en
-hi StatusLine guibg=#3b4252
-hi StatusLineNC guibg=#3b4252
-highlight WintabsActive guibg=#4c566a guifg=#d8dee9
+hi statusline guibg=#3b4252
+hi statuslinenc guibg=#3b4252
+hi wintabsactive guibg=#4c566a guifg=#d8dee9
 let g:wintabs_ignored_filetypes = []
 se statusline=\  ls=0 nosc nosmd noru
 
@@ -222,7 +223,7 @@ nnoremap <leader>vx :VimuxInterruptRunner<cr>
 nnoremap <leader>vz :cal VimuxZoomRunner()<cr>
 
 " WHITESPACE
-hi Whitespace guibg=#bf616a
+hi whitespace guibg=#bf616a
 au bufwinenter * mat Whitespace /\s\+$\| \+\ze\t/
 au insertenter * mat Whitespace /\s\+\%#\@<!$\| \+\ze\t/
 au insertleave * mat Whitespace /\s\+$\| \+\ze\t/
