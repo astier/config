@@ -9,7 +9,7 @@ export FZF_DEFAULT_OPTS="--ansi --cycle -m --reverse --tabstop=4 --color=bg+:-1,
 
 export CONDARC=~/.config/condarc
 export INPUTRC=~/.config/inputrc
-export LESSHISTFILE=~/.local/share/lesshst
+export LESSHISTFILE=~/.cache/lesshst
 export PYLINTRC=~/.config/pylintrc
 
 [ "$(tty)" = "/dev/tty1" ] && [ "$(whoami)" != "root" ] && sx

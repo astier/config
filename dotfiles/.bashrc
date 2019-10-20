@@ -15,10 +15,10 @@ num_jobs() { NUM_JOBS=$(jobs | wc -l) && [[ "$NUM_JOBS" -gt 0 ]] && echo " $NUM_
 PS1="${GREEN}[\W\$(__git_ps1 ' (%s)')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # SETTINGS
+HISTFILE=~/.cache/bash_history
 HISTCONTROL=ignoreboth:erasedups
-HISTFILE=~/.local/share/bash_history
 HISTIGNORE=a:b:d:e:f:g:i:k:l:n:r:s:t:u:,:..
-HISTIGNORE+=:as:ac:af:ah:ao:au:aw:aa:ab:ad:al:ap::av:ax
+HISTIGNORE+=:fs:fc:ff:fh:fo:fu:fw:fa:fb:fd:fl:fp::fv:fx
 HISTIGNORE+=:da:lb:ll:pm:pw:py:re:ta:tk:tl:tn:xc:xm:xp:xx:ii:sd:sl:sp:sr:gd:gf
 [[ $DISPLAY ]] && shopt -s checkwinsize
 set -o vi
