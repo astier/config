@@ -2,6 +2,7 @@
 
 $BROWSER &
 $TERMINAL &
+bstatus &
 pulsemixer --unmute
 xkbcomp ~/.config/xkb "$DISPLAY"
 
