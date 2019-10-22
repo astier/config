@@ -135,7 +135,6 @@ alias fsc="cd ~/projects/scripts"
 alias fsi="cd ~/projects/sites"
 alias fsl="cd ~/projects/slock"
 alias fst="cd ~/projects/st"
-alias fdw="cd ~/projects/dwm"
 
 # GIT
 k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }

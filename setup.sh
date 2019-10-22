@@ -18,6 +18,7 @@ install bash-completion ~/.local/share
 install condarc ~/.config
 install git ~/.config
 install gtk-3.0 ~/.config
+install herbstluftwm ~/.config
 install inputrc ~/.config
 install mkinitcpio.conf /etc
 install nvim ~/.config
@@ -28,6 +29,7 @@ install sx ~/.config
 install sxhkd ~/.config
 install tmux.conf ~/.config
 install xkb ~/.config
+install zathura ~/.config/
 
 [ ! -d /etc/systemd/system/getty@tty1.service.d ] && sudo mkdir /etc/systemd/system/getty@tty1.service.d
 sudo ln -f ~/projects/dotfiles/dotfiles/systemd/getty@tty1.service.d/override.conf /etc/systemd/system/getty@tty1.service.d &&
