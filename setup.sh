@@ -25,6 +25,7 @@ install pacman ~/.config
 install pacman/pacman.conf /etc
 install pylintrc ~/.config
 install sx ~/.config
+install sxhkd ~/.config
 install tmux.conf ~/.config
 install xkb ~/.config
 

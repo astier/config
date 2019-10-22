@@ -4,6 +4,7 @@ $BROWSER &
 $TERMINAL &
 bstatus &
 pulsemixer --unmute
+sxhkd &
 xkbcomp ~/.config/xkb "$DISPLAY"
 
 exec dwm
