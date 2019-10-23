@@ -32,12 +32,13 @@ let mapleader = ' '
 let maplocalleader = ' '
 
 " ALE
+nnoremap <silent> <leader>i :%retab<cr>:ALEFix<cr>
 let g:ale_disable_lsp = 1
 let g:ale_history_enabled = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_msg_format = '[%linter%][%code%] %s'
 let g:ale_sh_shfmt_options = '-ci -sr -p -s'
- let g:ale_fixers = {
+let g:ale_fixers = {
     \ '*': ['remove_trailing_lines', 'trim_whitespace'],
     \ 'python': ['isort', 'black'],
     \ 'sh': ['shfmt'],
@@ -131,7 +132,6 @@ nnoremap <a-s> <c-g>
 nnoremap <cr> o<esc>
 nnoremap <leader>z <c-w>s
 nnoremap <leader>x <c-w>v
-nnoremap <silent> <leader>i :%retab<cr>:ALEFix<cr>
 nnoremap <silent> gs vip:sort u<cr>
 vnoremap <silent> gs :sort u<cr>
 nnoremap Q <nop>
@@ -228,12 +228,11 @@ fu! FocusViewer(status)
 endfu
 
 " VIMUX
-nnoremap <Leader>rp :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
+nnoremap <Leader>vr :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
 nnoremap <leader>vd :VimuxCloseRunner<cr>
 nnoremap <leader>vi :VimuxInspectRunner<cr>
 nnoremap <leader>vl :VimuxRunLastCommand<cr>
 nnoremap <leader>vp :VimuxPromptCommand<cr>
-nnoremap <leader>vr :cal VimuxRunCommand("clear; run " . bufname("%"))<cr>
 nnoremap <leader>vx :VimuxInterruptRunner<cr>
 nnoremap <leader>vz :cal VimuxZoomRunner()<cr>
 
