@@ -17,7 +17,6 @@ Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
 Plug 'Yggdroot/indentLine'
 Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'ludovicchabant/vim-gutentags', { 'for': ['python', 'tex'] }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'sakhnik/nvim-gdb', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
