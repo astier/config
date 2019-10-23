@@ -75,7 +75,7 @@ mc() { mkdir "$1" && cd "$1" || return; }
 
 # Similar to xdg-open but does what I actually want and is faster.
 f() {
-    [ $# -eq 0 ] && "$EDITOR" "$(fzf)" && return
+    [ $# -eq 0 ] && fzf | xargs -r "$EDITOR" && return
     [ -d "$1" ] && cd "$@" && return
     [ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
     mimetype=$(file -bL --mime-type "$1")
