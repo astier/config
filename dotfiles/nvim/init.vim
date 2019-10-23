@@ -7,7 +7,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
-Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -61,11 +60,6 @@ au filetype gitcommit,python,tex setl spell
 au focusgained,vimresume * checkt
 au textchanged,insertleave * nested silent up
 au vimresized * wincmd =
-
-" CLEVER-F
-let g:clever_f_across_no_line = 1
-let g:clever_f_chars_match_any_signs = ';'
-let g:clever_f_smart_case = 1
 
 " CLIPBOARD
 nnoremap <RightMouse> "+p
