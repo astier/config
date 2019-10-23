@@ -16,7 +16,6 @@ Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
 Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'sakhnik/nvim-gdb', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex', 'vim'] }
 Plug 'zefei/vim-wintabs'
