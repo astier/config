@@ -129,7 +129,7 @@ alias fm="\$EDITOR ~/.config/nvim/init.vim"
 alias fx="\$EDITOR ~/.config/sx/sxrc"
 
 alias fa="cd ~/projects/arch"
-alias fad="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias faa="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias fcd="\$EDITOR config.def.h"
 alias fd="cd ~/projects/dotfiles"
 alias fdm="cd ~/projects/dmenu"
