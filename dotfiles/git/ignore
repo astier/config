@@ -1,9 +1,10 @@
 *.o
 *.orig
+*.pdf
 *.rej
 .idea
 .vscode
 __pycache__
+build
 tags
 tex
-build
