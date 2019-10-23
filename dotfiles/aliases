@@ -117,7 +117,10 @@ alias fdd="cd ~/Dropbox"
 alias fu="cd ~/Dropbox/uni"
 alias fwa="~/Dropbox/pictures/wallpapers"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
-alias prj="conda activate myo; cd ~/Dropbox/uni/s5/myo"
+
+alias jm="conda activate myo; cd ~/Dropbox/uni/myo"
+alias jl="cd ~/Dropbox/uni/vml"
+alias jla="conda activate ml; cd ~/Dropbox/uni/vml/exercises"
 
 alias a="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
 alias fb="\$EDITOR ~/.bashrc && . ~/.bashrc"
