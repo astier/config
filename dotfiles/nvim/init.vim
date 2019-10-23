@@ -14,7 +14,6 @@ Plug 'tpope/vim-surround'
 
 " IDE
 Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
-Plug 'Yggdroot/indentLine'
 Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -44,8 +43,6 @@ let g:ale_fixers = {
  \}
 
 " APPEARANCE
-let g:indentLine_char = '▏'
-let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
