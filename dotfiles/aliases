@@ -115,8 +115,8 @@ alias fu="cd ~/Dropbox/uni"
 alias fwa="~/Dropbox/pictures/wallpapers"
 alias myo="conda activate myo; cd ~/Dropbox/uni/myo"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
-alias vml="cd ~/Dropbox/uni/vml"
-alias vmla="conda activate ml; cd ~/Dropbox/uni/vml/exercises"
+alias vm="cd ~/Dropbox/uni/vml"
+alias vma="conda activate ml; cd ~/Dropbox/uni/vml/exercises/1 && firefox exercise.pdf"
 
 # HOME
 alias -- ,="cd .."
@@ -131,7 +131,7 @@ alias v="cd -"
 
 # PROJECTS
 alias fa="cd ~/projects/arch"
-alias faa="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias fad="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias fcd="\$EDITOR config.def.h"
 alias fd="cd ~/projects/dotfiles"
 alias fdm="cd ~/projects/dmenu"
