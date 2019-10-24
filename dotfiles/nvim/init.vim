@@ -117,7 +117,6 @@ let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/bin/python'
 
 " MAPPINGS
-nnoremap <a-s> <c-g>
 nnoremap <cr> o<esc>
 nnoremap <leader>z <c-w>s
 nnoremap <leader>x <c-w>v
@@ -217,6 +216,8 @@ fu! FocusViewer(status)
 endfu
 
 " VIMUX
+nnoremap <a-s> :silent! !tmux split-window<cr>
+nnoremap <a-n> :silent! !tmux new-window<cr>
 nnoremap <Leader>vr :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
 nnoremap <leader>vd :VimuxCloseRunner<cr>
 nnoremap <leader>vi :VimuxInspectRunner<cr>
