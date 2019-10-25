@@ -98,8 +98,8 @@ nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>t :Tags<cr>
 
 " KILL
-nnoremap <silent> <a-d> :bp\|bd #<cr>
 nnoremap <silent> <leader>c :clo<cr>
+nnoremap <silent> <leader>d :bp\|bd #<cr>
 nnoremap <silent> <leader>q :qa<cr>
 nnoremap <silent> <leader>s <c-z>
 
