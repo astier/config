@@ -67,7 +67,7 @@ alias sr="reboot"
 
 # FUNCTIONS
 c() { cd "$(find . -type d ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname '.git' ! -iname '.' | sed 's/^.\///' | fzf)" || echo Can not open directory.; }
-cd() { if [ $# -eq 0 ]; then builtin cd || return; else builtin cd "$@" && ls; fi; }
+cd() { if [ $# -eq 0 ]; then builtin cd && ls || return; else builtin cd "$@" && ls; fi; }
 d() { if [ $# -eq 0 ]; then clear; else rm "$@"; fi; }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
@@ -125,8 +125,7 @@ alias fl="cd ~/.local/share"
 alias fn="\$EDITOR"
 alias fo="cd ~/Downloads"
 alias ftm="\$EDITOR /tmp/scratch"
-alias h="cd && ls"
-alias hd="cd && clear"
+alias cdd="cd && clear"
 alias v="cd -"
 
 # PROJECTS
