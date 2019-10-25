@@ -216,8 +216,6 @@ fu! FocusViewer(status)
 endfu
 
 " VIMUX
-nnoremap <a-s> :silent! !tmux split-window<cr>
-nnoremap <a-n> :silent! !tmux new-window<cr>
 nnoremap <Leader>vr :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
 nnoremap <leader>vd :VimuxCloseRunner<cr>
 nnoremap <leader>vi :VimuxInspectRunner<cr>
@@ -225,6 +223,8 @@ nnoremap <leader>vl :VimuxRunLastCommand<cr>
 nnoremap <leader>vp :VimuxPromptCommand<cr>
 nnoremap <leader>vx :VimuxInterruptRunner<cr>
 nnoremap <leader>vz :cal VimuxZoomRunner()<cr>
+nnoremap <silent> <a-n> :silent! !tmux new-window<cr>
+nnoremap <silent> <a-s> :silent! !tmux split-window<cr>
 
 " WHITESPACE
 hi whitespace guibg=#bf616a
