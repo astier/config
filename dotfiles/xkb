@@ -1277,7 +1277,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(swapescape)" {
     key <I147> { [ XF86MenuKB ] };
     key <I148> { [ XF86Calculator ] };
     key <I150> { [ XF86Sleep ] };
-    key <I151> { [ Return ] };
+    key <I151> { [ XF86WakeUp ] };
     key <I152> { [ XF86Explorer ] };
     key <I153> { [ XF86Send ] };
     key <I155> { [ XF86Xfer ] };
