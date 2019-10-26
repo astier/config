@@ -12,7 +12,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 " IDE
-Plug 'SirVer/ultisnips', { 'for': ['python', 'snippets', 'tex'] }
+Plug 'SirVer/ultisnips', { 'for': ['gitcommit', 'python', 'snippets', 'tex'] }
 Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
