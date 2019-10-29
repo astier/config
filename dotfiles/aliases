@@ -116,7 +116,6 @@ alias fwa="~/Dropbox/pictures/wallpapers"
 alias myo="cd ~/Dropbox/uni/myo/report && \$EDITOR main.tex"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
 alias nn="cd ~/Dropbox/misc"
-alias nw="\$EDITOR ~/Dropbox/misc/weight"
 alias vm="cd ~/Dropbox/uni/vml"
 alias vma="conda activate ml; cd ~/Dropbox/uni/vml/exercises/1 && firefox exercise.pdf"
 
