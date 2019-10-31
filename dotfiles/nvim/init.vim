@@ -55,7 +55,7 @@ se signcolumn=yes termguicolors
 au bufenter * se formatoptions-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au bufwritepost * GitGutter
-au filetype gitcommit,python,tex setl spell
+au filetype gitcommit,tex setl spell
 au focusgained,vimresume * checkt
 au textchanged,insertleave * nested silent up
 au vimresized * wincmd =
