@@ -146,7 +146,7 @@ let g:NERDTreeMouseMode = 2
 let g:NERDTreeQuitOnOpen = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
-let g:NERDTreeWinPos = 'right'
+" let g:NERDTreeWinPos = 'right'
 nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 
 " SETTINGS

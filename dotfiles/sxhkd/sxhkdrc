@@ -3,7 +3,9 @@ super + shift + r
 super + {s,d}
     light -{U,A} 16
 super + shift + {s,d}
-    pulsemixer --change-volume {-,+}6
+    pulsemixer --change-volume {-,+}10
+super + a
+    libreoffice ~/Dropbox/misc/stats.ods
 mod5 + f
     dmenu_run
 
@@ -13,6 +15,3 @@ button8
     herbstclient cycle +1
 button9
     herbstclient cycle -1
-
-mod5 + s
-    libreoffice ~/Dropbox/misc/stats.ods
