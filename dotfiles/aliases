@@ -71,7 +71,7 @@ alias sr="reboot"
 # FUNCTIONS
 c() { cd "$(find . -type d ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname '.git' ! -iname '.' | sed 's/^.\///' | fzf)" || echo Can not open directory.; }
 cd() { if [ $# -eq 0 ]; then builtin cd && ls || return; else builtin cd "$@" && ls; fi; }
-d() { if [ $# -eq 0 ]; then clear; else rm "$@"; fi; }
+d() { if [ $# -eq 0 ]; then clear; else rm "$@"; ls; fi; }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 mc() { mkdir "$1" && cd "$1" || return; }
@@ -121,7 +121,8 @@ alias myr="cd ~/Dropbox/uni/myo/report && \$EDITOR main.tex"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
 alias nn="cd ~/Dropbox/misc"
 alias vm="cd ~/Dropbox/uni/vml"
-alias vma="conda activate ml; cd ~/Dropbox/uni/vml/exercises/1 && firefox exercise.pdf"
+alias vme="conda activate ml; cd ~/Dropbox/uni/vml/exercises"
+alias vml="cd ~/Dropbox/uni/vml/lectures"
 
 # HOME
 alias -- ,="cd .."
