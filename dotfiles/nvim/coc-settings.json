@@ -11,6 +11,7 @@
     "python.workspaceSymbols.rebuildOnFileSave": false,
     "python.workspaceSymbols.rebuildOnStart": false,
     "python.workspaceSymbols.tagFilePath": "${workspaceFolder}/tags",
+    "suggest.floatEnable": false,
     "suggest.maxCompleteItemCount": 8,
     "suggest.noselect": false,
 
