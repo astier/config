@@ -3,7 +3,7 @@
     "coc.source.file.ignoreHidden": false,
     "diagnostic.enable": false,
     "python.analysis.diagnosticEnabled": false,
-    "python.autoComplete.addBrackets": true,
+    "python.autoComplete.addBrackets": false,
     "python.autoComplete.showAdvancedMembers": false,
     "python.jediEnabled": false,
     "python.linting.enabled": false,
