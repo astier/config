@@ -114,6 +114,7 @@ alias fx="\$EDITOR ~/.config/sx/sxrc"
 
 # DROPBOX
 alias fdd="cd ~/Dropbox"
+alias fs="\$EDITOR ~/Dropbox/misc/stats"
 alias fu="cd ~/Dropbox/uni"
 alias fwa="~/Dropbox/pictures/wallpapers"
 alias myc="cd ~/Dropbox/uni/myo/myo"
