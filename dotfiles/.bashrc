@@ -27,6 +27,8 @@ shopt -s autocd cdspell cmdhist histappend
 # SOURCE
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 [ -r ~/.config/aliases ] && . ~/.config/aliases
+# [ -r ~/miniconda3/share/bash-completion/bash_completion ] && . ~/miniconda3/share/bash-completion/bash_completion
+[ -r ~/miniconda3/etc/profile.d/bash_completion.sh ] &&. ~/miniconda3/etc/profile.d/bash_completion.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

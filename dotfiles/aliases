@@ -42,7 +42,7 @@ alias up="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE
 # CONDA
 alias cel="conda env list"
 alias cer="conda env remove -n"
-alias coa="conda activate"
+alias coa="conda deactivate; conda activate"
 alias cod="conda deactivate"
 alias coi="conda install"
 alias cou="conda update --all --prune"
