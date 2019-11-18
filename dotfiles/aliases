@@ -48,11 +48,10 @@ alias coi="conda install"
 alias cou="conda update --all --prune"
 
 # TMUX
-alias t="tmux a -t 0 || tmux new -c ~ -s 0"
+t() { s=0; if [ $# -gt 0 ]; then s="$1"; fi; tmux new -As "$s"; }
 alias ta="tmux a -t"
-alias tk="tmux kill -t"
+alias tk="tmux kill-session -t"
 alias tl="tmux ls"
-alias tn="tmux new -s"
 
 # X
 alias xa="x -a"
@@ -114,7 +113,6 @@ alias fx="\$EDITOR ~/.config/sx/sxrc"
 
 # DROPBOX
 alias fdd="cd ~/Dropbox"
-alias fs="\$EDITOR ~/Dropbox/misc/stats"
 alias fu="cd ~/Dropbox/uni"
 alias fwa="~/Dropbox/pictures/wallpapers"
 alias myc="cd ~/Dropbox/uni/myo/myo"
