@@ -28,7 +28,7 @@ herbstclient keybind $mod-BackSpace cycle_monitor
 
 # MOUSE
 herbstclient mouseunbind --all
-herbstclient mousebind $super-Button1 resize
+herbstclient mousebind $super-B1 resize
 herbstclient set focus_follows_mouse 1
 
 # MOVING
