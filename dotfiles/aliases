@@ -130,7 +130,7 @@ alias fl="cd ~/.local/share"
 alias fn="\$EDITOR"
 alias fo="cd ~/Downloads"
 alias ftm="\$EDITOR /tmp/scratch"
-alias cdd="cd && clear"
+alias h="cd && clear"
 alias v="cd -"
 
 # PROJECTS
