@@ -28,6 +28,7 @@ install sx ~/.config
 install sxhkd ~/.config
 install tmux.conf ~/.config
 install xkb ~/.config
+install zathura ~/.config/
 
 [ ! -d /etc/systemd/system/getty@tty1.service.d ] && sudo mkdir /etc/systemd/system/getty@tty1.service.d
 sudo ln -f ~/projects/dotfiles/dotfiles/systemd/getty@tty1.service.d/override.conf /etc/systemd/system/getty@tty1.service.d &&
