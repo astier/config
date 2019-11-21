@@ -79,7 +79,7 @@ mc() { mkdir "$1" && cd "$1" || return; }
 f() {
     [ $# -eq 0 ] && fzf | xargs -r "$EDITOR" && return
     [ -d "$1" ] && cd "$@" && return
-    [ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
+    [ ! -f "$1" ] && $EDITOR "$@" && return
     mimetype=$(file -bL --mime-type "$1")
     mime=$(echo "$mimetype" | cut -d/ -f1)
     case $mime in
@@ -114,7 +114,6 @@ alias fx="\$EDITOR ~/.config/sx/sxrc"
 # DROPBOX
 alias fdd="cd ~/Dropbox"
 alias fu="cd ~/Dropbox/uni"
-alias fwa="~/Dropbox/pictures/wallpapers"
 alias myc="cd ~/Dropbox/uni/myo/myo"
 alias myr="cd ~/Dropbox/uni/myo/report && \$EDITOR main.tex"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
@@ -122,15 +121,15 @@ alias nn="cd ~/Dropbox/misc"
 alias vm="cd ~/Dropbox/uni/vml"
 alias vme="conda activate ml; cd ~/Dropbox/uni/vml/exercises"
 alias vml="cd ~/Dropbox/uni/vml/lectures"
+alias wa="~/Dropbox/pictures/wallpapers"
 
 # HOME
 alias -- ,="cd .."
-alias fca="cd ~/.cache"
-alias fl="cd ~/.local/share"
-alias fn="\$EDITOR"
-alias fo="cd ~/Downloads"
-alias ftm="\$EDITOR /tmp/scratch"
+alias ca="cd ~/.cache"
 alias h="cd && clear"
+alias lo="cd ~/.local/share"
+alias o="cd ~/Downloads"
+alias tm="\$EDITOR /tmp/scratch"
 alias v="cd -"
 
 # PROJECTS
