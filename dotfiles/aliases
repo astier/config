@@ -140,7 +140,6 @@ alias fd="cd ~/projects/dotfiles"
 alias fdm="cd ~/projects/dmenu"
 alias fj="cd ~/projects"
 alias fsc="cd ~/projects/scripts"
-alias fsl="cd ~/projects/slock"
 alias fst="cd ~/projects/st"
 
 # GIT
