@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 bstatus &
-pulsemixer --unmute
 sxhkd &
 xkbcomp ~/.config/xkb "$DISPLAY"
 

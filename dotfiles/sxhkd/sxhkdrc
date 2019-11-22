@@ -3,7 +3,7 @@ super + shift + r
 super + {s,d}
     light -{U,A} 16
 super + shift + {s,d}
-    pulsemixer --change-volume {-,+}10
+    amixer set Master 4{-,+}
 super + a
     libreoffice ~/Dropbox/misc/stats.ods
 mod5 + f

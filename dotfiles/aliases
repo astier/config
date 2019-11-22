@@ -20,6 +20,7 @@ alias top="top -1 -u \$USER"
 alias umount="sudo umount"
 
 # SHORTCUTS
+alias am="alsamixer"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc"
 alias e="exit"
 alias j="fg"
@@ -31,7 +32,6 @@ alias mai="sudo make install clean"
 alias md="mkdir -p"
 alias p="cp"
 alias pa="patch -p1 <"
-alias pm="pulsemixer"
 alias pw="pwd | sed 's/\/home\/aleks/~/' | sed 's/\/[^/]*$//'"
 alias py="python"
 alias re="sudo \$(fc -ln -1)"
@@ -106,8 +106,8 @@ l() {
 
 # DOTFILES
 alias a="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
+alias co="cd ~/.config"
 alias fb="\$EDITOR ~/.bashrc && . ~/.bashrc"
-alias fco="cd ~/.config"
 alias fm="\$EDITOR ~/.config/nvim/init.vim"
 alias fx="\$EDITOR ~/.config/sx/sxrc"
 
