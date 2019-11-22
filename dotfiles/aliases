@@ -19,7 +19,7 @@ alias tmux="tmux -f ~/.config/tmux.conf"
 alias top="top -1 -u \$USER"
 alias umount="sudo umount"
 
-# SHORTCUTS
+# MISC
 alias am="alsamixer"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc"
 alias e="exit"
@@ -38,6 +38,7 @@ alias re="sudo \$(fc -ln -1)"
 alias to="touch"
 alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
 alias up="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && pacman -Syu"
+alias y="youtube-dl"
 
 # CONDA
 alias cel="conda env list"
