@@ -30,16 +30,9 @@ install tmux.conf ~/.config
 install xkb ~/.config
 install zathura ~/.config/
 
-[ ! -d /etc/systemd/system/getty@tty1.service.d ] && sudo mkdir /etc/systemd/system/getty@tty1.service.d
-sudo ln -f ~/projects/dotfiles/dotfiles/systemd/getty@tty1.service.d/override.conf /etc/systemd/system/getty@tty1.service.d &&
-    echo Installed: getty@tty1.service.d
-sudo ln -f ~/projects/dotfiles/dotfiles/systemd/journald.conf /etc/systemd &&
-    echo Installed: journald
-sudo ln -f ~/projects/dotfiles/dotfiles/systemd/logind.conf /etc/systemd &&
-    echo Installed: logind
-sudo ln -f ~/projects/dotfiles/dotfiles/systemd/network/* /etc/systemd/network &&
-    echo Installed: networkd
-sudo ln -f ~/projects/dotfiles/dotfiles/iptables.rules /etc/iptables/iptables.rules &&
-    echo Installed: iptables
-sudo cp ~/projects/dotfiles/dotfiles/tty-no-cursor-blink.conf /etc/tmpfiles.d &&
-    echo Installed: tty-no-cursor-blink
+sudo cp -f ./iptables.rules /etc/iptables && echo Installed: iptables
+sudo cp -f ./systemd/journald.conf /etc/systemd && echo Installed: journald
+sudo cp -f ./systemd/logind.conf /etc/systemd && echo Installed: logind
+sudo cp -f ./systemd/network/* /etc/systemd/network && echo Installed: networkd
+sudo cp -f ./tty-no-cursor-blink.conf /etc/tmpfiles.d && echo Installed: tty-no-cursor-blink
+sudo cp -fr ./systemd/system/* /etc/systemd/system && echo Installed: getty@ttyN.service.d
