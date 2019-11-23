@@ -1,8 +1,8 @@
 [Match]
-Name=wl*
+Name=en*
 
 [Network]
 DHCP=yes
 
 [DHCP]
-RouteMetric=20
+RouteMetric=10
