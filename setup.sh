@@ -39,5 +39,7 @@ sudo ln -f ~/projects/dotfiles/dotfiles/systemd/logind.conf /etc/systemd &&
     echo Installed: logind
 sudo ln -f ~/projects/dotfiles/dotfiles/systemd/network/* /etc/systemd/network &&
     echo Installed: networkd
-sudo ln -f ~/projects/dotfiles/dotfiles/iptables.rules /etc/iptables/iptables.rules
+sudo ln -f ~/projects/dotfiles/dotfiles/iptables.rules /etc/iptables/iptables.rules &&
     echo Installed: iptables
+sudo cp ~/projects/dotfiles/dotfiles/tty-no-cursor-blink.conf /etc/tmpfiles.d &&
+    echo Installed: tty-no-cursor-blink
