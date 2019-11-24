@@ -78,7 +78,7 @@ mc() { mkdir "$1" && cd "$1" || return; }
 f() {
     [ $# -eq 0 ] && fzf | xargs -r "$EDITOR" && return
     [ -d "$1" ] && cd "$@" && return
-    [ ! -f "$1" ] && $EDITOR "$@" && return
+    [ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
     mimetype=$(file -bL --mime-type "$1")
     mime=$(echo "$mimetype" | cut -d/ -f1)
     case $mime in
