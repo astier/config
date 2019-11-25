@@ -133,16 +133,16 @@ alias tm="\$EDITOR /tmp/scratch"
 alias v="cd -"
 
 # PROJECTS
-alias cn="\$EDITOR config.def.h"
-alias dm="cd ~/projects/dmenu"
 alias fa="cd ~/projects/arch"
 alias fad="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias fcn="\$EDITOR config.def.h"
 alias fd="cd ~/projects/dotfiles"
+alias fdm="cd ~/projects/dmenu"
 alias fj="cd ~/projects"
+alias fsc="cd ~/projects/scripts"
+alias fsi="cd ~/projects/sites"
 alias fsl="cd ~/projects/slock"
 alias fst="cd ~/projects/st"
-alias sc="cd ~/projects/scripts"
-alias si="cd ~/projects/sites"
 
 # GIT
 k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
