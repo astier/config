@@ -8,6 +8,8 @@ super + a
     libreoffice ~/Dropbox/misc/stats.ods
 mod5 + f
     dmenu_run
+mod5 + p ; mod5 + {p,v}
+    mpv ~/{music,videos}
 
 button2
     herbstclient spawn ~/.config/herbstluftwm/maximize.sh

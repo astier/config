@@ -127,9 +127,10 @@ alias ca="cd ~/.cache"
 alias h="cd && clear"
 alias lo="cd ~/.local/share"
 alias o="cd ~/Downloads"
+alias pm="cd ~/music"
+alias pv="cd ~/videos"
 alias tm="\$EDITOR /tmp/scratch"
 alias v="cd -"
-alias vi="mpv ~/videos"
 
 # PROJECTS
 alias cn="\$EDITOR config.def.h"
