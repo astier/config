@@ -126,11 +126,13 @@ alias -- ,="cd .."
 alias ca="cd ~/.cache"
 alias h="cd && clear"
 alias lo="cd ~/.local/share"
+alias ms="cd ~/music"
 alias o="cd ~/Downloads"
 alias pm="cd ~/music"
 alias pv="cd ~/videos"
 alias tm="\$EDITOR /tmp/scratch"
 alias v="cd -"
+alias vi="cd ~/videos"
 
 # PROJECTS
 alias fa="cd ~/projects/arch"
