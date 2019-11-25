@@ -1,9 +1,11 @@
 super + shift + r
     pkill -SIGUSR1 sxhkd
 super + {s,d}
-    light -{U,A} 16
+    light -{U,A} 8
 super + shift + {s,d}
     amixer set Master 4{-,+}
+mod5 + shift + m
+    amixer set Master toggle
 super + a
     libreoffice ~/Dropbox/misc/stats.ods
 mod5 + f
@@ -11,9 +13,7 @@ mod5 + f
 mod5 + p ; mod5 + {p,v}
     mpv ~/{music,videos}
 
-button2
-    herbstclient spawn ~/.config/herbstluftwm/maximize.sh
 button8
-    herbstclient cycle +1
+    xsetroot -name "fsignal:2"
 button9
-    herbstclient cycle -1
+    xsetroot -name "fsignal:3"

@@ -135,11 +135,12 @@ alias v="cd -"
 alias vi="cd ~/videos"
 
 # PROJECTS
+alias cn="\$EDITOR config.def.h"
 alias fa="cd ~/projects/arch"
 alias fad="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias fcn="\$EDITOR config.def.h"
 alias fd="cd ~/projects/dotfiles"
 alias fdm="cd ~/projects/dmenu"
+alias fdw="cd ~/projects/dwm"
 alias fj="cd ~/projects"
 alias fsc="cd ~/projects/scripts"
 alias fsi="cd ~/projects/sites"

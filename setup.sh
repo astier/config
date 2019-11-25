@@ -17,7 +17,6 @@ link aliases ~/.config
 link condarc ~/.config
 link git ~/.config
 link gtk-3.0 ~/.config
-link herbstluftwm ~/.config
 link inputrc ~/.config
 link iptables.rules /etc/iptables
 link mkinitcpio.conf /etc
