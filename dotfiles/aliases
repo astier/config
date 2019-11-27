@@ -60,9 +60,9 @@ alias xm="x -m"
 alias xp="x -p"
 
 # SYSTEM
+alias ba="cat /sys/class/power_supply/BAT0/capacity"
 alias ii="networkctl"
-alias s="cat /sys/class/power_supply/BAT0/capacity"
-alias sd="systemctl suspend"
+alias ir="systemctl restart iwd.service"
 alias sp="poweroff"
 alias sr="reboot"
 
@@ -120,6 +120,7 @@ alias nn="cd ~/Dropbox/misc"
 alias vm="cd ~/Dropbox/uni/vml"
 alias vme="conda activate ml; cd ~/Dropbox/uni/vml/exercises"
 alias vml="cd ~/Dropbox/uni/vml/lectures"
+alias wa="cd ~/Dropbox/pictures/wallpapers"
 
 # HOME
 alias -- ,="cd .."
@@ -135,17 +136,17 @@ alias v="cd -"
 alias vi="cd ~/videos"
 
 # PROJECTS
+alias aa="cd ~/projects/arch"
+alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias cn="\$EDITOR config.def.h"
-alias fa="cd ~/projects/arch"
-alias fad="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias dm="cd ~/projects/dmenu"
+alias dw="cd ~/projects/dwm"
 alias fd="cd ~/projects/dotfiles"
-alias fdm="cd ~/projects/dmenu"
-alias fdw="cd ~/projects/dwm"
 alias fj="cd ~/projects"
-alias fsc="cd ~/projects/scripts"
-alias fsi="cd ~/projects/sites"
-alias fsl="cd ~/projects/slock"
 alias fst="cd ~/projects/st"
+alias sc="cd ~/projects/scripts"
+alias si="cd ~/projects/sites"
+alias sl="cd ~/projects/slock"
 
 # GIT
 k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
@@ -162,6 +163,7 @@ alias kbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs
 alias kcl="git clone"
 alias kd="git diff"
 alias kfp="git format-patch --stdout HEAD^ >"
+alias kk="k 32"
 alias kr="cd \$(git rev-parse --show-toplevel)"
 alias ks="git status -bs"
 
