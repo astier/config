@@ -26,7 +26,7 @@ link pacman/pacman.conf /etc
 link pylintrc ~/.config
 link sx ~/.config
 link tmux.conf ~/.config
-link tty-no-cursor-blink.conf /etc/tmpfiles.d
+link tty-cursor.conf /etc/tmpfiles.d
 link xkb ~/.config
 link zathura ~/.config/
 
