@@ -1391,7 +1391,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(swapescape)" {
     key <PROP> { [ SunProps ] };
     key <PRSC> { type= "PC_ALT_LEVEL2", symbols[Group1]= [ semicolon, NoSymbol ] };
     key <RALT> { type= "ONE_LEVEL", symbols[Group1]= [ ISO_Level3_Shift ] };
-    key <RCTL> { [ BackSpace ] };
+    key <RCTL> { [ Control_R ] };
     key <RGHT> { [ Right ] };
     key <RTRN> { [ colon ] };
     key <RTSH> { [ Shift_R ] };
@@ -1407,7 +1407,6 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(swapescape)" {
     key <VOL+> { [ XF86AudioRaiseVolume ] };
     key <VOL-> { [ XF86AudioLowerVolume ] };
 
-    modifier_map Control { <CAPS> };
     modifier_map Control { <LCTL> };
     modifier_map Control { <RCTL> };
     modifier_map Lock { <ESC> };
