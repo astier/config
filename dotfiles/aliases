@@ -39,7 +39,7 @@ alias fv="\$EDITOR ~/.config/nvim/init.vim"
 alias fx="\$EDITOR ~/.config/sx/sxrc"
 
 # DROPBOX
-alias fdd="cd ~/Dropbox"
+alias db="cd ~/Dropbox"
 alias fu="cd ~/Dropbox/uni"
 alias myo="cd ~/Dropbox/uni/myo"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
