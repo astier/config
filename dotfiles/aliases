@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 # DEFAULTS
-alias as="echo Remapped to do nothing."
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
@@ -14,33 +13,16 @@ alias mv="mv -i"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias shfmt="shfmt -ci -sr -p -s -i 4"
-alias sudo="sudo "
 alias tmux="tmux -f ~/.config/tmux.conf"
 alias top="top -1 -u \$USER"
 alias umount="sudo umount"
 
-# MISC
-alias am="alsamixer"
-alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc"
-alias e="exit"
-alias fn="\$EDITOR"
-alias i="pkg -i"
-alias j="fg"
-alias lb="lsblk"
-alias ll="ls -l"
-alias m="mv"
-alias ma="make; make clean"
-alias mai="sudo make install clean"
-alias md="mkdir -p"
-alias pa="patch -p1 <"
-alias pw="pwd | sed 's/\/home\/aleks/~/' | sed 's/\/[^/]*$//'"
-alias py="python"
-alias r="pkg -r"
-alias re="sudo \$(fc -ln -1)"
-alias to="touch"
-alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
-alias up="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && pacman -Syu"
-alias y="youtube-dl"
+# CCP
+alias x="ccp"
+alias xc="ccp -c"
+alias xd="ccp -d"
+alias xm="ccp -m"
+alias xp="ccp -p"
 
 # CONDA
 alias cel="conda env list"
@@ -50,22 +32,123 @@ alias cod="conda deactivate"
 alias coi="conda install"
 alias cou="conda update --all --prune"
 
+# DOTFILES
+alias a="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
+alias fb="\$EDITOR ~/.bashrc && . ~/.bashrc"
+alias fv="\$EDITOR ~/.config/nvim/init.vim"
+alias fx="\$EDITOR ~/.config/sx/sxrc"
+
+# DROPBOX
+alias fdd="cd ~/Dropbox"
+alias fu="cd ~/Dropbox/uni"
+alias myo="cd ~/Dropbox/uni/myo"
+alias n="\$EDITOR ~/Dropbox/misc/notes"
+alias nn="cd ~/Dropbox/misc"
+alias vml="cd ~/Dropbox/uni/vml"
+
+# GIT
+k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+kgg() { git log --color --oneline --grep "$1" | fzf --ansi --no-sort | cut -d\  -f1 | xsel -b; }
+krb() { n=8; [ "$#" != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
+krh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
+
+alias ka="git add"
+alias kaa="git add --all"
+alias kam="git commit --amend"
+alias kb="git branch"
+alias kbd="git branch -D"
+alias kbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs -r \$BROWSER"
+alias kcl="git clone"
+alias kfp="git format-patch --stdout HEAD^ >"
+alias kr="cd \$(git rev-parse --show-toplevel)"
+
+alias kc="git commit"
+alias kca="git add --all && git commit"
+alias kcp="git add --all && git commit && git push"
+alias kcr="git commit -am tmp && git rebase -i HEAD~2"
+
+alias kd="git diff"
+alias kk="git log --all --graph --decorate --oneline"
+alias kl="git log --date=auto:human"
+alias klg="git log --grep"
+alias ks="git status -bs"
+alias kso="git show"
+
+alias ko="git checkout"
+alias kob="git checkout -b"
+alias kma="git checkout master"
+
+alias kf="git fetch"
+alias km="git merge"
+alias kp="git push"
+alias kpf="git push -f"
+alias kpl="git pull"
+
+alias krm="git rebase master"
+alias krr="git reset --hard; git clean -f"
+alias krs="git reset --soft"
+alias krv="git revert"
+
+alias ksd="git stash drop"
+alias ksl="git stash list"
+alias ksp="git stash pop"
+alias kst="git stash"
+
+# HOME
+alias -- ,="cd .."
+alias b="cd - >/dev/null && ls"
+alias ca="cd ~/.cache"
+alias co="cd ~/.config"
+alias lo="cd ~/.local/share"
+alias ms="cd ~/music"
+alias o="cd ~/Downloads"
+alias tm="\$EDITOR /tmp/scratch"
+alias vi="cd ~/videos"
+
+# MISC
+alias am="alsamixer"
+alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc"
+alias e="exit"
+alias fn="\$EDITOR"
+alias i="pkg -i"
+alias ii="networkctl"
+alias ir="systemctl restart iwd.service"
+alias j="fg"
+alias lb="lsblk"
+alias ll="ls -l"
+alias m="mv"
+alias ma="make; make clean"
+alias mai="sudo make install clean"
+alias md="mkdir -p"
+alias p="cp"
+alias pa="patch -p1 <"
+alias pw="pwd | sed 's/\/home\/aleks/~/' | sed 's/\/[^/]*$//'"
+alias r="pkg -r"
+alias re="sudo \$(fc -ln -1)"
+alias to="touch"
+alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
+alias up="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && pacman -Syu"
+alias y="youtube-dl"
+
+# PROJECTS
+alias aa="cd ~/projects/arch"
+alias ab="cd ~/projects/arch && \$EDITOR base.sh"
+alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias cn="\$EDITOR config.def.h"
+alias dm="cd ~/projects/dmenu"
+alias dw="cd ~/projects/dwm"
+alias fd="cd ~/projects/dotfiles"
+alias fj="cd ~/projects"
+alias ft="cd ~/projects/st"
+alias sc="cd ~/projects/scripts"
+alias si="cd ~/projects/sites"
+alias sl="cd ~/projects/slock"
+
 # TMUX
 t() { s=0; if [ $# -gt 0 ]; then s="$1"; fi; tmux new -As "$s"; }
 alias ta="tmux a -t"
 alias tk="tmux kill-session -t"
 alias tl="tmux ls"
-
-# CCP
-alias x="ccp"
-alias xc="ccp -c"
-alias xd="ccp -d"
-alias xm="ccp -m"
-alias xp="ccp -p"
-
-# SYSTEM
-alias ii="networkctl"
-alias ir="systemctl restart iwd.service"
 
 # FUNCTIONS
 c() { cd "$(find . -type d ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname '.git' ! -iname '.' | sed 's/^.\///' | fzf)" || echo Can not open directory.; }
@@ -103,98 +186,3 @@ l() {
     elif [ -d "$1" ]; then ls "$1";
     else echo Argument is not a file or directory.; fi
 }
-
-# DOTFILES
-alias a="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
-alias co="cd ~/.config"
-alias fb="\$EDITOR ~/.bashrc && . ~/.bashrc"
-alias fm="\$EDITOR ~/.config/nvim/init.vim"
-alias fx="\$EDITOR ~/.config/sx/sxrc"
-
-# DROPBOX
-alias fdd="cd ~/Dropbox"
-alias fu="cd ~/Dropbox/uni"
-alias myc="cd ~/Dropbox/uni/myo/myo"
-alias myr="cd ~/Dropbox/uni/myo/report && \$EDITOR main.tex"
-alias n="\$EDITOR ~/Dropbox/misc/notes"
-alias nn="cd ~/Dropbox/misc"
-alias vm="cd ~/Dropbox/uni/vml"
-alias vme="conda activate ml; cd ~/Dropbox/uni/vml/exercises"
-alias vml="cd ~/Dropbox/uni/vml/lectures"
-alias wa="cd ~/Dropbox/pictures/wallpapers"
-
-# HOME
-alias -- ,="cd .."
-alias b="cd - >/dev/null && ls"
-alias ca="cd ~/.cache"
-alias h="cd && clear"
-alias lo="cd ~/.local/share"
-alias ms="cd ~/music"
-alias o="cd ~/Downloads"
-alias tm="\$EDITOR /tmp/scratch"
-alias vi="cd ~/videos"
-
-# PROJECTS
-alias aa="cd ~/projects/arch"
-alias ab="cd ~/projects/arch && \$EDITOR base.sh"
-alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias cn="\$EDITOR config.def.h"
-alias dm="cd ~/projects/dmenu"
-alias dw="cd ~/projects/dwm"
-alias fd="cd ~/projects/dotfiles"
-alias fj="cd ~/projects"
-alias ft="cd ~/projects/st"
-alias sc="cd ~/projects/scripts"
-alias si="cd ~/projects/sites"
-alias sl="cd ~/projects/slock"
-
-# GIT
-k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
-kgg() { git log --color --oneline --grep "$1" | fzf --ansi --no-sort | cut -d\  -f1 | xsel -b; }
-krb() { n=8; [ "$#" != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
-krh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
-
-alias ka="git add"
-alias kaa="git add --all"
-alias kam="git commit --amend"
-alias kb="git branch"
-alias kbd="git branch -D"
-alias kbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs -r \$BROWSER"
-alias kcl="git clone"
-alias kd="git diff"
-alias kfp="git format-patch --stdout HEAD^ >"
-alias kk="k 32"
-alias kr="cd \$(git rev-parse --show-toplevel)"
-alias ks="git status -bs"
-
-alias kc="git commit"
-alias kca="git add --all && git commit"
-alias kcp="git add --all && git commit && git push"
-alias kcr="git commit -am tmp && git rebase -i HEAD~2"
-
-alias kk="git log --all --graph --decorate --oneline"
-alias kl="git log --date=auto:human"
-alias klg="git log --grep"
-alias kso="git show"
-
-alias ko="git checkout"
-alias kob="git checkout -b"
-alias kma="git checkout master"
-
-alias kf="git fetch"
-alias km="git merge"
-alias kmm="git merge master"
-alias kp="git push"
-alias kpf="git push -f"
-alias kpl="git pull"
-
-alias kcn="git clean -f"
-alias krm="git rebase master"
-alias krr="git reset --hard; git clean -f"
-alias krs="git reset --soft"
-alias krv="git revert"
-
-alias ksd="git stash drop"
-alias ksl="git stash list"
-alias ksp="git stash pop"
-alias kst="git stash"
