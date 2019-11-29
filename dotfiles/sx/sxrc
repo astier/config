@@ -2,7 +2,7 @@
 
 bst -l &
 firefox &
-st &
+st tmux -f "$TMUXRC" new -As 0 &
 xkbcomp ~/.config/xkb "$DISPLAY"
 
 exec dwm

@@ -11,7 +11,7 @@ export GNUPGHOME=~/.config/gnupg
 export INPUTRC=~/.config/inputrc
 export LESSHISTFILE=~/.cache/lesshst
 export PYLINTRC=~/.config/pylintrc
-
+export TMUXRC=$HOME/.config/tmux.conf
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 [ "$(tty)" = "/dev/tty1" ] && [ "$(whoami)" != "root" ] && sx
