@@ -122,7 +122,7 @@ alias wa="cd ~/Dropbox/pictures/wallpapers"
 
 # HOME
 alias -- ,="cd .."
-alias b="cd -"
+alias b="cd - >/dev/null && ls"
 alias ca="cd ~/.cache"
 alias h="cd && clear"
 alias lo="cd ~/.local/share"
