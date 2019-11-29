@@ -1,14 +1,14 @@
 #!/usr/bin/env sh
 
-[ ! -d ~/.config ] && mkdir ~/.config
-cd dotfiles || exit
-
 link() {
     TARGET=$1 DESTINATION=$2/$(basename "$TARGET")
     sudo rm -fr "$DESTINATION"
     sudo ln -rs "$TARGET" "$DESTINATION" &&
         echo Installed: "$TARGET"
 }
+
+mkdir -p ~/.config
+cd dotfiles || exit
 
 link .bash_profile ~
 link .bashrc ~
