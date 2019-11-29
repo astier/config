@@ -136,6 +136,7 @@ alias vi="cd ~/videos"
 
 # PROJECTS
 alias aa="cd ~/projects/arch"
+alias ab="cd ~/projects/arch && \$EDITOR base.sh"
 alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias cn="\$EDITOR config.def.h"
 alias dm="cd ~/projects/dmenu"
