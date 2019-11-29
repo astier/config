@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-bstatus &
+bs -l &
 firefox &
 st &
 xkbcomp ~/.config/xkb "$DISPLAY"
