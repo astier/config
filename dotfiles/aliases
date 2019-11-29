@@ -56,11 +56,12 @@ alias ta="tmux a -t"
 alias tk="tmux kill-session -t"
 alias tl="tmux ls"
 
-# X
-alias xa="x -a"
-alias xc="x -c"
-alias xm="x -m"
-alias xp="x -p"
+# CCP
+alias x="ccp"
+alias xc="ccp -c"
+alias xd="ccp -d"
+alias xm="ccp -m"
+alias xp="ccp -p"
 
 # SYSTEM
 alias ii="networkctl"
