@@ -21,11 +21,11 @@ HISTIGNORE=df:x:xd:xm:xp:cel:cod:cou:a:fb:fv:fx:db:fu:myo:n:nn:vml
 HISTIGNORE+=:k:kgg:krb:krh:ka:kaa:kam:kb:kbd:kbr:kr:kc:kca:kcp:kcr
 HISTIGNORE+=:kd:kk:kl:klg:ks:kso:ko:kob:kma:kf:km:kp:kpf:kpl
 HISTIGNORE+=:krm:krr:krs:krv:ksd:ksl:ksp:kst
-HISTIGNORE+=:b:ca:co:fl:ms:o:tm:vi:h
+HISTIGNORE+=:z:ca:co:fl:ms:o:tm:vi:h
 HISTIGNORE+=:am:cl:e:i:ii:ir:j:lb:ll:ma:mai:pw:r:re:u:up
-HISTIGNORE+=:aa:ab:abd:ad:cn:dm:dw:fd:fj:ft:sc:si:sl
+HISTIGNORE+=:aa:ab:aaa:ad:cn:dm:dw:fd:fj:ft:sc:si:sl
 HISTIGNORE+=:t:ta:tk:tl:c:d:f:l
-HISTIGNORE+=:bst:ccp:efs:sys:wal:st
+HISTIGNORE+=:bst:cpm:efs:sys:wal:st
 [[ $DISPLAY ]] && shopt -s checkwinsize
 set -o vi
 shopt -s autocd cdspell cmdhist histappend
