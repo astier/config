@@ -34,6 +34,6 @@ copy() { sudo cp -fr "$1" "$2" && echo Installed: "$1"; }
 
 copy systemd/journald.conf /etc/systemd
 copy systemd/logind.conf /etc/systemd
-copy systemd/system.conf /etc/systemd
 copy systemd/network/* /etc/systemd/network
+copy systemd/system.conf /etc/systemd
 copy systemd/system/* /etc/systemd/system
