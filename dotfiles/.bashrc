@@ -17,9 +17,15 @@ PS1="${GREEN}[\W\$(__git_ps1 ' %s')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 # SETTINGS
 HISTFILE=~/.local/share/bash_history
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE=a:b:d:e:f:g:i:k:l:n:r:s:t:u:,:..
-HISTIGNORE+=:fs:fc:ff:fh:fo:fu:fw:fa:fb:fd:fl:fp::fv:fx
-HISTIGNORE+=:da:lb:ll:pm:pw:py:re:ta:tk:tl:tn:xc:xm:xp:xx:ii:sd:sl:sp:sr:gd:gf
+HISTIGNORE=df:x:xd:xm:xp:cel:cod:cou:a:fb:fv:fx:db:fu:myo:n:nn:vml
+HISTIGNORE+=:k:kgg:krb:krh:ka:kaa:kam:kb:kbd:kbr:kr:kc:kca:kcp:kcr
+HISTIGNORE+=:kd:kk:kl:klg:ks:kso:ko:kob:kma:kf:km:kp:kpf:kpl
+HISTIGNORE+=:krm:krr:krs:krv:ksd:ksl:ksp:kst
+HISTIGNORE+=:b:ca:co:fl:ms:o:tm:vi
+HISTIGNORE+=:am:cl:e:i:ii:ir:j:lb:ll:ma:mai:pw:r:re:u:up
+HISTIGNORE+=:aa:ab:ad:cn:dm:dw:fd:fj:ft:sc:si:sl
+HISTIGNORE+=:t:ta:tk:tl:c:d:f:l
+HISTIGNORE+=:bst:ccp:efs:sys:wal:st
 [[ $DISPLAY ]] && shopt -s checkwinsize
 set -o vi
 shopt -s autocd cdspell cmdhist histappend

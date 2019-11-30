@@ -103,7 +103,7 @@ alias fl="cd ~/.local/share"
 alias ms="cd ~/music"
 alias o="cd ~/Downloads"
 alias tm="\$EDITOR /tmp/scratch"
-alias vo="cd ~/videos"
+alias vi="cd ~/videos"
 
 # MISC
 alias am="alsamixer"
