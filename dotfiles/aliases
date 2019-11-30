@@ -96,7 +96,6 @@ alias kst="git stash"
 
 # HOME
 alias -- ,="cd .."
-alias b="cd - >/dev/null && ls"
 alias ca="cd ~/.cache"
 alias co="cd ~/.config"
 alias fl="cd ~/.local/share"
@@ -105,6 +104,7 @@ alias ms="cd ~/music"
 alias o="cd ~/Downloads"
 alias tm="\$EDITOR /tmp/scratch"
 alias vi="cd ~/videos"
+alias z="cd - >/dev/null && ls"
 
 # MISC
 alias am="alsamixer"
