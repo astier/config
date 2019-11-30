@@ -1231,7 +1231,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(swapescape)" {
     key <ALT> { [ NoSymbol, Alt_L ] };
     key <BKSL> { type= "FOUR_LEVEL", symbols[Group1]= [ backslash, bar, notsign, brokenbar ] };
     key <BKSP> { [ BackSpace, BackSpace ] };
-    key <CAPS> { [ Escape, Escape ] };
+    key <CAPS> { [ Escape ] };
     key <COMP> { [ Menu ] };
     key <COPY> { [ XF86Copy ] };
     key <CUT> { [ XF86Cut ] };
