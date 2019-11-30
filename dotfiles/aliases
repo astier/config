@@ -50,7 +50,7 @@ alias vml="cd ~/Dropbox/uni/vml"
 k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
 kgg() { git log --color --oneline --grep "$1" | fzf --ansi --no-sort | cut -d\  -f1 | xsel -b; }
 krb() { n=8; [ "$#" != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
-krh() { n=0; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
+krh() { n=1; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
 
 alias ka="git add"
 alias kaa="git add --all"
@@ -99,11 +99,11 @@ alias -- ,="cd .."
 alias b="cd - >/dev/null && ls"
 alias ca="cd ~/.cache"
 alias co="cd ~/.config"
-alias lo="cd ~/.local/share"
+alias fl="cd ~/.local/share"
 alias ms="cd ~/music"
 alias o="cd ~/Downloads"
 alias tm="\$EDITOR /tmp/scratch"
-alias vi="cd ~/videos"
+alias vo="cd ~/videos"
 
 # MISC
 alias am="alsamixer"
