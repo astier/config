@@ -42,8 +42,8 @@ alias fx="\$EDITOR ~/.config/sx/sxrc"
 alias db="cd ~/Dropbox"
 alias fu="cd ~/Dropbox/uni"
 alias myo="cd ~/Dropbox/uni/myo"
-alias n="\$EDITOR ~/Dropbox/misc/notes"
-alias nn="cd ~/Dropbox/misc"
+alias n="\$EDITOR -c 'se acd' ~/Dropbox/notes/notes"
+alias nn="cd ~/Dropbox/notes"
 alias vml="cd ~/Dropbox/uni/vml"
 
 # GIT
@@ -133,7 +133,6 @@ alias y="youtube-dl"
 
 # PROJECTS
 alias aa="cd ~/projects/arch"
-alias aaa="cd ~/projects/arch && \$EDITOR base.sh desktop.sh"
 alias ab="cd ~/projects/arch && \$EDITOR base.sh"
 alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias cn="\$EDITOR config.def.h"
