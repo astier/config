@@ -3,6 +3,7 @@
 bst -l &
 firefox &
 st tmux -f "$TMUXRC" new -As 0 &
+sxhkd &
 xkbcomp ~/.config/xkb "$DISPLAY"
 
 exec dwm

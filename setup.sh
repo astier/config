@@ -25,6 +25,7 @@ link pacman ~/.config
 link pacman/pacman.conf /etc
 link pylintrc ~/.config
 link sx ~/.config
+link sxhkd ~/.config
 link tmux.conf ~/.config
 link tty-cursor.conf /etc/tmpfiles.d
 link xkb ~/.config

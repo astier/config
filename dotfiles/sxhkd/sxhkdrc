@@ -1,0 +1,20 @@
+super + shift + r
+    pkill -SIGUSR1 sxhkd
+super + {s,d}
+    light -{U,A} 8
+super + shift + {s,d}
+    amixer set Master 4{-,+}
+
+mod5 + shift + m
+    amixer set Master toggle
+mod5 + f
+    dmenu_run
+mod5 + s
+    sys
+mod5 + {a,u,v}
+    mpv ~/media/{asmr,music,videos}
+
+button8
+    xsetroot -name "fsignal:1"
+button9
+    xsetroot -name "fsignal:2"
