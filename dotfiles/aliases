@@ -100,14 +100,16 @@ alias ca="cd ~/.cache"
 alias co="cd ~/.config"
 alias h="cd; clear"
 alias lo="cd ~/.local/share"
-alias ms="cd ~/music"
 alias o="cd ~/Downloads"
 alias tm="\$EDITOR /tmp/scratch"
-alias vi="cd ~/videos"
 alias z="cd - >/dev/null && ls"
 
+# MEDIA
+alias am="cd ~/media/asmr"
+alias ms="cd ~/media/music"
+alias vi="cd ~/media/videos"
+
 # MISC
-alias am="alsamixer"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm ~/.cache/*"
 alias e="exit"
 alias fn="\$EDITOR"
@@ -129,6 +131,7 @@ alias re="sudo \$(fc -ln -1)"
 alias to="touch"
 alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
 alias up="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && pacman -Syu"
+alias vl="alsamixer"
 
 # PROJECTS
 alias aa="cd ~/projects/arch"
