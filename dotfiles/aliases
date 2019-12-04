@@ -32,24 +32,33 @@ alias coi="conda install"
 alias cou="conda update --all --prune"
 
 # DOTFILES
-alias a="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
-alias fb="\$EDITOR ~/.bashrc && . ~/.bashrc"
-alias fv="\$EDITOR ~/.config/nvim/init.vim"
+alias al="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
+alias ba="\$EDITOR ~/.bashrc && . ~/.bashrc"
 alias fx="\$EDITOR ~/.config/sx/sxrc"
+alias iv="\$EDITOR ~/.config/nvim/init.vim"
 
 # DROPBOX
 alias db="cd ~/Dropbox"
 alias fu="cd ~/Dropbox/uni"
-alias myo="cd ~/Dropbox/uni/myo"
+alias mo="cd ~/Dropbox/uni/myo"
 alias n="\$EDITOR -c 'se acd' ~/Dropbox/notes/notes"
 alias nn="cd ~/Dropbox/notes"
-alias vml="cd ~/Dropbox/uni/vml"
+alias vm="cd ~/Dropbox/uni/vml"
+
+# FUNCTIONS
+cd() { if [ $# -eq 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
+d() { if [ $# -eq 0 ]; then clear; else rm "$@" && ls; fi }
+di() { $BROWSER https://www.dict.cc/?s="$1"; }
+ff() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname '.' | sed 's/^.\///' | fzf)" || echo Can not open directory.; }
+flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
+mc() { mkdir "$1" && cd "$1" || return; }
+y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # GIT
-k() { n=16; [ "$#" != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+k() { n=16; [ $# != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
 kgg() { git log --color --oneline --grep "$1" | fzf --ansi --no-sort | cut -d\  -f1 | xsel -b; }
-krb() { n=8; [ "$#" != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
-krh() { n=1; [ "$#" != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
+krb() { n=8; [ $# != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
+krh() { n=1; [ $# != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
 
 alias ka="git add"
 alias kaa="git add --all"
@@ -75,9 +84,9 @@ alias klg="git log --grep"
 alias ks="git status -bs"
 alias kso="git show"
 
+alias kma="git checkout master"
 alias ko="git checkout"
 alias kob="git checkout -b"
-alias kma="git checkout master"
 
 alias kf="git fetch"
 alias km="git merge"
@@ -99,18 +108,20 @@ alias kst="git stash"
 alias -- ,="cd .."
 alias ca="cd ~/.cache"
 alias co="cd ~/.config"
-alias h="cd; clear"
+alias dl="cd ~/Downloads"
+alias h="cd && clear"
 alias lo="cd ~/.local/share"
-alias o="cd ~/Downloads"
 alias tm="\$EDITOR /tmp/scratch"
 alias z="cd - >/dev/null && ls"
 
 # MEDIA
 alias am="cd ~/media/asmr"
 alias ms="cd ~/media/music"
-alias vi="cd ~/media/videos"
+alias vo="cd ~/media/videos"
 
 # MISC
+alias a="act"
+alias c="cat"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm ~/.cache/*"
 alias e="exit"
 alias fn="\$EDITOR"
@@ -118,17 +129,21 @@ alias i="pkg -i"
 alias ii="networkctl"
 alias ir="systemctl restart iwd.service"
 alias j="fg"
+alias l="ls"
 alias lb="lsblk"
 alias ll="ls -l"
 alias m="mv"
 alias ma="make; make clean"
-alias mai="sudo make install clean"
 alias md="mkdir -p"
+alias o="opn"
+alias or="opn -r"
+alias ot="opn -t"
 alias p="cp"
 alias pa="patch -p1 <"
 alias pw="pwd | sed 's/\/home\/aleks/~/' | sed 's/\/[^/]*$//'"
 alias r="pkg -r"
 alias re="sudo \$(fc -ln -1)"
+alias s="bst"
 alias to="touch"
 alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
 alias up="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && pacman -Syu"
@@ -136,58 +151,47 @@ alias vl="alsamixer"
 
 # PROJECTS
 alias aa="cd ~/projects/arch"
-alias ab="cd ~/projects/arch && \$EDITOR base.sh"
 alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias cn="\$EDITOR config.def.h"
+alias af="cd ~/projects/arch && f"
 alias dm="cd ~/projects/dmenu"
 alias dw="cd ~/projects/dwm"
 alias fd="cd ~/projects/dotfiles"
+alias fdf="cd ~/projects/dotfiles && f"
 alias fj="cd ~/projects"
 alias ft="cd ~/projects/st"
 alias sc="cd ~/projects/scripts"
+alias scf="cd ~/projects/scripts && f"
 alias si="cd ~/projects/sites"
 alias sl="cd ~/projects/slock"
 
 # TMUX
-t() { s=0; if [ $# -gt 0 ]; then s="$1"; fi; tmux new -As "$s"; }
 alias ta="tmux a -t"
 alias tk="tmux kill-session -t"
 alias tl="tmux ls"
+t() { s=0; if [ $# -gt 0 ]; then s="$1"; fi; tmux new -As "$s"; }
 
-# FUNCTIONS
-c() { cd "$(find . -type d ! -path '*/\.git/*' ! -path '*/tex/*' ! -iname '.git' ! -iname '.' | sed 's/^.\///' | fzf)" || echo Can not open directory.; }
-cd() { if [ $# -eq 0 ]; then builtin cd && ls || return; else builtin cd "$@" && ls; fi; }
-d() { if [ $# -eq 0 ]; then clear; else rm "$@"; ls; fi; }
-di() { $BROWSER https://www.dict.cc/?s="$1"; }
-flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
-mc() { mkdir "$1" && cd "$1" || return; }
-y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
-
-# Similar to xdg-open but does what I actually want and is faster.
 f() {
-    [ $# -eq 0 ] && fzf | xargs -r "$EDITOR" && return
-    [ -d "$1" ] && cd "$@" && return
-    [ ! -f "$1" ] && [ ! -d "$1" ] && echo "Can't find: $*" && return
-    mimetype=$(file -bL --mime-type "$1")
-    mime=$(echo "$mimetype" | cut -d/ -f1)
-    case $mime in
-        "text") $EDITOR "$@" && return ;;
-        "image") $BROWSER "$@" && return ;;
-        "video") $BROWSER "$@" && return ;;
-        "audio") $BROWSER "$@" && return ;;
-    esac
-    case $mimetype in
-        "application/json") $EDITOR "$@" ;;
-        "inode/x-empty") $EDITOR "$@" ;;
-        "application/pdf") $BROWSER "$@" ;;
-        "application/gzip") tar -xzf "$@" ;;
-        *) echo No association with mimetype: "$mimetype" >&2 ;;
-    esac
-}
-
-l() {
-    if [ $# -eq 0 ]; then ls
-    elif [ -f "$1" ]; then cat "$1"
-    elif [ -d "$1" ]; then ls "$1";
-    else echo Argument is not a file or directory.; fi
+    if [ $# -eq 0 ]; then
+        fzf | xargs -r "$EDITOR"
+    elif [ -d "$1" ]; then
+        cd "$@" || return
+    elif [ ! -f "$1" ] && [ ! -d "$1" ]; then
+        echo "Can't find: $*"
+    else
+        mimetype=$(file -bL --mime-type "$1")
+        mime=$(echo "$mimetype" | cut -d/ -f1)
+        case $mime in
+            "text") $EDITOR "$@" && return ;;
+            "image") $BROWSER "$@" && return ;;
+            "video") $PLAYER "$@" && return ;;
+            "audio") $PLAYER "$@" && return ;;
+        esac
+        case $mimetype in
+            "application/json") $EDITOR "$@" ;;
+            "inode/x-empty") $EDITOR "$@" ;;
+            "application/pdf") $BROWSER "$@" ;;
+            "application/gzip") tar -xzf "$@" ;;
+            *) echo No association with mimetype: "$mimetype" >&2 ;;
+        esac
+    fi
 }

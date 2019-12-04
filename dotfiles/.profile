@@ -1,6 +1,8 @@
 export BROWSER=firefox
 export EDITOR=nvim
 export MANPAGER="nvim -c 'set ft=man' -"
+export PDF=zathura
+export PLAYER=mpv
 export TERMINAL=st
 
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/\.git/*' ! -path '*/tex/*' ! -path '*/\.idea/*' ! -path '*/__pycache__/*' ! -iname 'tags' | sed 's/^.\///'"
