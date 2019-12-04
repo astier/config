@@ -59,6 +59,8 @@ alias kbd="git branch -D"
 alias kbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs -r \$BROWSER"
 alias kcl="git clone"
 alias kfp="git format-patch --stdout HEAD^ >"
+alias ki="git init"
+alias kii="git add --all && git commit -m 'Create repository'"
 alias kr="cd \$(git rev-parse --show-toplevel)"
 
 alias kc="git commit"
