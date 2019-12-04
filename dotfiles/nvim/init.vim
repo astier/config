@@ -151,6 +151,7 @@ nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 
 " SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
+let g:lexima_enable_endwise_rules = 0
 let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
 se commentstring=//\ %s
