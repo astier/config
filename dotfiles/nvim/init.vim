@@ -223,8 +223,6 @@ nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
 nnoremap <silent> <leader>vp :VimuxPromptCommand<cr>
 nnoremap <silent> <leader>vx :VimuxInterruptRunner<cr>
 nnoremap <silent> <leader>vz :cal VimuxZoomRunner()<cr>
-nnoremap <silent> <a-n> :silent! !tmux new-window<cr>
-nnoremap <silent> <a-s> :silent! !tmux split-window<cr>
 
 " WHITESPACE
 hi whitespace guibg=#bf616a
