@@ -57,7 +57,7 @@ y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # GIT
 k() { n=16; [ $# != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
-kgg() { git log --color --oneline --grep "$1" | fzf --ansi --no-sort | cut -d\  -f1 | xsel -b; }
+kg() { git log --color --oneline --grep "$1" | fzf --ansi --no-sort | cut -d\  -f1 | xsel -b; }
 krb() { n=8; [ $# != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
 krh() { n=1; [ $# != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
 
