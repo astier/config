@@ -121,7 +121,7 @@ alias ms="cd ~/media/music"
 alias vi="cd ~/media/videos"
 
 # MISC
-alias a="act"
+alias a="exe"
 alias bs="bst"
 alias c="cat"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm ~/.cache/*"
