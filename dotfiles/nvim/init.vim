@@ -16,7 +16,6 @@ Plug 'SirVer/ultisnips', { 'for': ['gitcommit', 'python', 'snippets', 'tex'] }
 Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex', 'vim'] }
 Plug 'zefei/vim-wintabs'
 Plug 'zefei/vim-wintabs-powerline'
@@ -136,19 +135,6 @@ nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <leader><leader> :silent! b #<cr>
 
-" NERDTREE
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
-let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex']
-let g:NERDTreeMinimalMenu = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeQuitOnOpen = 2
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeStatusline = ''
-" let g:NERDTreeWinPos = 'right'
-nnoremap <silent> <leader>e :NERDTreeToggle<cr>
-
 " SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 let g:lexima_enable_endwise_rules = 0
@@ -217,7 +203,7 @@ fu! FocusViewer(status)
 endfu
 
 " VIMUX
-nnoremap <silent> <Leader>vr :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
+nnoremap <silent> <leader>vr :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
 nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
 nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
