@@ -117,7 +117,7 @@ alias z="cd - >/dev/null && ls"
 # MEDIA
 alias am="cd ~/media/asmr"
 alias ms="cd ~/media/music"
-alias vo="cd ~/media/videos"
+alias vi="cd ~/media/videos"
 
 # MISC
 alias a="act"
