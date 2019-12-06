@@ -42,13 +42,10 @@ au textchanged,insertleave * nested silent up
 au vimresized * wincmd =
 
 " CLIPBOARD
-nnoremap <RightMouse> "+p
-vnoremap <RightMouse> "+y
 nnoremap <c-c> "+yy
 vnoremap <c-c> "+y
 inoremap <c-v> <esc>"+pa
 nnoremap <c-v> "+p
-vnoremap <c-v> dk"+p
 nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
 
