@@ -13,7 +13,6 @@ Plug 'tpope/vim-surround'
 
 " IDE
 Plug 'SirVer/ultisnips', { 'for': ['gitcommit', 'python', 'snippets', 'tex'] }
-Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'zefei/vim-wintabs'
@@ -187,15 +186,6 @@ fu! FocusViewer(status)
         exe 'VimtexView'
     en
 endfu
-
-" VIMUX
-nnoremap <silent> <leader>vr :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
-nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
-nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
-nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
-nnoremap <silent> <leader>vp :VimuxPromptCommand<cr>
-nnoremap <silent> <leader>vx :VimuxInterruptRunner<cr>
-nnoremap <silent> <leader>vz :cal VimuxZoomRunner()<cr>
 
 " WHITESPACE
 hi whitespace guibg=#bf616a
