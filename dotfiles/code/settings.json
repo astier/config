@@ -33,6 +33,7 @@
     "editor.cursorBlinking": "solid",
     "editor.cursorSurroundingLines": 4,
     "editor.fontFamily": "monospace",
+    "editor.fontLigatures": true,
     "editor.formatOnPaste": true,
     "editor.hideCursorInOverviewRuler": true,
     "editor.hover.enabled": false,

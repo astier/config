@@ -1,18 +1,21 @@
 {
 
     "coc.source.file.ignoreHidden": false,
+
     "diagnostic.enable": false,
+
     "python.analysis.diagnosticEnabled": false,
-    "python.autoComplete.addBrackets": false,
+    "python.autoComplete.addBrackets": true,
     "python.autoComplete.showAdvancedMembers": false,
+    "python.condaPath": "~/miniconda3/bin/conda",
     "python.jediEnabled": false,
     "python.linting.enabled": false,
     "python.workspaceSymbols.enabled": false,
-    "python.workspaceSymbols.rebuildOnFileSave": false,
-    "python.workspaceSymbols.rebuildOnStart": false,
-    "python.workspaceSymbols.tagFilePath": "${workspaceFolder}/tags",
+
+    "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.floatEnable": false,
     "suggest.maxCompleteItemCount": 8,
     "suggest.noselect": false,
+    "suggest.removeDuplicateItems": true,
 
 }
