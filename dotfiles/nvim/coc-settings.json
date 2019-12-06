@@ -2,7 +2,7 @@
 
     "coc.source.file.ignoreHidden": false,
 
-    "diagnostic.enable": true,
+    "diagnostic.checkCurrentLine": true,
 
     "diagnostic-languageserver.filetypes": { "sh": "shellcheck" },
     "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
