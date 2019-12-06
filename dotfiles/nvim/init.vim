@@ -16,7 +16,6 @@ Plug 'SirVer/ultisnips', { 'for': ['gitcommit', 'python', 'snippets', 'tex'] }
 Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex', 'vim'] }
 Plug 'zefei/vim-wintabs'
 Plug 'zefei/vim-wintabs-powerline'
 
@@ -25,19 +24,6 @@ cal plug#end()
 " LEADERS
 let mapleader = ' '
 let maplocalleader = ' '
-
-" ALE
-nnoremap <silent> <leader>i :%retab<cr>:silent! ALEFix<cr>
-let g:ale_disable_lsp = 1
-let g:ale_history_enabled = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_echo_msg_format = '[%linter%][%code%] %s'
-let g:ale_sh_shfmt_options = '-ci -sr -p -s -i 4'
-let g:ale_fixers = {
-    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \ 'python': ['isort', 'black'],
-    \ 'sh': ['shfmt'],
- \}
 
 " APPEARANCE
 let g:nord_italic = 1
@@ -71,7 +57,7 @@ nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
 
 " COC
-let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
+let g:coc_global_extensions = ['coc-diagnostic', 'coc-json', 'coc-python', 'coc-vimtex']
 au cursorhold * silent cal CocActionAsync('highlight')
 inoremap <silent> <expr> <c-space> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)zz

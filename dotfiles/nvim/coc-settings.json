@@ -2,20 +2,19 @@
 
     "coc.source.file.ignoreHidden": false,
 
-    "diagnostic.enable": false,
+    "diagnostic.enable": true,
 
-    "python.analysis.diagnosticEnabled": false,
+    "diagnostic-languageserver.filetypes": { "sh": "shellcheck" },
+    "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
+
     "python.autoComplete.addBrackets": true,
     "python.autoComplete.showAdvancedMembers": false,
-    "python.condaPath": "~/miniconda3/bin/conda",
     "python.jediEnabled": false,
-    "python.linting.enabled": false,
-    "python.workspaceSymbols.enabled": false,
 
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.floatEnable": false,
     "suggest.maxCompleteItemCount": 8,
     "suggest.noselect": false,
-    "suggest.removeDuplicateItems": true,
+    "suggest.removeDuplicateItems": true
 
 }
