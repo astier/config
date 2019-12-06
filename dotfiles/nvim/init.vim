@@ -1,6 +1,6 @@
 cal plug#begin('~/.local/share/nvim/plugins')
 
-Plug 'SirVer/ultisnips', { 'for': ['gitcommit', 'python', 'snippets', 'tex'] }
+Plug 'SirVer/ultisnips', { 'for': ['gitcommit', 'python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
