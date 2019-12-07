@@ -125,7 +125,6 @@ se expandtab shiftwidth=4 tabstop=4
 se mouse=a
 se path+=** path-=/usr/include
 se splitbelow splitright
-se undofile
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " SEARCH & REPLACE
