@@ -32,6 +32,11 @@ hi search guibg=#d08770
 se fillchars+=eob:\ ,vert:\▏,fold:-
 se signcolumn=yes termguicolors
 
+" Fix nord-bug to highlight cursorlinenr
+se cul
+hi clear CursorLine
+hi cursorlinenr guifg=bold
+
 " AUTOCOMMANDS
 au bufenter * se formatoptions-=cro
 au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
