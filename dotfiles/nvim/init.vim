@@ -12,8 +12,6 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'zefei/vim-wintabs'
-Plug 'zefei/vim-wintabs-powerline'
 
 cal plug#end()
 
@@ -28,14 +26,11 @@ let g:nord_underline = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_uniform_status_lines = 1
 colorscheme nord
-hi search guibg=#d08770
-se fillchars+=eob:\ ,vert:\▏,fold:-
-se signcolumn=yes termguicolors
-
-" Fix nord-bug to highlight cursorlinenr
-se cul
-hi clear CursorLine
-hi cursorlinenr guifg=bold
+hi statusline ctermbg=none ctermfg=16
+hi statuslinenc ctermbg=none ctermfg=16
+hi vertsplit ctermbg=none ctermfg=16
+se fillchars+=eob:\ ,vert:\▏,fold:-,stl:_,stlnc:_
+se stl=\  ls=0 noru nosc nosmd scl=yes
 
 " AUTOCOMMANDS
 au bufenter * se formatoptions-=cro
@@ -134,7 +129,6 @@ se undofile
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " SEARCH & REPLACE
-" au CursorHold * exe 'mat StatusLineTerm /'.expand('<cword>').'/'
 fu! CenterSearch()
     let cmdtype = getcmdtype()
     if cmdtype == '/' || cmdtype == '?' | retu "\<enter>zz" | en
@@ -148,17 +142,6 @@ nnoremap <silent> , *``
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
-
-" STATUS- & TABLINE
-au vimenter * if len(getbufinfo({'buflisted':1})) < 2 | se stal=1 | else | exe 'WintabsAllBuffers' | en
-au filetype fzf,nerdtree if len(getbufinfo({'buflisted':1})) < 2 | se stal=1 | en
-au bufadd,winenter * if len(getbufinfo({'buflisted':1})) > 1 | exe 'WintabsAllBuffers' | se stal=2 | en
-au bufdelete * if len(getbufinfo({'buflisted':1})) < 3 | se stal=1 | en
-hi statusline guibg=#3b4252
-hi statuslinenc guibg=#3b4252
-hi wintabsactive guibg=#4c566a guifg=#d8dee9
-let g:wintabs_ignored_filetypes = []
-se statusline=\  ls=0 nosc nosmd noru
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
@@ -188,7 +171,7 @@ fu! FocusViewer(status)
 endfu
 
 " WHITESPACE
-hi whitespace guibg=#bf616a
+hi whitespace ctermbg=red
 au bufwinenter * mat Whitespace /\s\+$\| \+\ze\t/
 au insertenter * mat Whitespace /\s\+\%#\@<!$\| \+\ze\t/
 au insertleave * mat Whitespace /\s\+$\| \+\ze\t/
