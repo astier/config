@@ -46,12 +46,13 @@ alias nn="cd ~/Dropbox/notes"
 alias vm="cd ~/Dropbox/uni/vml"
 
 # FUNCTIONS
+c() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///' | fzf)" && ls || echo Can not open directory.; }
 cd() { if [ $# -eq 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
 d() { if [ $# -eq 0 ]; then clear; else rm "$@" && ls; fi }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
 f() { if [ -d "$1" ]; then cd "$1" || return; else opn "$@"; fi; }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
-c() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///' | fzf)" && ls || echo Can not open directory.; }
+l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
@@ -128,7 +129,6 @@ alias e="exit"
 alias fn="\$EDITOR"
 alias i="pkg -i"
 alias j="fg"
-alias l="ls"
 alias lb="lsblk"
 alias ll="ls -l"
 alias m="mv"
