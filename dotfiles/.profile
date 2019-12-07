@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 export BROWSER=firefox
 export EDITOR=nvim
 export MANPAGER="nvim -c 'set ft=man' -"
@@ -15,5 +17,10 @@ export LESSHISTFILE=~/.cache/lesshst
 export PYLINTRC=~/.config/pylintrc
 export TMUXRC=$HOME/.config/tmux.conf
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="auto"
 
 [ "$(tty)" = "/dev/tty1" ] && [ "$(whoami)" != "root" ] && sx
