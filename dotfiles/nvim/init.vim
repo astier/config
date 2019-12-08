@@ -3,7 +3,6 @@ cal plug#begin('~/.local/share/nvim/plugins')
 Plug 'SirVer/ultisnips', { 'for': ['gitcommit', 'python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -87,26 +86,14 @@ let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/bin/python'
 
 " MAPPINGS
+nnoremap <c-j> 4<c-e>
+nnoremap <c-k> 4<c-y>
 nnoremap <cr> o<esc>
 nnoremap <leader>z <c-w>s
 nnoremap <leader>x <c-w>v
 nnoremap <silent> gs vip:sort u<cr>
 vnoremap <silent> gs :sort u<cr>
 nnoremap Q <nop>
-
-" NAVIGATION
-au vimenter * call system("tmux rename-window " . expand("%:t"))
-au vimleave * call system("tmux setw automatic-rename")
-let g:tmux_navigator_no_mappings = 1
-nnoremap <c-j> 4<c-e>
-nnoremap <c-k> 4<c-y>
-nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <a-e> :bp<cr>
-nnoremap <silent> <a-r> :bn<cr>
-nnoremap <silent> <leader><leader> :silent! b #<cr>
 
 " SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
@@ -133,6 +120,10 @@ nnoremap <silent> , *``
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
+
+" TMUX
+au vimenter * call system("tmux rename-window " . expand("%:t"))
+au vimleave * call system("tmux setw automatic-rename")
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
