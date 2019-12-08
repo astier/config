@@ -12,6 +12,8 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'zefei/vim-wintabs'
+Plug 'zefei/vim-wintabs-powerline'
 
 cal plug#end()
 
@@ -175,6 +177,13 @@ au bufwinenter * mat Whitespace /\s\+$\| \+\ze\t/
 au insertenter * mat Whitespace /\s\+\%#\@<!$\| \+\ze\t/
 au insertleave * mat Whitespace /\s\+$\| \+\ze\t/
 au bufwinleave * cal clearmatches()
+
+" WINTABS
+au bufadd,winenter * if len(getbufinfo({'buflisted':1})) > 1 | exe 'WintabsAllBuffers' | se stal=2 | en
+au bufdelete * if len(getbufinfo({'buflisted':1})) < 3 | se stal=1 | en
+au filetype nerdtree if len(getbufinfo({'buflisted':1})) < 1 | se stal=1 | en
+au vimenter * if len(getbufinfo({'buflisted':1})) < 2 | se stal=1 | else | exe 'WintabsAllBuffers' | en
+hi wintabsactive ctermbg=8
 
 " WRAP
 nnoremap $ g$
