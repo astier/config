@@ -47,7 +47,7 @@ alias nn="cd ~/Dropbox/notes"
 alias vm="cd ~/Dropbox/uni/vml"
 
 # FUNCTIONS
-c() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///' | fzf)" && ls || echo Can not open directory.; }
+c() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///' | fzf-tmux)" && ls || echo Can not open directory.; }
 cd() { if [ $# -eq 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
 d() { if [ $# -eq 0 ]; then clear; else rm "$@" && ls; fi }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
@@ -59,7 +59,7 @@ y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # GIT
 k() { n=16; [ $# != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
-kg() { git log --color --oneline --grep "$1" | fzf --ansi --no-sort | cut -d\  -f1 | xsel -b; }
+kg() { git log --color --oneline --grep "$1" | fzf-tmux --ansi --no-sort | cut -d\  -f1 | xsel -b; }
 krb() { n=8; [ $# != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
 krh() { n=1; [ $# != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
 
