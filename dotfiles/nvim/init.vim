@@ -9,7 +9,6 @@ Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -114,18 +113,6 @@ nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <leader><leader> :silent! b #<cr>
-
-" NERDTREE
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
-let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex']
-let g:NERDTreeMinimalMenu = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeQuitOnOpen = 2
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeStatusline = ''
-nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 
 " SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
