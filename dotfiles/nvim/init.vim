@@ -102,6 +102,7 @@ se commentstring=//\ %s
 se confirm noswapfile
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a
+se notimeout
 se path+=** path-=/usr/include
 se splitbelow splitright
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
