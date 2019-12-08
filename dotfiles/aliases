@@ -12,6 +12,7 @@ alias mount="sudo mount"
 alias mv="mv -i"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
+alias shfmt="shfmt -ci -sr -p -s -i 4"
 alias tmux="tmux -f \$TMUXRC"
 alias top="top -1 -u \$USER"
 alias umount="sudo umount"
@@ -50,7 +51,7 @@ c() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '
 cd() { if [ $# -eq 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
 d() { if [ $# -eq 0 ]; then clear; else rm "$@" && ls; fi }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
-f() { if [ -d "$1" ]; then cd "$1" || return; else opn "$@"; fi; }
+f() { if [ -d "$1" ]; then cd "$1" || return; else act -o "$@"; fi; }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
@@ -122,10 +123,10 @@ alias ms="cd ~/media/music"
 alias vi="cd ~/media/videos"
 
 # MISC
-alias a="exe"
+alias a="act"
 alias bs="bst"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm ~/.cache/*"
-alias e="exit"
+alias e="act -e"
 alias fn="\$EDITOR"
 alias i="pkg -i"
 alias j="fg"
@@ -134,20 +135,15 @@ alias ll="ls -l"
 alias m="mv"
 alias ma="make; make clean"
 alias md="mkdir -p"
-alias o="opn"
-alias oi="opn -i"
-alias or="opn -r"
-alias ot="opn -t"
 alias p="cp"
 alias pa="patch -p1 <"
 alias pw="pwd | sed 's/\/home\/aleks/~/'"
+alias q="exit"
 alias r="pkg -r"
 alias re="sudo \$(fc -ln -1)"
-alias s="fzf | xargs -r \$EDITOR"
 alias to="touch"
 alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
-alias up="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && pacman -Syu"
-alias vl="alsamixer"
+alias vol="alsamixer"
 
 # PROJECTS
 alias aa="cd ~/projects/arch"
