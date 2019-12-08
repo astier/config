@@ -2,7 +2,6 @@ cal plug#begin('~/.local/share/nvim/plugins')
 
 Plug 'SirVer/ultisnips', { 'for': ['gitcommit', 'python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
-Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
@@ -110,8 +109,6 @@ nnoremap <silent> <leader><leader> :silent! b #<cr>
 " SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 let g:lexima_enable_endwise_rules = 0
-let g:rooter_resolve_links = 1
-let g:rooter_silent_chdir = 1
 se commentstring=//\ %s
 se confirm noswapfile
 se expandtab shiftwidth=4 tabstop=4
