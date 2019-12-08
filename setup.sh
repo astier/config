@@ -14,7 +14,6 @@ link .bash_profile ~
 link .bashrc ~
 link .profile ~
 link aliases ~/.config
-link code/settings.json ~/.config/Code\ -\ OSS/User
 link condarc ~/.config
 link git ~/.config
 link gtk-3.0 ~/.config
