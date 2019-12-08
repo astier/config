@@ -95,6 +95,8 @@ vnoremap <silent> gs :sort u<cr>
 nnoremap Q <nop>
 
 " NAVIGATION
+au vimenter * call system("tmux rename-window " . expand("%:t"))
+au vimleave * call system("tmux setw automatic-rename")
 let g:tmux_navigator_no_mappings = 1
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
