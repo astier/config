@@ -134,7 +134,7 @@ nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
-au vimenter * call system("tmux rename-window " . expand("%:t"))
+au vimenter,bufenter * call system("tmux rename-window " . expand("%:t"))
 au vimleave * call system("tmux setw automatic-rename")
 
 " VIMTEX
