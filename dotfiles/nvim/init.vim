@@ -105,7 +105,7 @@ nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <leader><leader> :silent! b #<cr>
 nnoremap <silent> gs vip:sort u<cr>
-nnoremap Q <nop>
+nnoremap Q <c-q>
 vnoremap <silent> gs :sort u<cr>
 
 " NERDTREE
