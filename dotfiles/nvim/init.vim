@@ -6,6 +6,7 @@ Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
+Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -68,6 +69,12 @@ se completeopt=menuone,noinsert shortmess+=c
 se foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 se foldlevel=4
 se foldmethod=expr
+
+" FZF
+au filetype fzf se ls=0
+nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>t :Tags<cr>
 
 " KILL
 nnoremap <silent> <leader>c :clo<cr>
