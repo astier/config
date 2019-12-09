@@ -2,15 +2,16 @@
 
     "coc.source.file.ignoreHidden": false,
 
-    "diagnostic-languageserver.filetypes": { "sh": "shellcheck" },
-    "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
+    "diagnostic.enable": false,
 
+    "python.analysis.diagnosticEnabled": false,
     "python.autoComplete.addBrackets": true,
     "python.autoComplete.showAdvancedMembers": false,
     "python.jediEnabled": false,
+    "python.linting.enabled": false,
 
     "suggest.acceptSuggestionOnCommitCharacter": true,
-    "suggest.floatEnable": false,
+    "suggest.floatEnable": true,
     "suggest.maxCompleteItemCount": 8,
     "suggest.noselect": false,
     "suggest.removeDuplicateItems": true
