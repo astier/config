@@ -72,7 +72,7 @@ se foldmethod=expr
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :bp\|bd #<cr>
 nnoremap <silent> <leader>q :qa<cr>
-nnoremap <silent> <leader>s <c-z>
+nnoremap <silent> <leader>z <c-z>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -91,8 +91,8 @@ let g:python3_host_prog = '/bin/python'
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 nnoremap <cr> o<esc>
-nnoremap <leader>x <c-w>v
-nnoremap <leader>z <c-w>s
+nnoremap <leader>S <c-w>v
+nnoremap <leader>s <c-w>s
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <leader><leader> :silent! b #<cr>
