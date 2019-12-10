@@ -41,10 +41,11 @@ alias iv="\$EDITOR ~/.config/nvim/init.vim"
 # DROPBOX
 alias db="cd ~/Dropbox"
 alias fu="cd ~/Dropbox/uni"
-alias mo="cd ~/Dropbox/uni/myo"
+alias my="cd ~/Dropbox/uni/myo"
 alias n="\$EDITOR -c 'se acd' ~/Dropbox/notes/notes"
 alias nn="cd ~/Dropbox/notes"
-alias vm="cd ~/Dropbox/uni/vml"
+alias vme="cd ~/Dropbox/uni/vml/exercises"
+alias vml="cd ~/Dropbox/uni/vml/lectures"
 
 # FUNCTIONS
 c() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///' | fzf-tmux)" && ls || echo Can not open directory.; }
@@ -56,6 +57,11 @@ flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
+
+# G
+g_path="$HOME/Dropbox/g.sh"
+[ -r "$g_path" ] && . "$g_path"
+alias gg="\$EDITOR \$g_path && . \$g_path"
 
 # GIT
 k() { n=16; [ $# != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
