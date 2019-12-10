@@ -77,6 +77,7 @@ call deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete
 call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#enable_typeinfo = 0
+let g:deoplete#sources#jedi#ignore_private_members = 1
 se completeopt=menuone,noinsert
 se shortmess+=c
 
