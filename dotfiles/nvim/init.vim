@@ -1,19 +1,21 @@
 cal plug#begin('~/.local/share/nvim/plugins')
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
 Plug 'tpope/vim-surround'
+Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
 
 cal plug#end()
 
@@ -64,20 +66,19 @@ nnoremap <c-v> "+p
 nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
 
-" COC
-let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
-au cursorhold * silent cal CocActionAsync('highlight')
-inoremap <silent> <expr> <c-space> coc#refresh()
-nmap <silent> gd <Plug>(coc-definition)zz
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>rr <Plug>(coc-rename)
-nnoremap <silent> K :cal <SID>show_documentation()<cr>
-fu! s:show_documentation()
-    if index(['vim','help'], &filetype) >= 0
-        exe 'h '.expand('<cword>')
-    el | cal CocAction('doHover') | en
-endfu
-se completeopt=menuone,noinsert shortmess+=c
+" COMPLETION
+call deoplete#custom#option({
+   \ 'min_pattern_length': 1,
+   \ 'max_list': 8,
+   \ 'num_processes': -1,
+   \ 'ignore_sources': { '_': ['around', 'member'] },
+\ })
+call deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
+call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#enable_typeinfo = 0
+se completeopt=menuone,noinsert
+se shortmess+=c
 
 " FOLD
 se foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
@@ -89,6 +90,17 @@ au filetype fzf se ls=0
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>t :Tags<cr>
+
+" JEDI
+let $VIRTUAL_ENV = $CONDA_PREFIX
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#show_call_signatures = 2
+let g:jedi#smart_auto_mappings = 1
+let g:jedi#documentation_command = '<c-q>'
+let g:jedi#goto_assignments_command = 'ga'
+let g:jedi#goto_command = 'gd'
+let g:jedi#rename_command = '<leader>rr'
 
 " KILL
 nnoremap <silent> <leader>c :clo<cr>
@@ -157,8 +169,8 @@ fu! CenterSearch()
 endfu
 cnoremap <silent> <expr> <enter> CenterSearch()
 nnoremap <silent> <esc> :noh<cr>:echo<cr><esc>
-nnoremap <leader>re :%s/\<<C-r><C-w>\>//gI<left><left><left>
-nnoremap <leader>rw :%s///gI<left><left><left><left>
+nnoremap <leader>rs :%s///gI<left><left><left><left>
+nnoremap <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
 nnoremap <silent> , *``
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
