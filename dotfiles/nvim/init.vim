@@ -111,6 +111,7 @@ let g:jedi#rename_command = '<leader>rr'
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :bp\|bd #<cr>
 nnoremap <silent> <leader>q :qa<cr>
+nnoremap <silent> <leader>x :bd<cr>
 nnoremap <silent> <leader>z <c-z>
 
 " LOADED
