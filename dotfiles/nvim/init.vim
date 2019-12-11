@@ -93,6 +93,10 @@ nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>t :Tags<cr>
 
 " JEDI
+hi function ctermbg=none ctermfg=blue
+hi jedifat ctermbg=none ctermfg=red
+hi jedifunction ctermbg=none ctermfg=white
+hi none ctermbg=none ctermfg=white
 let $VIRTUAL_ENV = $CONDA_PREFIX
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_enabled = 0
