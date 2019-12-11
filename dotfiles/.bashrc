@@ -27,8 +27,10 @@ set -o vi
 shopt -s autocd cdspell cmdhist histappend
 
 # SOURCE
-[ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
-[ -r ~/.config/aliases ] && . ~/.config/aliases
+aliases=~/.config/aliases
+[ -r $aliases ] && . $aliases
+completion=/usr/share/bash-completion/bash_completion
+[ -r $completion ] && . $completion
 
 # pip bash completion start
 _pip_completion() {
