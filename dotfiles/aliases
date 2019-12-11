@@ -17,6 +17,11 @@ alias tmux="tmux -f \$TMUXRC"
 alias top="top -1 -u \$USER"
 alias umount="sudo umount"
 
+# ACT
+alias a="act -a"
+alias o="act -o"
+f() { if [ -d "$1" ]; then cd "$1" || return; else act -f "$@"; fi; }
+
 # CPM
 alias x="cpm"
 alias xc="cpm -c"
@@ -52,7 +57,6 @@ c() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '
 cd() { if [ $# -eq 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
 d() { if [ $# -eq 0 ]; then clear; else rm "$@" && ls; fi }
 di() { $BROWSER https://www.dict.cc/?s="$1"; }
-f() { if [ -d "$1" ]; then cd "$1" || return; else act -o "$@"; fi; }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
@@ -129,7 +133,6 @@ alias ms="cd ~/media/music"
 alias vi="cd ~/media/videos"
 
 # MISC
-alias a="act"
 alias bs="bst"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm ~/.cache/*"
 alias e="act -e"
