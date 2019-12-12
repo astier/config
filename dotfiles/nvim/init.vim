@@ -221,6 +221,7 @@ endfu
 
 " VIMUX
 nnoremap <silent> <leader>a :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
+nnoremap <silent> <f2> :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
 nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
 nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
