@@ -5,6 +5,7 @@ Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
+Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
@@ -217,6 +218,15 @@ fu! FocusViewer(status)
         exe 'VimtexView'
     en
 endfu
+
+" VIMUX
+nnoremap <silent> <leader>a :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
+nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
+nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
+nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
+nnoremap <silent> <leader>vp :VimuxPromptCommand<cr>
+nnoremap <silent> <leader>vx :VimuxInterruptRunner<cr>
+nnoremap <silent> <leader>vz :cal VimuxZoomRunner()<cr>
 
 " WHITESPACE
 hi whitespace ctermbg=red
