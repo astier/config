@@ -1,7 +1,22 @@
 snippet p "print" b
-print($1)
+print($0)
 endsnippet
 
 snippet b "breakpoint" b
 breakpoint()
+endsnippet
+
+snippet d "init" b
+def $0():
+	pass
+endsnippet
+
+snippet di "init" b
+def __init__(self):
+	pass
+endsnippet
+
+snippet dc "init" b
+def $0(self):
+	pass
 endsnippet
