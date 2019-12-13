@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
 
 cal plug#end()
@@ -23,6 +24,14 @@ cal plug#end()
 " LEADERS
 let mapleader = ' '
 let maplocalleader = ' '
+
+" AIRLINE
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#buffers_label = 'B'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tabs_label = 'T'
+let g:airline_disable_statusline = 1
+let g:airline_powerline_fonts = 1
 
 " ALE
 nnoremap <silent> <leader>i :%retab<cr>:silent! ALEFix<cr>
