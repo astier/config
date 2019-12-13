@@ -102,7 +102,6 @@ let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_enabled = 0
 let g:jedi#show_call_signatures = 2
 let g:jedi#smart_auto_mappings = 1
-let g:jedi#documentation_command = '<c-q>'
 let g:jedi#goto_assignments_command = 'ga'
 let g:jedi#goto_command = 'gd'
 let g:jedi#rename_command = '<leader>rr'
