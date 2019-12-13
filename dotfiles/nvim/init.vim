@@ -98,7 +98,6 @@ hi function ctermbg=none ctermfg=blue
 hi jedifat ctermbg=none ctermfg=red
 hi jedifunction ctermbg=none ctermfg=white
 hi none ctermbg=none ctermfg=white
-let $VIRTUAL_ENV = $CONDA_PREFIX
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_enabled = 0
 let g:jedi#show_call_signatures = 2

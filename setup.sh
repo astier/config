@@ -14,7 +14,6 @@ link .bash_profile ~
 link .bashrc ~
 link .profile ~
 link aliases ~/.config
-link condarc ~/.config
 link git ~/.config
 link gtk-3.0 ~/.config
 link inputrc ~/.config

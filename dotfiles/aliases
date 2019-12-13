@@ -29,14 +29,6 @@ alias xd="cpm -d"
 alias xm="cpm -m"
 alias xp="cpm -p"
 
-# CONDA
-alias cel="conda env list"
-alias cer="conda env remove -n"
-alias coa="conda deactivate; conda activate"
-alias cod="conda deactivate"
-alias coi="conda install"
-alias cou="conda update --all --prune"
-
 # DOTFILES
 alias al="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
 alias ba="\$EDITOR ~/.bashrc && . ~/.bashrc"
