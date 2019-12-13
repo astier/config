@@ -23,6 +23,7 @@ link nvim ~/.config
 link pacman ~/.config
 link pacman/pacman.conf /etc
 link pylintrc ~/.config
+link pythonrc.py ~/.config
 link shellcheckrc ~/.config
 link sx ~/.config
 link sxhkd ~/.config
