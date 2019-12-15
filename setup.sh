@@ -37,6 +37,7 @@ copy() { sudo cp -fr "$1" "$2" && echo Installed: "$1"; }
 copy iwd.conf /etc/iwd/main.conf
 copy systemd/journald.conf /etc/systemd
 copy systemd/logind.conf /etc/systemd
+copy systemd/resolved.conf /etc/systemd
 copy systemd/system.conf /etc/systemd
 copy systemd/system/getty@tty1.service.d /etc/systemd/system
 copy systemd/system/getty@tty2.service.d /etc/systemd/system
