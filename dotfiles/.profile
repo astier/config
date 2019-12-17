@@ -14,6 +14,7 @@ export CONDARC=~/.config/condarc
 export GNUPGHOME=~/.config/gnupg
 export INPUTRC=~/.config/inputrc
 export LESSHISTFILE=~/.cache/lesshst
+export PYLINTHOME=~/.cache/pylint
 export PYLINTRC=~/.config/pylintrc
 export PYTHONSTARTUP=~/.config/pythonrc.py
 export TMUXRC=$HOME/.config/tmux.conf
