@@ -123,6 +123,7 @@ alias z="cd - >/dev/null && ls"
 alias am="cd ~/media/asmr"
 alias ms="cd ~/media/music"
 alias vi="cd ~/media/videos"
+alias vid="rm ~/media/videos/*"
 
 # MISC
 alias bs="bst"
