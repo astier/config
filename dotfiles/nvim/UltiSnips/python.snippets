@@ -6,17 +6,23 @@ snippet b "breakpoint" b
 breakpoint()
 endsnippet
 
-snippet d "init" b
+snippet d "def" b
 def $0():
 	pass
 endsnippet
 
-snippet di "init" b
+snippet i "init" b
 def __init__(self):
 	pass
 endsnippet
 
-snippet dc "init" b
+snippet dc "def-class" b
 def $0(self):
 	pass
+endsnippet
+
+snippet s "shebang" b
+#!/usr/bin/env python3
+
+
 endsnippet
