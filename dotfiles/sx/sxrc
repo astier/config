@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
+$BROWSER &
+$TERMINAL -e tmux -f "$TMUXRC" new -As 0 &
 bst -l &
-firefox &
-st tmux -f "$TMUXRC" new -As 0 &
 sxhkd &
 xkbcomp ~/.config/xkb "$DISPLAY"
 
