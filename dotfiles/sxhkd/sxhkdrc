@@ -11,6 +11,8 @@ mod5 + f
     dmenu_run
 mod5 + s
     sys
+mod5 + {a,u,v}
+    mpv ~/media/{asmr,music,videos}
 
 button8
     xsetroot -name "fsignal:1"

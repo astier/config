@@ -120,6 +120,12 @@ alias h="cd && clear"
 alias tm="\$EDITOR /tmp/scratch"
 alias z="cd - >/dev/null && ls"
 
+# MEDIA
+alias am="cd ~/media/asmr"
+alias ms="cd ~/media/music"
+alias vi="cd ~/media/videos"
+alias vid="rm ~/media/videos/*"
+
 # MISC
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm ~/.cache/*; sudo rm -fr /var/log/journal/*"
 alias e="act -e"
