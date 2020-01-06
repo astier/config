@@ -10,7 +10,6 @@ Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigat
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
-Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
@@ -87,12 +86,6 @@ se shortmess+=c
 se foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 se foldlevel=4
 se foldmethod=expr
-
-" FZF
-au filetype fzf se ls=0
-nnoremap <silent> <leader>b :Buffers<cr>
-nnoremap <silent> <leader>f :Files<cr>
-nnoremap <silent> <leader>t :Tags<cr>
 
 " JEDI
 hi function ctermbg=none ctermfg=blue
