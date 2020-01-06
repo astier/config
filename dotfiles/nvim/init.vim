@@ -5,7 +5,6 @@ Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'benmills/vimux', { 'for': 'python' }
-Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
@@ -151,13 +150,15 @@ nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
 
 " TMUX
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
 au vimenter,bufenter * call system("tmux rename-window " . expand("%:t"))
 au vimleave * call system("tmux setw automatic-rename")
+nnoremap <silent> <leader>a :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
+nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
+nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
+nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
+nnoremap <silent> <leader>vp :VimuxPromptCommand<cr>
+nnoremap <silent> <leader>vx :VimuxInterruptRunner<cr>
+nnoremap <silent> <leader>vz :cal VimuxZoomRunner()<cr>
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
@@ -185,16 +186,6 @@ fu! FocusViewer(status)
         exe 'VimtexView'
     en
 endfu
-
-" VIMUX
-nnoremap <silent> <leader>a :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
-nnoremap <silent> <f2> :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
-nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
-nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
-nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
-nnoremap <silent> <leader>vp :VimuxPromptCommand<cr>
-nnoremap <silent> <leader>vx :VimuxInterruptRunner<cr>
-nnoremap <silent> <leader>vz :cal VimuxZoomRunner()<cr>
 
 " WHITESPACE
 hi whitespace ctermbg=red
