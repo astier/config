@@ -3,7 +3,6 @@ cal plug#begin('~/.local/share/nvim/plugins')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
-Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'christoomey/vim-tmux-navigator', { 'on': ['TmuxNavigateDown', 'TmuxNavigateLeft', 'TmuxNavigateRight', 'TmuxNavigateUp'] }
@@ -135,7 +134,6 @@ vnoremap <silent> gs :sort u<cr>
 " SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 let g:lexima_enable_endwise_rules = 0
-let g:rooter_silent_chdir = 1
 se commentstring=//\ %s
 se confirm noswapfile
 se expandtab shiftwidth=4 tabstop=4
