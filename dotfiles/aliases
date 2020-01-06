@@ -80,7 +80,7 @@ alias kr="cd \$(git rev-parse --show-toplevel)"
 alias kc="git commit"
 alias kca="git add --all && git commit"
 alias kcp="git add --all && git commit && git push"
-alias kcr="git commit -am tmp && git rebase -i HEAD~2"
+alias kct="git commit -am tmp && krb"
 
 alias kd="git diff"
 alias kk="git log --all --graph --decorate --oneline"
