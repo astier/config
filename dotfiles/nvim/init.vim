@@ -98,13 +98,6 @@ let g:jedi#goto_assignments_command = 'ga'
 let g:jedi#goto_command = 'gd'
 let g:jedi#rename_command = '<leader>rr'
 
-" KILL
-nnoremap <silent> <leader>c :clo<cr>
-nnoremap <silent> <leader>d :bp\|bd #<cr>
-nnoremap <silent> <leader>q :qa<cr>
-nnoremap <silent> <leader>x :bd<cr>
-nnoremap <silent> <leader>z <c-z>
-
 " LOADED
 let g:loaded_gzip = 1
 let g:loaded_netrw = 1
@@ -122,11 +115,10 @@ let g:python3_host_prog = '/bin/python'
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 nnoremap <cr> o<esc>
-nnoremap <leader>S <c-w>v
-nnoremap <leader>s <c-w>s
-nnoremap <silent> <a-e> :bp<cr>
-nnoremap <silent> <a-r> :bn<cr>
-nnoremap <silent> <leader><leader> :silent! b #<cr>
+nnoremap <silent> <leader><leader> <c-w>w
+nnoremap <silent> <leader>d <c-w>w:bd<cr>
+nnoremap <silent> <leader>q :qa<cr>
+nnoremap <silent> <leader>s <c-z>
 nnoremap <silent> gs vip:sort u<cr>
 nnoremap Q <c-q>
 vnoremap <silent> gs :sort u<cr>
