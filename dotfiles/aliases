@@ -32,15 +32,16 @@ alias xp="cpm -p"
 # DOTFILES
 alias al="\$EDITOR ~/.config/aliases && . ~/.config/aliases"
 alias ba="\$EDITOR ~/.bashrc && . ~/.bashrc"
+alias fd="cd ~/projects/dotfiles"
+alias ff="cd ~/projects/dotfiles && f"
 alias fx="\$EDITOR ~/.config/sx/sxrc"
 alias iv="\$EDITOR ~/.config/nvim/init.vim"
 
 # DROPBOX
 alias db="cd ~/Dropbox"
-alias fu="cd ~/Dropbox/uni"
 alias my="cd ~/Dropbox/uni/myo"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
-alias nn="cd ~/Dropbox/notes"
+alias nn="cd ~/Dropbox/misc"
 alias vme="cd ~/Dropbox/uni/vml/exercises"
 alias vml="cd ~/Dropbox/uni/vml/lectures"
 
@@ -48,14 +49,13 @@ alias vml="cd ~/Dropbox/uni/vml/lectures"
 c() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///' | fzf)" && ls || echo Can not open directory.; }
 cd() { if [ $# -eq 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
 d() { if [ $# -eq 0 ]; then clear; else rm "$@" && ls; fi }
-di() { $BROWSER https://www.dict.cc/?s="$1"; }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # G
-g_path="$HOME/Dropbox/g.sh"
+g_path=~/Dropbox/g.sh
 [ -r "$g_path" ] && . "$g_path"
 alias gg="\$EDITOR \$g_path && . \$g_path"
 
@@ -111,20 +111,19 @@ alias kst="git stash"
 
 # HOME
 alias -- ,="cd .."
+alias b="cd - >/dev/null && ls"
 alias ca="cd ~/.cache"
 alias co="cd ~/.config"
 alias dl="cd ~/Downloads"
 alias fl="cd ~/.local/share"
 alias h="cd && clear"
 alias tm="\$EDITOR /tmp/scratch"
-alias z="cd - >/dev/null && ls"
 
 # MEDIA
 alias am="cd ~/media/asmr"
 alias me="cd ~/media"
 alias ms="cd ~/media/music"
 alias vi="cd ~/media/videos"
-alias vid="rm ~/media/videos/*"
 
 # MISC
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm ~/.cache/*; sudo rm -fr /var/log/journal/*"
@@ -134,7 +133,6 @@ alias j="fg"
 alias lb="lsblk"
 alias ll="ls -l"
 alias m="mv"
-alias ma="make; make clean"
 alias md="mkdir -p"
 alias p="cp"
 alias pa="patch -p1 <"
@@ -149,13 +147,13 @@ alias vol="alsamixer"
 
 # PROJECTS
 alias aa="cd ~/projects/arch"
-alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias af="cd ~/projects/arch && f"
 alias dm="cd ~/projects/dmenu"
 alias dw="cd ~/projects/dwm"
-alias fd="cd ~/projects/dotfiles"
 alias fj="cd ~/projects"
 alias ft="cd ~/projects/st"
 alias sc="cd ~/projects/scripts"
+alias sf="cd ~/projects/scripts && f"
 alias si="cd ~/projects/sites"
 alias sl="cd ~/projects/slock"
 
