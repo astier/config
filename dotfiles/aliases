@@ -30,11 +30,11 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # DOTFILES
-alias al="ds dotfiles/aliases && . dotfiles/aliases"
-alias ba="ds dotfiles/.bashrc && . dotfiles/.bashrc"
-alias fx="ds dotfiles/sx/sxrc"
-alias iv="ds dotfiles/nvim/init.vim"
-ds() { cd ~/projects/dotfiles && [ "$1" ] && $EDITOR "$1"; }
+alias al="fd dotfiles/aliases && . dotfiles/aliases"
+alias ba="fd dotfiles/.bashrc && . dotfiles/.bashrc"
+alias fx="fd dotfiles/sx/sxrc"
+alias iv="fd dotfiles/nvim/init.vim"
+fd() { cd ~/projects/dotfiles && [ "$1" ] && $EDITOR "$1"; }
 
 # DROPBOX
 alias db="cd ~/Dropbox"
@@ -116,7 +116,6 @@ alias co="cd ~/.config"
 alias dl="cd ~/Downloads"
 alias fl="cd ~/.local/share"
 alias h="cd && clear"
-alias tm="\$EDITOR /tmp/scratch"
 
 # MEDIA
 alias am="cd ~/media/asmr"
@@ -145,7 +144,7 @@ alias vol="alsamixer"
 
 # PROJECTS
 alias aa="cd ~/projects/arch"
-alias af="cd ~/projects/arch && f"
+alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias dm="cd ~/projects/dmenu"
 alias dw="cd ~/projects/dwm"
 alias fj="cd ~/projects"
