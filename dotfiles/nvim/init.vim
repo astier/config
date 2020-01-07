@@ -148,7 +148,7 @@ nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
 
 " TMUX
-au vimenter,bufenter * cal system("tmux rename-window " . expand("%:t"))
+au focusgained * cal system("tmux rename-window " . expand("%:t"))
 au vimleave * cal system("tmux setw automatic-rename")
 nnoremap <silent> <leader>f :cal system("tmux neww 'fzf \| xargs -r nvim'")<cr>
 nnoremap <silent> <leader>s :cal system("tmux splitw -v 'fzf \| xargs -r nvim'")<cr>
