@@ -46,8 +46,8 @@ alias vml="cd ~/Dropbox/uni/vml/lectures"
 
 # FUNCTIONS
 c() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///' | fzf)" && ls || echo Can not open directory.; }
-cd() { if [ $# -eq 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
-d() { if [ $# -eq 0 ]; then clear; else rm "$@" && ls; fi }
+cd() { if [ $# = 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
+d() { if [ $# = 0 ]; then clear; else rm "$@" && ls; fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
@@ -59,10 +59,10 @@ g_path=~/Dropbox/g.sh
 alias gg="\$EDITOR \$g_path && . \$g_path"
 
 # GIT
-k() { n=16; [ $# != 0 ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+k() { n=16; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
 kg() { git log --color --oneline --grep "$1" | fzf --ansi --no-sort | cut -d\  -f1 | xsel -b; }
-krb() { n=8; [ $# != 0 ] && n=$1; git rebase -i HEAD~"$n"; }
-krh() { n=1; [ $# != 0 ] && n=$1; git reset --hard HEAD~"$n"; }
+krb() { n=8; [ "$1" ] && n=$1; git rebase -i HEAD~"$n"; }
+krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
 
 alias ka="git add"
 alias kaa="git add --all"
