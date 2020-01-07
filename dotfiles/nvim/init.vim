@@ -152,7 +152,7 @@ se ignorecase smartcase inccommand=nosplit
 " TMUX
 au vimenter,bufenter * call system("tmux rename-window " . expand("%:t"))
 au vimleave * call system("tmux setw automatic-rename")
-nnoremap <silent> <leader>a :call VimuxRunCommand("clear; python " . bufname("%"))<cr>
+nnoremap <silent> <leader>a :call VimuxRunCommand("python " . bufname("%"))<cr>
 nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
 nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
