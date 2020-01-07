@@ -117,7 +117,6 @@ nnoremap <cr> o<esc>
 nnoremap <silent> <leader><leader> <c-w>w
 nnoremap <silent> <leader>c <c-w>j:bw<cr>
 nnoremap <silent> <leader>q :qa<cr>
-nnoremap <silent> <leader>s <c-z>
 nnoremap <silent> gs vip:sort u<cr>
 nnoremap Q <c-q>
 vnoremap <silent> gs :sort u<cr>
@@ -152,6 +151,11 @@ se ignorecase smartcase inccommand=nosplit
 " TMUX
 au vimenter,bufenter * cal system("tmux rename-window " . expand("%:t"))
 au vimleave * cal system("tmux setw automatic-rename")
+nnoremap <silent> <leader>f :cal system("tmux neww 'fzf \| xargs -r nvim'")<cr>
+nnoremap <silent> <leader>s :cal system("tmux splitw -v 'fzf \| xargs -r nvim'")<cr>
+nnoremap <silent> <leader>S :cal system("tmux splitw -h 'fzf \| xargs -r nvim'")<cr>
+
+" VIMUX
 nnoremap <silent> <leader>a :cal VimuxRunCommand("python " . bufname("%"))<cr>
 nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
