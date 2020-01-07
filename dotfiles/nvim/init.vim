@@ -65,14 +65,14 @@ nnoremap <c-x> "+dd
 vnoremap <c-x> "+d
 
 " COMPLETION
-call deoplete#custom#option({
+cal deoplete#custom#option({
    \ 'min_pattern_length': 1,
    \ 'max_list': 8,
    \ 'num_processes': -1,
    \ 'ignore_sources': { '_': ['around', 'member'] },
 \ })
-call deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
-call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
+cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
+cal deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#enable_typeinfo = 0
 let g:deoplete#sources#jedi#ignore_private_members = 1
@@ -150,9 +150,9 @@ nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
 
 " TMUX
-au vimenter,bufenter * call system("tmux rename-window " . expand("%:t"))
-au vimleave * call system("tmux setw automatic-rename")
-nnoremap <silent> <leader>a :call VimuxRunCommand("python " . bufname("%"))<cr>
+au vimenter,bufenter * cal system("tmux rename-window " . expand("%:t"))
+au vimleave * cal system("tmux setw automatic-rename")
+nnoremap <silent> <leader>a :cal VimuxRunCommand("python " . bufname("%"))<cr>
 nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
 nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
