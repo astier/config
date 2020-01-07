@@ -4,7 +4,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
@@ -154,15 +153,6 @@ au vimleave * cal system("tmux setw automatic-rename")
 nnoremap <silent> <leader>f :cal system("tmux neww 'fzf \| xargs -r nvim'")<cr>
 nnoremap <silent> <leader>s :cal system("tmux splitw -v 'fzf \| xargs -r nvim'")<cr>
 nnoremap <silent> <leader>S :cal system("tmux splitw -h 'fzf \| xargs -r nvim'")<cr>
-
-" VIMUX
-nnoremap <silent> <leader>a :cal VimuxRunCommand("python " . bufname("%"))<cr>
-nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
-nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
-nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
-nnoremap <silent> <leader>vp :VimuxPromptCommand<cr>
-nnoremap <silent> <leader>vx :VimuxInterruptRunner<cr>
-nnoremap <silent> <leader>vz :cal VimuxZoomRunner()<cr>
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
