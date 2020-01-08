@@ -54,7 +54,7 @@ mc() { mkdir "$1" && cd "$1" || return; }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # G
-g_path=~/Dropbox/g.sh
+g_path=~/Dropbox/misc/g.sh
 [ -r "$g_path" ] && . "$g_path"
 alias gg="\$EDITOR \$g_path && . \$g_path"
 
