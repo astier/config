@@ -116,7 +116,7 @@ nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 nnoremap <cr> o<esc>
 nnoremap <silent> <leader><leader> <c-w>w
-nnoremap <silent> <leader>c <c-w>j:bw<cr>
+nnoremap <silent> <leader>d <c-w>j:bw<cr>
 nnoremap <silent> <leader>q :qa<cr>
 nnoremap <silent> gs vip:sort u<cr>
 nnoremap Q <c-q>
