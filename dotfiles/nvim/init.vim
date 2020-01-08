@@ -21,7 +21,9 @@ let maplocalleader = ' '
 
 " ALE
 nnoremap <silent> <leader>i :%retab<cr>:silent! ALEFix<cr>
+nnoremap <silent> <leader>l :ALEToggle<cr>
 let g:ale_disable_lsp = 1
+let g:ale_enabled = 0
 let g:ale_history_enabled = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_msg_format = '[%linter%][%code%] %s'
