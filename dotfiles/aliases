@@ -47,7 +47,7 @@ alias vml="cd ~/Dropbox/uni/vml/lectures"
 # FUNCTIONS
 c() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///' | fzf)" && ls || echo Can not open directory.; }
 cd() { if [ $# = 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
-d() { if [ $# = 0 ]; then clear; else rm "$@" && ls; fi }
+d() { if [ $# = 0 ]; then exit; else rm "$@" && ls; fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
@@ -134,7 +134,6 @@ alias md="mkdir -p"
 alias p="cp"
 alias pa="patch -p1 <"
 alias pw="pwd | sed 's/\/home\/aleks/~/'"
-alias q="exit"
 alias r="pkg -r"
 alias re="sudo \$(fc -ln -1)"
 alias s="bst"
