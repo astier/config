@@ -99,15 +99,9 @@ let g:jedi#goto_command = 'gd'
 let g:jedi#rename_command = '<leader>rr'
 
 " KILL
-fu! Close()
-    if len(getbufinfo({'bufloaded':1})) > 1
-        winc j | exe 'bw'
-    else
-        exe 'qa'
-    en
-endfu
-nnoremap <silent> <leader>d :cal Close()<cr>
-nnoremap <silent> <leader>q :cal system("tmux kill-pane")<cr>
+nnoremap <silent> <leader>c <c-w>j:clo<cr>
+nnoremap <silent> <leader>d :qa<cr>
+nnoremap <silent> <leader>w :bw<cr>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -126,7 +120,8 @@ let g:python3_host_prog = '/bin/python'
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 nnoremap <cr> o<esc>
-nnoremap <silent> <leader><leader> <c-w>w
+nnoremap <silent> <leader><leader> :bn<cr>
+nnoremap <silent> <leader>j <c-w>w
 nnoremap <silent> gs vip:sort u<cr>
 nnoremap Q <c-q>
 vnoremap <silent> gs :sort u<cr>
