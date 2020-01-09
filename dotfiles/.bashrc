@@ -5,8 +5,10 @@
 # PROMPT
 . ~/.config/git/git-prompt.sh
 NO_COLOR="\[\e[m\]"
+RED="\[\e[31m\]"
 GREEN="\[\e[32m\]"
-PS1="${GREEN}[\W\$(__git_ps1 ' %s')] ${NO_COLOR}"
+num_jobs() { NUM_JOBS=$(jobs | wc -l) && [[ "$NUM_JOBS" -gt 0 ]] && echo " $NUM_JOBS"; }
+PS1="${GREEN}[\W\$(__git_ps1 ' %s')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
 
 # SETTINGS
 HISTFILE=~/.local/share/bash_history

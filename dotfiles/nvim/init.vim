@@ -116,17 +116,18 @@ let g:loaded_zip = 1
 let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/bin/python'
 
-" MAPPINGS
+" MISC-MAPPINGS
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 nnoremap <cr> o<esc>
 nnoremap <silent> <leader><leader> :bn<cr>
 nnoremap <silent> <leader>j <c-w>w
+nnoremap <silent> <leader>s <c-z>
 nnoremap <silent> gs vip:sort u<cr>
 nnoremap Q <c-q>
 vnoremap <silent> gs :sort u<cr>
 
-" SETTINGS
+" MISC-SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 let g:lexima_enable_endwise_rules = 0
 se commentstring=//\ %s
@@ -157,8 +158,7 @@ se ignorecase smartcase inccommand=nosplit
 au focusgained * cal system("tmux rename-window " . expand("%:t"))
 au vimleave * cal system("tmux setw automatic-rename")
 nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <leader>s :cal system("tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <leader>S :cal system("tmux splitw -h && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
+nnoremap <silent> <leader>F :cal system("tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
