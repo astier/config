@@ -98,6 +98,16 @@ let g:jedi#goto_assignments_command = 'ga'
 let g:jedi#goto_command = 'gd'
 let g:jedi#rename_command = '<leader>rr'
 
+" KILL
+fu! Close()
+    if len(getbufinfo({'bufloaded':1})) > 1
+        winc j | exe 'bw'
+    else
+        exe 'qa'
+    en
+endfu
+nnoremap <silent> <leader>d :cal Close()<cr>
+
 " LOADED
 let g:loaded_gzip = 1
 let g:loaded_netrw = 1
@@ -116,8 +126,6 @@ nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 nnoremap <cr> o<esc>
 nnoremap <silent> <leader><leader> <c-w>w
-nnoremap <silent> <leader>d <c-w>j:bw<cr>
-nnoremap <silent> <leader>q :qa<cr>
 nnoremap <silent> gs vip:sort u<cr>
 nnoremap Q <c-q>
 vnoremap <silent> gs :sort u<cr>
