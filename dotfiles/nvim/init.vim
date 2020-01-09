@@ -107,6 +107,7 @@ fu! Close()
     en
 endfu
 nnoremap <silent> <leader>d :cal Close()<cr>
+nnoremap <silent> <leader>q :cal system("tmux kill-pane")<cr>
 
 " LOADED
 let g:loaded_gzip = 1
