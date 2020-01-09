@@ -1,7 +1,9 @@
 *.csv
+*.gif
 *.o
 *.orig
 *.pdf
+*.png
 *.rej
 .idea
 .vscode
