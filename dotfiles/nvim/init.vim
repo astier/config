@@ -152,9 +152,9 @@ se ignorecase smartcase inccommand=nosplit
 " TMUX
 au focusgained * cal system("tmux rename-window " . expand("%:t"))
 au vimleave * cal system("tmux setw automatic-rename")
-nnoremap <silent> <leader>f :cal system("tmux neww 'fzf \| xargs -r nvim'")<cr>
-nnoremap <silent> <leader>s :cal system("tmux splitw -v 'fzf \| xargs -r nvim'")<cr>
-nnoremap <silent> <leader>S :cal system("tmux splitw -h 'fzf \| xargs -r nvim'")<cr>
+nnoremap <silent> <leader>f :cal system("tmux neww && tmux send 'fzf \| xargs -r nvim' Enter")<cr>
+nnoremap <silent> <leader>s :cal system("tmux splitw -v && tmux send 'fzf \| xargs -r nvim' Enter")<cr>
+nnoremap <silent> <leader>S :cal system("tmux splitw -h && tmux send 'fzf \| xargs -r nvim' Enter")<cr>
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
