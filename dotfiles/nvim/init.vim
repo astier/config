@@ -132,6 +132,7 @@ vnoremap <silent> gs :sort u<cr>
 " MISC-SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
 let g:lexima_enable_endwise_rules = 0
+let g:tex_no_error=1
 se commentstring=//\ %s
 se confirm noswapfile
 se expandtab shiftwidth=4 tabstop=4
