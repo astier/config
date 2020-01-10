@@ -4,7 +4,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'benmills/vimux', { 'for': ['python', 'sh', 'tex'] }
+Plug 'benmills/vimux', { 'for': ['python', 'sh', 'tex', 'vim'] }
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
