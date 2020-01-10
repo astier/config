@@ -126,6 +126,7 @@ nnoremap <silent> <leader>j <c-w>w
 nnoremap <silent> <leader>s <c-z>
 nnoremap <silent> gs vip:sort u<cr>
 nnoremap Q <c-q>
+nnoremap dp dap
 vnoremap <silent> gs :sort u<cr>
 
 " MISC-SETTINGS

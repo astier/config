@@ -34,6 +34,7 @@ alias al="fd dotfiles/aliases && . dotfiles/aliases"
 alias ba="fd dotfiles/.bashrc && . dotfiles/.bashrc"
 alias fx="fd dotfiles/sx/sxrc"
 alias iv="fd dotfiles/nvim/init.vim"
+alias tm="fd dotfiles/tmux.conf"
 fd() { cd ~/projects/dotfiles && [ "$1" ] && $EDITOR "$1"; }
 
 # DROPBOX
