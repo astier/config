@@ -158,7 +158,7 @@ se ignorecase smartcase inccommand=nosplit
 au focusgained * cal system("tmux rename-window " . expand("%:t"))
 au vimleave * cal system("tmux setw automatic-rename")
 nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <leader>F :cal system("tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
+nnoremap <silent> <leader>p :cal system("tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
 
 " VIMTEX
 let g:vimtex_compiler_progname = 'nvr'
