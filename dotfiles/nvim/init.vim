@@ -4,7 +4,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'benmills/vimux', { 'for': 'python' }
+Plug 'benmills/vimux', { 'for': ['python', 'sh', 'tex'] }
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
@@ -12,28 +12,12 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale', { 'for': ['python', 'sh', 'tex'] }
 
 cal plug#end()
 
 " LEADERS
 let mapleader = ' '
 let maplocalleader = ' '
-
-" ALE
-nnoremap <silent> <leader>i :%retab<cr>:silent! ALEFix<cr>
-nnoremap <silent> <leader>l :ALEToggle<cr>
-let g:ale_disable_lsp = 1
-let g:ale_enabled = 0
-let g:ale_history_enabled = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_echo_msg_format = '[%linter%][%code%] %s'
-let g:ale_sh_shfmt_options = '-ci -sr -p -s -i 4'
-let g:ale_fixers = {
-    \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \ 'python': ['isort', 'black'],
-    \ 'sh': ['shfmt'],
-\ }
 
 " APPEARANCE
 let g:nord_bold = 0
@@ -162,13 +146,14 @@ au focusgained * cal system("tmux rename-window " . expand("%:t"))
 au vimleave * cal system("tmux setw automatic-rename")
 nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
 nnoremap <silent> <leader>p :cal system("tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
+nnoremap <silent> <leader>t :checkt<cr>:cal system("format " . bufname("%"))<cr>:checkt<cr>
 
 " VIMUX
 nnoremap <silent> <leader>a :cal VimuxRunCommand("python " . bufname("%"))<cr>
+nnoremap <silent> <leader>l :cal VimuxRunCommand("lint " . bufname("%"))<cr>
 nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
 nnoremap <silent> <leader>vl :VimuxRunLastCommand<cr>
-nnoremap <silent> <leader>vp :VimuxPromptCommand<cr>
 nnoremap <silent> <leader>vx :VimuxInterruptRunner<cr>
 nnoremap <silent> <leader>vz :cal VimuxZoomRunner()<cr>
 
