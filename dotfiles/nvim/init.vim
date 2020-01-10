@@ -150,7 +150,7 @@ nnoremap <silent> <leader>p :cal system("tmux splitw -v && tmux send ~/.config/n
 nnoremap <silent> <leader>t :checkt<cr>:cal system("format " . bufname("%"))<cr>:checkt<cr>
 
 " VIMUX
-nnoremap <silent> <leader>a :cal VimuxRunCommand("python " . bufname("%"))<cr>
+nnoremap <silent> <leader>a :cal VimuxRunCommand("execute " . bufname("%"))<cr>
 nnoremap <silent> <leader>l :cal VimuxRunCommand("lint " . bufname("%"))<cr>
 nnoremap <silent> <leader>vd :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>vi :VimuxInspectRunner<cr>
