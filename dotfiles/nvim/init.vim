@@ -8,9 +8,8 @@ Plug 'benmills/vimux', { 'for': ['python', 'sh', 'tex', 'vim'] }
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
+Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 
 cal plug#end()
 
@@ -121,6 +120,10 @@ se notimeout
 se path+=** path-=/usr/include
 se splitbelow splitright
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
+
+" SANDWICH
+nmap s <nop>
+xmap s <nop>
 
 " SEARCH & REPLACE
 fu! CenterSearch()
