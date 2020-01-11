@@ -12,6 +12,7 @@ cd dotfiles || exit
 
 link .bash_profile ~
 link .bashrc ~
+link .latexmkrc ~
 link .profile ~
 link aliases ~/.config
 link git ~/.config
