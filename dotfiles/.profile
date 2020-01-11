@@ -7,7 +7,7 @@ export PDF=zathura
 export PLAYER=mpv
 export TERMINAL=st
 
-export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/\.git/*' ! -path '*/tex/*' ! -path '*/\.idea/*' ! -path '*/__pycache__/*' ! -iname 'tags' ! -iname '*.pdf' | sed 's/^.\///'"
+export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/\.git/*' ! -path '*/tex/*' ! -path '*/\.idea/*' ! -path '*/__pycache__/*' ! -iname '*.png' ! -iname '*.toc' ! -iname '*.fdb_latexmk' ! -iname '*.out' ! -iname '*.log' ! -iname '*.fls' ! -iname '*.tox' ! -iname '*.nav' ! -iname '*.snm' ! -iname '*.aux' ! -iname 'tags' ! -iname '*.pdf' | sed 's/^.\///'"
 export FZF_DEFAULT_OPTS="--cycle --multi --reverse --tabstop=4 --color=bg+:-1,fg+:-1,border:#000000,hl:#a3be8c,prompt:#5e81ac,pointer:#bf616a,marker:#ebcb8b,info:#88c0d0"
 
 export CONDARC=~/.config/condarc
