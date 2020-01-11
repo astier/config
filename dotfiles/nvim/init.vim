@@ -79,6 +79,7 @@ let g:jedi#rename_command = '<leader>rr'
 " KILL
 nnoremap <silent> <leader>c <c-w>j:clo<cr>
 nnoremap <silent> <leader>d :qa<cr>
+nnoremap <silent> <leader>q :cal system("tmux kill-pane")<cr>
 nnoremap <silent> <leader>w :bw<cr>
 
 " LOADED
