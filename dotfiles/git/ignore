@@ -1,10 +1,18 @@
+*.aux
 *.csv
+*.fdb_latexmk
+*.fls
 *.gif
+*.log
+*.nav
 *.o
 *.orig
+*.out
 *.pdf
 *.png
 *.rej
+*.snm
+*.toc
 .idea
 .vscode
 __pycache__
@@ -12,4 +20,3 @@ build
 misc
 results
 tags
-tex
