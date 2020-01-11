@@ -4,7 +4,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'benmills/vimux', { 'for': ['python', 'sh', 'tex', 'vim'] }
+Plug 'benmills/vimux', { 'for': ['python', 'sh', 'tex'] }
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
@@ -79,6 +80,7 @@ let g:jedi#rename_command = '<leader>rr'
 nnoremap <silent> <leader>c <c-w>j:clo<cr>
 nnoremap <silent> <leader>d :qa<cr>
 nnoremap <silent> <leader>q :cal system("tmux kill-pane")<cr>
+nnoremap <silent> <leader>s <c-z>
 nnoremap <silent> <leader>w :bw<cr>
 
 " LOADED
@@ -95,17 +97,16 @@ let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/bin/python'
 
 " MISC-MAPPINGS
+nnoremap <silent> gs vip:sort u<cr>
+vnoremap <silent> gs :sort u<cr>
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 nnoremap <cr> o<esc>
-nnoremap <silent> <leader><leader> :bn<cr>
-nnoremap <silent> <leader>j <c-w>w
-nnoremap <silent> <leader>s <c-z>
-nnoremap <silent> gs vip:sort u<cr>
-nnoremap Q <c-q>
+nnoremap Q <nop>
 nnoremap cp cip
 nnoremap dp dap
-vnoremap <silent> gs :sort u<cr>
+nmap s <nop>
+xmap s <nop>
 
 " MISC-SETTINGS
 let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
@@ -121,9 +122,12 @@ se path+=** path-=/usr/include
 se splitbelow splitright
 sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
-" SANDWICH
-nmap s <nop>
-xmap s <nop>
+" NAVIGATION
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
 
 " SEARCH & REPLACE
 fu! CenterSearch()
