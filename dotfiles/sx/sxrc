@@ -2,7 +2,7 @@
 
 $BROWSER &
 $TERMINAL -e tmux -f "$TMUXRC" new -As 0 &
-bst -l &
+bstatus -l &
 sxhkd &
 xkbcomp ~/.config/xkb "$DISPLAY"
 
