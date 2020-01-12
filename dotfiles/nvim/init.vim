@@ -161,6 +161,7 @@ nnoremap <silent> <leader>p :cal system("tmux splitw -v && tmux send ~/.config/n
 nnoremap <silent> <leader>gf :checkt<cr>:cal system("format " . bufname("%"))<cr>:checkt<cr>
 
 " VIMUX
+let g:VimuxHeight = "30"
 au filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr><cr>
 au filetype python nnoremap <silent> <leader>a :cal VimuxRunCommand("execute " . bufname("%"))<cr>
 nnoremap <silent> <leader>gl :cal VimuxRunCommand("lint " . bufname("%"))<cr>
