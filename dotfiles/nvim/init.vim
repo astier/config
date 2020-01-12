@@ -156,12 +156,12 @@ au focusgained * cal system("tmux rename-window " . expand("%:t"))
 au vimleave * cal system("tmux setw automatic-rename")
 nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
 nnoremap <silent> <leader>p :cal system("tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <leader>t :checkt<cr>:cal system("format " . bufname("%"))<cr>:checkt<cr>
+nnoremap <silent> <leader>gf :checkt<cr>:cal system("format " . bufname("%"))<cr>:checkt<cr>
 
 " VIMUX
 au filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr><cr>
 au filetype python nnoremap <silent> <leader>a :cal VimuxRunCommand("execute " . bufname("%"))<cr>
-nnoremap <silent> <leader>l :cal VimuxRunCommand("lint " . bufname("%"))<cr>
+nnoremap <silent> <leader>gl :cal VimuxRunCommand("lint " . bufname("%"))<cr>
 nnoremap <silent> <leader>x :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>z :cal VimuxZoomRunner()<cr>
 
