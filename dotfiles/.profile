@@ -3,7 +3,6 @@
 export BROWSER=firefox
 export EDITOR=nvim
 export MANPAGER="nvim -c 'set ft=man' -"
-export PDF=zathura
 export PLAYER=mpv
 export TERMINAL=st
 
