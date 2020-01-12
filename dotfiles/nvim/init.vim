@@ -86,7 +86,6 @@ let g:jedi#goto_command = 'gd'
 let g:jedi#rename_command = '<leader>rr'
 
 " KILL
-nnoremap <silent> <leader>c <c-w>j:clo<cr>
 nnoremap <silent> <leader>d :qa<cr>
 nnoremap <silent> <leader>q :cal system("tmux kill-pane")<cr>
 nnoremap <silent> <leader>s <c-z>
@@ -156,7 +155,7 @@ nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
 
 " TMUX
-au focusgained * cal system("tmux rename-window " . expand("%:t"))
+au bufenter,focusgained * cal system("tmux rename-window " . expand("%:t"))
 au vimleave * cal system("tmux setw automatic-rename")
 nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
 nnoremap <silent> <leader>p :cal system("tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
