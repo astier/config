@@ -137,6 +137,8 @@ nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <a-w> :bp<cr>
+nnoremap <silent> <a-e> :bn<cr>
 
 " SEARCH & REPLACE
 fu! CenterSearch()
