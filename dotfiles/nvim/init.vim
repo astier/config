@@ -4,7 +4,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'benmills/vimux', { 'for': ['python', 'sh', 'tex'] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
@@ -13,6 +12,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
+Plug 'yunake/vimux', { 'for': ['python', 'sh', 'tex'] }
 
 cal plug#end()
 
@@ -159,9 +159,11 @@ se ignorecase smartcase inccommand=nosplit
 
 " VIMUX
 let g:VimuxHeight = "30"
+let g:VimuxRunnerType = "window"
+let g:VimuxUseNearest = 0
 au filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr><cr>
-au filetype python nnoremap <silent> <leader>a :cal VimuxRunCommand("execute " . bufname("%"))<cr>
-nnoremap <silent> <leader>l :cal VimuxRunCommand("lint " . bufname("%"))<cr>
+au filetype python nnoremap <silent> <leader>a :cal VimuxRunCommand("execute " . bufname("%"))<cr>:VimuxZoomRunner<cr>
+nnoremap <silent> <leader>l :cal VimuxRunCommand("lint " . bufname("%"))<cr>:VimuxZoomRunner<cr>
 nnoremap <silent> <leader>x :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>z :cal VimuxZoomRunner()<cr>
 
