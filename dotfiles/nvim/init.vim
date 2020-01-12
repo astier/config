@@ -13,6 +13,7 @@ Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'
 
 cal plug#end()
 
