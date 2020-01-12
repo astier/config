@@ -85,10 +85,10 @@ let g:jedi#goto_command = 'gd'
 let g:jedi#rename_command = '<leader>rr'
 
 " KILL
+nnoremap <silent> <leader>c :bw<cr>
 nnoremap <silent> <leader>d :qa<cr>
 nnoremap <silent> <leader>q :cal system("tmux kill-pane")<cr>
 nnoremap <silent> <leader>s <c-z>
-nnoremap <silent> <leader>w :bw<cr>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -157,14 +157,13 @@ se ignorecase smartcase inccommand=nosplit
 au bufenter,focusgained * cal system("tmux rename-window " . expand("%:t"))
 au vimleave * cal system("tmux setw automatic-rename")
 nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <leader>p :cal system("tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <leader>gf :checkt<cr>:cal system("format " . bufname("%"))<cr>:checkt<cr>
+nnoremap <silent> <leader>i :checkt<cr>:cal system("format " . bufname("%"))<cr>:checkt<cr>
 
 " VIMUX
 let g:VimuxHeight = "30"
 au filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr><cr>
 au filetype python nnoremap <silent> <leader>a :cal VimuxRunCommand("execute " . bufname("%"))<cr>
-nnoremap <silent> <leader>gl :cal VimuxRunCommand("lint " . bufname("%"))<cr>
+nnoremap <silent> <leader>l :cal VimuxRunCommand("lint " . bufname("%"))<cr>
 nnoremap <silent> <leader>x :VimuxCloseRunner<cr>
 nnoremap <silent> <leader>z :cal VimuxZoomRunner()<cr>
 
@@ -172,6 +171,7 @@ nnoremap <silent> <leader>z :cal VimuxZoomRunner()<cr>
 let g:vimtex_compiler_callback_hooks = ['FocusViewer']
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_fold_enabled = 1
+let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_latexmk = {
