@@ -21,6 +21,8 @@ let mapleader = ' '
 let maplocalleader = ' '
 
 " APPEARANCE
+au bufenter,focusgained * cal system("tmux rename-window " . expand("%:t"))
+au vimleave * cal system("tmux setw automatic-rename")
 let g:nord_bold = 0
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
@@ -104,6 +106,8 @@ let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/bin/python'
 
 " MISC-MAPPINGS
+nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
+nnoremap <silent> <leader>i :cal system("format " . bufname("%"))<cr>:checkt<cr>
 nnoremap <silent> gs vip:sort u<cr>
 vnoremap <silent> gs :sort u<cr>
 nnoremap <c-j> 4<c-e>
@@ -152,12 +156,6 @@ nnoremap <silent> , *``
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
-
-" TMUX
-au bufenter,focusgained * cal system("tmux rename-window " . expand("%:t"))
-au vimleave * cal system("tmux setw automatic-rename")
-nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <leader>i :checkt<cr>:cal system("format " . bufname("%"))<cr>:checkt<cr>
 
 " VIMUX
 let g:VimuxHeight = "30"
