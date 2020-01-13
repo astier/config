@@ -131,7 +131,6 @@ se mouse=a
 se notimeout
 se path+=** path-=/usr/include
 se splitbelow splitright
-sil! cal repeat#se('\<Plug>vim-surround', v:count)
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
