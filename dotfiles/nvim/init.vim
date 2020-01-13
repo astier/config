@@ -159,12 +159,10 @@ se ignorecase smartcase inccommand=nosplit
 " VIMUX
 let g:VimuxHeight = '35'
 let g:VimuxUseNearest = 0
-nnoremap <silent> <leader>a :cal VimuxRunCommand("execute " . bufname("%"))<cr>:VimuxZoomRunner<cr>
-au vimrc filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr>
+nnoremap <silent> <leader>k :cal VimuxRunCommand("clear; ks")<cr>:VimuxZoomRunner<cr>
 nnoremap <silent> <leader>l :cal VimuxRunCommand("clear; lint " . bufname("%"))<cr>
-nnoremap <silent> <leader>kd :cal VimuxRunCommand("clear; kd")<cr>:VimuxZoomRunner<cr>
-nnoremap <silent> <leader>kl :cal VimuxRunCommand("clear; k")<cr>:VimuxZoomRunner<cr>
-nnoremap <silent> <leader>ks :cal VimuxRunCommand("clear; ks")<cr>:VimuxZoomRunner<cr>
+nnoremap <silent> <leader>a :cal VimuxRunCommand("clear; execute " . bufname("%"))<cr>:VimuxZoomRunner<cr>
+au vimrc filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr>
 nnoremap <silent> <leader>v :cal VimuxZoomRunner()<cr>
 nnoremap <silent> <leader>x :VimuxCloseRunner<cr>
 
