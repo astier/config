@@ -1,5 +1,10 @@
-cal plug#begin('~/.local/share/nvim/plugins')
+" FIRST THINGS FIRST
+aug vimrc | au! | aug end
+let mapleader = ' '
+scripte utf-8
 
+" PLUGINS
+cal plug#begin('~/.local/share/nvim/plugins')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex'] }
 Plug 'airblade/vim-gitgutter'
@@ -13,16 +18,11 @@ Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'yunake/vimux'
-
 cal plug#end()
 
-" LEADERS
-let mapleader = ' '
-let maplocalleader = ' '
-
 " APPEARANCE
-au bufenter,focusgained * cal system("tmux rename-window " . expand("%:t"))
-au vimleave * cal system("tmux setw automatic-rename")
+au vimrc bufenter,focusgained * cal system("tmux rename-window " . expand("%:t"))
+au vimrc vimleave * cal system("tmux setw automatic-rename")
 let g:nord_bold = 0
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
@@ -37,13 +37,13 @@ se fillchars+=eob:\ ,vert:\▏,fold:-,stl:_,stlnc:_
 se stl=\  ls=0 noru nosc nosmd scl=yes
 
 " AUTOCOMMANDS
-au bufenter * se formatoptions-=cro
-au bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
-au bufwritepost * GitGutter
-au filetype gitcommit,tex setl spell
-au focusgained,vimresume * checkt
-au textchanged,insertleave * nested silent up
-au vimresized * wincmd =
+au vimrc bufenter * se formatoptions-=cro
+au vimrc bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
+au vimrc bufwritepost * GitGutter
+au vimrc filetype gitcommit,tex setl spell
+au vimrc focusgained,vimresume * checkt
+au vimrc textchanged,insertleave * nested silent up
+au vimrc vimresized * wincmd =
 
 " CLIPBOARD
 nnoremap <c-c> "+yy
@@ -59,7 +59,7 @@ cal deoplete#custom#option({
     \ 'max_list': 8,
     \ 'num_processes': -1,
     \ 'ignore_sources': { '_': ['around', 'member'] },
-    \ })
+\ })
 cal deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
 cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
 let g:deoplete#enable_at_startup = 1
@@ -144,7 +144,7 @@ nnoremap <silent> <a-e> :bn<cr>
 " SEARCH & REPLACE
 fu! CenterSearch()
     let cmdtype = getcmdtype()
-    if cmdtype == '/' || cmdtype == '?' | retu "\<enter>zz" | en
+    if cmdtype ==# '/' || cmdtype ==# '?' | retu "\<enter>zz" | en
     retu "\<enter>"
 endfu
 cnoremap <silent> <expr> <enter> CenterSearch()
@@ -157,11 +157,11 @@ nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
 
 " VIMUX
-let g:VimuxHeight = "35"
+let g:VimuxHeight = '35'
 let g:VimuxUseNearest = 0
 nnoremap <silent> <leader>a :cal VimuxRunCommand("execute " . bufname("%"))<cr>:VimuxZoomRunner<cr>
-au filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr>
-nnoremap <silent> <leader>l :cal VimuxRunCommand("lint " . bufname("%"))<cr>
+au vimrc filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr>
+nnoremap <silent> <leader>l :cal VimuxRunCommand("clear; lint " . bufname("%"))<cr>
 nnoremap <silent> <leader>kd :cal VimuxRunCommand("clear; kd")<cr>:VimuxZoomRunner<cr>
 nnoremap <silent> <leader>kl :cal VimuxRunCommand("clear; k")<cr>:VimuxZoomRunner<cr>
 nnoremap <silent> <leader>ks :cal VimuxRunCommand("clear; ks")<cr>:VimuxZoomRunner<cr>
@@ -188,7 +188,7 @@ let g:vimtex_compiler_latexmk = {
         \ '-synctex=0',
         \ '-interaction=nonstopmode'
     \ ],
-    \ }
+\ }
 fu! FocusViewer(status)
     if system('pidof zathura')
        exe 'silent !wmctrl -xa zathura'
@@ -200,10 +200,10 @@ endfu
 
 " WHITESPACE
 hi whitespace ctermbg=red
-au bufwinenter * mat Whitespace /\s\+$\| \+\ze\t/
-au insertenter * mat Whitespace /\s\+\%#\@<!$\| \+\ze\t/
-au insertleave * mat Whitespace /\s\+$\| \+\ze\t/
-au bufwinleave * cal clearmatches()
+au vimrc bufwinenter * mat Whitespace /\s\+$\| \+\ze\t/
+au vimrc insertenter * mat Whitespace /\s\+\%#\@<!$\| \+\ze\t/
+au vimrc insertleave * mat Whitespace /\s\+$\| \+\ze\t/
+au vimrc bufwinleave * cal clearmatches()
 
 " WRAP
 nnoremap $ g$
