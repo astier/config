@@ -12,7 +12,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
-Plug 'yunake/vimux', { 'for': ['python', 'sh', 'tex'] }
+Plug 'yunake/vimux'
 
 cal plug#end()
 
@@ -88,8 +88,8 @@ let g:jedi#rename_command = '<leader>rr'
 
 " KILL
 nnoremap <silent> <leader>c :bw<cr>
-nnoremap <silent> <leader>d :qa<cr>
-nnoremap <silent> <leader>q :cal system("tmux kill-pane")<cr>
+nnoremap <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
+nnoremap <silent> <leader>q :VimuxCloseRunner<cr>:cal system("tmux kill-pane")<cr>
 nnoremap <silent> <leader>s <c-z>
 
 " LOADED
@@ -157,14 +157,16 @@ nnoremap <silent> N Nzz
 se ignorecase smartcase inccommand=nosplit
 
 " VIMUX
-let g:VimuxHeight = "30"
-let g:VimuxRunnerType = "window"
+let g:VimuxHeight = "35"
 let g:VimuxUseNearest = 0
+nnoremap <silent> <leader>a :cal VimuxRunCommand("execute " . bufname("%"))<cr>:VimuxZoomRunner<cr>
 au filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr>
-au filetype python nnoremap <silent> <leader>a :cal VimuxRunCommand("execute " . bufname("%"))<cr>:VimuxZoomRunner<cr>
-nnoremap <silent> <leader>l :cal VimuxRunCommand("lint " . bufname("%"))<cr>:VimuxZoomRunner<cr>
+nnoremap <silent> <leader>l :cal VimuxRunCommand("lint " . bufname("%"))<cr>
+nnoremap <silent> <leader>kd :cal VimuxRunCommand("clear; kd")<cr>:VimuxZoomRunner<cr>
+nnoremap <silent> <leader>kl :cal VimuxRunCommand("clear; k")<cr>:VimuxZoomRunner<cr>
+nnoremap <silent> <leader>ks :cal VimuxRunCommand("clear; ks")<cr>:VimuxZoomRunner<cr>
+nnoremap <silent> <leader>v :cal VimuxZoomRunner()<cr>
 nnoremap <silent> <leader>x :VimuxCloseRunner<cr>
-nnoremap <silent> <leader>z :cal VimuxZoomRunner()<cr>
 
 " VIMTEX
 let g:vimtex_compiler_callback_hooks = ['FocusViewer']
