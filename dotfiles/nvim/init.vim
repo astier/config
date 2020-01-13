@@ -161,7 +161,7 @@ se ignorecase smartcase inccommand=nosplit
 let g:VimuxHeight = "30"
 let g:VimuxRunnerType = "window"
 let g:VimuxUseNearest = 0
-au filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr><cr>
+au filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr>
 au filetype python nnoremap <silent> <leader>a :cal VimuxRunCommand("execute " . bufname("%"))<cr>:VimuxZoomRunner<cr>
 nnoremap <silent> <leader>l :cal VimuxRunCommand("lint " . bufname("%"))<cr>:VimuxZoomRunner<cr>
 nnoremap <silent> <leader>x :VimuxCloseRunner<cr>
@@ -190,11 +190,11 @@ let g:vimtex_compiler_latexmk = {
     \ }
 fu! FocusViewer(status)
     if system('pidof zathura')
-        exe 'silent !wmctrl -xa zathura'
+       exe 'silent !wmctrl -xa zathura'
     el
-        exe 'VimtexView'
-        exe 'echo'
+       exe 'VimtexView'
     en
+    exe 'echo'
 endfu
 
 " WHITESPACE
