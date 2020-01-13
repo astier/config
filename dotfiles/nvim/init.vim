@@ -55,11 +55,11 @@ vnoremap <c-x> "+d
 
 " COMPLETION
 cal deoplete#custom#option({
-   \ 'min_pattern_length': 1,
-   \ 'max_list': 8,
-   \ 'num_processes': -1,
-   \ 'ignore_sources': { '_': ['around', 'member'] },
-   \ })
+    \ 'min_pattern_length': 1,
+    \ 'max_list': 8,
+    \ 'num_processes': -1,
+    \ 'ignore_sources': { '_': ['around', 'member'] },
+    \ })
 cal deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
 cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
 let g:deoplete#enable_at_startup = 1
