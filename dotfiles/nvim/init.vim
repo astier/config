@@ -194,14 +194,7 @@ fu! FocusViewer(status)
        exe 'VimtexView'
     en
     exe 'echo'
-endfu
-
-" WHITESPACE
-hi whitespace ctermbg=red
-au vimrc bufwinenter * mat Whitespace /\s\+$\| \+\ze\t/
-au vimrc insertenter * mat Whitespace /\s\+\%#\@<!$\| \+\ze\t/
-au vimrc insertleave * mat Whitespace /\s\+$\| \+\ze\t/
-au vimrc bufwinleave * cal clearmatches()
+endf
 
 " WRAP
 nnoremap $ g$
