@@ -42,7 +42,6 @@ se stl=\  ls=0 noru nosc nosmd scl=yes
 au vimrc bufenter,focusgained * checkt
 au vimrc bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au vimrc textchanged,insertleave * nested silent up
-nnoremap <silent> <leader>c :bw<cr>
 nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
@@ -96,6 +95,12 @@ let g:jedi#smart_auto_mappings = 1
 let g:jedi#goto_assignments_command = 'ga'
 let g:jedi#goto_command = 'gd'
 let g:jedi#rename_command = '<leader>rr'
+
+" KILL
+nnoremap <silent> <leader>c :bw<cr>
+nnoremap <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
+nnoremap <silent> <leader>q :VimuxCloseRunner<cr>:cal system("tmux kill-pane")<cr>
+nnoremap <silent> <leader>s <c-z>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -185,9 +190,6 @@ nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
-nnoremap <silent> <leader>q :VimuxCloseRunner<cr>:cal system("tmux kill-pane")<cr>
-nnoremap <silent> <leader>s <c-z>
 se splitbelow splitright
 
 " WRAP
