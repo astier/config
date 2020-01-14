@@ -76,7 +76,7 @@ alias kca="git add --all && git commit"
 alias kcp="git add --all && git commit && git push"
 alias kcr="git commit -am tmp && git rebase -i HEAD~2"
 
-alias kd="git diff"
+alias kd="clear; git diff"
 alias kk="git log --all --graph --decorate --oneline"
 alias kl="git log --date=auto:human"
 alias klg="git log --grep"
