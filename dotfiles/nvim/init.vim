@@ -41,9 +41,9 @@ au vimrc bufenter * se formatoptions-=cro
 au vimrc bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au vimrc bufwritepost * GitGutter
 au vimrc filetype gitcommit,tex setl spell
-au vimrc focusgained,vimresume * checkt
+au vimrc bufenter,focusgained * checkt
 au vimrc textchanged,insertleave * nested silent up
-au vimrc vimresized * wincmd =
+au vimrc vimresized * winc =
 
 " CLIPBOARD
 nnoremap <c-c> "+yy
@@ -107,7 +107,7 @@ let g:python3_host_prog = '/bin/python'
 
 " MISC-MAPPINGS
 nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <leader>i :cal system("format " . bufname("%"))<cr>:checkt<cr>
+nnoremap <silent> <leader>i :cal system("format " . bufname("%"))<cr>:e<cr>
 nnoremap <silent> gs vip:sort u<cr>
 vnoremap <silent> gs :sort u<cr>
 nnoremap <c-j> 4<c-e>
