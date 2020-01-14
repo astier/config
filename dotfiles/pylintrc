@@ -24,4 +24,5 @@ max-line-length=88
 
 [REPORTS]
 msg-template='[{line}:{column}] [{msg_id}] {msg}'
+output-format=colorized
 score=no
