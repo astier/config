@@ -73,6 +73,16 @@ se foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 se foldlevel=4
 se foldmethod=expr
 
+" FORMAT
+fu! Format()
+    let l:save = winsaveview()
+    exe 'ret! | sil w'
+    cal system('format ' . bufname('%'))
+    exe 'edit'
+    cal winrestview(l:save)
+endf
+nnoremap <silent> <leader>gf :cal Format()<cr>
+
 " JEDI
 hi function ctermbg=none ctermfg=blue
 hi jedifat ctermbg=none ctermfg=red
@@ -107,7 +117,6 @@ let g:python3_host_prog = '/bin/python'
 
 " MISC-MAPPINGS
 nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <leader>i :cal system("format " . bufname("%"))<cr>:e<cr>
 nnoremap <silent> gs vip:sort u<cr>
 vnoremap <silent> gs :sort u<cr>
 nnoremap <c-j> 4<c-e>
@@ -141,20 +150,26 @@ nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <a-w> :bp<cr>
 nnoremap <silent> <a-e> :bn<cr>
 
-" SEARCH & REPLACE
+" SEARCH
 fu! CenterSearch()
     let cmdtype = getcmdtype()
-    if cmdtype ==# '/' || cmdtype ==# '?' | retu "\<enter>zz" | en
-    retu "\<enter>"
-endfu
-cnoremap <silent> <expr> <enter> CenterSearch()
-nnoremap <silent> <esc> :noh<cr>:echo<cr><esc>
+    if cmdtype ==# '/' || cmdtype ==# '?'
+        retu "\<cr>zz"
+    elsei getcmdline() =~# '^%s/'
+        retu "\<cr>``zz"
+    else
+        retu "\<cr>"
+    en
+endf
+cnoremap <silent> <expr> <cr> CenterSearch()
 nnoremap <leader>rs :%s///gI<left><left><left><left>
 nnoremap <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
+nnoremap <silent> <esc> :noh<cr>:echo<cr><esc>
 nnoremap <silent> , *``
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
-se ignorecase smartcase inccommand=nosplit
+se ignorecase smartcase
+se inccommand=nosplit
 
 " VIMUX
 let g:VimuxHeight = '35'
