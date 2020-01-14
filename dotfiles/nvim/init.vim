@@ -147,7 +147,7 @@ endf
 cnoremap <silent> <expr> <cr> CenterSearch()
 nnoremap <leader>rs :%s///gI<left><left><left><left>
 nnoremap <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
-nnoremap <silent> <esc> :noh<cr>:echo<cr><esc>
+nnoremap <silent> <esc> :noh<cr>:ec<cr><esc>
 nnoremap <silent> , *``
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
@@ -165,36 +165,18 @@ nnoremap <silent> <leader>x :VimuxCloseRunner<cr>
 
 " VIMTEX
 let g:vimtex_compiler_callback_hooks = ['FocusViewer']
-let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_compiler_latexmk = { 'continuous' : 0 }
 let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
 let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_compiler_latexmk = {
-    \ 'backend' : 'nvim',
-    \ 'background' : 1,
-    \ 'build_dir' : '',
-    \ 'callback' : 1,
-    \ 'continuous' : 0,
-    \ 'executable' : 'latexmk',
-    \ 'options' : [
-        \ '-verbose',
-        \ '-file-line-error',
-        \ '-synctex=0',
-        \ '-interaction=nonstopmode'
-    \ ],
-\ }
 fu! FocusViewer(status)
     if system('pidof zathura')
        exe 'silent !wmctrl -xa zathura'
     el
        exe 'VimtexView'
     en
-    exe 'echo'
+    exe 'ec'
 endf
-let g:vimtex_fold_enabled = 1
-se foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
-se foldlevel=4
-se foldmethod=expr
 
 " WINDOWS
 au vimrc vimresized * winc =
