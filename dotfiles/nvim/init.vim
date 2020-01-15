@@ -25,18 +25,18 @@ au vimrc bufenter,focusgained * cal system("tmux rename-window " . expand("%:t")
 au vimrc vimleave * cal system("tmux setw automatic-rename")
 au vimrc bufwritepost * GitGutter
 au vimrc filetype gitcommit,tex setl spell
-let g:nord_bold = 0
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-let g:nord_underline = 1
-let g:nord_uniform_diff_background = 1
-let g:nord_uniform_status_lines = 1
 colorscheme nord
+hi comment cterm=italic
+hi cursorlinenr ctermfg=white
+hi number ctermfg=white
+hi search ctermbg=yellow
+hi warningmsg ctermbg=none ctermfg=white
 hi statusline ctermbg=none ctermfg=16
 hi statuslinenc ctermbg=none ctermfg=16
 hi vertsplit ctermbg=none ctermfg=16
 se fillchars+=eob:\ ,vert:\▏,fold:-,stl:_,stlnc:_
 se stl=\  ls=0 noru nosc nosmd scl=yes
+se cul | hi clear CursorLine
 
 " BUFFERS
 au vimrc bufenter,focusgained * checkt
