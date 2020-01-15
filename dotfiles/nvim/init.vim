@@ -97,10 +97,11 @@ let g:jedi#goto_command = 'gd'
 let g:jedi#rename_command = '<leader>rr'
 
 " KILL
-nnoremap <silent> <leader>c :bw<cr>
+nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
 nnoremap <silent> <leader>q :VimuxCloseRunner<cr>:cal system("tmux kill-pane")<cr>
 nnoremap <silent> <leader>s <c-z>
+nnoremap <silent> <leader>w :bw<cr>
 
 " LOADED
 let g:loaded_gzip = 1
