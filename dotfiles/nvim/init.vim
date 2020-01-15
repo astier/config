@@ -27,25 +27,27 @@ au vimrc bufwritepost * GitGutter
 au vimrc filetype gitcommit,tex setl spell
 colorscheme nord
 hi comment cterm=italic
-hi cursorlinenr ctermfg=white
-hi number ctermfg=white
+hi cursorlinenr ctermfg=none
+hi errormsg ctermbg=none
+hi number ctermfg=none
+hi pmenusel ctermfg=none
 hi search ctermbg=yellow
-hi warningmsg ctermbg=none ctermfg=white
 hi statusline ctermbg=none ctermfg=16
 hi statuslinenc ctermbg=none ctermfg=16
 hi vertsplit ctermbg=none ctermfg=16
+hi warningmsg ctermbg=none
+se cul | hi clear cursorline
 se fillchars+=eob:\ ,vert:\▏,fold:-,stl:_,stlnc:_
-se stl=\  ls=0 noru nosc nosmd scl=yes
-se cul | hi clear CursorLine
+se stl=\  ls=0 noru nosc nosmd scl=yes stal=0
 
 " BUFFERS
 au vimrc bufenter,focusgained * checkt
 au vimrc bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au vimrc textchanged,insertleave * nested silent up
-nnoremap <silent> <leader>f :cal system("tmux neww && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <a-e> :bp<cr>
-nnoremap <silent> <a-r> :bn<cr>
-nnoremap <silent> <tab> :b#<cr>
+nnoremap <silent> <leader>f :cal system("tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
+nnoremap <silent> <leader><leader> :b#<cr>
+nnoremap <silent> <a-tab> :bp<cr>
+nnoremap <silent> <tab> :bn<cr>
 nnoremap <leader>b :ls<cr>:b<space>
 se confirm noswapfile
 se path+=** path-=/usr/include
@@ -76,7 +78,7 @@ se shortmess+=c
 " FORMAT
 fu! Format()
     let l:save = winsaveview()
-    exe 'ret! | sil w'
+    exe 'ret! | sil up'
     cal system('format ' . bufname('%'))
     exe 'edit'
     cal winrestview(l:save)
@@ -99,9 +101,8 @@ let g:jedi#rename_command = '<leader>rr'
 " KILL
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
-nnoremap <silent> <leader>q :VimuxCloseRunner<cr>:cal system("tmux kill-pane")<cr>
-nnoremap <silent> <leader>s <c-z>
-nnoremap <silent> <leader>w :bw<cr>
+nnoremap <silent> <leader>q :up<cr>:VimuxCloseRunner<cr>:cal system("tmux kill-pane")<cr>
+nnoremap <silent> <leader>w :bd<cr>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -122,9 +123,13 @@ vnoremap <silent> gs :sort u<cr>
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 nnoremap <cr> o<esc>
-nnoremap Q <nop>
 nnoremap cp cip
+nnoremap cw ciw
+nnoremap cW ciW
 nnoremap dp dap
+nnoremap dw daw
+nnoremap dW daW
+nnoremap Q <nop>
 nmap s <nop>
 xmap s <nop>
 
@@ -191,6 +196,8 @@ nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <leader>kd :cal system("tmux neww -a && tmux send kd Enter")<cr>
+nnoremap <silent> <leader>ks :cal system("tmux neww -a && tmux send 'clear; ks' Enter")<cr>
 se splitbelow splitright
 
 " WRAP
