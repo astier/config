@@ -3,6 +3,7 @@
 *.fdb_latexmk
 *.fls
 *.gif
+*.gz
 *.log
 *.nav
 *.o
