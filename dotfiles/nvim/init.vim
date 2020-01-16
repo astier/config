@@ -135,7 +135,7 @@ xmap s <nop>
 
 " MISC-SETTINGS
 au vimrc bufenter * se formatoptions-=cro
-let g:UltiSnipsSnippetDirectories = [ $HOME.'/.config/nvim/UltiSnips' ]
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 let g:lexima_enable_endwise_rules = 0
 let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
