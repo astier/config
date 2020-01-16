@@ -15,6 +15,7 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'yunake/vimux'
@@ -102,7 +103,7 @@ let g:jedi#rename_command = '<leader>rr'
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
 nnoremap <silent> <leader>q :up<cr>:VimuxCloseRunner<cr>:cal system("tmux kill-pane")<cr>
-nnoremap <silent> <leader>w :bd<cr>
+nnoremap <silent> <leader>w :bp\|bd #<cr>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -164,6 +165,20 @@ nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 se ignorecase smartcase
 se inccommand=nosplit
+
+" NERDTREE
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
+let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex']
+let g:NERDTreeMinimalMenu = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeQuitOnOpen = 2
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeStatusline = ''
+nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 
 " VIMUX
 let g:VimuxHeight = '35'
