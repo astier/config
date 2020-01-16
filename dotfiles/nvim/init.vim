@@ -104,6 +104,7 @@ let g:jedi#rename_command = '<leader>rr'
 nnoremap <silent> <leader>c :clo<cr>
 nnoremap <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
 nnoremap <silent> <leader>q :up<cr>:VimuxCloseRunner<cr>:cal system("tmux kill-pane")<cr>
+nnoremap <silent> <leader>s <c-z>
 nnoremap <silent> <leader>w :bp\|bd #<cr>
 
 " LOADED
@@ -125,12 +126,12 @@ vnoremap <silent> gs :sort u<cr>
 nnoremap <c-j> 4<c-e>
 nnoremap <c-k> 4<c-y>
 nnoremap <cr> o<esc>
+nnoremap cW ciW
 nnoremap cp cip
 nnoremap cw ciw
-nnoremap cW ciW
+nnoremap dW daW
 nnoremap dp dap
 nnoremap dw daw
-nnoremap dW daW
 nnoremap Q <nop>
 nmap s <nop>
 xmap s <nop>
