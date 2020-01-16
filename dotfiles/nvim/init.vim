@@ -8,6 +8,7 @@ cal plug#begin('~/.local/share/nvim/plugins')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
@@ -138,6 +139,7 @@ xmap s <nop>
 au vimrc bufenter * se formatoptions-=cro
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 let g:lexima_enable_endwise_rules = 0
+let g:rooter_silent_chdir = 1
 let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
 se commentstring=//\ %s
