@@ -196,8 +196,7 @@ nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <leader>kd :cal system("tmux neww -a && tmux send kd Enter")<cr>
-nnoremap <silent> <leader>ks :cal system("tmux neww -a && tmux send 'clear; ks' Enter")<cr>
+nnoremap <silent> <leader>s :cal system("tmux neww -a && tmux send 'clear; ks' Enter")<cr>
 se splitbelow splitright
 
 " WRAP
