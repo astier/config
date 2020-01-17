@@ -190,7 +190,7 @@ nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 let g:VimuxHeight = '35'
 let g:VimuxUseNearest = 0
 nnoremap <silent> <leader>l :call VimuxRunCommand("clear; lint " . bufname("%"))<cr>
-nnoremap <silent> <leader>a :call VimuxRunCommand("clear; execute " . bufname("%"))<cr>:VimuxZoomRunner<cr>
+nnoremap <silent> <leader>a :call VimuxRunCommand("clear; execute " . bufname("%"))<cr>
 autocmd default filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr>
 nnoremap <silent> <leader>v :call VimuxZoomRunner()<cr>
 nnoremap <silent> <leader>x :VimuxCloseRunner<cr>
