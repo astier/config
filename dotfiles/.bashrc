@@ -7,8 +7,8 @@
 NO_COLOR="\[\e[m\]"
 RED="\[\e[31m\]"
 GREEN="\[\e[32m\]"
-num_jobs() { NUM_JOBS=$(jobs | wc -l) && [[ "$NUM_JOBS" -gt 0 ]] && echo " $NUM_JOBS"; }
-PS1="${GREEN}[\W\$(__git_ps1 ' %s')${RED}\$(num_jobs)${GREEN}] ${NO_COLOR}"
+njobs() { n=$(jobs | wc -l) && [ "$n" -gt 0 ] && echo " $n"; }
+PS1="${GREEN}[\W\$(__git_ps1 ' %s')${RED}\$(njobs)${GREEN}] ${NO_COLOR}"
 
 # SETTINGS
 HISTFILE=~/.local/share/bash_history
