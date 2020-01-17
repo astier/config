@@ -176,7 +176,7 @@ autocmd stdinreadpre * let s:std_in=1
 autocmd vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
-let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex']
+let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
 let g:NERDTreeMinimalMenu = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeMouseMode = 2
