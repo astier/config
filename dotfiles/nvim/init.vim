@@ -1,10 +1,10 @@
 " FIRST THINGS FIRST
-augroup default | autocmd! | augroup end
+aug default | au! | aug en
 let mapleader = ' '
 scriptencoding utf-8
 
 " PLUGINS
-call plug#begin('~/.local/share/nvim/plugins')
+cal plug#begin('~/.local/share/nvim/plugins')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'airblade/vim-gitgutter'
@@ -21,85 +21,85 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'yunake/vimux'
-call plug#end()
+cal plug#end()
 
 " APPEARANCE
-augroup tmuxrename
-    autocmd!
-    autocmd tmuxrename bufenter,focusgained * call system('tmux renamew ' . expand('%:t'))
-    autocmd tmuxrename vimleave * call system('tmux setw automatic-rename')
-augroup end
-autocmd default bufwritepost * GitGutter
-autocmd default filetype gitcommit,tex setlocal spell
+aug tmuxrename
+    au!
+    au tmuxrename bufenter,focusgained * cal system('tmux renamew ' . expand('%:t'))
+    au tmuxrename vimleave * cal system('tmux setw automatic-rename')
+aug en
+au default bufwritepost * GitGutter
+au default filetype gitcommit,tex setl spell
 colorscheme nord
-highlight comment cterm=italic
-highlight cursorlinenr ctermfg=none
-highlight errormsg ctermbg=none
-highlight number ctermfg=none
-highlight pmenusel ctermfg=none
-highlight search ctermbg=yellow
-highlight statusline ctermbg=none ctermfg=16
-highlight statuslinenc ctermbg=none ctermfg=16
-highlight vertsplit ctermbg=none ctermfg=16
-highlight warningmsg ctermbg=none ctermfg=none
-set cursorline | highlight clear cursorline
-set fillchars+=eob:\ ,vert:\▏,fold:-,stl:_,stlnc:_
-set statusline=\  laststatus=0 showtabline=0 signcolumn=yes
-set noruler noshowcmd noshowmode
+hi comment cterm=italic
+hi cursorlinenr ctermfg=none
+hi errormsg ctermbg=none
+hi number ctermfg=none
+hi pmenusel ctermfg=none
+hi search ctermbg=yellow
+hi statusline ctermbg=none ctermfg=16
+hi statuslinenc ctermbg=none ctermfg=16
+hi vertsplit ctermbg=none ctermfg=16
+hi warningmsg ctermbg=none ctermfg=none
+se cursorline | hi clear cursorline
+se fillchars+=eob:\ ,vert:\▏,fold:-,stl:_,stlnc:_
+se statusline=\  laststatus=0 showtabline=0 signcolumn=yes
+se noruler noshowcmd noshowmode
 
 " BUFFERS
-autocmd default bufenter,focusgained * checktime
-autocmd default bufreadpost * if line("'\"") > 0 && line("'\"") <= line('$') | execute "normal! g'\"zz" | end
-autocmd default textchanged,insertleave * nested silent update
-nnoremap <silent> <leader>F :Files!<cr>
-nnoremap <silent> <leader>b :Buffers!<cr>
-nnoremap <silent> <leader>f :call system('tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
-nnoremap <silent> <leader>p :call system('tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
-nnoremap <silent> <leader>P :call system('tmux splitw -h && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
-nnoremap <silent> <a-tab> :bp<cr>
-nnoremap <silent> <tab> :bn<cr>
-nnoremap <silent> <leader><leader> :b#<cr>
-set confirm noswapfile
-set path+=** path-=/usr/include
+au default bufenter,focusgained * checkt
+au default bufreadpost * if line("'\"") > 0 && line("'\"") <= line('$') | exe "norm! g'\"zz" | en
+au default textchanged,insertleave * nested sil up
+nn <silent> <leader>F :Files!<cr>
+nn <silent> <leader>b :Buffers!<cr>
+nn <silent> <leader>f :cal system('tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
+nn <silent> <leader>p :cal system('tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
+nn <silent> <leader>P :cal system('tmux splitw -h && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
+nn <silent> <a-tab> :bp<cr>
+nn <silent> <tab> :bn<cr>
+nn <silent> <leader><leader> :b#<cr>
+se confirm noswapfile
+se path+=** path-=/usr/include
 
 " CLIPBOARD
-nnoremap <c-c> "+yy
-vnoremap <c-c> "+y
-inoremap <c-v> <esc>"+pa
-nnoremap <c-v> "+p
-nnoremap <c-x> "+dd
-vnoremap <c-x> "+d
+ino <c-v> <esc>"+pa
+nn <c-c> "+yy
+nn <c-v> "+p
+nn <c-x> "+dd
+vno <c-c> "+y
+vno <c-x> "+d
 
 " COMPLETION
-call deoplete#custom#option({
+cal deoplete#custom#option({
     \ 'min_pattern_length': 1,
     \ 'max_list': 8,
     \ 'num_processes': -1,
     \ 'ignore_sources': { '_': ['around', 'member'] },
 \ })
-call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
-call deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
+cal deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
+cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#enable_typeinfo = 0
 let g:deoplete#sources#jedi#ignore_private_members = 1
-set completeopt=menuone,noinsert
-set shortmess+=c
+se completeopt=menuone,noinsert
+se shortmess+=c
 
 " FORMAT
-function! Format()
+fu! Format()
     let l:save = winsaveview()
-    execute 'retab! | silent update'
-    call system('format ' . bufname('%'))
-    execute 'edit'
-    call winrestview(l:save)
-endfunction
-nnoremap <silent> <leader>gf :call Format()<cr>
+    exe 'ret! | sil up'
+    cal system('format ' . bufname('%'))
+    exe 'e'
+    cal winrestview(l:save)
+endf
+nn <silent> <leader>gf :cal Format()<cr>
 
 " JEDI
-highlight function ctermbg=none ctermfg=blue
-highlight jedifat ctermbg=none ctermfg=red
-highlight jedifunction ctermbg=none ctermfg=white
-highlight none ctermbg=none ctermfg=white
+hi function ctermbg=none ctermfg=blue
+hi jedifat ctermbg=none ctermfg=red
+hi jedifunction ctermbg=none ctermfg=white
+hi none ctermbg=none ctermfg=white
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_enabled = 0
 let g:jedi#show_call_signatures = 2
@@ -110,11 +110,11 @@ let g:jedi#rename_command = '<leader>rr'
 let g:jedi#goto_stubs_command = ''
 
 " KILL
-nnoremap <silent> <leader>c :close<cr>
-nnoremap <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
-nnoremap <silent> <leader>q :update<cr>:autocmd! tmuxrename<cr>:VimuxCloseRunner<cr>:call system('tmux kill-pane')<cr>
-nnoremap <silent> <leader>s <c-z>
-nnoremap <silent> <leader>w :bprevious\|bdelete #<cr>
+nn <silent> <leader>c :clo<cr>
+nn <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
+nn <silent> <leader>q :up<cr>:au! tmuxrename<cr>:VimuxCloseRunner<cr>:cal system('tmux kill-pane')<cr>
+nn <silent> <leader>s <c-z>
+nn <silent> <leader>w :bw<cr>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -130,56 +130,52 @@ let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/bin/python'
 
 " MISC-MAPPINGS
-nnoremap <silent> gs vip:sort u<cr>
-vnoremap <silent> gs :sort u<cr>
-nnoremap <c-j> 4<c-e>
-nnoremap <c-k> 4<c-y>
-nnoremap <cr> o<esc>
-nnoremap cW ciW
-nnoremap cp cip
-nnoremap cw ciw
-nnoremap dW daW
-nnoremap dp dap
-nnoremap dw daw
-nnoremap Q <nop>
+nn <silent> gs vip:sort u<cr>
+vno <silent> gs :sort u<cr>
+nn <c-j> 4<c-e>
+nn <c-k> 4<c-y>
+nn <cr> o<esc>
+nn cp cip
+nn dp dap
+nn Q <nop>
 nmap s <nop>
 xmap s <nop>
 
 " MISC-SETTINGS
-autocmd default bufenter * set formatoptions-=cro
+au default bufenter * se formatoptions-=cro
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 let g:lexima_enable_endwise_rules = 0
 let g:rooter_silent_chdir = 1
 let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
-set commentstring=//\ %s
-set expandtab shiftwidth=4 tabstop=4
-set mouse=a notimeout
+se commentstring=//\ %s
+se expandtab shiftwidth=4 tabstop=4
+se mouse=a notimeout
 
 " SEARCH
-function! CenterSearch()
+fu! CenterSearch()
     let cmdtype = getcmdtype()
     if cmdtype ==# '/' || cmdtype ==# '?'
         retu "\<cr>zz"
     elsei getcmdline() =~# '^%s/'
         retu "\<cr>``zz"
-    else
+    el
         retu "\<cr>"
-    end
-endfunction
-cnoremap <silent> <expr> <cr> CenterSearch()
-nnoremap <leader>rs :%s///gI<left><left><left><left>
-nnoremap <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
-nnoremap <silent> <esc> :noh<cr>:ec<cr><esc>
-nnoremap <silent> , *``
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-set ignorecase smartcase
-set inccommand=nosplit
+    en
+endf
+cno <silent> <expr> <cr> CenterSearch()
+nn <leader>rs :%s///gI<left><left><left><left>
+nn <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
+nn <silent> <esc> :noh<cr>:ec<cr><esc>
+nn <silent> , *``
+nn <silent> n nzz
+nn <silent> N Nzz
+se ignorecase smartcase
+se inccommand=nosplit
 
 " NERDTREE
-autocmd default stdinreadpre * let s:std_in=1
-autocmd default vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+au default stdinreadpre * let s:std_in=1
+au default vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | winc p | ene | exe 'cd '.argv()[0] | endif
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
 let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
@@ -189,16 +185,16 @@ let g:NERDTreeMouseMode = 2
 let g:NERDTreeQuitOnOpen = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
-nnoremap <silent> <leader>e :NERDTreeToggle<cr>
+nn <silent> <leader>e :NERDTreeToggle<cr>
 
 " VIMUX
 let g:VimuxHeight = '35'
 let g:VimuxUseNearest = 0
-nnoremap <silent> <leader>l :call VimuxRunCommand('clear; lint ' . bufname('%'))<cr>
-nnoremap <silent> <leader>a :call VimuxRunCommand('clear; execute ' . bufname('%'))<cr>
-autocmd default filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr>
-nnoremap <silent> <leader>v :call VimuxZoomRunner()<cr>
-nnoremap <silent> <leader>x :VimuxCloseRunner<cr>
+nn <silent> <leader>l :cal VimuxRunCommand('clear; lint ' . bufname('%'))<cr>
+nn <silent> <leader>a :cal VimuxRunCommand('clear; execute ' . bufname('%'))<cr>
+au default filetype tex nn <silent> <leader>a :VimtexCompile<cr>
+nn <silent> <leader>v :cal VimuxZoomRunner()<cr>
+nn <silent> <leader>x :VimuxCloseRunner<cr>
 
 " VIMTEX
 let g:vimtex_compiler_callback_hooks = ['FocusViewer']
@@ -206,27 +202,27 @@ let g:vimtex_compiler_latexmk = { 'continuous' : 0 }
 let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
 let g:vimtex_view_general_viewer = 'zathura'
-function! FocusViewer(status)
+fu! FocusViewer(status)
     if system('pidof zathura')
-       execute 'silent !wmctrl -xa zathura'
-    else
-       execute 'VimtexView'
-    end
-    execute 'ec'
-endfunction
+       exe 'sil !wmctrl -xa zathura'
+    el
+       exe 'VimtexView'
+    en
+    exe 'ec'
+endf
 
 " WINDOWS
-autocmd default vimresized * wincmd =
+au default vimresized * winc =
 let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
-set splitbelow splitright
+nn <silent> <a-h> :TmuxNavigateLeft<cr>
+nn <silent> <a-j> :TmuxNavigateDown<cr>
+nn <silent> <a-k> :TmuxNavigateUp<cr>
+nn <silent> <a-l> :TmuxNavigateRight<cr>
+se splitbelow splitright
 
 " WRAP
-nnoremap $ g$
-nnoremap 0 g0
-nnoremap j gj
-nnoremap k gk
-set breakindent linebreak
+nn $ g$
+nn 0 g0
+nn j gj
+nn k gk
+se breakindent linebreak
