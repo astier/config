@@ -24,8 +24,11 @@ Plug 'yunake/vimux'
 call plug#end()
 
 " APPEARANCE
-autocmd default bufenter,focusgained * call system("tmux renamew " . expand("%:t"))
-autocmd default vimleave * call system("tmux setw automatic-rename")
+augroup tmuxrename
+    autocmd!
+    autocmd tmuxrename bufenter,focusgained * call system("tmux renamew " . expand("%:t"))
+    autocmd tmuxrename vimleave * call system("tmux setw automatic-rename")
+augroup end
 autocmd default bufwritepost * GitGutter
 autocmd default filetype gitcommit,tex setlocal spell
 colorscheme nord
@@ -109,7 +112,7 @@ let g:jedi#goto_stubs_command = ''
 " KILL
 nnoremap <silent> <leader>c :close<cr>
 nnoremap <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
-nnoremap <silent> <leader>q :update<cr>:VimuxCloseRunner<cr>:call system("tmux kill-pane")<cr>
+nnoremap <silent> <leader>q :update<cr>:autocmd! tmuxrename<cr>:VimuxCloseRunner<cr>:call system("tmux kill-pane")<cr>
 nnoremap <silent> <leader>s <c-z>
 nnoremap <silent> <leader>w :bprevious\|bdelete #<cr>
 
