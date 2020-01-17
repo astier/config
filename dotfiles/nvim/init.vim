@@ -197,11 +197,11 @@ nn <silent> <leader>v :cal VimuxZoomRunner()<cr>
 nn <silent> <leader>x :VimuxCloseRunner<cr>
 
 " VIMTEX
-let g:vimtex_compiler_callback_hooks = ['FocusViewer']
-let g:vimtex_compiler_latexmk = { 'continuous' : 0 }
+let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
 let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_compiler_callback_hooks = ['FocusViewer']
 fu! FocusViewer(status)
     if system('pidof zathura')
        exe 'sil !wmctrl -xa zathura'
@@ -210,6 +210,16 @@ fu! FocusViewer(status)
     en
     exe 'ec'
 endf
+let g:vimtex_compiler_latexmk = {
+    \ 'callback' : 0,
+    \ 'continuous' : 0,
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=0',
+    \   '-interaction=nonstopmode',
+    \ ],
+\ }
 
 " WINDOWS
 au default vimresized * winc =
