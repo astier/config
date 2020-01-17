@@ -52,7 +52,6 @@ se noruler noshowcmd noshowmode
 
 " BUFFERS
 au default bufenter,focusgained * checkt
-au default bufreadpost * if line("'\"") > 0 && line("'\"") <= line('$') | exe "norm! g'\"zz" | en
 au default textchanged,insertleave * nested sil up
 nn <silent> <leader>F :Files!<cr>
 nn <silent> <leader>b :Buffers!<cr>
@@ -87,6 +86,12 @@ let g:deoplete#sources#jedi#enable_typeinfo = 0
 let g:deoplete#sources#jedi#ignore_private_members = 1
 se completeopt=menuone,noinsert
 se shortmess+=c
+
+" FOLD
+set viewoptions=cursor,folds
+aug state | au! | aug en
+au state bufwinleave ?* mkvie | filetype detect
+au state bufwinenter ?* sil! lo | filetype detect
 
 " FORMAT
 fu! Format()
