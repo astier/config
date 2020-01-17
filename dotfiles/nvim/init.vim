@@ -7,7 +7,6 @@ scriptencoding utf-8
 cal plug#begin('~/.local/share/nvim/plugins')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
-Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
@@ -102,13 +101,6 @@ fu! Format()
     cal winrestview(l:save)
 endf
 nn <silent> <leader>gf :cal Format()<cr>
-
-" INDENTLINE
-let g:indentLine_char = '▏'
-let g:indentLine_color_term = 0
-let g:indentLine_fileTypeExclude = ['help', 'json', 'man', 'markdown', 'tex']
-hi nontext cterm=none ctermbg=none ctermfg=0
-se list lcs=tab:\▏\ 
 
 " JEDI
 hi function     ctermbg=none ctermfg=blue
