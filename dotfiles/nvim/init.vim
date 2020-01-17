@@ -27,11 +27,9 @@ Plug 'yunake/vimux'
 cal plug#end()
 
 " APPEARANCE
-aug tmuxrename
-    au!
-    au tmuxrename bufenter,focusgained * cal system('tmux renamew ' . expand('%:t'))
-    au tmuxrename vimleave * cal system('tmux setw automatic-rename')
-aug en
+aug tmuxrename | au! | aug en
+au tmuxrename bufenter,focusgained * cal system('tmux renamew ' . expand('%:t'))
+au tmuxrename vimleave * cal system('tmux setw automatic-rename')
 au default bufwritepost * GitGutter
 au default filetype gitcommit,tex setl spell
 colorscheme nord
