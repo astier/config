@@ -49,9 +49,9 @@ au vimrc bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "nor
 au vimrc textchanged,insertleave * nested silent up
 nnoremap <silent> <leader>f :Files!<cr>
 nnoremap <silent> <leader>b :Buffers!<cr>
-nnoremap <silent> <leader><leader> :b#<cr>
-nnoremap <silent> <a-tab> :bp<cr>
-nnoremap <silent> <tab> :bn<cr>
+nnoremap <silent> <a-e> :bp<cr>
+nnoremap <silent> <a-r> :bn<cr>
+nnoremap <silent> <tab> :b#<cr>
 se confirm noswapfile
 se path+=** path-=/usr/include
 
