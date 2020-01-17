@@ -51,9 +51,9 @@ autocmd default textchanged,insertleave * nested silent update
 nnoremap <silent> <leader>F :Files!<cr>
 nnoremap <silent> <leader>f :call system("tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
 nnoremap <silent> <leader>b :Buffers!<cr>
-nnoremap <silent> <a-e> :bp<cr>
-nnoremap <silent> <a-r> :bn<cr>
-nnoremap <silent> <tab> :b#<cr>
+nnoremap <silent> <a-tab> :bp<cr>
+nnoremap <silent> <tab> :bn<cr>
+nnoremap <silent> <leader><leader> :b#<cr>
 set confirm noswapfile
 set path+=** path-=/usr/include
 
