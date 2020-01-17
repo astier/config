@@ -19,6 +19,7 @@ Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files'] }
 Plug 'junegunn/vim-easy-align'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
@@ -194,6 +195,19 @@ let g:NERDTreeQuitOnOpen = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
 nn <silent> <leader>e :NERDTreeToggle<cr>
+
+" TAGBAR
+let g:tagbar_autofocus = 1
+let g:tagbar_compact = 1
+let g:tagbar_iconchars = ['▸', '▾']
+let g:tagbar_indent = 1
+let g:tagbar_map_showproto = 'd'
+let g:tagbar_silent = 1
+let g:tagbar_singleclick = 1
+let g:tagbar_sort = 0
+hi tagbarhighlight cterm=none ctermbg=none ctermfg=yellow
+hi tagbarkind      cterm=none ctermbg=none ctermfg=green
+nn <silent> <leader>t :TagbarToggle<cr>
 
 " VIMUX
 let g:VimuxHeight = '35'
