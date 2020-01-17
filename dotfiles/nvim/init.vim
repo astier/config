@@ -47,7 +47,8 @@ se stl=\  ls=0 noru nosc nosmd scl=yes stal=0
 au vimrc bufenter,focusgained * checkt
 au vimrc bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"zz" | en
 au vimrc textchanged,insertleave * nested silent up
-nnoremap <silent> <leader>f :Files!<cr>
+nnoremap <silent> <leader>F :Files!<cr>
+nnoremap <silent> <leader>f :cal system("tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
 nnoremap <silent> <leader>b :Buffers!<cr>
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
