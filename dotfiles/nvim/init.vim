@@ -15,6 +15,7 @@ Plug 'cohama/lexima.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files'] }
+Plug 'junegunn/vim-easy-align'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -67,8 +68,8 @@ ino <c-v> <esc>"+pa
 nn <c-c> "+yy
 nn <c-v> "+p
 nn <c-x> "+dd
-vno <c-c> "+y
-vno <c-x> "+d
+xn <c-c> "+y
+xn <c-x> "+d
 
 " COMPLETION
 cal deoplete#custom#option({
@@ -104,10 +105,10 @@ let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_enabled = 0
 let g:jedi#show_call_signatures = 2
 let g:jedi#smart_auto_mappings = 1
-let g:jedi#goto_assignments_command = 'ga'
-let g:jedi#goto_command = 'gd'
-let g:jedi#rename_command = '<leader>rr'
-let g:jedi#goto_stubs_command = ''
+let g:jedi#goto_assignments_command = '<leader>ja'
+let g:jedi#goto_command = '<leader>jd'
+let g:jedi#goto_stubs_command = '<leader>js'
+let g:jedi#rename_command = '<leader>jr'
 
 " KILL
 nn <silent> <leader>c :clo<cr>
@@ -131,15 +132,17 @@ let g:python3_host_prog = '/bin/python'
 
 " MISC-MAPPINGS
 nn <silent> gs vip:sort u<cr>
-vno <silent> gs :sort u<cr>
+xn <silent> gs :sort u<cr>
+nm ga <Plug>(EasyAlign)
+xm ga <Plug>(EasyAlign)
 nn <c-j> 4<c-e>
 nn <c-k> 4<c-y>
 nn <cr> o<esc>
 nn cp cip
 nn dp dap
 nn Q <nop>
-nmap s <nop>
-xmap s <nop>
+nm s <nop>
+xm s <nop>
 
 " MISC-SETTINGS
 au default bufenter * se formatoptions-=cro
