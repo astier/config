@@ -102,6 +102,7 @@ let g:jedi#smart_auto_mappings = 1
 let g:jedi#goto_assignments_command = 'ga'
 let g:jedi#goto_command = 'gd'
 let g:jedi#rename_command = '<leader>rr'
+let g:jedi#goto_stubs_command = ''
 
 " KILL
 nnoremap <silent> <leader>c :close<cr>
