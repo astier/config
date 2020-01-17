@@ -215,8 +215,6 @@ nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <leader>P :vs<cr>
-nnoremap <silent> <leader>p :sp<cr>
 se splitbelow splitright
 
 " WRAP
