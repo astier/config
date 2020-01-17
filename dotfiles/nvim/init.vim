@@ -49,8 +49,10 @@ autocmd default bufenter,focusgained * checktime
 autocmd default bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal! g'\"zz" | end
 autocmd default textchanged,insertleave * nested silent update
 nnoremap <silent> <leader>F :Files!<cr>
-nnoremap <silent> <leader>f :call system("tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
 nnoremap <silent> <leader>b :Buffers!<cr>
+nnoremap <silent> <leader>f :call system("tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
+nnoremap <silent> <leader>p :call system("tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
+nnoremap <silent> <leader>P :call system("tmux splitw -h && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
 nnoremap <silent> <a-tab> :bp<cr>
 nnoremap <silent> <tab> :bn<cr>
 nnoremap <silent> <leader><leader> :b#<cr>
