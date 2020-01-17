@@ -26,8 +26,8 @@ call plug#end()
 " APPEARANCE
 augroup tmuxrename
     autocmd!
-    autocmd tmuxrename bufenter,focusgained * call system("tmux renamew " . expand("%:t"))
-    autocmd tmuxrename vimleave * call system("tmux setw automatic-rename")
+    autocmd tmuxrename bufenter,focusgained * call system('tmux renamew ' . expand('%:t'))
+    autocmd tmuxrename vimleave * call system('tmux setw automatic-rename')
 augroup end
 autocmd default bufwritepost * GitGutter
 autocmd default filetype gitcommit,tex setlocal spell
@@ -49,13 +49,13 @@ set noruler noshowcmd noshowmode
 
 " BUFFERS
 autocmd default bufenter,focusgained * checktime
-autocmd default bufreadpost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal! g'\"zz" | end
+autocmd default bufreadpost * if line("'\"") > 0 && line("'\"") <= line('$') | execute "normal! g'\"zz" | end
 autocmd default textchanged,insertleave * nested silent update
 nnoremap <silent> <leader>F :Files!<cr>
 nnoremap <silent> <leader>b :Buffers!<cr>
-nnoremap <silent> <leader>f :call system("tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <leader>p :call system("tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
-nnoremap <silent> <leader>P :call system("tmux splitw -h && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
+nnoremap <silent> <leader>f :call system('tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
+nnoremap <silent> <leader>p :call system('tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
+nnoremap <silent> <leader>P :call system('tmux splitw -h && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
 nnoremap <silent> <a-tab> :bp<cr>
 nnoremap <silent> <tab> :bn<cr>
 nnoremap <silent> <leader><leader> :b#<cr>
@@ -112,7 +112,7 @@ let g:jedi#goto_stubs_command = ''
 " KILL
 nnoremap <silent> <leader>c :close<cr>
 nnoremap <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
-nnoremap <silent> <leader>q :update<cr>:autocmd! tmuxrename<cr>:VimuxCloseRunner<cr>:call system("tmux kill-pane")<cr>
+nnoremap <silent> <leader>q :update<cr>:autocmd! tmuxrename<cr>:VimuxCloseRunner<cr>:call system('tmux kill-pane')<cr>
 nnoremap <silent> <leader>s <c-z>
 nnoremap <silent> <leader>w :bprevious\|bdelete #<cr>
 
@@ -179,7 +179,7 @@ set inccommand=nosplit
 
 " NERDTREE
 autocmd default stdinreadpre * let s:std_in=1
-autocmd default vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+autocmd default vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
 let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
@@ -194,8 +194,8 @@ nnoremap <silent> <leader>e :NERDTreeToggle<cr>
 " VIMUX
 let g:VimuxHeight = '35'
 let g:VimuxUseNearest = 0
-nnoremap <silent> <leader>l :call VimuxRunCommand("clear; lint " . bufname("%"))<cr>
-nnoremap <silent> <leader>a :call VimuxRunCommand("clear; execute " . bufname("%"))<cr>
+nnoremap <silent> <leader>l :call VimuxRunCommand('clear; lint ' . bufname('%'))<cr>
+nnoremap <silent> <leader>a :call VimuxRunCommand('clear; execute ' . bufname('%'))<cr>
 autocmd default filetype tex nnoremap <silent> <leader>a :VimtexCompile<cr>
 nnoremap <silent> <leader>v :call VimuxZoomRunner()<cr>
 nnoremap <silent> <leader>x :VimuxCloseRunner<cr>
