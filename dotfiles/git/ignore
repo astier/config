@@ -18,6 +18,4 @@
 .vscode
 __pycache__
 build
-misc
-results
 tags
