@@ -5,5 +5,5 @@ file=$(fzf)
 if [ "$file" ]; then
     $EDITOR "$file"
 else
-    tmux kill-pane
+    tmux killp
 fi
