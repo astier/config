@@ -15,6 +15,7 @@ Plug 'cohama/lexima.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-commentary'
 
 " IDE
@@ -201,9 +202,11 @@ fu! CenterSearch()
     en
 endf
 cno <silent> <expr> <cr> CenterSearch()
+let g:clever_f_across_no_line = 1
+let g:clever_f_smart_case = 1
+nn <silent> <esc> :noh<cr>:ec<cr>:cal clever_f#reset()<cr>
 nn <leader>rs :%s///gI<left><left><left><left>
 nn <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
-nn <silent> <esc> :noh<cr>:ec<cr><esc>
 nn <silent> * *``
 nn <silent> n nzz
 nn <silent> N Nzz
