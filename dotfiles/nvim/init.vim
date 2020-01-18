@@ -7,6 +7,7 @@ scriptencoding utf-8
 cal plug#begin('~/.local/share/nvim/plugins')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
@@ -23,9 +24,11 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'yunake/vimux'
+Plug 'ryanoasis/vim-devicons'
 cal plug#end()
 
 " APPEARANCE
