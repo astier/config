@@ -172,6 +172,21 @@ se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a notimeout
 
+" NERDTREE
+au default stdinreadpre * let s:std_in=1
+au default vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | winc p | ene | exe 'cd '.argv()[0] | endif
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
+let g:NERDTreeHighlightCursorline = 0
+let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
+let g:NERDTreeMinimalMenu = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeQuitOnOpen = 2
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeStatusline = ''
+nn <silent> <leader>e :NERDTreeToggle<cr>
+
 " SEARCH
 fu! CenterSearch()
     let cmdtype = getcmdtype()
@@ -192,21 +207,6 @@ nn <silent> n nzz
 nn <silent> N Nzz
 se ignorecase smartcase
 se inccommand=nosplit
-
-" NERDTREE
-au default stdinreadpre * let s:std_in=1
-au default vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | winc p | ene | exe 'cd '.argv()[0] | endif
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
-let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
-let g:NERDTreeMinimalMenu = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeQuitOnOpen = 2
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeStatusline = ''
-nn <silent> <leader>e :NERDTreeToggle<cr>
 
 " TAGBAR
 let g:tagbar_autofocus = 1
