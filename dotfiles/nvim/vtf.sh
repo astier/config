@@ -5,5 +5,5 @@ file=$(fzf)
 if [ "$file" ]; then
     $EDITOR "$file"
 else
-    tmux killp
+    tmux killp \; selectl -E
 fi

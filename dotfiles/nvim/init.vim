@@ -119,7 +119,7 @@ let g:jedi#rename_command = '<leader>jr'
 " KILL
 nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
-nn <silent> <leader>q :up<cr>:au! tmuxrename<cr>:VimuxCloseRunner<cr>:cal system('tmux kill-pane')<cr>
+nn <silent> <leader>q :up<cr>:au! tmuxrename<cr>:VimuxCloseRunner<cr>:cal system('tmux killp \; selectl -E')<cr>
 nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :bw<cr>
 
