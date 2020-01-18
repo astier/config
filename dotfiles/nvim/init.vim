@@ -5,30 +5,37 @@ scriptencoding utf-8
 
 " PLUGINS
 cal plug#begin('~/.local/share/nvim/plugins')
+
+" BASICS
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
-Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-commentary'
+
+" IDE
+Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
+Plug 'airblade/vim-rooter'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files'] }
-Plug 'junegunn/vim-easy-align'
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'machakann/vim-sandwich'
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'yunake/vimux'
+
+" IDE (EXPLORER)
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
 Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+
 cal plug#end()
 
 " APPEARANCE
