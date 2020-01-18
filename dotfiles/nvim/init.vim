@@ -52,7 +52,7 @@ hi cursorlinenr ctermfg=none
 hi errormsg ctermbg=none
 hi number ctermfg=none
 hi pmenusel ctermfg=none
-hi search ctermbg=yellow
+hi search cterm=bold,italic,underline ctermbg=none ctermfg=red
 hi statusline ctermbg=none ctermfg=16
 hi statuslinenc ctermbg=none ctermfg=16
 hi vertsplit ctermbg=none ctermfg=16
@@ -204,7 +204,7 @@ cno <silent> <expr> <cr> CenterSearch()
 nn <leader>rs :%s///gI<left><left><left><left>
 nn <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
 nn <silent> <esc> :noh<cr>:ec<cr><esc>
-nn <silent> , *``
+nn <silent> * *``
 nn <silent> n nzz
 nn <silent> N Nzz
 se ignorecase smartcase
