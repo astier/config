@@ -205,7 +205,7 @@ let g:tagbar_map_showproto = 'd'
 let g:tagbar_silent = 1
 let g:tagbar_singleclick = 1
 let g:tagbar_sort = 0
-hi tagbarhighlight cterm=none ctermbg=none ctermfg=yellow
+hi tagbarhighlight cterm=none ctermbg=none ctermfg=8
 hi tagbarkind      cterm=none ctermbg=none ctermfg=green
 nn <silent> <leader>t :TagbarToggle<cr>
 
