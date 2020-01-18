@@ -9,6 +9,7 @@ cal plug#begin('~/.local/share/nvim/plugins')
 " BASICS
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
+Plug 'andrewradev/switch.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/vim-easy-align'
@@ -149,8 +150,8 @@ let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/bin/python'
 
 " MISC-MAPPINGS
-nn <silent> gs vip:sort u<cr>
-xn <silent> gs :sort u<cr>
+nn <silent> <leader>gs vip:sort u<cr>
+xn <silent> <leader>gs :sort u<cr>
 nm ga <Plug>(EasyAlign)
 xm ga <Plug>(EasyAlign)
 nn <c-j> 4<c-e>
