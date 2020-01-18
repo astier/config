@@ -90,8 +90,8 @@ se shortmess+=c
 " FOLD
 set viewoptions=cursor,folds
 aug state | au! | aug en
-au state bufwinleave ?* mkvie | filetype detect
-au state bufwinenter ?* sil! lo | filetype detect
+au state bufwinleave * sil! mkvie
+au state bufwinenter * sil! lo
 
 " FORMAT
 fu! Format()
