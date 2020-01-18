@@ -13,6 +13,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich'
+Plug 'nelstrom/vim-visual-star-search'
 Plug 'tpope/vim-commentary'
 
 " IDE
