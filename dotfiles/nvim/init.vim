@@ -21,6 +21,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
@@ -121,7 +122,7 @@ nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
 nn <silent> <leader>q :up<cr>:au! tmuxrename<cr>:VimuxCloseRunner<cr>:cal system('tmux killp \; selectl -E')<cr>
 nn <silent> <leader>s <c-z>
-nn <silent> <leader>w :bw<cr>
+nn <silent> <leader>w :Bw<cr>
 
 " LOADED
 let g:loaded_gzip = 1
