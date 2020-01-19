@@ -173,6 +173,7 @@ let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
 se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
+se foldmethod=manual
 se mouse=a notimeout
 set viewoptions=cursor,folds
 
