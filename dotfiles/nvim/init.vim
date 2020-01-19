@@ -15,6 +15,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'arithran/vim-delete-hidden-buffers'
 Plug 'cohama/lexima.vim'
 Plug 'farmergreg/vim-lastplace'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich'
 Plug 'nelstrom/vim-visual-star-search'
