@@ -147,8 +147,8 @@ let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/bin/python'
 
 " MISC-MAPPINGS
-nn <silent> <leader>gs vip:sort u<cr>
-xn <silent> <leader>gs :sort u<cr>
+nn <silent> gs vip:sort u<cr>
+xn <silent> gs :sort u<cr>
 nm ga <Plug>(EasyAlign)
 xm ga <Plug>(EasyAlign)
 nn <c-j> 4<c-e>
@@ -165,6 +165,7 @@ au default bufenter * se formatoptions-=cro
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 let g:lexima_enable_endwise_rules = 0
 let g:rooter_silent_chdir = 1
+let g:switch_mapping = "<leader>gs"
 let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
 se commentstring=//\ %s
