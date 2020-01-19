@@ -38,11 +38,12 @@ Plug 'yunake/vimux'
 
 " IDE (EXPLORER)
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'astier/tabulous'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
+Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
-Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
 
 cal plug#end()
 
@@ -65,7 +66,7 @@ hi vertsplit ctermbg=none ctermfg=16
 hi warningmsg ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 se fillchars+=eob:\ ,vert:\▏,fold:-,stl:_,stlnc:_
-se statusline=\  laststatus=0 showtabline=0 signcolumn=yes
+se statusline=\  laststatus=0 signcolumn=yes
 se noruler noshowcmd noshowmode
 
 " BUFFERS
@@ -213,6 +214,17 @@ om aa <Plug>SidewaysArgumentTextobjA
 om ia <Plug>SidewaysArgumentTextobjI
 xm aa <Plug>SidewaysArgumentTextobjA
 xm ia <Plug>SidewaysArgumentTextobjI
+
+" TABLINE
+hi tabline ctermbg=none ctermfg=8
+hi tablinefill ctermbg=none
+hi tablinesel ctermbg=none ctermfg=none
+let g:tabulousCloseStr = ''
+let g:tabulousLabelLeftStr = '['
+let g:tabulousLabelNameDefault = 'No Name'
+let g:tabulousLabelNameOptions = ':t'
+let g:tabulousLabelRightStr = '] '
+se showtabline=1
 
 " TAGBAR
 let g:tagbar_autofocus = 1
