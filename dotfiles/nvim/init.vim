@@ -14,7 +14,6 @@ Plug 'andrewradev/switch.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'arithran/vim-delete-hidden-buffers'
 Plug 'cohama/lexima.vim'
-Plug 'farmergreg/vim-lastplace'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich'
@@ -23,6 +22,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'yuttie/comfortable-motion.vim'
+Plug 'zhimsel/vim-stay'
 
 " IDE
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
@@ -174,6 +174,7 @@ let g:tex_no_error = 1
 se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a notimeout
+set viewoptions=cursor,folds
 
 " MOTION
 nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
