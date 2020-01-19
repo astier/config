@@ -81,7 +81,7 @@ alias kk="git log --all --graph --decorate --oneline"
 alias kl="git log --date=auto:human"
 alias klg="git log --grep"
 alias ks="git status -bs"
-alias kso="git show"
+alias kso="clear; git show"
 
 alias kma="git checkout master"
 alias ko="git checkout"
