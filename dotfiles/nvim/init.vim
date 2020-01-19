@@ -28,6 +28,7 @@ Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
+Plug 'ehamberg/vim-cute-python'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
