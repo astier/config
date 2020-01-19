@@ -186,7 +186,7 @@ nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
 
 " NERDTREE
 au default stdinreadpre * let s:std_in=1
-au default vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | winc p | ene | exe 'cd '.argv()[0] | endif
+au default vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | winc p | ene | exe 'cd '.argv()[0] | en
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
 let g:NERDTreeHighlightCursorline = 0
@@ -202,7 +202,7 @@ nn <silent> <leader>e :NERDTreeToggle<cr>
 " RENAME TMUX
 fu! RenameTmux()
     if !(bufname() =~# 'NERD' || bufname() =~# 'Tagbar')
-        exe 'cal system("tmux renamew " . expand("%:t"))'
+        cal system('tmux renamew ' . expand('%:t'))
     en
 endf
 aug tmuxrename | au! | aug en
@@ -211,8 +211,8 @@ au tmuxrename vimleave * cal system('tmux setw automatic-rename')
 
 " SEARCH
 fu! CenterSearch()
-    let cmdtype = getcmdtype()
-    if cmdtype ==# '/' || cmdtype ==# '?'
+    let s:cmdtype = getcmdtype()
+    if s:cmdtype ==# '/' || s:cmdtype ==# '?'
         retu "\<cr>zz"
     elsei getcmdline() =~# '^%s/'
         retu "\<cr>``zz"
