@@ -9,6 +9,7 @@ cal plug#begin('~/.local/share/nvim/plugins')
 " BASICS
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
+Plug 'andrewradev/sideways.vim'
 Plug 'andrewradev/switch.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'cohama/lexima.vim'
@@ -209,6 +210,14 @@ nn <silent> n nzz
 nn <silent> N Nzz
 se ignorecase smartcase
 se inccommand=nosplit
+
+" SIDEWAYS
+nn <c-h> :SidewaysLeft<cr>
+nn <c-l> :SidewaysRight<cr>
+om aa <Plug>SidewaysArgumentTextobjA
+om ia <Plug>SidewaysArgumentTextobjI
+xm aa <Plug>SidewaysArgumentTextobjA
+xm ia <Plug>SidewaysArgumentTextobjI
 
 " TAGBAR
 let g:tagbar_autofocus = 1
