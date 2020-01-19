@@ -200,7 +200,7 @@ let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
 nn <leader>rs :%s///gI<left><left><left><left>
 nn <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
-nn <silent> <esc> :ec<cr>:cal clever_f#reset()<cr>
+nn <silent> <esc> :nohl<cr>:ec<cr>:cal clever_f#reset()<cr>
 no <plug>(slash-after) zz
 se ignorecase smartcase
 se inccommand=nosplit
