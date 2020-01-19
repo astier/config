@@ -229,8 +229,8 @@ se ignorecase smartcase
 se inccommand=nosplit
 
 " SIDEWAYS
-nn <c-h> :SidewaysLeft<cr>
-nn <c-l> :SidewaysRight<cr>
+nn <silent> <c-h> :SidewaysLeft<cr>
+nn <silent> <c-l> :SidewaysRight<cr>
 om aa <Plug>SidewaysArgumentTextobjA
 om ia <Plug>SidewaysArgumentTextobjI
 xm aa <Plug>SidewaysArgumentTextobjA
