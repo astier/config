@@ -47,9 +47,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 cal plug#end()
 
 " APPEARANCE
-aug tmuxrename | au! | aug en
-au tmuxrename bufenter,focusgained * cal system('tmux renamew ' . expand('%:t'))
-au tmuxrename vimleave * cal system('tmux setw automatic-rename')
 au default bufwritepost * GitGutter
 au default filetype gitcommit,tex setl spell
 colorscheme nord
@@ -195,6 +192,16 @@ let g:NERDTreeQuitOnOpen = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
 nn <silent> <leader>e :NERDTreeToggle<cr>
+
+" RENAME TMUX
+fu! RenameTmux()
+    if !(bufname() =~# 'NERD' || bufname() =~# 'Tagbar')
+        exe 'cal system("tmux renamew " . expand("%:t"))'
+    en
+endf
+aug tmuxrename | au! | aug en
+au tmuxrename bufenter,focusgained * cal RenameTmux()
+au tmuxrename vimleave * cal system('tmux setw automatic-rename')
 
 " SEARCH
 fu! CenterSearch()
