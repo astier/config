@@ -39,9 +39,9 @@ Plug 'yunake/vimux'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
-Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+Plug 'ryanoasis/vim-devicons'
 
 cal plug#end()
 
