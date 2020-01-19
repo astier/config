@@ -12,6 +12,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/switch.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'cohama/lexima.vim'
+Plug 'farmergreg/vim-lastplace'
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich'
 Plug 'nelstrom/vim-visual-star-search'
@@ -99,12 +100,6 @@ let g:deoplete#sources#jedi#enable_typeinfo = 0
 let g:deoplete#sources#jedi#ignore_private_members = 1
 se completeopt=menuone,noinsert
 se shortmess+=c
-
-" FOLD
-set viewoptions=cursor,folds
-aug state | au! | aug en
-au state bufwinleave * sil! mkvie
-au state bufwinenter * sil! lo
 
 " FORMAT
 fu! Format()
