@@ -18,6 +18,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/ReplaceWithRegister'
 
 " IDE
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
