@@ -72,7 +72,7 @@ se noruler noshowcmd noshowmode
 " BUFFERS
 au default bufenter,focusgained * checkt
 au default textchanged,insertleave * nested sil up
-nn <silent> <leader>F :Files!<cr>
+nn <silent> <leader>F :Files<cr>
 nn <silent> <leader>b :Buffers!<cr>
 nn <silent> <leader>f :cal system('tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
 nn <silent> <leader>p :cal system('tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
