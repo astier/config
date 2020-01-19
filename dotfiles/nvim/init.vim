@@ -41,7 +41,6 @@ Plug 'yunake/vimux'
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'astier/tabulous'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
 Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
@@ -70,14 +69,18 @@ se noruler noshowcmd noshowmode
 " BUFFERS
 au default bufenter,focusgained * checkt
 au default textchanged,insertleave * nested sil up
-nn <silent> <leader>F :Files<cr>
-nn <silent> <leader>b :Buffers!<cr>
+nn <silent> <leader>F :Files!<cr>
 nn <silent> <leader>f :cal system('tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
 nn <silent> <leader>p :cal system('tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
 nn <silent> <leader>P :cal system('tmux splitw -h && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
-nn <silent> <a-tab> :bp<cr>
-nn <silent> <tab> :bn<cr>
-nn <silent> <leader><leader> :b#<cr>
+nn <silent> <a-tab> :tabp<cr>
+nn <silent> <tab> :tabn<cr>
+au bufnew * cal NewBufNewTab()
+fu! NewBufNewTab()
+    if len(getbufinfo({'buflisted':1})) > 1 && bufname('$') !=# '' && !(bufname('$') =~# 'NERD' || bufname('$') =~# 'Tagbar')
+        tabe
+    en
+endf
 se confirm noswapfile
 se path+=** path-=/usr/include
 
@@ -134,7 +137,7 @@ nn <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
 nn <silent> <leader>k :DeleteHiddenBuffers<cr>
 nn <silent> <leader>q :up<cr>:au! tmuxrename<cr>:VimuxCloseRunner<cr>:cal system('tmux killp \; selectl -E')<cr>
 nn <silent> <leader>s <c-z>
-nn <silent> <leader>w :Bw<cr>
+nn <silent> <leader>w :bw<cr>
 
 " LOADED
 let g:loaded_gzip = 1
