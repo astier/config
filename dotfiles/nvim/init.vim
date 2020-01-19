@@ -153,6 +153,7 @@ nn <silent> gs vip:sort u<cr>
 xn <silent> gs :sort u<cr>
 nm ga <Plug>(EasyAlign)
 xm ga <Plug>(EasyAlign)
+nm <leader>u <leader>hu
 nn <c-j> 4<c-e>
 nn <c-k> 4<c-y>
 nn <cr> o<esc>
