@@ -53,7 +53,7 @@ hi cursorlinenr ctermfg=none
 hi errormsg ctermbg=none
 hi number ctermfg=none
 hi pmenusel ctermfg=none
-hi search cterm=bold,italic,underline ctermbg=none ctermfg=red
+hi search cterm=bold,underline ctermbg=none ctermfg=red
 hi statusline ctermbg=none ctermfg=16
 hi statuslinenc ctermbg=none ctermfg=16
 hi vertsplit ctermbg=none ctermfg=16
