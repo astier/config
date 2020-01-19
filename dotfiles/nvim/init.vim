@@ -221,7 +221,7 @@ nn <silent> <esc> :noh<cr>:ec<cr>:cal clever_f#reset()<cr>
 nn <leader>rs :%s///gI<left><left><left><left>
 nn <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
 nn <silent> <esc> :nohl<cr>:ec<cr>:cal clever_f#reset()<cr>
-nn <silent> * *``
+nn <silent> , *``
 nn <silent> n nzz
 nn <silent> N Nzz
 se ignorecase smartcase
