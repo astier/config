@@ -302,4 +302,8 @@ nn $ g$
 nn 0 g0
 nn j gj
 nn k gk
+xn $ g$
+xn 0 g0
+xn j gj
+xn k gk
 se breakindent linebreak
