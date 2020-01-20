@@ -73,13 +73,12 @@ se noruler noshowcmd noshowmode
 au default bufenter,focusgained * checkt
 au default textchanged,insertleave * nested sil up
 nn <silent> <leader>F :Files<cr>
-nn <silent> <leader>b :Buffers!<cr>
+nn <silent> <leader>b :Buffers<cr>
 nn <silent> <leader>f :cal system('tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
 nn <silent> <leader>p :cal system('tmux splitw -v && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
 nn <silent> <leader>P :cal system('tmux splitw -h && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
 nn <silent> <a-tab> :bp<cr>
 nn <silent> <tab> :bn<cr>
-nn <silent> <leader><leader> :b#<cr>
 se confirm noswapfile
 se path+=** path-=/usr/include
 
@@ -132,9 +131,10 @@ let g:jedi#rename_command = '<leader>jr'
 
 " KILL
 nn <silent> <leader>c :clo<cr>
-nn <silent> <leader>d :VimuxCloseRunner<cr>:qa<cr>
+nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
 nn <silent> <leader>k :DeleteHiddenBuffers<cr>
-nn <silent> <leader>q :up<cr>:au! tmuxrename<cr>:VimuxCloseRunner<cr>:cal system('tmux killp \; selectl -E')<cr>
+nn <silent> <leader>q :up <bar> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
+nn <silent> <leader>q :up <bar> :au! tmuxrename <cr> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
 nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :Bw<cr>
 
@@ -181,10 +181,10 @@ se mouse=a notimeout
 set viewoptions=cursor,folds
 
 " MOTION
-nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
-nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
-nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
-nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>
+nn <silent> <C-d> :call comfortable_motion#flick(100)<cr>
+nn <silent> <C-u> :call comfortable_motion#flick(-100)<cr>
+nn <silent> <C-f> :call comfortable_motion#flick(200)<cr>
+nn <silent> <C-b> :call comfortable_motion#flick(-200)<cr>
 
 " NERDTREE
 au default stdinreadpre * let s:std_in=1
@@ -225,10 +225,9 @@ endf
 cno <silent> <expr> <cr> CenterSearch()
 let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
-nn <silent> <esc> :noh<cr>:ec<cr>:cal clever_f#reset()<cr>
+nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
 nn <leader>rs :%s///gI<left><left><left><left>
 nn <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
-nn <silent> <esc> :nohl<cr>:ec<cr>:cal clever_f#reset()<cr>
 nn <silent> , *``
 nn <silent> n nzz
 nn <silent> N Nzz
@@ -250,7 +249,6 @@ let g:tagbar_iconchars = ['▸', '▾']
 let g:tagbar_indent = 1
 let g:tagbar_map_showproto = 'd'
 let g:tagbar_silent = 1
-let g:tagbar_singleclick = 1
 let g:tagbar_sort = 0
 hi tagbarhighlight cterm=none ctermbg=none ctermfg=8
 hi tagbarkind      cterm=none ctermbg=none ctermfg=green
