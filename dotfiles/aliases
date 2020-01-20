@@ -42,7 +42,7 @@ alias vml="cd ~/Dropbox/uni/vml/lectures"
 # FUNCTIONS
 cd() { if [ $# = 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
 d() { if [ $# = 0 ]; then exit; else rm "$@" && ls; fi }
-di() { builtin cd "$(find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///' | fzf)" && ls || echo Can not open directory.; }
+dirs() { find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///'; }
 f() { if [ -d "$1" ]; then cd "$1" || return; else open "$@"; fi; }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
@@ -123,6 +123,7 @@ alias vi="cd ~/media/videos"
 alias a="execute"
 alias c="clear"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm ~/.cache/*; sudo rm -fr /var/log/journal/*"
+alias di="builtin cd \$(dirs | fzf) && ls || echo Can not open directory."
 alias i="pkg -i"
 alias iw="iwctl"
 alias j="fg"
@@ -137,8 +138,10 @@ alias pw="pwd | sed 's/\/home\/aleks/~/'"
 alias r="pkg -r"
 alias re="sudo \$(fc -ln -1)"
 alias s="bstatus"
-alias ti="tree"
-alias tid="tree -d"
+alias td="tree -d"
+alias tdf="tree -d \$(dirs | fzf)"
+alias tf="tree"
+alias tff="tree \$(dirs | fzf)"
 alias to="touch"
 alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
 alias vol="alsamixer"
