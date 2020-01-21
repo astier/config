@@ -71,8 +71,8 @@ se noruler noshowcmd noshowmode
 " BUFFERS
 au default bufenter,focusgained * checkt
 au default textchanged,insertleave * nested sil up
-nn <silent> <leader>f :cal system('tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter')<cr>
-nn <silent> <leader>F :Files!<cr>
+nn <silent> <leader>F :FZF<cr>
+nn <silent> <leader>f :Buffers<cr>
 nn <silent> <a-tab> :bp<cr>
 nn <silent> <tab> :bn<cr>
 se confirm noswapfile
