@@ -14,7 +14,7 @@ alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias tmux="tmux -f \$TMUXRC"
 alias umount="sudo umount"
-alias tree="tree -aCI .git --dirsfirst --noreport"
+alias tree="tree -aCI '__pycache__|.git|*.aux|*.fdb_latexmk|*.fls|*.log|*.nav|*.snm|*.gz|*.toc' --dirsfirst --noreport"
 
 # CPM
 alias x="cpm"
