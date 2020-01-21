@@ -174,7 +174,7 @@ se expandtab shiftwidth=4 tabstop=4
 se foldmethod=manual
 se mouse=a notimeout
 
-" MOTION
+" COMFORTABLE-MOTION
 nn <silent> <C-d> :call comfortable_motion#flick(100)<cr>
 nn <silent> <C-u> :call comfortable_motion#flick(-100)<cr>
 nn <silent> <C-f> :call comfortable_motion#flick(200)<cr>
