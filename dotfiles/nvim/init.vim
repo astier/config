@@ -156,6 +156,7 @@ nm <leader>u <leader>hu
 nn <c-j> 4<c-e>
 nn <c-k> 4<c-y>
 nn <cr> o<esc>
+nm gcp gcip
 nn cp cip
 nn dp dap
 nn Q <nop>
