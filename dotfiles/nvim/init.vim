@@ -19,8 +19,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rhysd/clever-f.vim'
+Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
-Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'yuttie/comfortable-motion.vim'
 
 " IDE
@@ -128,9 +128,9 @@ let g:jedi#rename_command = '<leader>jr'
 " KILL
 nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
+nn <silent> <leader>j <c-z>
 nn <silent> <leader>k :DeleteHiddenBuffers<cr>
 nn <silent> <leader>q :up <bar> :au! tmuxrename<cr> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
-nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :Bw<cr>
 
 " LOADED
@@ -160,8 +160,6 @@ nm gcp gcip
 nn cp cip
 nn dp dap
 nn Q <nop>
-nm s <nop>
-xm s <nop>
 
 " MISC-SETTINGS
 au default bufenter * se formatoptions-=cro
@@ -222,8 +220,6 @@ cno <silent> <expr> <cr> CenterSearch()
 let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
 nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
-nn <leader>rs :%s///gI<left><left><left><left>
-nn <leader>rw :%s/\<<C-r><C-w>\>//gI<left><left><left>
 nn <silent> , *``
 nn <silent> n nzz
 nn <silent> N Nzz
@@ -243,6 +239,22 @@ set viewoptions=cursor,folds
 aug state | au! | aug en
 au state bufwinleave * sil! mkvie
 au state bufwinenter * sil! lo
+
+" SUBVERSIVE
+nm s <plug>(SubversiveSubstitute)
+xm s <plug>(SubversiveSubstitute)
+nm ss <plug>(SubversiveSubstituteLine)
+nm S <plug>(SubversiveSubstituteToEndOfLine)
+nm <leader>s <plug>(SubversiveSubstituteRange)
+xm <leader>s <plug>(SubversiveSubstituteRange)
+nm <leader>ss <plug>(SubversiveSubstituteWordRange)
+nm <leader>sc <plug>(SubversiveSubstituteRangeConfirm)
+xm <leader>sc <plug>(SubversiveSubstituteRangeConfirm)
+nm <leader>scc <plug>(SubversiveSubstituteWordRangeConfirm)
+let g:subversivePromptWithCurrent = 1
+let g:subversivePreserveCursorPosition = 1
+onoremap ie :exec "normal! ggVG"<cr>
+onoremap iv :exec "normal! HVL"<cr>
 
 " TAGBAR
 let g:tagbar_autofocus = 1
