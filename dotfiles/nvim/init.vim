@@ -129,7 +129,7 @@ let g:jedi#rename_command = '<leader>jr'
 nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
 nn <silent> <leader>k :DeleteHiddenBuffers<cr>
-nn <silent> <leader>q :up <bar> :au! tmuxrename <cr> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
+nn <silent> <leader>q :up <bar> :au! tmuxrename<cr> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
 nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :Bw<cr>
 
