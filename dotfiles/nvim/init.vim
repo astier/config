@@ -22,7 +22,6 @@ Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'yuttie/comfortable-motion.vim'
-Plug 'zhimsel/vim-stay'
 
 " IDE
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
@@ -176,7 +175,6 @@ se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se foldmethod=manual
 se mouse=a notimeout
-set viewoptions=cursor,folds
 
 " MOTION
 nn <silent> <C-d> :call comfortable_motion#flick(100)<cr>
@@ -239,6 +237,12 @@ om aa <Plug>SidewaysArgumentTextobjA
 om ia <Plug>SidewaysArgumentTextobjI
 xm aa <Plug>SidewaysArgumentTextobjA
 xm ia <Plug>SidewaysArgumentTextobjI
+
+" STATE
+set viewoptions=cursor,folds
+aug state | au! | aug en
+au state bufwinleave * sil! mkvie
+au state bufwinenter * sil! lo
 
 " TAGBAR
 let g:tagbar_autofocus = 1
