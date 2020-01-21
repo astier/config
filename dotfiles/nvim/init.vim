@@ -149,8 +149,8 @@ let g:python3_host_prog = '/bin/python'
 " MISC-MAPPINGS
 nn <silent> gs vip:sort u<cr>
 xn <silent> gs :sort u<cr>
-nm ga <Plug>(EasyAlign)
-xm ga <Plug>(EasyAlign)
+nm ga <plug>(EasyAlign)
+xm ga <plug>(EasyAlign)
 nm <leader>i <leader>hp
 nm <leader>u <leader>hu
 nn <c-j> 4<c-e>
@@ -229,10 +229,10 @@ se inccommand=nosplit
 " SIDEWAYS
 nn <silent> <c-h> :SidewaysLeft<cr>
 nn <silent> <c-l> :SidewaysRight<cr>
-om aa <Plug>SidewaysArgumentTextobjA
-om ia <Plug>SidewaysArgumentTextobjI
-xm aa <Plug>SidewaysArgumentTextobjA
-xm ia <Plug>SidewaysArgumentTextobjI
+om aa <plug>SidewaysArgumentTextobjA
+om ia <plug>SidewaysArgumentTextobjI
+xm aa <plug>SidewaysArgumentTextobjA
+xm ia <plug>SidewaysArgumentTextobjI
 
 " STATE
 set viewoptions=cursor,folds
