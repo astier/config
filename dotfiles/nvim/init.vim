@@ -92,7 +92,7 @@ cal deoplete#custom#option({
     \ 'max_list': 8,
     \ 'num_processes': -1,
     \ 'ignore_sources': { '_': ['around', 'member'] },
-\ })
+    \ })
 cal deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
 cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
 let g:deoplete#enable_at_startup = 1
@@ -300,7 +300,7 @@ let g:vimtex_compiler_latexmk = {
     \   '-synctex=0',
     \   '-interaction=nonstopmode',
     \ ],
-\ }
+    \ }
 
 " WINDOWS
 au default vimresized * winc =
