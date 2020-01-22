@@ -6,43 +6,45 @@ scriptencoding utf-8
 " PLUGINS
 cal plug#begin('~/.local/share/nvim/plugins')
 
-" BASICS
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'airblade/vim-gitgutter'
+" GENERAL EDITING, OBJECTS, NAVIGATION
 Plug 'andrewradev/sideways.vim'
 Plug 'andrewradev/switch.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'arithran/vim-delete-hidden-buffers'
 Plug 'cohama/lexima.vim'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rhysd/clever-f.vim'
 Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
-Plug 'yuttie/comfortable-motion.vim'
 
-" IDE
+" IDE, LSP, LANGUAGE-SPECIFIC
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
-Plug 'airblade/vim-rooter'
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'airblade/vim-gitgutter'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'tpope/vim-sleuth'
-Plug 'yunake/vimux'
 
-" IDE (EXPLORER)
+" USER-INTERFACE
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files'] }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
 Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+
+" MISC
+Plug 'airblade/vim-rooter'
+Plug 'arcticicestudio/nord-vim'
+Plug 'arithran/vim-delete-hidden-buffers'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
+Plug 'tpope/vim-sleuth'
+Plug 'yunake/vimux'
+Plug 'yuttie/comfortable-motion.vim'
 
 cal plug#end()
 
