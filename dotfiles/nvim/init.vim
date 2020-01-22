@@ -173,6 +173,7 @@ se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se foldmethod=manual
 se mouse=a notimeout
+se scrolloff=4
 
 " COMFORTABLE-MOTION
 nn <silent> <C-d> :call comfortable_motion#flick(100)<cr>
@@ -206,17 +207,6 @@ au tmuxrename bufenter,focusgained * cal RenameTmux()
 au tmuxrename vimleave * cal system('tmux setw automatic-rename')
 
 " SEARCH
-fu! CenterSearch()
-    let s:cmdtype = getcmdtype()
-    if s:cmdtype ==# '/' || s:cmdtype ==# '?'
-        retu "\<cr>zz"
-    elsei getcmdline() =~# '^%s/'
-        retu "\<cr>``zz"
-    el
-        retu "\<cr>"
-    en
-endf
-cno <silent> <expr> <cr> CenterSearch()
 let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
 nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
