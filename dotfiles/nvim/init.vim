@@ -130,9 +130,9 @@ let g:jedi#rename_command = '<leader>jr'
 " KILL
 nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
-nn <silent> <leader>j <c-z>
 nn <silent> <leader>k :DeleteHiddenBuffers<cr>
 nn <silent> <leader>q :up <bar> :au! tmuxrename<cr> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
+nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :Bw<cr>
 
 " LOADED
@@ -237,12 +237,12 @@ nm s <plug>(SubversiveSubstitute)
 xm s <plug>(SubversiveSubstitute)
 nm ss <plug>(SubversiveSubstituteLine)
 nm S <plug>(SubversiveSubstituteToEndOfLine)
-nm <leader>s <plug>(SubversiveSubstituteRange)
-xm <leader>s <plug>(SubversiveSubstituteRange)
-nm <leader>ss <plug>(SubversiveSubstituteWordRange)
-nm <leader>sc <plug>(SubversiveSubstituteRangeConfirm)
-xm <leader>sc <plug>(SubversiveSubstituteRangeConfirm)
-nm <leader>scc <plug>(SubversiveSubstituteWordRangeConfirm)
+nm <leader>r <plug>(SubversiveSubstituteRange)
+xm <leader>r <plug>(SubversiveSubstituteRange)
+nm <leader>rr <plug>(SubversiveSubstituteWordRange)
+nm <leader>rc <plug>(SubversiveSubstituteRangeConfirm)
+xm <leader>rc <plug>(SubversiveSubstituteRangeConfirm)
+nm <leader>rcc <plug>(SubversiveSubstituteWordRangeConfirm)
 let g:subversivePromptWithCurrent = 1
 let g:subversivePreserveCursorPosition = 1
 onoremap ie :exec "normal! ggVG"<cr>
