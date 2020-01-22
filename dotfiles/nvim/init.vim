@@ -7,6 +7,7 @@ scriptencoding utf-8
 cal plug#begin('~/.local/share/nvim/plugins')
 
 " BASICS
+Plug 'RRethy/vim-illuminate'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
@@ -110,6 +111,11 @@ fu! Format()
     cal winrestview(l:save)
 endf
 nn <silent> <leader>gf :cal Format()<cr>
+
+" ILLUMINATE
+hi illuminatedWord cterm=bold ctermfg=yellow
+let g:Illuminate_ftwhitelist = ['python']
+let g:Illuminate_ftHighlightGroups = { 'python': [''] }
 
 " JEDI
 hi function     ctermbg=none ctermfg=blue
