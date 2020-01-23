@@ -49,7 +49,7 @@ cal plug#end()
 
 " APPEARANCE
 au default bufwritepost * GitGutter
-au default filetype gitcommit,tex setl spell
+au default filetype gitcommit,markdown,tex setl spell
 colorscheme nord
 hi comment       cterm=italic
 hi cursorlinenr  ctermfg=none
