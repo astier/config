@@ -51,23 +51,25 @@ cal plug#end()
 au default bufwritepost * GitGutter
 au default filetype gitcommit,tex setl spell
 colorscheme nord
-hi comment      cterm=italic
-hi cursorlinenr ctermfg=none
-hi errormsg     ctermbg=none
-hi number       ctermfg=none
-hi pmenusel     ctermfg=none
-hi search       cterm=bold   ctermbg=none ctermfg=red
-hi statusline   ctermbg=none ctermfg=16
-hi statuslinenc ctermbg=none ctermfg=16
-hi tabline      ctermbg=none ctermfg=8
-hi tablinefill  ctermbg=none
-hi tablinesel   ctermbg=none ctermfg=none
-hi vertsplit    ctermbg=none ctermfg=16
-hi warningmsg   ctermbg=none ctermfg=none
+hi comment       cterm=italic
+hi cursorlinenr  ctermfg=none
+hi errormsg      ctermbg=none
+hi function      ctermfg=none
+hi number        ctermfg=none
+hi pmenusel      ctermfg=none
+hi pythonbuiltin ctermfg=none
+hi search        cterm=bold   ctermbg=none ctermfg=red
+hi statusline    ctermbg=none ctermfg=16
+hi statuslinenc  ctermbg=none ctermfg=16
+hi tabline       ctermbg=none ctermfg=8
+hi tablinefill   ctermbg=none
+hi tablinesel    ctermbg=none ctermfg=none
+hi vertsplit     ctermbg=none ctermfg=16
+hi warningmsg    ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 se fillchars+=eob:\ ,vert:\▏,fold:-,stl:_,stlnc:_
-se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 se noruler noshowcmd noshowmode
+se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 
 " BUFFERS
 au default bufenter,focusgained * checkt
