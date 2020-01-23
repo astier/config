@@ -7,6 +7,7 @@ scriptencoding utf-8
 cal plug#begin('~/.local/share/nvim/plugins')
 
 " GENERAL EDITING, OBJECTS, NAVIGATION
+Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
 Plug 'andrewradev/switch.vim'
 Plug 'cohama/lexima.vim'
@@ -18,10 +19,9 @@ Plug 'rhysd/clever-f.vim'
 Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 
-" IDE, LSP, LANGUAGE-SPECIFIC
+" LANGUAGE-SPECIFIC
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
-Plug 'airblade/vim-gitgutter'
-Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
