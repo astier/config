@@ -19,13 +19,11 @@ Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 
 " IDE, LSP, LANGUAGE-SPECIFIC
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'airblade/vim-gitgutter'
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " USER-INTERFACE
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
@@ -90,19 +88,17 @@ xn <c-c> "+y
 xn <c-x> "+d
 
 " COMPLETION
-cal deoplete#custom#option({
-    \ 'min_pattern_length': 1,
-    \ 'max_list': 8,
-    \ 'num_processes': -1,
-    \ 'ignore_sources': { '_': ['around', 'member'] },
-    \ })
-cal deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
-cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#enable_typeinfo = 0
-let g:deoplete#sources#jedi#ignore_private_members = 1
-se completeopt=menuone,noinsert
-se shortmess+=c
+let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
+nm <leader>rn <plug>(coc-rename)
+nm <silent> gd <plug>(coc-definition)zz
+nm <silent> gr <plug>(coc-references)
+nn <silent> K :cal <sid>show_documentation()<cr>
+fu! s:show_documentation()
+    if index(['vim','help'], &filetype) >= 0
+        exe 'h '.expand('<cword>')
+    el | cal CocAction('doHover') | en
+endf
+se completeopt=menuone,noinsert shortmess+=c
 
 " FORMAT
 fu! Format()
@@ -113,20 +109,6 @@ fu! Format()
     cal winrestview(l:save)
 endf
 nn <silent> <leader>gf :cal Format()<cr>
-
-" JEDI
-hi function     ctermbg=none ctermfg=blue
-hi jedifat      ctermbg=none ctermfg=red
-hi jedifunction ctermbg=none ctermfg=white
-hi none         ctermbg=none ctermfg=white
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#completions_enabled = 0
-let g:jedi#show_call_signatures = 2
-let g:jedi#smart_auto_mappings = 1
-let g:jedi#goto_assignments_command = '<leader>ja'
-let g:jedi#goto_command = '<leader>jd'
-let g:jedi#goto_stubs_command = '<leader>js'
-let g:jedi#rename_command = '<leader>jr'
 
 " KILL
 nn <silent> <leader>c :clo<cr>
