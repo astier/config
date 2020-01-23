@@ -223,8 +223,10 @@ xm <leader>rc <plug>(SubversiveSubstituteRangeConfirm)
 nm <leader>rcc <plug>(SubversiveSubstituteWordRangeConfirm)
 let g:subversivePromptWithCurrent = 1
 let g:subversivePreserveCursorPosition = 1
-onoremap ie :exec "normal! ggVG"<cr>
-onoremap iv :exec "normal! HVL"<cr>
+xn ie <esc>ggVG
+xn iv <esc>HVL
+ono ie :exe "norm! ggVG"<cr>
+ono iv :exe "norm! HVL"<cr>
 
 " TAGBAR
 let g:tagbar_autofocus = 1
