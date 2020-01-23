@@ -45,6 +45,7 @@ Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
 Plug 'tpope/vim-sleuth'
 Plug 'yunake/vimux'
 Plug 'yuttie/comfortable-motion.vim'
+Plug 'zhimsel/vim-stay'
 
 cal plug#end()
 
@@ -176,6 +177,7 @@ se expandtab shiftwidth=4 tabstop=4
 se foldmethod=manual
 se mouse=a notimeout
 se scrolloff=4
+se viewoptions=cursor,folds
 
 " COMFORTABLE-MOTION
 nn <silent> <C-d> :call comfortable_motion#flick(100)<cr>
@@ -225,12 +227,6 @@ om aa <plug>SidewaysArgumentTextobjA
 om ia <plug>SidewaysArgumentTextobjI
 xm aa <plug>SidewaysArgumentTextobjA
 xm ia <plug>SidewaysArgumentTextobjI
-
-" STATE
-set viewoptions=cursor,folds
-aug state | au! | aug en
-au state bufwinleave * sil! mkvie
-au state bufwinenter * sil! lo
 
 " SUBVERSIVE
 nm s <plug>(SubversiveSubstitute)
