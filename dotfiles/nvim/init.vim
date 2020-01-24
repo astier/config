@@ -6,7 +6,7 @@ scriptencoding utf-8
 " PLUGINS
 cal plug#begin('~/.local/share/nvim/plugins')
 
-" GENERAL EDITING, OBJECTS, NAVIGATION
+" GENERAL EDITING
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
 Plug 'andrewradev/switch.vim'
@@ -19,7 +19,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 
-" IDE, LSP, LANGUAGE-SPECIFIC
+" LANGUAGE SPECIFIC
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neopairs.vim', { 'for': 'python' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
@@ -28,7 +28,7 @@ Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 
-" USER-INTERFACE
+" USER INTERFACE
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files'] }
