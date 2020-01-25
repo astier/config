@@ -26,6 +26,7 @@ Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
+Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 
 " USER INTERFACE
@@ -236,6 +237,15 @@ om aa <plug>SidewaysArgumentTextobjA
 om ia <plug>SidewaysArgumentTextobjI
 xm aa <plug>SidewaysArgumentTextobjA
 xm ia <plug>SidewaysArgumentTextobjI
+
+" SLIME
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{bottom}"}
+let g:slime_dont_ask_default = 1
+let g:slime_no_mappings = 1
+let g:slime_paste_file = "/tmp/slime"
+let g:slime_target = "tmux"
+nmap <leader><leader> <Plug>SlimeParagraphSend
+xmap <leader><leader> <Plug>SlimeRegionSend
 
 " SUBVERSIVE
 nm s <plug>(SubversiveSubstitute)
