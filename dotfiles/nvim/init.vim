@@ -8,8 +8,6 @@ cal plug#begin('~/.local/share/nvim/plugins')
 
 " GENERAL EDITING
 Plug 'airblade/vim-gitgutter'
-Plug 'andrewradev/sideways.vim'
-Plug 'andrewradev/switch.vim'
 Plug 'cohama/lexima.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich'
@@ -23,6 +21,8 @@ Plug 'tpope/vim-commentary'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neopairs.vim', { 'for': 'python' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
+Plug 'andrewradev/sideways.vim', { 'for': ['python'] }
+Plug 'andrewradev/switch.vim', { 'for': ['python'] }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
@@ -284,7 +284,6 @@ let g:VimuxUseNearest = 0
 nn <silent> <leader>l :cal VimuxRunCommand('clear; lint ' . bufname('%'))<cr>
 nn <silent> <leader>a :cal VimuxRunCommand('clear; execute ' . bufname('%'))<cr>
 au default filetype tex nn <silent> <leader>a :VimtexCompile<cr>
-nn <silent> <leader>v :cal VimuxZoomRunner()<cr>
 nn <silent> <leader>x :VimuxCloseRunner<cr>
 
 " VIMTEX
