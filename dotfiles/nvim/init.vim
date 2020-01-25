@@ -31,7 +31,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 " USER INTERFACE
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files'] }
+Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -77,8 +77,8 @@ se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 " BUFFERS
 au default bufenter,focusgained * checkt
 au default textchanged,insertleave * nested sil up
-nn <silent> <leader>F :Files<cr>
-nn <silent> <leader>f :Buffers<cr>
+nn <silent> <leader>b :Buffers<cr>
+nn <silent> <leader>f :Files<cr>
 nn <silent> <a-tab> :bp<cr>
 nn <silent> <tab> :bn<cr>
 se confirm noswapfile
@@ -265,7 +265,8 @@ let g:tagbar_silent = 1
 let g:tagbar_sort = 0
 hi tagbarhighlight cterm=none ctermbg=none ctermfg=8
 hi tagbarkind      cterm=none ctermbg=none ctermfg=green
-nn <silent> <leader>t :TagbarToggle<cr>
+nn <silent> <leader>T :TagbarToggle<cr>
+nn <silent> <leader>t :Tags<cr>
 
 " VIMUX
 let g:VimuxHeight = '35'
@@ -277,6 +278,7 @@ nn <silent> <leader>v :cal VimuxZoomRunner()<cr>
 nn <silent> <leader>x :VimuxCloseRunner<cr>
 
 " VIMTEX
+au filetype tex nnoremap <leader>t :cal vimtex#fzf#run()<cr>
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
