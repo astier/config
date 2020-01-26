@@ -36,6 +36,7 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+Plug 'wincent/ferret', { 'on': ['Ack', 'Back'] }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 " MISC
@@ -177,6 +178,7 @@ nn Q <nop>
 
 " MISC-SETTINGS
 au default bufenter * se formatoptions-=cro
+let g:FerretMap = 0
 let g:lexima_enable_endwise_rules = 0
 let g:rooter_silent_chdir = 1
 let g:switch_mapping = '<leader>gs'
