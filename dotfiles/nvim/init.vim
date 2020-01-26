@@ -14,6 +14,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rhysd/clever-f.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 
@@ -25,7 +26,6 @@ Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neopairs.vim', { 'for': 'python' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 
