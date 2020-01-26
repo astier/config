@@ -1201,7 +1201,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(swapescape)" {
     key <AC07> { type= "FOUR_LEVEL_ALPHABETIC", symbols[Group1]= [ j, J, idiaeresis, Idiaeresis ] };
     key <AC08> { type= "FOUR_LEVEL_ALPHABETIC", symbols[Group1]= [ k, K, oe, OE ] };
     key <AC09> { type= "FOUR_LEVEL_ALPHABETIC", symbols[Group1]= [ l, L, oslash, Oslash ] };
-    key <AC10> { type= "FOUR_LEVEL", symbols[Group1]= [ Return, NoSymbol, NoSymbol, NoSymbol ] };
+    key <AC10> { type= "FOUR_LEVEL", symbols[Group1]= [ Escape, NoSymbol, NoSymbol, NoSymbol ] };
     key <AC11> { type= "FOUR_LEVEL", symbols[Group1]= [ apostrophe, quotedbl, dead_acute, dead_diaeresis ] };
     key <AD01> { type= "FOUR_LEVEL_ALPHABETIC", symbols[Group1]= [ q, Q, adiaeresis, Adiaeresis ] };
     key <AD02> { type= "FOUR_LEVEL_ALPHABETIC", symbols[Group1]= [ w, W, aring, Aring ] };
@@ -1231,7 +1231,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(swapescape)" {
     key <ALT> { [ NoSymbol, Alt_L ] };
     key <BKSL> { type= "FOUR_LEVEL", symbols[Group1]= [ backslash, bar, notsign, brokenbar ] };
     key <BKSP> { [ BackSpace, BackSpace ] };
-    key <CAPS> { [ Escape ] };
+    key <CAPS> { [ Control_L ] };
     key <COMP> { [ Menu ] };
     key <COPY> { [ XF86Copy ] };
     key <CUT> { [ XF86Cut ] };
@@ -1370,7 +1370,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(swapescape)" {
     key <KPMU> { type= "CTRL+ALT", symbols[Group1]= [ KP_Multiply, KP_Multiply, KP_Multiply, KP_Multiply, XF86ClearGrab ] };
     key <KPSU> { type= "CTRL+ALT", symbols[Group1]= [ KP_Subtract, KP_Subtract, KP_Subtract, KP_Subtract, XF86Prev_VMode ] };
     key <LALT> { [ Alt_L, Meta_L ] };
-    key <LCTL> { [ Control_L ] };
+    key <LCTL> { [ colon ] };
     key <LEFT> { [ Left ] };
     key <LFSH> { [ Shift_L ] };
     key <LNFD> { [ Linefeed ] };
@@ -1389,11 +1389,11 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(swapescape)" {
     key <PGUP> { [ Prior ] };
     key <POWR> { [ XF86PowerOff ] };
     key <PROP> { [ SunProps ] };
-    key <PRSC> { type= "PC_ALT_LEVEL2", symbols[Group1]= [ semicolon, NoSymbol ] };
+    key <PRSC> { type= "PC_ALT_LEVEL2", symbols[Group1]= [ colon, NoSymbol ] };
     key <RALT> { type= "ONE_LEVEL", symbols[Group1]= [ ISO_Level3_Shift ] };
-    key <RCTL> { [ Control_R ] };
+    key <RCTL> { [ semicolon ] };
     key <RGHT> { [ Right ] };
-    key <RTRN> { [ colon ] };
+    key <RTRN> { [ Return ] };
     key <RTSH> { [ Shift_R ] };
     key <RWIN> { [ Super_R ] };
     key <SCLK> { [ Scroll_Lock ] };
@@ -1407,7 +1407,7 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(swapescape)" {
     key <VOL+> { [ XF86AudioRaiseVolume ] };
     key <VOL-> { [ XF86AudioLowerVolume ] };
 
-    modifier_map Control { <LCTL> };
+    modifier_map Control { <CAPS> };
     modifier_map Control { <RCTL> };
     modifier_map Lock { <ESC> };
     modifier_map Mod1 { <LALT> };
