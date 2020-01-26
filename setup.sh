@@ -18,6 +18,7 @@ link git ~/.config
 link gtk-3.0 ~/.config
 link inputrc ~/.config
 link iptables.rules /etc/iptables
+link ipython/ipython_config.py ~/.config/ipython/profile_default
 link mkinitcpio.conf /etc
 link nvim ~/.config
 link pacman ~/.config
