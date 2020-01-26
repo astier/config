@@ -1,4 +1,5 @@
-# Configuration file for ipython.
+c.TerminalInteractiveShell.editing_mode = 'vi'
+c.TerminalIPythonApp.display_banner = False
 
 #------------------------------------------------------------------------------
 # InteractiveShellApp(Configurable) configuration
@@ -122,9 +123,6 @@
 #------------------------------------------------------------------------------
 # TerminalIPythonApp(BaseIPythonApplication,InteractiveShellApp) configuration
 #------------------------------------------------------------------------------
-
-## Whether to display a banner upon starting IPython.
-#c.TerminalIPythonApp.display_banner = True
 
 ## If a command or file is given via the command-line, e.g. 'ipython foo.py',
 #  start an interactive shell after executing the file or command.
@@ -291,9 +289,6 @@
 #  'readlinelike'. These options are for `prompt_toolkit`, see `prompt_toolkit`
 #  documentation for more information.
 #c.TerminalInteractiveShell.display_completions = 'multicolumn'
-
-## Shortcut style to use at the prompt. 'vi' or 'emacs'.
-#c.TerminalInteractiveShell.editing_mode = 'emacs'
 
 ## Set the editor used by IPython (default to $EDITOR/vi/notepad).
 #c.TerminalInteractiveShell.editor = 'nvim'
