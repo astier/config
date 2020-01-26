@@ -19,8 +19,8 @@ Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 
 " LANGUAGE SPECIFIC
-Plug 'andrewradev/sideways.vim', { 'for': ['python'] }
-Plug 'andrewradev/switch.vim', { 'for': ['python'] }
+Plug 'andrewradev/sideways.vim', { 'for': 'python' }
+Plug 'andrewradev/switch.vim', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
