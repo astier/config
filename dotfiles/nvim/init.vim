@@ -18,9 +18,6 @@ Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 
 " LANGUAGE SPECIFIC
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neopairs.vim', { 'for': 'python' }
-Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'andrewradev/sideways.vim', { 'for': ['python'] }
 Plug 'andrewradev/switch.vim', { 'for': ['python'] }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
@@ -28,15 +25,18 @@ Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neopairs.vim', { 'for': 'python' }
+Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 
 " USER INTERFACE
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 " MISC
 Plug 'airblade/vim-rooter'
@@ -112,7 +112,7 @@ cal deoplete#custom#source('_', 'matchers', [
 cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
 let g:deoplete#sources#jedi#ignore_private_members = 1
 se completeopt=menuone,noinsert
-se shortmess+=c
+se infercase shortmess+=c
 
 " FORMAT
 fu! Format()
@@ -160,9 +160,10 @@ let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/bin/python'
 
 " MISC-MAPPINGS
-nn <silent> gs vip:sort u<cr>
-xn <silent> gs :sort u<cr>
+nn <silent> gs vip:sort iu<cr>
+xn <silent> gs :sort iu<cr>
 nm ga <plug>(EasyAlign)
+xn . :norm.<cr>
 xm ga <plug>(EasyAlign)
 nm <leader>i <leader>hp
 nm <leader>u <leader>hu
@@ -176,24 +177,26 @@ nn Q <nop>
 
 " MISC-SETTINGS
 au default bufenter * se formatoptions-=cro
-let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 let g:lexima_enable_endwise_rules = 0
 let g:rooter_silent_chdir = 1
 let g:switch_mapping = '<leader>gs'
 let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 se commentstring=//\ %s
+se diffopt=filler,internal,algorithm:histogram,indent-heuristic
 se expandtab shiftwidth=4 tabstop=4
 se foldmethod=manual
+se gdefault
 se mouse=a notimeout
 se scrolloff=4
 se viewoptions=cursor,folds
 
 " COMFORTABLE-MOTION
-nn <silent> <C-d> :call comfortable_motion#flick(100)<cr>
-nn <silent> <C-u> :call comfortable_motion#flick(-100)<cr>
-nn <silent> <C-f> :call comfortable_motion#flick(200)<cr>
-nn <silent> <C-b> :call comfortable_motion#flick(-200)<cr>
+nn <silent> <c-d> :cal comfortable_motion#flick(100)<cr>
+nn <silent> <c-u> :cal comfortable_motion#flick(-100)<cr>
+nn <silent> <c-f> :cal comfortable_motion#flick(200)<cr>
+nn <silent> <c-b> :cal comfortable_motion#flick(-200)<cr>
 
 " NERDTREE
 au default stdinreadpre * let s:std_in=1
@@ -239,11 +242,11 @@ xm aa <plug>SidewaysArgumentTextobjA
 xm ia <plug>SidewaysArgumentTextobjI
 
 " SLIME
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{bottom}"}
+let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{bottom}'}
 let g:slime_dont_ask_default = 1
 let g:slime_no_mappings = 1
-let g:slime_paste_file = "/tmp/slime"
-let g:slime_target = "tmux"
+let g:slime_paste_file = '/tmp/slime'
+let g:slime_target = 'tmux'
 nmap <leader><leader> <Plug>SlimeParagraphSend
 xmap <leader><leader> <Plug>SlimeRegionSend
 
@@ -321,13 +324,14 @@ nn <silent> <a-k> :TmuxNavigateUp<cr>
 nn <silent> <a-l> :TmuxNavigateRight<cr>
 se splitbelow splitright
 
-" WRAP
-nn $ g$
-nn 0 g0
-nn j gj
-nn k gk
-xn $ g$
-xn 0 g0
-xn j gj
-xn k gk
+" WRAP (https://bluz71.github.io/2017/05/15/vim-tips-tricks.html)
+nn <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nn <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+nn <expr> $ v:count ? (v:count > 5 ? "m'" . v:count : '') . '$' : 'g$'
+nn <expr> 0 v:count ? (v:count > 5 ? "m'" . v:count : '') . '0' : 'g0'
+xn <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+xn <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+xn <expr> $ v:count ? (v:count > 5 ? "m'" . v:count : '') . '$' : 'g$'
+xn <expr> 0 v:count ? (v:count > 5 ? "m'" . v:count : '') . '0' : 'g0'
 se breakindent linebreak
+se showbreak=↳
