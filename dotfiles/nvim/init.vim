@@ -32,11 +32,8 @@ Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'wincent/ferret', { 'on': ['Ack', 'Back'] }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 " MISC
 Plug 'airblade/vim-rooter'
