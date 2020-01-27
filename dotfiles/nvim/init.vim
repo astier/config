@@ -26,7 +26,6 @@ Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'Shougo/neopairs.vim', { 'for': 'python' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 
 " USER INTERFACE
@@ -109,15 +108,13 @@ cal deoplete#custom#option({
     \ 'max_list': 8,
     \ 'num_processes': 1,
     \ })
-cal deoplete#custom#source('_', 'converters', [
-    \ 'converter_auto_paren',
-    \ ])
 cal deoplete#custom#source('_', 'matchers', [
     \ 'matcher_fuzzy',
     \ 'matcher_head',
     \ 'matcher_length',
     \ ])
 cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
+let g:deoplete#sources#jedi#enable_typeinfo = 0
 let g:deoplete#sources#jedi#ignore_private_members = 1
 se completeopt=menuone,noinsert
 se infercase shortmess+=c
