@@ -107,7 +107,6 @@ au insertenter * cal deoplete#enable()
 cal deoplete#custom#option({
     \ 'ignore_sources': { '_': ['around', 'member'] },
     \ 'max_list': 8,
-    \ 'min_pattern_length': 1,
     \ 'num_processes': 1,
     \ })
 cal deoplete#custom#source('_', 'converters', [
