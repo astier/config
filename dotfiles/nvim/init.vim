@@ -334,7 +334,5 @@ nn <expr> $ v:count ? (v:count > 5 ? "m'" . v:count : '') . '$' : 'g$'
 nn <expr> 0 v:count ? (v:count > 5 ? "m'" . v:count : '') . '0' : 'g0'
 xn <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
 xn <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
-xn <expr> $ v:count ? (v:count > 5 ? "m'" . v:count : '') . '$' : 'g$'
 xn <expr> 0 v:count ? (v:count > 5 ? "m'" . v:count : '') . '0' : 'g0'
 se breakindent linebreak
-se showbreak=↳
