@@ -25,14 +25,11 @@ herbstclient mouseunbind --all
 herbstclient mousebind $super-B1 resize
 herbstclient set focus_follows_mouse 1
 
-# MOVING
-herbstclient keybind $mod-Control-h shift left
-herbstclient keybind $mod-Control-l shift right
-
 # NAVIGATION
 herbstclient keybind $mod-j cycle -1
 herbstclient keybind $mod-k cycle +1
 herbstclient keybind $mod-l cycle_frame
+herbstclient keybind $mod-Control-l substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID
 
 # RESIZING
 resizestep=0.02
