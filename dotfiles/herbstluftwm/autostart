@@ -48,7 +48,7 @@ herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' m
 herbstclient rule instance~.* index=0
 herbstclient rule instance='java-lang-Thread' pseudotile=on index=1
 herbstclient rule instance='launcher|notification' pseudotile=on
-herbstclient rule instance~'nemo|jetbrains-.*|.*-256color' index=1
+herbstclient rule instance~'nemo|jetbrains-.*|Alacritty' index=1
 herbstclient rule title~'Welcome.*' pseudotile=on index=1
 
 # TAGS

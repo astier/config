@@ -4,7 +4,7 @@ export BROWSER=firefox
 export EDITOR=nvim
 export MANPAGER="nvim -c 'set ft=man' -"
 export PLAYER=mpv
-export TERMINAL=st
+export TERMINAL=alacritty
 
 export FZF_DEFAULT_COMMAND="find . -type f ! -path '*/\.git/*' ! -path '*/tex/*' ! -path '*/\.idea/*' ! -path '*/__pycache__/*' ! -iname '*.png' ! -iname '*.toc' ! -iname '*.fdb_latexmk' ! -iname '*.out' ! -iname '*.log' ! -iname '*.fls' ! -iname '*.gz' ! -iname '*.tox' ! -iname '*.nav' ! -iname '*.snm' ! -iname '*.aux' ! -iname 'tags' ! -iname '*.pdf' | sed 's/^.\///'"
 export FZF_DEFAULT_OPTS="--cycle --multi --reverse --tabstop=4 --color=bg+:-1,fg+:-1,border:#000000,hl:#bf616a,hl+:#bf616a,prompt:#5e81ac,pointer:#a3be8c,marker:#ebcb8b,info:#5e6b85"
