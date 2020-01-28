@@ -16,7 +16,7 @@ herbstclient keybind $mod-d close
 
 # LAYOUTS
 herbstclient keybind $mod-m spawn ~/.config/herbstluftwm/maximize.sh
-herbstclient keybind $mod-p pseudotile toggle
+# herbstclient keybind $mod-p pseudotile toggle
 herbstclient set default_frame_layout 2
 herbstclient set tree_style '╾│ ├└╼─┐'
 
