@@ -9,8 +9,8 @@ mod5 + shift + m
     amixer set Master toggle
 mod5 + f
     $TERMINAL --class launcher -d 32 8 -e launch
-mod5 + s ; {l,p,r,s}
-    {slock,poweroff,reboot,systemctl suspend}
+mod5 + s
+    $TERMINAL --class launcher -d 32 8 -e sys
 mod5 + {a,u,v}
     mpv ~/media/{asmr,music,videos}
 
