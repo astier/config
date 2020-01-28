@@ -30,9 +30,9 @@ herbstclient keybind $mod-Control-h shift left
 herbstclient keybind $mod-Control-l shift right
 
 # NAVIGATION
+herbstclient keybind $mod-j cycle -1
+herbstclient keybind $mod-k cycle +1
 herbstclient keybind $mod-l cycle_frame
-herbstclient keybind $mod-k cycle -1
-herbstclient keybind $mod-j cycle +1
 
 # RESIZING
 resizestep=0.02
