@@ -8,7 +8,7 @@ super + shift + {s,d}
 mod5 + shift + m
     amixer set Master toggle
 mod5 + f
-    launch
+    $TERMINAL --class launcher -d 32 8 -e launch
 mod5 + s ; {l,p,r,s}
     {slock,poweroff,reboot,systemctl suspend}
 mod5 + {a,u,v}
