@@ -1,9 +1,8 @@
 #!/usr/bin/env sh
 
-$BROWSER &
-$TERMINAL -e tmux -f "$TMUXRC" new -As 0 &
 bstatus -l &
 sxhkd &
+wal -l &
 xkbcomp ~/.config/xkb "$DISPLAY"
 
-exec dwm
+exec herbstluftwm -l
