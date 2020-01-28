@@ -8,9 +8,9 @@ super + shift + {s,d}
 mod5 + shift + m
     amixer set Master toggle
 mod5 + f
-    dmenu_run
-mod5 + s
-    sys
+    launch
+mod5 + s ; {l,p,r,s}
+    {slock,poweroff,reboot,systemctl suspend}
 mod5 + {a,u,v}
     mpv ~/media/{asmr,music,videos}
 
