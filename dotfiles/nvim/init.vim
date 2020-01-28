@@ -13,16 +13,14 @@ Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'rhysd/clever-f.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 
 " LANGUAGE SPECIFIC
 Plug 'andrewradev/sideways.vim', { 'for': 'python' }
 Plug 'andrewradev/switch.vim', { 'for': 'python' }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
 Plug 'jpalardy/vim-slime', { 'for': ['python', 'sh'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
@@ -99,20 +97,16 @@ xn <c-c> "+y
 xn <c-x> "+d
 
 " COMPLETION
-au insertenter * cal deoplete#enable()
-cal deoplete#custom#option({
-    \ 'ignore_sources': { '_': ['around', 'member'] },
-    \ 'max_list': 8,
-    \ 'num_processes': 1,
-    \ })
-cal deoplete#custom#source('_', 'matchers', [
-    \ 'matcher_fuzzy',
-    \ 'matcher_head',
-    \ 'matcher_length',
-    \ ])
-cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
-let g:deoplete#sources#jedi#enable_typeinfo = 0
-let g:deoplete#sources#jedi#ignore_private_members = 1
+let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
+nm <leader>rn <plug>(coc-rename)
+nm <silent> gd <plug>(coc-definition)zz
+nm <silent> gr <plug>(coc-references)
+nn <silent> K :cal <sid>show_documentation()<cr>
+fu! s:show_documentation()
+    if index(['vim','help'], &filetype) >= 0
+        exe 'h '.expand('<cword>')
+    el | cal CocAction('doHover') | en
+endf
 se completeopt=menuone,noinsert
 se infercase shortmess+=c
 
