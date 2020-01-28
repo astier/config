@@ -149,14 +149,12 @@ alias vol="alsamixer"
 # PROJECTS
 alias aa="cd ~/projects/arch"
 alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias dm="cd ~/projects/dmenu"
 alias dw="cd ~/projects/dwm"
 alias fj="cd ~/projects"
 alias ft="cd ~/projects/st"
 alias sc="cd ~/projects/scripts"
 alias sf="cd ~/projects/scripts && f"
 alias si="cd ~/projects/sites"
-alias sl="cd ~/projects/slock"
 
 # TMUX
 alias ta="tmux a -t"
