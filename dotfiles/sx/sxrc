@@ -2,7 +2,7 @@
 
 bstatus -l &
 sxhkd &
-wal -l &
+wal &
 xbanish &
 xkbcomp ~/.config/xkb "$DISPLAY"
 
