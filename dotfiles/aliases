@@ -57,6 +57,7 @@ alias gg="\$EDITOR \$g_path && . \$g_path"
 
 # GIT
 k() { n=16; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
 kg() { git log --color --oneline --grep "$1" | fzf --ansi --no-sort | cut -d\  -f1 | xsel -b; }
 krb() { n=8; [ "$1" ] && n=$1; git rebase -i HEAD~"$n"; }
 krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
@@ -67,7 +68,6 @@ alias kam="git commit --amend"
 alias kb="git branch"
 alias kbd="git branch -D"
 alias kbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs -r \$BROWSER"
-alias kcl="git clone"
 alias ki="git init"
 alias kii="git add --all && git commit -m 'Create repository'"
 alias kr="cd \$(git rev-parse --show-toplevel)"
