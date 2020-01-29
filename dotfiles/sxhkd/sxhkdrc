@@ -8,9 +8,9 @@ super + shift + {s,d}
 mod5 + shift + m
     amixer set Master toggle
 mod5 + f
-    $TERMINAL -n launcher -g 32x8 -e launch
+    st -n launcher -g 32x8 launch
 mod5 + s
-    $TERMINAL -n launcher -g 32x8 -e sys
+    st -n launcher -g 32x8 sys
 mod5 + {a,u,v}
     mpv ~/media/{asmr,music,videos}
 
