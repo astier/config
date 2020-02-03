@@ -84,9 +84,9 @@ alias klg="git log --grep"
 alias ks="git status -bs"
 alias kso="clear; git show"
 
-alias kma="git checkout master"
 alias ko="git checkout"
 alias kob="git checkout -b"
+alias kom="git checkout master"
 
 alias kf="git fetch"
 alias km="git merge"
