@@ -1,11 +1,11 @@
-articlelist-title-format "%T"
 articlelist-format "%f %t"
+articlelist-title-format "%T"
 auto-reload yes
-color info black green
-color listfocus black blue
-color listfocus_unread black blue
-feedlist-title-format "FEEDS"
+color info blue default bold
+color listfocus yellow default bold
+color listfocus_unread red default bold
 feedlist-format "%n  %t"
+feedlist-title-format "FEEDS"
 help-title-format "HELP"
 itemview-title-format "%T"
 max-items 8
@@ -17,7 +17,7 @@ bind-key k up
 bind-key j next articlelist
 bind-key k prev articlelist
 bind-key l open
-bind-key q quit
+bind-key h quit
 bind-key g home
 bind-key G end
 bind-key n next-unread
