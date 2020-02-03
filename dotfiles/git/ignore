@@ -10,7 +10,6 @@
 *.orig
 *.out
 *.pdf
-*.png
 *.rej
 *.snm
 *.toc
