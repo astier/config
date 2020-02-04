@@ -25,8 +25,8 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # DOTFILES
-alias al="\$EDITOR ~/projects/dotfiles/dotfiles/aliases"
-alias ba="\$EDITOR ~/projects/dotfiles/dotfiles/.bashrc"
+alias al="\$EDITOR ~/projects/dotfiles/dotfiles/aliases && . ~/projects/dotfiles/dotfiles/aliases"
+alias ba="\$EDITOR ~/projects/dotfiles/dotfiles/.bashrc && . ~/projects/dotfiles/dotfiles/.bashrc"
 alias fx="\$EDITOR ~/projects/dotfiles/dotfiles/sx/sxrc"
 alias iv="\$EDITOR ~/projects/dotfiles/dotfiles/nvim/init.vim"
 alias tm="\$EDITOR ~/projects/dotfiles/dotfiles/tmux.conf"
