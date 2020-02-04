@@ -9,7 +9,7 @@ mod5 + shift + m
     amixer set Master toggle
 mod5 + f
     st -n launcher -g 32x8+800+400 launch
-mod5 + s
+mod5 + S
     st -n launcher -g 32x8+800+400 sys
 mod5 + {a,u,v}
     mpv ~/media/{asmr,music,videos}
