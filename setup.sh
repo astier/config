@@ -17,6 +17,7 @@ link aliases ~/.config
 link feh ~/.config/
 link git ~/.config
 link gtk-3.0 ~/.config
+link herbstluftwm ~/.config
 link inputrc ~/.config
 link iptables.rules /etc/iptables
 link ipython/ipython_config.py ~/.config/ipython/profile_default
