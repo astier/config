@@ -37,6 +37,7 @@ alias db="cd ~/Dropbox"
 alias g="cd ~/Dropbox/uni/rdm/report"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
 alias vm="cd ~/Dropbox/uni/vml/summary"
+alias wl="cd ~/Dropbox/pictures/wallpapers"
 
 # FUNCTIONS
 cd() { if [ $# = 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
