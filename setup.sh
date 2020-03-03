@@ -22,7 +22,6 @@ link inputrc ~/.config
 link iptables.rules /etc/iptables
 link ipython/ipython_config.py ~/.config/ipython/profile_default
 link mkinitcpio.conf /etc
-link newsboat ~/.config/
 link nvim ~/.config
 link pacman ~/.config
 link pacman/pacman.conf /etc
