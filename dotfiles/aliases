@@ -35,6 +35,7 @@ alias fd="cd ~/projects/dotfiles"
 alias db="cd ~/Dropbox"
 alias g="cd ~/Dropbox/uni/rdm/report"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
+alias nn="cd ~/Dropbox/misc"
 alias vm="cd ~/Dropbox/uni/vml/summary"
 alias wl="cd ~/Dropbox/pictures/wallpapers"
 
