@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 bstatus -l &
-picom -b
 sxhkd &
 wal -l &
 xbanish &
