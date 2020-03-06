@@ -19,7 +19,6 @@ link gtk-3.0 ~/.config
 link herbstluftwm ~/.config
 link inputrc ~/.config
 link iptables.rules /etc/iptables
-link mkinitcpio.conf /etc
 link nvim ~/.config
 link pacman ~/.config
 link pacman/pacman.conf /etc
