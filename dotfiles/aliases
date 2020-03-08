@@ -1,26 +1,4 @@
-#!/usr/bin/env bash
-
-[[ $- != *i* ]] && return
-
-# PROMPT
-. ~/.config/git/git-prompt.sh
-NO_COLOR="\[\e[m\]"
-RED="\[\e[31m\]"
-GREEN="\[\e[32m\]"
-njobs() { n=$(jobs | wc -l) && [ "$n" -gt 0 ] && echo " $n"; }
-PS1="${GREEN}[\W\$(__git_ps1 ' %s')${RED}\$(njobs)${GREEN}] ${NO_COLOR}"
-
-# SETTINGS
-set -o vi
-shopt -s autocd
-shopt -s cdspell
-shopt -s checkwinsize
-shopt -s cmdhist
-shopt -s histappend
-
-# SOURCE
-completion=/usr/share/bash-completion/bash_completion
-[ -r $completion ] && . $completion
+#!/usr/bin/env sh
 
 # DEFAULTS
 alias cp='cp -ir'
@@ -28,11 +6,11 @@ alias df="df -h"
 alias du="du -h"
 alias grep="grep --color"
 alias ls="ls --color --group-directories-first -Ah -I __pycache__"
-alias newsboat="newsboat -u ~/Dropbox/misc/newsboat"
 alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
 alias mkdir="mkdir -p"
 alias mount="sudo mount"
 alias mv="mv -i"
+alias newsboat="newsboat -u ~/Dropbox/misc/newsboat"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias tmux="tmux -f \$TMUXRC"
@@ -47,6 +25,7 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # DOTFILES
+alias al="\$EDITOR ~/projects/dotfiles/dotfiles/aliases && . ~/projects/dotfiles/dotfiles/aliases"
 alias ba="\$EDITOR ~/projects/dotfiles/dotfiles/.bashrc && . ~/projects/dotfiles/dotfiles/.bashrc"
 alias fx="\$EDITOR ~/projects/dotfiles/dotfiles/sx/sxrc"
 alias iv="\$EDITOR ~/projects/dotfiles/dotfiles/nvim/init.vim"
@@ -57,8 +36,8 @@ alias fd="cd ~/projects/dotfiles"
 alias db="cd ~/Dropbox"
 alias g="cd ~/Dropbox/uni/rdm/report"
 alias n="\$EDITOR ~/Dropbox/misc/notes"
-alias nn="cd ~/Dropbox/misc"
 alias vm="cd ~/Dropbox/uni/vml/summary"
+alias wl="cd ~/Dropbox/pictures/wallpapers"
 
 # FUNCTIONS
 cd() { if [ $# = 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
@@ -180,10 +159,3 @@ alias ta="tmux a -t"
 alias tk="tmux kill-session -t"
 alias tl="tmux ls"
 t() { s=0; if [ $# -gt 0 ]; then s="$1"; fi; tmux new -As "$s"; }
-
-# HISTORY
-aliases() { alias | cut -d' ' -f2 | cut -d= -f1 | awk 'length<3' | tr '\n' :; }
-functions() { declare -F | cut -d' ' -f3 | awk 'length<3' | tr '\n' :; }
-HISTIGNORE=$(aliases)$(functions)
-HISTCONTROL=ignoreboth:erasedups
-HISTFILE=~/.local/share/bash_history
