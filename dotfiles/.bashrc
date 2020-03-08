@@ -159,13 +159,15 @@ alias r="pkg -r"
 alias re="sudo \$(fc -ln -1)"
 alias s="bstatus"
 alias sf="\$EDITOR /tmp/scratch"
+alias to="touch"
+alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
+alias vol="alsamixer"
+
+# TREE
 alias td="tree -d"
 alias tdf="tree -d \$(dirs | fzf)"
 alias tf="tree"
 alias tff="tree \$(dirs | fzf)"
-alias to="touch"
-alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
-alias vol="alsamixer"
 
 # PROJECTS
 alias aa="cd ~/projects/arch"
