@@ -1,0 +1,11 @@
+[Default Applications]
+application/json=code.desktop
+application/pdf=firefox.desktop
+application/x-shellscript=code-oss.desktop;
+image/jpeg=eog.desktop
+image/png=eog.desktop
+inode/x-empty=code.desktop
+text/plain=code.desktop
+text/x-diff=code.desktop
+text/x-python=code.desktop
+text/x-shellscript=code.desktop
