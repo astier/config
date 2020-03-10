@@ -47,10 +47,11 @@ alias xp="cpm -p"
 
 # DOTFILES
 alias ba="\$EDITOR ~/projects/dotfiles/dotfiles/.bashrc && . ~/projects/dotfiles/dotfiles/.bashrc"
+alias fd="cd ~/projects/dotfiles"
+alias fdf="cd ~/projects/dotfiles && f"
 alias fx="\$EDITOR ~/projects/dotfiles/dotfiles/sx/sxrc"
 alias iv="\$EDITOR ~/projects/dotfiles/dotfiles/nvim/init.vim"
 alias tm="\$EDITOR ~/projects/dotfiles/dotfiles/tmux.conf"
-alias fd="cd ~/projects/dotfiles"
 
 # DROPBOX
 alias db="cd ~/Dropbox"
