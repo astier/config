@@ -137,7 +137,7 @@ let g:jedi#smart_auto_mappings = 1
 nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
 nn <silent> <leader>k :DeleteHiddenBuffers<cr>
-nn <silent> <leader>q :up <bar> :au! tmuxrename<cr> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
+nn <silent> <leader>q :up <bar> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
 nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :Bw<cr>
 
@@ -208,16 +208,6 @@ let g:NERDTreeQuitOnOpen = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
 nn <silent> <leader>e :NERDTreeToggle<cr>
-
-" RENAME TMUX
-fu! RenameTmux()
-    if !(bufname() =~# 'NERD' || bufname() =~# 'Tagbar')
-        cal system('tmux renamew ' . expand('%:t'))
-    en
-endf
-aug tmuxrename | au! | aug en
-au tmuxrename bufenter,focusgained * cal RenameTmux()
-au tmuxrename vimleave * cal system('tmux setw automatic-rename')
 
 " SEARCH
 let g:clever_f_across_no_line = 1
