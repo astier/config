@@ -119,20 +119,6 @@ fu! Format()
 endf
 nn <silent> <leader>gf :cal Format()<cr>
 
-" JEDI
-hi function     ctermbg=none ctermfg=blue
-hi jedifat      ctermbg=none ctermfg=red
-hi jedifunction ctermbg=none ctermfg=white
-hi none         ctermbg=none ctermfg=white
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#completions_enabled = 0
-let g:jedi#goto_assignments_command = ''
-let g:jedi#goto_command = 'gd'
-let g:jedi#goto_stubs_command = ''
-let g:jedi#rename_command = '<leader>jr'
-let g:jedi#show_call_signatures = 2
-let g:jedi#smart_auto_mappings = 1
-
 " KILL
 nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
