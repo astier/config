@@ -43,7 +43,7 @@ herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseud
 herbstclient rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 herbstclient rule instance~.* index=0
-herbstclient rule instance~'nemo|.*Nautilus|jetbrains-.*|JetBrains.*|Alacritty' index=1
+herbstclient rule instance~'nemo|.*Nautilus|jetbrains-.*|JetBrains.*|Alacritty|code-oss' index=1
 herbstclient rule instance~'launcher|notification|jetbrains-.*|JetBrains.*' pseudotile=on
 
 # TAGS
