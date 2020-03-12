@@ -26,7 +26,7 @@ completion=/usr/share/bash-completion/bash_completion
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
-alias grep="grep --color"
+alias grep="grep --color --exclude-dir=.git -n"
 alias ls="ls --color --group-directories-first -Ah -I __pycache__"
 alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
 alias mkdir="mkdir -p"
