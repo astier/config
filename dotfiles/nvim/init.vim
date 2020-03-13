@@ -248,7 +248,7 @@ let g:vimtex_compiler_latexmk = {
     \ }
 
 " WINDOWS
-au default vimenter * cal system('tmux renamew nvim')
+au default bufenter,focusgained * cal system('tmux renamew ' . expand('%:t'))
 au default vimleave * cal system('tmux setw automatic-rename')
 au default vimresized * winc =
 let g:tmux_navigator_no_mappings = 1
