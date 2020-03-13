@@ -13,7 +13,6 @@ cd dotfiles || exit
 link .bash_profile ~
 link .bashrc ~
 link .profile ~
-link alacritty ~/.config
 link aliases ~/.config
 link git ~/.config
 link gtk-3.0 ~/.config

@@ -151,6 +151,7 @@ alias tff="tree \$(dirs | fzf)"
 alias aa="cd ~/projects/arch"
 alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias fj="cd ~/projects"
+alias ft="cd ~/projects/st"
 alias sc="cd ~/projects/scripts"
 alias scf="cd ~/projects/scripts && f"
 
