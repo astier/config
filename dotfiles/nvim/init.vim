@@ -89,6 +89,12 @@ nn <c-x> "+dd
 xn <c-c> "+y
 xn <c-x> "+d
 
+" COMFORTABLE-MOTION
+nn <silent> <c-d> :cal comfortable_motion#flick(100)<cr>
+nn <silent> <c-u> :cal comfortable_motion#flick(-100)<cr>
+nn <silent> <c-f> :cal comfortable_motion#flick(200)<cr>
+nn <silent> <c-b> :cal comfortable_motion#flick(-200)<cr>
+
 " COMPLETION
 let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
 nm <leader>rn <plug>(coc-rename)
@@ -162,12 +168,6 @@ se foldmethod=manual
 se mouse=a notimeout
 se scrolloff=4
 se viewoptions=cursor,folds
-
-" COMFORTABLE-MOTION
-nn <silent> <c-d> :cal comfortable_motion#flick(100)<cr>
-nn <silent> <c-u> :cal comfortable_motion#flick(-100)<cr>
-nn <silent> <c-f> :cal comfortable_motion#flick(200)<cr>
-nn <silent> <c-b> :cal comfortable_motion#flick(-200)<cr>
 
 " SEARCH
 let g:clever_f_across_no_line = 1
