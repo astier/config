@@ -73,8 +73,8 @@ let g:fzf_colors = {
 " BUFFERS
 au default bufenter,focusgained * checkt
 au default textchanged,insertleave * nested sil up
-nn <silent> <leader>b :Buffers<cr>
-nn <silent> <leader>f :Files<cr>
+nn <silent> <leader>b :Buffers!<cr>
+nn <silent> <leader>f :Files!<cr>
 nn <silent> <a-tab> :bp<cr>
 nn <silent> <tab> :bn<cr>
 se confirm noswapfile
