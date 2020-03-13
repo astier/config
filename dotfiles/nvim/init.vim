@@ -28,7 +28,6 @@ Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 
 " USER INTERFACE
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " MISC
 Plug 'airblade/vim-rooter'
@@ -170,21 +169,6 @@ nn <silent> <c-d> :cal comfortable_motion#flick(100)<cr>
 nn <silent> <c-u> :cal comfortable_motion#flick(-100)<cr>
 nn <silent> <c-f> :cal comfortable_motion#flick(200)<cr>
 nn <silent> <c-b> :cal comfortable_motion#flick(-200)<cr>
-
-" NERDTREE
-au default stdinreadpre * let s:std_in=1
-au default vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | winc p | ene | exe 'cd '.argv()[0] | en
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
-let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
-let g:NERDTreeMinimalMenu = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeQuitOnOpen = 2
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeStatusline = ''
-nn <silent> <leader>e :NERDTreeToggle<cr>
 
 " SEARCH
 let g:clever_f_across_no_line = 1
