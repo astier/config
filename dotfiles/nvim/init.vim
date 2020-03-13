@@ -30,7 +30,6 @@ Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'wincent/ferret', { 'on': ['Ack', 'Back'] }
 
 " MISC
 Plug 'airblade/vim-rooter'
@@ -154,7 +153,6 @@ nn Q <nop>
 
 " MISC-SETTINGS
 au default bufenter * se formatoptions-=cro
-let g:FerretMap = 0
 let g:lexima_enable_endwise_rules = 0
 let g:rooter_silent_chdir = 1
 let g:switch_mapping = '<leader>gs'
