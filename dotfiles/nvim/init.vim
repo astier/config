@@ -58,7 +58,7 @@ hi tablinesel    ctermbg=none ctermfg=none
 hi vertsplit     ctermbg=none ctermfg=16
 hi warningmsg    ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
-se fillchars+=eob:\ ,vert:\▏,fold:-,stl:_,stlnc:_
+se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
 se noruler noshowcmd noshowmode
 se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 let g:fzf_colors = {
