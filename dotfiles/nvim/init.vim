@@ -49,7 +49,6 @@ cal plug#end()
 au default bufwritepost * GitGutter
 au default filetype gitcommit,markdown,tex setl spell
 colorscheme nord
-hi comment       cterm=italic
 hi cursorlinenr  ctermfg=none
 hi errormsg      ctermbg=none
 hi function      ctermfg=none
@@ -122,8 +121,6 @@ nn <silent> <leader>gf :cal Format()<cr>
 " KILL
 nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
-nn <silent> <leader>k :DeleteHiddenBuffers<cr>
-nn <silent> <leader>q :up <bar> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
 nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :Bw<cr>
 
@@ -144,8 +141,8 @@ let g:python3_host_prog = '/bin/python'
 nn <silent> gs vip:sort iu<cr>
 xn <silent> gs :sort iu<cr>
 nm ga <plug>(EasyAlign)
-xn . :norm.<cr>
 xm ga <plug>(EasyAlign)
+xn . :norm.<cr>
 nm <leader>i <leader>hp
 nm <leader>u <leader>hu
 nn <c-j> 4<c-e>
@@ -166,10 +163,8 @@ let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 se commentstring=//\ %s
-se diffopt=filler,internal,algorithm:histogram,indent-heuristic
 se expandtab shiftwidth=4 tabstop=4
 se foldmethod=manual
-se gdefault
 se mouse=a notimeout
 se scrolloff=4
 se viewoptions=cursor,folds
@@ -298,12 +293,13 @@ nn <silent> <a-k> :TmuxNavigateUp<cr>
 nn <silent> <a-l> :TmuxNavigateRight<cr>
 se splitbelow splitright
 
-" WRAP (https://bluz71.github.io/2017/05/15/vim-tips-tricks.html)
-nn <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
-nn <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
-nn <expr> $ v:count ? (v:count > 5 ? "m'" . v:count : '') . '$' : 'g$'
-nn <expr> 0 v:count ? (v:count > 5 ? "m'" . v:count : '') . '0' : 'g0'
-xn <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
-xn <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
-xn <expr> 0 v:count ? (v:count > 5 ? "m'" . v:count : '') . '0' : 'g0'
+" WRAP
+nn $ g$
+nn 0 g0
+nn j gj
+nn k gk
+xn $ g$
+xn 0 g0
+xn j gj
+xn k gk
 se breakindent linebreak
