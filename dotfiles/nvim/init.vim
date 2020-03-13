@@ -122,7 +122,7 @@ nn <silent> <leader>gf :cal Format()<cr>
 " KILL
 nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
-nn <silent> <leader>q :up <bar> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
+nn <silent> <leader>q :up <bar> :au! tmuxrename<cr> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
 nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :Bw<cr>
 
@@ -215,6 +215,16 @@ xn iv <esc>HVL
 ono ie :exe "norm! ggVG"<cr>
 ono iv :exe "norm! HVL"<cr>
 
+" TMUXRENAME
+fu! RenameTmux()
+    if !(bufname() =~# 'NERD' || bufname() =~# 'Tagbar')
+        cal system('tmux renamew ' . expand('%:t'))
+    en
+endf
+aug tmuxrename | au! | aug en
+au tmuxrename bufenter,focusgained * cal RenameTmux()
+au tmuxrename vimleave * cal system('tmux setw automatic-rename')
+
 " VIMUX
 let g:VimuxHeight = '35'
 let g:VimuxUseNearest = 0
@@ -250,8 +260,6 @@ let g:vimtex_compiler_latexmk = {
     \ }
 
 " WINDOWS
-au default bufenter,focusgained * cal system('tmux renamew ' . expand('%:t'))
-au default vimleave * cal system('tmux setw automatic-rename')
 au default vimresized * winc =
 let g:tmux_navigator_no_mappings = 1
 nn <silent> <a-h> :TmuxNavigateLeft<cr>
