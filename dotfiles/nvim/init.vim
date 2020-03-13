@@ -28,7 +28,6 @@ Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 
 " USER INTERFACE
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " MISC
@@ -231,19 +230,6 @@ xn ie <esc>ggVG
 xn iv <esc>HVL
 ono ie :exe "norm! ggVG"<cr>
 ono iv :exe "norm! HVL"<cr>
-
-" TAGBAR
-let g:tagbar_autofocus = 1
-let g:tagbar_compact = 1
-let g:tagbar_iconchars = ['▸', '▾']
-let g:tagbar_indent = 1
-let g:tagbar_map_showproto = 'd'
-let g:tagbar_silent = 1
-let g:tagbar_sort = 0
-hi tagbarhighlight cterm=none ctermbg=none ctermfg=8
-hi tagbarkind      cterm=none ctermbg=none ctermfg=green
-nn <silent> <leader>T :TagbarToggle<cr>
-nn <silent> <leader>t :Tags<cr>
 
 " VIMUX
 let g:VimuxHeight = '35'
