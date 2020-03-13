@@ -12,11 +12,10 @@ Plug 'cohama/lexima.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'nelstrom/vim-visual-star-search'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'rhysd/clever-f.vim'
 Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'
 
 " LANGUAGE SPECIFIC
 Plug 'andrewradev/sideways.vim', { 'for': 'python' }
@@ -26,15 +25,14 @@ Plug 'jpalardy/vim-slime', { 'for': ['python', 'sh'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 
-" USER INTERFACE
-Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
-
 " MISC
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
-Plug 'tpope/vim-sleuth'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'rhysd/clever-f.vim'
 Plug 'yunake/vimux'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'zhimsel/vim-stay'
