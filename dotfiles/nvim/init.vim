@@ -35,7 +35,6 @@ Plug 'wincent/ferret', { 'on': ['Ack', 'Back'] }
 " MISC
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'arithran/vim-delete-hidden-buffers'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
 Plug 'tpope/vim-sleuth'
