@@ -1407,14 +1407,14 @@ xkb_symbols "pc+us(altgr-intl)+inet(evdev)+capslock(swapescape)" {
     key <VOL+> { [ XF86AudioRaiseVolume ] };
     key <VOL-> { [ XF86AudioLowerVolume ] };
 
-    modifier_map Control { <LCTL> };
+    modifier_map Control { <LWIN> };
     modifier_map Control { <RCTL> };
     modifier_map Lock { <ESC> };
     modifier_map Mod1 { <LALT> };
     modifier_map Mod1 { <META> };
     modifier_map Mod2 { <NMLK> };
     modifier_map Mod4 { <HYPR> };
-    modifier_map Mod4 { <LWIN> };
+    modifier_map Mod4 { <LCTL> };
     modifier_map Mod4 { <RWIN> };
     modifier_map Mod4 { <SUPR> };
     modifier_map Mod5 { <LVL3> };
