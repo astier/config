@@ -156,6 +156,7 @@ alias ft="cd ~/projects/st"
 alias sc="cd ~/projects/scripts"
 alias scf="cd ~/projects/scripts && f"
 alias si="cd ~/projects/sites"
+alias vl="cd ~/projects/vlugins"
 
 # TMUX
 alias ta="tmux a -t"
