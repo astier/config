@@ -31,7 +31,6 @@ Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'yunake/vimux'
-Plug 'yuttie/comfortable-motion.vim'
 Plug 'zhimsel/vim-stay'
 
 cal plug#end()
@@ -87,12 +86,6 @@ nn <c-x> "+dd
 xn <c-c> "+y
 xn <c-x> "+d
 
-" COMFORTABLE-MOTION
-nn <silent> <c-d> :cal comfortable_motion#flick(100)<cr>
-nn <silent> <c-u> :cal comfortable_motion#flick(-100)<cr>
-nn <silent> <c-f> :cal comfortable_motion#flick(200)<cr>
-nn <silent> <c-b> :cal comfortable_motion#flick(-200)<cr>
-
 " COMPLETION
 let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
 nm <leader>rn <plug>(coc-rename)
@@ -145,8 +138,8 @@ nm ga <plug>(EasyAlign)
 xm ga <plug>(EasyAlign)
 xn . :norm.<cr>
 nm <leader>u <leader>hu
-nn <c-j> 4<c-e>
-nn <c-k> 4<c-y>
+nn <c-f> 4<c-e>
+nn <c-d> 4<c-y>
 nm gcp gcip
 nn cp cip
 nn dp dap
