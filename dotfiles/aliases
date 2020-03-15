@@ -40,7 +40,7 @@ alias nn="cd ~/Dropbox/misc"
 alias vm="cd ~/Dropbox/uni/vml/summary"
 
 # FUNCTIONS
-cd() { if [ $# = 0 ]; then builtin cd && ls; else builtin cd "$@" && ls; fi }
+cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
 dirs() { find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///'; }
 f() { if [ -d "$1" ]; then cd "$1" || return; else open "$@"; fi; }
