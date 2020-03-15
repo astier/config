@@ -28,6 +28,7 @@ Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
 " MISC
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
+Plug 'arithran/vim-delete-hidden-buffers'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
@@ -122,6 +123,7 @@ nn <silent> <leader>gf :cal Format()<cr>
 " KILL
 nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
+nn <silent> <leader>k :DeleteHiddenBuffers<cr>
 nn <silent> <leader>q :bw<cr>
 nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :Bw<cr>
