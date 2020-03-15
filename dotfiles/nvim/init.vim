@@ -6,34 +6,29 @@ scriptencoding utf-8
 " PLUGINS
 cal plug#begin('~/.local/share/nvim/plugins')
 
-" GENERAL EDITING
 Plug 'airblade/vim-gitgutter'
-Plug 'cohama/lexima.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'machakann/vim-sandwich'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'svermeulen/vim-subversive'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sleuth'
-
-" LANGUAGE SPECIFIC
+Plug 'airblade/vim-rooter'
 Plug 'andrewradev/sideways.vim', { 'for': 'python' }
 Plug 'andrewradev/switch.vim', { 'for': 'python' }
-Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
-Plug 'jpalardy/vim-slime', { 'for': ['python', 'sh'] }
-Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
-
-" MISC
-Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'arithran/vim-delete-hidden-buffers'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'cohama/lexima.vim'
+Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
+Plug 'jpalardy/vim-slime', { 'for': ['python', 'sh'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
+Plug 'junegunn/vim-easy-align'
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'machakann/vim-sandwich'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'rhysd/clever-f.vim'
+Plug 'SirVer/ultisnips', { 'for': ['python', 'sh', 'snippets', 'tex', 'vim'] }
+Plug 'svermeulen/vim-subversive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'
 Plug 'yunake/vimux'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'zhimsel/vim-stay'
