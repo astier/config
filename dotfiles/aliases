@@ -25,7 +25,7 @@ alias xp="cpm -p"
 
 # DOTFILES
 alias al=" \$EDITOR ~/.config/aliases && . ~/.config/aliases"
-alias ba="\$EDITOR ~/.config/.bashrc && . ~/.config/.bashrc"
+alias ba="\$EDITOR ~/.bashrc && . ~/.bashrc"
 alias fd="cd ~/projects/dotfiles"
 alias fdf="cd ~/projects/dotfiles && f"
 alias fx="\$EDITOR ~/.config/sx/sxrc"
