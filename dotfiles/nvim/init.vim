@@ -158,7 +158,6 @@ let g:rooter_silent_chdir = 1
 let g:switch_mapping = '<leader>gs'
 let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
-let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a notimeout
@@ -205,6 +204,11 @@ let g:slime_paste_file = '/tmp/slime'
 let g:slime_target = 'tmux'
 nmap <leader><leader> <Plug>SlimeParagraphSend
 xmap <leader><leader> <Plug>SlimeRegionSend
+
+" SNIPPETS
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 
 " SUBVERSIVE
 nm s <plug>(SubversiveSubstitute)
