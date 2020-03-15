@@ -122,7 +122,7 @@ nn <silent> <leader>gf :cal Format()<cr>
 " KILL
 nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
-nn <silent> <leader>q :up <bar> :au! tmuxrename<cr> :cal VimuxCloseRunner() <bar> :cal system('tmux killp \; selectl -E')<cr>
+nn <silent> <leader>q :bw<cr>
 nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :Bw<cr>
 
@@ -145,11 +145,9 @@ xn <silent> gs :sort iu<cr>
 nm ga <plug>(EasyAlign)
 xm ga <plug>(EasyAlign)
 xn . :norm.<cr>
-nm <leader>i <leader>hp
 nm <leader>u <leader>hu
 nn <c-j> 4<c-e>
 nn <c-k> 4<c-y>
-nn <cr> o<esc>
 nm gcp gcip
 nn cp cip
 nn dp dap
@@ -165,10 +163,8 @@ let g:tex_no_error = 1
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
 se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
-se foldmethod=manual
 se mouse=a notimeout
-se scrolloff=4
-se viewoptions=cursor,folds
+se viewoptions=cursor
 
 " SEARCH
 let g:clever_f_across_no_line = 1
