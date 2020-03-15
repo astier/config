@@ -3,76 +3,69 @@ def fix_indent(snip):
     vim.eval('feedkeys("\<c-f>")')
 endglobal
 
-snippet a "autoref"
-\autoref{$1}
+snippet a "autoref" w
+\autoref{$0}
 endsnippet
 
-snippet em "emph"
-\emph{$1}
+snippet em "emph" w
+\emph{$0}
 endsnippet
 
-snippet p "paragraph" b
-\paragraph{$1}
+snippet p "paragraph" bA
+\paragraph{$0}
 endsnippet
 
 snippet s "section" b
-\section{$1}
+\section{$0}
 endsnippet
 
 snippet ss "subsection" b
-\subsection{$1}
+\subsection{$0}
 endsnippet
 
-snippet sss "subsubsection" b
-\subsubsection{$1}
+snippet sss "subsubsection" bA
+\subsubsection{$0}
 endsnippet
 
 post_expand "fix_indent(snip)"
-snippet i "item" b
-\item $1
+snippet ii "item" bA
+\item $0
 endsnippet
 
-snippet it "itemize" b
+snippet it "itemize" bA
 \begin{itemize}
-	\item $0
+    \item $0
 \end{itemize}
 endsnippet
 
-snippet en "enumerate" b
+snippet en "enumerate" bA
 \begin{enumerate}
-	\item $0
+    \item $0
 \end{enumerate}
 endsnippet
 
-snippet eq "equation*" b
-\begin{equation*}
-$0
-\end{equation*}
+snippet ev "environment" bA
+\begin{$1}
+\end{$1}
 endsnippet
 
-snippet es "equation-simple" b
-\[$0\]
+snippet eq "equation-simple" bA
+\[$1\]$0
 endsnippet
 
-snippet fr "frame" b
+snippet fr "frame" bA
 \begin{frame}{$0}
 \end{frame}
 endsnippet
 
-snippet f "figure" b
+snippet fi "figure" bA
 \begin{figure}
-	\includegraphics[width=\textwidth]{$0}
+    \includegraphics[width=\textwidth]{$0}
 \end{figure}
 endsnippet
 
-snippet sf "subfigure" b
+snippet sf "subfigure" bA
 \begin{subfigure}
-	\includegraphics[width=\textwidth]{$0}
+    \includegraphics[width=\textwidth]{$0}
 \end{subfigure}
-endsnippet
-
-snippet al "align" b
-\begin{align*}
-$0
-\end{align*}
 endsnippet
