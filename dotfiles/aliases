@@ -138,7 +138,7 @@ alias re="sudo \$(fc -ln -1)"
 alias s="bstatus"
 alias sf="\$EDITOR /tmp/scratch"
 alias to="touch"
-alias u="sudo reflector -p https -f16 -l8 --score 4 --sort rate --save /etc/pacman.d/mirrorlist && yay"
+alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
 alias vol="alsamixer"
 
 # TREE
