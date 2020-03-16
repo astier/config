@@ -158,8 +158,6 @@ se mouse=a notimeout
 se viewoptions=cursor
 
 " NERDTREE
-au default stdinreadpre * let s:std_in=1
-au default vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | winc p | ene | exe 'cd '.argv()[0] | en
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
 let g:NERDTreeHighlightCursorline = 0
