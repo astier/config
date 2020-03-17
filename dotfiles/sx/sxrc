@@ -6,6 +6,6 @@ bstatus -l &
 sxhkd &
 xbanish &
 xkbcomp ~/.config/xkb "$DISPLAY"
-xset r rate 170 50
+xset r rate 180 50
 
 exec dwm
