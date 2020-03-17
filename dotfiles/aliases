@@ -4,8 +4,8 @@
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
-alias find="find ! -path \"./.git/*\" ! -path \"./.git\""
-alias grep="grep --color --exclude-dir=.git -n"
+alias find="find ! -path './.git/*' ! -name '.git' ! -path '*/__pycache__' ! -name '.'"
+alias grep="grep --color --exclude-dir=.git"
 alias ls="ls --color --group-directories-first -Ah -I __pycache__"
 alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
 alias mkdir="mkdir -p"
@@ -43,7 +43,7 @@ alias vm="cd ~/Dropbox/uni/vml/summary"
 # FUNCTIONS
 cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
-dirs() { find . -type d ! -path '*/\.git/*' ! -iname '.git' ! -path '*/__pycache__' ! -iname '.' | sed 's/^.\///'; }
+dirs() { find -type d | sed 's/^.\///'; }
 f() { if [ -d "$1" ]; then cd "$1" || return; else open "$@"; fi; }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
@@ -119,7 +119,8 @@ alias a="execute"
 alias as="echo Remapped to do nothing."
 alias bs="bstatus"
 alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm ~/.cache/*; sudo rm -fr /var/log/journal/*"
-alias gr="grep -R"
+alias ff="find | grep"
+alias gr="grep -Rn"
 alias i="pkg -i"
 alias ig="iwctl station wlan0 get-networks"
 alias is="iwctl station wlan0 scan"
