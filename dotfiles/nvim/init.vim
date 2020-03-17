@@ -36,6 +36,7 @@ Plug 'zhimsel/vim-stay'
 cal plug#end()
 
 " APPEARANCE
+" echo synIDattr(synID(line("."), col("."), 1), "name")
 au default bufwritepost * GitGutter
 au default filetype gitcommit,markdown,tex setl spell
 colorscheme nord
@@ -53,6 +54,9 @@ hi tabline       ctermbg=none ctermfg=8
 hi tablinefill   ctermbg=none
 hi tablinesel    ctermbg=none ctermfg=none
 hi vertsplit     ctermbg=none ctermfg=16
+hi vimaugroup    ctermfg=none
+hi vimmaprhs     ctermfg=none
+hi vimnotation   ctermfg=none
 hi warningmsg    ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
