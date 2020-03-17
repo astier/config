@@ -16,15 +16,18 @@ snippet p "paragraph" bA
 endsnippet
 
 snippet s "section" b
-\section{$0}
+\section{$1}
+$0
 endsnippet
 
 snippet ss "subsection" b
-\subsection{$0}
+\subsection{$1}
+$0
 endsnippet
 
 snippet sss "subsubsection" bA
-\subsubsection{$0}
+\subsubsection{$1}
+$0
 endsnippet
 
 post_expand "fix_indent(snip)"
@@ -46,6 +49,7 @@ endsnippet
 
 snippet ev "environment" bA
 \begin{$1}
+    $0
 \end{$1}
 endsnippet
 
@@ -54,18 +58,21 @@ snippet eq "equation-simple" bA
 endsnippet
 
 snippet fr "frame" bA
-\begin{frame}{$0}
+\begin{frame}{$1}
+    $0
 \end{frame}
 endsnippet
 
 snippet fi "figure" bA
 \begin{figure}
-    \includegraphics[width=\textwidth]{$0}
+    \includegraphics[width=\textwidth]{$1}
+	$0
 \end{figure}
 endsnippet
 
 snippet sf "subfigure" bA
 \begin{subfigure}
-    \includegraphics[width=\textwidth]{$0}
+    \includegraphics[width=\textwidth]{$1}
+	$0
 \end{subfigure}
 endsnippet
