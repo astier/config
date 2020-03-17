@@ -4,6 +4,7 @@ $BROWSER &
 $TERMINAL -e tmux -f "$TMUXRC" new -As 0 &
 bstatus -l &
 sxhkd &
+xbanish &
 xkbcomp ~/.config/xkb "$DISPLAY"
 xset r rate 170 50
 
