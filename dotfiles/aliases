@@ -101,7 +101,7 @@ alias ksp="git stash pop"
 alias kst="git stash"
 
 # HOME
-alias -- ,="cd - >/dev/null && ls"
+alias b="cd - >/dev/null && ls"
 alias c="cd .."
 alias ca="cd ~/.cache"
 alias co="cd ~/.config"
