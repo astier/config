@@ -4,6 +4,7 @@
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
+alias find="find ! -path \"./.git/*\" ! -path \"./.git\""
 alias grep="grep --color --exclude-dir=.git -n"
 alias ls="ls --color --group-directories-first -Ah -I __pycache__"
 alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
