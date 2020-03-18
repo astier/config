@@ -10,7 +10,6 @@ export FZF_DEFAULT_COMMAND="find -type f ! -path '*/\.git/*' ! -name '.git' ! -p
 export FZF_DEFAULT_OPTS="--cycle --multi --reverse --tabstop=4 --color=bg+:-1,fg+:-1,border:#000000,hl:#bf616a,hl+:#bf616a,prompt:#5e81ac,pointer:#a3be8c,marker:#ebcb8b,info:#5e6b85"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export CONDARC=~/.config/condarc
 export GNUPGHOME=~/.config/gnupg
 export INPUTRC=~/.config/inputrc
 export IPYTHONDIR=~/.config/ipython
