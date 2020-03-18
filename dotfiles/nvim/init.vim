@@ -169,6 +169,7 @@ let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex', '\.aux$', '\.fdb_
 let g:NERDTreeMinimalMenu = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeMouseMode = 2
+let g:NERDTreeMouseMode = 3
 let g:NERDTreeQuitOnOpen = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
