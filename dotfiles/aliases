@@ -40,6 +40,11 @@ alias n="\$EDITOR ~/Dropbox/misc/notes"
 alias nn="cd ~/Dropbox/misc"
 alias vm="cd ~/Dropbox/uni/vml/summary"
 
+# WALLPAPERS
+alias wd="wal -d"
+alias wl="cd ~/Dropbox/pictures/wallpapers"
+alias ww="cd ~/Dropbox/pictures/wallpapers && wal"
+
 # FUNCTIONS
 cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
@@ -148,12 +153,10 @@ alias vol="alsamixer"
 # PROJECTS
 alias aa="cd ~/projects/arch"
 alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias dw="cd ~/projects/dwm"
 alias fj="cd ~/projects"
 alias ft="cd ~/projects/st"
 alias sc="cd ~/projects/scripts"
 alias scf="cd ~/projects/scripts && f"
-alias si="cd ~/projects/sites"
 alias vl="cd ~/projects/vlugins"
 
 # TMUX

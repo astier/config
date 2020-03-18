@@ -16,6 +16,7 @@ link .profile ~
 link aliases ~/.config
 link git ~/.config
 link gtk-3.0 ~/.config
+link herbstluftwm ~/.config
 link inputrc ~/.config
 link iptables.rules /etc/iptables
 link mimeapps.list ~/.config/
