@@ -5,6 +5,6 @@ sxhkd &
 wal -l &
 xbanish &
 xkbcomp ~/.config/xkb "$DISPLAY"
-xset r rate 180 50
+xset r rate 200 50
 
 exec herbstluftwm -l
