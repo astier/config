@@ -3,7 +3,6 @@
 [[ $- != *i* ]] && return
 
 # PROMPT
-. ~/.config/git/git-prompt.sh
 NO_COLOR="\[\e[m\]"
 RED="\[\e[31m\]"
 GREEN="\[\e[32m\]"
@@ -20,9 +19,11 @@ shopt -s histappend
 
 # SOURCE
 aliases=~/.config/aliases
-completion=/usr/share/bash-completion/bash_completion
+bash_completion=/usr/share/bash-completion/bash_completion
+git_completion=/usr/share/git/completion/git-prompt.sh
 [ -r $aliases ] && . $aliases
-[ -r $completion ] && . $completion
+[ -r $bash_completion ] && . $bash_completion
+[ -r $git_completion ] && . $git_completion
 
 # HISTORY
 aliases() { alias | cut -d' ' -f2 | cut -d= -f1 | awk 'length<3' | tr '\n' :; }
