@@ -20,6 +20,7 @@ link herbstluftwm ~/.config
 link inputrc ~/.config
 link iptables.rules /etc/iptables
 link mimeapps.list ~/.config/
+link newsboat ~/.config/
 link nvim ~/.config
 link pacman ~/.config
 link pacman/pacman.conf /etc
