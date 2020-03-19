@@ -151,6 +151,7 @@ nn Q <nop>
 
 " MISC-SETTINGS
 au default bufenter * se formatoptions-=cro
+let g:fzf_preview_window = ''
 let g:lexima_enable_endwise_rules = 0
 let g:rooter_silent_chdir = 1
 let g:switch_mapping = '<leader>gs'
