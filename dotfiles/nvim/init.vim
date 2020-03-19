@@ -76,7 +76,6 @@ au default bufenter,focusgained * checkt
 au default textchanged,insertleave * nested sil up
 nn <silent> <leader>b :Buffers!<cr>
 nn <silent> <leader>f :Files!<cr>
-nn <silent> <leader>F :cal system("tmux neww -a && tmux send ~/.config/nvim/vtf.sh Enter")<cr>
 nn <silent> <a-tab> :bp<cr>
 nn <silent> <tab> :bn<cr>
 se confirm noswapfile
