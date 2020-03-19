@@ -1,12 +1,13 @@
 super + shift + r
     pkill -SIGUSR1 sxhkd
-super + {s,d}
-    light -{U,A} 8
-super + shift + {s,d}
-    amixer set Master 4{-,+}
 
-mod5 + shift + m
+XF86AudioMute
     amixer set Master toggle
+XF86Audio{Lower,Raise}Volume
+    amixer set Master 4{-,+}
+XF86MonBrightness{Down,Up}
+    light -{U,A} 8
+
 mod5 + f
     st -n launcher -g 32x8+400+400 launch
 mod5 + S
