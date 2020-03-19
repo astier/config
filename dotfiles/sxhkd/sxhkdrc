@@ -1,4 +1,4 @@
-super + shift + r
+mod5 + ctrl + r
     pkill -SIGUSR1 sxhkd
 
 XF86AudioMute
