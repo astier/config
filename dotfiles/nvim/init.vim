@@ -142,6 +142,7 @@ xn <silent> gs :sort iu<cr>
 nm ga <plug>(EasyAlign)
 xm ga <plug>(EasyAlign)
 xn . :norm.<cr>
+nm <leader>i <leader>hp
 nm <leader>u <leader>hu
 nn <c-f> 4<c-e>
 nn <c-d> 4<c-y>
