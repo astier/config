@@ -65,7 +65,7 @@ krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
 
 alias ka="git add"
 alias kaa="git add --all"
-alias kam="git commit --amend"
+alias kam="git commit --amend -v"
 alias kb="git branch"
 alias kbd="git branch -D"
 alias kbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs -r \$BROWSER"
@@ -74,10 +74,10 @@ alias ki="git init"
 alias kii="git add --all && git commit -m 'Create repository'"
 alias kr="cd \$(git rev-parse --show-toplevel)"
 
-alias kc="git commit"
-alias kca="git add --all && git commit"
-alias kcp="git add --all && git commit && git push"
-alias kcr="git commit -am tmp && git rebase -i HEAD~2"
+alias kc="git commit -v"
+alias kca="git add --all && git commit -v"
+alias kcp="git add --all && git commit -v && git push"
+alias kcr="git commit -v -am tmp && git rebase -i HEAD~2"
 
 alias kd="git diff"
 alias kk="git log --all --graph --decorate --oneline"
