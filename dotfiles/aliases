@@ -64,6 +64,7 @@ krb() { n=8; [ "$1" ] && n=$1; git rebase -i HEAD~"$n"; }
 krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
 
 alias ka="git add"
+alias kap="git add -p"
 alias kaa="git add --all"
 alias kam="git commit --amend -v"
 alias kb="git branch"
@@ -87,6 +88,7 @@ alias ks="git status -bs"
 alias kso="git show"
 
 alias ko="git checkout"
+alias kop="git checkout -p"
 alias kob="git checkout -b"
 alias kom="git checkout master"
 
