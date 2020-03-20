@@ -14,6 +14,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'arithran/vim-delete-hidden-buffers'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
+Plug 'farmergreg/vim-lastplace'
 Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
 Plug 'jpalardy/vim-slime', { 'for': ['python', 'sh'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
@@ -31,7 +32,6 @@ Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'yunake/vimux'
-Plug 'zhimsel/vim-stay'
 
 cal plug#end()
 
