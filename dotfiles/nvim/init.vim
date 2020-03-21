@@ -13,7 +13,6 @@ Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
-Plug 'michaeljsmith/vim-indent-object'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
