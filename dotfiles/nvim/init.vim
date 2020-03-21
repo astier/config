@@ -14,7 +14,6 @@ Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
@@ -145,20 +144,6 @@ let g:tex_no_error = 1
 se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a notimeout
-
-" NERDTREE
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $HOME.'/.local/share/nvim/NERDTreeBookmarks'
-let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
-let g:NERDTreeMinimalMenu = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeMouseMode = 3
-let g:NERDTreeQuitOnOpen = 2
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeStatusline = ''
-nn <silent> <leader>e :NERDTreeToggle<cr>
 
 " STATE
 se viewoptions=cursor
