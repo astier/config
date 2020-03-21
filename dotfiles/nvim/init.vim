@@ -10,7 +10,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
-Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
 Plug 'jpalardy/vim-slime', { 'for': ['python', 'sh'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
