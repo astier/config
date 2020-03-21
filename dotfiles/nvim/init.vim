@@ -11,7 +11,6 @@ Plug 'airblade/vim-rooter'
 Plug 'andrewradev/sideways.vim', { 'for': 'python' }
 Plug 'andrewradev/switch.vim', { 'for': 'python' }
 Plug 'arcticicestudio/nord-vim'
-Plug 'arithran/vim-delete-hidden-buffers'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'farmergreg/vim-lastplace'
@@ -118,7 +117,6 @@ nn <silent> <leader>gf :cal Format()<cr>
 " KILL
 nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
-nn <silent> <leader>k :DeleteHiddenBuffers<cr>
 nn <silent> <leader>q :bw<cr>
 nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :Bw<cr>
