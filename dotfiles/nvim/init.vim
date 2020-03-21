@@ -22,7 +22,6 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'rhysd/clever-f.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'svermeulen/vim-subversive'
@@ -175,9 +174,7 @@ let g:NERDTreeStatusline = ''
 nn <silent> <leader>e :NERDTreeToggle<cr>
 
 " SEARCH
-let g:clever_f_across_no_line = 1
-let g:clever_f_smart_case = 1
-nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
+nn <silent> <esc> :noh <bar> ec<cr>
 nn <silent> , *``
 nn <silent> n nzz
 nn <silent> N Nzz
