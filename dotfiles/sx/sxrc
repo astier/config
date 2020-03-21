@@ -2,7 +2,6 @@
 
 bstatus -l &
 sxhkd &
-wal -l &
 xbanish &
 xkbcomp ~/.config/xkb "$DISPLAY"
 xset r rate 200 50

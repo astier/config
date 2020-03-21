@@ -32,7 +32,7 @@ herbstclient keybind $mod-l cycle_frame
 herbstclient keybind $mod-Return substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID
 
 # RESIZING
-resizestep=0.021
+resizestep=0.015
 herbstclient keybind $mod-Shift-h resize left $resizestep
 herbstclient keybind $mod-Shift-l resize right $resizestep
 
@@ -55,14 +55,14 @@ herbstclient keybind $mod-Shift-o move_index +1
 # THEME
 herbstclient attr theme.floating.reset 1
 herbstclient attr theme.tiling.reset 1
-herbstclient attr theme.border_width 1
+herbstclient attr theme.border_width 0
 herbstclient set frame_bg_transparent 1
 herbstclient set frame_border_width 0
-herbstclient set frame_gap 17
+herbstclient set frame_gap 1
 herbstclient pad 0 -1 -1 -1 -1
 
 # INIT
-layout='(split horizontal:0.542:1 (clients max:0) (clients max:0))'
+layout='(split horizontal:0.53:1 (clients max:0) (clients max:0))'
 if herbstclient silent new_attr bool my_not_first_autostart ; then
     herbstclient load 1 "$layout"
     herbstclient load 2 "$layout"
