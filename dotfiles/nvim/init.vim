@@ -15,7 +15,6 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
-Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'yunake/vimux'
@@ -162,24 +161,6 @@ se inccommand=nosplit
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
-
-" SUBVERSIVE
-nm s <plug>(SubversiveSubstitute)
-xm s <plug>(SubversiveSubstitute)
-nm ss <plug>(SubversiveSubstituteLine)
-nm S <plug>(SubversiveSubstituteToEndOfLine)
-nm <leader>r <plug>(SubversiveSubstituteRange)
-xm <leader>r <plug>(SubversiveSubstituteRange)
-nm <leader>rr <plug>(SubversiveSubstituteWordRange)
-nm <leader>rc <plug>(SubversiveSubstituteRangeConfirm)
-xm <leader>rc <plug>(SubversiveSubstituteRangeConfirm)
-nm <leader>rcc <plug>(SubversiveSubstituteWordRangeConfirm)
-let g:subversivePromptWithCurrent = 1
-let g:subversivePreserveCursorPosition = 1
-xn ie <esc>ggVG
-xn iv <esc>HVL
-ono ie :exe "norm! ggVG"<cr>
-ono iv :exe "norm! HVL"<cr>
 
 " TMUXRENAME
 fu! RenameTmux()
