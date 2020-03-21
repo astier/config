@@ -8,7 +8,6 @@ cal plug#begin('~/.local/share/nvim/plugins')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
-Plug 'andrewradev/sideways.vim', { 'for': 'python' }
 Plug 'andrewradev/switch.vim', { 'for': 'python' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -180,14 +179,6 @@ nn <silent> n nzz
 nn <silent> N Nzz
 se ignorecase
 se inccommand=nosplit
-
-" SIDEWAYS
-nn <silent> <c-h> :SidewaysLeft<cr>
-nn <silent> <c-l> :SidewaysRight<cr>
-om aa <plug>SidewaysArgumentTextobjA
-om ia <plug>SidewaysArgumentTextobjI
-xm aa <plug>SidewaysArgumentTextobjA
-xm ia <plug>SidewaysArgumentTextobjI
 
 " SLIME
 let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{bottom}'}
