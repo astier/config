@@ -13,7 +13,6 @@ Plug 'andrewradev/switch.vim', { 'for': 'python' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
-Plug 'farmergreg/vim-lastplace'
 Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
 Plug 'jpalardy/vim-slime', { 'for': ['python', 'sh'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
@@ -157,7 +156,6 @@ let g:tex_no_error = 1
 se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a notimeout
-se viewoptions=cursor
 
 " NERDTREE
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -172,6 +170,11 @@ let g:NERDTreeQuitOnOpen = 2
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
 nn <silent> <leader>e :NERDTreeToggle<cr>
+
+" STATE
+se viewoptions=cursor
+au default bufwinleave * if index(['gitcommit'], &ft) < 0 | sil! mkvie
+au default bufwinenter * if index(['gitcommit'], &ft) < 0 | sil! lo
 
 " SEARCH
 nn <silent> <esc> :noh <bar> ec<cr>
