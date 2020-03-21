@@ -10,7 +10,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
-Plug 'jpalardy/vim-slime', { 'for': ['python', 'sh'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
@@ -174,15 +173,6 @@ nn <silent> n nzz
 nn <silent> N Nzz
 se ignorecase
 se inccommand=nosplit
-
-" SLIME
-let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{bottom}'}
-let g:slime_dont_ask_default = 1
-let g:slime_no_mappings = 1
-let g:slime_paste_file = '/tmp/slime'
-let g:slime_target = 'tmux'
-nmap <leader><leader> <Plug>SlimeParagraphSend
-xmap <leader><leader> <Plug>SlimeRegionSend
 
 " SNIPPETS
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
