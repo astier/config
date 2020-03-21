@@ -21,7 +21,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'moll/vim-bbye', { 'on': ['Bd', 'Bw'] }
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'rhysd/clever-f.vim'
@@ -119,7 +118,7 @@ nn <silent> <leader>c :clo<cr>
 nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
 nn <silent> <leader>q :bw<cr>
 nn <silent> <leader>s <c-z>
-nn <silent> <leader>w :Bw<cr>
+nn <silent> <leader>w :bn<bar>bd#<cr>
 
 " LOADED
 let g:loaded_gzip = 1
