@@ -16,7 +16,6 @@ Plug 'cohama/lexima.vim'
 Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
 Plug 'jpalardy/vim-slime', { 'for': ['python', 'sh'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
-Plug 'junegunn/vim-easy-align'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'michaeljsmith/vim-indent-object'
@@ -133,8 +132,6 @@ let g:python3_host_prog = '/bin/python'
 " MISC-MAPPINGS
 nn <silent> gs vip:sort iu<cr>
 xn <silent> gs :sort iu<cr>
-nm ga <plug>(EasyAlign)
-xm ga <plug>(EasyAlign)
 xn . :norm.<cr>
 nm <leader>i <leader>hp
 nm <leader>u <leader>hu
