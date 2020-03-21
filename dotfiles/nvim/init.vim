@@ -7,7 +7,6 @@ scriptencoding utf-8
 cal plug#begin('~/.local/share/nvim/plugins')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'andrewradev/switch.vim', { 'for': 'python' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
@@ -144,7 +143,6 @@ nn Q <nop>
 au default bufenter * se formatoptions-=cro
 let g:fzf_preview_window = ''
 let g:lexima_enable_endwise_rules = 0
-let g:switch_mapping = '-'
 let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
 se commentstring=//\ %s
