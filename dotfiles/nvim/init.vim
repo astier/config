@@ -13,7 +13,7 @@ Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
@@ -78,16 +78,18 @@ xn <c-c> "+y
 xn <c-x> "+d
 
 " COMPLETION
-let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
-nm <leader>rn <plug>(coc-rename)
-nm <silent> gd <plug>(coc-definition)zz
-nm <silent> gr <plug>(coc-references)
-nn <silent> K :cal <sid>show_documentation()<cr>
-fu! s:show_documentation()
-    if index(['vim','help'], &filetype) >= 0
-        exe 'h '.expand('<cword>')
-    el | cal CocAction('doHover') | en
-endf
+let g:deoplete#enable_at_startup = 1
+cal deoplete#custom#option({
+    \ 'ignore_sources': { '_': ['around', 'member'] },
+    \ 'max_list': 8,
+    \ 'min_pattern_length': 1,
+    \ 'num_processes': 1,
+    \ })
+cal deoplete#custom#source('_', 'matchers', [
+    \ 'matcher_fuzzy',
+    \ 'matcher_length',
+    \ ])
+cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
 se completeopt=menuone,noinsert
 se infercase shortmess+=c
 
