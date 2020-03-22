@@ -146,9 +146,10 @@ se expandtab shiftwidth=4 tabstop=4
 se mouse=a notimeout
 
 " STATE
+let state_ignore = ['gitcommit', 'gitrebase']
+au default bufwinleave * if index(state_ignore, &ft) < 0 | sil! mkvie
+au default bufwinenter * if index(state_ignore, &ft) < 0 | sil! lo
 se viewoptions=cursor
-au default bufwinleave * if index(['gitcommit'], &ft) < 0 | sil! mkvie
-au default bufwinenter * if index(['gitcommit'], &ft) < 0 | sil! lo
 
 " SEARCH
 nn <silent> <esc> :noh <bar> ec<cr>
