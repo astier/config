@@ -177,8 +177,8 @@ au tmuxrename vimleave * cal system('tmux setw automatic-rename')
 " VIMUX
 let g:VimuxHeight = '35'
 let g:VimuxUseNearest = 0
-nn <silent> <leader>l :cal VimuxRunCommand('clear; lint ' . bufname('%'))<cr>
-nn <silent> <leader>a :cal VimuxRunCommand('clear; execute ' . bufname('%'))<cr>
+nn <silent> <leader>l :cal VimuxRunCommand('lint ' . bufname('%'))<cr>
+nn <silent> <leader>a :cal VimuxRunCommand('execute ' . bufname('%'))<cr>
 au default filetype tex nn <silent> <leader>a :VimtexCompile<cr>
 nn <silent> <leader>x :VimuxCloseRunner<cr>
 
