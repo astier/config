@@ -186,7 +186,7 @@ let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_callback_hooks = ['FocusViewer']
 fu! FocusViewer(status)
     if system('pidof zathura')
-       exe 'sil !xdotool search --desktop 0 --class Zathura windowactivate'
+       exe 'sil !wmctrl -xa zathura'
     el
        exe 'VimtexView'
     en

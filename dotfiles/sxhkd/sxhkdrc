@@ -15,9 +15,7 @@ mod5 + S
 mod5 + {a,u,v}
     mpv ~/media/{asmr,music,videos}
 
-button2
-    herbstclient spawn ~/.config/herbstluftwm/maximize.sh
 button8
-    herbstclient cycle +1
+    xsetroot -name "fsignal:1"
 button9
-    herbstclient cycle -1
+    xsetroot -name "fsignal:2"
