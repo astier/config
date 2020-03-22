@@ -13,6 +13,7 @@ Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
+Plug 'rhysd/clever-f.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'tpope/vim-commentary'
@@ -151,7 +152,9 @@ au default bufwinenter * if index(state_ignore, &ft) < 0 | sil! lo
 se viewoptions=cursor
 
 " SEARCH
-nn <silent> <esc> :noh <bar> ec<cr>
+let g:clever_f_across_no_line = 1
+let g:clever_f_smart_case = 1
+nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
 nn <silent> , *``
 nn <silent> n nzz
 nn <silent> N Nzz
