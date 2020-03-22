@@ -177,13 +177,13 @@ au tmuxrename vimleave * cal system('tmux setw automatic-rename')
 " VIMUX
 let g:VimuxHeight = '35'
 let g:VimuxUseNearest = 0
-nn <silent> <leader>l :cal VimuxRunCommand('lint ' . bufname('%'))<cr>
 nn <silent> <leader>a :cal VimuxRunCommand('execute ' . bufname('%'))<cr>
-au default filetype tex nn <silent> <leader>a :VimtexCompile<cr>
+nn <silent> <leader>l :cal VimuxRunCommand('lint ' . bufname('%'))<cr>
 nn <silent> <leader>x :VimuxCloseRunner<cr>
 
 " VIMTEX
-au filetype tex nnoremap <leader>t :cal vimtex#fzf#run()<cr>
+au default filetype tex nn <silent> <leader>a :VimtexCompile<cr>
+au default filetype tex nnoremap <leader>t :cal vimtex#fzf#run()<cr>
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
