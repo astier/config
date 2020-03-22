@@ -16,7 +16,6 @@ Plug 'machakann/vim-sandwich'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'tpope/vim-commentary'
-Plug 'yunake/vimux'
 
 cal plug#end()
 
@@ -104,7 +103,7 @@ nn <silent> <leader>gf :cal Format()<cr>
 
 " KILL
 nn <silent> <leader>c :clo<cr>
-nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
+nn <silent> <leader>d :qa<cr>
 nn <silent> <leader>q :bw<cr>
 nn <silent> <leader>s <c-z>
 nn <silent> <leader>w :bn<bar>bd#<cr>
@@ -173,13 +172,6 @@ endf
 aug tmuxrename | au! | aug en
 au tmuxrename bufenter,focusgained * cal RenameTmux()
 au tmuxrename vimleave * cal system('tmux setw automatic-rename')
-
-" VIMUX
-let g:VimuxHeight = '35'
-let g:VimuxUseNearest = 0
-nn <silent> <leader>a :cal VimuxRunCommand('execute ' . bufname('%'))<cr>
-nn <silent> <leader>l :cal VimuxRunCommand('lint ' . bufname('%'))<cr>
-nn <silent> <leader>x :VimuxCloseRunner<cr>
 
 " VIMTEX
 au default filetype tex nn <silent> <leader>a :VimtexCompile<cr>
