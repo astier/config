@@ -154,6 +154,7 @@ alias td="tree -d"
 alias tf="tree"
 alias to="touch"
 alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
+alias v="mpv"
 alias vol="alsamixer"
 
 # PROJECTS
