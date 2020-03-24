@@ -53,7 +53,7 @@ y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 # G
 g_path="$HOME/Dropbox/misc/g.sh"
 [ -r "$g_path" ] && . "$g_path"
-alias gg="\$EDITOR \$g_path && . \$g_path"
+alias ggg="\$EDITOR \$g_path && . \$g_path"
 
 # GIT
 k() { n=16; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
