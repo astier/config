@@ -160,7 +160,7 @@ nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
 nn <silent> , *``
 nn <silent> n nzz
 nn <silent> N Nzz
-se ignorecase
+se ignorecase smartcase
 se inccommand=nosplit
 
 " SNIPPETS
