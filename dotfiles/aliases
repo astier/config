@@ -43,7 +43,7 @@ alias vm="cd ~/Dropbox/uni/vml/summary"
 
 # FUNCTIONS
 cd() { builtin cd "$@" && ls; }
-d() { if [ $# = 0 ]; then exit; else rm "$@" && ls; fi }
+d() { if [ $# = 0 ]; then exit; else rm "$@" && echo && ls; fi }
 f() { if [ -d "$1" ]; then cd "$1" || return; else open "$@"; fi; }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
