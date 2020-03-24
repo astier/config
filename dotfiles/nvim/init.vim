@@ -112,8 +112,6 @@ nn <silent> <leader>w :bn<bar>bd#<cr>
 
 " LOADED
 let g:loaded_gzip = 1
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
 let g:loaded_node_provider = 1
 let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
@@ -146,6 +144,13 @@ let g:tex_no_error = 1
 se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a notimeout
+
+" NETRW
+let g:netrw_banner = 0
+let g:netrw_browsex_viewer = $BROWSER
+let g:netrw_dirhistmax = 0
+let g:netrw_liststyle = 3
+nnoremap <silent> <leader>e :Explore<cr>
 
 " STATE
 let state_ignore = ['gitcommit', 'gitrebase']
