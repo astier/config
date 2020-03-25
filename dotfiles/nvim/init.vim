@@ -28,8 +28,8 @@ au default filetype gitcommit,markdown,tex setl spell
 colorscheme nord
 hi comment       cterm=italic
 hi cursorlinenr  ctermfg=none
-hi diffadded     cterm=bold   ctermbg=none ctermfg=green
-hi diffremoved   cterm=bold   ctermbg=none ctermfg=red
+hi diffadded     cterm=none   ctermbg=none ctermfg=green
+hi diffremoved   cterm=none   ctermbg=none ctermfg=red
 hi errormsg      ctermbg=none
 hi function      ctermfg=none
 hi number        ctermfg=none
