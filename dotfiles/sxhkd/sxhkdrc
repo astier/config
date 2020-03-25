@@ -12,8 +12,6 @@ mod5 + f
     st -n launcher -g 32x8+400+400 launch
 mod5 + S
     st -n launcher -g 32x8+400+400 sys
-mod5 + {a,u,v}
-    mpv ~/media/{asmr,music,videos}
 
 button8
     xsetroot -name "fsignal:1"

@@ -47,7 +47,6 @@ f() { if [ -d "$1" ]; then cd "$1" || return; else open "$@"; fi; }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
-y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # G
 g_path="$HOME/Dropbox/misc/g.sh"
@@ -115,12 +114,6 @@ alias co="cd ~/.config"
 alias dl="cd ~/Downloads"
 alias fl="cd ~/.local/share"
 
-# MEDIA
-alias am="cd ~/media/asmr"
-alias me="cd ~/media"
-alias ms="cd ~/media/music"
-alias vi="cd ~/media/videos"
-
 # MISC
 alias a="execute"
 alias as="echo Remapped to do nothing."
@@ -151,8 +144,6 @@ alias td="tree -d"
 alias tf="tree"
 alias to="touch"
 alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
-alias v="mpv"
-alias vol="alsamixer"
 
 # PROJECTS
 alias aa="cd ~/projects/arch"
