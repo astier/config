@@ -51,14 +51,6 @@ se cursorline | hi clear cursorline
 se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
 se noruler noshowcmd noshowmode
 se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
-let g:fzf_colors = {
-    \ 'hl':      ['fg', 'search'],
-    \ 'hl+':     ['fg', 'search'],
-    \ 'info':    ['fg', 'comment'],
-    \ 'marker':  ['fg', 'pythonEscape'],
-    \ 'pointer': ['fg', 'string'],
-    \ 'prompt':  ['fg', 'exception'],
-    \ }
 
 " BUFFERS
 au default bufenter,focusgained * checkt
