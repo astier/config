@@ -10,7 +10,6 @@ link() {
 mkdir -p ~/.config
 cd dotfiles || exit
 
-link .bash_profile ~
 link .bashrc ~
 link .profile ~
 link aliases ~/.config
