@@ -17,6 +17,13 @@ alias tmux="tmux -f \$TMUXRC"
 alias tree="tree -aCI '__pycache__|.git|*.aux|*.fdb_latexmk|*.fls|*.log|*.nav|*.snm|*.gz|*.toc' --dirsfirst --noreport"
 alias umount="sudo umount"
 
+# CLOUD
+alias cl="cd ~/cloud"
+alias n="\$EDITOR ~/cloud/misc/notes"
+alias nn="cd ~/cloud/misc"
+alias sn="rclone sync -P --exclude /archive/** --exclude /Kamera-Uploads/** ~/cloud cloud:"
+alias snn="rclone sync -P --exclude /archive/** --exclude /Kamera-Uploads/** cloud: ~/cloud"
+
 # CPM
 alias x="cpm"
 alias xc="cpm -c"
@@ -34,12 +41,6 @@ alias fx="\$EDITOR ~/.config/sx/sxrc"
 alias iv="\$EDITOR ~/.config/nvim/init.vim"
 alias tm="\$EDITOR ~/.config/tmux.conf"
 
-# DROPBOX
-alias db="cd ~/Dropbox"
-alias n="\$EDITOR ~/Dropbox/misc/notes"
-alias nn="cd ~/Dropbox/misc"
-alias vm="cd ~/Dropbox/uni/vml/summary"
-
 # FUNCTIONS
 cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm "$@" && echo && ls; fi }
@@ -49,7 +50,7 @@ l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; 
 mc() { mkdir "$1" && cd "$1" || return; }
 
 # G
-g_path="$HOME/Dropbox/misc/g.sh"
+g_path="$HOME/cloud/misc/g.sh"
 [ -r "$g_path" ] && . "$g_path"
 alias ggg="\$EDITOR \$g_path && . \$g_path"
 
@@ -118,7 +119,7 @@ alias fl="cd ~/.local/share"
 alias a="execute"
 alias as="echo Remapped to do nothing."
 alias bs="bstatus"
-alias cl="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm ~/.cache/*; sudo rm -fr /var/log/journal/*"
+alias clean="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm ~/.cache/*; sudo rm -fr /var/log/journal/*"
 alias ff="find | grep"
 alias gr="grep -Rn"
 alias i="pkg -i"
