@@ -26,6 +26,7 @@ link pythonrc.py ~/.config
 link shellcheckrc ~/.config
 link sx ~/.config
 link sxhkd ~/.config
+link templates ~/.config
 link tmux.conf ~/.config
 link tty-cursor.conf /etc/tmpfiles.d
 link xkb ~/.config
