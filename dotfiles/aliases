@@ -21,8 +21,8 @@ alias umount="sudo umount"
 alias cl="cd ~/cloud"
 alias n="\$EDITOR ~/cloud/misc/notes"
 alias nn="cd ~/cloud/misc"
-alias sn="rclone sync -P --exclude /archive/** ~/cloud cloud:"
-alias snn="rclone sync -P --exclude /archive/** cloud: ~/cloud"
+alias sn="rclone sync -P ~/cloud cloud:"
+alias snn="rclone sync -P cloud: ~/cloud"
 
 # CPM
 alias x="cpm"
