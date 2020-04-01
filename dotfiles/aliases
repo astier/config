@@ -19,8 +19,7 @@ alias umount="sudo umount"
 
 # CLOUD
 alias cl="cd ~/cloud"
-alias n="\$EDITOR ~/cloud/misc/notes"
-alias nn="cd ~/cloud/misc"
+alias n="\$EDITOR ~/cloud/notes"
 alias sn="rclone sync -P ~/cloud cloud:"
 alias snn="rclone sync -P cloud: ~/cloud"
 
@@ -50,7 +49,7 @@ l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; 
 mc() { mkdir "$1" && cd "$1" || return; }
 
 # G
-g_path="$HOME/cloud/misc/g.sh"
+g_path="$HOME/cloud/g.sh"
 [ -r "$g_path" ] && . "$g_path"
 alias ggg="\$EDITOR \$g_path && . \$g_path"
 
