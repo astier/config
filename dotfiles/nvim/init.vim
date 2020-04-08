@@ -172,9 +172,8 @@ fu! RenameTmux()
         cal system('tmux renamew ' . expand('%:t'))
     en
 endf
-aug tmuxrename | au! | aug en
-au tmuxrename bufenter,focusgained * cal RenameTmux()
-au tmuxrename vimleave * cal system('tmux setw automatic-rename')
+au default bufenter,focusgained * cal RenameTmux()
+au default vimleave * cal system('tmux setw automatic-rename')
 
 " VIMUX
 let g:VimuxHeight = '35'
