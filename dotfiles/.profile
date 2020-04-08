@@ -11,13 +11,13 @@ export FZF_DEFAULT_COMMAND="find -type f ! -path '*/\.git/*' ! -name '.git' ! -p
 export FZF_DEFAULT_OPTS="--cycle --multi --reverse --tabstop=4 --no-info --color=bg+:-1,fg+:-1,border:16,hl:1,hl+:1,prompt:4,pointer:2,marker:3,info:8"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export GNUPGHOME=~/.config/gnupg
-export INPUTRC=~/.config/inputrc
-export IPYTHONDIR=~/.config/ipython
-export LESSHISTFILE=~/.cache/lesshst
-export PYLINTHOME=~/.cache/pylint
-export PYLINTRC=~/.config/pylintrc
-export PYTHONSTARTUP=~/.config/pythonrc.py
+export GNUPGHOME=$HOME/.config/gnupg
+export INPUTRC=$HOME/.config/inputrc
+export IPYTHONDIR=$HOME/.config/ipython
+export LESSHISTFILE=$HOME/.cache/lesshst
+export PYLINTHOME=$HOME/.cache/pylint
+export PYLINTRC=$HOME/.config/pylintrc
+export PYTHONSTARTUP=$HOME/.config/pythonrc.py
 export TMUXRC=$HOME/.config/tmux.conf
 
 export GIT_PS1_SHOWDIRTYSTATE=1
