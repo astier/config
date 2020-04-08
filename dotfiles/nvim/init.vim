@@ -188,15 +188,11 @@ au default filetype tex nnoremap <leader>t :cal vimtex#fzf#run()<cr>
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
-let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_general_viewer = 'evince'
 let g:vimtex_compiler_callback_hooks = ['FocusViewer']
 fu! FocusViewer(status)
-    if system('pidof zathura')
-       exe 'sil !wmctrl -xa zathura'
-    el
-       exe 'VimtexView'
-    en
-    exe 'ec'
+    exe 'VimtexView'
+    exe 'echo'
 endf
 let g:vimtex_compiler_latexmk = {
     \ 'callback' : 0,
