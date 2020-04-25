@@ -13,7 +13,6 @@ alias mount="sudo mount"
 alias mv="mv -i"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
-alias tmux="tmux -f \$TMUXRC"
 alias tree="tree -aCI '__pycache__|.git|*.aux|*.fdb_latexmk|*.fls|*.log|*.nav|*.snm|*.gz|*.toc' --dirsfirst --noreport"
 alias umount="sudo umount"
 
@@ -155,7 +154,7 @@ alias sc="cd ~/projects/scripts"
 alias scf="cd ~/projects/scripts && f"
 
 # TMUX
+alias t="tmux new -A"
 alias ta="tmux a -t"
 alias tk="tmux kill-session -t"
 alias tl="tmux ls"
-t() { s=0; if [ $# -gt 0 ]; then s="$1"; fi; tmux new -As "$s"; }

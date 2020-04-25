@@ -16,7 +16,6 @@ export LESSHISTFILE=$HOME/.cache/lesshst
 export PYLINTHOME=$HOME/.cache/pylint
 export PYLINTRC=$HOME/.config/pylintrc
 export PYTHONSTARTUP=$HOME/.config/pythonrc.py
-export TMUXRC=$HOME/.config/tmux.conf
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 $BROWSER &
-$TERMINAL -e tmux -f "$TMUXRC" new -As 0 &
+$TERMINAL -e tmux new -A &
 bstatus -l &
 sxhkd &
 xbanish &
