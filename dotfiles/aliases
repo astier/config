@@ -147,7 +147,6 @@ alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&
 # PROJECTS
 alias aa="cd ~/projects/arch"
 alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias dw="cd ~/projects/dwm"
 alias fj="cd ~/projects"
 alias ft="cd ~/projects/st"
 alias sc="cd ~/projects/scripts"

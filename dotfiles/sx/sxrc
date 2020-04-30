@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 
-$BROWSER &
-$TERMINAL -e tmux new -A &
 bstatus -l &
+hsetroot -solid black
 sxhkd &
 xbanish &
+xcompmgr &
 xkbcomp ~/.config/xkb "$DISPLAY"
 xset r rate 200 50
 
-exec dwm
+exec herbstluftwm -l
