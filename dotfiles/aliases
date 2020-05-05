@@ -142,7 +142,7 @@ alias sf="\$EDITOR /tmp/scratch"
 alias td="tree -d"
 alias tf="tree"
 alias to="touch"
-alias u="sudo sh -c \"curl -s 'https://www.archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && yay"
+alias u="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist && yay"
 
 # PROJECTS
 alias aa="cd ~/projects/arch"
