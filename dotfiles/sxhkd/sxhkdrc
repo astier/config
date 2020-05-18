@@ -12,6 +12,8 @@ mod5 + f
     st -n launcher -g 32x8+400+400 launch
 mod5 + D
     st -n launcher -g 32x8+400+400 sys
+mod5 + t
+    libreoffice ~/cloud/tracker.ods
 
 button2
     herbstclient spawn ~/.config/herbstluftwm/maximize.sh
