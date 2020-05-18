@@ -12,6 +12,7 @@ cd dotfiles || exit
 
 link .bashrc ~
 link .profile ~
+link .stalonetrayrc ~
 link aliases ~/.config
 link git ~/.config
 link gtk-3.0 ~/.config
