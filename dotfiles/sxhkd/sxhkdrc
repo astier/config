@@ -1,11 +1,9 @@
 mod5 + ctrl + r
     pkill -SIGUSR1 sxhkd
 
-XF86AudioMute
-    amixer set Master toggle
-XF86Audio{Lower,Raise}Volume
+mod4 + {s,d}
     amixer set Master 4{-,+}
-XF86MonBrightness{Down,Up}
+mod4 + {S,D}
     light -{U,A} 8
 
 mod5 + f
