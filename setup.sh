@@ -12,7 +12,6 @@ cd dotfiles || exit
 
 link .bashrc ~
 link .profile ~
-link .stalonetrayrc ~
 link aliases ~/.config
 link git ~/.config
 link gtk-3.0 ~/.config
@@ -28,6 +27,7 @@ link shellcheckrc ~/.config
 link sx ~/.config
 link sxhkd ~/.config
 link templates ~/.config
+link tint2 ~/.config
 link tmux ~/.config
 link tty-cursor.conf /etc/tmpfiles.d
 link xkb ~/.config
