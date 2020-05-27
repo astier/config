@@ -11,6 +11,7 @@ mkdir -p ~/.config
 cd dotfiles || exit
 
 link .bashrc ~
+link .gtkrc-2.0 ~
 link .profile ~
 link aliases ~/.config
 link git ~/.config
