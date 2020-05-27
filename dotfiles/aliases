@@ -32,8 +32,8 @@ alias xp="cpm -p"
 # DOTFILES
 alias al=" \$EDITOR ~/.config/aliases && . ~/.config/aliases"
 alias ba="\$EDITOR ~/.bashrc && . ~/.bashrc"
-alias fd="cd ~/projects/dotfiles"
-alias fdf="cd ~/projects/dotfiles && f"
+alias fd="cd ~/repos/dotfiles"
+alias fdf="cd ~/repos/dotfiles && f"
 alias fp="\$EDITOR ~/.profile"
 alias fx="\$EDITOR ~/.config/sx/sxrc"
 alias iv="\$EDITOR ~/.config/nvim/init.vim"
@@ -144,13 +144,13 @@ alias tf="tree"
 alias to="touch"
 alias u="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist && yay"
 
-# PROJECTS
-alias aa="cd ~/projects/arch"
-alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias fj="cd ~/projects"
-alias ft="cd ~/projects/st"
-alias sc="cd ~/projects/scripts"
-alias scf="cd ~/projects/scripts && f"
+# REPOS
+alias aa="cd ~/repos/arch"
+alias ad="cd ~/repos/arch && \$EDITOR desktop.sh"
+alias fj="cd ~/repos"
+alias ft="cd ~/repos/st"
+alias sc="cd ~/repos/scripts"
+alias scf="cd ~/repos/scripts && f"
 
 # TMUX
 alias t="tmux new -A"
