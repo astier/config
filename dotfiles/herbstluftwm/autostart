@@ -30,6 +30,7 @@ herbstclient keybind $mod-j cycle -1
 herbstclient keybind $mod-k cycle +1
 herbstclient keybind $mod-l cycle_frame
 herbstclient keybind $mod-Return substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID
+herbstclient set focus_stealing_prevention 0
 
 # RESIZING
 resizestep=0.015

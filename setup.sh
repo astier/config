@@ -32,6 +32,7 @@ link tint2 ~/.config
 link tmux ~/.config
 link tty-cursor.conf /etc/tmpfiles.d
 link xkb ~/.config
+link zathura ~/.config/
 
 copy() { sudo cp -fr "$1" "$2" && echo Installed: "$1"; }
 
