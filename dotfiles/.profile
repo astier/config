@@ -9,6 +9,7 @@ export FZF_DEFAULT_COMMAND="find -type f ! -path '*/\.git/*' ! -name '.git' ! -p
 export FZF_DEFAULT_OPTS="--cycle --multi --reverse --tabstop=4 --no-info --color=bg+:-1,fg+:-1,border:16,hl:1,hl+:1,prompt:4,pointer:2,marker:3,info:8"
 
 export GNUPGHOME=$HOME/.config/gnupg
+export GTK2_RC_FILES=$HOME/.config/gtk-2.0/settings.ini
 export INPUTRC=$HOME/.config/inputrc
 export IPYTHONDIR=$HOME/.config/ipython
 export LESSHISTFILE=$HOME/.cache/lesshst

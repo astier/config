@@ -11,10 +11,10 @@ mkdir -p ~/.config
 cd dotfiles || exit
 
 link .bashrc ~
-link .gtkrc-2.0 ~
 link .profile ~
 link aliases ~/.config
 link git ~/.config
+link gtk-2.0 ~/.config
 link gtk-3.0 ~/.config
 link herbstluftwm ~/.config
 link inputrc ~/.config
@@ -32,7 +32,7 @@ link tint2 ~/.config
 link tmux ~/.config
 link tty-cursor.conf /etc/tmpfiles.d
 link xkb ~/.config
-link zathura ~/.config/
+link zathura ~/.config
 
 copy() { sudo cp -fr "$1" "$2" && echo Installed: "$1"; }
 
