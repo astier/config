@@ -4,7 +4,7 @@ mod5 + ctrl + r
 mod4 + {s,d}
     amixer set Master 4{-,+}
 mod4 + {S,D}
-    light -{U,A} 8
+    lux -{s,a} 8%
 
 mod5 + f
     st -n launcher -g 32x8+400+400 launch
