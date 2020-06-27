@@ -16,7 +16,6 @@ herbstclient keybind $mod-d close
 
 # LAYOUTS
 herbstclient keybind $mod-m spawn ~/.config/herbstluftwm/maximize.sh
-# herbstclient keybind $mod-p pseudotile toggle
 herbstclient set default_frame_layout 2
 herbstclient set tree_style '╾│ ├└╼─┐'
 
@@ -44,8 +43,8 @@ herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseud
 herbstclient rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 herbstclient rule instance~.* index=0
-herbstclient rule instance~'nemo|jetbrains-.*|JetBrains.*|st-256color|code-oss' index=1
-herbstclient rule instance~'launcher|notification|jetbrains-.*|JetBrains.*' pseudotile=on
+herbstclient rule instance~'st-256color' index=1
+herbstclient rule instance~'launcher|notification' pseudotile=on
 
 # TAGS
 herbstclient rename default 1
