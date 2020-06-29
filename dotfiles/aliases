@@ -4,7 +4,9 @@
 alias cp='cp -ir'
 alias df="df -h"
 alias du="du -h"
+alias fdisk="sudo fdisk"
 alias find="find ! -path './.git/*' ! -name '.git' ! -path '*/__pycache__' ! -name '.'"
+alias gdisk="sudo gdisk"
 alias grep="grep --color --exclude-dir=.git"
 alias ls="ls --color --group-directories-first -Ah -I __pycache__"
 alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
