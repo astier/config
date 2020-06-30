@@ -152,9 +152,10 @@ au default bufwinleave * if index(state_ignore, &ft) < 0 | sil! mkvie
 au default bufwinenter * if index(state_ignore, &ft) < 0 | sil! lo
 se viewoptions=cursor
 
-" SEARCH
+" SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
+nn <leader>r :%s/\<<c-r><c-w>\>//g<left><left>
 nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
 nn <silent> , *``
 nn <silent> n nzz
