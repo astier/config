@@ -51,7 +51,7 @@ mc() { mkdir "$1" && cd "$1" || return; }
 # G
 g_path="$HOME/cloud/g.sh"
 [ -r "$g_path" ] && . "$g_path"
-alias ggg="\$EDITOR \$g_path && . \$g_path"
+alias g="\$EDITOR \$g_path && . \$g_path"
 
 # GIT
 k() { n=16; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
