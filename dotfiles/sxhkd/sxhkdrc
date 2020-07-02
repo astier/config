@@ -2,7 +2,7 @@ mod5 + ctrl + r
     pkill -SIGUSR1 sxhkd
 
 mod4 + {s,d}
-    amixer set Master 4{-,+}
+    pulsemixer --change-volume {-,+}5
 mod4 + {S,D}
     lux -{s,a} 8%
 
