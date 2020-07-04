@@ -8,8 +8,8 @@ mod4 + {S,D}
 
 mod5 + f
     st -n launcher -g 32x8+400+400 launch
-mod5 + D
-    st -n launcher -g 32x8+400+400 sys
+mod5 + D ; {p,r,s}
+    {poweroff,reboot,systemctl suspend}
 mod5 + t
     libreoffice ~/cloud/tracker.ods
 
