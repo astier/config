@@ -127,6 +127,8 @@ nm gcp gcip
 nn cp cip
 nn dp dap
 nn Q <nop>
+nn >p >ap
+nn <p <ap
 
 " MISC-SETTINGS
 au default bufenter * se formatoptions-=cro
