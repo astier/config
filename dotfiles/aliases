@@ -50,7 +50,7 @@ mc() { mkdir "$1" && cd "$1" || return; }
 # G
 g_path="$HOME/cloud/g.sh"
 [ -r "$g_path" ] && . "$g_path"
-alias g="\$EDITOR \$g_path && . \$g_path"
+alias gg="\$EDITOR \$g_path && . \$g_path"
 
 # GIT
 k() { n=16; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
@@ -120,7 +120,7 @@ alias as="echo Remapped to do nothing."
 alias bs="bstatus"
 alias clean="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; sudo rm -fr /var/log/journal/*"
 alias dus="du -s"
-alias gr="grep -Rn"
+alias g="grep -Rn"
 alias h="python"
 alias i="pkg -i"
 alias ig="iwctl station wlan0 get-networks"
