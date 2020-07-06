@@ -56,8 +56,10 @@ se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 " BUFFERS
 au default bufenter,focusgained * checkt
 au default textchanged,insertleave * nested sil up
-nn <silent> <leader>b :Buffers!<cr>
-nn <silent> <leader>f :Files!<cr>
+com! -nargs=+ SFZF exe 'e '.system('sfzf <args> 2>/dev/null').' | echo'
+nn <leader>f :SFZF<space>
+nn <leader>F :FZF!<cr>
+nn <leader>b :Buffers!<cr>
 nn <silent> <a-tab> :bp<cr>
 nn <silent> <tab> :bn<cr>
 se confirm noswapfile
