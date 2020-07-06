@@ -38,7 +38,7 @@ alias fdf="cd ~/repos/dotfiles && f"
 alias fp="\$EDITOR ~/.profile"
 alias fx="\$EDITOR ~/.config/sx/sxrc"
 alias iv="\$EDITOR ~/.config/nvim/init.vim"
-alias tm="\$EDITOR ~/.config/tmux.conf"
+alias tm="\$EDITOR ~/.config/tmux/tmux.conf"
 
 # FUNCTIONS
 cd() { builtin cd "$@" && ls; }
