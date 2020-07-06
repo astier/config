@@ -56,7 +56,7 @@ se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 " BUFFERS
 au default bufenter,focusgained * checkt
 au default textchanged,insertleave * nested sil up
-com! -nargs=+ SFZF exe 'e '.system('ffind -type f | sfzf <args> 2>/dev/null').' | echo'
+com! -nargs=+ SFZF exe 'e '.system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
 nn <leader>f :SFZF<space>
 nn <leader>F :FZF!<cr>
 nn <leader>b :Buffers!<cr>
