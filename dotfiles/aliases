@@ -44,6 +44,7 @@ alias tm="\$EDITOR ~/.config/tmux/tmux.conf"
 cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
 f() { if [ -d "$1" ]; then cd "$1" || return; else open "$@"; fi; }
+j() { if [ $# = 0 ]; then dir=$(ffind -type d | fzf); else dir=$(ffind -type d | sfzf "$@"); fi; if [ ! -z $dir ]; then cd $dir; fi; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
 
@@ -126,7 +127,6 @@ alias i="pkg -i"
 alias ig="iwctl station wlan0 get-networks"
 alias ir="systemctl restart iwd.service"
 alias is="iwctl station wlan0 scan"
-alias j="dir=\$(ffind -type d | fzf); if [ ! -z \$dir ]; then cd \$dir; fi"
 alias lb="lsblk"
 alias ll="ls -l"
 alias m="mv"
