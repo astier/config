@@ -1,5 +1,5 @@
 " FIRST THINGS FIRST
-aug default | au! | aug en
+aug group | au! | aug en
 let mapleader = ' '
 scriptencoding utf-8
 
@@ -25,8 +25,8 @@ cal plug#end()
 
 " APPEARANCE
 " echo synIDattr(synID(line("."), col("."), 1), "name")
-au default bufwritepost * GitGutter
-au default filetype gitcommit,markdown,tex setl spell
+au group bufwritepost * GitGutter
+au group filetype gitcommit,markdown,tex setl spell
 colorscheme nord
 hi comment       cterm=italic
 hi cursorlinenr  ctermfg=none
@@ -54,8 +54,8 @@ se noruler noshowcmd noshowmode
 se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 
 " BUFFERS
-au default bufenter,focusgained * checkt
-au default textchanged,insertleave * nested sil up
+au group bufenter,focusgained * checkt
+au group textchanged,insertleave * nested sil up
 com! -nargs=+ SFZF exe 'e '.system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
 nn <leader>f :SFZF<space>
 nn <leader>F :FZF!<cr>
@@ -135,7 +135,7 @@ nn >p >ap
 nn <p <ap
 
 " MISC-SETTINGS
-au default bufenter * se formatoptions-=cro
+au group bufenter * se formatoptions-=cro
 let g:fzf_preview_window = ''
 let g:lexima_enable_endwise_rules = 0
 let g:rooter_silent_chdir = 1
@@ -155,8 +155,8 @@ nnoremap <silent> <leader>e :Explore<cr>
 
 " STATE
 let state_ignore = ['gitcommit', 'gitrebase']
-au default bufwinleave * if index(state_ignore, &ft) < 0 | sil! mkvie
-au default bufwinenter * if index(state_ignore, &ft) < 0 | sil! lo
+au group bufwinleave * if index(state_ignore, &ft) < 0 | sil! mkvie
+au group bufwinenter * if index(state_ignore, &ft) < 0 | sil! lo
 se viewoptions=cursor
 
 " SEARCH & REPLACE
@@ -190,8 +190,8 @@ fu! RenameTmux()
         cal system('tmux renamew ' . expand('%:t'))
     en
 endf
-au default bufenter,focusgained * cal RenameTmux()
-au default vimleave * cal system('tmux setw automatic-rename')
+au group bufenter,focusgained * cal RenameTmux()
+au group vimleave * cal system('tmux setw automatic-rename')
 
 " VIMUX
 let g:VimuxHeight = '35'
@@ -201,8 +201,8 @@ nn <silent> <leader>l :cal VimuxRunCommand('lint ' . bufname('%'))<cr>
 nn <silent> <leader>x :VimuxCloseRunner<cr>
 
 " VIMTEX
-au default filetype tex nn <silent> <leader>a :VimtexCompile<cr>
-au default filetype tex nnoremap <leader>t :cal vimtex#fzf#run()<cr>
+au group filetype tex nn <silent> <leader>a :VimtexCompile<cr>
+au group filetype tex nnoremap <leader>t :cal vimtex#fzf#run()<cr>
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
@@ -228,7 +228,7 @@ let g:vimtex_compiler_latexmk = {
     \ }
 
 " WINDOWS
-au default vimresized * winc =
+au group vimresized * winc =
 let g:tmux_navigator_no_mappings = 1
 nn <silent> <a-h> :TmuxNavigateLeft<cr>
 nn <silent> <a-j> :TmuxNavigateDown<cr>
