@@ -144,6 +144,7 @@ let g:tex_no_error = 1
 se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a notimeout
+se shell=/bin/bash
 
 " NETRW
 let g:netrw_banner = 0
