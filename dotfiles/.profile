@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+export PATH=$HOME/bin:$PATH
+
 export BROWSER=firefox
 export EDITOR=nvim
 export MANPAGER="nvim -c 'set ft=man' -"
