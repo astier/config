@@ -10,9 +10,9 @@ super=Mod4
 herbstclient keybind $super-x substitute FSRESTORE clients.focus.fullscreen chain , fullscreen on , attr clients.focus.ewmhrequests off , attr clients.focus.ewmhnotify toggle , spawn herbstclient fullscreen FSRESTORE
 
 # KILL
-herbstclient keybind $mod-Shift-q quit
-herbstclient keybind $mod-Shift-r reload
 herbstclient keybind $mod-d close
+herbstclient keybind $mod-Shift-r reload
+herbstclient keybind $mod-Shift-s quit
 
 # LAYOUTS
 herbstclient keybind $mod-m spawn ~/.config/herbstluftwm/maximize.sh
