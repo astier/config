@@ -1,11 +1,8 @@
-$include /etc/inputrc
-set echo-control-characters off
-
-# COLORS
-set colored-stats On
-set colored-completion-prefix On
-set mark-symlinked-directories On
-set menu-complete-display-prefix On
+# 8-BIT
+set meta-flag on
+set input-meta on
+set convert-meta off
+set output-meta on
 
 # CURSOR
 set show-mode-in-prompt on
@@ -16,6 +13,14 @@ $else
     set vi-cmd-mode-string \1\e[2 q\2
     set vi-ins-mode-string \1\e[6 q\2
 $endif
+
+# THEME
+set bell-style none
+set colored-completion-prefix On
+set colored-stats On
+set echo-control-characters off
+set mark-symlinked-directories On
+set menu-complete-display-prefix On
 
 # VI
 set editing-mode vi
