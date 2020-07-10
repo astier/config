@@ -15,6 +15,8 @@ link .bashrc ~
 link .profile ~
 link aliases "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
+link gtk-2.0 "$XDG_CONFIG_HOME"
+link gtk-3.0 "$XDG_CONFIG_HOME"
 link inputrc "$XDG_CONFIG_HOME"
 link nvim "$XDG_CONFIG_HOME"
 link pythonrc.py "$XDG_CONFIG_HOME"
@@ -33,8 +35,6 @@ if groups "$USER" | grep -q wheel; then
     copy systemd/system/getty@tty1.service.d /etc/systemd/system
     copy systemd/system/getty@tty2.service.d /etc/systemd/system
     copy tty-cursor.conf /etc/tmpfiles.d
-    link gtk-2.0 "$XDG_CONFIG_HOME"
-    link gtk-3.0 "$XDG_CONFIG_HOME"
     link herbstluftwm "$XDG_CONFIG_HOME"
     link newsboat "$XDG_CONFIG_HOME"
     link pacman "$XDG_CONFIG_HOME"
