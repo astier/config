@@ -48,6 +48,7 @@ f() { if [ -d "$1" ]; then cd "$1" || return; else open "$@"; fi; }
 j() { if [ $# = 0 ]; then dir=$(ffind -type d | fzf); else dir=$(ffind -type d | sfzf "$@"); fi; if [ ! -z $dir ]; then cd $dir; fi; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
+tox() { touch "$1"; chmod +x "$1"; }
 
 # G
 g_path="$HOME/cloud/g.sh"
