@@ -110,6 +110,7 @@ nn <silent> <leader>w :bn<bar>bd#<cr>
 let g:loaded_gzip = 1
 let g:loaded_matchparen = 1
 let g:loaded_node_provider = 1
+let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 1
 let g:loaded_ruby_provider = 1
 let g:loaded_spellfile_plugin = 1
