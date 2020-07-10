@@ -18,11 +18,13 @@ shopt -s cmdhist
 shopt -s histappend
 
 # SOURCE
-aliases="$XDG_CONFIG_HOME"/aliases
+aliases="$XDG_CONFIG_HOME/aliases"
 bash_completion=/usr/share/bash-completion/bash_completion
+bashrc_local="$XDG_CONFIG_HOME/bashrc_local"
 git_completion=/usr/share/git/completion/git-prompt.sh
 [ -r "$aliases" ] && . "$aliases"
 [ -r "$bash_completion" ] && . "$bash_completion"
+[ -r "$bashrc_local" ] && . "$bashrc_local"
 [ -r "$git_completion" ] && . "$git_completion"
 
 # HISTORY
