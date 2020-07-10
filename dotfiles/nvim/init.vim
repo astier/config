@@ -117,7 +117,7 @@ let g:loaded_tar = 1
 let g:loaded_tarPlugin = 1
 let g:loaded_zip = 1
 let g:loaded_zipPlugin = 1
-let g:python3_host_prog = '/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " MISC-MAPPINGS
 nn <silent> gs vip:sort iu<cr>
