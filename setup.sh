@@ -8,18 +8,18 @@ link() {
     ln -rs "$TARGET" "$DESTINATION" && echo Installed: "$TARGET"
 }
 
-mkdir -p ~/.config
+mkdir -p "$XDG_CONFIG_HOME"
 cd dotfiles || return
 
 link .bashrc ~
 link .profile ~
-link aliases ~/.config
-link git ~/.config
-link inputrc ~/.config
-link nvim ~/.config
-link pythonrc.py ~/.config
-link tmux ~/.config
-link xkb ~/.config
+link aliases "$XDG_CONFIG_HOME"
+link git "$XDG_CONFIG_HOME"
+link inputrc "$XDG_CONFIG_HOME"
+link nvim "$XDG_CONFIG_HOME"
+link pythonrc.py "$XDG_CONFIG_HOME"
+link tmux "$XDG_CONFIG_HOME"
+link xkb "$XDG_CONFIG_HOME"
 
 if groups "$USER" | grep -q wheel; then
 
@@ -33,17 +33,17 @@ if groups "$USER" | grep -q wheel; then
     copy systemd/system/getty@tty1.service.d /etc/systemd/system
     copy systemd/system/getty@tty2.service.d /etc/systemd/system
     copy tty-cursor.conf /etc/tmpfiles.d
-    link gtk-2.0 ~/.config
-    link gtk-3.0 ~/.config
-    link herbstluftwm ~/.config
-    link newsboat ~/.config/
-    link pacman ~/.config
-    link pylintrc ~/.config
-    link shellcheckrc ~/.config
-    link sx ~/.config
-    link sxhkd ~/.config
-    link templates ~/.config
-    link tint2 ~/.config
-    link zathura ~/.config
+    link gtk-2.0 "$XDG_CONFIG_HOME"
+    link gtk-3.0 "$XDG_CONFIG_HOME"
+    link herbstluftwm "$XDG_CONFIG_HOME"
+    link newsboat "$XDG_CONFIG_HOME"
+    link pacman "$XDG_CONFIG_HOME"
+    link pylintrc "$XDG_CONFIG_HOME"
+    link shellcheckrc "$XDG_CONFIG_HOME"
+    link sx "$XDG_CONFIG_HOME"
+    link sxhkd "$XDG_CONFIG_HOME"
+    link templates "$XDG_CONFIG_HOME"
+    link tint2 "$XDG_CONFIG_HOME"
+    link zathura "$XDG_CONFIG_HOME"
 
 fi

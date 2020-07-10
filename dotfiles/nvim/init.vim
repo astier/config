@@ -183,7 +183,7 @@ xmap <leader><leader> <Plug>SlimeRegionSend
 " SNIPPETS
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
-let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips']
+let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
 " TMUXRENAME
 fu! RenameTmux()

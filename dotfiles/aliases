@@ -31,21 +31,21 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # DOTFILES
-alias al=" \$EDITOR ~/.config/aliases && . ~/.config/aliases"
+alias al=" \$EDITOR \$XDG_CONFIG_HOME/aliases && . \$XDG_CONFIG_HOME/aliases"
 alias ba="\$EDITOR ~/.bashrc && . ~/.bashrc"
 alias fd="cd ~/projects/dotfiles"
 alias fdf="cd ~/projects/dotfiles && f"
 alias fdj="cd ~/projects/dotfiles 1>/dev/null && j"
 alias fp="\$EDITOR ~/.profile"
-alias fx="\$EDITOR ~/.config/sx/sxrc"
-alias iv="\$EDITOR ~/.config/nvim/init.vim"
-alias tm="\$EDITOR ~/.config/tmux/tmux.conf"
+alias fx="\$EDITOR \$XDG_CONFIG_HOME/sx/sxrc"
+alias iv="\$EDITOR \$XDG_CONFIG_HOME/nvim/init.vim"
+alias tm="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
 
 # FUNCTIONS
 cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
 f() { if [ -d "$1" ]; then cd "$1" || return; else open "$@"; fi; }
-j() { if [ $# = 0 ]; then dir=$(ffind -type d | fzf); else dir=$(ffind -type d | sfzf "$@"); fi; if [ ! -z $dir ]; then cd $dir; fi; }
+j() { if [ $# = 0 ]; then dir=$(ffind -type d | fzf); else dir=$(ffind -type d | sfzf "$@"); fi; if [ -n "$dir" ]; then cd "$dir" || return; fi; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
 tox() { touch "$1"; chmod +x "$1"; }
@@ -113,7 +113,7 @@ alias kst="git stash"
 alias b="cd - >/dev/null && ls"
 alias c="cd .."
 alias ca="cd ~/.cache"
-alias co="cd ~/.config"
+alias co="cd \$XDG_CONFIG_HOME"
 alias dl="cd ~/Downloads"
 alias fl="cd ~/.local/share"
 

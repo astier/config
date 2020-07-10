@@ -15,7 +15,7 @@ herbstclient keybind $mod-Shift-r reload
 herbstclient keybind $mod-Shift-s quit
 
 # LAYOUTS
-herbstclient keybind $mod-m spawn ~/.config/herbstluftwm/maximize.sh
+herbstclient keybind $mod-m spawn "$XDG_CONFIG_HOME"/herbstluftwm/maximize.sh
 herbstclient set default_frame_layout 2
 herbstclient set tree_style '╾│ ├└╼─┐'
 

@@ -4,7 +4,7 @@
 
 [core]
     editor = nvim
-    excludesfile = ~/.config/git/ignore
+    excludesfile = $XDG_CONFIG_HOME/git/ignore
 
 [credential]
     helper = cache --timeout=7200
