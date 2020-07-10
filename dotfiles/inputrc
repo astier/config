@@ -1,16 +1,13 @@
 $include /etc/inputrc
-
-# vi
-set editing-mode vi
-# Disable echo ^C after Ctrl+C is pressed
 set echo-control-characters off
 
-# Backward-Search
-set keymap vi-command
-j: history-search-forward
-k: history-search-backward
+# COLORS
+set colored-stats On
+set colored-completion-prefix On
+set mark-symlinked-directories On
+set menu-complete-display-prefix On
 
-# vi-cursor-shapes
+# CURSOR
 set show-mode-in-prompt on
 $if term=linux
     set vi-cmd-mode-string \1\e[?8c\2
@@ -20,11 +17,8 @@ $else
     set vi-ins-mode-string \1\e[6 q\2
 $endif
 
-# Color files by types
-set colored-stats On
-# Color the common prefix
-set colored-completion-prefix On
-# Mark symlinked directories
-set mark-symlinked-directories On
-# Color the common prefix in menu-complete
-set menu-complete-display-prefix On
+# VI
+set editing-mode vi
+set keymap vi-command
+j: history-search-forward
+k: history-search-backward
