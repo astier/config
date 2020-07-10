@@ -15,10 +15,9 @@ Plug 'jpalardy/vim-slime', { 'for': ['python', 'sh'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
-Plug 'nvim-lua/completion-nvim'
 Plug 'rhysd/clever-f.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
-Plug 'steelsojka/completion-buffers'
 Plug 'tpope/vim-commentary'
 Plug 'yunake/vimux'
 
@@ -75,15 +74,20 @@ xn <c-c> "+y
 xn <c-x> "+d
 
 " COMPLETION
-au bufenter * lua require'completion'.on_attach()
-let g:completion_auto_change_source = 1
-let g:completion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy']
-let g:completion_sorting = "length"
-let g:completion_chain_complete_list = [
-    \{'complete_items': ['path']},
-    \{'complete_items': ['buffers']},
-\]
-se completeopt=menuone,noinsert shortmess+=c
+let g:deoplete#enable_at_startup = 1
+cal deoplete#custom#option({
+    \ 'ignore_sources': { '_': ['around', 'member'] },
+    \ 'max_list': 8,
+    \ 'min_pattern_length': 1,
+    \ 'num_processes': 1,
+    \ })
+cal deoplete#custom#source('_', 'matchers', [
+    \ 'matcher_fuzzy',
+    \ 'matcher_length',
+    \ ])
+cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
+se completeopt=menuone,noinsert
+se infercase shortmess+=c
 
 " FORMAT
 fu! Format()
