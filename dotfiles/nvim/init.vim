@@ -38,12 +38,12 @@ hi number        ctermfg=none
 hi pmenusel      ctermfg=none
 hi pythonbuiltin ctermfg=none
 hi search        cterm=bold   ctermbg=none ctermfg=red
-hi statusline    ctermbg=none ctermfg=16
-hi statuslinenc  ctermbg=none ctermfg=16
+hi statusline    ctermbg=none ctermfg=8
+hi statuslinenc  ctermbg=none ctermfg=8
 hi tabline       ctermbg=none ctermfg=8
 hi tablinefill   ctermbg=none
 hi tablinesel    ctermbg=none ctermfg=none
-hi vertsplit     ctermbg=none ctermfg=16
+hi vertsplit     ctermbg=none ctermfg=8
 hi vimaugroup    ctermfg=none
 hi vimmaprhs     ctermfg=none
 hi vimnotation   ctermfg=none
@@ -60,8 +60,10 @@ com! -nargs=+ SFZF exe 'e '.system('ffind -type f | sfzf <args> 2>/dev/null') | 
 nn <leader>f :SFZF<space>
 nn <leader>F :FZF!<cr>
 nn <leader>b :Buffers!<cr>
-nn <silent> <a-tab> :bp<cr>
-nn <silent> <tab> :bn<cr>
+nn <silent> <a-e> :bp<cr>
+nn <silent> <a-r> :bn<cr>
+tno <silent> <a-e> <c-\><c-n>:bp<cr>
+tno <silent> <a-r> <c-\><c-n>:bn<cr>
 se confirm noswapfile
 se path+=** path-=/usr/include
 
@@ -100,11 +102,13 @@ endf
 nn <silent> <leader>gf :cal Format()<cr>
 
 " KILL
-nn <silent> <leader>c :clo<cr>
-nn <silent> <leader>d :cal VimuxCloseRunner() <bar> qa<cr>
-nn <silent> <leader>q :bw<cr>
-nn <silent> <leader>s <c-z>
-nn <silent> <leader>w :bn<bar>bd#<cr>
+nn <silent> <a-S> :so $MYVIMRC<cr>
+nn <silent> <a-c> :clo<cr>
+nn <silent> <a-d> :bd!<cr>
+nn <silent> <a-q> :cal VimuxCloseRunner() <bar> qa<cr>
+tno <silent> <a-c> <c-\><c-n>:clo<cr>
+tno <silent> <a-d> <c-\><c-n>:bd!<cr>
+tno <silent> <a-q> <c-\><c-n>:cal VimuxCloseRunner() <bar> qa<cr>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -145,7 +149,6 @@ let g:tex_no_error = 1
 se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a notimeout
-se shell=/bin/bash
 
 " NETRW
 let g:netrw_banner = 0
@@ -184,6 +187,14 @@ xmap <leader><leader> <Plug>SlimeRegionSend
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
+
+" TERMINAL
+au group bufenter,termopen term://* startinsert
+au group termopen * nn <buffer><leftrelease> <leftrelease>i
+au group termopen * setl hidden signcolumn=no
+if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait' | en
+se shell=/bin/bash
+tno <a-f> <c-\><c-n>
 
 " TMUXRENAME
 fu! RenameTmux()
@@ -235,6 +246,14 @@ nn <silent> <a-h> :TmuxNavigateLeft<cr>
 nn <silent> <a-j> :TmuxNavigateDown<cr>
 nn <silent> <a-k> :TmuxNavigateUp<cr>
 nn <silent> <a-l> :TmuxNavigateRight<cr>
+ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
+ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
+ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
+ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
+tno <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
+tno <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
+tno <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
+tno <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
 se splitbelow splitright
 
 " WRAP
