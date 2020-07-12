@@ -17,15 +17,14 @@ Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
-Plug 'jpalardy/vim-slime', { 'for': ['python', 'sh'] }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
+Plug 'kassio/neoterm'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'rhysd/clever-f.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'tpope/vim-commentary'
-Plug 'yunake/vimux'
 
 cal plug#end()
 
@@ -68,8 +67,8 @@ nn <leader>F :FZF!<cr>
 nn <leader>b :Buffers!<cr>
 nn <silent> <a-e> :bp<cr>
 nn <silent> <a-r> :bn<cr>
-tno <silent> <a-e> <c-\><c-n>:bp<cr>
-tno <silent> <a-r> <c-\><c-n>:bn<cr>
+tno <silent> <a-e> <c-\><c-n>:Tprevious<cr>
+tno <silent> <a-r> <c-\><c-n>:Tnext<cr>
 se confirm noswapfile
 se path+=** path-=/usr/include
 
@@ -111,10 +110,10 @@ nn <silent> <leader>gf :cal Format()<cr>
 nn <silent> <a-S> :so $MYVIMRC<cr>
 nn <silent> <a-c> :clo<cr>
 nn <silent> <a-d> :bd!<cr>
-nn <silent> <a-q> :cal VimuxCloseRunner() <bar> qa<cr>
+nn <silent> <a-q> :qa<cr>
 tno <silent> <a-c> <c-\><c-n>:clo<cr>
 tno <silent> <a-d> <c-\><c-n>:bd!<cr>
-tno <silent> <a-q> <c-\><c-n>:cal VimuxCloseRunner() <bar> qa<cr>
+tno <silent> <a-q> <c-\><c-n>:qa<cr>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -180,15 +179,6 @@ nn <silent> N Nzz
 se ignorecase smartcase
 se inccommand=nosplit
 
-" SLIME
-let g:slime_default_config = {'socket_name': 'default', 'target_pane': '{bottom}'}
-let g:slime_dont_ask_default = 1
-let g:slime_no_mappings = 1
-let g:slime_paste_file = '/tmp/slime'
-let g:slime_target = 'tmux'
-nmap <leader><leader> <Plug>SlimeParagraphSend
-xmap <leader><leader> <Plug>SlimeRegionSend
-
 " SNIPPETS
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
@@ -197,10 +187,18 @@ let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 " TERMINAL
 au group bufenter,termopen term://* startinsert
 au group termopen * nn <buffer><leftrelease> <leftrelease>i
-au group termopen * setl hidden signcolumn=no
+au group termopen * setl nobuflisted hidden signcolumn=no
 if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait' | en
 se shell=/bin/bash
 tno <a-f> <c-\><c-n>
+tno <silent> <a-s> <c-\><c-n>:exe 'b' blast<cr>
+
+" NEOTERM
+nmap <leader><leader> <Plug>(neoterm-repl-send-line)
+xmap <leader><leader> <Plug>(neoterm-repl-send)
+nn <silent> <leader>a :T execute %<cr> :Topen<cr>
+nn <silent> <leader>l :T lint %<cr> :Topen<cr>
+nn <silent> <a-s> :let blast = bufname('%') <bar> Topen<cr>
 
 " TMUXRENAME
 fu! RenameTmux()
@@ -210,13 +208,6 @@ fu! RenameTmux()
 endf
 au group bufenter,focusgained * cal RenameTmux()
 au group vimleave * cal system('tmux setw automatic-rename')
-
-" VIMUX
-let g:VimuxHeight = '35'
-let g:VimuxUseNearest = 0
-nn <silent> <leader>a :cal VimuxRunCommand('execute ' . bufname('%'))<cr>
-nn <silent> <leader>l :cal VimuxRunCommand('lint ' . bufname('%'))<cr>
-nn <silent> <leader>x :VimuxCloseRunner<cr>
 
 " VIMTEX
 au group filetype tex nn <silent> <leader>a :VimtexCompile<cr>
