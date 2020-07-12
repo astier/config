@@ -185,7 +185,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
 " TERMINAL
-au group bufenter,termopen term://* startinsert
+au group bufenter,focusgained,termopen,winenter term://* startinsert
 au group termopen * nn <buffer><leftrelease> <leftrelease>i
 au group termopen * setl nobuflisted hidden signcolumn=no
 if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait' | en
