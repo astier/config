@@ -106,7 +106,6 @@ endf
 nn <silent> <leader>gf :cal Format()<cr>
 
 " KILL
-nn <silent> <a-S> :so $MYVIMRC<cr>
 nn <silent> <a-c> :clo<cr>
 nn <silent> <a-d> :bd!<cr>
 nn <silent> <a-q> :qa<cr>
@@ -131,6 +130,7 @@ let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/usr/bin/python3'
 
 " MISC-MAPPINGS
+nn <silent> <a-S> :so $MYVIMRC<cr>
 nn <silent> gs vip:sort iu<cr>
 xn <silent> gs :sort iu<cr>
 xn . :norm.<cr>
@@ -185,7 +185,6 @@ au group termopen * setl nobuflisted hidden signcolumn=no
 if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait' | en
 se shell=/bin/bash
 tno <a-f> <c-\><c-n>
-tno <silent> <a-s> <c-\><c-n>:exe 'b' blast<cr>
 
 " NEOTERM
 nmap <leader><leader> <Plug>(neoterm-repl-send-line)
@@ -193,6 +192,7 @@ xmap <leader><leader> <Plug>(neoterm-repl-send)
 nn <silent> <leader>a :T execute %<cr> :Topen<cr>
 nn <silent> <leader>l :T lint %<cr> :Topen<cr>
 nn <silent> <a-s> :let blast = bufname('%') <bar> Topen<cr>
+tno <silent> <a-s> <c-\><c-n>:exe 'b' blast<cr>
 
 " TMUXRENAME
 fu! RenameTmux()
