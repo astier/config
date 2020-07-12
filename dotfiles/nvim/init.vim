@@ -44,12 +44,12 @@ hi number        ctermfg=none
 hi pmenusel      ctermfg=none
 hi pythonbuiltin ctermfg=none
 hi search        cterm=bold   ctermbg=none ctermfg=red
-hi statusline    ctermbg=none ctermfg=8
-hi statuslinenc  ctermbg=none ctermfg=8
+hi statusline    ctermbg=none ctermfg=0
+hi statuslinenc  ctermbg=none ctermfg=0
 hi tabline       ctermbg=none ctermfg=8
 hi tablinefill   ctermbg=none
 hi tablinesel    ctermbg=none ctermfg=none
-hi vertsplit     ctermbg=none ctermfg=8
+hi vertsplit     ctermbg=none ctermfg=0
 hi vimaugroup    ctermfg=none
 hi vimmaprhs     ctermfg=none
 hi vimnotation   ctermfg=none
