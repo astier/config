@@ -5,8 +5,7 @@ scriptencoding utf-8
 
 " PLUGINS
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  sil !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  sil !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   au vimenter * PlugInstall --sync | so $MYVIMRC
 en
 
