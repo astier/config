@@ -66,8 +66,6 @@ nn <leader>F :FZF!<cr>
 nn <leader>b :Buffers!<cr>
 nn <silent> <a-e> :bp<cr>
 nn <silent> <a-r> :bn<cr>
-tno <silent> <a-e> <c-\><c-n>:Tprevious<cr>
-tno <silent> <a-r> <c-\><c-n>:Tnext<cr>
 se confirm noswapfile
 se path+=** path-=/usr/include
 
@@ -179,9 +177,12 @@ let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
 " TERMINAL
-au group bufenter,focusgained,termopen,winenter term://* startinsert
+au group bufenter,focusgained,termopen,winenter term://* star
 au group termopen * nn <buffer><leftrelease> <leftrelease>i
 au group termopen * setl nobuflisted hidden signcolumn=no
+au group bufdelete * if len(getbufinfo({'buflisted':1})) == 2 && bufname("$") == '' | b term://* | bw# | star | en " delete empty buffer after last buffer gets deleted and switch to terminal
+au group bufdelete COMMIT_EDITMSG,git* let git=1
+au group bufenter * if exists('git') | unlet git | b term://* | star | en
 if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait' | en
 se shell=/bin/bash
 tno <a-f> <c-\><c-n>
@@ -193,6 +194,8 @@ nn <silent> <leader>a :T execute %<cr> :Topen<cr>
 nn <silent> <leader>l :T lint %<cr> :Topen<cr>
 nn <silent> <a-s> :let blast = bufname('%') <bar> Topen<cr>
 tno <silent> <a-s> <c-\><c-n>:exe 'b' blast<cr>
+tno <silent> <a-e> <c-\><c-n>:Tprevious<cr>
+tno <silent> <a-r> <c-\><c-n>:Tnext<cr>
 
 " TMUXRENAME
 fu! RenameTmux()
