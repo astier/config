@@ -36,7 +36,6 @@ if groups "$USER" | grep -q wheel; then
     copy systemd/system/getty@tty2.service.d /etc/systemd/system
     copy tty-cursor.conf /etc/tmpfiles.d
     link herbstluftwm "$XDG_CONFIG_HOME"
-    link newsboat "$XDG_CONFIG_HOME"
     link pacman "$XDG_CONFIG_HOME"
     link pylintrc "$XDG_CONFIG_HOME"
     link shellcheckrc "$XDG_CONFIG_HOME"
