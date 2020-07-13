@@ -154,6 +154,7 @@ alias u="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pac
 
 # REPOS
 alias aa="cd ~/projects/arch"
+alias aaf="cd ~/projects/arch && f"
 alias ab="cd ~/projects/arch && \$EDITOR base.sh"
 alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
 alias fj="cd ~/projects"
