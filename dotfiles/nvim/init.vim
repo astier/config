@@ -60,7 +60,7 @@ se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 " BUFFERS
 au group bufenter,focusgained * checkt
 au group textchanged,insertleave * nested sil up
-com! -nargs=+ SFZF exe 'e '.system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
+com! -nargs=+ SFZF exe 'e ' system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
 nn <leader>f :SFZF<space>
 nn <leader>F :FZF!<cr>
 nn <leader>b :Buffers!<cr>
@@ -186,14 +186,18 @@ au group bufenter * if exists('git') | unlet git | b term://* | star | en
 if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait' | en
 se shell=/bin/bash
 tno <a-f> <c-\><c-n>
+tno <a-:> <c-\><c-n>:
 
 " NEOTERM
+fu! To()
+    let g:blast = bufname('%') | Topen
+endf
 nmap <leader><leader> <Plug>(neoterm-repl-send-line)
 xmap <leader><leader> <Plug>(neoterm-repl-send)
-nn <silent> <leader>a :T execute %<cr> :Topen<cr>
-nn <silent> <leader>l :T lint %<cr> :Topen<cr>
-nn <silent> <a-s> :let blast = bufname('%') <bar> Topen<cr>
-tno <silent> <a-s> <c-\><c-n>:exe 'b' blast<cr>
+nn <silent> <leader>a :cal To() <bar> exe 'T execute' g:blast<cr>
+nn <silent> <leader>l :cal To() <bar> exe 'T lint' g:blast<cr>
+nn <silent> <a-s> :cal To()<cr>
+tno <silent> <a-s> <c-\><c-n>:exe 'b' g:blast<cr>
 tno <silent> <a-e> <c-\><c-n>:Tprevious<cr>
 tno <silent> <a-r> <c-\><c-n>:Tnext<cr>
 
