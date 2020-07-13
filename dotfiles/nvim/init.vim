@@ -16,7 +16,6 @@ Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
-Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
 Plug 'kassio/neoterm'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
@@ -62,8 +61,7 @@ au group bufenter,focusgained * checkt
 au group textchanged,insertleave * nested sil up
 com! -nargs=+ SFZF exe 'e ' system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
 nn <leader>f :SFZF<space>
-nn <leader>F :FZF!<cr>
-nn <leader>b :Buffers!<cr>
+nn <leader>b :ls<cr>:b<space>
 nn <silent> <a-e> :bp<cr>
 nn <silent> <a-r> :bn<cr>
 se confirm noswapfile
@@ -145,7 +143,6 @@ nn <p <ap
 
 " MISC-SETTINGS
 au group bufenter * se formatoptions-=cro
-let g:fzf_preview_window = ''
 let g:lexima_enable_endwise_rules = 0
 let g:rooter_silent_chdir = 1
 let g:tex_flavor = 'latex'
@@ -213,7 +210,6 @@ au group vimleave * cal system('tmux setw automatic-rename')
 
 " VIMTEX
 au group filetype tex nn <silent> <leader>a :VimtexCompile<cr>
-au group filetype tex nnoremap <leader>t :cal vimtex#fzf#run()<cr>
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
