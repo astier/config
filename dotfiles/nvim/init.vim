@@ -89,7 +89,7 @@ cal deoplete#custom#source('_', 'matchers', [
     \ ])
 cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
 se completeopt=menuone,noinsert
-se infercase shortmess+=c
+se shortmess+=c
 
 " FORMAT
 fu! Format()
