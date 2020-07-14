@@ -144,7 +144,6 @@ nn <p <ap
 " MISC-SETTINGS
 au group bufenter * se formatoptions-=cro
 let g:lexima_enable_endwise_rules = 0
-let g:rooter_silent_chdir = 1
 let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
 se commentstring=//\ %s
@@ -172,6 +171,12 @@ se inccommand=nosplit
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
+
+" ROOTER
+let g:rooter_patterns = ['.git', '.git/']
+let g:rooter_resolve_links = 1
+let g:rooter_silent_chdir = 1
+let g:rooter_targets = '*'
 
 " TERMINAL
 au group bufenter,focusgained,termopen,winenter term://* star
