@@ -60,7 +60,7 @@ border_color_pressed = #000000 100
 #-------------------------------------
 # Panel
 panel_items = TS
-panel_size = 100% 30
+panel_size = 100% 28
 panel_margin = 0 0
 panel_padding = 0 0 0
 panel_background_id = 4
@@ -113,7 +113,7 @@ task_icon = 1
 task_centered = 0
 urgent_nb_of_blink = 100000
 task_maximum_size = 150 28
-task_padding = 3 1 3
+task_padding = 4 2 4
 task_tooltip = 0
 task_thumbnail = 0
 task_thumbnail_size = 210
@@ -130,7 +130,7 @@ mouse_scroll_down = none
 
 #-------------------------------------
 # System tray (notification area)
-systray_padding = 4 4 2
+systray_padding = 4 4 4
 systray_background_id = 0
 systray_sort = right2left
 systray_icon_size = 28
