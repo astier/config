@@ -3,7 +3,6 @@
     name = aleks
 
 [core]
-    editor = nvim
     excludesfile = $XDG_CONFIG_HOME/git/ignore
 
 [credential]
