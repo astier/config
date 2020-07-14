@@ -186,7 +186,7 @@ tno <a-f> <c-\><c-n>
 tno <a-:> <c-\><c-n>:
 
 " NEOTERM
-let g:neoterm_automap_keys = ''
+let g:neoterm_automap_keys = '-'
 fu! To()
     let g:blast = bufname('%') | Topen
 endf
