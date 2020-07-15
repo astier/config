@@ -59,13 +59,21 @@ se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 " BUFFERS
 au group bufenter,focusgained * checkt
 au group textchanged,insertleave * nested sil up
-com! -nargs=+ SFZF exe 'e ' system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
+com! -nargs=+ SFZF exe 'e' system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
 nn <leader>f :SFZF<space>
 nn <leader>b :ls<cr>:b<space>
-nn <silent> <a-e> :bp<cr>
-nn <silent> <a-r> :bn<cr>
 se confirm noswapfile
 se path+=** path-=/usr/include
+
+" CHANGEBUFFER
+fu! ChangeBuffer(cmd)
+  let start_buffer = bufnr('%') | exe 'noa' a:cmd
+  wh &buftype ==# 'terminal' && bufnr('%') != start_buffer
+      exe 'noa' a:cmd
+  endw
+endf
+nn <silent> <a-e> :cal ChangeBuffer('bp')<cr>
+nn <silent> <a-r> :cal ChangeBuffer('bn')<cr>
 
 " CLIPBOARD
 ino <c-v> <esc>"+pa
@@ -181,10 +189,7 @@ let g:rooter_targets = '*'
 " TERMINAL
 au group bufenter,focusgained,termopen,winenter term://* star
 au group termopen * nn <buffer><leftrelease> <leftrelease>i
-au group termopen * setl nobuflisted hidden signcolumn=no
-au group bufdelete * if len(getbufinfo({'buflisted':1})) == 2 && bufname("$") == '' | b term://* | bw# | star | en " delete empty buffer after last buffer gets deleted and switch to terminal
-au group bufdelete COMMIT_EDITMSG,git* let git=1
-au group bufenter * if exists('git') | unlet git | b term://* | star | en
+au group termopen * setl hidden signcolumn=no
 if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait' | en
 se shell=/bin/bash
 tno <a-f> <c-\><c-n>
