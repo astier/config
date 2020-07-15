@@ -4,12 +4,12 @@ let mapleader = ' '
 scriptencoding utf-8
 
 " PLUGINS
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  sil !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
+  sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   au vimenter * PlugInstall --sync | so $MYVIMRC
 en
 
-cal plug#begin('~/.local/share/nvim/plugins')
+cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'

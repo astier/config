@@ -115,7 +115,7 @@ alias c="cd .."
 alias ca="cd ~/.cache"
 alias co="cd \$XDG_CONFIG_HOME"
 alias dl="cd ~/Downloads"
-alias fl="cd ~/.local/share"
+alias fl="cd \$XDG_DATA_HOME"
 
 # MISC
 alias a="execute"

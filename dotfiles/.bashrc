@@ -32,4 +32,4 @@ aliases() { alias | cut -d' ' -f2 | cut -d= -f1 | awk 'length<3' | tr '\n' :; }
 functions() { declare -F | cut -d' ' -f3 | awk 'length<3' | tr '\n' :; }
 HISTIGNORE=$(aliases)$(functions)
 HISTCONTROL=ignoreboth:erasedups
-HISTFILE=~/.local/share/bash_history
+HISTFILE=$XDG_DATA_HOME/bash_history
