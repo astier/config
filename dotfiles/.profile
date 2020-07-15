@@ -5,7 +5,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 export BROWSER=firefox
 export EDITOR=nvim
-export MANPAGER="$EDITOR -c 'set ft=man' -"
+export MANPAGER="nvim +'se ft=man' -"
 export TERMINAL=st
 
 export FZF_DEFAULT_COMMAND="ffind -type f"
