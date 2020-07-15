@@ -19,6 +19,7 @@ export LESSHISTFILE=$HOME/.cache/lesshst
 export PYLINTHOME=$HOME/.cache/pylint
 export PYLINTRC=$XDG_CONFIG_HOME/pylintrc
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/pythonrc.py
+export TERMINFO=$HOME/.local/share/terminfo
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1
