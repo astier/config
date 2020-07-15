@@ -112,10 +112,10 @@ alias kst="git stash"
 # HOME
 alias b="cd - >/dev/null && ls"
 alias c="cd .."
-alias ca="cd \$XDG_CACHE_HOME"
-alias co="cd \$XDG_CONFIG_HOME"
 alias dl="cd ~/Downloads"
-alias fl="cd \$XDG_DATA_HOME"
+alias xc="cd \$XDG_CONFIG_HOME"
+alias xca="cd \$XDG_CACHE_HOME"
+alias xl="cd \$XDG_DATA_HOME"
 
 # MISC
 alias a="execute"
