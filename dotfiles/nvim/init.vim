@@ -189,7 +189,7 @@ let g:rooter_targets = '*'
 " TERMINAL
 au group bufenter,focusgained,termopen,winenter term://* star
 au group termopen * setl hidden signcolumn=no
-if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait' | en
+if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait' | let $MANPAGER='nvr +"se ft=man" -' | en
 se shell=/bin/bash
 tno <a-f> <c-\><c-n>
 tno <a-:> <c-\><c-n>:
