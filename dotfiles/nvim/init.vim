@@ -58,7 +58,7 @@ se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 
 " BUFFERS
 au group bufenter,focusgained * checkt
-au group textchanged,insertleave * nested sil up
+au group textchanged,insertleave * nested sil! up
 com! -nargs=+ SFZF exe 'e' system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
 nn <leader>f :SFZF<space>
 nn <leader>b :ls<cr>:b<space>
