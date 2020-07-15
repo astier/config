@@ -1,6 +1,6 @@
 " FIRST THINGS FIRST
 aug group | au! | aug en
-let mapleader = ' '
+let mapleader = ','
 scriptencoding utf-8
 
 " PLUGINS
@@ -60,8 +60,8 @@ se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 au group bufenter,focusgained * checkt
 au group textchanged,insertleave * nested sil! up
 com! -nargs=+ SFZF exe 'e' system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
-nn <leader>f :SFZF<space>
-nn <leader>b :ls<cr>:b<space>
+nn <space>f :SFZF<space>
+nn <space>F :ls<cr>:b<space>
 se confirm noswapfile
 se path+=** path-=/usr/include
 
@@ -74,6 +74,8 @@ fu! ChangeBuffer(cmd)
 endf
 nn <silent> <a-e> :cal ChangeBuffer('bp')<cr>
 nn <silent> <a-r> :cal ChangeBuffer('bn')<cr>
+tno <silent> <a-e> <c-\><c-n>:Tprevious<cr>
+tno <silent> <a-r> <c-\><c-n>:Tnext<cr>
 
 " CLIPBOARD
 ino <c-v> <esc>"+pa
@@ -107,15 +109,21 @@ fu! Format()
     exe 'e'
     cal winrestview(l:save)
 endf
-nn <silent> <leader>gf :cal Format()<cr>
+nn <silent> <space>gf :cal Format()<cr>
 
 " KILL
 nn <silent> <a-c> :clo<cr>
 nn <silent> <a-d> :bd!<cr>
 nn <silent> <a-q> :qa<cr>
+nn <silent> ,c :clo<cr>
+nn <silent> ,d :bd!<cr>
+nn <silent> ,q :qa<cr>
 tno <silent> <a-c> <c-\><c-n>:clo<cr>
 tno <silent> <a-d> <c-\><c-n>:bd!<cr>
 tno <silent> <a-q> <c-\><c-n>:qa<cr>
+tno <silent> ,c <c-\><c-n>:clo<cr>
+tno <silent> ,d <c-\><c-n>:bd!<cr>
+tno <silent> ,q <c-\><c-n>:qa<cr>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -138,8 +146,8 @@ nn <silent> <a-S> :so $MYVIMRC<cr>
 nn <silent> gs vip:sort iu<cr>
 xn <silent> gs :sort iu<cr>
 xn . :norm.<cr>
-nm <leader>i <leader>hp
-nm <leader>u <leader>hu
+nm <silent> <space>i :GitGutterPreviewHunk<cr>
+nm <silent> <space>u :GitGutterUndoHunk<cr>
 nn <c-f> 4<c-e>
 nn <c-d> 4<c-y>
 nm gcp gcip
@@ -167,9 +175,9 @@ se viewoptions=cursor
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
-nn <leader>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
+nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
-nn <silent> , *``
+nn <silent> ,, *``
 nn <silent> n nzz
 nn <silent> N Nzz
 se ignorecase smartcase
@@ -191,6 +199,7 @@ au group bufenter,focusgained,termopen,winenter term://* star
 au group termopen * setl hidden signcolumn=no
 if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait' | let $MANPAGER='nvr +"se ft=man" -' | en
 se shell=/bin/bash
+tno ,f <c-\><c-n>
 tno <a-f> <c-\><c-n>
 tno <a-:> <c-\><c-n>:
 
@@ -199,14 +208,14 @@ let g:neoterm_automap_keys = '-'
 fu! To()
     let g:blast = bufname('%') | Topen
 endf
-nmap <leader><leader> <Plug>(neoterm-repl-send-line)
-xmap <leader><leader> <Plug>(neoterm-repl-send)
-nn <silent> <leader>a :cal To() <bar> exe 'T execute' g:blast<cr>
-nn <silent> <leader>l :cal To() <bar> exe 'T lint' g:blast<cr>
+nmap <space><space> <Plug>(neoterm-repl-send-line)
+xmap <space><space> <Plug>(neoterm-repl-send)
+nn <silent> <space>a :cal To() <bar> exe 'T execute' g:blast<cr>
+nn <silent> <space>l :cal To() <bar> exe 'T lint' g:blast<cr>
+nn <silent> ,s :cal To()<cr>
 nn <silent> <a-s> :cal To()<cr>
+tno <silent> ,s <c-\><c-n>:exe 'b' g:blast<cr>
 tno <silent> <a-s> <c-\><c-n>:exe 'b' g:blast<cr>
-tno <silent> <a-e> <c-\><c-n>:Tprevious<cr>
-tno <silent> <a-r> <c-\><c-n>:Tnext<cr>
 
 " TMUXRENAME
 fu! RenameTmux()
@@ -218,7 +227,7 @@ au group bufenter,focusgained * cal RenameTmux()
 au group vimleave * cal system('tmux setw automatic-rename')
 
 " VIMTEX
-au group filetype tex nn <silent> <leader>a :VimtexCompile<cr>
+au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
