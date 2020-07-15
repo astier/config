@@ -23,6 +23,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'
 
 cal plug#end()
 
