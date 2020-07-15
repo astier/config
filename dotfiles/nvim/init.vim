@@ -87,9 +87,9 @@ xn <c-x> "+d
 let g:deoplete#enable_at_startup = 1
 cal deoplete#custom#option({
     \ 'ignore_sources': { '_': ['around', 'member'] },
-    \ 'max_list': 8,
+    \ 'max_list': 4,
     \ 'min_pattern_length': 1,
-    \ 'num_processes': 1,
+    \ 'num_processes': 0,
     \ })
 cal deoplete#custom#source('_', 'matchers', [
     \ 'matcher_fuzzy',
