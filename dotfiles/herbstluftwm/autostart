@@ -43,7 +43,7 @@ herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseud
 herbstclient rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 herbstclient rule instance~.* index=0
-herbstclient rule instance~'st-256color' index=1
+herbstclient rule instance~'Alacritty' index=1
 herbstclient rule instance~'launcher|notification' pseudotile=on
 
 # TAGS
