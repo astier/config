@@ -161,6 +161,7 @@ nn <p <ap
 " MISC-SETTINGS
 au group bufenter * se formatoptions-=cro
 let g:lexima_enable_endwise_rules = 0
+let g:plug_window = 'enew'
 let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
 se commentstring=//\ %s
