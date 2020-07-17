@@ -14,6 +14,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
+Plug 'astier/tabulous'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'kassio/neoterm'
@@ -27,36 +28,6 @@ Plug 'tpope/vim-sleuth'
 
 cal plug#end()
 
-" APPEARANCE
-" echo synIDattr(synID(line("."), col("."), 1), "name")
-au group bufwritepost * GitGutter
-au group filetype gitcommit,markdown,tex setl spell
-colorscheme nord
-hi comment       cterm=italic
-hi cursorlinenr  ctermfg=none
-hi diffadded     cterm=none   ctermbg=none ctermfg=green
-hi diffremoved   cterm=none   ctermbg=none ctermfg=red
-hi errormsg      ctermbg=none
-hi function      ctermfg=none
-hi number        ctermfg=none
-hi pmenusel      ctermfg=none
-hi pythonbuiltin ctermfg=none
-hi search        cterm=bold   ctermbg=none ctermfg=red
-hi statusline    ctermbg=none ctermfg=0
-hi statuslinenc  ctermbg=none ctermfg=0
-hi tabline       ctermbg=none ctermfg=8
-hi tablinefill   ctermbg=none
-hi tablinesel    ctermbg=none ctermfg=none
-hi vertsplit     ctermbg=none ctermfg=0
-hi vimaugroup    ctermfg=none
-hi vimmaprhs     ctermfg=none
-hi vimnotation   ctermfg=none
-hi warningmsg    ctermbg=none ctermfg=none
-se cursorline | hi clear cursorline
-se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
-se noruler noshowcmd noshowmode
-se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
-
 " BUFFERS
 au group bufenter,focusgained * checkt
 au group textchanged,insertleave * nested sil! up
@@ -69,14 +40,14 @@ se path+=** path-=/usr/include
 " CHANGEBUFFER
 fu! ChangeBuffer(cmd)
     let start_buffer = bufnr('%') | exe 'noa' a:cmd
-    wh &buftype ==# 'terminal' && bufnr('%') != start_buffer
+    wh bufnr('%') != start_buffer && &buftype ==# 'terminal'
         exe 'noa' a:cmd
     endw
 endf
-nn <silent> <a-e> :cal ChangeBuffer('bp')<cr>
-nn <silent> <a-r> :cal ChangeBuffer('bn')<cr>
-tno <silent> <a-e> <c-\><c-n>:Tprevious<cr>
-tno <silent> <a-r> <c-\><c-n>:Tnext<cr>
+nn <silent> <a-e> :cal ChangeBuffer('tabp')<cr>
+nn <silent> <a-r> :cal ChangeBuffer('tabn')<cr>
+tno <silent> <a-e> <c-\><c-n>:cal ChangeBuffer('tabp')<cr>
+tno <silent> <a-r> <c-\><c-n>:cal ChangeBuffer('tabn')<cr>
 
 " CLIPBOARD
 ino <c-v> <esc>"+pa
@@ -205,11 +176,13 @@ se shell=/bin/bash
 tno ,f <c-\><c-n>
 tno <a-f> <c-\><c-n>
 tno <a-:> <c-\><c-n>:
+tno <silent> ,s <c-\><c-n>:exe 'sb' g:blast<cr>
+tno <silent> <a-s> <c-\><c-n>:exe 'sb' g:blast<cr>
 
 " NEOTERM
 let g:neoterm_automap_keys = '-'
 fu! To()
-    let g:blast = bufname('%') | Topen
+    let g:blast = bufname('%') | sb term
 endf
 nmap <space><space> <Plug>(neoterm-repl-send-line)
 xmap <space><space> <Plug>(neoterm-repl-send)
@@ -217,16 +190,50 @@ nn <silent> <space>a :cal To() <bar> exe 'T execute' g:blast<cr>
 nn <silent> <space>l :cal To() <bar> exe 'T lint' g:blast<cr>
 nn <silent> ,s :cal To()<cr>
 nn <silent> <a-s> :cal To()<cr>
-tno <silent> ,s <c-\><c-n>:exe 'b' g:blast<cr>
-tno <silent> <a-s> <c-\><c-n>:exe 'b' g:blast<cr>
 
-" TMUXRENAME
-fu! RenameTmux()
-    if !(bufname() =~# 'NERD' || bufname() =~# 'Tagbar')
-        cal system('tmux renamew ' . expand('%:t'))
-    en
-endf
-au group bufenter,focusgained * cal RenameTmux()
+" THEME
+" echo synIDattr(synID(line("."), col("."), 1), "name")
+colorscheme nord
+hi comment       cterm=italic
+hi cursorlinenr  ctermfg=none
+hi diffadded     cterm=none   ctermbg=none ctermfg=green
+hi diffremoved   cterm=none   ctermbg=none ctermfg=red
+hi errormsg      ctermbg=none
+hi function      ctermfg=none
+hi number        ctermfg=none
+hi pmenusel      ctermfg=none
+hi pythonbuiltin ctermfg=none
+hi search        cterm=bold   ctermbg=none ctermfg=red
+hi statusline    ctermbg=none ctermfg=0
+hi statuslinenc  ctermbg=none ctermfg=0
+hi vertsplit     ctermbg=none ctermfg=0
+hi vimaugroup    ctermfg=none
+hi vimmaprhs     ctermfg=none
+hi vimnotation   ctermfg=none
+hi warningmsg    ctermbg=none ctermfg=none
+se cursorline | hi clear cursorline
+
+" TABLINE
+au group bufadd,bufnewfile * nested tab ball | stopi
+hi tabline ctermbg=none ctermfg=8
+hi tablinefill ctermbg=none
+hi tablinesel ctermbg=none ctermfg=none
+let g:tabulousCloseStr = ''
+let g:tabulousLabelLeftStr = '['
+let g:tabulousLabelNameDefault = 'Empty'
+let g:tabulousLabelNameOptions = ':t'
+let g:tabulousLabelRightStr = '] '
+se showtabline=1
+se switchbuf=usetab
+
+" UI
+au group bufwritepost * GitGutter
+au group filetype gitcommit,markdown,tex setl spell
+au group bufread * cal system('tmux renamew ' . fnamemodify(FindRootDirectory(), ':t'))
+au group vimenter * cal system('tmux renamew home')
+se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
+se noruler noshowcmd noshowmode
+se statusline=\  laststatus=0 signcolumn=yes
 
 " VIMTEX
 au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
