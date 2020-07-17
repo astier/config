@@ -5,8 +5,8 @@ scriptencoding utf-8
 
 " PLUGINS
 if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
-  sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  au vimenter * PlugInstall --sync | so $MYVIMRC
+    sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    au vimenter * PlugInstall --sync | so $MYVIMRC
 en
 
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
@@ -68,10 +68,10 @@ se path+=** path-=/usr/include
 
 " CHANGEBUFFER
 fu! ChangeBuffer(cmd)
-  let start_buffer = bufnr('%') | exe 'noa' a:cmd
-  wh &buftype ==# 'terminal' && bufnr('%') != start_buffer
-      exe 'noa' a:cmd
-  endw
+    let start_buffer = bufnr('%') | exe 'noa' a:cmd
+    wh &buftype ==# 'terminal' && bufnr('%') != start_buffer
+        exe 'noa' a:cmd
+    endw
 endf
 nn <silent> <a-e> :cal ChangeBuffer('bp')<cr>
 nn <silent> <a-r> :cal ChangeBuffer('bn')<cr>
@@ -236,9 +236,9 @@ let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_callback_hooks = ['FocusViewer']
 fu! FocusViewer(status)
     if system('pidof zathura')
-       exe 'sil !wmctrl -xa zathura'
+        exe 'sil !wmctrl -xa zathura'
     el
-       exe 'VimtexView'
+        exe 'VimtexView'
     en
     exe 'ec'
 endf
