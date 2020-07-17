@@ -7,7 +7,7 @@ mod4 + {S,D}
     lux -{s,a} 4%
 
 mod5 + f
-    $TERMINAL --class launcher -d 32 8 -e launch
+    st -n launcher -g 32x8+400+400 launch
 mod5 + D ; {p,r,s}
     {poweroff,reboot,systemctl suspend}
 mod5 + t
