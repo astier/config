@@ -51,7 +51,7 @@ mc() { mkdir "$1" && cd "$1" || return; }
 tox() { touch "$1"; chmod +x "$1"; }
 
 # G
-g_path="\$HOME/cloud/g.sh"
+g_path="$HOME"/cloud/g.sh
 [ -r "$g_path" ] && . "$g_path"
 alias gg="\$EDITOR \$g_path && . \$g_path"
 
