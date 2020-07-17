@@ -2,20 +2,14 @@
 
 [[ $- != *i* ]] && return
 
+set -o vi
+
 # PROMPT
 NO_COLOR="\[\e[m\]"
 RED="\[\e[31m\]"
 GREEN="\[\e[32m\]"
 njobs() { n=$(jobs | wc -l) && [ "$n" -gt 0 ] && echo " $n"; }
 PS1="${GREEN}[\W\$(__git_ps1 ' %s')${RED}\$(njobs)${GREEN}] ${NO_COLOR}"
-
-# SETTINGS
-set -o vi
-shopt -s autocd
-shopt -s cdspell
-shopt -s checkwinsize
-shopt -s cmdhist
-shopt -s histappend
 
 # SOURCE
 aliases="$XDG_CONFIG_HOME/aliases"
