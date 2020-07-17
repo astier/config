@@ -12,6 +12,9 @@
 [credential "https://gitlab.ub.uni-bielefeld.de"]
     username = astier
 
+[pull]
+    rebase = true
+
 [help]
     autocorrect = 1
 
