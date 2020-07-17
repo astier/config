@@ -219,8 +219,12 @@ tno <silent> ,s <c-\><c-n>:exe 'b' g:blast<cr>
 tno <silent> <a-s> <c-\><c-n>:exe 'b' g:blast<cr>
 
 " TMUXRENAME
-au group bufread * cal system('tmux renamew ' . fnamemodify(FindRootDirectory(), ':t'))
-au group vimenter * cal system('tmux renamew home')
+fu! RenameTmux()
+    if !(bufname() =~# 'NERD' || bufname() =~# 'Tagbar')
+        cal system('tmux renamew ' . expand('%:t'))
+    en
+endf
+au group bufenter,focusgained * cal RenameTmux()
 
 " VIMTEX
 au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
