@@ -45,8 +45,8 @@ fu! ChangeBuffer(cmd)
 endf
 nn <silent> <a-e> :cal ChangeBuffer('bp')<cr>
 nn <silent> <a-r> :cal ChangeBuffer('bn')<cr>
-tno <silent> <a-e> <c-\><c-n>:Tprevious<cr>
-tno <silent> <a-r> <c-\><c-n>:Tnext<cr>
+tno <silent> <a-e> <c-\><c-n>:sil Tprevious<cr>
+tno <silent> <a-r> <c-\><c-n>:sil Tnext<cr>
 
 " CLIPBOARD
 ino <c-v> <esc>"+pa
