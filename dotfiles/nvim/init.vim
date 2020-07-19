@@ -1,6 +1,6 @@
 " FIRST THINGS FIRST
 aug group | au! | aug en
-let mapleader = ','
+let mapleader = ' '
 scriptencoding utf-8
 
 " PLUGINS
@@ -16,7 +16,6 @@ Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
-Plug 'kassio/neoterm'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'rhysd/clever-f.vim'
@@ -31,22 +30,13 @@ cal plug#end()
 au group bufenter,focusgained * checkt
 au group textchanged,insertleave * nested sil! up
 com! -nargs=+ SFZF exe 'e' system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
-nn <space>f :SFZF<space>
+nn <silent> <a-e> :bp<cr>
+nn <silent> <a-r> :bn<cr>
+nn <silent> <tab> :b#<cr>
 nn <space>F :ls<cr>:b<space>
+nn <space>f :SFZF<space>
 se confirm noswapfile
 se path+=** path-=/usr/include
-
-" CHANGEBUFFER
-fu! ChangeBuffer(cmd)
-    let start_buffer = bufnr('%') | exe 'noa' a:cmd
-    wh &buftype ==# 'terminal' && bufnr('%') != start_buffer
-        exe 'noa' a:cmd
-    endw
-endf
-nn <silent> <a-e> :cal ChangeBuffer('bp')<cr>
-nn <silent> <a-r> :cal ChangeBuffer('bn')<cr>
-tno <silent> <a-e> <c-\><c-n>:sil Tprevious<cr>
-tno <silent> <a-r> <c-\><c-n>:sil Tnext<cr>
 
 " CLIPBOARD
 ino <c-v> <esc>"+pa
@@ -83,18 +73,9 @@ endf
 nn <silent> <space>gf :cal Format()<cr>
 
 " KILL
-nn <silent> <a-c> :clo<cr>
-nn <silent> <a-d> :bd!<cr>
-nn <silent> <a-q> :qa<cr>
-nn <silent> ,c :clo<cr>
-nn <silent> ,d :bd!<cr>
-nn <silent> ,q :qa<cr>
-tno <silent> <a-c> <c-\><c-n>:clo<cr>
-tno <silent> <a-d> <c-\><c-n>:bd!<cr>
-tno <silent> <a-q> <c-\><c-n>:qa<cr>
-tno <silent> ,c <c-\><c-n>:clo<cr>
-tno <silent> ,d <c-\><c-n>:bd!<cr>
-tno <silent> ,q <c-\><c-n>:qa<cr>
+nn <silent> <leader>c :clo<cr>
+nn <silent> <leader>d :qa!<cr>
+nn <silent> <leader>q :bd!<cr>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -130,6 +111,8 @@ nn <p <ap
 
 " MISC-SETTINGS
 au group bufenter * se formatoptions-=cro
+au group bufenter,focusgained * cal system('tmux renamew '.expand('%:t'))
+au group vimleave * cal system('tmux setw automatic-rename')
 let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
 let g:tex_flavor = 'latex'
@@ -138,24 +121,10 @@ se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a notimeout
 
-" NEOTERM
-let g:neoterm_automap_keys = '-'
-fu! To()
-    let g:blast = bufname('%') | Topen
-endf
-nmap <space><space> <Plug>(neoterm-repl-send-line)
-xmap <space><space> <Plug>(neoterm-repl-send)
-nn <silent> <space>a :cal To() <bar> exe 'T execute' g:blast<cr>
-nn <silent> <space>l :cal To() <bar> exe 'T lint' g:blast<cr>
-nn <silent> ,s :cal To()<cr>
-nn <silent> <a-s> :cal To()<cr>
-tno <silent> ,s <c-\><c-n>:exe 'b' g:blast<cr>
-tno <silent> <a-s> <c-\><c-n>:exe 'b' g:blast<cr>
-
 " STATE
-let state_ignore = ['gitcommit', 'gitrebase']
-au group bufwinleave * if index(state_ignore, &ft) < 0 | sil! mkvie
-au group bufwinenter * if index(state_ignore, &ft) < 0 | sil! lo
+au group bufwinenter * if index(ignore_ft, &ft) < 0 | sil! lo
+au group bufwinleave * if index(ignore_ft, &ft) < 0 | sil! mkvie
+let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 se viewoptions=cursor
 
 " SEARCH & REPLACE
@@ -163,32 +132,21 @@ let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
-nn <silent> ,, *``
+nn <silent> , *``
 nn <silent> n nzz
 nn <silent> N Nzz
 se ignorecase smartcase
 se inccommand=nosplit
 
 " SNIPPETS
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
 " ROOTER
 let g:rooter_patterns = ['.git']
 let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
-let g:rooter_targets = '*'
-
-" TERMINAL
-au group bufenter,focusgained,termopen,winenter term://* star
-au group termopen * nn <buffer><leftrelease> <leftrelease>i
-au group termopen * setl hidden signcolumn=no
-if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait' | let $MANPAGER='nvr +"se ft=man" -' | en
-se shell=/bin/bash
-tno ,f <c-\><c-n>
-tno <a-f> <c-\><c-n>
-tno <a-:> <c-\><c-n>:
 
 " THEME
 " echo synIDattr(synID(line("."), col("."), 1), "name")
@@ -203,25 +161,17 @@ hi number        ctermfg=none
 hi pmenusel      ctermfg=none
 hi pythonbuiltin ctermfg=none
 hi search        cterm=bold   ctermbg=none ctermfg=red
-hi statusline    ctermbg=none ctermfg=0
-hi statuslinenc  ctermbg=none ctermfg=0
+hi statusline    ctermbg=none ctermfg=16
+hi statuslinenc  ctermbg=none ctermfg=16
 hi tabline       ctermbg=none ctermfg=8
 hi tablinefill   ctermbg=none
 hi tablinesel    ctermbg=none ctermfg=none
-hi vertsplit     ctermbg=none ctermfg=0
+hi vertsplit     ctermbg=none ctermfg=16
 hi vimaugroup    ctermfg=none
 hi vimmaprhs     ctermfg=none
 hi vimnotation   ctermfg=none
 hi warningmsg    ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
-
-" TMUXRENAME
-fu! RenameTmux()
-    if !(bufname() =~# 'NERD' || bufname() =~# 'Tagbar')
-        cal system('tmux renamew ' . expand('%:t'))
-    en
-endf
-au group bufenter,focusgained * cal RenameTmux()
 
 " UI
 au group bufwritepost * GitGutter
@@ -267,10 +217,6 @@ ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
 ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
 ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
-tno <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
-tno <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
-tno <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
-tno <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
 se splitbelow splitright
 
 " WRAP
