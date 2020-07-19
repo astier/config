@@ -124,7 +124,7 @@ nn <c-d> 4<c-y>
 nm gcp gcip
 nn cp cip
 nn dp dap
-nn Q <nop>
+nn Q <c-q>
 nn >p >ap
 nn <p <ap
 
