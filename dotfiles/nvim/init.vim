@@ -175,7 +175,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
 " ROOTER
-let g:rooter_patterns = ['.git', '.git/']
+let g:rooter_patterns = ['.git']
 let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
 let g:rooter_targets = '*'
