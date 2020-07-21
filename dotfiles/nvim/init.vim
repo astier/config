@@ -16,6 +16,7 @@ Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
+Plug 'kassio/neoterm'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'rhysd/clever-f.vim'
@@ -30,13 +31,23 @@ cal plug#end()
 au group bufenter,focusgained * checkt
 au group textchanged,insertleave * nested sil! up
 com! -nargs=+ SFZF exe 'e' system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
-nn <silent> <a-e> :bp<cr>
-nn <silent> <a-r> :bn<cr>
 nn <silent> <tab> :b#<cr>
 nn <space>F :ls<cr>:b<space>
 nn <space>f :SFZF<space>
 se confirm noswapfile
 se path+=** path-=/usr/include
+
+" CHANGEBUFFER
+fu! ChangeBuffer(cmd)
+    let start_buffer = bufnr('%') | exe 'noa' a:cmd
+    wh &bt ==# 'terminal' && bufnr('%') != start_buffer
+        exe 'noa' a:cmd
+    endw
+endf
+nn <silent> <a-e> :cal ChangeBuffer('bp')<cr>
+nn <silent> <a-r> :cal ChangeBuffer('bn')<cr>
+tno <silent> <a-e> <c-\><c-n>:bp<cr>
+tno <silent> <a-r> <c-\><c-n>:bn<cr>
 
 " CLIPBOARD
 ino <c-v> <esc>"+pa
@@ -73,9 +84,12 @@ endf
 nn <silent> <space>gf :cal Format()<cr>
 
 " KILL
-nn <silent> <leader>c :clo<cr>
-nn <silent> <leader>d :qa!<cr>
-nn <silent> <leader>q :bd!<cr>
+nn <silent> ,c :clo<cr>
+nn <silent> ,d :bd!<cr>
+nn <silent> ,q :qa<cr>
+tno <silent> ,c <c-\><c-n>:clo<cr>
+tno <silent> ,d <c-\><c-n>:bd!<cr>
+tno <silent> ,q <c-\><c-n>:qa<cr>
 
 " LOADED
 let g:loaded_gzip = 1
@@ -121,6 +135,13 @@ se commentstring=//\ %s
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a notimeout
 
+" NEOTERM
+let g:neoterm_automap_keys = '-'
+nm <space><space> :TREPLSendLine<cr> :Topen<cr>
+xm <space><space> :TREPLSendSelection<cr> :Topen<cr>
+nn <silent> <space>a :T execute %<cr> :Topen<cr>
+nn <silent> <space>l :T lint %<cr> :Topen<cr>
+
 " STATE
 au group bufwinenter * if index(ignore_ft, &ft) < 0 | sil! lo
 au group bufwinleave * if index(ignore_ft, &ft) < 0 | sil! mkvie
@@ -132,7 +153,7 @@ let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
-nn <silent> , *``
+nn <silent> ,, *``
 nn <silent> n nzz
 nn <silent> N Nzz
 se ignorecase smartcase
@@ -147,6 +168,17 @@ let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 let g:rooter_patterns = ['.git']
 let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
+
+" TERMINAL
+au group bufenter,focusgained,termopen,winenter term://* star
+au group bufwinleave * if &bt !=# 'terminal' && index(ignore_ft, &ft) < 0 | let g:blast = bufname('%')
+au group termopen * nn <buffer><leftrelease> <leftrelease>i
+au group termopen * setl hidden signcolumn=no
+if executable('nvr') | let $EDITOR='nvr' | let $GIT_EDITOR = 'nvr --remote-wait-silent' | let $MANPAGER='nvr +"se ft=man" -' | en
+nn <silent> ,s :Topen<cr>
+tno <silent> ,s <c-\><c-n> :exe 'b' g:blast<cr>
+tno ,f <c-\><c-n>
+se shell=/usr/bin/bash
 
 " THEME
 " echo synIDattr(synID(line("."), col("."), 1), "name")
@@ -217,6 +249,10 @@ ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
 ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
 ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
+tno <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
+tno <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
+tno <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
+tno <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
 se splitbelow splitright
 
 " WRAP
