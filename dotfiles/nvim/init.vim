@@ -1,6 +1,5 @@
 " FIRST THINGS FIRST
 aug group | au! | aug en
-let mapleader = ' '
 scriptencoding utf-8
 
 " PLUGINS
@@ -57,6 +56,11 @@ nn <c-x> "+dd
 xn <c-c> "+y
 xn <c-x> "+d
 
+" COMMENTS
+au group bufenter * se formatoptions-=cro
+nm gcp gcip
+se commentstring=//\ %s
+
 " COMPLETION
 let g:deoplete#enable_at_startup = 1
 cal deoplete#custom#option({
@@ -83,6 +87,11 @@ fu! Format()
 endf
 nn <silent> <space>gf :cal Format()<cr>
 
+" GITGUTTER
+au group bufwritepost * GitGutter
+nm <silent> <space>i :GitGutterPreviewHunk<cr>
+nm <silent> <space>u :GitGutterUndoHunk<cr>
+
 " KILL
 nn <silent> ,c :clo<cr>
 nn <silent> ,d :bd!<cr>
@@ -90,6 +99,34 @@ nn <silent> ,q :qa<cr>
 tno <silent> ,c <c-\><c-n>:clo<cr>
 tno <silent> ,d <c-\><c-n>:bd!<cr>
 tno <silent> ,q <c-\><c-n>:qa<cr>
+
+" LATEX
+au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
+let g:tex_flavor = 'latex'
+let g:tex_no_error = 1
+let g:vimtex_compiler_callback_hooks = ['FocusViewer']
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_mappings_enabled = 0
+let g:vimtex_matchparen_enabled = 0
+let g:vimtex_view_general_viewer = 'zathura'
+fu! FocusViewer(status)
+    if system('pidof zathura')
+        exe 'sil !wmctrl -xa zathura'
+    el
+        exe 'VimtexView'
+    en
+    exe 'ec'
+endf
+let g:vimtex_compiler_latexmk = {
+    \ 'callback' : 0,
+    \ 'continuous' : 0,
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=0',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \ }
 
 " LOADED
 let g:loaded_gzip = 1
@@ -107,33 +144,30 @@ let g:loaded_zip = 1
 let g:loaded_zipPlugin = 1
 let g:python3_host_prog = '/usr/bin/python3'
 
-" MISC-MAPPINGS
-nn <silent> <a-S> :so $MYVIMRC<cr>
-nn <silent> gs vip:sort iu<cr>
-xn <silent> gs :sort iu<cr>
-xn . :norm.<cr>
-nm <silent> <space>i :GitGutterPreviewHunk<cr>
-nm <silent> <space>u :GitGutterUndoHunk<cr>
-nn <c-f> 4<c-e>
-nn <c-d> 4<c-y>
-nm gcp gcip
-nn cp cip
-nn dp dap
-nn Q <c-q>
-nn >p >ap
-nn <p <ap
-
-" MISC-SETTINGS
-au group bufenter * se formatoptions-=cro
+" MISC
 au group bufenter,focusgained * cal system('tmux renamew '.expand('%:t'))
-au group vimleave * cal system('tmux setw automatic-rename')
 let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
-let g:tex_flavor = 'latex'
-let g:tex_no_error = 1
-se commentstring=//\ %s
+let mapleader = ' '
+nn <silent> <a-S> :so $MYVIMRC<cr>
 se expandtab shiftwidth=4 tabstop=4
-se mouse=a notimeout
+se mouse=a
+se notimeout
+
+" NAVIGATION
+let g:tmux_navigator_no_mappings = 1
+nn <silent> <a-h> :TmuxNavigateLeft<cr>
+nn <silent> <a-j> :TmuxNavigateDown<cr>
+nn <silent> <a-k> :TmuxNavigateUp<cr>
+nn <silent> <a-l> :TmuxNavigateRight<cr>
+ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
+ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
+ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
+ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
+tno <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
+tno <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
+tno <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
+tno <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
 
 " NEOTERM
 let g:neoterm_automap_keys = '-'
@@ -142,11 +176,10 @@ xm <space><space> :TREPLSendSelection<cr> :Topen<cr>
 nn <silent> <space>a :T execute %<cr> :Topen<cr>
 nn <silent> <space>l :T lint %<cr> :Topen<cr>
 
-" STATE
-au group bufwinenter * if index(ignore_ft, &ft) < 0 | sil! lo
-au group bufwinleave * if index(ignore_ft, &ft) < 0 | sil! mkvie
-let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
-se viewoptions=cursor
+" ROOTER
+let g:rooter_patterns = ['.git']
+let g:rooter_resolve_links = 1
+let g:rooter_silent_chdir = 1
 
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
@@ -159,15 +192,28 @@ nn <silent> N Nzz
 se ignorecase smartcase
 se inccommand=nosplit
 
+" SHORTCUTS
+nn <p <ap
+nn >p >ap
+nn cp cip
+nn dp dap
+nn Q <c-q>
+nn vp vip
+
 " SNIPPETS
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
-" ROOTER
-let g:rooter_patterns = ['.git']
-let g:rooter_resolve_links = 1
-let g:rooter_silent_chdir = 1
+" SORT
+nn <silent> gs vip:sort iu<cr>
+xn <silent> gs :sort iu<cr>
+
+" STATE
+au group bufwinenter * if index(ignore_ft, &ft) < 0 | sil! lo
+au group bufwinleave * if index(ignore_ft, &ft) < 0 | sil! mkvie
+let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
+se viewoptions=cursor
 
 " TERMINAL
 au group bufenter,focusgained,termopen,winenter term://* star
@@ -206,53 +252,15 @@ hi warningmsg    ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 
 " UI
-au group bufwritepost * GitGutter
 au group filetype gitcommit,markdown,tex setl spell
 se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
 se noruler noshowcmd noshowmode
 se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 
-" VIMTEX
-au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
-let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_mappings_enabled = 0
-let g:vimtex_matchparen_enabled = 0
-let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_compiler_callback_hooks = ['FocusViewer']
-fu! FocusViewer(status)
-    if system('pidof zathura')
-        exe 'sil !wmctrl -xa zathura'
-    el
-        exe 'VimtexView'
-    en
-    exe 'ec'
-endf
-let g:vimtex_compiler_latexmk = {
-    \ 'callback' : 0,
-    \ 'continuous' : 0,
-    \ 'options' : [
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=0',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \ }
-
 " WINDOWS
 au group vimresized * winc =
-let g:tmux_navigator_no_mappings = 1
-nn <silent> <a-h> :TmuxNavigateLeft<cr>
-nn <silent> <a-j> :TmuxNavigateDown<cr>
-nn <silent> <a-k> :TmuxNavigateUp<cr>
-nn <silent> <a-l> :TmuxNavigateRight<cr>
-ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
-ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
-ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
-ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
-tno <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
-tno <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
-tno <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
-tno <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
+nn <c-f> 4<c-e>
+nn <c-d> 4<c-y>
 se splitbelow splitright
 
 " WRAP
