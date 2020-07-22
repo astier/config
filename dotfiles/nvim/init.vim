@@ -22,6 +22,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
+Plug 'yunake/vimux'
 
 cal plug#end()
 
@@ -81,7 +82,7 @@ nm <silent> <space>i :GitGutterPreviewHunk<cr>
 nm <silent> <space>u :GitGutterUndoHunk<cr>
 
 " KILL
-au group bufdelete * if len(getbufinfo({'buflisted':1})) == 2 && bufname('$') == '' | q!
+au group bufdelete * if len(getbufinfo({'buflisted':1})) == 2 && bufname('$') == '' | cal VimuxCloseRunner() | q
 nn <silent> <space>c :clo<cr>
 nn <silent> <space>d :bd!<cr>
 nn <silent> <space>q :qa!<cr>
@@ -214,6 +215,13 @@ au group filetype gitcommit,markdown,tex setl spell
 se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
 se noruler noshowcmd noshowmode
 se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
+
+" VIMUX
+au group vimleave * VimuxCloseRunner
+nn <silent> <space>a :VimuxRunCommand('execute ' . bufname('%'))<cr>
+nn <silent> <space>l :VimuxRunCommand('lint ' . bufname('%'))<cr>
+nn <silent> <space><space> :VimuxRunCommand(getline('.'))<cr>
+xn <silent> <space><space> "vy :VimuxRunCommand(@v)<cr>
 
 " WINDOWS
 au group vimresized * winc =
