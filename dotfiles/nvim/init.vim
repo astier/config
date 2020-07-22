@@ -34,7 +34,6 @@ nn <silent> <tab> :b#<cr>
 nn <space>F :ls<cr>:b<space>
 nn <space>f :SFZF<space>
 se noswapfile
-se path+=** path-=/usr/include
 
 " CLIPBOARD
 ino <c-v> <esc>"+pa
