@@ -31,7 +31,7 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # DOTFILES
-alias al=" \$EDITOR \$XDG_CONFIG_HOME/aliases && . \$XDG_CONFIG_HOME/aliases"
+alias al="\$EDITOR \$XDG_CONFIG_HOME/aliases && . \$XDG_CONFIG_HOME/aliases"
 alias ba="\$EDITOR ~/.bashrc && . ~/.bashrc"
 alias bal="\$EDITOR ~/.config/bashrc_local && . ~/.config/bashrc_local"
 alias fd="cd ~/projects/dotfiles"
