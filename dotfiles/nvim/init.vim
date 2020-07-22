@@ -176,6 +176,7 @@ nn cp cip
 nn dp dap
 nn Q <c-q>
 nn vp vip
+nn Y y$
 
 " SNIPPETS
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
