@@ -137,6 +137,8 @@ let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
 let mapleader = ' '
 nn <silent> <a-S> :so $MYVIMRC<cr>
+nn <silent> gs vip:sort iu<cr>
+xn <silent> gs :sort iu<cr>
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a
 se notimeout
@@ -176,10 +178,6 @@ nn Y y$
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
-
-" SORT
-nn <silent> gs vip:sort iu<cr>
-xn <silent> gs :sort iu<cr>
 
 " STATE
 au group bufwinenter * if index(ignore_ft, &ft) < 0 | sil! lo
