@@ -1,5 +1,6 @@
 " FIRST THINGS FIRST
 aug group | au! | aug en
+let mapleader = ' '
 scriptencoding utf-8
 
 " PLUGINS
@@ -134,7 +135,6 @@ au group bufenter,focusgained * cal system('tmux renamew '.expand('%:t'))
 au group vimleave * cal system('tmux setw automatic-rename')
 let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
-let mapleader = ' '
 nn <silent> <a-S> :so $MYVIMRC<cr>
 nn <silent> gs vip:sort iu<cr>
 xn <silent> gs :sort iu<cr>
