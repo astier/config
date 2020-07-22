@@ -31,16 +31,16 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # DOTFILES
-alias al="\$EDITOR \$XDG_CONFIG_HOME/aliases && . \$XDG_CONFIG_HOME/aliases"
-alias ba="\$EDITOR ~/.bashrc && . ~/.bashrc"
-alias bal="\$EDITOR ~/.config/bashrc_local && . ~/.config/bashrc_local"
+alias al="fd && \$EDITOR dotfiles/aliases && . dotfiles/aliases"
+alias ba="fd && \$EDITOR dotfiles/.bashrc && . dotfiles/.bashrc"
+alias bal="co && \$EDITOR bashrc_local && . bashrc_local"
 alias fd="cd ~/projects/dotfiles"
-alias fdf="cd ~/projects/dotfiles && f"
-alias fdj="cd ~/projects/dotfiles 1>/dev/null && j"
-alias fp="\$EDITOR ~/.profile"
-alias fx="\$EDITOR \$XDG_CONFIG_HOME/sx/sxrc"
-alias iv="\$EDITOR \$XDG_CONFIG_HOME/nvim/init.vim"
-alias tm="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
+alias fdf="fd && f"
+alias fdj="fd 1>/dev/null && j"
+alias fp="fd && \$EDITOR dotfiles/.profile"
+alias fx="fd && \$EDITOR dotfiles/sx/sxrc"
+alias iv="fd && \$EDITOR dotfiles/nvim/init.vim"
+alias tm="fd && \$EDITOR dotfiles/tmux/tmux.conf"
 
 # FUNCTIONS
 cd() { builtin cd "$@" && ls; }
@@ -140,7 +140,7 @@ alias or="if [ -r README.md ]; then \$EDITOR README.md; else echo No README foun
 alias p="cp"
 alias pa="patch -p1 <"
 alias pm="pulsemixer"
-alias pw="pwd | sed 's/\/home\/aleks/~/'"
+alias pw="pwd | sed \"s|$HOME|~|\""
 alias r="pkg -r"
 alias re="sudo \$(fc -ln -1)"
 alias s="fg"
@@ -152,13 +152,14 @@ alias u="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pac
 
 # REPOS
 alias aa="cd ~/projects/arch"
-alias aaf="cd ~/projects/arch && f"
-alias ab="cd ~/projects/arch && \$EDITOR base.sh"
-alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
+alias aaf="aa && f"
+alias ab="aa && \$EDITOR base.sh"
+alias ad="aa && \$EDITOR desktop.sh"
 alias fj="cd ~/projects"
 alias ft="cd ~/projects/st"
+alias fto="ft && \$EDITOR config.def.h"
 alias sc="cd ~/projects/scripts"
-alias scf="cd ~/projects/scripts && f"
+alias scf="sc && f"
 
 # TMUX
 alias t="tmux new -A"

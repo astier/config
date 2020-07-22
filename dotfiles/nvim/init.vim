@@ -11,7 +11,6 @@ en
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
@@ -152,11 +151,6 @@ ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
 ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
 ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
-
-" ROOTER
-let g:rooter_patterns = ['.git']
-let g:rooter_resolve_links = 1
-let g:rooter_silent_chdir = 1
 
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
