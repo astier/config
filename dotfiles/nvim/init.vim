@@ -85,6 +85,7 @@ nm <silent> <space>u :GitGutterUndoHunk<cr>
 nn <silent> <space>c :clo<cr>
 nn <silent> <space>d :qa!<cr>
 nn <silent> <space>q :bd!<cr>
+nn <silent> <space>s <c-z>
 
 " LATEX
 au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
