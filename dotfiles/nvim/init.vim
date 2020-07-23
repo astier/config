@@ -181,7 +181,7 @@ let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
 " STATE
 au group bufenter * if index(ignore_ft, &ft) < 0 | sil! lo
-au group bufleave * if index(ignore_ft, &ft) < 0 | sil! mkvie
+au group bufleave,vimleave * if index(ignore_ft, &ft) < 0 | sil! mkvie
 let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 se viewoptions=cursor
 
