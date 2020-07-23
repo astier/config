@@ -82,7 +82,7 @@ nm <silent> <space>i :GitGutterPreviewHunk<cr>
 nm <silent> <space>u :GitGutterUndoHunk<cr>
 
 " KILL
-au group bufdelete * if len(getbufinfo({'buflisted':1})) == 2 && bufname('$') == '' | cal VimuxCloseRunner() | q
+au group bufdelete * nested if len(getbufinfo({'buflisted':1})) == 2 && bufname('$') == '' | q
 nn <silent> <space>c :clo<cr>
 nn <silent> <space>d :bd!<cr>
 nn <silent> <space>q :qa!<cr>
