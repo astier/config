@@ -78,6 +78,7 @@ alias kc="git commit -v"
 alias kca="git add --all && git commit -v"
 alias kcp="git add --all && git commit -v && git push"
 alias kcr="git commit -v -am tmp && git rebase -i HEAD~2"
+alias kcrf="git commit -v -am tmp && git rebase -i HEAD~2 && git push -f"
 
 alias kd="git diff"
 alias kg="git log --color --oneline --grep"
