@@ -2,8 +2,6 @@
 
 [[ $- != *i* ]] && return
 
-set -o vi
-
 # PROMPT
 NO_COLOR="\[\e[m\]"
 RED="\[\e[31m\]"
