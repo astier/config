@@ -180,8 +180,8 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
 " STATE
-au group bufwinenter * if index(ignore_ft, &ft) < 0 | sil! lo
-au group bufwinleave * if index(ignore_ft, &ft) < 0 | sil! mkvie
+au group bufenter * if index(ignore_ft, &ft) < 0 | sil! lo
+au group bufleave * if index(ignore_ft, &ft) < 0 | sil! mkvie
 let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 se viewoptions=cursor
 
