@@ -137,8 +137,8 @@ au group vimleave * cal system('tmux setw automatic-rename')
 let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
 nn <silent> <a-S> :so $MYVIMRC<cr>
-nn <silent> gs vip:sort iu<cr>
-xn <silent> gs :sort iu<cr>
+nn <silent> gs vip:sort i<cr>
+xn <silent> gs :sort i<cr>
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a
 se notimeout
