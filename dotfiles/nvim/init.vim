@@ -15,6 +15,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
+Plug 'kassio/neoterm'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'rhysd/clever-f.vim'
@@ -22,7 +23,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
-Plug 'yunake/vimux'
 
 cal plug#end()
 
@@ -32,6 +32,8 @@ au group textchanged,insertleave * nested sil! up
 com! -nargs=+ SFZF exe 'e' system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
 nn <silent> <a-e> :bp<cr>
 nn <silent> <a-r> :bn<cr>
+tno <silent> <a-e> <c-\><c-n>:bp<cr>
+tno <silent> <a-r> <c-\><c-n>:bn<cr>
 nn <silent> <tab> :b#<cr>
 nn <space>F :ls<cr>:b<space>
 nn <space>f :SFZF<space>
@@ -153,6 +155,17 @@ ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
 ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
 ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
+tno <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
+tno <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
+tno <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
+tno <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
+
+" NEOTERM
+let g:neoterm_automap_keys = '-'
+nm <silent> <space><space> :TREPLSendLine<cr> :Topen<cr>
+xm <silent> <space><space> :TREPLSendSelection<cr> :Topen<cr>
+nn <silent> <space>a :T execute %<cr> :Topen<cr>
+nn <silent> <space>l :T lint %<cr> :Topen<cr>
 
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
@@ -185,6 +198,15 @@ au group bufleave,vimleave * if index(ignore_ft, &ft) < 0 | sil! mkvie
 let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 se viewoptions=cursor
 
+" TERMINAL
+au group bufenter,focusgained,termopen,winenter term://* star
+au group termopen * nn <buffer><leftrelease> <leftrelease>i
+au group termopen * setl hidden nobuflisted signcolumn=no
+nn <silent> <a-tab> :Topen<cr>
+tno <silent> <a-tab> <c-\><c-n> :b#<cr>
+tno <a-F> <c-\><c-n>
+se shell=/usr/bin/bash
+
 " THEME
 " echo synIDattr(synID(line("."), col("."), 1), "name")
 colorscheme nord
@@ -215,13 +237,6 @@ au group filetype gitcommit,markdown,tex setl spell
 se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
 se noruler noshowcmd noshowmode
 se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
-
-" VIMUX
-au group vimleave * VimuxCloseRunner
-nn <silent> <space>a :VimuxRunCommand('execute ' . bufname('%'))<cr>
-nn <silent> <space>l :VimuxRunCommand('lint ' . bufname('%'))<cr>
-nn <silent> <space><space> :VimuxRunCommand(getline('.'))<cr>
-xn <silent> <space><space> "vy :VimuxRunCommand(@v)<cr>
 
 " WINDOWS
 au group vimresized * winc =
