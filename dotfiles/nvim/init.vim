@@ -227,8 +227,8 @@ xn <silent> <space><space> "vy :VimuxRunCommand(@v)<cr>
 
 " WINDOWS
 au group vimresized * winc =
-nn <c-f> 4<c-e>
-nn <c-d> 4<c-y>
+nn <a-f> 4<c-e>
+nn <a-d> 4<c-y>
 se splitbelow splitright
 
 " WRAP
