@@ -19,6 +19,7 @@ Plug 'cohama/lexima.vim'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'rhysd/clever-f.vim'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'tpope/vim-commentary'
@@ -152,6 +153,18 @@ ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
 ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
 ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
+
+" NERDTREE
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
+let g:NERDTreeHighlightCursorline = 0
+let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
+let g:NERDTreeMinimalMenu = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMouseMode = 3
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeStatusline = ''
+nn <silent> <leader>e :NERDTreeToggle<cr>
 
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
