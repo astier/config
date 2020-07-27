@@ -14,6 +14,7 @@ cd dotfiles || return
 link .bashrc ~
 link .profile ~
 link aliases "$XDG_CONFIG_HOME"
+link code/settings.json "$XDG_CONFIG_HOME"/Code/User
 link git "$XDG_CONFIG_HOME"
 link gtk-2.0 "$XDG_CONFIG_HOME"
 link gtk-3.0 "$XDG_CONFIG_HOME"
