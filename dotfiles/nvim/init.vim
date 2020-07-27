@@ -82,9 +82,9 @@ nm <silent> <space>i :GitGutterPreviewHunk<cr>
 nm <silent> <space>u :GitGutterUndoHunk<cr>
 
 " KILL
+nn <silent> <a-tab> :bd!<cr>
 nn <silent> <space>c :clo<cr>
-nn <silent> <space>d :bd!<cr>
-nn <silent> <space>q :qa!<cr>
+nn <silent> <space>d :qa!<cr>
 nn <silent> <space>s <c-z>
 
 " LATEX
