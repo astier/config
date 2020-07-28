@@ -85,7 +85,7 @@
         { "before": [ "j" ], "after": [ "g", "j" ] },
         { "before": [ "k" ], "after": [ "g", "k" ] },
 
-        { "before": [ "," ], "after": [ "*", "`", "`" ] },
+        { "before": [ "f" ], "after": [ "*", "`", "`" ] },
         { "before": [ "n" ], "after": [ "n", "z", "z" ] },
         { "before": [ "N" ], "after": [ "N", "z", "z" ] },
 

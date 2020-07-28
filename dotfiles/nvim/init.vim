@@ -79,8 +79,11 @@ nn <silent> <space>gf :cal Format()<cr>
 
 " GITGUTTER
 au group bufwritepost * GitGutter
-nm <silent> <space>i :GitGutterPreviewHunk<cr>
-nm <silent> <space>u :GitGutterUndoHunk<cr>
+nm <silent> <space>i <Plug>(GitGutterPreviewHunk)
+nm <silent> <space>S <Plug>(GitGutterStageHunk)
+nm <silent> <space>u <Plug>(GitGutterUndoHunk)
+nm <silent> [c <Plug>(GitGutterPrevHunk)zz
+nm <silent> ]c <Plug>(GitGutterNextHunk)zz
 
 " KILL
 nn <silent> <a-tab> :bd!<cr>
