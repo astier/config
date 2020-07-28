@@ -17,13 +17,14 @@ Plug 'astier/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'machakann/vim-sandwich'
 Plug 'rhysd/clever-f.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
 
 cal plug#end()
 
@@ -141,6 +142,7 @@ nn <cr> o<esc>
 nn <silent> <a-S> :so $MYVIMRC<cr>
 nn <silent> gs vip:sort i<cr>
 xn <silent> gs :sort i<cr>
+sil! cal repeat#se('\<Plug>vim-surround', v:count)
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a
 se nojoinspaces
