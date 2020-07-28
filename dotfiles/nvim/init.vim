@@ -142,6 +142,7 @@ nn <silent> gs vip:sort i<cr>
 xn <silent> gs :sort i<cr>
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a
+se nojoinspaces
 se notimeout
 
 " NAVIGATION
