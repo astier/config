@@ -134,6 +134,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 " MISC
 au group bufenter,focusgained * cal system('tmux renamew '.expand('%:t'))
 au group vimleave * cal system('tmux setw automatic-rename')
+au group filetype markdown se textwidth=80
 let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
 nn <silent> <a-S> :so $MYVIMRC<cr>
