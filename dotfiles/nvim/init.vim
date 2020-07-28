@@ -116,19 +116,19 @@ let g:vimtex_compiler_latexmk = {
     \ }
 
 " LOADED
-let g:loaded_gzip = 1
-let g:loaded_matchparen = 1
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let g:loaded_node_provider = 1
+let g:loaded_gzip = 0
+let g:loaded_matchparen = 0
+let g:loaded_netrw = 0
+let g:loaded_netrwPlugin = 0
+let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
-let g:loaded_python_provider = 1
-let g:loaded_ruby_provider = 1
-let g:loaded_spellfile_plugin = 1
-let g:loaded_tar = 1
-let g:loaded_tarPlugin = 1
-let g:loaded_zip = 1
-let g:loaded_zipPlugin = 1
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_spellfile_plugin = 0
+let g:loaded_tar = 0
+let g:loaded_tarPlugin = 0
+let g:loaded_zip = 0
+let g:loaded_zipPlugin = 0
 let g:python3_host_prog = '/usr/bin/python3'
 
 " MISC
