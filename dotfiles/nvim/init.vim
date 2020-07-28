@@ -137,6 +137,7 @@ au group vimleave * cal system('tmux setw automatic-rename')
 au group filetype markdown se textwidth=80
 let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
+nn <cr> o<esc>
 nn <silent> <a-S> :so $MYVIMRC<cr>
 nn <silent> gs vip:sort i<cr>
 xn <silent> gs :sort i<cr>
