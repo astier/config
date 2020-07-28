@@ -231,7 +231,7 @@ se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
 
 " VIMUX
 au group vimleave * VimuxCloseRunner
-let g:VimuxHeight = '40'
+let g:VimuxHeight = '30'
 let g:VimuxUseNearest = 0
 nn <silent> <space>x :VimuxCloseRunner<cr>
 nn <silent> <space>a :VimuxRunCommand('execute ' . bufname('%'))<cr>
