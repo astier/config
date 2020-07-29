@@ -86,7 +86,7 @@ nm <silent> [c <Plug>(GitGutterPrevHunk)zz
 nm <silent> ]c <Plug>(GitGutterNextHunk)zz
 
 " KILL
-nn <silent> <a-tab> :bd!<cr>
+nn <silent> <a-tab> :bn<bar>bd#<cr>
 nn <silent> <space>c :clo<cr>
 nn <silent> <space>d :qa!<cr>
 nn <silent> <space>s <c-z>
