@@ -193,6 +193,8 @@ nn <p <ap
 nn >p >ap
 nn cp cip
 nn dp dap
+nn gqp gqip
+nn gqq Vgq
 nn Q <c-q>
 nn vp vip
 nn Y y$
