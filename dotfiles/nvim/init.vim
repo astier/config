@@ -205,26 +205,27 @@ se viewoptions=cursor
 " THEME
 " echo synIDattr(synID(line("."), col("."), 1), "name")
 colorscheme nord
-hi comment       cterm=italic
-hi cursorlinenr  ctermfg=none
-hi diffadded     cterm=none   ctermbg=none ctermfg=green
-hi diffremoved   cterm=none   ctermbg=none ctermfg=red
-hi errormsg      ctermbg=none
-hi function      ctermfg=none
-hi number        ctermfg=none
-hi pmenusel      ctermfg=none
+hi comment cterm=italic
+hi cursorlinenr ctermfg=none
+hi diffadded cterm=none ctermbg=none ctermfg=green
+hi diffremoved cterm=none ctermbg=none ctermfg=red
+hi errormsg ctermbg=none
+hi function ctermfg=none
+hi jsontrailingcommaerror ctermbg=none
+hi number ctermfg=none
+hi pmenusel ctermfg=none
 hi pythonbuiltin ctermfg=none
-hi search        cterm=bold   ctermbg=none ctermfg=red
-hi statusline    ctermbg=none ctermfg=16
-hi statuslinenc  ctermbg=none ctermfg=16
-hi tabline       ctermbg=none ctermfg=8
-hi tablinefill   ctermbg=none
-hi tablinesel    ctermbg=none ctermfg=none
-hi vertsplit     ctermbg=none ctermfg=16
-hi vimaugroup    ctermfg=none
-hi vimmaprhs     ctermfg=none
-hi vimnotation   ctermfg=none
-hi warningmsg    ctermbg=none ctermfg=none
+hi search cterm=bold ctermbg=none ctermfg=red
+hi statusline ctermbg=none ctermfg=16
+hi statuslinenc ctermbg=none ctermfg=16
+hi tabline ctermbg=none ctermfg=8
+hi tablinefill ctermbg=none
+hi tablinesel ctermbg=none ctermfg=none
+hi vertsplit ctermbg=none ctermfg=16
+hi vimaugroup ctermfg=none
+hi vimmaprhs ctermfg=none
+hi vimnotation ctermfg=none
+hi warningmsg ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 
 " UI
