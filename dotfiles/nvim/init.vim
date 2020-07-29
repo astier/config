@@ -1,6 +1,6 @@
 " FIRST THINGS FIRST
 aug group | au! | aug en
-let mapleader = ';'
+let mapleader = ' '
 scriptencoding utf-8
 
 " PLUGINS
@@ -16,7 +16,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'astier/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
-Plug 'dkarter/bullets.vim', { 'for': ['markdown', 'tex'] }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
 Plug 'rhysd/clever-f.vim'
