@@ -14,6 +14,7 @@
     "editor.hover.enabled": true,
     "editor.lineNumbers": "off",
     "editor.minimap.enabled": false,
+    "editor.mouseWheelScrollSensitivity": 2,
     "editor.occurrencesHighlight": false,
     "editor.overviewRulerBorder": false,
     "editor.renderIndentGuides": false,
@@ -59,11 +60,9 @@
     "vim.showcmd": false,
     "vim.showmodename": false,
     "vim.visualstar": true,
-
     "window.enableMenuBarMnemonics": false,
     "window.menuBarVisibility": "toggle",
     "window.zoomLevel": 0,
-
     "workbench.colorTheme": "Nord",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
