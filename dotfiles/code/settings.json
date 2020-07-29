@@ -53,13 +53,8 @@
     "terminal.integrated.rightClickBehavior": "paste",
     "terminal.integrated.shell.linux": "/usr/bin/bash",
     "update.mode": "manual",
-    "vim.foldfix": true,
-    "vim.highlightedyank.enable": true,
-    "vim.hlsearch": true,
-    "vim.leader": "space",
-    "vim.showcmd": false,
-    "vim.showmodename": false,
-    "vim.visualstar": true,
+    "vscode-neovim.neovimInitPath": "~/.config/Code/User/code.vim",
+    "vscode-neovim.neovimPath": "/usr/bin/nvim",
     "window.enableMenuBarMnemonics": false,
     "window.menuBarVisibility": "toggle",
     "window.zoomLevel": 0,
@@ -73,24 +68,5 @@
     "workbench.statusBar.visible": false,
     "workbench.tips.enabled": false,
     "workbench.tree.renderIndentGuides": "none",
-
-    "vim.normalModeKeyBindingsNonRecursive": [
-
-        { "before": [ ":" ], "commands": [ "workbench.action.showCommands" ] },
-        { "before": [ "esc" ], "commands": [ ":nohl" ] },
-        { "before": [ "cr" ], "after": [ "o", "esc" ] },
-
-        { "before": [ "$" ], "after": [ "g", "$" ] },
-        { "before": [ "0" ], "after": [ "g", "0" ] },
-        { "before": [ "j" ], "after": [ "g", "j" ] },
-        { "before": [ "k" ], "after": [ "g", "k" ] },
-
-        { "before": [ "f" ], "after": [ "*", "`", "`" ] },
-        { "before": [ "n" ], "after": [ "n", "z", "z" ] },
-        { "before": [ "N" ], "after": [ "N", "z", "z" ] },
-
-        { "before": [ "leader", "u" ], "commands": [ "git.revertSelectedRanges" ] },
-
-    ],
 
 }

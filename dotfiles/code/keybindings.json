@@ -4,8 +4,12 @@
     { "key": "alt+r", "command": "workbench.action.nextEditor" },
     { "key": "alt+tab", "command": "workbench.action.closeActiveEditor" },
 
-    { "key": "alt+d", "command": "scrollLineUp", "when": "editorTextFocus" },
-    { "key": "alt+f", "command": "scrollLineDown", "when": "editorTextFocus" },
+    { "key": "alt+d", "command": "editorScroll", "when": "editorTextFocus",
+        "args": { "to": "up", "by": "line", "revealCursor": true, "value": 2 }
+    },
+    { "key": "alt+f", "command": "editorScroll", "when": "editorTextFocus",
+        "args": { "to": "down", "by": "line", "revealCursor": true, "value": 2 }
+    },
 
     { "key": "shift+alt+f", "command": "workbench.action.quickOpen", "when": "editorTextFocus" },
 
