@@ -1,6 +1,6 @@
 " FIRST THINGS FIRST
 aug group | au! | aug en
-let mapleader = ','
+let mapleader = ' '
 scriptencoding utf-8
 
 " PLUGINS
@@ -17,6 +17,7 @@ Plug 'astier/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'rhysd/clever-f.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
@@ -174,9 +175,11 @@ let g:NERDTreeStatusline = ''
 nn <silent> <space>e :NERDTreeToggle<cr>
 
 " SEARCH & REPLACE
+let g:clever_f_across_no_line = 1
+let g:clever_f_smart_case = 1
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
-nn <silent> <esc> :noh <bar> ec<cr>
-nn <silent> f *``
+nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
+nn <silent> , *``
 nn <silent> n nzz
 nn <silent> N Nzz
 se ignorecase smartcase
