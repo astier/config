@@ -1,0 +1,11 @@
+{
+
+    "default": true,
+
+    "fenced-code-language": false,
+    "first-line-h1": false,
+    "no-inline-html": false,
+
+    "MD003": { "style": "setext_with_atx" }
+
+}
