@@ -138,9 +138,9 @@ let g:python3_host_prog = '/usr/bin/python3'
 au group bufenter,focusgained * cal system('tmux renamew '.expand('%:t'))
 au group vimleave * cal system('tmux setw automatic-rename')
 au group filetype markdown se textwidth=80
+au group vimresized * winc =
 let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
-nn <cr> o<esc>
 nn <silent> <a-S> :so $MYVIMRC<cr>
 nn <silent> gs vip:sort i<cr>
 xn <silent> gs :sort i<cr>
@@ -148,6 +148,7 @@ se expandtab shiftwidth=4 tabstop=4
 se mouse=a
 se nojoinspaces
 se notimeout
+se splitbelow splitright
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
@@ -184,6 +185,9 @@ se ignorecase smartcase
 se inccommand=nosplit
 
 " SHORTCUTS
+nn <a-d> 4<c-y>
+nn <a-f> 4<c-e>
+nn <cr> o<esc>
 nn <p <ap
 nn >p >ap
 nn cp cip
@@ -244,12 +248,6 @@ nn <silent> <space>a :VimuxRunCommand('execute ' . bufname('%'))<cr>
 nn <silent> <space>l :VimuxRunCommand('lint ' . bufname('%'))<cr>
 nn <silent> <space><space> :VimuxRunCommand(getline('.'))<cr>
 xn <silent> <space><space> "vy :VimuxRunCommand(@v)<cr>
-
-" WINDOWS
-au group vimresized * winc =
-nn <a-f> 4<c-e>
-nn <a-d> 4<c-y>
-se splitbelow splitright
 
 " WRAP
 nn $ g$
