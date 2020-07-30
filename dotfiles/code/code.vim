@@ -10,6 +10,7 @@ en
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
 Plug 'machakann/vim-sandwich'
 Plug 'rhysd/clever-f.vim'
+Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 cal plug#end()
 
@@ -60,7 +61,6 @@ se notimeout
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
-nn <space>r  :cal VSCodeNotify('editor.action.changeAll')<cr>i
 nn <silent> <esc> :noh<cr>
 nn <silent> , *``
 nn <silent> n nzz
@@ -79,3 +79,15 @@ nn gqq Vgq
 nn Q <c-q>
 nn vp vip
 nn Y y$
+
+" SUBVERSIVE
+let g:subversivePromptWithCurrent = 1
+let g:subversivePreserveCursorPosition = 1
+nm s <plug>(SubversiveSubstitute)
+xm s <plug>(SubversiveSubstitute)
+nm ss <plug>(SubversiveSubstituteLine)
+nm S <plug>(SubversiveSubstituteToEndOfLine)
+nm <leader>r <plug>(SubversiveSubstituteWordRange)ie
+xm <leader>r <plug>(SubversiveSubstituteRange)ie
+xn ie <esc>ggVG
+ono ie :exe "norm! ggVG"<cr>

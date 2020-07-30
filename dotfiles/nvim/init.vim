@@ -22,6 +22,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
+Plug 'svermeulen/vim-subversive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 
@@ -176,7 +177,6 @@ nn <silent> <space>e :NERDTreeToggle<cr>
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
-nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
 nn <silent> , *``
 nn <silent> n nzz
@@ -208,6 +208,18 @@ au group bufenter * if index(ignore_ft, &ft) < 0 | sil! lo
 au group bufleave,vimleave * if index(ignore_ft, &ft) < 0 | sil! mkvie
 let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 se viewoptions=cursor
+
+" SUBVERSIVE
+let g:subversivePromptWithCurrent = 1
+let g:subversivePreserveCursorPosition = 1
+nm s <plug>(SubversiveSubstitute)
+xm s <plug>(SubversiveSubstitute)
+nm ss <plug>(SubversiveSubstituteLine)
+nm S <plug>(SubversiveSubstituteToEndOfLine)
+nm <leader>r <plug>(SubversiveSubstituteWordRange)ie
+xm <leader>r <plug>(SubversiveSubstituteRange)ie
+xn ie <esc>ggVG
+ono ie :exe "norm! ggVG"<cr>
 
 " THEME
 " echo synIDattr(synID(line("."), col("."), 1), "name")
