@@ -144,7 +144,6 @@ let g:plug_window = 'enew'
 nn <silent> <a-S> :so $MYVIMRC<cr>
 nn <silent> gs vip:sort i<cr>
 xn <silent> gs :sort i<cr>
-se breakindent linebreak
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a
 se nojoinspaces
@@ -251,3 +250,14 @@ nn <silent> <space>a :VimuxRunCommand('execute ' . bufname('%'))<cr>
 nn <silent> <space>l :VimuxRunCommand('lint ' . bufname('%'))<cr>
 nn <silent> <space><space> :VimuxRunCommand(getline('.'))<cr>
 xn <silent> <space><space> "vy :VimuxRunCommand(@v)<cr>
+
+" WRAP
+nn $ g$
+nn 0 g0
+nn j gj
+nn k gk
+xn $ g$
+xn 0 g0
+xn j gj
+xn k gk
+se breakindent linebreak
