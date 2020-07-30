@@ -14,17 +14,15 @@ Plug 'tpope/vim-commentary'
 cal plug#end()
 
 " vscode-neovim readme
-" clipboard
 " rename
 " gitgutter
 " fold
 
 " CLIPBOARD
-ino <c-v> <esc>"+pa
 nn <c-c> "+yy
+xn <c-c> "+y
 nn <c-v> "+p
 nn <c-x> "+dd
-xn <c-c> "+y
 xn <c-x> "+d
 
 " LOADED

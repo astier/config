@@ -13,4 +13,7 @@
 
     { "key": "shift+alt+f", "command": "workbench.action.quickOpen", "when": "editorTextFocus" },
 
+    { "command": "-vscode-neovim.escape", "key": "ctrl+c" },
+    { "key": "ctrl+c", "command": "vscode-neovim.send", "when": "neovim.mode == visual", "args": "<C-c>" }
+
 ]
