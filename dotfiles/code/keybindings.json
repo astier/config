@@ -14,6 +14,42 @@
     { "key": "shift+alt+f", "command": "workbench.action.quickOpen", "when": "editorTextFocus" },
 
     { "command": "-vscode-neovim.escape", "key": "ctrl+c" },
-    { "key": "ctrl+c", "command": "vscode-neovim.send", "when": "neovim.mode == visual", "args": "<C-c>" }
+
+    {
+        "key": "ctrl+c",
+        "command": "vscode-neovim.send",
+        "when": "neovim.mode == visual",
+        "args": "<C-c>"
+    },
+    {
+        "key": "z m",
+        "command": "editor.toggleFold",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+k ctrl+l",
+        "command": "-editor.toggleFold",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "z f",
+        "command": "editor.foldLevel1",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+k ctrl+0",
+        "command": "-editor.foldLevel1",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "z shift+f",
+        "command": "editor.unfoldAll",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+k ctrl+j",
+        "command": "-editor.unfoldAll",
+        "when": "editorTextFocus && foldingEnabled"
+    },
 
 ]

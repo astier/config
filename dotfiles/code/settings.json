@@ -13,6 +13,7 @@
     "editor.hover.delay": 5000,
     "editor.hover.enabled": true,
     "editor.lineNumbers": "off",
+    "editor.matchBrackets": "never",
     "editor.minimap.enabled": false,
     "editor.mouseWheelScrollSensitivity": 2,
     "editor.occurrencesHighlight": false,

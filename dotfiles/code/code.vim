@@ -13,17 +13,22 @@ Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-commentary'
 cal plug#end()
 
-" vscode-neovim readme
-" rename
-" gitgutter
-" fold
-
 " CLIPBOARD
 nn <c-c> "+yy
 xn <c-c> "+y
 nn <c-v> "+p
 nn <c-x> "+dd
 xn <c-x> "+d
+
+" FOLD & WRAP
+nm $ g$
+nm 0 g0
+nm j gj
+nm k gk
+xm $ g$
+xm 0 g0
+xm j gj
+xm k gk
 
 " LOADED
 let g:loaded_gzip = 0
@@ -43,21 +48,19 @@ let g:loaded_zipPlugin = 0
 
 " MISC
 au group filetype markdown se textwidth=80
+nn <silent> : :cal VSCodeNotify('workbench.action.showCommands')<cr>
+nn <silent> <space>i :cal VSCodeNotify('git.openChange')<cr>
+nn <silent> <space>u :cal VSCodeNotify('git.revertSelectedRanges')<cr>
 nn <silent> gs vip:sort i<cr>
 xn <silent> gs :sort i<cr>
 se nojoinspaces
 se noswapfile
 se notimeout
 
-" VSCODE
-nn <silent> : :cal VSCodeNotify('workbench.action.showCommands')<cr>
-nn <silent> <space>i :cal VSCodeNotify('git.openChange')<cr>
-nn <silent> <space>u :cal VSCodeNotify('git.revertSelectedRanges')<cr>
-
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
-" nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
+nn <space>r  :cal VSCodeNotify('editor.action.changeAll')<cr>i
 nn <silent> <esc> :noh<cr>
 nn <silent> , *``
 nn <silent> n nzz
@@ -71,6 +74,8 @@ nn <p <ap
 nn >p >ap
 nn cp cip
 nn dp dap
+nn gqp gqip
+nn gqq Vgq
 nn Q <c-q>
 nn vp vip
 nn Y y$
