@@ -14,18 +14,27 @@ cd dotfiles || return
 link .bashrc ~
 link .profile ~
 link aliases "$XDG_CONFIG_HOME"
-link code/code.vim "$XDG_CONFIG_HOME"/Code/User
-link code/keybindings.json "$XDG_CONFIG_HOME"/Code/User
-link code/settings.json "$XDG_CONFIG_HOME"/Code/User
 link git "$XDG_CONFIG_HOME"
 link gtk-2.0 "$XDG_CONFIG_HOME"
 link gtk-3.0 "$XDG_CONFIG_HOME"
 link inputrc "$XDG_CONFIG_HOME"
 link markdownlint "$XDG_CONFIG_HOME"
 link nvim "$XDG_CONFIG_HOME"
+link pylintrc "$XDG_CONFIG_HOME"
 link pythonrc.py "$XDG_CONFIG_HOME"
+link shellcheckrc "$XDG_CONFIG_HOME"
+link templates "$XDG_CONFIG_HOME"
 link tmux "$XDG_CONFIG_HOME"
 link xkb "$XDG_CONFIG_HOME"
+link zathura "$XDG_CONFIG_HOME"
+
+if [ -d "$XDG_CONFIG_HOME"/Code/User ]; then
+
+    link code/code.vim "$XDG_CONFIG_HOME"/Code/User
+    link code/keybindings.json "$XDG_CONFIG_HOME"/Code/User
+    link code/settings.json "$XDG_CONFIG_HOME"/Code/User
+
+fi
 
 if groups "$USER" | grep -q wheel; then
 
@@ -41,12 +50,8 @@ if groups "$USER" | grep -q wheel; then
     copy tty-cursor.conf /etc/tmpfiles.d
     link herbstluftwm "$XDG_CONFIG_HOME"
     link pacman "$XDG_CONFIG_HOME"
-    link pylintrc "$XDG_CONFIG_HOME"
-    link shellcheckrc "$XDG_CONFIG_HOME"
     link sx "$XDG_CONFIG_HOME"
     link sxhkd "$XDG_CONFIG_HOME"
-    link templates "$XDG_CONFIG_HOME"
     link tint2 "$XDG_CONFIG_HOME"
-    link zathura "$XDG_CONFIG_HOME"
 
 fi
