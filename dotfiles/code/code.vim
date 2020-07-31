@@ -11,7 +11,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
 Plug 'machakann/vim-sandwich'
 Plug 'rhysd/clever-f.vim'
 Plug 'svermeulen/vim-subversive'
-Plug 'tpope/vim-commentary'
 cal plug#end()
 
 " CLIPBOARD
@@ -21,15 +20,12 @@ nn <c-v> "+p
 nn <c-x> "+dd
 xn <c-x> "+d
 
-" FOLD & WRAP
-nm $ g$
-nm 0 g0
-nm j gj
-nm k gk
-xm $ g$
-xm 0 g0
-xm j gj
-xm k gk
+" COMMENTARY
+nm gc  <Plug>VSCodeCommentary
+nm gcc <Plug>VSCodeCommentaryLine
+om gc  <Plug>VSCodeCommentary
+xm gc  <Plug>VSCodeCommentary
+nm gcp gcip
 
 " LOADED
 let g:loaded_gzip = 0
@@ -68,7 +64,6 @@ nn <silent> N Nzz
 se ignorecase smartcase
 
 " SHORTCUTS
-nm gcp gcip
 nn <cr> o<esc>
 nn <p <ap
 nn >p >ap
@@ -91,3 +86,13 @@ nm <leader>r <plug>(SubversiveSubstituteWordRange)ie
 xm <leader>r <plug>(SubversiveSubstituteRange)ie
 xn ie <esc>ggVG
 ono ie :exe "norm! ggVG"<cr>
+
+" WRAP & FOLD
+nm $ g$
+nm 0 g0
+nm j gj
+nm k gk
+xm $ g$
+xm 0 g0
+xm j gj
+xm k gk
