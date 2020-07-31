@@ -252,6 +252,7 @@ au group filetype gitcommit,markdown,tex setl spell
 se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
 se noruler noshowcmd noshowmode
 se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
+se wildmode=longest,list
 
 " VIMUX
 au group vimleave * VimuxCloseRunner
