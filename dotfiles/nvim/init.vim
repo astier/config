@@ -197,6 +197,8 @@ nn gqq Vgq
 nn Q <c-q>
 nn vp vip
 nn Y y$
+nn { {zz
+nn } }zz
 
 " SNIPPETS
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
