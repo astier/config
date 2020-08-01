@@ -137,8 +137,8 @@ let g:loaded_zipPlugin = 0
 let g:python3_host_prog = '/usr/bin/python3'
 
 " MISC
-au group bufenter,focusgained * cal system('tmux renamew '.expand('%:t'))
-au group vimleave * cal system('tmux setw automatic-rename')
+au group vimenter,vimresume,focusgained * cal system('tmux renamew "#{b:pane_current_path}"')
+au group vimleave,vimsuspend,focuslost * cal system('tmux setw automatic-rename')
 au group filetype gitcommit,markdown,tex setl spell
 au group filetype markdown se textwidth=80
 au group vimresized * winc =
