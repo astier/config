@@ -123,7 +123,6 @@ let g:vimtex_compiler_latexmk = {
 
 " LOADED
 let g:loaded_gzip = 0
-let g:loaded_matchparen = 0
 let g:loaded_netrw = 0
 let g:loaded_netrwPlugin = 0
 let g:loaded_node_provider = 0
@@ -241,6 +240,7 @@ hi diffremoved cterm=none ctermbg=none ctermfg=red
 hi errormsg ctermbg=none
 hi function ctermfg=none
 hi jsontrailingcommaerror ctermbg=none
+hi matchparen cterm=none ctermbg=none ctermfg=none
 hi number ctermfg=none
 hi pmenusel ctermfg=none
 hi pythonbuiltin ctermfg=none
