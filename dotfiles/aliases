@@ -57,7 +57,7 @@ g_path="$HOME"/cloud/g.sh
 alias gg="\$EDITOR \$g_path && . \$g_path"
 
 # GIT
-k() { n=16; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline -n"$n"; }
+k() { n=16; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline --show-pulls -n"$n"; }
 kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
 krb() { n=8; [ "$1" ] && n=$1; git rebase -i HEAD~"$n"; }
 krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
