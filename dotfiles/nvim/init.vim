@@ -18,6 +18,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'cohama/lexima.vim'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'machakann/vim-sandwich'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'rhysd/clever-f.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -145,8 +146,6 @@ au group vimresized * winc =
 let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
 nn <silent> <a-S> :so $MYVIMRC<cr>
-nn <silent> gs vip:sort i<cr>
-xn <silent> gs :sort i<cr>
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a
 se nojoinspaces
@@ -207,6 +206,11 @@ nn } }zz
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
+
+" SORT
+nn <silent> gsp vip:sort i<cr>
+nm <silent> gsi vii:sort i<cr>
+xn <silent> gs :sort i<cr>
 
 " STATE
 au group bufenter * if index(ignore_ft, &ft) < 0 | sil! lo
