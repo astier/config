@@ -1,0 +1,6 @@
+{
+  "Plug": {
+    "prefix": ["p"],
+    "body": ["Plug $1 '$0' foo $1"]
+  }
+}
