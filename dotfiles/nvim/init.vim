@@ -202,7 +202,6 @@ nn dp dap
 nn gqp gqip
 nn gqq Vgq
 nn Q <c-q>
-nn u u<c-o>
 nn vp vip
 nn Y y$
 nn { {zz
