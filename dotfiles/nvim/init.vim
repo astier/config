@@ -85,6 +85,7 @@ nm <silent> <space>S <Plug>(GitGutterStageHunk)
 nm <silent> <space>u <Plug>(GitGutterUndoHunk)
 nm <silent> [c <Plug>(GitGutterPrevHunk)zz
 nm <silent> ]c <Plug>(GitGutterNextHunk)zz
+se signcolumn=yes
 
 " KILL
 nn <silent> <a-tab> :bn<bar>bd#<cr>
@@ -138,6 +139,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 " MISC
 au group bufenter,focusgained * cal system('tmux renamew '.expand('%:t'))
 au group vimleave * cal system('tmux setw automatic-rename')
+au group filetype gitcommit,markdown,tex setl spell
 au group filetype markdown se textwidth=80
 au group vimresized * winc =
 let g:lexima_enable_endwise_rules = 0
@@ -150,6 +152,7 @@ se mouse=a
 se nojoinspaces
 se notimeout
 se splitbelow splitright
+se wildmode=longest,list
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
@@ -237,24 +240,29 @@ hi number ctermfg=none
 hi pmenusel ctermfg=none
 hi pythonbuiltin ctermfg=none
 hi search cterm=bold ctermbg=none ctermfg=red
-hi statusline ctermbg=none ctermfg=16
-hi statuslinenc ctermbg=none ctermfg=16
-hi tabline ctermbg=none ctermfg=8
-hi tablinefill ctermbg=none
-hi tablinesel ctermbg=none ctermfg=none
-hi vertsplit ctermbg=none ctermfg=16
 hi vimaugroup ctermfg=none
 hi vimmaprhs ctermfg=none
 hi vimnotation ctermfg=none
 hi warningmsg ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 
-" UI
-au group filetype gitcommit,markdown,tex setl spell
+" STATUSLINE
+fu StatusLine()
+    let status = expand('%')
+    return repeat('―', winwidth(0) - len(status)) . status
+endf
+se statusline=%{StatusLine()}
+se laststatus=1 noruler noshowcmd noshowmode
 se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
-se noruler noshowcmd noshowmode
-se statusline=\  showtabline=0 laststatus=0 signcolumn=yes
-se wildmode=longest,list
+hi statusline ctermbg=none ctermfg=8
+hi statuslinenc ctermbg=none ctermfg=8
+hi vertsplit ctermbg=none ctermfg=8
+
+" TABLINE
+hi tabline ctermbg=none ctermfg=8
+hi tablinefill ctermbg=none
+hi tablinesel ctermbg=none ctermfg=none
+se showtabline=1
 
 " VIMUX
 au group vimleave * VimuxCloseRunner
