@@ -14,6 +14,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'astier/vimux'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
+    Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
@@ -29,12 +30,10 @@ cal plug#end()
 " BUFFERS
 au group bufenter,focusgained * checkt
 au group textchanged,insertleave * nested sil! up
-com! -nargs=+ SFZF exe 'e' system('ffind -type f | sfzf <args> 2>/dev/null') | exe 'ec'
+com! -nargs=+ FZFF exe 'e' system('ffind -type f | fzf --filter="<args>" | head -n1') | exe 'ec'
 nn <silent> <a-e> :bp<cr>
 nn <silent> <a-r> :bn<cr>
 nn <silent> <tab> :b#<cr>
-nn <space>F :ls<cr>:b<space>
-nn <space>f :SFZF<space>
 se noswapfile
 
 " CLIPBOARD
@@ -75,6 +74,16 @@ fu! Format()
     cal winrestview(l:save)
 endf
 nn <silent> <space>gf :cal Format()<cr>
+
+" FZF
+au group filetype fzf set laststatus=0
+au group bufleave fzf set laststatus=2
+let g:fzf_preview_window = ''
+nn <silent> <space>b :Buffers<cr>
+nn <silent> <space>F :Files<cr>
+nn <silent> <space>f :FZFF<space>
+nn <silent> <space>t :Tags<cr>
+au group filetype tex nn <space>t :cal vimtex#fzf#run()<cr>
 
 " GITGUTTER
 au group bufwritepost * GitGutter
