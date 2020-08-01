@@ -208,9 +208,9 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
 " SORT
-nn <silent> gsp vip:sort i<cr>
-nm <silent> gsi vii:sort i<cr>
-xn <silent> gs :sort i<cr>
+nn <silent> gsp mm vip :sort i<cr> `m
+nm <silent> gsi mm vii :sort i<cr> `m
+xn <silent> gs  mm :sort i<cr> `m
 
 " STATE
 au group bufenter * if index(ignore_ft, &ft) < 0 | sil! lo
