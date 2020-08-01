@@ -19,9 +19,11 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
+    Plug 'prabirshrestha/asyncomplete-buffer.vim'
+    Plug 'prabirshrestha/asyncomplete-file.vim'
+    Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'rhysd/clever-f.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
@@ -50,18 +52,18 @@ nm gcp gcip
 se commentstring=//\ %s
 
 " COMPLETION
-let g:deoplete#enable_at_startup = 1
-cal deoplete#custom#option({
-    \ 'ignore_sources': { '_': ['around', 'member'] },
-    \ 'max_list': 4,
-    \ 'min_pattern_length': 1,
-    \ 'num_processes': 1,
-    \ })
-cal deoplete#custom#source('_', 'matchers', [
-    \ 'matcher_fuzzy',
-    \ 'matcher_length',
-    \ ])
-cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
+au user asyncomplete_setup cal asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'whitelist': ['*'],
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ }))
+au user asyncomplete_setup cal asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'whitelist': ['*'],
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
+ino <expr> <cr> pumvisible() ? "\<c-y>" : "\<cr>"
+let g:asyncomplete_auto_completeopt = 0
 se completeopt=menuone,noinsert
 se shortmess+=c
 
@@ -133,6 +135,7 @@ let g:loaded_netrw = 0
 let g:loaded_netrwPlugin = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
+let g:loaded_python3_provider = 0
 let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_spellfile_plugin = 0
@@ -140,7 +143,6 @@ let g:loaded_tar = 0
 let g:loaded_tarPlugin = 0
 let g:loaded_zip = 0
 let g:loaded_zipPlugin = 0
-let g:python3_host_prog = '/usr/bin/python3'
 
 " MISC
 au group vimenter,vimresume,focusgained * cal system('tmux renamew "#{b:pane_current_path}"')
