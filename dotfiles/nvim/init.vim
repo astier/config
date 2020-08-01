@@ -56,9 +56,9 @@ let g:completion_auto_change_source = 1
 let g:completion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy']
 let g:completion_sorting = "length"
 let g:completion_chain_complete_list = [
-    \ {'complete_items': ['path']},
-    \ {'complete_items': ['buffers']},
-    \ ]
+    \{'complete_items': ['path']},
+    \{'complete_items': ['buffers']},
+\]
 se completeopt=menuone,noinsert shortmess+=c
 
 " FORMAT
@@ -113,15 +113,15 @@ fu! FocusViewer(status)
     exe 'ec'
 endf
 let g:vimtex_compiler_latexmk = {
-    \ 'callback' : 0,
-    \ 'continuous' : 0,
-    \ 'options' : [
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=0',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \ }
+    \'callback' : 0,
+    \'continuous' : 0,
+    \'options' : [
+    \  '-verbose',
+    \  '-file-line-error',
+    \  '-synctex=0',
+    \  '-interaction=nonstopmode',
+    \],
+\}
 
 " LOADED
 let g:loaded_gzip = 0
