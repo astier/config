@@ -8,25 +8,22 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
     sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     au vimenter * PlugInstall --sync | so $MYVIMRC
 en
-
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
-
-Plug 'airblade/vim-gitgutter'
-Plug 'arcticicestudio/nord-vim'
-Plug 'astier/vimux'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'cohama/lexima.vim'
-Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'machakann/vim-sandwich'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'rhysd/clever-f.vim'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
-Plug 'svermeulen/vim-subversive'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sleuth'
-
+    Plug 'airblade/vim-gitgutter'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'astier/vimux'
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'cohama/lexima.vim'
+    Plug 'lervag/vimtex', { 'for': 'tex' }
+    Plug 'machakann/vim-sandwich'
+    Plug 'michaeljsmith/vim-indent-object'
+    Plug 'rhysd/clever-f.vim'
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'SirVer/ultisnips', { 'for': ['markdown', 'python', 'sh', 'snippets', 'tex', 'vim'] }
+    Plug 'svermeulen/vim-subversive'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-sleuth'
 cal plug#end()
 
 " BUFFERS

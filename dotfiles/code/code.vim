@@ -8,9 +8,9 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
     au vimenter * PlugInstall --sync | so $MYVIMRC
 en
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
-Plug 'machakann/vim-sandwich'
-Plug 'rhysd/clever-f.vim'
-Plug 'svermeulen/vim-subversive'
+    Plug 'machakann/vim-sandwich'
+    Plug 'rhysd/clever-f.vim'
+    Plug 'svermeulen/vim-subversive'
 cal plug#end()
 
 " CLIPBOARD
