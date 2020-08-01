@@ -29,15 +29,12 @@ link xkb "$XDG_CONFIG_HOME"
 link zathura "$XDG_CONFIG_HOME"
 
 if [ -d "$XDG_CONFIG_HOME"/Code/User ]; then
-
     link code/code.vim "$XDG_CONFIG_HOME"/Code/User
     link code/keybindings.json "$XDG_CONFIG_HOME"/Code/User
     link code/settings.json "$XDG_CONFIG_HOME"/Code/User
-
 fi
 
 if groups "$USER" | grep -q wheel; then
-
     copy iptables.rules /etc/iptables
     copy iwd.conf /etc/iwd/main.conf
     copy pacman/pacman.conf /etc
@@ -53,5 +50,4 @@ if groups "$USER" | grep -q wheel; then
     link sx "$XDG_CONFIG_HOME"
     link sxhkd "$XDG_CONFIG_HOME"
     link tint2 "$XDG_CONFIG_HOME"
-
 fi
