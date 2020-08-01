@@ -19,11 +19,10 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
-    Plug 'prabirshrestha/asyncomplete-buffer.vim'
-    Plug 'prabirshrestha/asyncomplete-file.vim'
-    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'nvim-lua/completion-nvim'
     Plug 'rhysd/clever-f.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'steelsojka/completion-buffers'
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
@@ -52,20 +51,15 @@ nm gcp gcip
 se commentstring=//\ %s
 
 " COMPLETION
-au user asyncomplete_setup cal asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-    \ 'name': 'buffer',
-    \ 'whitelist': ['*'],
-    \ 'completor': function('asyncomplete#sources#buffer#completor'),
-    \ }))
-au user asyncomplete_setup cal asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-    \ 'name': 'file',
-    \ 'whitelist': ['*'],
-    \ 'completor': function('asyncomplete#sources#file#completor')
-    \ }))
-ino <expr> <cr> pumvisible() ? "\<c-y>" : "\<cr>"
-let g:asyncomplete_auto_completeopt = 0
-se completeopt=menuone,noinsert
-se shortmess+=c
+au bufenter * lua require'completion'.on_attach()
+let g:completion_auto_change_source = 1
+let g:completion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy']
+let g:completion_sorting = "length"
+let g:completion_chain_complete_list = [
+    \ {'complete_items': ['path']},
+    \ {'complete_items': ['buffers']},
+    \ ]
+se completeopt=menuone,noinsert shortmess+=c
 
 " FORMAT
 fu! Format()
