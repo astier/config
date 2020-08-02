@@ -61,8 +61,11 @@ let g:completion_chain_complete_list = [
     \{ 'complete_items': ['path'] },
     \{ 'complete_items': ['buffer'] },
 \]
+ino <expr> <esc> pumvisible() ? "\<c-e>" : "\<esc>"
 se completeopt=menuone,noinsert
-se pumheight=4 shortmess+=c
+se infercase
+se pumheight=4
+se shortmess+=c
 
 " FORMAT
 fu! Format()
