@@ -212,7 +212,11 @@ nn <cr> o<esc>
 nn <p <ap
 nn >p >ap
 nn cp cip
+nn cw ciw
+nn cW ciW
 nn dp dap
+nn dw daw
+nn dW daW
 nn gqp gqip
 nn gqq Vgq
 nn Q <c-q>
