@@ -24,8 +24,8 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'steelsojka/completion-buffers'
     Plug 'svermeulen/vim-subversive'
-    Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
+    Plug 'tyru/caw.vim'
 cal plug#end()
 
 " BUFFERS
@@ -47,7 +47,8 @@ xn <c-x> "+d
 
 " COMMENTS
 au group bufenter * se formatoptions-=cro
-nm gcp gcip
+nm gci mm vii gcc `m
+nm gcp mm vip gcc `m
 se commentstring=//\ %s
 
 " COMPLETION
