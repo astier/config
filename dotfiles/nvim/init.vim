@@ -62,7 +62,7 @@ let g:completion_chain_complete_list = [
     \{ 'complete_items': ['path'] },
     \{ 'complete_items': ['buffer'] },
 \]
-ino <expr> <esc> pumvisible() ? "\<c-e>" : "\<esc>"
+ino <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
 se completeopt=menuone,noinsert
 se infercase
 se pumheight=4
