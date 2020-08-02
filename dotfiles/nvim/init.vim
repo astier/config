@@ -262,6 +262,41 @@ hi vimnotation ctermfg=none
 hi warningmsg ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 
+" TREESITTER
+se foldmethod=expr
+se foldexpr=nvim_treesitter#foldexr()
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "all",
+    highlight = { enable = true },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = "gn",
+            node_decremental = "gnp",
+            node_incremental = "gnn",
+            scope_incremental = "gns",
+        }
+    },
+    textobjects = {
+        enable = true,
+        keymaps = {
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["aF"] = "@class.outer",
+            ["iF"] = "@class.inner",
+            ["aC"] = "@conditional.outer",
+            ["iC"] = "@conditional.inner",
+            ["ak"] = "@block.outer",
+            ["ik"] = "@block.inner",
+            ["al"] = "@loop.outer",
+            ["il"] = "@loop.inner",
+            ["ac"] = "@comment.outer",
+        }
+    },
+}
+EOF
+
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
 imap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
