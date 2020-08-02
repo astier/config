@@ -54,13 +54,15 @@ se commentstring=//\ %s
 " COMPLETION
 au bufenter * lua require'completion'.on_attach()
 let g:completion_auto_change_source = 1
+let g:completion_customize_lsp_label = { 'Buffer': 'B', 'Buffers': 'B' }
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_sorting = "length"
 let g:completion_chain_complete_list = [
     \{ 'complete_items': ['path'] },
-    \{ 'complete_items': ['buffers'] },
+    \{ 'complete_items': ['buffer'] },
 \]
-se completeopt=menuone,noinsert shortmess+=c
+se completeopt=menuone,noinsert
+se pumheight=4 shortmess+=c
 
 " FORMAT
 fu! Format()
