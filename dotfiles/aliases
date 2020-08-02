@@ -166,6 +166,7 @@ alias ft="cd ~/projects/st"
 alias fto="ft && \$EDITOR config.def.h"
 alias sc="cd ~/projects/scripts"
 alias scf="sc && f"
+alias si="cd ~/projects/sites"
 
 # TMUX
 alias t="tmux new -A"
