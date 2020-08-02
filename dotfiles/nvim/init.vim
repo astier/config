@@ -153,6 +153,7 @@ au group filetype gitcommit,markdown,tex setl spell
 au group filetype markdown se textwidth=80
 au group vimresized * winc =
 let g:lexima_enable_endwise_rules = 0
+let g:lexima_map_escape = ''
 let g:plug_window = 'enew'
 nn <silent> <a-S> :so $MYVIMRC<cr>
 se expandtab shiftwidth=4 tabstop=4
