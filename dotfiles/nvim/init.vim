@@ -98,21 +98,11 @@ nn <silent> <space>d :qa!<cr>
 nn <silent> <space>s <c-z>
 
 " LATEX
-au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
 let g:tex_flavor = 'latex'
 let g:tex_no_error = 1
-let g:vimtex_compiler_callback_hooks = ['FocusViewer']
 let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
 let g:vimtex_view_general_viewer = 'zathura'
-fu! FocusViewer(status)
-    if system('pidof zathura')
-        exe 'sil !wmctrl -xa zathura'
-    el
-        exe 'VimtexView'
-    en
-    exe 'ec'
-endf
 let g:vimtex_compiler_latexmk = {
     \'callback' : 0,
     \'continuous' : 0,
@@ -123,6 +113,16 @@ let g:vimtex_compiler_latexmk = {
     \  '-interaction=nonstopmode',
     \],
 \}
+au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
+au user VimtexEventCompileSuccess tex :cal ViewPDF()<cr>
+fu! ViewPDF()
+    if system('pidof zathura')
+        exe 'sil !wmctrl -xa zathura'
+    el
+        exe 'VimtexView'
+    en
+    exe 'ec'
+endf
 
 " LOADED
 let g:loaded_gzip = 0
