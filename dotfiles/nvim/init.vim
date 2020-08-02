@@ -245,20 +245,12 @@ ono ie :exe "norm! ggVG"<cr>
 " echo synIDattr(synID(line("."), col("."), 1), "name")
 colorscheme nord
 hi comment cterm=italic
-hi cursorlinenr ctermfg=none
 hi diffadded cterm=none ctermbg=none ctermfg=green
 hi diffremoved cterm=none ctermbg=none ctermfg=red
 hi errormsg ctermbg=none
-hi function ctermfg=none
-hi jsontrailingcommaerror ctermbg=none
 hi matchparen cterm=none ctermbg=none ctermfg=none
-hi number ctermfg=none
 hi pmenusel ctermfg=none
-hi pythonbuiltin ctermfg=none
 hi search cterm=bold ctermbg=none ctermfg=red
-hi vimaugroup ctermfg=none
-hi vimmaprhs ctermfg=none
-hi vimnotation ctermfg=none
 hi warningmsg ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 
