@@ -148,8 +148,6 @@ let g:loaded_zip = 0
 let g:loaded_zipPlugin = 0
 
 " MISC
-au group vimenter,vimresume,focusgained * cal system('tmux renamew "#{b:pane_current_path}"')
-au group vimleave,vimsuspend,focuslost * cal system('tmux setw automatic-rename')
 au group filetype gitcommit,markdown,tex setl spell
 au group filetype markdown se textwidth=80
 au group vimresized * winc =
@@ -277,6 +275,11 @@ hi tabline ctermbg=none ctermfg=8
 hi tablinefill ctermbg=none
 hi tablinesel ctermbg=none ctermfg=none
 se showtabline=1
+
+" TMUXRENAME
+au group vimenter,vimresume,focusgained * cal system('tmux renamew "#{b:pane_current_path}"')
+au group vimleave,vimsuspend,focuslost * cal system('tmux setw automatic-rename')
+au group vimenter,vimresume,focusgained notes cal system('tmux renamew notes')
 
 " VIMUX
 au group vimleave * VimuxCloseRunner
