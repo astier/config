@@ -21,6 +21,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'nvim-lua/completion-nvim'
+    Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'rhysd/clever-f.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'steelsojka/completion-buffers'
@@ -184,6 +185,11 @@ let g:NERDTreeMouseMode = 3
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
 nn <silent> <space>e :NERDTreeToggle<cr>
+
+" PLUG
+nn <silent> <space>pc :PlugInstall<cr>
+nn <silent> <space>pi :PlugInstall<cr>
+nn <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
