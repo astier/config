@@ -79,8 +79,8 @@ endf
 nn <silent> <space>gf :cal Format()<cr>
 
 " FZF
-au group filetype fzf set laststatus=0
-au group bufleave fzf set laststatus=2
+au group filetype fzf se laststatus=0
+au group bufleave fzf se laststatus=2
 let g:fzf_preview_window = ''
 nn <silent> <space>b :Buffers<cr>
 nn <silent> <space>F :Files<cr>
