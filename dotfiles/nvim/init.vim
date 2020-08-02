@@ -81,7 +81,7 @@ nn <silent> <space>gf :cal Format()<cr>
 " FZF
 au group filetype fzf se laststatus=0
 au group bufleave fzf se laststatus=2
-com! -nargs=+ FZFF exe 'e' system('ffind -type f | fzf --filter="<args>" | head -n1') | exe 'ec'
+com! -nargs=+ FZFF exe 'e' system('fzf --filter="<args>" | head -n1') | exe 'ec'
 let g:fzf_preview_window = ''
 nn <silent> <space>b :Buffers<cr>
 nn <silent> <space>F :Files<cr>
