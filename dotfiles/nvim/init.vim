@@ -261,16 +261,11 @@ imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : 
 smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
 
 " STATUSLINE
-fu StatusLine()
-    let status = expand('%')
-    return repeat('―', winwidth(0) - len(status)) . status
-endf
-se statusline=%{StatusLine()}
-se laststatus=1 noruler noshowcmd noshowmode
+hi statusline ctermbg=none ctermfg=16
+hi statuslinenc ctermbg=none ctermfg=16
+hi vertsplit ctermbg=none ctermfg=16
 se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
-hi statusline ctermbg=none ctermfg=8
-hi statuslinenc ctermbg=none ctermfg=8
-hi vertsplit ctermbg=none ctermfg=8
+se noruler noshowcmd noshowmode statusline=\  laststatus=0
 
 " TABLINE
 hi tabline ctermbg=none ctermfg=8
