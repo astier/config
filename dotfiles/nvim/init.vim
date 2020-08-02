@@ -48,8 +48,11 @@ xn <c-x> "+d
 
 " COMMENTS
 au group bufenter * se formatoptions-=cro
-nm gci mm vii gcc `m
-nm gcp mm vip gcc `m
+nm gjj gcc
+xm gj  gcc
+nm gjo gco
+nm gjO gcO
+nm gjp mm vip gcc `m
 se commentstring=//\ %s
 
 " COMPLETION
