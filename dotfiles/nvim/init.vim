@@ -12,6 +12,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'arcticicestudio/nord-vim'
     Plug 'astier/vimux'
+    Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
     Plug 'hrsh7th/vim-vsnip', { 'for': ['markdown', 'python', 'sh', 'tex', 'vim'] }
@@ -189,6 +190,7 @@ let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
 nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
 nn <silent> , *``
+xm <silent> , *``
 nn <silent> n nzz
 nn <silent> N Nzz
 se ignorecase smartcase
