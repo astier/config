@@ -85,8 +85,8 @@ com! -nargs=+ FZFF exe 'e' system('fzf --filter="<args>" | head -n1') | exe 'ec'
 let g:fzf_preview_window = ''
 nn <silent> <space>b :Buffers<cr>
 nn <silent> <space>F :Files<cr>
-nn <silent> <space>f :FZFF<space>
 nn <silent> <space>t :Tags<cr>
+nn <space>f :FZFF<space>
 au group filetype tex nn <space>t :cal vimtex#fzf#run()<cr>
 
 " GITGUTTER
