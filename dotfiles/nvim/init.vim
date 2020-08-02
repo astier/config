@@ -52,7 +52,7 @@ nm gcp mm vip gcc `m
 se commentstring=//\ %s
 
 " COMPLETION
-au bufenter * lua require'completion'.on_attach()
+au group bufenter * lua require'completion'.on_attach()
 let g:completion_auto_change_source = 1
 let g:completion_customize_lsp_label = { 'Buffer': 'B', 'Buffers': 'B' }
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
