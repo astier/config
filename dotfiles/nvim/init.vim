@@ -57,7 +57,7 @@ let g:completion_auto_change_source = 1
 let g:completion_customize_lsp_label = { 'Buffer': 'B', 'Buffers': 'B' }
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_sorting = "length"
-let g:completion_timer_cycle = 1
+let g:completion_timer_cycle = 10
 let g:completion_trigger_on_delete = 1
 let g:completion_chain_complete_list = [
     \{ 'complete_items': ['path'] },
