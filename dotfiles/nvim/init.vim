@@ -64,8 +64,8 @@ let g:completion_sorting = "length"
 let g:completion_timer_cycle = 10
 let g:completion_trigger_on_delete = 1
 let g:completion_chain_complete_list = [
-    \{ 'complete_items': ['path'] },
-    \{ 'complete_items': ['buffer'] },
+\    { 'complete_items': ['path'] },
+\    { 'complete_items': ['buffer'] },
 \]
 ino <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
 se completeopt=menuone,noinsert
@@ -116,14 +116,14 @@ let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_latexmk = {
-    \'callback' : 0,
-    \'continuous' : 0,
-    \'options' : [
-    \  '-verbose',
-    \  '-file-line-error',
-    \  '-synctex=0',
-    \  '-interaction=nonstopmode',
-    \],
+\    'callback' : 0,
+\    'continuous' : 0,
+\    'options' : [
+\      '-verbose',
+\      '-file-line-error',
+\      '-synctex=0',
+\      '-interaction=nonstopmode',
+\    ],
 \}
 au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
 au user VimtexEventCompileSuccess tex :cal ViewPDF()<cr>
@@ -264,7 +264,7 @@ se cursorline | hi clear cursorline
 " TREESITTER
 se foldmethod=expr
 se foldexpr=nvim_treesitter#foldexr()
-lua <<EOF
+lua << END
 require'nvim-treesitter.configs'.setup {
     ensure_installed = "all",
     highlight = { enable = true },
@@ -275,7 +275,7 @@ require'nvim-treesitter.configs'.setup {
             node_decremental = "gnp",
             node_incremental = "gnn",
             scope_incremental = "gns",
-        }
+        },
     },
     textobjects = {
         enable = true,
@@ -291,10 +291,10 @@ require'nvim-treesitter.configs'.setup {
             ["al"] = "@loop.outer",
             ["il"] = "@loop.inner",
             ["ac"] = "@comment.outer",
-        }
+        },
     },
 }
-EOF
+END
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
