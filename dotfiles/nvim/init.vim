@@ -17,6 +17,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'cohama/lexima.vim'
     Plug 'hrsh7th/vim-vsnip', { 'for': ['markdown', 'python', 'sh', 'tex', 'vim'] }
     Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
+    Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
@@ -172,6 +173,8 @@ let g:lexima_enable_endwise_rules = 0
 let g:lexima_map_escape = ''
 let g:plug_window = 'enew'
 nn <silent> <a-S> :so $MYVIMRC<cr>
+nm ga <plug>(EasyAlign)
+xm ga <plug>(EasyAlign)
 se expandtab shiftwidth=4 tabstop=4
 se mouse=a
 se nojoinspaces
