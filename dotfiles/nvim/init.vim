@@ -20,6 +20,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
+    Plug 'neovim/nvim-lsp'
     Plug 'nvim-lua/completion-nvim'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'rhysd/clever-f.vim'
@@ -64,6 +65,7 @@ let g:completion_sorting = "length"
 let g:completion_timer_cycle = 10
 let g:completion_trigger_on_delete = 1
 let g:completion_chain_complete_list = [
+\    { 'complete_items': ['lsp'] },
 \    { 'complete_items': ['path'] },
 \    { 'complete_items': ['buffer'] },
 \]
@@ -151,6 +153,17 @@ let g:loaded_tarPlugin = 0
 let g:loaded_zip = 0
 let g:loaded_zipPlugin = 0
 
+" LSP
+au group filetype python nn <silent> gd :lua vim.lsp.buf.definition()<cr>
+au group filetype python nn <silent> gp :lua vim.lsp.buf.signature_help()<cr>
+au group filetype python nn <silent> gR :lua vim.lsp.buf.references()<cr>
+au group filetype python nn <silent> gr :lua vim.lsp.buf.rename()<cr>
+au group filetype python nn <silent> K  :lua vim.lsp.buf.hover()<cr>
+lua << END
+require'nvim_lsp'.pyls.setup{}
+vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
+END
+
 " MISC
 au group filetype gitcommit,markdown,tex setl spell
 au group filetype markdown se textwidth=80
@@ -208,7 +221,6 @@ se inccommand=nosplit
 " SHORTCUTS
 nn <a-d> 4<c-y>
 nn <a-f> 4<c-e>
-nn <cr> o<esc>
 nn <p <ap
 nn >p >ap
 nn cp cip
