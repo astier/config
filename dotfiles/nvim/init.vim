@@ -206,6 +206,7 @@ se inccommand=nosplit
 " SHORTCUTS
 nn <a-d> 4<c-y>
 nn <a-f> 4<c-e>
+nn <cr> o<esc>
 nn <p <ap
 nn >p >ap
 nn cp cip
