@@ -343,7 +343,7 @@ se showtabline=1
 
 " TMUXRENAME
 au group vimenter,vimresume,focusgained * cal system('tmux renamew "#{b:pane_current_path}"')
-au group vimleave,vimsuspend,focuslost * cal system('tmux setw automatic-rename')
+au group vimleave,vimsuspend * cal system('tmux setw automatic-rename')
 au group vimenter,vimresume,focusgained notes cal system('tmux renamew notes')
 
 " VIMUX
