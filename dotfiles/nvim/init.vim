@@ -21,7 +21,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    Plug 'neovim/nvim-lsp'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'rhysd/clever-f.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -56,16 +56,6 @@ nm gjp mm vip gcc `m
 se commentstring=//\ %s
 
 " COMPLETION
-let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
-nm <silent> gd <plug>(coc-definition)zz
-nm <silent> gR <plug>(coc-references)
-nm <silent> gr <plug>(coc-rename)
-nn <silent> K :cal <sid>show_documentation()<cr>
-fu! s:show_documentation()
-    if index(['vim','help'], &filetype) >= 0
-        exe 'h '.expand('<cword>')
-    el | cal CocAction('doHover') | en
-endf
 ino <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
 se completeopt=menuone,noinsert,preview
 se infercase pumheight=8 shortmess+=c
@@ -147,6 +137,17 @@ let g:loaded_tar = 0
 let g:loaded_tarPlugin = 0
 let g:loaded_zip = 0
 let g:loaded_zipPlugin = 0
+
+" LSP
+au group filetype python nn <silent> gd :lua vim.lsp.buf.definition()<cr>
+au group filetype python nn <silent> gp :lua vim.lsp.buf.signature_help()<cr>
+au group filetype python nn <silent> gR :lua vim.lsp.buf.references()<cr>
+au group filetype python nn <silent> gr :lua vim.lsp.buf.rename()<cr>
+au group filetype python nn <silent> K  :lua vim.lsp.buf.hover()<cr>
+lua << END
+require'nvim_lsp'.pyls.setup{}
+vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
+END
 
 " MISC
 au group filetype gitcommit,markdown,tex setl spell
