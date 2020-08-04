@@ -21,12 +21,10 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
-    Plug 'neovim/nvim-lsp'
-    Plug 'nvim-lua/completion-nvim'
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'rhysd/clever-f.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    Plug 'steelsojka/completion-buffers'
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-sleuth'
     Plug 'tyru/caw.vim'
@@ -58,32 +56,18 @@ nm gjp mm vip gcc `m
 se commentstring=//\ %s
 
 " COMPLETION
-au group bufenter * lua require'completion'.on_attach()
-let g:completion_auto_change_source = 1
-let g:completion_enable_auto_hover = 0
-let g:completion_enable_auto_paren = 1
-let g:completion_enable_auto_signature = 0
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-let g:completion_sorting = "length"
-let g:completion_timer_cycle = 10
-let g:completion_trigger_on_delete = 0
-let g:completion_chain_complete_list = [
-\    { 'complete_items': ['lsp'] },
-\    { 'complete_items': ['path'] },
-\    { 'complete_items': ['buffer'] },
-\]
-let g:completion_customize_lsp_label = {
-\   'Buffer': '[B]',
-\   'Buffers': '[B]',
-\   'Class': '[C]',
-\   'Function': '[F]',
-\   'Keyword': '[K]',
-\   'Module': '[M]',
-\   'Reference': '[R]',
-\   'TypeParameter': '[T]',
-\}
+let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
+nm <silent> gd <plug>(coc-definition)zz
+nm <silent> gR <plug>(coc-references)
+nm <silent> gr <plug>(coc-rename)
+nn <silent> K :cal <sid>show_documentation()<cr>
+fu! s:show_documentation()
+    if index(['vim','help'], &filetype) >= 0
+        exe 'h '.expand('<cword>')
+    el | cal CocAction('doHover') | en
+endf
 ino <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
-se completeopt=menuone,noinsert
+se completeopt=menuone,noinsert,preview
 se infercase pumheight=8 shortmess+=c
 
 " FORMAT
@@ -164,23 +148,11 @@ let g:loaded_tarPlugin = 0
 let g:loaded_zip = 0
 let g:loaded_zipPlugin = 0
 
-" LSP
-au group filetype python nn <silent> gd :lua vim.lsp.buf.definition()<cr>
-au group filetype python nn <silent> gp :lua vim.lsp.buf.signature_help()<cr>
-au group filetype python nn <silent> gR :lua vim.lsp.buf.references()<cr>
-au group filetype python nn <silent> gr :lua vim.lsp.buf.rename()<cr>
-au group filetype python nn <silent> K  :lua vim.lsp.buf.hover()<cr>
-lua << END
-require'nvim_lsp'.pyls.setup{}
-vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
-END
-
 " MISC
 au group filetype gitcommit,markdown,tex setl spell
 au group filetype markdown se textwidth=80
 au group vimresized * winc =
 let g:lexima_enable_endwise_rules = 0
-let g:lexima_map_escape = ''
 let g:plug_window = 'enew'
 nn <silent> <a-S> :so $MYVIMRC<cr>
 nm ga <plug>(EasyAlign)
