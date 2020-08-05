@@ -220,6 +220,8 @@ nn gqq Vgq
 nn Q <c-q>
 nn vp vip
 nn Y y$
+nn yw mm yiw `m
+nn yW mm yiW `m
 nn { {zz
 nn } }zz
 
