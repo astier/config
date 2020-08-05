@@ -348,13 +348,6 @@ nn <silent> <space>l :VimuxRunCommand('lint ' . bufname('%'))<cr>
 nn <silent> <space><space> :VimuxRunCommand(getline('.'))<cr>
 xn <silent> <space><space> "vy :VimuxRunCommand(@v)<cr>
 
-" WHITESPACE
-hi whitespace ctermbg=red
-au group bufwinenter * mat Whitespace /\s\+$\| \+\ze\t/
-au group insertenter * mat Whitespace /\s\+\%#\@<!$\| \+\ze\t/
-au group insertleave * mat Whitespace /\s\+$\| \+\ze\t/
-au group bufwinleave * cal clearmatches()
-
 " WRAP
 nn $ g$
 nn 0 g0
