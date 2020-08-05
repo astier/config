@@ -231,6 +231,7 @@ nn cW ciW
 nn dp dap
 nn dw daw
 nn dW daW
+nn gg gg0
 nn gqp gqip
 nn gqq Vgq
 nn Q <c-q>
