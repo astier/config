@@ -15,7 +15,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
-    Plug 'hrsh7th/vim-vsnip', { 'for': ['markdown', 'python', 'sh', 'tex', 'vim'] }
+    Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
     Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
