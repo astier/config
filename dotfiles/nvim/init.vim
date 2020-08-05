@@ -19,6 +19,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
     Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
+    Plug 'lifepillar/vim-mucomplete'
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lsp'
@@ -56,6 +57,15 @@ nm gjp mm vip gcc `m
 se commentstring=//\ %s
 
 " COMPLETION
+let g:mucomplete#always_use_completeopt = 1
+let g:mucomplete#enable_auto_at_startup = 0
+let g:mucomplete#minimum_prefix_length = 1
+let g:mucomplete#no_mappings = 1
+let g:mucomplete#chains = {
+\   'default' : ['path', 'keyn'],
+\   'tex'     : ['path', 'omni', 'keyn'],
+\   'vim'     : ['path', 'keyn']
+\}
 ino <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
 se completeopt=menuone,noinsert,preview
 se infercase pumheight=8 shortmess+=c
@@ -299,10 +309,10 @@ END
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
-imap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-smap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
-smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
+imap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : !pumvisible() ?'<plug>(MUcompleteFwd)' : '<tab>'
+smap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : !pumvisible() ?'<plug>(MUcompleteFwd)' : '<tab>'
+imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<s-tab>'
+smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<s-tab>'
 
 " STATUSLINE
 hi statusline ctermbg=none ctermfg=16
