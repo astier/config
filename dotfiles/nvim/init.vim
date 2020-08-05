@@ -204,7 +204,7 @@ let g:NERDTreeStatusline = ''
 nn <silent> <space>e :NERDTreeToggle<cr>
 
 " PLUG
-nn <silent> <space>pc :PlugInstall<cr>
+nn <silent> <space>pc :PlugClean<cr>
 nn <silent> <space>pi :PlugInstall<cr>
 nn <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 
