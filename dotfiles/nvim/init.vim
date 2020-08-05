@@ -348,11 +348,16 @@ imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : 
 smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
 
 " STATUSLINE
-hi statusline ctermbg=none ctermfg=16
-hi statuslinenc ctermbg=none ctermfg=16
-hi vertsplit ctermbg=none ctermfg=16
+hi statusline ctermbg=none ctermfg=8
+hi statuslinenc ctermbg=none ctermfg=8
+hi vertsplit ctermbg=none ctermfg=8
 se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
-se noruler noshowcmd noshowmode statusline=\  laststatus=0
+se noruler noshowcmd noshowmode laststatus=1
+fu StatusLine()
+    let status = expand('%')
+    return repeat('―', winwidth(0) - len(status)) . status
+endf
+se statusline=%{StatusLine()}
 
 " TABLINE
 hi tabline ctermbg=none ctermfg=8
