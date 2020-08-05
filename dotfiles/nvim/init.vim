@@ -15,17 +15,19 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
+    Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
     Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
-    Plug 'lifepillar/vim-mucomplete'
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lsp'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'rhysd/clever-f.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/neopairs.vim', { 'for': 'python' }
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-sleuth'
     Plug 'tyru/caw.vim'
@@ -57,17 +59,19 @@ nm gjp mm vip gcc `m
 se commentstring=//\ %s
 
 " COMPLETION
-let g:mucomplete#always_use_completeopt = 1
-let g:mucomplete#enable_auto_at_startup = 0
-let g:mucomplete#minimum_prefix_length = 1
-let g:mucomplete#no_mappings = 1
-let g:mucomplete#chains = {
-\   'default' : ['path', 'keyn'],
-\   'tex'     : ['path', 'omni', 'keyn'],
-\   'vim'     : ['path', 'keyn']
-\}
+let g:deoplete#enable_at_startup = 1
+cal deoplete#custom#option({
+\   'ignore_sources': { '_': ['around', 'member'] },
+\   'min_pattern_length': 1,
+\   'num_processes': 1,
+\})
+cal deoplete#custom#source('_', 'matchers', [
+ \  'matcher_fuzzy',
+ \  'matcher_length',
+ \])
+cal deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
 ino <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
-se completeopt=menuone,noinsert,preview
+se completeopt=menuone,noinsert
 se infercase pumheight=8 shortmess+=c
 
 " FORMAT
@@ -122,6 +126,7 @@ let g:vimtex_compiler_latexmk = {
 \      '-interaction=nonstopmode',
 \    ],
 \}
+au group filetype tex cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
 au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
 au user VimtexEventCompileSuccess tex :cal ViewPDF()<cr>
 fu! ViewPDF()
@@ -139,7 +144,6 @@ let g:loaded_netrw = 0
 let g:loaded_netrwPlugin = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
-let g:loaded_python3_provider = 0
 let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_spellfile_plugin = 0
@@ -147,6 +151,7 @@ let g:loaded_tar = 0
 let g:loaded_tarPlugin = 0
 let g:loaded_zip = 0
 let g:loaded_zipPlugin = 0
+let g:python3_host_prog = '/usr/bin/python3'
 
 " LSP
 au group filetype python nn <silent> gd :lua vim.lsp.buf.definition()<cr>
@@ -309,10 +314,10 @@ END
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
-imap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : !pumvisible() ?'<plug>(MUcompleteFwd)' : '<tab>'
-smap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : !pumvisible() ?'<plug>(MUcompleteFwd)' : '<tab>'
-imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<s-tab>'
-smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<s-tab>'
+imap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
+smap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
+imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
+smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
 
 " STATUSLINE
 hi statusline ctermbg=none ctermfg=16
