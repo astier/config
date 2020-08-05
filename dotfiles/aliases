@@ -178,3 +178,15 @@ alias ta="tmux a -t"
 alias tk="tmux kill-session -t"
 alias tkk="tmux kill-session -a"
 alias tl="tmux ls"
+
+# VIM
+vpa() {
+    [ $# = 0 ] && url="$(xsel -b | head -n1)" || url="$1"
+    name=$(echo "$url" | sed s/.git$// | sed s/.n*vim$// | sed 's/.*\///' | sed s/^vim-//)
+    git submodule add --force --name "$name" "$url" "dotfiles/nvim/pack/plugins/opt/$name"
+}
+vpr() {
+    [ $# = 0 ] && echo No submodule provided. && return
+    git rm -f "dotfiles/nvim/pack/plugins/opt/$1"
+    rm -fr ".git/modules/$1"
+}
