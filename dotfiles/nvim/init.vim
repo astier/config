@@ -310,7 +310,7 @@ se foldmethod=expr
 se foldexpr=nvim_treesitter#foldexr()
 lua << END
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = {"bash", "python"},
+    ensure_installed = {"bash", "c", "cpp", "json", "markdown", "python"},
     highlight = { enable = true },
     incremental_selection = {
         enable = true,
