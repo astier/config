@@ -278,6 +278,7 @@ hi warningmsg ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 
 " TREESITTER
+hi tserror ctermfg=15
 se foldmethod=expr
 se foldexpr=nvim_treesitter#foldexr()
 lua << END
