@@ -160,7 +160,7 @@ au group filetype python nn <silent> gR :lua vim.lsp.buf.references()<cr>
 au group filetype python nn <silent> gr :lua vim.lsp.buf.rename()<cr>
 au group filetype python nn <silent> K  :lua vim.lsp.buf.hover()<cr>
 lua << END
-require'nvim_lsp'.pyls.setup{}
+require 'nvim_lsp'.pyls.setup{}
 vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 END
 
@@ -282,7 +282,7 @@ hi tserror ctermfg=15
 se foldmethod=expr
 se foldexpr=nvim_treesitter#foldexr()
 lua << END
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
     ensure_installed = "all",
     highlight = { enable = true },
     incremental_selection = {
