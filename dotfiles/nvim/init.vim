@@ -11,7 +11,6 @@ en
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'arcticicestudio/nord-vim'
-    Plug 'astier/vimux'
     Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
@@ -19,6 +18,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
     Plug 'junegunn/vim-easy-align'
+    Plug 'kassio/neoterm'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
@@ -38,6 +38,8 @@ au group bufenter,focusgained * checkt
 au group textchanged,insertleave * nested sil! up
 nn <silent> <a-e> :bp<cr>
 nn <silent> <a-r> :bn<cr>
+tno <silent> <a-e> <c-\><c-n>:bp<cr>
+tno <silent> <a-r> <c-\><c-n>:bn<cr>
 nn <silent> <tab> :b#<cr>
 se noswapfile
 
@@ -105,7 +107,7 @@ nm <silent> ]c <Plug>(GitGutterNextHunk)zz
 se signcolumn=yes
 
 " KILL
-nn <silent> <a-tab> :bn<bar>bd#<cr>
+nn <silent> <a-q> :bn<bar>bd!#<cr>
 nn <silent> <space>c :clo<cr>
 nn <silent> <space>d :qa!<cr>
 nn <silent> <space>s <c-z>
@@ -190,6 +192,26 @@ ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
 ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
 ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
+tno <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
+tno <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
+tno <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
+tno <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
+
+" NEOTERM
+let g:neoterm_automap_keys = '-'
+nm <silent> <space><space> :TREPLSendLine<cr> :Topen<cr>
+xm <silent> <space><space> :TREPLSendSelection<cr> :Topen<cr>
+nn <silent> <space>a :T execute %<cr> :Topen<cr>
+nn <silent> <space>l :T lint %<cr> :Topen<cr>
+
+" TERMINAL
+au group bufenter,focusgained,termopen,winenter term://* star
+au group termopen * nn <buffer><leftrelease> <leftrelease>i
+au group termopen * setl hidden nobuflisted signcolumn=no
+nn <silent> <a-tab> :Topen<cr>
+tno <silent> <a-tab> <c-\><c-n> :b#<cr>
+tno <a-F> <c-\><c-n>
+se shell=/usr/bin/bash
 
 " NERDTREE
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -342,16 +364,6 @@ se showtabline=1
 au group vimenter,vimresume,focusgained * cal system('tmux renamew "#{b:pane_current_path}"')
 au group vimleave,vimsuspend * cal system('tmux setw automatic-rename')
 au group vimenter,vimresume,focusgained notes cal system('tmux renamew notes')
-
-" VIMUX
-au group vimleave * VimuxCloseRunner
-let g:VimuxHeight = '30'
-let g:VimuxUseNearest = 0
-nn <silent> <space>x :VimuxCloseRunner<cr>
-nn <silent> <space>a :VimuxRunCommand('execute ' . bufname('%'))<cr>
-nn <silent> <space>l :VimuxRunCommand('lint ' . bufname('%'))<cr>
-nn <silent> <space><space> :VimuxRunCommand(getline('.'))<cr>
-xn <silent> <space><space> "vy :VimuxRunCommand(@v)<cr>
 
 " WRAP
 nn $ g$
