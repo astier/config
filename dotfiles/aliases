@@ -157,7 +157,7 @@ alias u="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pac
 
 # OPEN
 alias o="autopen"
-alias ogi="\$EDITOR .gitmodules"
+alias ogi="\$EDITOR .gitignore"
 alias ogm="\$EDITOR .gitmodules"
 
 # REPOS
