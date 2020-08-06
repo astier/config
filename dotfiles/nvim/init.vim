@@ -29,8 +29,8 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neopairs.vim', { 'for': 'python' }
     Plug 'svermeulen/vim-subversive'
+    Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
-    Plug 'tyru/caw.vim'
 cal plug#end()
 
 " BUFFERS
@@ -53,11 +53,7 @@ xn <c-x> "+d
 
 " COMMENTS
 au group bufenter * se formatoptions-=cro
-nm gjj gcc
-xm gj  gcc
-nm gjo gco
-nm gjO gcO
-nm gjp mm vip gcc `m
+nm gcp mm vip gc `m
 se commentstring=//\ %s
 
 " COMPLETION
