@@ -61,20 +61,38 @@ nm gjp mm vip gcc `m
 se commentstring=//\ %s
 
 " COMPLETION
-let g:deoplete#enable_at_startup = 1
-cal deoplete#custom#option({
-\   'ignore_sources': { '_': ['around', 'member'] },
-\   'min_pattern_length': 1,
-\   'num_processes': 1,
-\})
-cal deoplete#custom#source('_', 'matchers', [
- \  'matcher_fuzzy',
- \  'matcher_length',
- \])
-cal deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
 ino <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
 se completeopt=menuone,noinsert
 se infercase pumheight=8 shortmess+=c
+
+" DEOPLETE
+let g:deoplete#enable_at_startup = 1
+cal deoplete#custom#option({
+    \'ignore_sources': { '_': ['around', 'member'] },
+    \'min_pattern_length': 1,
+    \'num_processes': 1,
+\})
+cal deoplete#custom#source('_', 'matchers', [
+    \'matcher_fuzzy',
+    \'matcher_length',
+\])
+cal deoplete#custom#source('_', 'converters', [
+    \'converter_word_abbr',
+    \'converter_auto_paren',
+\])
+cal deoplete#custom#source('jedi', 'mark', '[J]')
+
+" DEOPLETE-JEDI
+let g:deoplete#sources#jedi#enable_short_types = 1
+let g:deoplete#sources#jedi#short_types_map = {
+    \'class':      ' c ',
+    \'function':   ' f ',
+    \'globalstmt': ' v ',
+    \'instance':   ' v ',
+    \'keyword':    ' k ',
+    \'module':     ' m ',
+    \'statement':  ' v ',
+\}
 
 " FORMAT
 fu! Format()
@@ -119,14 +137,14 @@ let g:vimtex_mappings_enabled = 0
 let g:vimtex_matchparen_enabled = 0
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_latexmk = {
-\    'callback' : 0,
-\    'continuous' : 0,
-\    'options' : [
-\      '-verbose',
-\      '-file-line-error',
-\      '-synctex=0',
-\      '-interaction=nonstopmode',
-\    ],
+    \'callback' : 0,
+    \'continuous' : 0,
+    \'options' : [
+        \'-verbose',
+        \'-file-line-error',
+        \'-synctex=0',
+        \'-interaction=nonstopmode',
+    \],
 \}
 au group filetype tex cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
 au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
