@@ -14,11 +14,11 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
-    Plug 'deoplete-plugins/deoplete-jedi'
-    Plug 'hrsh7th/vim-vsnip'
+    Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
+    Plug 'hrsh7th/vim-vsnip', { 'for': ['tex'] }
     Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
     Plug 'junegunn/vim-easy-align'
-    Plug 'kassio/neoterm'
+    Plug 'kassio/neoterm', { 'on': ['T', 'Topen'] }
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
@@ -76,9 +76,9 @@ cal deoplete#custom#source('_', 'converters', [
     \'converter_word_abbr',
     \'converter_auto_paren',
 \])
-cal deoplete#custom#source('jedi', 'mark', '[J]')
 
 " DEOPLETE-JEDI
+cal deoplete#custom#source('jedi', 'mark', '[J]')
 let g:deoplete#sources#jedi#enable_short_types = 1
 let g:deoplete#sources#jedi#short_types_map = {
     \'class':      ' c ',
@@ -109,7 +109,6 @@ nn <silent> <space>b :Buffers<cr>
 nn <silent> <space>F :Files<cr>
 nn <silent> <space>t :Tags<cr>
 nn <space>f :FZFF<space>
-au group filetype tex nn <space>t :cal vimtex#fzf#run()<cr>
 
 " GITGUTTER
 au group bufwritepost * GitGutter
@@ -170,15 +169,16 @@ let g:loaded_zipPlugin = 0
 let g:python3_host_prog = '/usr/bin/python3'
 
 " LSP
-au group filetype python nn <silent> gd :lua vim.lsp.buf.definition()<cr>
-au group filetype python nn <silent> gp :lua vim.lsp.buf.signature_help()<cr>
-au group filetype python nn <silent> gR :lua vim.lsp.buf.references()<cr>
-au group filetype python nn <silent> gr :lua vim.lsp.buf.rename()<cr>
-au group filetype python nn <silent> K  :lua vim.lsp.buf.hover()<cr>
-lua << END
-require 'nvim_lsp'.pyls.setup{}
-vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
-END
+au group filetype python cal SetupLSP()
+fu! SetupLSP()
+    nn <silent> gd :lua vim.lsp.buf.definition()<cr>
+    nn <silent> gp :lua vim.lsp.buf.signature_help()<cr>
+    nn <silent> gR :lua vim.lsp.buf.references()<cr>
+    nn <silent> gr :lua vim.lsp.buf.rename()<cr>
+    nn <silent> K  :lua vim.lsp.buf.hover()<cr>
+endf
+lua require 'nvim_lsp'.pyls.setup{}
+lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 
 " MISC
 au group filetype gitcommit,markdown,tex setl spell
@@ -355,11 +355,14 @@ require 'nvim-treesitter.configs'.setup {
 END
 
 " SNIPPETS
-let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
-imap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-smap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
-smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
+au group filetype tex cal SetupSnippets()
+fu! SetupSnippets()
+    let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
+    imap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
+    smap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
+    imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
+    smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
+endf
 
 " STATUSLINE
 hi statusline ctermbg=none ctermfg=8
