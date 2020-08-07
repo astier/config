@@ -16,7 +16,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'cohama/lexima.vim'
     Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
     Plug 'hrsh7th/vim-vsnip', { 'for': ['tex'] }
-    Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Tags'] }
     Plug 'junegunn/vim-easy-align'
     Plug 'kassio/neoterm', { 'on': ['T', 'Topen'] }
     Plug 'lervag/vimtex', { 'for': 'tex' }
@@ -103,13 +102,10 @@ nn <silent> <space>gf :cal Format()<cr>
 
 " FZF
 au group filetype fzf se laststatus=0
-au group bufleave fzf se laststatus=2
+au group bufleave fzf se laststatus=1
 com! -nargs=+ FZFF exe 'e' system('ffind -type f | fzf --filter="<args>" | head -n1') | exe 'ec'
-let g:fzf_preview_window = ''
-nn <silent> <space>b :Buffers<cr>
-nn <silent> <space>F :Files<cr>
-nn <silent> <space>t :Tags<cr>
 nn <space>f :FZFF<space>
+nn <silent> <space>F :FZF<cr>
 
 " GITGUTTER
 au group bufwritepost * GitGutter
