@@ -59,7 +59,8 @@ se commentstring=//\ %s
 " COMPLETION
 ino <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
 se completeopt=menuone,noinsert
-se infercase pumheight=8 shortmess+=c
+se infercase shortmess+=c
+se pumheight=8 pumwidth=0
 
 " DEOPLETE
 let g:deoplete#enable_at_startup = 1
