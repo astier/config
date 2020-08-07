@@ -322,8 +322,6 @@ se cursorline | hi clear cursorline
 
 " TREESITTER
 hi tserror ctermfg=15
-se foldmethod=expr
-se foldexpr=nvim_treesitter#foldexr()
 lua << END
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = {"bash", "c", "cpp", "json", "markdown", "python"},
