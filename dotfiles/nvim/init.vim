@@ -156,6 +156,7 @@ endf
 
 " LOADED
 let g:loaded_gzip = 0
+let g:loaded_matchparen = 0
 let g:loaded_netrw = 0
 let g:loaded_netrwPlugin = 0
 let g:loaded_node_provider = 0
