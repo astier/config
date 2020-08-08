@@ -272,8 +272,8 @@ nm s <plug>(SubversiveSubstitute)
 xm s <plug>(SubversiveSubstitute)
 nm ss <plug>(SubversiveSubstituteLine)
 nm S <plug>(SubversiveSubstituteToEndOfLine)
-nm <leader>r <plug>(SubversiveSubstituteWordRange)ie
-xm <leader>r <plug>(SubversiveSubstituteRange)ie
+nm <space>r <plug>(SubversiveSubstituteWordRange)ie
+xm <space>r <plug>(SubversiveSubstituteRange)ie
 xn ie <esc>ggVG
 ono ie :exe "norm! ggVG"<cr>
 
