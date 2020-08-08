@@ -49,7 +49,7 @@ xn <c-x> "+d
 
 " COMMENTS
 au group bufenter * se formatoptions-=cro
-nm gcp mm vip gc `m
+nm gcp my vip gc `y
 se commentstring=//\ %s
 
 " COMPLETION
@@ -248,15 +248,15 @@ nn gqq Vgq
 nn Q <c-q>
 nn vp vip
 nn Y y$
-nn yw mm yiw `m
-nn yW mm yiW `m
+nn yw my yiw `y
+nn yW my yiW `y
 nn { {zz
 nn } }zz
 
 " SORT
-nn <silent> gsp mm vip :sort i<cr> `m
-nm <silent> gsi mm vii :sort i<cr> `m
-xn <silent> gs  mm :sort i<cr> `m
+nn <silent> gsp my vip :sort i<cr> `y
+nm <silent> gsi my vii :sort i<cr> `y
+xn <silent> gs  my :sort i<cr> `y
 
 " STATE
 au group bufenter * if index(ignore_ft, &ft) < 0 | sil! lo
