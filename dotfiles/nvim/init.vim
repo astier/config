@@ -101,8 +101,8 @@ endf
 nn <silent> <space>gf :cal Format()<cr>
 
 " FZF
-au group filetype fzf se laststatus=0
-au group bufleave fzf se laststatus=1
+au group filetype fzf,help se laststatus=0
+au group bufleave fzf,help se laststatus=1
 com! -nargs=+ FZFF exe 'e' system('ffind -type f | fzf --filter="<args>" | head -n1') | exe 'ec'
 nn <space>f :FZFF<space>
 nn <silent> <space>F :FZF<cr>
