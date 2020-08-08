@@ -106,11 +106,12 @@ nn <silent> <space>F :FZF<cr>
 
 " GITGUTTER
 au group bufwritepost * GitGutter
-nm <silent> <space>i <Plug>(GitGutterPreviewHunk)
-nm <silent> <space>S <Plug>(GitGutterStageHunk)
-nm <silent> <space>u <Plug>(GitGutterUndoHunk)
-nm <silent> [c <Plug>(GitGutterPrevHunk)zz
-nm <silent> ]c <Plug>(GitGutterNextHunk)zz
+let g:gitgutter_map_keys = 0
+nm <space>i <Plug>(GitGutterPreviewHunk)
+nm <space>S <Plug>(GitGutterStageHunk)
+nm <space>u <Plug>(GitGutterUndoHunk)
+nm [c <Plug>(GitGutterPrevHunk)zz
+nm ]c <Plug>(GitGutterNextHunk)zz
 se signcolumn=yes
 
 " KILL
