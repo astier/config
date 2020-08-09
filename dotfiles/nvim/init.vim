@@ -354,6 +354,13 @@ au group vimenter,vimresume,focusgained * cal system('tmux renamew "#{b:pane_cur
 au group vimleave,vimsuspend * cal system('tmux setw automatic-rename')
 au group vimenter,vimresume,focusgained notes cal system('tmux renamew notes')
 
+" TMUXSEND
+com! -nargs=+ T silent exe '!tmux send -t $(cat /tmp/vim_tmux_pane) ' shellescape(<q-args>) ' ENTER'
+nn <silent> <space><space> :exe 'T' getline('.')<cr>
+xn <silent> <space><space> "vy :exe 'T' @v<cr>
+nn <silent> <space>l :T lint %<cr>
+nn <silent> <space>a :T execute<cr>
+
 " WRAP
 nn $ g$
 nn 0 g0
