@@ -15,7 +15,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
     Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
-    Plug 'hrsh7th/vim-vsnip', { 'for': ['tex'] }
+    Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
@@ -177,7 +177,6 @@ lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 au group filetype gitcommit,markdown,tex setl spell
 au group filetype markdown se textwidth=80
 au group vimresized * winc =
-let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
 nn <silent> <a-S> :so $MYVIMRC<cr>
 nm ga <plug>(EasyAlign)
@@ -326,14 +325,11 @@ require 'nvim-treesitter.configs'.setup {
 END
 
 " SNIPPETS
-au group filetype tex cal SetupSnippets()
-fu! SetupSnippets()
-    let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
-    imap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-    smap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-    imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
-    smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
-endf
+let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
+imap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
+smap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
+imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
+smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
 
 " STATUSLINE
 hi statusline ctermbg=none ctermfg=8

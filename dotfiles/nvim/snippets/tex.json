@@ -1,0 +1,10 @@
+{
+  "Plug": {
+    "prefix": ["i"],
+    "body": [
+      "\\begin{itemize}",
+      "\t$0",
+      "\\end{itemize}"
+    ]
+  }
+}
