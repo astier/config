@@ -59,7 +59,6 @@ alias gg="\$EDITOR \$g_path && . \$g_path"
 # GIT
 k() { n=16; [ "$1" ] && n=$1; git log --graph --decorate --oneline --show-pulls -n"$n"; }
 kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
-krb() { n=8; [ "$1" ] && n=$1; git rebase -i HEAD~"$n"; }
 krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
 
 alias ka="git add"
@@ -103,7 +102,11 @@ alias kp="git push"
 alias kpf="git push -f"
 alias kpl="git pull"
 
+alias kra="git rebase --abort"
+alias krc="git rebase --continue"
 alias krm="git rebase master"
+krb() { n=8; [ "$1" ] && n=$1; git rebase -i HEAD~"$n"; }
+
 alias krr="git reset --hard; git clean -f"
 alias krs="git reset --soft"
 alias krv="git revert"
