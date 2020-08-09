@@ -32,7 +32,7 @@ herbstclient keybind $altgr-Return substitute WINID clients.focus.winid chain , 
 herbstclient set focus_stealing_prevention 0
 
 # RESIZING
-resizestep=0.015
+resizestep=0.02
 herbstclient keybind $altgr-Shift-h resize left $resizestep
 herbstclient keybind $altgr-Shift-l resize right $resizestep
 
@@ -62,7 +62,7 @@ herbstclient set frame_gap 0
 herbstclient set window_gap -1
 
 # INIT
-layout='(split horizontal:0.53:1 (clients max:0) (clients max:0))'
+layout='(split horizontal:0.5:1 (clients max:0) (clients max:0))'
 if herbstclient silent new_attr bool my_not_first_autostart ; then
     herbstclient load 1 "$layout"
     herbstclient load 2 "$layout"
