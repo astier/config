@@ -17,7 +17,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
     Plug 'hrsh7th/vim-vsnip', { 'for': ['tex'] }
     Plug 'junegunn/vim-easy-align'
-    Plug 'kassio/neoterm', { 'on': ['T', 'Topen'] }
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
@@ -37,8 +36,6 @@ au group bufenter,focusgained * checkt
 au group textchanged,insertleave * nested sil! up
 nn <silent> <a-e> :bp<cr>
 nn <silent> <a-r> :bn<cr>
-tno <silent> <a-e> <c-\><c-n>:bp<cr>
-tno <silent> <a-r> <c-\><c-n>:bn<cr>
 nn <silent> <tab> :b#<cr>
 se noswapfile
 
@@ -117,9 +114,9 @@ nm <silent> ]c <Plug>(GitGutterNextHunk)zz
 se signcolumn=yes
 
 " KILL
-nn <silent> <a-q> :bn<bar>bd!#<cr>
 nn <silent> <space>c :clo<cr>
 nn <silent> <space>d :qa!<cr>
+nn <silent> <space>q :bn<bar>bd!#<cr>
 nn <silent> <space>s <c-z>
 
 " LATEX
@@ -204,26 +201,6 @@ ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
 ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
 ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
-tno <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
-tno <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
-tno <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
-tno <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
-
-" NEOTERM
-let g:neoterm_automap_keys = '-'
-nm <silent> <space><space> :TREPLSendLine<cr> :Topen<cr>
-xm <silent> <space><space> :TREPLSendSelection<cr> :Topen<cr>
-nn <silent> <space>a :T execute %<cr> :Topen<cr>
-nn <silent> <space>l :T lint %<cr> :Topen<cr>
-
-" TERMINAL
-au group bufenter,focusgained,termopen,winenter term://* star
-au group termopen * nn <buffer><leftrelease> <leftrelease>i
-au group termopen * setl hidden nobuflisted signcolumn=no
-nn <silent> <a-tab> :Topen<cr>
-tno <silent> <a-tab> <c-\><c-n> :b#<cr>
-tno <a-F> <c-\><c-n>
-se shell=/usr/bin/bash
 
 " NERDTREE
 let g:NERDTreeAutoDeleteBuffer = 1
