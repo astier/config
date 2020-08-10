@@ -4,32 +4,27 @@ let mapleader = ' '
 scriptencoding utf-8
 
 " PLUGINS
-if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
-    sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    au vimenter * PlugInstall --sync | so $MYVIMRC
-en
-cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
-    Plug 'airblade/vim-gitgutter'
-    Plug 'arcticicestudio/nord-vim'
-    Plug 'bronson/vim-visual-star-search'
-    Plug 'christoomey/vim-tmux-navigator'
-    Plug 'cohama/lexima.vim'
-    Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
-    Plug 'junegunn/vim-easy-align'
-    Plug 'lervag/vimtex', { 'for': 'tex' }
-    Plug 'machakann/vim-sandwich'
-    Plug 'michaeljsmith/vim-indent-object'
-    Plug 'ms-jpq/chadtree', { 'do': ':UpdateRemotePlugins', 'on': 'CHADopen' }
-    Plug 'neovim/nvim-lsp'
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'rhysd/clever-f.vim'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/neopairs.vim', { 'for': 'python' }
-    Plug 'SirVer/ultisnips', { 'for': ['markdown', 'sh', 'snippets', 'tex', 'vim'] }
-    Plug 'svermeulen/vim-subversive'
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-sleuth'
-cal plug#end()
+pa! chadtree
+pa! clever-f
+pa! commentary
+pa! deoplete
+pa! deoplete-jedi
+pa! easy-align
+pa! gitgutter
+pa! indent-object
+pa! lexima
+pa! neopairs
+pa! nord
+pa! nvim-lsp
+pa! nvim-treesitter
+pa! sandwich
+pa! sleuth
+pa! subversive
+pa! tmux-navigator
+pa! ultisnips
+pa! vimtex
+pa! visual-star-search
+syntax on
 
 " BUFFERS
 au group bufenter,focusgained * checkt
