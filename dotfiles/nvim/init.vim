@@ -19,10 +19,10 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
+    Plug 'ms-jpq/chadtree', { 'do': ':UpdateRemotePlugins', 'on': 'CHADopen' }
     Plug 'neovim/nvim-lsp'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'rhysd/clever-f.vim'
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neopairs.vim', { 'for': 'python' }
     Plug 'SirVer/ultisnips', { 'for': ['markdown', 'sh', 'snippets', 'tex', 'vim'] }
@@ -179,6 +179,7 @@ au group filetype markdown se textwidth=80
 au group vimresized * winc =
 let g:plug_window = 'enew'
 nn <silent> <a-S> :so $MYVIMRC<cr>
+nn <silent> <space>e :CHADopen<cr>
 nm ga <plug>(EasyAlign)
 xm ga <plug>(EasyAlign)
 se expandtab shiftwidth=4 tabstop=4
@@ -198,18 +199,6 @@ ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
 ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
 ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
-
-" NERDTREE
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
-let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
-let g:NERDTreeMinimalMenu = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMouseMode = 3
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeStatusline = ''
-nn <silent> <space>e :NERDTreeToggle<cr>
 
 " PLUG
 nn <silent> <space>pc :PlugClean<cr>
