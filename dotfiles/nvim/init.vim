@@ -4,27 +4,32 @@ let mapleader = ' '
 scriptencoding utf-8
 
 " PLUGINS
-packadd! chadtree
-packadd! clever-f
-packadd! commentary
-packadd! deoplete
-packadd! deoplete-jedi
-packadd! easy-align
-packadd! gitgutter
-packadd! indent-object
-packadd! lexima
-packadd! neopairs
-packadd! nord
-packadd! nvim-lsp
-packadd! nvim-treesitter
-packadd! sandwich
-packadd! sleuth
-packadd! subversive
-packadd! tmux-navigator
-packadd! ultisnips
-packadd! vimtex
-packadd! visual-star-search
-syntax on
+if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd vimenter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
+    Plug 'airblade/vim-gitgutter'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'bronson/vim-visual-star-search'
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'cohama/lexima.vim'
+    Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
+    Plug 'junegunn/vim-easy-align'
+    Plug 'lervag/vimtex', { 'for': 'tex' }
+    Plug 'machakann/vim-sandwich'
+    Plug 'michaeljsmith/vim-indent-object'
+    Plug 'ms-jpq/chadtree', { 'do': ':UpdateRemotePlugins', 'on': 'CHADopen' }
+    Plug 'neovim/nvim-lsp'
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'rhysd/clever-f.vim'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/neopairs.vim', { 'for': 'python' }
+    Plug 'SirVer/ultisnips', { 'for': ['markdown', 'sh', 'snippets', 'tex', 'vim'] }
+    Plug 'svermeulen/vim-subversive'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-sleuth'
+call plug#end()
 
 " BUFFERS
 autocmd group bufenter,focusgained * checktime
