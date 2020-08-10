@@ -282,7 +282,7 @@ set cursorline | highlight clear cursorline
 highlight tserror ctermfg=15
 lua << END
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = {"bash", "c", "cpp", "json", "markdown", "python"},
+    ensure_installed = {"bash", "c", "cpp", "json", "lua", "markdown", "python"},
     highlight = { enable = true },
     incremental_selection = {
         enable = true,
