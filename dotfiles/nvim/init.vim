@@ -19,7 +19,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
-    Plug 'ms-jpq/chadtree', { 'do': ':UpdateRemotePlugins', 'on': 'CHADopen' }
+    Plug 'ms-jpq/chadtree', { 'branch': 'chad', 'do': ':UpdateRemotePlugins', 'on': 'CHADopen' }
     Plug 'neovim/nvim-lsp'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'rhysd/clever-f.vim'
