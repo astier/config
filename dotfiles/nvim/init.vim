@@ -1,76 +1,76 @@
 " FIRST THINGS FIRST
-aug group | au! | aug en
+augroup group | autocmd! | augroup end
 let mapleader = ' '
 scriptencoding utf-8
 
 " PLUGINS
-pa! chadtree
-pa! clever-f
-pa! commentary
-pa! deoplete
-pa! deoplete-jedi
-pa! easy-align
-pa! gitgutter
-pa! indent-object
-pa! lexima
-pa! neopairs
-pa! nord
-pa! nvim-lsp
-pa! nvim-treesitter
-pa! sandwich
-pa! sleuth
-pa! subversive
-pa! tmux-navigator
-pa! ultisnips
-pa! vimtex
-pa! visual-star-search
+packadd! chadtree
+packadd! clever-f
+packadd! commentary
+packadd! deoplete
+packadd! deoplete-jedi
+packadd! easy-align
+packadd! gitgutter
+packadd! indent-object
+packadd! lexima
+packadd! neopairs
+packadd! nord
+packadd! nvim-lsp
+packadd! nvim-treesitter
+packadd! sandwich
+packadd! sleuth
+packadd! subversive
+packadd! tmux-navigator
+packadd! ultisnips
+packadd! vimtex
+packadd! visual-star-search
 syntax on
 
 " BUFFERS
-au group bufenter,focusgained * checkt
-au group textchanged,insertleave * nested sil! up
-nn <silent> <a-e> :bp<cr>
-nn <silent> <a-r> :bn<cr>
-nn <silent> <tab> :b#<cr>
-se noswapfile
+autocmd group bufenter,focusgained * checktime
+autocmd group textchanged,insertleave * nested silent! update
+nnoremap <silent> <a-e> :bp<cr>
+nnoremap <silent> <a-r> :bn<cr>
+nnoremap <silent> <tab> :b#<cr>
+set noswapfile
 
 " CLIPBOARD
-ino <c-v> <esc>"+pa
-nn <c-c> "+yy
-nn <c-v> "+p
-nn <c-x> "+dd
-xn <c-c> "+y
-xn <c-x> "+d
+inoremap <c-v> <esc>"+packadd
+nnoremap <c-c> "+yy
+nnoremap <c-v> "+p
+nnoremap <c-x> "+dd
+xnoremap <c-c> "+y
+xnoremap <c-x> "+d
 
 " COMMENTS
-au group bufenter * se formatoptions-=cro
-nm gcp my vip gc `y
-se commentstring=//\ %s
+autocmd group bufenter * set formatoptions-=cro
+nmap gcp my vip gc `y
+set commentstring=//\ %s
 
 " COMPLETION
-ino <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
-se completeopt=menuone,noinsert
-se infercase shortmess+=c
-se pumheight=8 pumwidth=0
+inoremap <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
+set completeopt=menuone,noinsert
+set infercase shortmess+=c
+set pumheight=8 pumwidth=0
 
 " DEOPLETE
 let g:deoplete#enable_at_startup = 1
-cal deoplete#custom#option({
+call deoplete#custom#option({
     \'ignore_sources': { '_': ['around', 'member'] },
     \'min_pattern_length': 1,
     \'num_processes': 1,
 \})
-cal deoplete#custom#source('_', 'matchers', [
+call deoplete#custom#source('_', 'matchers', [
     \'matcher_fuzzy',
     \'matcher_length',
 \])
-cal deoplete#custom#source('_', 'converters', [
+call deoplete#custom#source('_', 'converters', [
     \'converter_word_abbr',
     \'converter_auto_paren',
 \])
 
 " DEOPLETE-JEDI
-cal deoplete#custom#source('jedi', 'mark', '[J]')
+call deoplete#custom#source('jedi', 'mark', '[J]')
 let g:deoplete#sources#jedi#enable_short_types = 1
 let g:deoplete#sources#jedi#short_types_map = {
     \'class':      ' c ',
@@ -83,37 +83,37 @@ let g:deoplete#sources#jedi#short_types_map = {
 \}
 
 " FORMAT
-fu! Format()
+function! Format()
     let l:save = winsaveview()
-    exe 'ret! | sil up'
-    cal system('format ' . bufname('%'))
-    exe 'e'
-    cal winrestview(l:save)
-endf
-nn <silent> <space>gf :cal Format()<cr>
+    execute 'ret! | silent up'
+    call system('format ' . bufname('%'))
+    execute 'e'
+    call winrestview(l:save)
+endfunction
+nnoremap <silent> <space>gf :call Format()<cr>
 
 " FZF
-au group filetype fzf,help se laststatus=0
-au group bufleave fzf,help se laststatus=1
-com! -nargs=+ FZFF exe 'e' system('ffind -type f | fzf --filter="<args>" | head -n1') | exe 'ec'
-nn <space>f :FZFF<space>
-nn <silent> <space>F :FZF<cr>
+autocmd group filetype fzf,help set laststatus=0
+autocmd group bufleave fzf,help set laststatus=1
+command! -nargs=+ FZFF execute 'e' system('ffind -type f | fzf --filter="<args>" | head -n1') | execute 'ec'
+nnoremap <space>f :FZFF<space>
+nnoremap <silent> <space>F :FZF<cr>
 
 " GITGUTTER
-au group bufwritepost * GitGutter
+autocmd group bufwritepost * GitGutter
 let g:gitgutter_map_keys = 0
-nm <space>i <Plug>(GitGutterPreviewHunk)
-nm <space>S <Plug>(GitGutterStageHunk)
-nm <space>u <Plug>(GitGutterUndoHunk)
-nm [c <Plug>(GitGutterPrevHunk)zz
-nm ]c <Plug>(GitGutterNextHunk)zz
-se signcolumn=yes
+nmap <space>i <Plug>(GitGutterPreviewHunk)
+nmap <space>S <Plug>(GitGutterStageHunk)
+nmap <space>u <Plug>(GitGutterUndoHunk)
+nmap [c <Plug>(GitGutterPrevHunk)zz
+nmap ]c <Plug>(GitGutterNextHunk)zz
+set signcolumn=yes
 
 " KILL
-nn <silent> <space>c :clo<cr>
-nn <silent> <space>d :qa!<cr>
-nn <silent> <space>q :bn<bar>bd!#<cr>
-nn <silent> <space>s <c-z>
+nnoremap <silent> <space>c :close<cr>
+nnoremap <silent> <space>d :qa!<cr>
+nnoremap <silent> <space>q :bn<bar>bd!#<cr>
+nnoremap <silent> <space>s <c-z>
 
 " LATEX
 let g:tex_flavor = 'latex'
@@ -128,17 +128,17 @@ let g:vimtex_compiler_latexmk = {
         \'-interaction=nonstopmode',
     \],
 \}
-au group filetype tex cal deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
-au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
-au user VimtexEventCompileSuccess tex :cal ViewPDF()<cr>
-fu! ViewPDF()
+autocmd group filetype tex call deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
+autocmd group filetype tex nnoremap <silent> <space>a :VimtexCompile<cr>
+autocmd user VimtexEventCompileSuccess tex :call ViewPDF()<cr>
+function! ViewPDF()
     if system('pidof zathura')
-        exe 'sil !wmctrl -xa zathura'
-    el
-        exe 'VimtexView'
-    en
-    exe 'ec'
-endf
+        execute 'silent !wmctrl -xa zathura'
+    else
+        execute 'VimtexView'
+    endif
+    execute 'ec'
+endfunction
 
 " LOADED
 let g:loaded_gzip = 0
@@ -157,82 +157,82 @@ let g:loaded_zipPlugin = 0
 let g:python3_host_prog = '/usr/bin/python3'
 
 " LSP
-au group filetype python cal SetupLSP()
-fu! SetupLSP()
-    nn <silent> gd :lua vim.lsp.buf.definition()<cr>
-    nn <silent> gp :lua vim.lsp.buf.signature_help()<cr>
-    nn <silent> gR :lua vim.lsp.buf.references()<cr>
-    nn <silent> gr :lua vim.lsp.buf.rename()<cr>
-    nn <silent> K  :lua vim.lsp.buf.hover()<cr>
-endf
+autocmd group filetype python call SetupLSP()
+function! SetupLSP()
+    nnoremap <silent> gd :lua vim.lsp.buf.definition()<cr>
+    nnoremap <silent> gp :lua vim.lsp.buf.signature_help()<cr>
+    nnoremap <silent> gR :lua vim.lsp.buf.references()<cr>
+    nnoremap <silent> gr :lua vim.lsp.buf.rename()<cr>
+    nnoremap <silent> K  :lua vim.lsp.buf.hover()<cr>
+endfunction
 lua require 'nvim_lsp'.pyls.setup{}
 lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 
 " MISC
-au group filetype gitcommit,markdown,tex setl spell
-au group filetype markdown se textwidth=80
-au group vimresized * winc =
+autocmd group filetype gitcommit,markdown,tex setlocal spell
+autocmd group filetype markdown set textwidth=80
+autocmd group vimresized * wincmd =
 let g:plug_window = 'enew'
-nn <silent> <a-S> :so $MYVIMRC<cr>
-nn <silent> <space>e :CHADopen<cr>
-nm ga <plug>(EasyAlign)
-xm ga <plug>(EasyAlign)
-se expandtab shiftwidth=4 tabstop=4
-se mouse=a
-se nojoinspaces
-se notimeout
-se splitbelow splitright
-se wildmode=longest,list
+nnoremap <silent> <a-S> :so $MYVIMRC<cr>
+nnoremap <silent> <space>e :CHADopen<cr>
+nmap ga <plug>(EasyAlign)
+xmap ga <plug>(EasyAlign)
+set expandtab shiftwidth=4 tabstop=4
+set mouse=a
+set nojoinspaces
+set notimeout
+set splitbelow splitright
+set wildmode=longest,list
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
-nn <silent> <a-h> :TmuxNavigateLeft<cr>
-nn <silent> <a-j> :TmuxNavigateDown<cr>
-nn <silent> <a-k> :TmuxNavigateUp<cr>
-nn <silent> <a-l> :TmuxNavigateRight<cr>
-ino <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
-ino <silent> <a-j> <esc>:TmuxNavigateDown<cr>
-ino <silent> <a-k> <esc>:TmuxNavigateUp<cr>
-ino <silent> <a-l> <esc>:TmuxNavigateRight<cr>
+nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
+inoremap <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
+inoremap <silent> <a-j> <esc>:TmuxNavigateDown<cr>
+inoremap <silent> <a-k> <esc>:TmuxNavigateUp<cr>
+inoremap <silent> <a-l> <esc>:TmuxNavigateRight<cr>
 
 " PLUG
-nn <silent> <space>pc :PlugClean<cr>
-nn <silent> <space>pi :PlugInstall<cr>
-nn <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
+nnoremap <silent> <space>pc :PlugClean<cr>
+nnoremap <silent> <space>pi :PlugInstall<cr>
+nnoremap <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
-nn <silent> <esc> :noh <bar> ec <bar> cal clever_f#reset()<cr>
-nn <silent> , *``
-xm <silent> , *``
-nn <silent> n nzz
-nn <silent> N Nzz
-se ignorecase smartcase
-se inccommand=nosplit
+nnoremap <silent> <esc> :noh <bar> ec <bar> call clever_f#reset()<cr>
+nnoremap <silent> , *``
+xmap <silent> , *``
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+set ignorecase smartcase
+set inccommand=nosplit
 
 " SHORTCUTS
-nn <a-d> 4<c-y>
-nn <a-f> 4<c-e>
-nn <cr> o<esc>
-nn <p <ap
-nn >p >ap
-nn cp cip
-nn cw ciw
-nn cW ciW
-nn dp dap
-nn dw daw
-nn dW daW
-nn gg gg0
-nn gqp gqip
-nn gqq Vgq
-nn Q <c-q>
-nn vp vip
-nn Y y$
-nn yw my yiw `y
-nn yW my yiW `y
-nn { {zz
-nn } }zz
+nnoremap <a-d> 4<c-y>
+nnoremap <a-f> 4<c-e>
+nnoremap <cr> o<esc>
+nnoremap <p <ap
+nnoremap >p >ap
+nnoremap cp cip
+nnoremap cw ciw
+nnoremap cW ciW
+nnoremap dp dap
+nnoremap dw daw
+nnoremap dW daW
+nnoremap gg gg0
+nnoremap gqp gqip
+nnoremap gqq Vgq
+nnoremap Q <c-q>
+nnoremap vp vip
+nnoremap Y y$
+nnoremap yw my yiw `y
+nnoremap yW my yiW `y
+nnoremap { {zz
+nnoremap } }zz
 
 " SNIPPETS
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
@@ -240,46 +240,46 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
 " SORT
-nn <silent> gsp my vip :sort i<cr> `y
-nm <silent> gsi my vii :sort i<cr> `y
-xn <silent> gs  my :sort i<cr> `y
+nnoremap <silent> gsp my vip :sort i<cr> `y
+nmap <silent> gsi my vii :sort i<cr> `y
+xnoremap <silent> gs  my :sort i<cr> `y
 
 " STATE
-au group bufenter * if index(ignore_ft, &ft) < 0 | sil! lo
-au group bufleave,vimleave * if index(ignore_ft, &ft) < 0 | sil! mkvie
+autocmd group bufenter * if index(ignore_ft, &ft) < 0 | silent! loadview
+autocmd group bufleave,vimleave * if index(ignore_ft, &ft) < 0 | silent! mkview
 let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
-se viewoptions=cursor
+set viewoptions=cursor
 
 " SUBVERSIVE
 let g:subversivePromptWithCurrent = 1
 let g:subversivePreserveCursorPosition = 1
-nm s <plug>(SubversiveSubstitute)
-xm s <plug>(SubversiveSubstitute)
-nm ss <plug>(SubversiveSubstituteLine)
-nm S <plug>(SubversiveSubstituteToEndOfLine)
-nm <space>r <plug>(SubversiveSubstituteWordRange)ie
-xm <space>r <plug>(SubversiveSubstituteRange)ie
-xn ie <esc>ggVG
-ono ie :exe "norm! ggVG"<cr>
+nmap s <plug>(SubversiveSubstitute)
+xmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
+nmap <space>r <plug>(SubversiveSubstituteWordRange)ie
+xmap <space>r <plug>(SubversiveSubstituteRange)ie
+xnoremap ie <esc>ggVG
+onoremap ie :execute "norm! ggVG"<cr>
 
 " THEME
 " echo synIDattr(synID(line("."), col("."), 1), "name")
 colorscheme nord
-hi comment cterm=italic
-hi diffadded cterm=none ctermbg=none ctermfg=green
-hi diffremoved cterm=none ctermbg=none ctermfg=red
-hi errormsg ctermbg=none
-hi matchparen cterm=none ctermbg=none ctermfg=none
-hi pmenusel ctermfg=none
-hi search cterm=bold ctermbg=none ctermfg=red
-hi vimaugroup ctermfg=none
-hi vimmaprhs ctermfg=none
-hi vimnotation ctermfg=none
-hi warningmsg ctermbg=none ctermfg=none
-se cursorline | hi clear cursorline
+highlight comment cterm=italic
+highlight diffadded cterm=none ctermbg=none ctermfg=green
+highlight diffremoved cterm=none ctermbg=none ctermfg=red
+highlight errormsg ctermbg=none
+highlight matchparen cterm=none ctermbg=none ctermfg=none
+highlight pmenusel ctermfg=none
+highlight search cterm=bold ctermbg=none ctermfg=red
+highlight vimaugroup ctermfg=none
+highlight vimmaprhs ctermfg=none
+highlight vimnotation ctermfg=none
+highlight warningmsg ctermbg=none ctermfg=none
+set cursorline | highlight clear cursorline
 
 " TREESITTER
-hi tserror ctermfg=15
+highlight tserror ctermfg=15
 lua << END
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = {"bash", "c", "cpp", "json", "markdown", "python"},
@@ -313,42 +313,42 @@ require 'nvim-treesitter.configs'.setup {
 END
 
 " STATUSLINE
-hi statusline ctermbg=none ctermfg=8
-hi statuslinenc ctermbg=none ctermfg=8
-hi vertsplit ctermbg=none ctermfg=8
-se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
-se noruler noshowcmd noshowmode laststatus=1
-fu StatusLine()
+highlight statusline ctermbg=none ctermfg=8
+highlight statuslinenc ctermbg=none ctermfg=8
+highlight vertsplit ctermbg=none ctermfg=8
+set fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
+set noruler noshowcmd noshowmode laststatus=1
+function StatusLine()
     let status = expand('%')
     return repeat('―', winwidth(0) - len(status)) . status
-endf
-se statusline=%{StatusLine()}
+endfunction
+set statusline=%{StatusLine()}
 
 " TABLINE
-hi tabline ctermbg=none ctermfg=8
-hi tablinefill ctermbg=none
-hi tablinesel ctermbg=none ctermfg=none
-se showtabline=1
+highlight tabline ctermbg=none ctermfg=8
+highlight tablinefill ctermbg=none
+highlight tablinesel ctermbg=none ctermfg=none
+set showtabline=1
 
 " TMUXRENAME
-au group vimenter,vimresume,focusgained * cal system('tmux renamew "#{b:pane_current_path}"')
-au group vimleave,vimsuspend * cal system('tmux setw automatic-rename')
-au group vimenter,vimresume,focusgained notes cal system('tmux renamew notes')
+autocmd group vimenter,vimresume,focusgained * call system('tmux renamew "#{b:pane_current_path}"')
+autocmd group vimleave,vimsuspend * call system('tmux setw automatic-rename')
+autocmd group vimenter,vimresume,focusgained notes call system('tmux renamew notes')
 
 " TMUXSEND
-com! -nargs=+ T silent exe '!tmux send -t $(cat /tmp/vim_tmux_pane) ' shellescape(<q-args>) ' ENTER'
-nn <silent> <space><space> :exe 'T' getline('.')<cr>
-xn <silent> <space><space> "vy :exe 'T' @v<cr>
-nn <silent> <space>l :T lint %<cr>
-nn <silent> <space>a :T execute<cr>
+command! -nargs=+ T silent execute '!tmux send -t $(cat /tmp/vim_tmux_pane) ' shellescape(<q-args>) ' ENTER'
+nnoremap <silent> <space><space> :execute 'T' getline('.')<cr>
+xnoremap <silent> <space><space> "vy :execute 'T' @v<cr>
+nnoremap <silent> <space>l :T lint %<cr>
+nnoremap <silent> <space>a :T execute<cr>
 
 " WRAP
-nn $ g$
-nn 0 g0
-nn j gj
-nn k gk
-xn $ g$
-xn 0 g0
-xn j gj
-xn k gk
-se breakindent linebreak
+nnoremap $ g$
+nnoremap 0 g0
+nnoremap j gj
+nnoremap k gk
+xnoremap $ g$
+xnoremap 0 g0
+xnoremap j gj
+xnoremap k gk
+set breakindent linebreak
