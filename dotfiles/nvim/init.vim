@@ -15,7 +15,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
     Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
-    Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
@@ -26,6 +25,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neopairs.vim', { 'for': 'python' }
+    Plug 'SirVer/ultisnips', { 'for': ['markdown', 'sh', 'snippets', 'tex', 'vim'] }
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-sleuth'
@@ -250,6 +250,11 @@ nn yW my yiW `y
 nn { {zz
 nn } }zz
 
+" SNIPPETS
+let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
+
 " SORT
 nn <silent> gsp my vip :sort i<cr> `y
 nm <silent> gsi my vii :sort i<cr> `y
@@ -323,13 +328,6 @@ require 'nvim-treesitter.configs'.setup {
     },
 }
 END
-
-" SNIPPETS
-let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
-imap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-smap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
-smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
 
 " STATUSLINE
 hi statusline ctermbg=none ctermfg=8

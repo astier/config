@@ -1,0 +1,19 @@
+snippet a "alias" b
+alias $1="$0"
+endsnippet
+
+snippet s "shebang" b
+#!/usr/bin/env sh
+
+$0
+endsnippet
+
+snippet f "function"
+$1() {
+	$0
+}
+endsnippet
+
+snippet fo "function"
+$1() { $0; }
+endsnippet
