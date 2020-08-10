@@ -21,7 +21,6 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'ms-jpq/chadtree', { 'branch': 'chad', 'do': ':UpdateRemotePlugins', 'on': 'CHADopen' }
     Plug 'neovim/nvim-lsp'
-    Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'rhysd/clever-f.vim'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neopairs.vim', { 'for': 'python' }
@@ -274,6 +273,7 @@ highlight comment cterm=italic
 highlight diffadded cterm=none ctermbg=none ctermfg=green
 highlight diffremoved cterm=none ctermbg=none ctermfg=red
 highlight errormsg ctermbg=none
+highlight function ctermfg=none
 highlight matchparen cterm=none ctermbg=none ctermfg=none
 highlight pmenusel ctermfg=none
 highlight search cterm=bold ctermbg=none ctermfg=red
@@ -282,40 +282,6 @@ highlight vimmaprhs ctermfg=none
 highlight vimnotation ctermfg=none
 highlight warningmsg ctermbg=none ctermfg=none
 set cursorline | highlight clear cursorline
-
-" TREESITTER
-highlight tserror ctermfg=15
-lua << END
-require 'nvim-treesitter.configs'.setup {
-    ensure_installed = {"bash", "c", "cpp", "json", "lua", "markdown", "python"},
-    highlight = { enable = true },
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = "gn",
-            node_decremental = "gnp",
-            node_incremental = "gnn",
-            scope_incremental = "gns",
-        },
-    },
-    textobjects = {
-        enable = true,
-        keymaps = {
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["aF"] = "@class.outer",
-            ["iF"] = "@class.inner",
-            ["aC"] = "@conditional.outer",
-            ["iC"] = "@conditional.inner",
-            ["ak"] = "@block.outer",
-            ["ik"] = "@block.inner",
-            ["al"] = "@loop.outer",
-            ["il"] = "@loop.inner",
-            ["ac"] = "@comment.outer",
-        },
-    },
-}
-END
 
 " STATUSLINE
 highlight statusline ctermbg=none ctermfg=8
