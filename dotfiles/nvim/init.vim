@@ -285,7 +285,6 @@ hi comment cterm=italic
 hi diffadded cterm=none ctermbg=none ctermfg=green
 hi diffremoved cterm=none ctermbg=none ctermfg=red
 hi errormsg ctermbg=none
-hi function ctermfg=none
 hi matchparen cterm=none ctermbg=none ctermfg=none
 hi pmenusel ctermfg=none
 hi search cterm=bold ctermbg=none ctermfg=red
