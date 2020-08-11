@@ -39,7 +39,7 @@ nnoremap <silent> <tab> :b#<cr>
 set noswapfile
 
 " CLIPBOARD
-inoremap <c-v> <esc>"+packadd
+inoremap <c-v> <esc>"+p
 nnoremap <c-c> "+yy
 nnoremap <c-v> "+p
 nnoremap <c-x> "+dd
