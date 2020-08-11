@@ -307,7 +307,8 @@ autocmd group vimleave,vimsuspend * silent !tmux setw automatic-rename
 autocmd group vimenter,vimresume,focusgained notes silent !tmux renamew notes
 
 " TMUXSEND
-command! -nargs=+ T silent execute '!tmux send -t $(cat /tmp/vim_tmux_pane) ' shellescape(<q-args>) ' ENTER'
+command! -complete=shellcmd -nargs=+ T silent execute
+    \'!tmux send -t $(cat /tmp/tmuxsend) ' shellescape(<q-args>) ' ENTER'
 nnoremap <silent> <space><space> :execute 'T' getline('.')<cr>
 xnoremap <silent> <space><space> "vy :execute 'T' @v<cr>
 nnoremap <silent> <space>l :T lint %<cr>

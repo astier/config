@@ -180,7 +180,7 @@ alias ta="tmux a -t"
 alias tk="tmux kill-session -t"
 alias tkk="tmux kill-session -a"
 alias tl="tmux ls"
-tt() { echo "$TMUX_PANE" > /tmp/vim_tmux_pane; }
+tt() { echo "$TMUX_PANE" > /tmp/tmuxsend; }
 
 # VIM
 vpa() {
