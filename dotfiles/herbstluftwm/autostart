@@ -32,7 +32,7 @@ herbstclient keybind $altgr-Return substitute WINID clients.focus.winid chain , 
 herbstclient set focus_stealing_prevention 0
 
 # RESIZING
-resizestep=0.02
+resizestep=0.03
 herbstclient keybind $altgr-Shift-h resize left $resizestep
 herbstclient keybind $altgr-Shift-l resize right $resizestep
 
