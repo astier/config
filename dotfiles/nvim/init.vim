@@ -307,10 +307,19 @@ autocmd group vimleave,vimsuspend * silent !tmux setw automatic-rename
 autocmd group vimenter,vimresume,focusgained notes silent !tmux renamew notes
 
 " TMUXSEND
-command! -complete=shellcmd -nargs=+ T silent execute
-    \'!tmux send -t $(cat /tmp/tmuxsend) ' shellescape(<q-args>) ' ENTER'
-nnoremap <silent> <space><space> :execute 'T' getline('.')<cr>
-xnoremap <silent> <space><space> "vy :execute 'T' @v<cr>
+function! T(...)
+    if !empty(system('tmux has -t $(cat /tmp/tmuxsend)'))
+        execute system('tmux splitw -c "#{pane_current_path}" -p35 -PF "#{pane_id}" > /tmp/tmuxsend')
+        silent !tmux lastp
+    endif
+    execute system('tmux send -t $(cat /tmp/tmuxsend) ' . shellescape(join(a:000)) . ' ENTER')
+    if system('tmux display -p "#{window_id}"') != system('tmux display -pt $(cat /tmp/tmuxsend) "#{window_id}"')
+        silent !tmux selectw -t $(cat /tmp/tmuxsend)
+    endif
+endfunction
+command! -complete=shellcmd -nargs=+ T call T(expandcmd(<q-args>))
+nnoremap <silent> <space><space> :cal T(getline('.'))<cr>
+xnoremap <silent> <space><space> "vy :cal T(substitute(@v, '\n$', '', ''))<cr>
 nnoremap <silent> <space>l :T lint %<cr>
 nnoremap <silent> <space>a :T execute<cr>
 
