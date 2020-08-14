@@ -121,6 +121,7 @@ nnoremap <silent> <space>s <c-z>
 
 " LATEX
 let g:tex_flavor = 'latex'
+let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_general_viewer = 'zathura'
 let g:vimtex_compiler_latexmk = {
     \'callback' : 0,
@@ -134,7 +135,7 @@ let g:vimtex_compiler_latexmk = {
 \}
 autocmd group filetype tex call deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
 autocmd group filetype tex nnoremap <silent> <space>a :VimtexCompile<cr>
-autocmd user VimtexEventCompileSuccess tex :call ViewPDF()<cr>
+autocmd user VimtexEventCompileSuccess call ViewPDF()
 function! ViewPDF()
     if system('pidof zathura')
         execute 'silent !wmctrl -xa zathura'
