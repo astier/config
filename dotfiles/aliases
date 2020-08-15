@@ -19,6 +19,7 @@ alias umount="sudo umount"
 
 # CLOUD
 alias cl="cd ~/cloud"
+alias cu="cd ~/cloud/uni"
 alias n="\$EDITOR ~/cloud/notes"
 alias sn="rclone sync -P ~/cloud cloud:"
 alias snn="rclone sync -P cloud: ~/cloud"
