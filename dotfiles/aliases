@@ -63,9 +63,9 @@ kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
 krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
 
 alias ka="git add"
-alias kap="git add -p"
 alias kaa="git add --all"
 alias kam="git commit --amend -v"
+alias kap="git add -p"
 alias kb="git branch -vv"
 alias kba="git branch -avv"
 alias kbd="git branch -D"
@@ -74,6 +74,7 @@ alias kfp="git format-patch --stdout HEAD^ >"
 alias ki="git init"
 alias kii="git add --all && git commit -m 'Create repository'"
 alias kr="cd \$(git rev-parse --show-toplevel)"
+alias krm="git remote -v"
 alias kt="git tag"
 
 alias kc="git commit -v"
@@ -105,12 +106,10 @@ alias kpl="git pull"
 
 alias kra="git rebase --abort"
 alias krc="git rebase --continue"
-alias krm="git rebase master"
 krb() { n=8; [ "$1" ] && n=$1; git rebase -i HEAD~"$n"; }
 
 alias krr="git reset --hard; git clean -f"
 alias krs="git reset --soft"
-alias krv="git revert"
 
 alias ksd="git stash drop"
 alias ksl="git stash list"
