@@ -178,7 +178,6 @@ autocmd group filetype gitcommit,markdown,tex setlocal spell
 autocmd group filetype markdown set textwidth=80
 autocmd group vimresized * wincmd =
 let g:plug_window = 'enew'
-nnoremap <silent> <a-S> :so $MYVIMRC<cr>
 nnoremap <silent> <space>e :CHADopen<cr>
 nmap ga <plug>(EasyAlign)
 xmap ga <plug>(EasyAlign)
@@ -210,7 +209,7 @@ let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
 nnoremap <silent> <esc> :noh <bar> ec <bar> call clever_f#reset()<cr>
 nnoremap <silent> , *``
-xmap <silent> , *``
+xmap     <silent> , *``
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 set ignorecase smartcase
@@ -241,12 +240,12 @@ nnoremap } }zz
 
 " SNIPPETS
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsSnippetDirectories = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
+let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+let g:UltiSnipsSnippetDirectories  = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
 " SORT
 nnoremap <silent> gsp my vip :sort i<cr> `y
-nmap <silent> gsi my vii :sort i<cr> `y
+nmap     <silent> gsi my vii :sort i<cr> `y
 xnoremap <silent> gs  my :sort i<cr> `y
 
 " STATE
@@ -258,10 +257,10 @@ set viewoptions=cursor
 " SUBVERSIVE
 let g:subversivePromptWithCurrent = 1
 let g:subversivePreserveCursorPosition = 1
-nmap s <plug>(SubversiveSubstitute)
-xmap s <plug>(SubversiveSubstitute)
+nmap s  <plug>(SubversiveSubstitute)
+xmap s  <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
-nmap S <plug>(SubversiveSubstituteToEndOfLine)
+nmap S  <plug>(SubversiveSubstituteToEndOfLine)
 nmap <space>r <plug>(SubversiveSubstituteWordRange)ie
 xmap <space>r <plug>(SubversiveSubstituteRange)ie
 xnoremap ie <esc>ggVG
