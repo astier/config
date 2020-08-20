@@ -110,6 +110,7 @@ krb() { n=8; [ "$1" ] && n=$1; git rebase -i HEAD~"$n"; }
 
 alias krr="git reset --hard; git clean -f"
 alias krs="git reset --soft"
+alias krv="git revert"
 
 alias ksd="git stash drop"
 alias ksl="git stash list"
