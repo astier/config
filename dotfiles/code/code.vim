@@ -25,6 +25,11 @@ nnoremap <c-v> "+p
 nnoremap <c-x> "+dd
 xnoremap <c-x> "+d
 
+" EASY-ALIGN
+nmap ga <plug>(EasyAlign)
+xmap ga <plug>(EasyAlign)
+xmap gaa <plug>(EasyAlign)*<space>
+
 " GIT
 nnoremap <silent> <space>i :call VSCodeNotify('git.openChange')<cr>
 nnoremap <silent> <space>u :call VSCodeNotify('git.revertSelectedRanges')<cr>
@@ -48,8 +53,6 @@ let g:loaded_zipPlugin = 0
 " MISC
 autocmd group filetype markdown set textwidth=80
 nnoremap <silent> : :call VSCodeNotify('workbench.action.showCommands')<cr>
-nmap ga <plug>(EasyAlign)
-xmap ga <plug>(EasyAlign)
 nmap gcp my vip gc `y
 set nojoinspaces
 set noswapfile

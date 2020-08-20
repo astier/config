@@ -86,6 +86,11 @@ let g:deoplete#sources#jedi#short_types_map = {
     \'statement':  ' v ',
 \}
 
+" EASY-ALIGN
+nmap ga <plug>(EasyAlign)
+xmap ga <plug>(EasyAlign)
+xmap gaa <plug>(EasyAlign)*<space>
+
 " FORMAT
 function! Format()
     let l:save = winsaveview()
@@ -179,8 +184,6 @@ autocmd group filetype markdown set textwidth=80
 autocmd group vimresized * wincmd =
 let g:plug_window = 'enew'
 nnoremap <silent> <space>e :CHADopen<cr>
-nmap ga <plug>(EasyAlign)
-xmap ga <plug>(EasyAlign)
 set expandtab shiftwidth=4 tabstop=4
 set mouse=a
 set nojoinspaces
