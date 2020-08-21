@@ -236,6 +236,7 @@ nnoremap gqq Vgq
 nnoremap Q <c-q>
 nnoremap vp vip
 nnoremap Y y$
+nnoremap yp my yip `y
 nnoremap yw my yiw `y
 nnoremap yW my yiW `y
 nnoremap { {zz
