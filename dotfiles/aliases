@@ -47,6 +47,7 @@ alias tm="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
 cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
 f() { if [ -d "$1" ]; then cd "$1" || return; else open "$@"; fi; }
+flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 j() { if [ $# = 0 ]; then dir=$(ffind -type d | fzf); elif [ -d "$1" ]; then cd "$1" && return; else dir=$(ffind -type d | fzf --filter="$*" | head -n1); fi; if [ -n "$dir" ]; then cd "$dir" || return; fi; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
