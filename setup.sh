@@ -49,4 +49,5 @@ if groups "$USER" | grep -q wheel; then
     link pacman "$XDG_CONFIG_HOME"
     link sx "$XDG_CONFIG_HOME"
     link sxhkd "$XDG_CONFIG_HOME"
+    link tint2 "$XDG_CONFIG_HOME"
 fi
