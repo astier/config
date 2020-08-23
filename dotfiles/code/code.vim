@@ -22,8 +22,6 @@ call plug#end()
 nnoremap <c-c> "+yy
 xnoremap <c-c> "+y
 nnoremap <c-v> "+p
-nnoremap <c-x> "+dd
-xnoremap <c-x> "+d
 
 " EASY-ALIGN
 nmap ga <plug>(EasyAlign)

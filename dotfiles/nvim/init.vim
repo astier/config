@@ -42,9 +42,7 @@ set noswapfile
 inoremap <c-v> <esc>"+p
 nnoremap <c-c> "+yy
 nnoremap <c-v> "+p
-nnoremap <c-x> "+dd
 xnoremap <c-c> "+y
-xnoremap <c-x> "+d
 
 " COMMENTS
 autocmd group bufenter * set formatoptions-=cro
