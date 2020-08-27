@@ -12,7 +12,6 @@ herbstclient keybind $super-x substitute FSRESTORE clients.focus.fullscreen chai
 # KILL
 herbstclient keybind $altgr-d close
 herbstclient keybind $altgr-Shift-r reload
-herbstclient keybind $altgr-Shift-s quit
 
 # LAYOUTS
 herbstclient keybind $altgr-m spawn "$XDG_CONFIG_HOME"/herbstluftwm/maximize.sh
