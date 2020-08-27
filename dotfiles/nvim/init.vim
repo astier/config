@@ -85,8 +85,8 @@ let g:deoplete#sources#jedi#short_types_map = {
 \}
 
 " EASY-ALIGN
-nmap ga <plug>(EasyAlign)
-xmap ga <plug>(EasyAlign)
+nmap ga  <plug>(EasyAlign)
+xmap ga  <plug>(EasyAlign)
 xmap gaa <plug>(EasyAlign)*<space>
 
 " FORMAT
