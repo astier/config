@@ -2,7 +2,7 @@
 
 autorandr --change
 bstatus -l &
-hsetroot -solid black
+hsetroot
 pulsemixer --unmute
 sxhkd &
 xbanish &
