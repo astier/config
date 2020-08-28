@@ -59,7 +59,7 @@ g_path="$HOME"/cloud/g.sh
 alias gg="\$EDITOR \$g_path && . \$g_path"
 
 # GIT
-k() { n=16; [ "$1" ] && n=$1; git log --graph --decorate --oneline --show-pulls -n"$n"; }
+k() { n=16; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline --show-pulls -n"$n"; }
 kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
 krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
 
@@ -86,8 +86,8 @@ alias kcrf="git commit -v -am tmp && git rebase -i HEAD~2 && git push -f"
 
 alias kd="git diff"
 alias kg="git log --color --oneline --grep"
-alias kk="git log --graph --decorate --oneline --show-pulls"
-alias kkk="git log --all --graph --decorate --oneline --show-pulls"
+alias kk="git log --all --graph --decorate --oneline --show-pulls"
+alias kkk="git log --graph --decorate --oneline --show-pulls"
 alias kl="git log --date=auto:human"
 alias klg="git log --grep"
 alias ks="git status -bs"
