@@ -246,8 +246,8 @@ let g:UltiSnipsJumpForwardTrigger  = '<tab>'
 let g:UltiSnipsSnippetDirectories  = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
 
 " SORT
-nnoremap <silent> gsp my vip :sort i<cr> `y
 nmap     <silent> gsi my vii :sort i<cr> `y
+nnoremap <silent> gss my vip :sort i<cr> `y
 xnoremap <silent> gs  my :sort i<cr> `y
 
 " STATE
