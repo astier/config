@@ -102,7 +102,7 @@ nnoremap <silent> <space>gf :call Format()<cr>
 " FZF
 autocmd group filetype fzf,help set laststatus=0
 autocmd group bufleave fzf,help set laststatus=1
-command! -nargs=+ FZFF execute 'e' system('ffind -type f | fzf --filter="<args>" | head -n1') | execute 'ec'
+command! -complete=file -nargs=+ FZFF execute 'e' system('ffind -type f | fzf --filter="<args>" | head -n1') | execute 'ec'
 nnoremap <space>f :FZFF<space>
 nnoremap <silent> <space>F :FZF<cr>
 
