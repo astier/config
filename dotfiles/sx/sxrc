@@ -2,11 +2,9 @@
 
 autorandr --change
 bstatus -l &
-hsetroot
 pulsemixer --unmute
 sxhkd &
 xbanish &
-xcompmgr &
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
 exec herbstluftwm -l
