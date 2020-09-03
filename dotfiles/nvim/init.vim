@@ -291,12 +291,8 @@ highlight statusline ctermbg=none ctermfg=8
 highlight statuslinenc ctermbg=none ctermfg=8
 highlight vertsplit ctermbg=none ctermfg=8
 set fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
-set noruler noshowcmd noshowmode laststatus=1
-function StatusLine()
-    let status = expand('%')
-    return repeat('―', winwidth(0) - len(status)) . status
-endfunction
-set statusline=%{StatusLine()}
+set noruler noshowcmd noshowmode
+set statusline=\  laststatus=0
 
 " TABLINE
 highlight tabline ctermbg=none ctermfg=8
