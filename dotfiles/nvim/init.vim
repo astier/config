@@ -305,9 +305,8 @@ highlight tablinesel ctermbg=none ctermfg=none
 set showtabline=1
 
 " TMUXRENAME
-autocmd group vimenter,vimresume,focusgained * silent !tmux renamew '\#{b:pane_current_path}'
-autocmd group vimleave,vimsuspend * silent !tmux setw automatic-rename
-autocmd group vimenter,vimresume,focusgained notes silent !tmux renamew notes
+autocmd group bufenter,focusgained * call system('tmux renamew '.expand('%:t'))
+autocmd group vimleave,vimsuspend * call system('tmux setw automatic-rename')
 
 " TMUXSEND
 function! T(...)
