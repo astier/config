@@ -251,6 +251,11 @@ nmap     <silent> gsi my vii :sort i<cr> `y
 nnoremap <silent> gss my vip :sort i<cr> `y
 xnoremap <silent> gs  my :sort i<cr> `y
 
+" TMUXRENAME
+" Needs to be above STATE because it breaks otherwise for ignore_ft-files
+autocmd group bufenter,focusgained * call system('tmux renamew '.expand('%:t'))
+autocmd group vimleave,vimsuspend * call system('tmux setw automatic-rename')
+
 " STATE
 autocmd group bufenter * if index(ignore_ft, &ft) < 0 | silent! loadview
 autocmd group bufleave,vimleave * if index(ignore_ft, &ft) < 0 | silent! mkview
@@ -299,10 +304,6 @@ highlight tabline ctermbg=none ctermfg=8
 highlight tablinefill ctermbg=none
 highlight tablinesel ctermbg=none ctermfg=none
 set showtabline=1
-
-" TMUXRENAME
-autocmd group bufenter,focusgained * call system('tmux renamew '.expand('%:t'))
-autocmd group vimleave,vimsuspend * call system('tmux setw automatic-rename')
 
 " TMUXSEND
 function! T(...)
