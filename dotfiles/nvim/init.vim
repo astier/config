@@ -308,7 +308,7 @@ set showtabline=1
 " TMUXSEND
 function! T(...)
     if !empty(system('tmux has -t $(cat /tmp/tmuxsend)'))
-        execute system('tmux splitw -c "#{pane_current_path}" -p35 -PF "#{pane_id}" > /tmp/tmuxsend')
+        execute system('tmux neww -ac "#{pane_current_path}" -PF "#{pane_id}" > /tmp/tmuxsend')
         silent !tmux lastp
     endif
     execute system('tmux send -t $(cat /tmp/tmuxsend) ' . shellescape(join(a:000)) . ' ENTER')
