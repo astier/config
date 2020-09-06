@@ -10,6 +10,7 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
 endif
 call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
+    Plug 'Akin909/nvim-bufferline.lua'
     Plug 'arcticicestudio/nord-vim'
     Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
@@ -300,6 +301,14 @@ set noruler noshowcmd noshowmode
 set statusline=\  laststatus=0
 
 " TABLINE
+autocmd group bufadd,vimenter * if len(getbufinfo({'buflisted':1})) > 1 | set showtabline=2 | endif
+autocmd group bufdelete * if len(getbufinfo({'buflisted':1})) < 2 | set showtabline=1 | endif
+lua require'bufferline'.setup {
+\    options = {
+\        close_icon = "",
+\        show_buffer_close_icon = false,
+\    },
+\}
 highlight tabline ctermbg=none ctermfg=8
 highlight tablinefill ctermbg=none
 highlight tablinesel ctermbg=none ctermfg=none
