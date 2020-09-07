@@ -10,8 +10,8 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
 endif
 call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
+    Plug 'Akin909/nvim-bufferline.lua'
     Plug 'arcticicestudio/nord-vim'
-    Plug 'astier/tabulous'
     Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
@@ -20,6 +20,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
+    Plug 'ms-jpq/chadtree', { 'branch': 'chad', 'do': ':UpdateRemotePlugins', 'on': 'CHADopen' }
     Plug 'neovim/nvim-lsp'
     Plug 'rhysd/clever-f.vim'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -31,12 +32,11 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
 call plug#end()
 
 " BUFFERS
-autocmd tableave * let g:lasttab = tabpagenr()
 autocmd group bufenter,focusgained * checktime
 autocmd group textchanged,insertleave * nested silent! update
-nnoremap <silent> <a-e> :tabp<cr>
-nnoremap <silent> <a-r> :tabn<cr>
-nnoremap <silent> <tab> :exe "tabn ".g:lasttab<cr>
+nnoremap <silent> <a-e> :bp<cr>
+nnoremap <silent> <a-r> :bn<cr>
+nnoremap <silent> <tab> :b#<cr>
 set noswapfile
 
 " CLIPBOARD
@@ -118,9 +118,9 @@ nmap ]c <Plug>(GitGutterNextHunk)zz
 set signcolumn=yes
 
 " KILL
-nnoremap <silent> <space>c :clo<cr>
+nnoremap <silent> <space>c :close<cr>
 nnoremap <silent> <space>d :qa!<cr>
-nnoremap <silent> <space>q :bd!<cr>
+nnoremap <silent> <space>q :bn<bar>bd!#<cr>
 nnoremap <silent> <space>s <c-z>
 
 " LATEX
@@ -183,6 +183,7 @@ autocmd group filetype diff set textwidth=72
 autocmd group filetype markdown set textwidth=80
 autocmd group vimresized * wincmd =
 let g:plug_window = 'enew'
+nnoremap <silent> <space>e :CHADopen<cr>
 set expandtab shiftwidth=4 tabstop=4
 set mouse=a
 set nojoinspaces
@@ -295,18 +296,18 @@ set noruler noshowcmd noshowmode
 set statusline=\  laststatus=0
 
 " TABLINE
-au group vimenter,bufadd,bufnewfile * nested tab ball | stopi
-nnoremap <rightmouse> :bd!<cr>
-hi tabline ctermbg=none ctermfg=8
-hi tablinefill ctermbg=none
-hi tablinesel ctermbg=none ctermfg=none
-let g:tabulousCloseStr = ''
-let g:tabulousLabelLeftStr = '['
-let g:tabulousLabelNameDefault = 'Empty'
-let g:tabulousLabelNameOptions = ':t'
-let g:tabulousLabelRightStr = '] '
-se showtabline=1
-se switchbuf=usetab
+autocmd group bufadd,vimenter * if len(getbufinfo({'buflisted':1})) > 1 | set showtabline=2 | endif
+autocmd group bufdelete * if len(getbufinfo({'buflisted':1})) < 2 | set showtabline=1 | endif
+lua require'bufferline'.setup {
+\    options = {
+\        close_icon = "",
+\        show_buffer_close_icon = false,
+\    },
+\}
+highlight tabline ctermbg=none ctermfg=8
+highlight tablinefill ctermbg=none
+highlight tablinesel ctermbg=none ctermfg=none
+set showtabline=1
 
 " TMUXRENAME
 autocmd group bufenter,focusgained * call system('tmux renamew '.expand('%:t'))
