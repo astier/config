@@ -20,9 +20,9 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
-    Plug 'ms-jpq/chadtree', { 'branch': 'chad', 'do': ':UpdateRemotePlugins', 'on': 'CHADopen' }
     Plug 'neovim/nvim-lsp'
     Plug 'rhysd/clever-f.vim'
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neopairs.vim', { 'for': 'python' }
     Plug 'SirVer/ultisnips', { 'for': ['c', 'cpp', 'markdown', 'sh', 'snippets', 'tex', 'vim'] }
@@ -91,9 +91,18 @@ xmap ga  <plug>(EasyAlign)
 xmap gaa <plug>(EasyAlign)*<space>
 
 " FILE-EXPLORER
-nnoremap <silent> <space>e :CHADopen<cr>
-nnoremap <rightmouse> :CHADopen<cr>
-xnoremap <rightmouse> <esc>:CHADopen<cr>
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
+let g:NERDTreeHighlightCursorline = 0
+let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '^tex', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
+let g:NERDTreeMinimalMenu = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMouseMode = 3
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeStatusline = ''
+nnoremap <silent> <space>e :NERDTreeToggle<cr>
+nnoremap <silent> <rightmouse> :NERDTreeToggle<cr>
+xnoremap <silent> <rightmouse> <esc>:NERDTreeToggle<cr>
 
 " FORMAT
 function! Format()
@@ -314,7 +323,12 @@ highlight tablinesel ctermbg=none ctermfg=none
 set showtabline=1
 
 " TMUXRENAME
-autocmd group bufenter,focusgained * call system('tmux renamew '.expand('%:t'))
+function! TmuxRename()
+    if !(bufname() =~# 'NERD' || bufname() =~# 'Tagbar')
+        call system('tmux renamew ' . expand('%:t'))
+    endif
+endfunction
+autocmd group bufenter,focusgained * call TmuxRename()
 autocmd group vimleave,vimsuspend * call system('tmux setw automatic-rename')
 
 " TMUXSEND
