@@ -37,6 +37,8 @@ autocmd group textchanged,insertleave * nested silent! update
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <tab> :b#<cr>
+nnoremap <silent> <2-LeftMouse> :b#<cr>
+xnoremap <silent> <2-LeftMouse> :b#<cr>
 set noswapfile
 
 " CLIPBOARD
