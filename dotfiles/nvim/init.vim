@@ -90,6 +90,11 @@ nmap ga  <plug>(EasyAlign)
 xmap ga  <plug>(EasyAlign)
 xmap gaa <plug>(EasyAlign)*<space>
 
+" FILE-EXPLORER
+nnoremap <silent> <space>e :CHADopen<cr>
+nnoremap <rightmouse> :CHADopen<cr>
+xnoremap <rightmouse> <esc>:CHADopen<cr>
+
 " FORMAT
 function! Format()
     let l:save = winsaveview()
@@ -183,7 +188,6 @@ autocmd group filetype diff set textwidth=72
 autocmd group filetype markdown set textwidth=80
 autocmd group vimresized * wincmd =
 let g:plug_window = 'enew'
-nnoremap <silent> <space>e :CHADopen<cr>
 set expandtab shiftwidth=4 tabstop=4
 set mouse=a
 set nojoinspaces
