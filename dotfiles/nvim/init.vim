@@ -322,7 +322,7 @@ lua require'bufferline'.setup {
 highlight tabline ctermbg=none ctermfg=8
 highlight tablinefill ctermbg=none
 highlight tablinesel ctermbg=none ctermfg=none
-set showtabline=1
+set showtabline=0
 
 " TMUXRENAME
 function! TmuxRename()
