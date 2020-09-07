@@ -118,8 +118,7 @@ endfunction
 nnoremap <silent> <space>gf :call Format()<cr>
 
 " FZF
-autocmd group filetype fzf,help set laststatus=0
-autocmd group bufleave fzf,help set laststatus=1
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 command! -complete=file -nargs=+ FZFF execute 'e' system('ffind -type f | fzf --filter="<args>" | head -n1') | execute 'ec'
 nnoremap <space>f :FZFF<space>
 nnoremap <silent> <space>F :FZF<cr>
