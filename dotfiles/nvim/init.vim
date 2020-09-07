@@ -38,8 +38,6 @@ autocmd group textchanged,insertleave * nested silent! update
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <tab> :b#<cr>
-nnoremap <silent> <2-LeftMouse> :b#<cr>
-xnoremap <silent> <2-LeftMouse> :b#<cr>
 set noswapfile
 
 " CLIPBOARD
@@ -136,6 +134,8 @@ nnoremap <silent> <space>c :close<cr>
 nnoremap <silent> <space>d :qa!<cr>
 nnoremap <silent> <space>q :bn<bar>bd!#<cr>
 nnoremap <silent> <space>s <c-z>
+nnoremap <silent> <2-LeftMouse> :b#<bar>bd!#<cr>
+xnoremap <silent> <2-LeftMouse> :b#<bar>bd!#<cr>
 
 " LATEX
 let g:tex_flavor = 'latex'
