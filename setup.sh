@@ -28,10 +28,18 @@ link tmux "$XDG_CONFIG_HOME"
 link xkb "$XDG_CONFIG_HOME"
 link zathura "$XDG_CONFIG_HOME"
 
-if [ -d "$XDG_CONFIG_HOME"/Code/User ]; then
-    link code/code.vim "$XDG_CONFIG_HOME"/Code/User
-    link code/keybindings.json "$XDG_CONFIG_HOME"/Code/User
-    link code/settings.json "$XDG_CONFIG_HOME"/Code/User
+code_dir="$XDG_CONFIG_HOME"/Code/User
+if [ -d "$code_dir" ]; then
+    link code/code.vim "$code_dir"
+    link code/keybindings.json "$code_dir"
+    link code/settings.json "$code_dir"
+fi
+
+code_dir="$XDG_CONFIG_HOME"/Code\ -\ OSS/User
+if [ -d "$code_dir" ]; then
+    link code/code.vim "$code_dir"
+    link code/keybindings.json "$code_dir"
+    link code/settings.json "$code_dir"
 fi
 
 if groups "$USER" | grep -q wheel; then
