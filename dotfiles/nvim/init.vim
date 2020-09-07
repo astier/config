@@ -32,6 +32,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
 call plug#end()
 
 " BUFFERS
+autocmd group vimenter silent * bn | b#
 autocmd group bufenter,focusgained * checktime
 autocmd group textchanged,insertleave * nested silent! update
 nnoremap <silent> <a-e> :bp<cr>
