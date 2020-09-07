@@ -310,7 +310,7 @@ set statusline=\  laststatus=0
 
 " TABLINE
 autocmd group bufadd,vimenter * if len(getbufinfo({'buflisted':1})) > 1 | set showtabline=2 | endif
-autocmd group bufdelete * if len(getbufinfo({'buflisted':1})) < 2 | set showtabline=1 | endif
+autocmd group bufdelete * if len(getbufinfo({'buflisted':1})) < 3 | set showtabline=1 | endif
 lua require'bufferline'.setup {
 \    options = {
 \        close_icon = "",
