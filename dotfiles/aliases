@@ -63,6 +63,7 @@ alias gg="\$EDITOR \$g_path && . \$g_path"
 k() { n=16; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline --show-pulls -n"$n"; }
 kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
 krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
+ksf() { if [ $# = 0 ]; then git show | "$EDITOR"; else git show "$1" | "$EDITOR"; fi }
 
 alias ka="git add"
 alias kaa="git add --all"
