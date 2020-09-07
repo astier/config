@@ -314,7 +314,7 @@ autocmd group bufdelete * if len(getbufinfo({'buflisted':1})) < 2 | set showtabl
 lua require'bufferline'.setup {
 \    options = {
 \        close_icon = "",
-\        show_buffer_close_icon = false,
+\        show_buffer_close_icons = false,
 \    },
 \}
 highlight tabline ctermbg=none ctermfg=8
