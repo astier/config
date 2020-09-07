@@ -119,9 +119,7 @@ nnoremap <silent> <space>gf :call Format()<cr>
 
 " FZF
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-command! -complete=file -nargs=+ FZFF execute 'e' system('ffind -type f | fzf --filter="<args>" | head -n1') | execute 'ec'
-nnoremap <space>f :FZFF<space>
-nnoremap <silent> <space>F :FZF<cr>
+nnoremap <silent> <space>f :FZF<cr>
 
 " GITGUTTER
 autocmd group bufwritepost * GitGutter
