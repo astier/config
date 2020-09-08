@@ -166,7 +166,7 @@ alias o="autopen"
 alias ogi="\$EDITOR .gitignore"
 alias ogm="\$EDITOR .gitmodules"
 
-# REPOS
+# PROJECTS
 alias aa="cd ~/projects/arch"
 alias aaf="cd ~/projects/arch && f"
 alias ab="cd ~/projects/arch && \$EDITOR base.sh"
