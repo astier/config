@@ -68,6 +68,7 @@
     "workbench.iconTheme": "file-icons",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.startupEditor": "none",
+    "workbench.statusBar.visible": false,
     "workbench.tips.enabled": false,
     "workbench.tree.renderIndentGuides": "none",
 
