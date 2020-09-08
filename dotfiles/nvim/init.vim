@@ -10,7 +10,6 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
 endif
 call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
-    Plug 'Akin909/nvim-bufferline.lua'
     Plug 'arcticicestudio/nord-vim'
     Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
@@ -40,6 +39,8 @@ autocmd group textchanged,insertleave * nested silent! update
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <tab> :b#<cr>
+nnoremap <silent> <rightmouse> :b#<cr>
+xnoremap <silent> <rightmouse> <esc>:b#<cr>
 set noswapfile
 
 " CLIPBOARD
@@ -104,8 +105,8 @@ let g:NERDTreeMouseMode = 3
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
 nnoremap <silent> <space>e :NERDTreeToggle<cr>
-nnoremap <silent> <rightmouse> :NERDTreeToggle<cr>
-xnoremap <silent> <rightmouse> <esc>:NERDTreeToggle<cr>
+nnoremap <silent> <2-leftmouse> :NERDTreeToggle<cr>
+xnoremap <silent> <2-leftmouse> <esc>:NERDTreeToggle<cr>
 
 " FORMAT
 function! Format()
@@ -136,8 +137,6 @@ nnoremap <silent> <space>c :close<cr>
 nnoremap <silent> <space>d :qa!<cr>
 nnoremap <silent> <space>q :bn<bar>bd!#<cr>
 nnoremap <silent> <space>s <c-z>
-nnoremap <silent> <2-LeftMouse> :b#<bar>bd!#<cr>
-xnoremap <silent> <2-LeftMouse> :b#<bar>bd!#<cr>
 
 " LATEX
 let g:tex_flavor = 'latex'
@@ -312,14 +311,6 @@ set rulerformat=%=%l/%L
 set statusline=\  laststatus=0
 
 " TABLINE
-autocmd group bufadd,vimenter * if len(getbufinfo({'buflisted':1})) > 1 | set showtabline=2 | endif
-autocmd group bufdelete * if len(getbufinfo({'buflisted':1})) < 3 | set showtabline=1 | endif
-lua require'bufferline'.setup {
-\    options = {
-\        close_icon = "",
-\        show_buffer_close_icons = false,
-\    },
-\}
 highlight tabline ctermbg=none ctermfg=8
 highlight tablinefill ctermbg=none
 highlight tablinesel ctermbg=none ctermfg=none
