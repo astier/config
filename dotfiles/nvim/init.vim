@@ -306,6 +306,7 @@ highlight statuslinenc ctermbg=none ctermfg=8
 highlight vertsplit ctermbg=none ctermfg=8
 set fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
 set noruler noshowcmd noshowmode
+set rulerformat=%=%l/%L
 set statusline=\  laststatus=0
 
 " TABLINE
