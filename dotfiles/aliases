@@ -94,6 +94,7 @@ alias kl="git log --date=auto:human"
 alias klg="git log --grep"
 alias ks="git status -bs"
 alias kso="git show"
+alias kss="nvim +GV"
 
 alias ko="git checkout"
 alias kop="git checkout -p"

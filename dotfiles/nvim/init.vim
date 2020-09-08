@@ -16,6 +16,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
     Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
+    Plug 'junegunn/gv.vim'
     Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
@@ -28,6 +29,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'SirVer/ultisnips', { 'for': ['c', 'cpp', 'markdown', 'sh', 'snippets', 'tex', 'vim'] }
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-sleuth'
 call plug#end()
 
