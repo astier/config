@@ -203,6 +203,7 @@ set mouse=a
 set nojoinspaces
 set notimeout
 set splitbelow splitright
+set virtualedit=block
 set wildmode=longest,list
 
 " NAVIGATION
