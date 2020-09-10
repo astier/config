@@ -204,6 +204,7 @@ set expandtab shiftwidth=4 tabstop=4
 set mouse=a
 set nojoinspaces
 set notimeout
+set scrolloff=4
 set splitbelow splitright
 set virtualedit=block
 set wildmode=longest,list
