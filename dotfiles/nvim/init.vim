@@ -258,6 +258,7 @@ nnoremap yw my yiw `y
 nnoremap yW my yiW `y
 nnoremap { {zz
 nnoremap } }zz
+nnoremap ; `
 
 " SNIPPETS
 let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
