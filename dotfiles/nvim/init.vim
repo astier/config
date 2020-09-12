@@ -105,8 +105,6 @@ let g:NERDTreeMouseMode = 3
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
 nnoremap <silent> <space>e :NERDTreeToggle<cr>
-nnoremap <silent> <2-leftmouse> :NERDTreeToggle<cr>
-xnoremap <silent> <2-leftmouse> <esc>:NERDTreeToggle<cr>
 
 " FORMAT
 function! Format()
