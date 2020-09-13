@@ -20,6 +20,7 @@
     "editor.overviewRulerBorder": false,
     "editor.renderIndentGuides": false,
     "editor.renderLineHighlight": "none",
+    "editor.renderWhitespace": "trailing",
     "editor.snippetSuggestions": "none",
     "editor.suggest.localityBonus": true,
     "editor.suggest.showSnippets": false,
