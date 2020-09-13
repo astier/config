@@ -305,9 +305,9 @@ highlight warningmsg ctermbg=none ctermfg=none
 set cursorline | highlight clear cursorline
 
 " STATUSLINE
-highlight statusline ctermbg=none ctermfg=8
-highlight statuslinenc ctermbg=none ctermfg=8
-highlight vertsplit ctermbg=none ctermfg=8
+highlight statusline ctermbg=none ctermfg=16
+highlight statuslinenc ctermbg=none ctermfg=16
+highlight vertsplit ctermbg=none ctermfg=16
 set fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
 set noruler noshowcmd noshowmode
 set rulerformat=%=%l/%L
