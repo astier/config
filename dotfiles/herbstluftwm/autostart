@@ -25,10 +25,10 @@ herbstclient mousebind $super-B1 resize
 herbstclient set focus_follows_mouse 1
 
 # NAVIGATION
+herbstclient keybind $altgr-a substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID
 herbstclient keybind $altgr-j cycle -1
 herbstclient keybind $altgr-k cycle +1
 herbstclient keybind $altgr-l cycle_frame
-herbstclient keybind $altgr-Return substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID
 herbstclient set focus_stealing_prevention 0
 
 # RESIZING
