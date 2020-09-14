@@ -121,7 +121,7 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 nnoremap <silent> <space>f :FZF<cr>
 
 " GITGUTTER
-autocmd group bufwritepost * GitGutter
+autocmd group vimenter,bufwritepost * GitGutter
 let g:gitgutter_map_keys = 0
 nmap <space>i <Plug>(GitGutterPreviewHunk)
 nmap <space>S <Plug>(GitGutterStageHunk)
