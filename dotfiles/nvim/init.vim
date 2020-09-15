@@ -200,6 +200,7 @@ autocmd group vimresized * wincmd =
 let g:plug_window = 'enew'
 set expandtab shiftwidth=4 tabstop=4
 set mouse=a
+set nofoldenable
 set nojoinspaces
 set notimeout
 set scrolloff=4
