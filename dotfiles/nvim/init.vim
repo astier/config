@@ -33,7 +33,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
 call plug#end()
 
 " BUFFERS
-autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | endif
+autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 && &ft != 'GV' | bn | b# | endif
 autocmd group bufenter,focusgained * checktime
 autocmd group textchanged,insertleave * nested silent! update
 nnoremap <silent> <a-e> :bp<cr>
@@ -273,7 +273,7 @@ xnoremap <silent> gs  my :sort i<cr> `y
 " STATE
 autocmd group bufenter * if index(ignore_ft, &ft) < 0 | silent! loadview | endif
 autocmd group bufleave,vimleave * if index(ignore_ft, &ft) < 0 | silent! mkview | endif
-let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
+let ignore_ft = ['diff', 'gitcommit', 'gitrebase', 'GV']
 set viewoptions=cursor
 
 " SUBVERSIVE
