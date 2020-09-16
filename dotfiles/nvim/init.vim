@@ -195,8 +195,8 @@ lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 " MISC
 autocmd group filetype diff set textwidth=72
 autocmd group filetype gitcommit,markdown,tex setlocal spell
-autocmd group filetype GV nmap <leftmouse> <leftmouse>o
-autocmd group filetype GV xmap <leftmouse> o
+autocmd group filetype GV nmap <rightmouse> <leftmouse>o
+autocmd group filetype GV xmap <rightmouse> o
 autocmd group filetype markdown set textwidth=80
 autocmd group vimresized * wincmd =
 let g:plug_window = 'enew'
