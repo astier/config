@@ -102,6 +102,7 @@ alias kob="git checkout -b"
 alias kom="git checkout master"
 
 alias kf="git fetch"
+alias kfr="git fetch \$(git remote | fzf)"
 alias km="git merge"
 alias kmm="git merge master"
 alias kp="git push"
