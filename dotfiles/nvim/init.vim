@@ -10,6 +10,7 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
 endif
 call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
+    Plug 'airblade/vim-rooter'
     Plug 'arcticicestudio/nord-vim'
     Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
@@ -226,6 +227,14 @@ nnoremap <silent> <space>pc :PlugClean<cr>
 nnoremap <silent> <space>pi :PlugInstall<cr>
 nnoremap <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 
+" ROOTER
+autocmd group vimenter * Rooter
+let g:rooter_change_directory_for_non_project_files = 'current'
+let g:rooter_manual_only = 1
+let g:rooter_patterns = ['.git']
+let g:rooter_resolve_links = 1
+let g:rooter_silent_chdir = 1
+
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
@@ -331,11 +340,14 @@ set showtabline=0
 
 " TMUXRENAME
 function! TmuxRename()
-    if !(bufname() =~# 'NERD' || bufname() =~# 'Tagbar')
-        call system('tmux renamew ' . expand('%:t'))
+    let root = FindRootDirectory()
+    if !empty(root)
+        call system('tmux renamew ' . fnamemodify(FindRootDirectory(), ':t'))
+    else
+        call system('tmux renamew ' . expand('%:p:h:t'))
     endif
 endfunction
-autocmd group bufenter,focusgained * call TmuxRename()
+autocmd group vimenter,vimresume,focusgained * call TmuxRename()
 autocmd group vimleave,vimsuspend * call system('tmux setw automatic-rename')
 
 " TMUXSEND
