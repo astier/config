@@ -308,13 +308,20 @@ highlight warningmsg ctermbg=none ctermfg=none
 set cursorline | highlight clear cursorline
 
 " STATUSLINE
-highlight statusline ctermbg=none ctermfg=16
-highlight statuslinenc ctermbg=none ctermfg=16
-highlight vertsplit ctermbg=none ctermfg=16
+highlight statusline ctermbg=none ctermfg=8
+highlight statuslinenc ctermbg=none ctermfg=8
+highlight vertsplit ctermbg=none ctermfg=8
 set fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
-set noruler noshowcmd noshowmode
-set rulerformat=%=%l/%L
-set statusline=\  laststatus=0
+set noruler noshowcmd noshowmode laststatus=1
+function StatusLine()
+    if bufname() =~# 'NERD' || empty(expand('%'))
+        return repeat('―', winwidth(0))
+    endif
+    let left = '[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
+    let right = '[' . line('.') . '/' . line('$') . ']'
+    return left . repeat('―', winwidth(0) - len(left) - len(right)) . right
+endfunction
+set statusline=%{StatusLine()}
 
 " TABLINE
 highlight tabline ctermbg=none ctermfg=8
