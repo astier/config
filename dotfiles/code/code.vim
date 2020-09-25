@@ -36,7 +36,9 @@ nnoremap <silent> <space>u :call VSCodeNotify('git.revertSelectedRanges')<cr>
 let g:loaded_gzip = 0
 let g:loaded_matchparen = 0
 let g:loaded_netrw = 0
+let g:loaded_netrwFileHandlers = 0
 let g:loaded_netrwPlugin = 0
+let g:loaded_netrwSettings = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python3_provider = 0
@@ -52,14 +54,16 @@ let g:loaded_zipPlugin = 0
 autocmd group filetype markdown set textwidth=80
 nnoremap <silent> : :call VSCodeNotify('workbench.action.showCommands')<cr>
 nmap gcp my vip gc `y
+set nofoldenable
 set nojoinspaces
 set noswapfile
 set notimeout
+set virtualedit=block
 
 " SEARCH & REPLACE
 let g:clever_f_across_no_line = 1
 let g:clever_f_smart_case = 1
-nnoremap <silent> <esc> :noh<cr>
+nnoremap <silent> <esc> :noh <bar> call clever_f#reset()<cr>
 nnoremap <silent> , *``
 xmap     <silent> , *``
 nnoremap <silent> n nzz
@@ -82,10 +86,12 @@ nnoremap gqq Vgq
 nnoremap Q <c-q>
 nnoremap vp vip
 nnoremap Y y$
+nnoremap yp my yip `y
 nnoremap yw my yiw `y
 nnoremap yW my yiW `y
 nnoremap { {zz
 nnoremap } }zz
+nnoremap ; `
 
 " SORT
 nnoremap <silent> gsp my vip :sort i<cr> `y

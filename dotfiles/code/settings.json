@@ -21,6 +21,7 @@
     "editor.renderIndentGuides": false,
     "editor.renderLineHighlight": "none",
     "editor.renderWhitespace": "trailing",
+    "editor.scrollBeyondLastLine": false,
     "editor.snippetSuggestions": "none",
     "editor.suggest.localityBonus": true,
     "editor.suggest.showSnippets": false,

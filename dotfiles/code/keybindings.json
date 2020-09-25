@@ -3,6 +3,7 @@
     { "key": "alt+e", "command": "workbench.action.previousEditor" },
     { "key": "alt+r", "command": "workbench.action.nextEditor" },
     { "key": "alt+tab", "command": "workbench.action.closeActiveEditor" },
+
     { "key": "alt+d",
         "command": "editorScroll",
         "when": "editorTextFocus",
@@ -24,11 +25,13 @@
             "value": 2
         }
     },
+
     {
         "key": "shift+alt+f",
         "command": "workbench.action.quickOpen",
         "when": "editorTextFocus"
     },
+
     {
         "command": "-vscode-neovim.escape",
         "key": "ctrl+c"
@@ -39,14 +42,10 @@
         "when": "neovim.mode == visual",
         "args": "<C-c>"
     },
+
     {
         "key": "z m",
         "command": "editor.toggleFold",
-        "when": "editorTextFocus && foldingEnabled"
-    },
-    {
-        "key": "ctrl+k ctrl+l",
-        "command": "-editor.toggleFold",
         "when": "editorTextFocus && foldingEnabled"
     },
     {
@@ -55,18 +54,8 @@
         "when": "editorTextFocus && foldingEnabled"
     },
     {
-        "key": "ctrl+k ctrl+0",
-        "command": "-editor.foldLevel1",
-        "when": "editorTextFocus && foldingEnabled"
-    },
-    {
         "key": "z shift+f",
         "command": "editor.unfoldAll",
-        "when": "editorTextFocus && foldingEnabled"
-    },
-    {
-        "key": "ctrl+k ctrl+j",
-        "command": "-editor.unfoldAll",
         "when": "editorTextFocus && foldingEnabled"
     },
 
