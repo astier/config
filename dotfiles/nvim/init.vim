@@ -40,8 +40,6 @@ autocmd group textchanged,insertleave * nested silent! update
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <tab> :b#<cr>
-nnoremap <silent> <rightmouse> :b#<cr>
-xnoremap <silent> <rightmouse> <esc>:b#<cr>
 set noswapfile
 
 " CLIPBOARD
@@ -105,6 +103,7 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
+nnoremap <silent> <rightmouse> :NERDTreeToggle<cr>
 nnoremap <silent> <space>e :NERDTreeToggle<cr>
 
 " FORMAT
