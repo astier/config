@@ -339,14 +339,11 @@ set showtabline=0
 
 " TMUXRENAME
 function! TmuxRename()
-    let root = FindRootDirectory()
-    if !empty(root)
-        call system('tmux renamew ' . fnamemodify(FindRootDirectory(), ':t'))
-    else
-        call system('tmux renamew ' . expand('%:p:h:t'))
+    if !(bufname() =~# 'NERD' || bufname() =~# 'Tagbar')
+        call system('tmux renamew ' . expand('%:t'))
     endif
 endfunction
-autocmd group vimenter,vimresume,focusgained * call TmuxRename()
+autocmd group bufenter,focusgained * call TmuxRename()
 autocmd group vimleave,vimsuspend * call system('tmux setw automatic-rename')
 
 " TMUXSEND
