@@ -325,7 +325,7 @@ function StatusLine()
     if bufname() =~# 'NERD' || empty(expand('%'))
         return repeat('―', winwidth(0))
     endif
-    let left = '[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
+    let left = '―[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
     let right = '[' . line('.') . '/' . line('$') . ']'
     return left . repeat('―', winwidth(0) - len(left) - len(right)) . right
 endfunction
