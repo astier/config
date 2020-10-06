@@ -205,7 +205,6 @@ set mouse=a
 set nofoldenable
 set nojoinspaces
 set notimeout
-set scrolloff=4
 set splitbelow splitright
 set virtualedit=block
 set wildmode=longest,list
