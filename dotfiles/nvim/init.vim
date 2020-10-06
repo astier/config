@@ -16,12 +16,12 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
     Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
-    Plug 'junegunn/gv.vim'
     Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'rbong/vim-flog'
     Plug 'rhysd/clever-f.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -34,7 +34,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
 call plug#end()
 
 " BUFFERS
-autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 && &ft != 'GV' | bn | b# | endif
+autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | endif
 autocmd group bufenter,focusgained * checktime
 autocmd group textchanged,insertleave * nested silent! update
 nnoremap <silent> <a-e> :bp<cr>
@@ -195,8 +195,8 @@ lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 " MISC
 autocmd group filetype diff set textwidth=72
 autocmd group filetype gitcommit,markdown,tex setlocal spell
-autocmd group filetype GV nmap <rightmouse> <leftmouse>o
-autocmd group filetype GV xmap <rightmouse> o
+autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
+autocmd group filetype floggraph xmap <buffer> <rightmouse> <cr>
 autocmd group filetype markdown set textwidth=80
 autocmd group vimresized * wincmd =
 let g:plug_window = 'enew'
@@ -245,7 +245,9 @@ set ignorecase smartcase
 set inccommand=nosplit
 
 " SHORTCUTS
-autocmd group filetype * if index(['qf', 'help', 'nerdtree'], &ft) < 0 | nnoremap <buffer> <cr> o<esc> | endif
+autocmd group filetype * if index(['qf', 'help', 'nerdtree', 'floggraph'], &ft) < 0 | nnoremap <buffer> <cr> o<esc> | endif
+autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqp gqip | endif
+autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqq Vgq | endif
 nnoremap <a-d> 4<c-y>
 nnoremap <a-f> 4<c-e>
 nnoremap <p <ap
@@ -257,8 +259,6 @@ nnoremap dp dap
 nnoremap dw daw
 nnoremap dW daW
 nnoremap gg gg0
-nnoremap gqp gqip
-nnoremap gqq Vgq
 nnoremap Q <c-q>
 nnoremap vp vip
 nnoremap Y y$
@@ -282,7 +282,7 @@ xnoremap <silent> gs  my :sort i<cr> `y
 " STATE
 autocmd group bufenter * if index(ignore_ft, &ft) < 0 | silent! loadview | endif
 autocmd group bufleave,vimleave * if index(ignore_ft, &ft) < 0 | silent! mkview | endif
-let ignore_ft = ['diff', 'gitcommit', 'gitrebase', 'GV']
+let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 set viewoptions=cursor
 
 " SUBVERSIVE
