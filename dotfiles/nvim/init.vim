@@ -320,7 +320,7 @@ highlight statusline ctermbg=none ctermfg=8
 highlight statuslinenc ctermbg=none ctermfg=8
 highlight vertsplit ctermbg=none ctermfg=8
 set fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
-set noruler noshowcmd noshowmode laststatus=1
+set noruler noshowcmd noshowmode laststatus=0
 set rulerformat=%=%l/%L
 function StatusLine()
     if bufname() =~# 'NERD' || empty(expand('%'))
@@ -330,7 +330,7 @@ function StatusLine()
     let right = '[' . line('.') . '/' . line('$') . ']'
     return left . repeat('―', winwidth(0) - len(left) - len(right)) . right
 endfunction
-set statusline=%{StatusLine()}
+set statusline=\ 
 
 " TABLINE
 highlight tabline ctermbg=none ctermfg=8
