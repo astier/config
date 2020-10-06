@@ -246,9 +246,9 @@ set ignorecase smartcase
 set inccommand=nosplit
 
 " SHORTCUTS
+autocmd group filetype * if index(['qf', 'help', 'nerdtree'], &ft) < 0 | nnoremap <buffer> <cr> o<esc> | endif
 nnoremap <a-d> 4<c-y>
 nnoremap <a-f> 4<c-e>
-nnoremap <cr> o<esc>
 nnoremap <p <ap
 nnoremap >p >ap
 nnoremap cp cip
