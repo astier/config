@@ -321,6 +321,7 @@ highlight statuslinenc ctermbg=none ctermfg=8
 highlight vertsplit ctermbg=none ctermfg=8
 set fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
 set noruler noshowcmd noshowmode laststatus=1
+set rulerformat=%=%l/%L
 function StatusLine()
     if bufname() =~# 'NERD' || empty(expand('%'))
         return repeat('―', winwidth(0))
