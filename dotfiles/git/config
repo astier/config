@@ -20,3 +20,6 @@
     smtpserver = smtp.mail.me.com
     smtpserverport = 587
     smtpuser = aleks.stier@icloud.com
+
+[advice]
+    addEmptyPathspec = false
