@@ -44,6 +44,7 @@ alias iv="\$EDITOR \$XDG_CONFIG_HOME/nvim/init.vim"
 alias tm="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
 
 # FUNCTIONS
+ar() { dir="$(basename $1).tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
 cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
 f() { if [ -d "$1" ]; then cd "$1" || return; else open "$@"; fi; }
