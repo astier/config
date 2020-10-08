@@ -336,7 +336,7 @@ set statusline=\
 highlight tabline ctermbg=none ctermfg=8
 highlight tablinefill ctermbg=none
 highlight tablinesel ctermbg=none ctermfg=none
-set showtabline=0
+set showtabline=1
 
 " TMUXRENAME
 function! TmuxRename()
