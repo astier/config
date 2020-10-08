@@ -12,6 +12,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'airblade/vim-rooter'
     Plug 'arcticicestudio/nord-vim'
+    Plug 'astier/tabulous'
     Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
@@ -336,6 +337,11 @@ set statusline=\
 highlight tabline ctermbg=none ctermfg=8
 highlight tablinefill ctermbg=none
 highlight tablinesel ctermbg=none ctermfg=none
+let g:tabulousCloseStr = ''
+let g:tabulousLabelLeftStr = '['
+let g:tabulousLabelNameDefault = 'Empty'
+let g:tabulousLabelNameOptions = ':t'
+let g:tabulousLabelRightStr = '] '
 set showtabline=1
 
 " TMUXRENAME
