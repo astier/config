@@ -103,6 +103,7 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeMouseMode = 3
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeStatusline = ''
+let g:NERDTreeWinPos = "right"
 nnoremap <silent> <rightmouse> :NERDTreeToggle<cr>
 nnoremap <silent> <space>e :NERDTreeToggle<cr>
 
