@@ -17,13 +17,6 @@ alias rm="rm -fr"
 alias tree="tree -aCI '__pycache__|.git|*.aux|*.fdb_latexmk|*.fls|*.log|*.nav|*.snm|*.gz|*.toc' --dirsfirst --noreport"
 alias umount="sudo umount"
 
-# CLOUD
-alias cl="cd ~/cloud"
-alias cu="cd ~/cloud/uni"
-alias n="\$EDITOR ~/cloud/notes"
-alias sn="rclone sync -P ~/cloud cloud:"
-alias snn="rclone sync -P cloud: ~/cloud"
-
 # CPM
 alias x="cpm"
 alias xc="cpm -c"
@@ -31,34 +24,55 @@ alias xd="cpm -d"
 alias xm="cpm -m"
 alias xp="cpm -p"
 
-# DOTFILES
-alias al="\$EDITOR \$XDG_CONFIG_HOME/aliases && . \$XDG_CONFIG_HOME/aliases"
-alias ba="\$EDITOR ~/.bashrc && . ~/.bashrc"
-alias bal="\$EDITOR ~/.config/bashrc_local && . ~/.config/bashrc_local"
-alias fd="cd ~/projects/dotfiles"
-alias fdf="cd ~/projects/dotfiles && f"
-alias fdj="cd ~/projects/dotfiles 1>/dev/null && j"
+# BOOKMARKS - HIDDEN
+path_bm="$HOME"/cloud/bookmarks.sh
+[ -r "$path_bm" ] && . "$path_bm"
+alias fbm="\$EDITOR \$path_bm && . \$path_bm"
+
+# BOOKMARKS - FILES
+alias fa="\$EDITOR \$XDG_CONFIG_HOME/aliases && . \$XDG_CONFIG_HOME/aliases"
+alias fb="\$EDITOR ~/.bashrc && . ~/.bashrc"
+alias fbl="\$EDITOR ~/.config/bashrc_local && . ~/.config/bashrc_local"
+alias fgi="\$EDITOR .gitignore"
+alias fgm="\$EDITOR .gitmodules"
+alias fn="\$EDITOR ~/cloud/notes"
 alias fp="\$EDITOR ~/.profile"
+alias fr="if [ -r README.md ]; then \$EDITOR README.md; else echo No README found.; fi; "
+alias ft="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
+alias fv="\$EDITOR \$XDG_CONFIG_HOME/nvim/init.vim"
 alias fx="\$EDITOR \$XDG_CONFIG_HOME/sx/sxrc"
-alias iv="\$EDITOR \$XDG_CONFIG_HOME/nvim/init.vim"
-alias tm="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
+f() { if [ $# = 0 ]; then fzf | xargs -r open; elif [ ! -f "$1" ]; then ffind -maxdepth 1 -type f | fzf --filter="$*" | head -n1 | xargs -r open; fi }
+
+# BOOKMARKS - DIRS
+alias ja="cd ~/projects/arch"
+alias jaa="cd ~/projects/arch && \$EDITOR desktop.sh base.sh"
+alias jbi="cd \$HOME/.local/bin"
+alias jca="cd \$XDG_CACHE_HOME"
+alias jco="cd \$XDG_CONFIG_HOME"
+alias jd="cd ~/projects/dotfiles"
+alias jdl="cd ~/Downloads"
+alias jl="cd \$XDG_DATA_HOME"
+alias jp="cd ~/projects"
+alias js="cd ~/projects/scripts"
+alias jsi="cd ~/projects/sites"
+alias jt="cd ~/projects/st"
+alias jw="cd ~/projects/dwm"
+j() { if [ $# = 0 ]; then dir=$(ffind -maxdepth 1 -type d 2>/dev/null | fzf); elif [ -d "$1" ]; then cd "$1" && return; else dir=$(ffind -maxdepth 1 -type d 2>/dev/null | fzf --filter="$*" | head -n1); fi; if [ -n "$dir" ]; then cd "$dir" || return; fi; }
+
+# CLOUD
+alias jc="cd ~/cloud"
+alias sn="rclone sync -P ~/cloud cloud:"
+alias snn="rclone sync -P cloud: ~/cloud"
 
 # FUNCTIONS
 ar() { dir="$(basename $1).tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
 cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
-f() { if [ $# = 0 ]; then fzf | xargs -r open; elif [ ! -f "$1" ]; then ffind -maxdepth 1 -type f | fzf --filter="$*" | head -n1 | xargs -r open; fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
-j() { if [ $# = 0 ]; then dir=$(ffind -maxdepth 1 -type d 2>/dev/null | fzf); elif [ -d "$1" ]; then cd "$1" && return; else dir=$(ffind -maxdepth 1 -type d 2>/dev/null | fzf --filter="$*" | head -n1); fi; if [ -n "$dir" ]; then cd "$dir" || return; fi; }
 l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 mc() { mkdir "$1" && cd "$1" || return; }
 tof() { touch "$1"; "$EDITOR" "$1"; }
 tox() { touch "$1"; chmod +x "$1"; }
-
-# G
-g_path="$HOME"/cloud/g.sh
-[ -r "$g_path" ] && . "$g_path"
-alias gg="\$EDITOR \$g_path && . \$g_path"
 
 # GIT
 k() { n=24; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline --show-pulls -n"$n"; }
@@ -123,19 +137,12 @@ alias ksl="git stash list"
 alias ksp="git stash pop"
 alias kst="git stash"
 
-# HOME
-alias b="cd - >/dev/null && ls"
-alias bi="cd \$HOME/.local/bin"
-alias c="cd .."
-alias ca="cd \$XDG_CACHE_HOME"
-alias co="cd \$XDG_CONFIG_HOME"
-alias dl="cd ~/Downloads"
-alias fl="cd \$XDG_DATA_HOME"
-
 # MISC
 alias a="execute"
 alias as="echo Remapped to do nothing."
+alias b="cd - >/dev/null && ls"
 alias bs="bstatus"
+alias c="cd .."
 alias clean="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm -r \$XDG_CACHE_HOME/* sudo rm -fr /var/log/journal/*"
 alias dus="du -s"
 alias e="nvim +'set nospell' /tmp/scratch.md"
@@ -151,7 +158,7 @@ alias ll="ls -l"
 alias lt="lint"
 alias m="mv"
 alias md="mkdir -p"
-alias or="if [ -r README.md ]; then \$EDITOR README.md; else echo No README found.; fi; "
+alias o="autopen"
 alias p="cp"
 alias pa="patch -p1 <"
 alias pm="pulsemixer"
@@ -164,24 +171,6 @@ alias tf="tree"
 alias to="touch"
 alias u="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist && yay"
 alias v="\$EDITOR"
-
-# OPEN
-alias o="autopen"
-alias ogi="\$EDITOR .gitignore"
-alias ogm="\$EDITOR .gitmodules"
-
-# PROJECTS
-alias aa="cd ~/projects/arch"
-alias aaf="cd ~/projects/arch && f"
-alias ab="cd ~/projects/arch && \$EDITOR base.sh"
-alias ad="cd ~/projects/arch && \$EDITOR desktop.sh"
-alias dw="cd ~/projects/dwm"
-alias dww="cd ~/projects/dwm && f dwm.c"
-alias fj="cd ~/projects"
-alias ft="cd ~/projects/st"
-alias sc="cd ~/projects/scripts"
-alias scf="sc && f"
-alias si="cd ~/projects/sites"
 
 # TMUX
 alias t="tmux new -A"
