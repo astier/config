@@ -108,6 +108,12 @@ let g:NERDTreeWinPos = "right"
 nnoremap <silent> <rightmouse> :NERDTreeToggle<cr>
 nnoremap <silent> <space>e :NERDTreeToggle<cr>
 
+" FLOG
+autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
+autocmd group filetype floggraph xmap <buffer> <rightmouse> <cr>
+nnoremap <silent> <space>kk :Flog -all<cr>
+nnoremap <silent> <space>kK :Flog -all -path=%<cr>
+
 " FORMAT
 function! Format()
     let l:save = winsaveview()
@@ -197,8 +203,6 @@ lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 " MISC
 autocmd group filetype diff set textwidth=72
 autocmd group filetype gitcommit,markdown,tex setlocal spell
-autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
-autocmd group filetype floggraph xmap <buffer> <rightmouse> <cr>
 autocmd group filetype markdown set textwidth=80
 autocmd group vimresized * wincmd =
 let g:plug_window = 'enew'
