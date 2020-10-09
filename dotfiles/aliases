@@ -85,13 +85,6 @@ alias jc="cd ~/cloud"
 alias sn="rclone sync -P ~/cloud cloud:"
 alias snn="rclone sync -P cloud: ~/cloud"
 
-# FUNCTIONS
-ar() { dir="$(basename $1).tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
-cd() { builtin cd "$@" && ls; }
-d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
-flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
-l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
-
 # GIT
 k() { n=24; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline --show-pulls -n"$n"; }
 kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
@@ -187,6 +180,11 @@ alias td="tree -d"
 alias tf="tree"
 alias u="sudo reflector -p https -f32 -l16 --score 8 --sort rate --save /etc/pacman.d/mirrorlist && yay"
 alias v="\$EDITOR"
+ar() { dir="$(basename $1).tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
+cd() { builtin cd "$@" && ls; }
+d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
+flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
+l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 
 # MK
 alias md="mkdir -p"
