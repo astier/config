@@ -42,7 +42,9 @@ alias ft="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
 alias fv="\$EDITOR \$XDG_CONFIG_HOME/nvim/init.vim"
 alias fx="\$EDITOR \$XDG_CONFIG_HOME/sx/sxrc"
 f() {
-    if [ $# = 0 ]; then
+    if [ -f "$1" ]; then
+        open "$1" || return
+    elif [ $# = 0 ]; then
         fzf | xargs -r open
     elif [ ! -f "$1" ]; then
         ffind -maxdepth 1 -type f | fzf --filter="$*" | head -n1 | xargs -r open
