@@ -251,7 +251,6 @@ set ignorecase smartcase
 set inccommand=nosplit
 
 " SHORTCUTS
-autocmd group filetype * if index(['qf', 'help', 'nerdtree', 'floggraph'], &ft) < 0 | nnoremap <buffer> <cr> o<esc> | endif
 autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqp gqip | endif
 autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqq Vgq | endif
 nnoremap <a-d> 4<c-y>
