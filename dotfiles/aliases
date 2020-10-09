@@ -41,7 +41,13 @@ alias fr="if [ -r README.md ]; then \$EDITOR README.md; else echo No README foun
 alias ft="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
 alias fv="\$EDITOR \$XDG_CONFIG_HOME/nvim/init.vim"
 alias fx="\$EDITOR \$XDG_CONFIG_HOME/sx/sxrc"
-f() { if [ $# = 0 ]; then fzf | xargs -r open; elif [ ! -f "$1" ]; then ffind -maxdepth 1 -type f | fzf --filter="$*" | head -n1 | xargs -r open; fi }
+f() {
+    if [ $# = 0 ]; then
+        fzf | xargs -r open
+    elif [ ! -f "$1" ]; then
+        ffind -maxdepth 1 -type f | fzf --filter="$*" | head -n1 | xargs -r open
+    fi
+}
 
 # BOOKMARKS - DIRS
 alias ja="cd ~/projects/arch"
@@ -57,7 +63,18 @@ alias js="cd ~/projects/scripts"
 alias jsi="cd ~/projects/sites"
 alias jt="cd ~/projects/st"
 alias jw="cd ~/projects/dwm"
-j() { if [ $# = 0 ]; then dir=$(ffind -maxdepth 1 -type d 2>/dev/null | fzf); elif [ -d "$1" ]; then cd "$1" && return; else dir=$(ffind -maxdepth 1 -type d 2>/dev/null | fzf --filter="$*" | head -n1); fi; if [ -n "$dir" ]; then cd "$dir" || return; fi; }
+j() {
+    if [ -d "$1" ]; then
+        cd "$1" || return
+    elif [ $# = 0 ]; then
+        dir=$(ffind -maxdepth 1 -type d 2>/dev/null | fzf)
+    else
+        dir=$(ffind -maxdepth 1 -type d 2>/dev/null | fzf --filter="$*" | head -n1)
+    fi
+    if [ -n "$dir" ]; then
+        cd "$dir" || return
+    fi
+}
 
 # CLOUD
 alias jc="cd ~/cloud"
