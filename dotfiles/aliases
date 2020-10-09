@@ -67,7 +67,7 @@ j() {
     if [ -d "$1" ]; then
         cd "$1" || return
     elif [ $# = 0 ]; then
-        dir=$(ffind -maxdepth 1 -type d 2>/dev/null | fzf)
+        dir=$(ffind -type d 2>/dev/null | fzf)
     else
         dir=$(ffind -maxdepth 1 -type d 2>/dev/null | fzf --filter="$*" | head -n1)
     fi
