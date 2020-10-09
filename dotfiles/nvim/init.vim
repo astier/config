@@ -205,6 +205,7 @@ autocmd group filetype diff set textwidth=72
 autocmd group filetype gitcommit,markdown,tex setlocal spell
 autocmd group filetype markdown set textwidth=80
 autocmd group vimresized * wincmd =
+let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
 set expandtab shiftwidth=4 tabstop=4
 set mouse=a
