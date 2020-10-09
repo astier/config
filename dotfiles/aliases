@@ -41,6 +41,7 @@ alias fr="if [ -r README.md ]; then \$EDITOR README.md; else echo No README foun
 alias ft="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
 alias fv="\$EDITOR \$XDG_CONFIG_HOME/nvim/init.vim"
 alias fx="\$EDITOR \$XDG_CONFIG_HOME/sx/sxrc"
+
 f() {
     if [ -f "$1" ]; then
         open "$1" || return
@@ -59,12 +60,13 @@ alias jca="cd \$XDG_CACHE_HOME"
 alias jco="cd \$XDG_CONFIG_HOME"
 alias jd="cd ~/projects/dotfiles"
 alias jdl="cd ~/Downloads"
-alias jj="cd ~/projects"
 alias jl="cd \$XDG_DATA_HOME"
+alias jp="cd ~/projects"
 alias js="cd ~/projects/scripts"
 alias jsi="cd ~/projects/sites"
 alias jt="cd ~/projects/st"
 alias jw="cd ~/projects/dwm"
+
 j() {
     if [ -d "$1" ]; then
         cd "$1" || return
