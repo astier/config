@@ -35,12 +35,12 @@ alias fb="\$EDITOR ~/.bashrc && . ~/.bashrc"
 alias fbl="\$EDITOR ~/.config/bashrc_local && . ~/.config/bashrc_local"
 alias fgi="\$EDITOR .gitignore"
 alias fgm="\$EDITOR .gitmodules"
-alias fn="\$EDITOR ~/cloud/notes"
 alias fp="\$EDITOR ~/.profile"
 alias fr="if [ -r README.md ]; then \$EDITOR README.md; else echo No README found.; fi; "
 alias ft="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
 alias fv="\$EDITOR \$XDG_CONFIG_HOME/nvim/init.vim"
 alias fx="\$EDITOR \$XDG_CONFIG_HOME/sx/sxrc"
+alias n="\$EDITOR ~/cloud/notes"
 
 f() {
     if [ -f "$1" ]; then
