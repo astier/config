@@ -94,7 +94,7 @@ nmap ga  <plug>(EasyAlign)
 xmap ga  <plug>(EasyAlign)
 xmap gaa <plug>(EasyAlign)*<space>
 
-" FILE-EXPLORER
+" EXPLORER
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
 let g:NERDTreeHighlightCursorline = 0
