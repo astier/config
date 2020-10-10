@@ -9,11 +9,10 @@ export XDG_DATA_DIRS="$XDG_DATA_HOME":/usr/local/share:/usr/share
 
 export BROWSER=firefox
 export EDITOR=nvim
-export MANPAGER="nvim +'se ft=man' -"
-export TERMINAL=st
-
 export FZF_DEFAULT_COMMAND="ffind -type f"
 export FZF_DEFAULT_OPTS="--cycle --multi --reverse --tabstop=4 --tiebreak=begin,length,end,index --no-info --color=bg+:-1,fg+:-1,border:16,hl:1,hl+:1,prompt:4,pointer:2,marker:3,info:8"
+export MANPAGER="nvim +'se ft=man' -"
+export TERMINAL=st
 
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/settings.ini
