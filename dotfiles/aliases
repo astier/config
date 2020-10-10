@@ -184,13 +184,21 @@ ar() { dir="$(basename $1).tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"
 cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
-l() { if [ $# = 0 ]; then ls; elif [ -d "$1" ]; then ls "$1"; elif [ -r "$1" ]; then cat "$1"; fi; }
 
 # MK
 alias md="mkdir -p"
 alias mf="touch"
 mdj() { mkdir "$1" && cd "$1" || return; }
 ms() { touch "$1"; chmod +x "$1"; }
+
+# PREVIEW
+l() {
+    if [ $# = 0 ] || [ -e "$1" ]; then
+        preview "$1"
+    else
+        ffind -maxdepth 1 | fzf --filter="$*" | head -n1 | xargs -r preview
+    fi
+}
 
 # TMUX
 alias t="tmux new -A"
