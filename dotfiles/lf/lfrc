@@ -14,9 +14,9 @@ set tabstop 4
 cmd open $"$OPENER" "$f"
 cmd fuzzy_dir $dir=$(ffind -mindepth 2 -type d | fzf); [ -d "$dir" ] && lf -remote "send $id cd \"$dir\""
 cmd fuzzy_file $ffind -mindepth 2 -type f | fzf | xargs -r "$OPENER"
-cmd fuzzy_sel $file=$(ls --color --group-directories-first -Ah | fzf --ansi); [ -e "$file" ] && lf -remote "send $id select \"$file\""
+cmd fuzzy_sel $file=$(ls -Av --color --group-directories-first | fzf --ansi); [ -e "$file" ] && lf -remote "send $id select \"$file\""
 cmd fuzzy_open ${{
-    file=$(ls --color --group-directories-first -Ah | fzf --ansi)
+    file=$(ls -Av --color --group-directories-first | fzf --ansi)
     if [ -d "$file" ]; then
         lf -remote "send $id cd \"$file\""
     elif [ -f "$file" ]; then
