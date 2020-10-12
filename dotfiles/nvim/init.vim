@@ -16,7 +16,6 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
-    Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
     Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
@@ -25,6 +24,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'rbong/vim-flog'
     Plug 'rhysd/clever-f.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'Shougo/deoplete-lsp'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neopairs.vim', { 'for': 'python' }
     Plug 'SirVer/ultisnips', { 'for': ['c', 'cpp', 'markdown', 'sh', 'snippets', 'tex', 'vim'] }
@@ -65,7 +65,7 @@ let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option({
     \'ignore_sources': { '_': ['around', 'member'] },
     \'min_pattern_length': 1,
-    \'num_processes': 1,
+    \'num_processes': 2,
 \})
 call deoplete#custom#source('_', 'matchers', [
     \'matcher_fuzzy',
@@ -75,19 +75,6 @@ call deoplete#custom#source('_', 'converters', [
     \'converter_word_abbr',
     \'converter_auto_paren',
 \])
-
-" DEOPLETE-JEDI
-call deoplete#custom#source('jedi', 'mark', '[J]')
-let g:deoplete#sources#jedi#enable_short_types = 1
-let g:deoplete#sources#jedi#short_types_map = {
-    \'class':      ' c ',
-    \'function':   ' f ',
-    \'globalstmt': ' v ',
-    \'instance':   ' v ',
-    \'keyword':    ' k ',
-    \'module':     ' m ',
-    \'statement':  ' v ',
-\}
 
 " EASY-ALIGN
 nmap ga  <plug>(EasyAlign)
@@ -197,7 +184,7 @@ function! SetupLSP()
     nnoremap <silent> gr :lua vim.lsp.buf.rename()<cr>
     nnoremap <silent> K  :lua vim.lsp.buf.hover()<cr>
 endfunction
-lua require 'nvim_lsp'.pyls.setup{}
+lua require 'nvim_lsp'.jedi_language_server.setup{}
 lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 
 " MISC
