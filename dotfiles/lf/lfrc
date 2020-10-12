@@ -11,7 +11,7 @@ set shellopts '-eu'
 set tabstop 4
 
 # COMMANDS
-cmd open $$OPENER $f
+cmd open $"$OPENER" "$f"
 cmd fuzzy_dir $dir=$(ffind -mindepth 2 -type d | fzf); [ -d "$dir" ] && lf -remote "send $id cd \"$dir\""
 cmd fuzzy_file $ffind -mindepth 2 -type f | fzf | xargs -r "$OPENER"
 cmd fuzzy_sel $file=$(ls --color --group-directories-first -Ah | fzf --ansi); [ -e "$file" ] && lf -remote "send $id select \"$file\""
