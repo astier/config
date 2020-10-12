@@ -44,11 +44,11 @@ alias n="\$EDITOR ~/cloud/notes"
 
 f() {
     if [ -f "$1" ]; then
-        open "$1" || return
+        $OPENER "$1" || return
     elif [ $# = 0 ]; then
-        fzf | xargs -r open
+        fzf | xargs -r $OPENER
     elif [ ! -f "$1" ]; then
-        ffind -maxdepth 1 -type f | fzf --filter="$*" | head -n1 | xargs -r open
+        ffind -maxdepth 1 -type f | fzf --filter="$*" | head -n1 | xargs -r $OPENER
     fi
 }
 

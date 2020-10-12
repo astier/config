@@ -11,16 +11,16 @@ set shellopts '-eu'
 set tabstop 4
 
 # COMMANDS
-cmd open $open $f
+cmd open $$OPENER $f
 cmd fuzzy_dir $dir=$(ffind -mindepth 2 -type d | fzf); [ -d "$dir" ] && lf -remote "send $id cd \"$dir\""
-cmd fuzzy_file $ffind -mindepth 2 -type f | fzf | xargs -r open
+cmd fuzzy_file $ffind -mindepth 2 -type f | fzf | xargs -r "$OPENER"
 cmd fuzzy_sel $file=$(ls --color --group-directories-first -Ah | fzf --ansi); [ -e "$file" ] && lf -remote "send $id select \"$file\""
 cmd fuzzy_open ${{
     file=$(ls --color --group-directories-first -Ah | fzf --ansi)
     if [ -d "$file" ]; then
         lf -remote "send $id cd \"$file\""
     elif [ -f "$file" ]; then
-        open "$file"
+        "$OPENER" "$file"
     fi
 }}
 
@@ -45,7 +45,6 @@ map c updir
 map D delete
 map H top
 map L bottom
-map l open $f
 map t toggle
 
 # BOOKMARKS - DIRS
