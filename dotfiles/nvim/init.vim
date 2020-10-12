@@ -292,8 +292,8 @@ nnoremap <silent> gss my vip :sort i<cr> `y
 xnoremap <silent> gs  my :sort i<cr> `y
 
 " STATE
-autocmd group bufenter * if index(ignore_ft, &ft) < 0 | silent! loadview | endif
-autocmd group bufleave,vimleave * if index(ignore_ft, &ft) < 0 | silent! mkview | endif
+autocmd group bufread * if index(ignore_ft, &ft) < 0 | silent! loadview | endif
+autocmd group bufunload * if index(ignore_ft, &ft) < 0 | silent! mkview | endif
 let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 set viewoptions=cursor
 
