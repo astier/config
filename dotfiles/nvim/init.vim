@@ -208,13 +208,19 @@ autocmd group vimresized * wincmd =
 let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
 set expandtab shiftwidth=4 tabstop=4
-set mouse=a
 set nofoldenable
 set nojoinspaces
 set notimeout
 set splitbelow splitright
 set virtualedit=block
 set wildmode=longest,list
+
+" MOUSE
+nmap <silent> <2-rightmouse> <rightmouse>
+nmap <silent> <3-rightmouse> <rightmouse>
+nmap <silent> <4-rightmouse> <rightmouse>
+set mouse=a
+set mousemodel=popup
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
