@@ -362,8 +362,8 @@ function! T(...)
     endif
 endfunction
 command! -complete=shellcmd -nargs=+ T call T(expandcmd(<q-args>))
-nnoremap <silent> <space><space> :cal T(getline('.'))<cr>
-xnoremap <silent> <space><space> "vy :cal T(substitute(@v, '\n$', '', ''))<cr>
+nnoremap <silent> <space><space> :call T(getline('.'))<cr>
+xnoremap <silent> <space><space> "vy :call T(substitute(@v, '\n$', '', ''))<cr>
 nnoremap <silent> <space>l :T lint %<cr>
 nnoremap <silent> <space>a :T execute<cr>
 
