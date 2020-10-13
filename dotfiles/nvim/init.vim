@@ -21,13 +21,10 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
-    Plug 'neovim/nvim-lspconfig'
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'rbong/vim-flog'
     Plug 'rhysd/clever-f.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    Plug 'Shougo/deoplete-lsp'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/neopairs.vim', { 'for': 'python' }
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
@@ -59,22 +56,6 @@ inoremap <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
 set completeopt=menuone,noinsert
 set infercase shortmess+=c
 set pumheight=8 pumwidth=0
-
-" DEOPLETE
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option({
-    \'ignore_sources': { '_': ['around', 'member'] },
-    \'min_pattern_length': 1,
-    \'num_processes': 2,
-\})
-call deoplete#custom#source('_', 'matchers', [
-    \'matcher_fuzzy',
-    \'matcher_length',
-\])
-call deoplete#custom#source('_', 'converters', [
-    \'converter_word_abbr',
-    \'converter_auto_paren',
-\])
 
 " EASY-ALIGN
 nmap ga  <plug>(EasyAlign)
@@ -145,7 +126,6 @@ let g:vimtex_compiler_latexmk = {
         \'-interaction=nonstopmode',
     \],
 \}
-autocmd group filetype tex call deoplete#custom#var('omni', 'input_patterns', { 'tex': g:vimtex#re#deoplete })
 autocmd group filetype tex nnoremap <silent> <space>a :VimtexCompile<cr>
 autocmd user VimtexEventCompileSuccess call ViewPDF()
 function! ViewPDF()
@@ -166,6 +146,7 @@ let g:loaded_netrwPlugin = 0
 let g:loaded_netrwSettings = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
+let g:loaded_python3_provider = 0
 let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_spellfile_plugin = 0
@@ -173,19 +154,18 @@ let g:loaded_tar = 0
 let g:loaded_tarPlugin = 0
 let g:loaded_zip = 0
 let g:loaded_zipPlugin = 0
-let g:python3_host_prog = '/usr/bin/python3'
 
 " LSP
-autocmd group filetype python call SetupLSP()
-function! SetupLSP()
-    nnoremap <silent> gd :lua vim.lsp.buf.definition()<cr>
-    nnoremap <silent> gp :lua vim.lsp.buf.signature_help()<cr>
-    nnoremap <silent> gR :lua vim.lsp.buf.references()<cr>
-    nnoremap <silent> gr :lua vim.lsp.buf.rename()<cr>
-    nnoremap <silent> K  :lua vim.lsp.buf.hover()<cr>
-endfunction
-lua require 'nvim_lsp'.jedi_language_server.setup{}
-lua vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
+let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
+nm <silent> gd <plug>(coc-definition)zz
+nm <silent> gR <plug>(coc-references)
+nm <silent> gr <plug>(coc-rename)
+nn <silent> K :cal <sid>show_documentation()<cr>
+fu! s:show_documentation()
+    if index(['vim','help'], &filetype) >= 0
+        exe 'h '.expand('<cword>')
+    el | cal CocAction('doHover') | en
+endf
 
 " MISC
 autocmd group filetype diff set textwidth=72
