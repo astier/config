@@ -16,6 +16,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'bronson/vim-visual-star-search'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
+    Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
@@ -27,7 +28,6 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'Shougo/deoplete-lsp'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neopairs.vim', { 'for': 'python' }
-    Plug 'SirVer/ultisnips', { 'for': ['c', 'cpp', 'markdown', 'sh', 'snippets', 'tex', 'vim'] }
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
@@ -269,9 +269,11 @@ nnoremap } }zz
 nnoremap ; `
 
 " SNIPPETS
-let g:UltiSnipsJumpBackwardTrigger = '<a-tab>'
-let g:UltiSnipsJumpForwardTrigger  = '<tab>'
-let g:UltiSnipsSnippetDirectories  = [$XDG_CONFIG_HOME.'/nvim/UltiSnips']
+let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
+imap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
+smap <silent> <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
+imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
+smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-expand-prev)' : '<a-tab>'
 
 " SORT
 nmap     <silent> gsi my vii :sort i<cr> `y
