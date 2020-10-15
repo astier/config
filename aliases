@@ -44,7 +44,7 @@ alias n="\$EDITOR ~/cloud/notes"
 
 f() {
     if [ -f "$1" ]; then
-        $OPENER "$1" || return
+        $OPENER "$@" || return
     elif [ $# = 0 ]; then
         fzf | xargs -r $OPENER
     elif [ ! -f "$1" ]; then
