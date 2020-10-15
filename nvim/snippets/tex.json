@@ -1,9 +1,9 @@
 {
-  "Plug": {
+  "itemize": {
     "prefix": ["i"],
     "body": [
       "\\begin{itemize}",
-      "\t$0",
+        "\t$0",
       "\\end{itemize}"
     ]
   }

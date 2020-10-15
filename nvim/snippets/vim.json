@@ -1,5 +1,5 @@
 {
-  "Plug": {
+  "plug": {
     "prefix": ["p"],
     "body": ["Plug '$0'"]
   }
