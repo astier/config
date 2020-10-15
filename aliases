@@ -191,7 +191,7 @@ flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 alias md="mkdir -p"
 alias mf="touch"
 mdj() { mkdir "$1" && cd "$1" || return; }
-ms() { touch "$1"; chmod +x "$1"; }
+mfx() { touch "$1"; chmod +x "$1"; }
 
 # PREVIEW
 l() {
