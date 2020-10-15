@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 [[ $- != *i* ]] && return
+shopt -s dotglob
 
 # PROMPT
 NO_COLOR="\[\e[m\]"
