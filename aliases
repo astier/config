@@ -38,9 +38,9 @@ alias fgm="\$EDITOR .gitmodules"
 alias fn="\$EDITOR \$XDG_CONFIG_HOME/nvim/init.vim"
 alias fp="\$EDITOR ~/.profile"
 alias fr="if [ -r README.md ]; then \$EDITOR README.md; else echo No README found.; fi; "
-alias ft="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
 alias fx="\$EDITOR \$XDG_CONFIG_HOME/sx/sxrc"
 alias n="\$EDITOR ~/cloud/notes"
+alias tm="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
 
 f() {
     if [ -f "$1" ]; then
@@ -53,6 +53,7 @@ f() {
 }
 
 # BOOKMARKS - DIRS
+alias dl="cd ~/Downloads"
 alias ja="cd ~/projects/arch"
 alias jaa="cd ~/projects/arch && \$EDITOR desktop.sh base.sh"
 alias jbi="cd \$HOME/.local/bin"
@@ -61,7 +62,6 @@ alias jco="cd \$XDG_CONFIG_HOME"
 alias jd="cd ~/projects/dotfiles"
 alias jdf="cd ~/projects/dotfiles && f"
 alias jj="cd ~/projects"
-alias jl="cd ~/Downloads"
 alias js="cd ~/projects/scripts"
 alias jsf="cd ~/projects/scripts && f"
 alias jsh="cd \$XDG_DATA_HOME"
