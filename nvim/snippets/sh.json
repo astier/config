@@ -2,5 +2,9 @@
   "shebang": {
     "prefix": ["s"],
     "body": ["#!/usr/bin/env sh\n\n"]
+  },
+  "alias": {
+    "prefix": ["a"],
+    "body": ["alias $1=\"$0\""]
   }
 }
