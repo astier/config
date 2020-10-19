@@ -24,7 +24,6 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
     Plug 'rhysd/clever-f.vim'
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
@@ -63,18 +62,36 @@ xmap ga  <plug>(EasyAlign)
 xmap gaa <plug>(EasyAlign)*<space>
 
 " EXPLORER
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
-let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeIgnore = ['.git', '__pycache__', 'tags', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
-let g:NERDTreeMinimalMenu = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMouseMode = 3
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeStatusline = ''
-let g:NERDTreeWinPos = "right"
-nnoremap <silent> <rightmouse> :NERDTreeToggle<cr>
-nnoremap <silent> <space>e :NERDTreeToggle<cr>
+function! Open()
+    let path = expand('%:p')
+    if !isdirectory(path)
+        " Fixes bug where the current directory is added two times
+        " to the end of the path-variable
+        let path = fnamemodify(path, ':h') . '/'
+    endif
+    let file = fnameescape(path . getline('.'))
+    let mime = system('file -bL --mime-type ' . file)
+    if isdirectory(file) || empty(glob(file)) || mime =~# '\(text/.*\|.*/json\|.*csv\)'
+        execute "normal \<Plug>NetrwLocalBrowseCheck"
+    else
+        execute 'silent !open' file
+    endif
+endfunction
+autocmd group filetype netrw nmap <buffer> <c-rightmouse> <Plug>NetrwSLeftmouse
+autocmd group filetype netrw nmap <buffer> <cr> mf
+autocmd group filetype netrw nnoremap <buffer><silent> <leftmouse> <leftmouse>:call Open()<cr>
+autocmd group filetype netrw nnoremap <buffer><silent> <rightmouse> :silent! norm -<cr>
+autocmd group filetype netrw nnoremap <buffer><silent> <space>e :Rexplore<cr>
+autocmd group filetype netrw nnoremap <buffer><silent> h :silent! norm -<cr>
+autocmd group filetype netrw nnoremap <buffer><silent> l :call Open()<cr>
+let g:netrw_altfile = 1
+let g:netrw_banner = 0
+let g:netrw_browsex_viewer= 'open'
+let g:netrw_dirhistmax = 0
+let g:netrw_keepdir = 0
+let g:netrw_list_hide = '^\.*/$'
+nnoremap <silent> <rightmouse> :Explore <bar> :silent! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
+nnoremap <silent> <space>e :Explore <bar> :silent! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
 
 " FLOG
 autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
@@ -140,10 +157,6 @@ endfunction
 " LOADED
 let g:loaded_gzip = 0
 let g:loaded_matchparen = 0
-let g:loaded_netrw = 0
-let g:loaded_netrwFileHandlers = 0
-let g:loaded_netrwPlugin = 0
-let g:loaded_netrwSettings = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python3_provider = 0
@@ -288,6 +301,7 @@ highlight diffremoved cterm=none ctermbg=none ctermfg=red
 highlight errormsg ctermbg=none
 highlight function ctermfg=none
 highlight matchparen cterm=none ctermbg=none ctermfg=none
+highlight netrwMarkFile cterm=bold ctermfg=yellow
 highlight pmenusel ctermfg=none
 highlight search cterm=bold ctermbg=none ctermfg=red
 highlight vimaugroup ctermfg=none
@@ -304,7 +318,7 @@ set fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
 set noruler noshowcmd noshowmode laststatus=0
 set rulerformat=%=%l/%L
 function StatusLine()
-    if bufname() =~# 'NERD' || empty(expand('%'))
+    if empty(expand('%'))
         return repeat('―', winwidth(0))
     endif
     let left = '―[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
@@ -326,9 +340,7 @@ set showtabline=1
 
 " TMUXRENAME
 function! TmuxRename()
-    if !(bufname() =~# 'NERD' || bufname() =~# 'Tagbar')
-        call system('tmux renamew ' . expand('%:t'))
-    endif
+    call system('tmux renamew ' . expand('%:t'))
 endfunction
 autocmd group bufenter,focusgained * call TmuxRename()
 autocmd group vimleave,vimsuspend * call system('tmux setw automatic-rename')
