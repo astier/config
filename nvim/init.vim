@@ -22,7 +22,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-    Plug 'rbong/vim-flog'
+    Plug 'rbong/vim-flog', { 'on': 'Flog' }
     Plug 'rhysd/clever-f.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'svermeulen/vim-subversive'
