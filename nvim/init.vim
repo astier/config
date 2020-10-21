@@ -170,15 +170,17 @@ let g:loaded_zipPlugin = 0
 
 " LSP
 let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
-nm <silent> gd <plug>(coc-definition)zz
-nm <silent> gR <plug>(coc-references)
-nm <silent> gr <plug>(coc-rename)
-nn <silent> K :cal <sid>show_documentation()<cr>
-fu! s:show_documentation()
+nmap <silent> gd <plug>(coc-definition)zz
+nmap <silent> gR <plug>(coc-references)
+nmap <silent> gr <plug>(coc-rename)
+nnoremap <silent> K :cal <sid>show_documentation()<cr>
+function! s:show_documentation()
     if index(['vim','help'], &filetype) >= 0
-        exe 'h '.expand('<cword>')
-    el | cal CocAction('doHover') | en
-endf
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
 
 " MISC
 autocmd group filetype diff set textwidth=72
