@@ -40,12 +40,8 @@ herbstclient keybind $altgr-Shift-l resize right $resizestep
 # RULES
 herbstclient unrule -F
 herbstclient rule focus=on
-herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
-herbstclient rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
-herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 herbstclient rule instance~.* index=0
-herbstclient rule instance~'st-256color|thunar|.*Nautilus' index=1
-herbstclient rule instance~'launcher|notification' pseudotile=on
+herbstclient rule instance~'st-256color' index=1
 
 # TAGS
 herbstclient rename default 1
