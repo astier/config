@@ -16,6 +16,7 @@ alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias tree="tree -aCI '__pycache__|.git|*.aux|*.fdb_latexmk|*.fls|*.log|*.nav|*.snm|*.gz|*.toc' --dirsfirst --noreport"
 alias umount="sudo umount"
+alias watch="watch --color"
 
 # CPM
 alias x="cpm"
