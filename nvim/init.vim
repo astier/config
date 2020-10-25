@@ -36,6 +36,8 @@ autocmd group bufenter,focusgained * checktime
 autocmd group textchanged,insertleave * nested silent! update
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
+tnoremap <silent> <a-e> <c-\><c-n>:bp<cr>
+tnoremap <silent> <a-r> <c-\><c-n>:bn<cr>
 nnoremap <silent> <tab> :b#<cr>
 set noswapfile
 
@@ -215,6 +217,10 @@ inoremap <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
 inoremap <silent> <a-j> <esc>:TmuxNavigateDown<cr>
 inoremap <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 inoremap <silent> <a-l> <esc>:TmuxNavigateRight<cr>
+tnoremap <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
+tnoremap <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
+tnoremap <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
+tnoremap <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
 
 " PLUG
 nnoremap <silent> <space>pc :PlugClean<cr>
@@ -339,6 +345,20 @@ let g:tabulousLabelNameDefault = 'Empty'
 let g:tabulousLabelNameOptions = ':t'
 let g:tabulousLabelRightStr = '] '
 set showtabline=1
+
+" TERMINAL
+autocmd group bufenter,focusgained,termopen,winenter term://* star
+autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
+autocmd group termopen * setl hidden signcolumn=no
+nnoremap <silent> <a-tab> :terminal<cr>
+tnoremap <silent> <a-tab> <c-\><c-n> :b#<cr>
+tnoremap <a-F> <c-\><c-n>
+set shell=/usr/bin/bash
+if executable('nvr')
+    let $EDITOR='nvr'
+    let $GIT_EDITOR = 'nvr --remote-wait-silent'
+    let $MANPAGER='nvr +"se ft=man" -'
+endif
 
 " TMUXRENAME
 function! TmuxRename()
