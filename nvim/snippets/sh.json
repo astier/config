@@ -6,5 +6,9 @@
   "alias": {
     "prefix": ["a"],
     "body": ["alias $1=\"$0\""]
+  },
+  "function": {
+    "prefix": ["f"],
+    "body": ["$1() { $0; }"]
   }
 }
