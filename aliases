@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # DEFAULTS
-alias cp='cp -ir'
+alias cp='cp -irv'
 alias df="df -h"
 alias du="du -h"
 alias fdisk="sudo fdisk"
@@ -11,7 +11,7 @@ alias ls="ls -Ahv --color --group-directories-first"
 alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
 alias mkdir="mkdir -p"
 alias mount="sudo mount"
-alias mv="mv -i"
+alias mv="mv -iv"
 alias pacman="sudo pacman"
 alias rm="rm -fr"
 alias tree="tree -aCI '__pycache__|.git|*.aux|*.fdb_latexmk|*.fls|*.log|*.nav|*.snm|*.gz|*.toc' --dirsfirst --noreport"
