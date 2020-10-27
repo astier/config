@@ -56,7 +56,7 @@ set commentstring=//\ %s
 inoremap <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
 set completeopt=menuone,noinsert
 set infercase shortmess+=c
-set pumheight=8 " pumwidth=0 (enable in nvim 5)
+set pumheight=8 pumwidth=0
 
 " EASY-ALIGN
 nmap ga  <plug>(EasyAlign)
