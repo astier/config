@@ -1,8 +1,4 @@
 {
-  "plug": {
-    "prefix": ["p"],
-    "body": ["Plug '$0'"]
-  },
   "function": {
     "prefix": ["f"],
     "body": ["function! $1()\n\t$0\nendfunction"]

@@ -3,32 +3,26 @@ augroup group | autocmd! | augroup end
 let mapleader = ' '
 scriptencoding utf-8
 
-" PLUGINS
-if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd vimenter * PlugInstall --sync | source $MYVIMRC
-endif
-call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
-    Plug 'airblade/vim-gitgutter'
-    Plug 'airblade/vim-rooter'
-    Plug 'arcticicestudio/nord-vim'
-    Plug 'astier/tabulous'
-    Plug 'bronson/vim-visual-star-search'
-    Plug 'christoomey/vim-tmux-navigator'
-    Plug 'cohama/lexima.vim'
-    Plug 'hrsh7th/vim-vsnip'
-    Plug 'junegunn/vim-easy-align'
-    Plug 'lervag/vimtex', { 'for': 'tex' }
-    Plug 'machakann/vim-sandwich'
-    Plug 'michaeljsmith/vim-indent-object'
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-    Plug 'rbong/vim-flog', { 'on': 'Flog' }
-    Plug 'rhysd/clever-f.vim'
-    Plug 'svermeulen/vim-subversive'
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-sleuth'
-call plug#end()
+packadd! clever-f
+packadd! coc
+packadd! commentary
+packadd! easy-align
+packadd! flog
+packadd! fugitive
+packadd! gitgutter
+packadd! indent-object
+packadd! lexima
+packadd! nord
+packadd! rooter
+packadd! sandwich
+packadd! sleuth
+packadd! subversive
+packadd! tabulous
+packadd! tmux-navigator
+packadd! vimtex
+packadd! visual-star-search
+packadd! vsnip
+syntax on
 
 " BUFFERS
 autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | endif
@@ -221,11 +215,6 @@ tnoremap <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
 tnoremap <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
 tnoremap <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
 tnoremap <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
-
-" PLUG
-nnoremap <silent> <space>pc :PlugClean<cr>
-nnoremap <silent> <space>pi :PlugInstall<cr>
-nnoremap <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 
 " ROOTER
 autocmd group vimenter * Rooter
