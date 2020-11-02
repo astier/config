@@ -42,6 +42,8 @@ if [ -d "$code_dir" ]; then
 fi
 
 if groups "$USER" | grep -q wheel; then
+    copy 10-udev.rules /etc/udev/rules.d/
+    sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
     copy iptables.rules /etc/iptables
     copy iwd.conf /etc/iwd/main.conf
     copy pacman/pacman.conf /etc

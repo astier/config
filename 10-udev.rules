@@ -1,0 +1,1 @@
+SUBSYSTEM=="drm", ACTION=="change", ENV{DISPLAY}=":1", ENV{XAUTHORITY}="$HOME/.local/share/sx/xauthority", RUN+="$HOME/.local/bin/monitor"

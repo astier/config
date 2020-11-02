@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-autorandr --change
 bstatus -l &
+monitor
 pulsemixer --unmute
 sxhkd &
 xbanish &
