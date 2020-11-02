@@ -9,7 +9,6 @@ link() {
 }
 
 mkdir -p "$XDG_CONFIG_HOME"
-cd dotfiles || return
 
 link .bashrc ~
 link .profile ~
