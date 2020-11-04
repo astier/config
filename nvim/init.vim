@@ -206,6 +206,7 @@ tnoremap <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
 tnoremap <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
 
 " SEARCH & REPLACE
+nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nnoremap <silent> <esc> :noh <bar> echo<cr>
 nnoremap <silent> , :let @/= expand('<cword>') <bar> set hlsearch <cr>
 xnoremap <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1] <bar> set hlsearch <cr>
@@ -263,10 +264,6 @@ nmap s  <plug>(SubversiveSubstitute)
 xmap s  <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
 nmap S  <plug>(SubversiveSubstituteToEndOfLine)
-nmap <space>r <plug>(SubversiveSubstituteWordRange)ie
-xmap <space>r <plug>(SubversiveSubstituteRange)ie
-xnoremap ie <esc>ggVG
-onoremap ie :execute "norm! ggVG"<cr>
 
 " THEME
 " echo synIDattr(synID(line("."), col("."), 1), "name")
