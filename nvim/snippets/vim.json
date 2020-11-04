@@ -6,5 +6,9 @@
   "if": {
     "prefix": ["i"],
     "body": ["if $1\n\t\nendif"]
+  },
+  "packadd": {
+    "prefix": ["p"],
+    "body": ["packadd! "]
   }
 }
