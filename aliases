@@ -66,6 +66,7 @@ alias jj="cd ~/projects"
 alias js="cd ~/projects/scripts"
 alias jsf="cd ~/projects/scripts && f"
 alias jsh="cd \$XDG_DATA_HOME"
+alias jsi="cd ~/projects/sites"
 alias jt="cd ~/projects/st"
 
 j() {
