@@ -5,7 +5,6 @@ scriptencoding utf-8
 
 packadd! coc
 packadd! commentary
-packadd! easy-align
 packadd! flog
 packadd! fugitive
 packadd! gitgutter
@@ -49,11 +48,6 @@ inoremap <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
 set completeopt=menuone,noinsert
 set infercase shortmess+=c
 set pumheight=8 pumwidth=0
-
-" EASY-ALIGN
-nmap ga  <plug>(EasyAlign)
-xmap ga  <plug>(EasyAlign)
-xmap gaa <plug>(EasyAlign)*<space>
 
 " EXPLORER
 function! Open()
