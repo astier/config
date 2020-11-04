@@ -19,7 +19,6 @@ packadd! subversive
 packadd! tabulous
 packadd! tmux-navigator
 packadd! vimtex
-packadd! visual-star-search
 packadd! vsnip
 syntax on
 
@@ -223,8 +222,8 @@ let g:rooter_silent_chdir = 1
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh <bar> echo<cr>
-nnoremap <silent> , *``
-xmap     <silent> , *``
+nnoremap <silent> , :let @/= expand('<cword>') <bar> set hlsearch <cr>
+xnoremap <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1] <bar> set hlsearch <cr>
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 set ignorecase smartcase
