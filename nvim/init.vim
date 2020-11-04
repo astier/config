@@ -3,7 +3,6 @@ augroup group | autocmd! | augroup end
 let mapleader = ' '
 scriptencoding utf-8
 
-packadd! clever-f
 packadd! coc
 packadd! commentary
 packadd! easy-align
@@ -28,6 +27,7 @@ syntax on
 autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | endif
 autocmd group bufenter,focusgained * checktime
 autocmd group textchanged,insertleave * nested silent! update
+nnoremap <silent> f :FZF<cr>
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 tnoremap <silent> <a-e> <c-\><c-n>:bp<cr>
@@ -105,10 +105,6 @@ function! Format()
 endfunction
 nnoremap <silent> <space>gf :call Format()<cr>
 
-" FZF
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-nnoremap <silent> <space>f :FZF<cr>
-
 " GITGUTTER
 autocmd group vimenter,bufwritepost * GitGutter
 let g:gitgutter_map_keys = 0
@@ -184,6 +180,7 @@ autocmd group filetype gitcommit,markdown,tex setlocal spell
 autocmd group filetype hog set ft=udevrules
 autocmd group filetype markdown set textwidth=80
 autocmd group vimresized * wincmd =
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
 set expandtab shiftwidth=4 tabstop=4
@@ -225,9 +222,7 @@ let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
 
 " SEARCH & REPLACE
-let g:clever_f_across_no_line = 1
-let g:clever_f_smart_case = 1
-nnoremap <silent> <esc> :noh <bar> ec <bar> call clever_f#reset()<cr>
+nnoremap <silent> <esc> :noh <bar> echo<cr>
 nnoremap <silent> , *``
 xmap     <silent> , *``
 nnoremap <silent> n nzz
@@ -238,6 +233,7 @@ set inccommand=nosplit
 " SHORTCUTS
 autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqp gqip | endif
 autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqq Vgq | endif
+nnoremap ; `
 nnoremap <a-d> 4<c-y>
 nnoremap <a-f> 4<c-e>
 nnoremap <p <ap
@@ -257,7 +253,6 @@ nnoremap yw my yiw `y
 nnoremap yW my yiW `y
 nnoremap { {zz
 nnoremap } }zz
-nnoremap ; `
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
