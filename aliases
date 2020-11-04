@@ -219,7 +219,7 @@ vpa() {
     name=$(echo "$url" | sed s/.git$// | sed s/.n*vim$// | sed 's/.*\///' | sed s/^vim-//)
     git submodule add --force --name "$name" "$url" "nvim/pack/plugins/opt/$name"
 }
-vpr() {
+vpd() {
     [ $# = 0 ] && echo No submodule provided. && return
     git rm -f "nvim/pack/plugins/opt/$1"
     rm -fr ".git/modules/$1"
