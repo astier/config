@@ -314,7 +314,7 @@ highlight vertsplit ctermbg=none ctermfg=8
 set fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
 set noruler noshowcmd noshowmode laststatus=0
 set rulerformat=%=%l/%L
-function StatusLine()
+function! StatusLine()
     if empty(expand('%'))
         return repeat('―', winwidth(0))
     endif
