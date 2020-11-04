@@ -12,7 +12,6 @@ packadd! gitgutter
 packadd! indent-object
 packadd! lexima
 packadd! nord
-packadd! rooter
 packadd! sandwich
 packadd! sleuth
 packadd! subversive
@@ -211,14 +210,6 @@ tnoremap <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
 tnoremap <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
 tnoremap <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
 tnoremap <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
-
-" ROOTER
-autocmd group vimenter * Rooter
-let g:rooter_change_directory_for_non_project_files = 'current'
-let g:rooter_manual_only = 1
-let g:rooter_patterns = ['.git']
-let g:rooter_resolve_links = 1
-let g:rooter_silent_chdir = 1
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh <bar> echo<cr>

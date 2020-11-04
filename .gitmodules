@@ -26,9 +26,6 @@
 [submodule "nord"]
 	path = nvim/pack/plugins/opt/nord
 	url = https://github.com/arcticicestudio/nord-vim
-[submodule "rooter"]
-	path = nvim/pack/plugins/opt/rooter
-	url = https://github.com/airblade/vim-rooter
 [submodule "sandwich"]
 	path = nvim/pack/plugins/opt/sandwich
 	url = https://github.com/machakann/vim-sandwich
