@@ -7,8 +7,12 @@
     "prefix": ["a"],
     "body": ["alias $1=\"$0\""]
   },
-  "function": {
+  "function-oneliner": {
     "prefix": ["f"],
     "body": ["$1() { $0; }"]
+  },
+  "function": {
+    "prefix": ["ff"],
+    "body": ["$1() {\n\t$0\n}"]
   }
 }
