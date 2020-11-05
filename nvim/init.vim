@@ -20,16 +20,20 @@ packadd! vimtex
 packadd! vsnip
 syntax on
 
-" BUFFERS
+" BUFFERS & TABS
 autocmd group bufenter,focusgained * checktime
+autocmd group tableave * let g:lasttab = tabpagenr()
 autocmd group textchanged,insertleave * nested silent! update
 autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | endif
-nnoremap <silent> <a-e> :bp<cr>
-nnoremap <silent> <a-r> :bn<cr>
+autocmd group vimenter * nested tab ball | tabfirst
+nnoremap <silent> <a-e> :tabp<cr>
+nnoremap <silent> <a-r> :tabn<cr>
+nnoremap <silent> <a-tab> :execute "tabn ".g:lasttab<cr>
 nnoremap <silent> <tab> :b#<cr>
 nnoremap <silent> f :FZF<cr>
-tnoremap <silent> <a-e> <c-\><c-n>:bp<cr>
-tnoremap <silent> <a-r> <c-\><c-n>:bn<cr>
+nnoremap <silent> t :tabnew<cr>
+tnoremap <silent> <a-e> <c-\><c-n>:tabp<cr>
+tnoremap <silent> <a-r> <c-\><c-n>:tabn<cr>
 
 " CLIPBOARD
 inoremap <c-v> <esc>"+p
@@ -315,8 +319,6 @@ set showtabline=1
 autocmd group bufenter,focusgained,termopen,winenter term://* star
 autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
 autocmd group termopen * setl hidden signcolumn=no
-nnoremap <silent> <a-tab> :terminal<cr>
-tnoremap <silent> <a-tab> <c-\><c-n> :b#<cr>
 tnoremap <a-F> <c-\><c-n>
 set shell=/usr/bin/bash
 if executable('nvr')
