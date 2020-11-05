@@ -221,6 +221,7 @@ set inccommand=nosplit
 " SHORTCUTS
 autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqp gqip | endif
 autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqq Vgq | endif
+inoremap <a-c> <esc>la
 nnoremap ; `
 nnoremap <a-d> 4<c-y>
 nnoremap <a-f> 4<c-e>
