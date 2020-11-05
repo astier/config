@@ -41,7 +41,6 @@ alias fp="\$EDITOR ~/.profile"
 alias fr="\$EDITOR README.md"
 alias fx="\$EDITOR \$XDG_CONFIG_HOME/sx/sxrc"
 alias n="\$EDITOR ~/cloud/notes"
-alias tm="\$EDITOR \$XDG_CONFIG_HOME/tmux/tmux.conf"
 
 f() {
     if [ -f "$1" ]; then
