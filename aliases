@@ -217,7 +217,7 @@ tt() { echo "$TMUX_PANE" > /tmp/tmuxsend; }
 # VIM
 vpa() {
     [ $# = 0 ] && url="$(xsel -b | head -n1)" || url="$1"
-    name=$(echo "$url" | sed s/.git$// | sed s/.n*vim$// | sed 's/.*\///' | sed s/^vim-//)
+    name=$(echo "$url" | sed s/.git$// | sed s/.n*vim$// | sed 's/.*\///' | sed s/^n*vim-//)
     git submodule add --force --name "$name" "$url" "nvim/pack/plugins/opt/$name"
 }
 vpd() {
