@@ -21,16 +21,15 @@ packadd! vsnip
 syntax on
 
 " BUFFERS
-autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | endif
 autocmd group bufenter,focusgained * checktime
 autocmd group textchanged,insertleave * nested silent! update
-nnoremap <silent> f :FZF<cr>
+autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | endif
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
+nnoremap <silent> <tab> :b#<cr>
+nnoremap <silent> f :FZF<cr>
 tnoremap <silent> <a-e> <c-\><c-n>:bp<cr>
 tnoremap <silent> <a-r> <c-\><c-n>:bn<cr>
-nnoremap <silent> <tab> :b#<cr>
-set noswapfile
 
 " CLIPBOARD
 inoremap <c-v> <esc>"+p
@@ -178,6 +177,7 @@ let g:plug_window = 'enew'
 set expandtab shiftwidth=4 tabstop=4
 set nofoldenable
 set nojoinspaces
+set noswapfile
 set notimeout
 set splitbelow splitright
 set virtualedit=block
