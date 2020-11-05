@@ -31,15 +31,16 @@ path_bm="$HOME"/cloud/bookmarks.sh
 alias fbm="\$EDITOR \$path_bm && . \$path_bm"
 
 # BOOKMARKS - FILES
-alias fa="\$EDITOR \$XDG_CONFIG_HOME/aliases && . \$XDG_CONFIG_HOME/aliases"
-alias fb="\$EDITOR ~/.bashrc && . ~/.bashrc"
+alias fa="jumpopen \$DOTS aliases && . \$DOTS/aliases"
+alias faa="jumpopen ~/projects/arch desktop.sh base.sh"
+alias fb="jumpopen \$DOTS .bashrc && . \$DOTS/.bashrc"
 alias fbl="\$EDITOR ~/.config/bashrc_local && . ~/.config/bashrc_local"
-alias fgi="\$EDITOR .gitignore"
-alias fgm="\$EDITOR .gitmodules"
-alias fn="\$EDITOR \$XDG_CONFIG_HOME/nvim/init.vim"
-alias fp="\$EDITOR ~/.profile"
-alias fr="\$EDITOR README.md"
-alias fx="\$EDITOR \$XDG_CONFIG_HOME/sx/sxrc"
+alias fgi="\$EDITOR \$(git rev-parse --show-toplevel)/.gitignore"
+alias fgm="\$EDITOR \$(git rev-parse --show-toplevel)/.gitmodules"
+alias fn="jumpopen \$DOTS nvim/init.vim"
+alias fp="jumpopen \$DOTS .profile"
+alias fr="\$EDITOR \$(git rev-parse --show-toplevel)/README.md"
+alias fx="jumpopen \$DOTS sx/sxrc"
 alias n="\$EDITOR ~/cloud/notes"
 
 f() {
@@ -51,11 +52,11 @@ f() {
         ffind -maxdepth 1 -type f | fzf --filter="$*" | head -n1 | xargs -r "$OPENER"
     fi
 }
+jumpopen() { cd "$1" >/dev/null && shift && "$OPENER" "$@" ; }
 
 # BOOKMARKS - DIRS
 alias dl="cd ~/Downloads"
 alias ja="cd ~/projects/arch"
-alias jaa="cd ~/projects/arch && \$EDITOR desktop.sh base.sh"
 alias jbi="cd \$HOME/.local/bin"
 alias jca="cd \$XDG_CACHE_HOME"
 alias jco="cd \$XDG_CONFIG_HOME"
