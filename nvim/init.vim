@@ -14,7 +14,6 @@ packadd! nord
 packadd! sandwich
 packadd! sleuth
 packadd! subversive
-packadd! tabulous
 packadd! tmux-navigator
 packadd! vimtex
 packadd! vsnip
@@ -22,18 +21,15 @@ syntax on
 
 " BUFFERS & TABS
 autocmd group bufenter,focusgained * checktime
-autocmd group tableave * let g:lasttab = tabpagenr()
 autocmd group textchanged,insertleave * nested silent! update
 autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | endif
-autocmd group vimenter * nested tab ball | tabfirst
-nnoremap <silent> <a-e> :tabp<cr>
-nnoremap <silent> <a-r> :tabn<cr>
-nnoremap <silent> <a-tab> :execute "tabn ".g:lasttab<cr>
+nnoremap <silent> <a-e> :bp<cr>
+nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <tab> :b#<cr>
 nnoremap <silent> f :FZF<cr>
-nnoremap <silent> t :tabnew<cr>
-tnoremap <silent> <a-e> <c-\><c-n>:tabp<cr>
-tnoremap <silent> <a-r> <c-\><c-n>:tabn<cr>
+nnoremap <silent> t :tabn<cr>
+tnoremap <silent> <a-e> <c-\><c-n>:bp<cr>
+tnoremap <silent> <a-r> <c-\><c-n>:bn<cr>
 
 " CLIPBOARD
 inoremap <c-v> <esc>"+p
@@ -308,12 +304,7 @@ set statusline=\
 highlight tabline ctermbg=none ctermfg=8
 highlight tablinefill ctermbg=none
 highlight tablinesel ctermbg=none ctermfg=none
-let g:tabulousCloseStr = ''
-let g:tabulousLabelLeftStr = '['
-let g:tabulousLabelNameDefault = 'Empty'
-let g:tabulousLabelNameOptions = ':t'
-let g:tabulousLabelRightStr = '] '
-set showtabline=1
+set showtabline=0
 
 " TERMINAL
 autocmd group bufenter,focusgained,termopen,winenter term://* star
