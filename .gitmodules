@@ -1,3 +1,6 @@
+[submodule "clever-f"]
+	path = nvim/pack/plugins/opt/clever-f
+	url = https://github.com/rhysd/clever-f.vim
 [submodule "coc"]
 	path = nvim/pack/plugins/opt/coc
 	url = https://github.com/neoclide/coc.nvim
