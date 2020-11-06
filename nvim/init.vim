@@ -3,7 +3,6 @@ augroup group | autocmd! | augroup end
 let mapleader = ' '
 scriptencoding utf-8
 
-packadd! clever-f
 packadd! coc
 packadd! commentary
 packadd! flog
@@ -43,16 +42,9 @@ autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | end
 nnoremap <a-tab> :ls<cr>:b<space>
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
-nnoremap <silent> <space>f :FZF<cr>
 nnoremap <silent> <tab> :b#<cr>
+nnoremap <silent> f :FZF<cr>
 nnoremap <silent> t :tabn<cr>
-
-" CLEVER-F
-let g:clever_f_across_no_line = 1
-let g:clever_f_not_overwrites_standard_mappings = 1
-let g:clever_f_smart_case = 1
-nmap f <Plug>(clever-f-f)
-nmap F <Plug>(clever-f-F)
 
 " CLIPBOARD
 inoremap <c-v> <esc>"+p
@@ -256,7 +248,7 @@ inoremap <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 inoremap <silent> <a-l> <esc>:TmuxNavigateRight<cr>
 
 " SEARCH & REPLACE
-nnoremap <silent> <esc> :noh <bar> echo <bar> call clever_f#reset()<cr>
+nnoremap <silent> <esc> :noh <bar> echo<cr>
 nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nnoremap <silent> , :let @/= expand('<cword>') <bar> set hlsearch <cr>
 xnoremap <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1] <bar> set hlsearch <cr>
