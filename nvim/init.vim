@@ -50,7 +50,7 @@ nmap gcp my vip gc `y
 set commentstring=//\ %s
 
 " COMPLETION
-inoremap <expr> <a-c> pumvisible() ? "\<c-e>" : "\<a-c>"
+inoremap <expr> <esc> pumvisible() ? "\<c-e>" : "\<esc>"
 set completeopt=menuone,noinsert
 set infercase shortmess+=c
 set pumheight=8 pumwidth=0
@@ -170,6 +170,11 @@ function! ViewPDF()
     execute 'ec'
 endfunction
 
+" LEXIMA
+let g:lexima_ctrlh_as_backspace = 1
+let g:lexima_enable_endwise_rules = 0
+let g:lexima_map_escape = ''
+
 " LOADED
 let g:loaded_gzip = 0
 let g:loaded_matchparen = 0
@@ -205,7 +210,6 @@ autocmd group filetype hog set ft=udevrules
 autocmd group filetype markdown set textwidth=80
 autocmd group vimresized * wincmd =
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-let g:lexima_enable_endwise_rules = 0
 let g:plug_window = 'enew'
 set expandtab shiftwidth=4 tabstop=4
 set nofoldenable
