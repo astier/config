@@ -55,6 +55,30 @@ set completeopt=menuone,noinsert
 set infercase shortmess+=c
 set pumheight=8 pumwidth=0
 
+" EDITING - CHANGE
+nnoremap cp cip
+nnoremap cw ciw
+nnoremap cW ciW
+
+" EDITING - COPY
+nnoremap Y y$
+nnoremap yp my yip `y
+nnoremap yw my yiw `y
+nnoremap yW my yiW `y
+
+" EDITING - DELETE
+nnoremap dp dap
+nnoremap dw daw
+nnoremap dW daW
+
+" EDITING - REPLACE
+let g:subversivePromptWithCurrent = 1
+let g:subversivePreserveCursorPosition = 1
+nmap s  <plug>(SubversiveSubstitute)
+xmap s  <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S  <plug>(SubversiveSubstituteToEndOfLine)
+
 " EXPLORER
 function! Open()
     let path = expand('%:p')
@@ -227,19 +251,9 @@ nnoremap <a-d> 4<c-y>
 nnoremap <a-f> 4<c-e>
 nnoremap <p <ap
 nnoremap >p >ap
-nnoremap cp cip
-nnoremap cw ciw
-nnoremap cW ciW
-nnoremap dp dap
-nnoremap dw daw
-nnoremap dW daW
 nnoremap gg gg0
 nnoremap Q <c-q>
 nnoremap vp vip
-nnoremap Y y$
-nnoremap yp my yip `y
-nnoremap yw my yiw `y
-nnoremap yW my yiW `y
 nnoremap { {zz
 nnoremap } }zz
 
@@ -260,14 +274,6 @@ autocmd group bufwinenter * if index(ignore_ft, &ft) < 0 | silent! loadview | en
 autocmd group bufwinleave * if index(ignore_ft, &ft) < 0 | silent! mkview | endif
 let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 set viewoptions=cursor
-
-" SUBVERSIVE
-let g:subversivePromptWithCurrent = 1
-let g:subversivePreserveCursorPosition = 1
-nmap s  <plug>(SubversiveSubstitute)
-xmap s  <plug>(SubversiveSubstitute)
-nmap ss <plug>(SubversiveSubstituteLine)
-nmap S  <plug>(SubversiveSubstituteToEndOfLine)
 
 " THEME
 " echo synIDattr(synID(line("."), col("."), 1), "name")
