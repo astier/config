@@ -29,8 +29,6 @@ nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <space>f :FZF<cr>
 nnoremap <silent> <tab> :b#<cr>
 nnoremap <silent> t :tabn<cr>
-tnoremap <silent> <a-e> <c-\><c-n>:bp<cr>
-tnoremap <silent> <a-r> <c-\><c-n>:bn<cr>
 
 " CLEVER-F
 let g:clever_f_across_no_line = 1
@@ -208,10 +206,6 @@ inoremap <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
 inoremap <silent> <a-j> <esc>:TmuxNavigateDown<cr>
 inoremap <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 inoremap <silent> <a-l> <esc>:TmuxNavigateRight<cr>
-tnoremap <silent> <a-h> <c-\><c-n>:TmuxNavigateLeft<cr>
-tnoremap <silent> <a-j> <c-\><c-n>:TmuxNavigateDown<cr>
-tnoremap <silent> <a-k> <c-\><c-n>:TmuxNavigateUp<cr>
-tnoremap <silent> <a-l> <c-\><c-n>:TmuxNavigateRight<cr>
 
 " SEARCH & REPLACE
 nnoremap <silent> <esc> :noh <bar> echo <bar> call clever_f#reset()<cr>
@@ -313,18 +307,6 @@ highlight tabline ctermbg=none ctermfg=8
 highlight tablinefill ctermbg=none
 highlight tablinesel ctermbg=none ctermfg=none
 set showtabline=0
-
-" TERMINAL
-autocmd group bufenter,focusgained,termopen,winenter term://* star
-autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
-autocmd group termopen * setl hidden signcolumn=no
-tnoremap <a-F> <c-\><c-n>
-set shell=/usr/bin/bash
-if executable('nvr')
-    let $EDITOR='nvr'
-    let $GIT_EDITOR = 'nvr --remote-wait-silent'
-    let $MANPAGER='nvr +"se ft=man" -'
-endif
 
 " TMUXRENAME
 function! TmuxRename()
