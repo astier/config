@@ -112,10 +112,12 @@ nnoremap <silent> <rightmouse> :Explore <bar> :silent! /<c-r>=expand("%:t")<cr><
 nnoremap <silent> <space>e :Explore <bar> :silent! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
 
 " FLOG
+autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqp gqip | endif
+autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqq Vgq | endif
 autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
 autocmd group filetype floggraph xmap <buffer> <rightmouse> <cr>
-nnoremap <silent> <space>kk :Flog -all<cr>
 nnoremap <silent> <space>kK :Flog -all -path=%<cr>
+nnoremap <silent> <space>kk :Flog -all<cr>
 
 " FORMAT
 function! Format()
@@ -243,8 +245,6 @@ set ignorecase smartcase
 set inccommand=nosplit
 
 " SHORTCUTS
-autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqp gqip | endif
-autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqq Vgq | endif
 inoremap <a-c> <esc>la
 nnoremap ; `
 nnoremap <a-d> 4<c-y>
