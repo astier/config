@@ -50,7 +50,7 @@ nmap gcp my vip gc `y
 set commentstring=//\ %s
 
 " COMPLETION
-inoremap <expr> <esc> pumvisible() ? "\<c-e>" : "\<esc>"
+inoremap <expr> <c-k> pumvisible() ? "\<c-e>" : "\<c-k>"
 set completeopt=menuone,noinsert
 set infercase shortmess+=c
 set pumheight=8 pumwidth=0
@@ -279,8 +279,7 @@ autocmd group bufwinleave * if index(ignore_ft, &ft) < 0 | silent! mkview | endi
 let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 set viewoptions=cursor
 
-" THEME
-" echo synIDattr(synID(line("."), col("."), 1), "name")
+" THEME (echo synIDattr(synID(line("."), col("."), 1), "name"))
 colorscheme nord
 highlight comment cterm=italic
 highlight diffadded cterm=none ctermbg=none ctermfg=green
