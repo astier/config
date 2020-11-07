@@ -20,6 +20,22 @@ packadd! vimtex
 packadd! vsnip
 syntax on
 
+" APPEARANCE (echo synIDattr(synID(line("."), col("."), 1), "name"))
+colorscheme nord
+highlight comment cterm=italic
+highlight diffadded cterm=none ctermbg=none ctermfg=green
+highlight diffremoved cterm=none ctermbg=none ctermfg=red
+highlight errormsg ctermbg=none
+highlight function ctermfg=none
+highlight matchparen cterm=none ctermbg=none ctermfg=none
+highlight pmenusel ctermfg=none
+highlight search ctermbg=red ctermfg=black
+highlight vimaugroup ctermfg=none
+highlight vimmaprhs ctermfg=none
+highlight vimnotation ctermfg=none
+highlight warningmsg ctermbg=none ctermfg=none
+set cursorline | highlight clear cursorline
+
 " BUFFERS & TABS
 autocmd group bufenter,focusgained * checktime
 autocmd group textchanged,insertleave * nested silent! update
@@ -102,6 +118,7 @@ autocmd group filetype netrw nnoremap <buffer><silent> <rightmouse> :silent! nor
 autocmd group filetype netrw nnoremap <buffer><silent> <space>e :Rexplore<cr>
 autocmd group filetype netrw nnoremap <buffer><silent> h :silent! norm -<cr>
 autocmd group filetype netrw nnoremap <buffer><silent> l :call Open()<cr>
+highlight netrwMarkFile cterm=bold ctermfg=yellow
 let g:netrw_altfile = 1
 let g:netrw_banner = 0
 let g:netrw_browsex_viewer= 'open'
@@ -278,23 +295,6 @@ autocmd group bufwinenter * if index(ignore_ft, &ft) < 0 | silent! loadview | en
 autocmd group bufwinleave * if index(ignore_ft, &ft) < 0 | silent! mkview | endif
 let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 set viewoptions=cursor
-
-" THEME (echo synIDattr(synID(line("."), col("."), 1), "name"))
-colorscheme nord
-highlight comment cterm=italic
-highlight diffadded cterm=none ctermbg=none ctermfg=green
-highlight diffremoved cterm=none ctermbg=none ctermfg=red
-highlight errormsg ctermbg=none
-highlight function ctermfg=none
-highlight matchparen cterm=none ctermbg=none ctermfg=none
-highlight netrwMarkFile cterm=bold ctermfg=yellow
-highlight pmenusel ctermfg=none
-highlight search cterm=bold ctermbg=none ctermfg=red
-highlight vimaugroup ctermfg=none
-highlight vimmaprhs ctermfg=none
-highlight vimnotation ctermfg=none
-highlight warningmsg ctermbg=none ctermfg=none
-set cursorline | highlight clear cursorline
 
 " STATUSLINE
 highlight statusline ctermbg=none ctermfg=8
