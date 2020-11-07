@@ -13,6 +13,7 @@ packadd! lexima
 packadd! nord
 packadd! sandwich
 packadd! sleuth
+packadd! sneak
 packadd! subversive
 packadd! tmux-navigator
 packadd! vimtex
@@ -43,7 +44,7 @@ nnoremap <a-tab> :ls<cr>:b<space>
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <tab> :b#<cr>
-nnoremap <silent> f :FZF<cr>
+nnoremap <silent> <space>f :FZF<cr>
 nnoremap <silent> t :tabn<cr>
 
 " CLIPBOARD
@@ -269,6 +270,14 @@ nnoremap Q <c-q>
 nnoremap vp vip
 nnoremap { {zz
 nnoremap } }zz
+
+" SNEAK
+highlight sneaklabel cterm=none ctermbg=yellow ctermfg=16
+let g:sneak#label = 1
+let g:sneak#target_labels = "fsantuq/SFGHLTUNRMQZ?0"
+let g:sneak#use_ic_scs = 1
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
