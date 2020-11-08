@@ -58,12 +58,6 @@ set completeopt=menuone,noinsert
 set infercase shortmess+=c
 set pumheight=8 pumwidth=0
 
-" EDITING - CLIPBOARD
-inoremap <c-v> <c-o>"+p
-nnoremap <c-c> "+yy
-nnoremap <c-v> "+p
-xnoremap <c-c> "+y
-
 " EDITING - CHANGE
 nmap cp cip
 nmap cw ciw
@@ -224,6 +218,7 @@ autocmd group filetype markdown set textwidth=80
 autocmd group vimresized * wincmd =
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let g:plug_window = 'enew'
+set clipboard=unnamedplus
 set expandtab shiftwidth=4 tabstop=4
 set nofoldenable
 set nojoinspaces
