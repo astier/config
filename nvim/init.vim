@@ -78,7 +78,7 @@ nnoremap yp my yip `y
 nnoremap yw my yiw `y
 nnoremap yW my yiW `y
 
-" EDITING - DELETE
+" EDITING - CUT
 nnoremap dp dap
 nnoremap dw daw
 nnoremap dW daW
