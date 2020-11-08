@@ -47,12 +47,6 @@ nnoremap <silent> <tab> :b#<cr>
 nnoremap <silent> <space>f :FZF<cr>
 nnoremap <silent> t :tabn<cr>
 
-" CLIPBOARD
-inoremap <c-v> <c-o>"+p
-nnoremap <c-c> "+yy
-nnoremap <c-v> "+p
-xnoremap <c-c> "+y
-
 " COMMENTS
 autocmd group bufenter * set formatoptions-=cro
 nmap gcp my vip gc `y
@@ -63,6 +57,12 @@ inoremap <expr> <c-k> pumvisible() ? "\<c-e>" : "\<c-k>"
 set completeopt=menuone,noinsert
 set infercase shortmess+=c
 set pumheight=8 pumwidth=0
+
+" EDITING - CLIPBOARD
+inoremap <c-v> <c-o>"+p
+nnoremap <c-c> "+yy
+nnoremap <c-v> "+p
+xnoremap <c-c> "+y
 
 " EDITING - CHANGE
 nmap cp cip
