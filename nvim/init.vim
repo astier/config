@@ -28,8 +28,6 @@ highlight diffremoved cterm=none ctermbg=none ctermfg=red
 highlight errormsg ctermbg=none
 highlight function ctermfg=none
 highlight matchparen cterm=none ctermbg=none ctermfg=none
-highlight pmenusel ctermfg=none
-highlight search ctermbg=red ctermfg=black
 highlight vimaugroup ctermfg=none
 highlight vimmaprhs ctermfg=none
 highlight vimnotation ctermfg=none
@@ -53,6 +51,7 @@ nmap gcp my vip gc `y
 set commentstring=//\ %s
 
 " COMPLETION
+highlight pmenusel ctermfg=none
 inoremap <expr> <c-k> pumvisible() ? "\<c-e>" : "\<c-k>"
 set completeopt=menuone,noinsert
 set infercase shortmess+=c
@@ -247,6 +246,7 @@ inoremap <silent> <a-k> <esc>:TmuxNavigateUp<cr>
 inoremap <silent> <a-l> <esc>:TmuxNavigateRight<cr>
 
 " SEARCH & REPLACE
+highlight search ctermbg=red ctermfg=black
 nnoremap <silent> <esc> :noh <bar> echo<cr>
 nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nnoremap <silent> , :let @/= expand('<cword>') <bar> set hlsearch <cr>
