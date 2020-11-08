@@ -65,9 +65,12 @@ set infercase shortmess+=c
 set pumheight=8 pumwidth=0
 
 " EDITING - CHANGE
-nnoremap cp cip
-nnoremap cw ciw
-nnoremap cW ciW
+nmap cp cip
+nmap cw ciw
+nmap cW ciW
+nnoremap c "_c
+nnoremap C "_C
+xnoremap c "_c
 
 " EDITING - COPY
 nnoremap Y y$
