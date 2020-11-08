@@ -48,7 +48,7 @@ nnoremap <silent> <space>f :FZF<cr>
 nnoremap <silent> t :tabn<cr>
 
 " CLIPBOARD
-inoremap <c-v> <esc>"+p
+inoremap <c-v> <c-o>"+p
 nnoremap <c-c> "+yy
 nnoremap <c-v> "+p
 xnoremap <c-c> "+y
