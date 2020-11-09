@@ -259,7 +259,7 @@ set ignorecase smartcase
 set inccommand=nosplit
 
 " SHORTCUTS
-inoremap <a-c> <c-o>l
+inoremap <a-c> <esc>la
 nnoremap ; `
 nnoremap <a-d> 4<c-y>
 nnoremap <a-f> 4<c-e>
