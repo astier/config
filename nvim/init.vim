@@ -263,6 +263,7 @@ inoremap <a-c> <c-o>l
 nnoremap ; `
 nnoremap <a-d> 4<c-y>
 nnoremap <a-f> 4<c-e>
+nnoremap <cr> o<esc>
 nnoremap <p <ap
 nnoremap >p >ap
 nnoremap gg gg0
