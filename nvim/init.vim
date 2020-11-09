@@ -240,10 +240,10 @@ nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
-inoremap <silent> <a-h> <esc>:TmuxNavigateLeft<cr>
-inoremap <silent> <a-j> <esc>:TmuxNavigateDown<cr>
-inoremap <silent> <a-k> <esc>:TmuxNavigateUp<cr>
-inoremap <silent> <a-l> <esc>:TmuxNavigateRight<cr>
+inoremap <silent> <a-h> <c-o>:TmuxNavigateLeft<cr>
+inoremap <silent> <a-j> <c-o>:TmuxNavigateDown<cr>
+inoremap <silent> <a-k> <c-o>:TmuxNavigateUp<cr>
+inoremap <silent> <a-l> <c-o>:TmuxNavigateRight<cr>
 
 " SEARCH & REPLACE
 highlight search ctermbg=red ctermfg=black
@@ -257,7 +257,7 @@ set ignorecase smartcase
 set inccommand=nosplit
 
 " SHORTCUTS
-inoremap <a-c> <esc>la
+inoremap <a-c> <c-o>l
 nnoremap ; `
 nnoremap <a-d> 4<c-y>
 nnoremap <a-f> 4<c-e>
