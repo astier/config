@@ -13,7 +13,6 @@ packadd! lexima
 packadd! nord
 packadd! sandwich
 packadd! sleuth
-packadd! sneak
 packadd! subversive
 packadd! tmux-navigator
 packadd! vimtex
@@ -245,14 +244,17 @@ inoremap <silent> <a-j> <c-o>:TmuxNavigateDown<cr>
 inoremap <silent> <a-k> <c-o>:TmuxNavigateUp<cr>
 inoremap <silent> <a-l> <c-o>:TmuxNavigateRight<cr>
 
-" SEARCH & REPLACE
-highlight search ctermbg=red ctermfg=black
+" SEARCH
+highlight incsearch cterm=bold ctermbg=yellow ctermfg=black
+highlight search    cterm=bold ctermbg=none   ctermfg=red
+nnoremap / <nop>
+nnoremap ? <nop>
+nnoremap f /
+nnoremap F ?
 nnoremap <silent> <esc> :noh <bar> echo<cr>
 nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nnoremap <silent> , :let @/= expand('<cword>') <bar> set hlsearch <cr>
 xnoremap <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1] <bar> set hlsearch <cr>
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
 set ignorecase smartcase
 set inccommand=nosplit
 
@@ -268,14 +270,6 @@ nnoremap Q <c-q>
 nnoremap vp vip
 nnoremap { {zz
 nnoremap } }zz
-
-" SNEAK
-highlight sneaklabel cterm=none ctermbg=yellow ctermfg=16
-let g:sneak#label = 1
-let g:sneak#target_labels = "fsantuq/SFGHLTUNRMQZ?0"
-let g:sneak#use_ic_scs = 1
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'

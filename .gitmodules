@@ -29,9 +29,6 @@
 [submodule "sleuth"]
 	path = nvim/pack/plugins/opt/sleuth
 	url = https://github.com/tpope/vim-sleuth
-[submodule "sneak"]
-	path = nvim/pack/plugins/opt/sneak
-	url = https://github.com/justinmk/vim-sneak
 [submodule "subversive"]
 	path = nvim/pack/plugins/opt/subversive
 	url = https://github.com/svermeulen/vim-subversive
