@@ -245,8 +245,8 @@ inoremap <silent> <a-k> <c-o>:TmuxNavigateUp<cr>
 inoremap <silent> <a-l> <c-o>:TmuxNavigateRight<cr>
 
 " SEARCH
-highlight incsearch cterm=bold ctermbg=yellow ctermfg=black
-highlight search    cterm=bold ctermbg=none   ctermfg=red
+highlight incsearch cterm=none ctermbg=yellow ctermfg=black
+highlight search    cterm=none ctermbg=none   ctermfg=red
 nnoremap / <nop>
 nnoremap ? <nop>
 nnoremap f /
