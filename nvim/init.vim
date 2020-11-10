@@ -121,6 +121,7 @@ autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gq
 autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqq Vgq | endif
 autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
 autocmd group filetype floggraph xmap <buffer> <rightmouse> <cr>
+nnoremap <silent> <space>kd :Gdiff<cr>
 nnoremap <silent> <space>kK :Flog -all -path=%<cr>
 nnoremap <silent> <space>kk :Flog -all<cr>
 
