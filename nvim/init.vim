@@ -84,13 +84,14 @@ nnoremap dp dap
 nnoremap dw daw
 nnoremap dW daW
 
-" EDITING - REPLACE
-let g:subversivePromptWithCurrent = 1
+" EDITING - PASTE
+inoremap <c-v> <c-o>p
 let g:subversivePreserveCursorPosition = 1
+let g:subversivePromptWithCurrent = 1
 nmap s  <plug>(SubversiveSubstitute)
-xmap s  <plug>(SubversiveSubstitute)
-nmap ss <plug>(SubversiveSubstituteLine)
 nmap S  <plug>(SubversiveSubstituteToEndOfLine)
+nmap ss <plug>(SubversiveSubstituteLine)
+xmap s  <plug>(SubversiveSubstitute)
 
 " EXPLORER
 function! Open()
