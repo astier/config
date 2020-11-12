@@ -3,7 +3,6 @@ augroup group | autocmd! | augroup end
 let mapleader = ' '
 scriptencoding utf-8
 
-packadd! barbar
 packadd! coc
 packadd! commentary
 packadd! flog
@@ -38,17 +37,9 @@ set cursorline | highlight clear cursorline
 autocmd group bufenter,focusgained * checktime
 autocmd group textchanged,insertleave * nested silent! update
 autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | endif
-highlight BufferCurrentSign ctermfg=8
-highlight BufferInactive ctermfg=8
-highlight BufferInactiveSign ctermfg=8
-let bufferline = {}
-let bufferline.animation = v:false
-let bufferline.closable = v:false
-let bufferline.icons = v:false
-let bufferline.maximum_padding = 1
 nnoremap <a-tab> :ls<cr>:b<space>
-nnoremap <silent> <a-e> :BufferPrevious<cr>
-nnoremap <silent> <a-r> :BufferNext<cr>
+nnoremap <silent> <a-e> :bp<cr>
+nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <space>f :FZF<cr>
 nnoremap <silent> <tab> :b#<cr>
 nnoremap <silent> t :tabn<cr>
@@ -156,8 +147,9 @@ nmap ]c <Plug>(GitGutterNextHunk)zz
 set signcolumn=yes
 
 " KILL
-nnoremap <silent> <space>c :BufferClose<cr>
+nnoremap <silent> <space>c :close<cr>
 nnoremap <silent> <space>d :qa!<cr>
+nnoremap <silent> <space>q :bn<bar>bd!#<cr>
 nnoremap <silent> <space>s <c-z>
 
 " LATEX

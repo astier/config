@@ -41,6 +41,3 @@
 [submodule "vsnip"]
 	path = nvim/pack/plugins/opt/vsnip
 	url = https://github.com/hrsh7th/vim-vsnip
-[submodule "barbar"]
-	path = nvim/pack/plugins/opt/barbar
-	url = https://github.com/romgrk/barbar.nvim
