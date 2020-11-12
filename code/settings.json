@@ -9,6 +9,7 @@
     "editor.cursorBlinking": "solid",
     "editor.fontSize": 13.3,
     "editor.formatOnPaste": true,
+    "editor.glyphMargin": false,
     "editor.hideCursorInOverviewRuler": true,
     "editor.hover.delay": 5000,
     "editor.hover.enabled": true,
