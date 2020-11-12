@@ -22,8 +22,6 @@ syntax on
 " APPEARANCE (echo synIDattr(synID(line("."), col("."), 1), "name"))
 colorscheme nord
 highlight comment cterm=italic
-highlight diffadded cterm=none ctermbg=none ctermfg=green
-highlight diffremoved cterm=none ctermbg=none ctermfg=red
 highlight errormsg ctermbg=none
 highlight function ctermfg=none
 highlight matchparen cterm=none ctermbg=none ctermfg=none
@@ -116,15 +114,6 @@ let g:netrw_list_hide = '^\.*/$'
 nnoremap <silent> <rightmouse> :Explore <bar> :silent! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
 nnoremap <silent> <space>e :Explore <bar> :silent! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
 
-" FLOG
-autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqp gqip | endif
-autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqq Vgq | endif
-autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
-autocmd group filetype floggraph xmap <buffer> <rightmouse> <cr>
-nnoremap <silent> <space>kd :Gdiff<cr>
-nnoremap <silent> <space>kK :Flog -all -path=%<cr>
-nnoremap <silent> <space>kk :Flog -all<cr>
-
 " FORMAT
 function! Format()
     let l:save = winsaveview()
@@ -134,6 +123,18 @@ function! Format()
     call winrestview(l:save)
 endfunction
 nnoremap <silent> <space>gf :call Format()<cr>
+
+" GIT
+autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqp gqip | endif
+autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqq Vgq | endif
+autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
+autocmd group filetype floggraph xmap <buffer> <rightmouse> <cr>
+highlight diffadded cterm=none ctermbg=none ctermfg=green
+highlight diffremoved cterm=none ctermbg=none ctermfg=red
+highlight difftext cterm=none ctermbg=none ctermfg=green
+nnoremap <silent> <space>kd :Gdiff<cr>
+nnoremap <silent> <space>kK :Flog -all -path=%<cr>
+nnoremap <silent> <space>kk :Flog -all<cr>
 
 " GITGUTTER
 autocmd group vimenter,bufwritepost * GitGutter
