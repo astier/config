@@ -314,14 +314,9 @@ highlight tablinefill ctermbg=none
 highlight tablinesel ctermbg=none ctermfg=none
 set showtabline=0
 
-" TMUXRENAME
-function! TmuxRename()
-    call system('tmux renamew ' . expand('%:t'))
-endfunction
-autocmd group bufenter,focusgained * call TmuxRename()
+" TMUX
+autocmd group vimenter,vimresume,focusgained * call system('tmux renamew "#{b:pane_current_path}"')
 autocmd group vimleave,vimsuspend * call system('tmux setw automatic-rename')
-
-" TMUXSEND
 function! T(...)
     if !empty(system('tmux has -t $(cat /tmp/tmuxsend)'))
         execute system('tmux neww -ac "#{pane_current_path}" -PF "#{pane_id}" > /tmp/tmuxsend')
