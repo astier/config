@@ -149,7 +149,7 @@ nmap ]c <Plug>(GitGutterNextHunk)zz
 set signcolumn=yes
 
 " KILL
-nnoremap <silent> <space>c :close<cr>
+nnoremap <silent> <space>c :close<cr>zz
 nnoremap <silent> <space>C :wincmd z<cr>
 nnoremap <silent> <space>d :qa!<cr>
 nnoremap <silent> <space>q :bn<bar>bd!#<cr>
