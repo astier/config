@@ -33,7 +33,7 @@ highlight vimnotation ctermfg=none
 highlight warningmsg ctermbg=none ctermfg=none
 set cursorline | highlight clear cursorline
 
-" BUFFERS & TABS
+" BUFFERS
 autocmd group bufenter,focusgained * checktime
 autocmd group textchanged,insertleave * nested silent! update
 autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | endif
