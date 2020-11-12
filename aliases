@@ -28,7 +28,7 @@ alias xp="cpm -p"
 # BOOKMARKS - HIDDEN
 path_bm="$HOME"/cloud/bookmarks.sh
 [ -r "$path_bm" ] && . "$path_bm"
-alias fbm="\$EDITOR \$path_bm && . \$path_bm"
+alias ma="\$EDITOR \$path_bm && . \$path_bm"
 
 # BOOKMARKS - FILES
 alias fa="jumpopen \$DOTS aliases && . \$DOTS/aliases"
