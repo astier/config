@@ -11,7 +11,7 @@ mod5 + f
 mod5 + D ; {p,r,s}
     {poweroff,reboot,systemctl suspend}
 mod5 + t
-    libreoffice ~/cloud/tracker.ods
+    libreoffice ~/cloud/notes/tracker.ods
 
 {button2,mod5 + m}
     herbstclient spawn /usr/share/doc/herbstluftwm/examples/maximize.sh

@@ -26,7 +26,7 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # BOOKMARKS - HIDDEN
-path_bm="$HOME"/cloud/bookmarks.sh
+path_bm="$HOME"/cloud/notes/bookmarks.sh
 [ -r "$path_bm" ] && . "$path_bm"
 alias ma="\$EDITOR \$path_bm && . \$path_bm"
 
@@ -41,7 +41,7 @@ alias fn="jumpopen \$DOTS nvim/init.vim"
 alias fp="jumpopen \$DOTS .profile"
 alias fr="\$EDITOR \$(git rev-parse --show-toplevel)/README.md"
 alias fx="jumpopen \$DOTS sx/sxrc"
-alias n="\$EDITOR ~/cloud/notes"
+alias n="jumpopen ~/cloud/notes notes"
 
 f() {
     if [ -f "$1" ]; then
