@@ -1,0 +1,1 @@
+autocmd! gitgutter CursorHold,CursorHoldI
