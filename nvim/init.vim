@@ -14,6 +14,7 @@ packadd! nord
 packadd! sandwich
 packadd! sleuth
 packadd! subversive
+packadd! switch
 packadd! targets
 packadd! tmux-navigator
 packadd! vimtex
@@ -38,8 +39,8 @@ nnoremap <a-tab> :ls<cr>:b<space>
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <space>f :FZF<cr>
+nnoremap <silent> <space>t :tabn<cr>
 nnoremap <silent> <tab> :b#<cr>
-nnoremap <silent> t :tabn<cr>
 
 " COMMENTS
 autocmd group bufenter * set formatoptions-=cro
@@ -321,6 +322,11 @@ function! StatusLine()
     return left . repeat('―', winwidth(0) - len(left) - len(right)) . right
 endfunction
 set statusline=\ 
+
+" SWITCH
+autocmd group filetype gitrebase let b:switch_custom_definitions = [['pick', 'f', 'r', 'd']]
+let g:switch_custom_definitions = [['0', '1']]
+let g:switch_mapping = 't'
 
 " TABLINE
 highlight tabline ctermbg=none ctermfg=8

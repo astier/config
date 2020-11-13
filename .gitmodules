@@ -32,6 +32,9 @@
 [submodule "subversive"]
 	path = nvim/pack/plugins/opt/subversive
 	url = https://github.com/svermeulen/vim-subversive
+[submodule "switch"]
+	path = nvim/pack/plugins/opt/switch
+	url = https://github.com/AndrewRadev/switch.vim
 [submodule "targets"]
 	path = nvim/pack/plugins/opt/targets
 	url = https://github.com/wellle/targets.vim
