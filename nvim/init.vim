@@ -223,6 +223,7 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let g:plug_window = 'enew'
 set clipboard=unnamedplus
 set expandtab shiftwidth=4 tabstop=4
+set hidden
 set nofoldenable
 set nojoinspaces
 set noswapfile
