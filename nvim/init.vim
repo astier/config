@@ -14,6 +14,7 @@ packadd! nord
 packadd! sandwich
 packadd! sleuth
 packadd! subversive
+packadd! targets
 packadd! tmux-navigator
 packadd! vimtex
 packadd! vsnip
@@ -248,6 +249,16 @@ inoremap <silent> <a-h> <c-o>:TmuxNavigateLeft<cr>
 inoremap <silent> <a-j> <c-o>:TmuxNavigateDown<cr>
 inoremap <silent> <a-k> <c-o>:TmuxNavigateUp<cr>
 inoremap <silent> <a-l> <c-o>:TmuxNavigateRight<cr>
+
+" OBJECTS
+autocmd User targets#mappings#user call targets#mappings#extend({
+    \ 'd': {'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}]},
+    \ 's': {'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]},
+    \ 'b': {}, 'q': {},
+\ })
+let g:textobj_sandwich_no_default_key_mappings = 1
+nmap cd cId
+nmap cs cIs
 
 " SEARCH
 highlight incsearch cterm=none ctermbg=yellow ctermfg=black
