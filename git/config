@@ -23,3 +23,5 @@
 
 [advice]
     addEmptyPathspec = false
+[diff]
+    ignoreSubmodules = dirty
