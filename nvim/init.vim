@@ -33,7 +33,6 @@ set cursorline | highlight clear cursorline
 
 " BUFFERS
 autocmd group textchanged,insertleave * nested silent! update
-autocmd group vimenter * if len(getbufinfo({'buflisted':1})) > 1 | bn | b# | endif
 nnoremap <a-tab> :ls<cr>:b<space>
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
