@@ -151,10 +151,10 @@ set signcolumn=yes
 
 " KILL
 nnoremap <silent> <space>c :close<cr>zz
-nnoremap <silent> <space>C :wincmd z<cr>
 nnoremap <silent> <space>d :qa!<cr>
 nnoremap <silent> <space>q :bn<bar>bd!#<cr>
 nnoremap <silent> <space>s <c-z>
+nnoremap <silent> <space>z :wincmd z<cr>
 
 " LATEX
 let g:tex_flavor = 'latex'
