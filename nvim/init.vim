@@ -39,6 +39,7 @@ nnoremap <a-tab> :ls<cr>:b<space>
 nnoremap <silent> <a-e> :bp<cr>
 nnoremap <silent> <a-r> :bn<cr>
 nnoremap <silent> <space>f :FZF<cr>
+nnoremap <silent> <space>s <c-w>s
 nnoremap <silent> <space>t :tabn<cr>
 nnoremap <silent> <tab> :b#<cr>
 
@@ -153,7 +154,6 @@ set signcolumn=yes
 nnoremap <silent> <space>c :close<cr>zz
 nnoremap <silent> <space>d :qa!<cr>
 nnoremap <silent> <space>q :bn<bar>bd!#<cr>
-nnoremap <silent> <space>s <c-z>
 nnoremap <silent> <space>z :wincmd z<cr>
 
 " LATEX
