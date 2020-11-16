@@ -264,6 +264,8 @@ nmap cs cIs
 " SEARCH
 highlight incsearch cterm=none ctermbg=yellow ctermfg=black
 highlight search    cterm=none ctermbg=none   ctermfg=red
+nnoremap n nzz
+nnoremap N Nzz
 nnoremap / <nop>
 nnoremap ? <nop>
 nnoremap f /
