@@ -1,160 +1,160 @@
 " FIRST THINGS FIRST
-augroup group | autocmd! | augroup end
+aug group | au! | aug end
 let mapleader = ' '
 scriptencoding utf-8
 
-packadd! coc
-packadd! commentary
-packadd! flog
-packadd! fugitive
-packadd! gitgutter
-packadd! indent-object
-packadd! lexima
-packadd! nord
-packadd! sandwich
-packadd! sleuth
-packadd! subversive
-packadd! switch
-packadd! targets
-packadd! tmux-navigator
-packadd! vimtex
-packadd! vsnip
+pa! coc
+pa! commentary
+pa! flog
+pa! fugitive
+pa! gitgutter
+pa! indent-object
+pa! lexima
+pa! nord
+pa! sandwich
+pa! sleuth
+pa! subversive
+pa! switch
+pa! targets
+pa! tmux-navigator
+pa! vimtex
+pa! vsnip
 syntax on
 
 " APPEARANCE (echo synIDattr(synID(line("."), col("."), 1), "name"))
 colorscheme nord
-highlight comment cterm=italic
-highlight errormsg ctermbg=none
-highlight function ctermfg=none
-highlight matchparen cterm=none ctermbg=none ctermfg=none
-highlight vimaugroup ctermfg=none
-highlight vimmaprhs ctermfg=none
-highlight vimnotation ctermfg=none
-highlight warningmsg ctermbg=none ctermfg=none
-set cursorline | highlight clear cursorline
+hi comment cterm=italic
+hi errormsg ctermbg=none
+hi function ctermfg=none
+hi matchparen cterm=none ctermbg=none ctermfg=none
+hi vimaugroup ctermfg=none
+hi vimmaprhs ctermfg=none
+hi vimnotation ctermfg=none
+hi warningmsg ctermbg=none ctermfg=none
+se cursorline | hi clear cursorline
 
 " BUFFERS
-autocmd group textchanged,insertleave * nested silent! update
-nnoremap <a-tab> :ls<cr>:b<space>
-nnoremap <silent> <a-e> :bp<cr>
-nnoremap <silent> <a-r> :bn<cr>
-nnoremap <silent> <space>f :FZF<cr>
-nnoremap <silent> <space>s <c-w>s
-nnoremap <silent> <space>t :tabn<cr>
-nnoremap <silent> <tab> :b#<cr>
+au group textchanged,insertleave * nested sil! up
+nn <a-tab> :ls<cr>:b<space>
+nn <silent> <a-e> :bp<cr>
+nn <silent> <a-r> :bn<cr>
+nn <silent> <space>f :FZF<cr>
+nn <silent> <space>s <c-w>s
+nn <silent> <space>t :tabn<cr>
+nn <silent> <tab> :b#<cr>
 
 " COMMENTS
-autocmd group bufenter * set formatoptions-=cro
-nmap gcp my vip gc `y
-set commentstring=//\ %s
+au group bufenter * se formatoptions-=cro
+nm gcp my vip gc `y
+se commentstring=//\ %s
 
 " COMPLETION
-highlight pmenusel ctermfg=none
-inoremap <expr> <c-k> pumvisible() ? "\<c-e>" : "\<c-k>"
-set completeopt=menuone,noinsert
-set infercase shortmess+=c
-set pumheight=8 pumwidth=0
+hi pmenusel ctermfg=none
+ino <expr> <c-k> pumvisible() ? "\<c-e>" : "\<c-k>"
+se completeopt=menuone,noinsert
+se infercase shortmess+=c
+se pumheight=8 pumwidth=0
 
 " EDITING - CHANGE
-nmap cp cip
-nmap cw ciw
-nmap cW ciW
-nnoremap c "_c
-nnoremap C "_C
-xnoremap c "_c
+nm cp cip
+nm cw ciw
+nm cW ciW
+nn c "_c
+nn C "_C
+xn c "_c
 
 " EDITING - COPY
-nnoremap Y y$
-nnoremap yp my yip `y
-nnoremap yw my yiw `y
-nnoremap yW my yiW `y
+nn Y y$
+nn yp my yip `y
+nn yw my yiw `y
+nn yW my yiW `y
 
 " EDITING - CUT
-nnoremap dp dap
-nnoremap dw daw
-nnoremap dW daW
+nn dp dap
+nn dw daw
+nn dW daW
 
 " EDITING - PASTE
-inoremap <c-v> <c-o>p
+ino <c-v> <c-o>p
 let g:subversivePreserveCursorPosition = 1
 let g:subversivePromptWithCurrent = 1
-nmap s  <plug>(SubversiveSubstitute)
-nmap S  <plug>(SubversiveSubstituteToEndOfLine)
-nmap ss <plug>(SubversiveSubstituteLine)
-xmap s  <plug>(SubversiveSubstitute)
+nm s  <plug>(SubversiveSubstitute)
+nm S  <plug>(SubversiveSubstituteToEndOfLine)
+nm ss <plug>(SubversiveSubstituteLine)
+xm s  <plug>(SubversiveSubstitute)
 
 " EXPLORER
-function! Open()
+fu! Open()
     let path = expand('%:p')
     if !isdirectory(path)
         " Fixes bug where the current directory is added two times
         " to the end of the path-variable
         let path = fnamemodify(path, ':h') . '/'
-    endif
+    en
     let file = fnameescape(path . getline('.'))
     let mime = system('file -bL --mime-type ' . file)
     if isdirectory(file) || empty(glob(file)) || mime =~# '\(text/.*\|.*/json\|.*csv\)'
-        execute "normal \<Plug>NetrwLocalBrowseCheck"
-    else
-        execute 'silent !open' file
-    endif
-endfunction
-autocmd group filetype netrw nmap <buffer> <c-rightmouse> <Plug>NetrwSLeftmouse
-autocmd group filetype netrw nmap <buffer> <cr> mf
-autocmd group filetype netrw nnoremap <buffer><silent> <leftmouse> <leftmouse>:call Open()<cr>
-autocmd group filetype netrw nnoremap <buffer><silent> <rightmouse> :silent! norm -<cr>
-autocmd group filetype netrw nnoremap <buffer><silent> <space>e :Rexplore<cr>
-autocmd group filetype netrw nnoremap <buffer><silent> h :silent! norm -<cr>
-autocmd group filetype netrw nnoremap <buffer><silent> l :call Open()<cr>
-highlight netrwMarkFile cterm=bold ctermfg=yellow
+        exe "normal \<Plug>NetrwLocalBrowseCheck"
+    el
+        exe 'sil !open' file
+    en
+endf
+au group filetype netrw nm <buffer> <c-rightmouse> <Plug>NetrwSLeftmouse
+au group filetype netrw nm <buffer> <cr> mf
+au group filetype netrw nn <buffer><silent> <leftmouse> <leftmouse>:cal Open()<cr>
+au group filetype netrw nn <buffer><silent> <rightmouse> :sil! norm -<cr>
+au group filetype netrw nn <buffer><silent> <space>e :Rexplore<cr>
+au group filetype netrw nn <buffer><silent> h :sil! norm -<cr>
+au group filetype netrw nn <buffer><silent> l :cal Open()<cr>
+hi netrwMarkFile cterm=bold ctermfg=yellow
 let g:netrw_altfile = 1
 let g:netrw_banner = 0
 let g:netrw_browsex_viewer= 'open'
 let g:netrw_dirhistmax = 0
 let g:netrw_keepdir = 0
 let g:netrw_list_hide = '^\.*/$'
-nnoremap <silent> <rightmouse> :Explore <bar> :silent! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
-nnoremap <silent> <space>e :Explore <bar> :silent! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
+nn <silent> <rightmouse> :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
+nn <silent> <space>e :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
 
 " FORMAT
-function! Format()
+fu! Format()
     let l:save = winsaveview()
-    execute 'ret! | silent up'
-    call system('format ' . bufname('%'))
-    execute 'e'
-    call winrestview(l:save)
-endfunction
-nnoremap <silent> <space>gf :call Format()<cr>
+    exe 'retab! | sil up'
+    cal system('format ' . bufname('%'))
+    exe 'edit'
+    cal winrestview(l:save)
+endf
+nn <silent> <space>gf :cal Format()<cr>
 
 " GIT
-autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqp gqip | endif
-autocmd group filetype * if index(['floggraph'], &ft) < 0 | nnoremap <buffer> gqq Vgq | endif
-autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
-autocmd group filetype floggraph xmap <buffer> <rightmouse> <cr>
-highlight diffadded cterm=none ctermbg=none ctermfg=green
-highlight diffremoved cterm=none ctermbg=none ctermfg=red
-highlight difftext cterm=none ctermbg=none ctermfg=green
-nnoremap <silent> <space>kd :Gdiff<cr>
-nnoremap <silent> <space>kK :Flog -all -path=%<cr>
-nnoremap <silent> <space>kk :Flog -all<cr>
+au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqp gqip | en
+au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqq Vgq | en
+au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
+au group filetype floggraph xm <buffer> <rightmouse> <cr>
+hi diffadded cterm=none ctermbg=none ctermfg=green
+hi diffremoved cterm=none ctermbg=none ctermfg=red
+hi difftext cterm=none ctermbg=none ctermfg=green
+nn <silent> <space>kd :Gdiff<cr>
+nn <silent> <space>kK :Flog -all -path=%<cr>
+nn <silent> <space>kk :Flog -all<cr>
 
 " GITGUTTER
-autocmd group vimenter,bufwritepost * GitGutter
+au group vimenter,bufwritepost * GitGutter
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_show_msg_on_hunk_jumping = 0
-nmap <space>i <Plug>(GitGutterPreviewHunk)
-nmap <space>S <Plug>(GitGutterStageHunk)
-nmap <space>u <Plug>(GitGutterUndoHunk)
-nmap [c <Plug>(GitGutterPrevHunk)zz
-nmap ]c <Plug>(GitGutterNextHunk)zz
-set signcolumn=yes
+nm <space>i <Plug>(GitGutterPreviewHunk)
+nm <space>S <Plug>(GitGutterStageHunk)
+nm <space>u <Plug>(GitGutterUndoHunk)
+nm [c <Plug>(GitGutterPrevHunk)zz
+nm ]c <Plug>(GitGutterNextHunk)zz
+se signcolumn=yes
 
 " KILL
-nnoremap <silent> <space>c :close<cr>zz
-nnoremap <silent> <space>d :qa!<cr>
-nnoremap <silent> <space>q :bn<bar>bd!#<cr>
-nnoremap <silent> <space>z :wincmd z<cr>
+nn <silent> <space>c :close<cr>zz
+nn <silent> <space>d :qa!<cr>
+nn <silent> <space>q :bn<bar>bd!#<cr>
+nn <silent> <space>z :wincmd z<cr>
 
 " LATEX
 let g:tex_flavor = 'latex'
@@ -170,16 +170,16 @@ let g:vimtex_compiler_latexmk = {
         \'-interaction=nonstopmode',
     \],
 \}
-autocmd group filetype tex nnoremap <silent> <space>a :VimtexCompile<cr>
-autocmd user VimtexEventCompileSuccess call ViewPDF()
-function! ViewPDF()
+au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
+au user VimtexEventCompileSuccess cal ViewPDF()
+fu! ViewPDF()
     if system('pidof zathura')
-        execute 'silent !wmctrl -xa zathura'
-    else
-        execute 'VimtexView'
-    endif
-    execute 'ec'
-endfunction
+        exe 'sil !wmctrl -xa zathura'
+    el
+        exe 'VimtexView'
+    en
+    exe 'ec'
+endf
 
 " LEXIMA
 let g:lexima_ctrlh_as_backspace = 1
@@ -202,175 +202,176 @@ let g:loaded_zipPlugin = 0
 
 " LSP
 let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
-nmap <silent> gd <plug>(coc-definition)zz
-nmap <silent> gR <plug>(coc-references)
-nmap <silent> gr <plug>(coc-rename)
-nnoremap <silent> K :cal <sid>show_documentation()<cr>
-function! s:show_documentation()
+nm <silent> gd <plug>(coc-definition)zz
+nm <silent> gR <plug>(coc-references)
+nm <silent> gr <plug>(coc-rename)
+nn <silent> K :cal <sid>show_documentation()<cr>
+fu! s:show_documentation()
     if index(['vim','help'], &filetype) >= 0
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
+        exe 'h '.expand('<cword>')
+    el
+        cal CocAction('doHover')
+    en
+endf
 
 " MISC
-autocmd group filetype diff set textwidth=72
-autocmd group filetype gitcommit,markdown,tex setlocal spell
-autocmd group filetype hog set ft=udevrules
-autocmd group filetype markdown set textwidth=80
-autocmd group vimresized * wincmd =
+au group filetype diff se textwidth=72
+au group filetype gitcommit,markdown,tex setlocal spell
+au group filetype hog se ft=udevrules
+au group filetype markdown se textwidth=80
+au group vimresized * wincmd =
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let g:plug_window = 'enew'
-set clipboard=unnamedplus
-set expandtab shiftwidth=4 tabstop=4
-set hidden
-set nofoldenable
-set nojoinspaces
-set noswapfile
-set notimeout
-set splitbelow splitright
-set virtualedit=block
-set wildmode=longest,list
+se clipboard=unnamedplus
+se expandtab shiftwidth=4 tabstop=4
+se hidden
+se nofoldenable
+se nojoinspaces
+se noswapfile
+se notimeout
+se splitbelow splitright
+se virtualedit=block
+se wildmode=longest,list
 
 " MOUSE
-nmap <silent> <2-rightmouse> <rightmouse>
-nmap <silent> <3-rightmouse> <rightmouse>
-nmap <silent> <4-rightmouse> <rightmouse>
-set mouse=a
-set mousemodel=popup
+nm <silent> <2-rightmouse> <rightmouse>
+nm <silent> <3-rightmouse> <rightmouse>
+nm <silent> <4-rightmouse> <rightmouse>
+se mouse=a
+se mousemodel=popup
 
 " NAVIGATION
 let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <a-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <a-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <a-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <a-l> :TmuxNavigateRight<cr>
-inoremap <silent> <a-h> <c-o>:TmuxNavigateLeft<cr>
-inoremap <silent> <a-j> <c-o>:TmuxNavigateDown<cr>
-inoremap <silent> <a-k> <c-o>:TmuxNavigateUp<cr>
-inoremap <silent> <a-l> <c-o>:TmuxNavigateRight<cr>
+nn <silent> <a-h> :TmuxNavigateLeft<cr>
+nn <silent> <a-j> :TmuxNavigateDown<cr>
+nn <silent> <a-k> :TmuxNavigateUp<cr>
+nn <silent> <a-l> :TmuxNavigateRight<cr>
+ino <silent> <a-h> <c-o>:TmuxNavigateLeft<cr>
+ino <silent> <a-j> <c-o>:TmuxNavigateDown<cr>
+ino <silent> <a-k> <c-o>:TmuxNavigateUp<cr>
+ino <silent> <a-l> <c-o>:TmuxNavigateRight<cr>
 
 " OBJECTS
-autocmd User targets#mappings#user call targets#mappings#extend({
+au User targets#mappings#user cal targets#mappings#extend({
     \ 'd': {'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}]},
     \ 's': {'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]},
     \ 'b': {}, 'q': {},
 \ })
 let g:textobj_sandwich_no_default_key_mappings = 1
-nmap cd cId
-nmap cs cIs
+nm cd cId
+nm cs cIs
 
 " SEARCH
-highlight incsearch cterm=none ctermbg=yellow ctermfg=black
-highlight search    cterm=none ctermbg=none   ctermfg=red
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap / <nop>
-nnoremap ? <nop>
-nnoremap f /
-nnoremap F ?
-nnoremap <silent> <esc> :noh <bar> echo<cr>
-nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
-nnoremap <silent> , :let @/= expand('<cword>') <bar> set hlsearch <cr>
-xnoremap <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1] <bar> set hlsearch <cr>
-set ignorecase smartcase
-set inccommand=nosplit
+hi incsearch cterm=none ctermbg=yellow ctermfg=black
+hi search    cterm=none ctermbg=none   ctermfg=red
+nn n nzz
+nn N Nzz
+nn / <nop>
+nn ? <nop>
+nn f /
+nn F ?
+nn <silent> <esc> :noh <bar> echo<cr>
+nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
+nn <silent> , :let @/= expand('<cword>') <bar> se hlsearch <cr>
+xn <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1] <bar> se hlsearch <cr>
+se ignorecase smartcase
+se inccommand=nosplit
 
 " SHORTCUTS
-inoremap <c-l> <esc>la
-nnoremap <a-d> 4<c-y>
-nnoremap <a-f> 4<c-e>
-nnoremap <cr> o<esc>
-nnoremap <p <ap
-nnoremap >p >ap
-nnoremap gg gg0
-nnoremap Q <c-q>
-nnoremap vp vip
-nnoremap { {zz
-nnoremap } }zz
+ino <c-l> <esc>la
+nn <a-d> 4<c-y>
+nn <a-f> 4<c-e>
+nn <cr> o<esc>
+nn <p <ap
+nn >p >ap
+nn gg gg0
+nn Q <c-q>
+nn vp vip
+nn { {zz
+nn } }zz
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
-imap <silent> <expr> <tab>   vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-smap <silent> <expr> <tab>   vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
-imap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)'      : '<a-tab>'
+im   <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)'      : '<a-tab>'
+im   <silent> <expr> <tab>   vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
 smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)'      : '<a-tab>'
+smap <silent> <expr> <tab>   vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
 
 " SORT
-nmap     <silent> gsi my vii :sort i<cr> `y
-nnoremap <silent> gss my vip :sort i<cr> `y
-xnoremap <silent> gs  my :sort i<cr> `y
+nm <silent> gsi my vii :sort i<cr> `y
+nn <silent> gss my vip :sort i<cr> `y
+xn <silent> gs  my :sort i<cr> `y
 
 " STATE
-autocmd group bufwinenter * if index(ignore_ft, &ft) < 0 | silent! loadview | endif
-autocmd group bufwinleave * if index(ignore_ft, &ft) < 0 | silent! mkview | endif
+au group bufwinenter * if index(ignore_ft, &ft) < 0 | sil! loadview | en
+au group bufwinleave * if index(ignore_ft, &ft) < 0 | sil! mkview | en
 let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
-set viewoptions=cursor
+se viewoptions=cursor
 
 " STATUSLINE
-highlight statusline ctermbg=none ctermfg=8
-highlight statuslinenc ctermbg=none ctermfg=8
-highlight vertsplit ctermbg=none ctermfg=8
-set fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
-set noruler noshowcmd noshowmode laststatus=0
-set rulerformat=%=%l/%L
-function! StatusLine()
+hi statusline ctermbg=none ctermfg=8
+hi statuslinenc ctermbg=none ctermfg=8
+hi vertsplit ctermbg=none ctermfg=8
+se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
+se noruler noshowcmd noshowmode laststatus=0
+se rulerformat=%=%l/%L
+fu! StatusLine()
     if empty(expand('%'))
-        return repeat('―', winwidth(0))
-    endif
+        retu repeat('―', winwidth(0))
+    en
     let left = '―[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
     let right = '[' . line('.') . '/' . line('$') . ']'
-    return left . repeat('―', winwidth(0) - len(left) - len(right)) . right
-endfunction
-set statusline=\ 
+    retu left . repeat('―', winwidth(0) - len(left) - len(right)) . right
+endf
+se statusline=\ 
 
 " SWITCH
-autocmd group filetype gitrebase let b:switch_custom_definitions = [['pick', 'f', 'r', 'd']]
+au group filetype gitrebase let b:switch_custom_definitions = [['pick', 'f', 'r', 'd']]
 let g:switch_custom_definitions = [['0', '1']]
 let g:switch_mapping = 't'
 
 " TABLINE
-highlight tabline ctermbg=none ctermfg=8
-highlight tablinefill ctermbg=none
-highlight tablinesel ctermbg=none ctermfg=none
-set showtabline=0
+hi tabline ctermbg=none ctermfg=8
+hi tablinefill ctermbg=none
+hi tablinesel ctermbg=none ctermfg=none
+se showtabline=0
 
 " TMUXRENAME
-function! TmuxRename()
+fu! TmuxRename()
     if &ft == 'git'
-        call system('tmux renamew git')
-    else
-        call system('tmux renamew "#{b:pane_current_path}"')
-    endif
-endfunction
-autocmd group vimenter,vimresume,focusgained * call TmuxRename()
-autocmd group vimleave,vimsuspend * call system('tmux setw automatic-rename')
+        cal system('tmux renamew git')
+    el
+        cal system('tmux renamew "#{b:pane_current_path}"')
+    en
+endf
+au group vimenter,vimresume,focusgained * cal TmuxRename()
+au group vimleave,vimsuspend * cal system('tmux setw automatic-rename')
 
 " TMUXSEND
-function! T(...)
+fu! T(...)
     if !empty(system('tmux has -t $(cat /tmp/tmuxsend)'))
-        execute system('tmux neww -ac "#{pane_current_path}" -PF "#{pane_id}" > /tmp/tmuxsend')
-        silent !tmux lastp
-    endif
-    execute system('tmux send -t $(cat /tmp/tmuxsend) ' . shellescape(join(a:000)) . ' ENTER')
+        exe system('tmux neww -ac "#{pane_current_path}" -PF "#{pane_id}" > /tmp/tmuxsend')
+        sil !tmux lastp
+    en
+    exe system('tmux send -t $(cat /tmp/tmuxsend) ' . shellescape(join(a:000)) . ' ENTER')
     if system('tmux display -p "#{window_id}"') != system('tmux display -pt $(cat /tmp/tmuxsend) "#{window_id}"')
-        silent !tmux selectw -t $(cat /tmp/tmuxsend)
-    endif
-endfunction
-command! -complete=shellcmd -nargs=+ T call T(expandcmd(<q-args>))
-nnoremap <silent> <space><space> :call T(getline('.'))<cr>
-xnoremap <silent> <space><space> "vy :call T(substitute(@v, '\n$', '', ''))<cr>
-nnoremap <silent> <space>l :T lint %<cr>
-nnoremap <silent> <space>a :T execute<cr>
+        sil !tmux selectw -t $(cat /tmp/tmuxsend)
+    en
+endf
+com! -complete=shellcmd -nargs=+ T cal T(expandcmd(<q-args>))
+nn <silent> <space><space> :cal T(getline('.'))<cr>
+xn <silent> <space><space> "vy :cal T(substitute(@v, '\n$', '', ''))<cr>
+nn <silent> <space>l :T lint %<cr>
+nn <silent> <space>a :T execute<cr>
 
 " WRAP
-nnoremap $ g$
-nnoremap 0 g0
-nnoremap j gj
-nnoremap k gk
-xnoremap $ g$
-xnoremap 0 g0
-xnoremap j gj
-xnoremap k gk
-set breakindent linebreak
+nn $ g$
+nn 0 g0
+nn j gj
+nn k gk
+xn $ g$
+xn 0 g0
+xn j gj
+xn k gk
+se breakindent
+se linebreak
