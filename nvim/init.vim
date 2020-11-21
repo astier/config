@@ -207,10 +207,12 @@ nm <silent> gR <plug>(coc-references)
 nm <silent> gr <plug>(coc-rename)
 nn <silent> K :cal <sid>show_documentation()<cr>
 fu! s:show_documentation()
-    if index(['vim','help'], &filetype) >= 0
+    if (index(['vim','help'], &filetype) >= 0)
         exe 'h '.expand('<cword>')
+    elsei (coc#rpc#ready())
+        cal CocActionAsync('doHover')
     el
-        cal CocAction('doHover')
+        exe '!' . &keywordprg . " " . expand('<cword>')
     en
 endf
 
