@@ -1,0 +1,10 @@
+{
+  "if": {
+    "prefix": ["i"],
+    "body": ["if ($1)$0"]
+  },
+  "return": {
+    "prefix": ["r"],
+    "body": ["return$0;"]
+  }
+}
