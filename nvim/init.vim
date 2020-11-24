@@ -329,7 +329,7 @@ se statusline=\
 
 " SWITCH
 au group filetype gitrebase let b:switch_custom_definitions = [['pick', 'f', 'r', 'd']]
-let g:switch_custom_definitions = [['0', '1']]
+let g:switch_custom_definitions = [['0', '1'], ['==', '!=']]
 let g:switch_mapping = 't'
 
 " TABLINE
