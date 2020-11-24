@@ -17,6 +17,7 @@
     "python.workspaceSymbols.enabled": false,
 
     "suggest.floatEnable": false,
+    "suggest.localityBonus": false,
     "suggest.noselect": false,
     "suggest.removeDuplicateItems": true,
     "suggest.snippetIndicator": "",
