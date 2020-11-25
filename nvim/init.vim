@@ -233,6 +233,7 @@ se notimeout
 se splitbelow splitright
 se virtualedit=block
 se wildmode=longest,list
+set spellcapcheck=
 
 " MOUSE
 nm <silent> <2-rightmouse> <rightmouse>
