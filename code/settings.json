@@ -68,7 +68,7 @@
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.enableExperiments": false,
-    "workbench.iconTheme": "file-icons",
+    "workbench.iconTheme": null,
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": false,
