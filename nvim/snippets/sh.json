@@ -8,11 +8,11 @@
     "body": ["alias $1=\"$0\""]
   },
   "function-oneliner": {
-    "prefix": ["f"],
+    "prefix": ["ff"],
     "body": ["$1() { $0; }"]
   },
   "function": {
-    "prefix": ["ff"],
+    "prefix": ["f"],
     "body": ["$1() {\n\t$0\n}"]
   }
 }
