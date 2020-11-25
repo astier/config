@@ -1,1 +1,3 @@
-autocmd! gitgutter CursorHold,CursorHoldI
+if !exists('g:vscode')
+    autocmd! gitgutter CursorHold,CursorHoldI
+en
