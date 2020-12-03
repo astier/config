@@ -11,7 +11,7 @@ export BROWSER=firefox
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND="ffind -type f"
 export FZF_DEFAULT_OPTS="--cycle --multi --reverse --tabstop=4 --tiebreak=begin,length,end,index --no-info --color=bg+:-1,fg+:-1,border:16,hl:1,hl+:1,prompt:4,pointer:2,marker:3,info:8"
-export MANPAGER="nvim +'se ft=man' -"
+export MANPAGER="nvim +Man!"
 export OPENER=open
 export TERMINAL=st
 export VIEWER_IMG=gthumb
