@@ -1,4 +1,3 @@
-" FIRST THINGS FIRST
 aug group | au! | aug end
 let mapleader = ' '
 scriptencoding utf-8
