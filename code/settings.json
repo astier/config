@@ -69,7 +69,6 @@
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.tabSizing": "shrink",
     "workbench.enableExperiments": false,
     "workbench.iconTheme": "file-icons",
     "workbench.settings.enableNaturalLanguageSearch": false,
