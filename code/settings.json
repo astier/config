@@ -71,7 +71,7 @@
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.tabSizing": "shrink",
     "workbench.enableExperiments": false,
-    "workbench.iconTheme": null,
+    "workbench.iconTheme": "file-icons",
     "workbench.settings.enableNaturalLanguageSearch": false,
     "workbench.startupEditor": "none",
     "workbench.statusBar.visible": false,
