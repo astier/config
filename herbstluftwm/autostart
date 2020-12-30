@@ -64,6 +64,7 @@ if herbstclient silent new_attr bool my_not_first_autostart ; then
     herbstclient load 2 "$layout"
     herbstclient spawn hsetroot
     herbstclient spawn picom --config /dev/null -b
+    herbstclient spawn tint2 &
     herbstclient spawn "$BROWSER"
     herbstclient spawn "$TERMINAL" -e tmux new -A &
 fi
