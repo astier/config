@@ -2,23 +2,29 @@ aug group | au! | aug end
 let mapleader = ' '
 scriptencoding utf-8
 
-pa! coc
-pa! commentary
-pa! flog
-pa! fugitive
-pa! gitgutter
-pa! indent-object
-pa! lexima
-pa! nord
-pa! sandwich
-pa! sleuth
-pa! subversive
-pa! switch
-pa! targets
-pa! tmux-navigator
-pa! vimtex
-pa! vsnip
-syntax on
+" PLUGINS
+if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd vimenter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
+    Plug 'airblade/vim-gitgutter'
+    Plug 'AndrewRadev/switch.vim'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'cohama/lexima.vim'
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'lervag/vimtex', { 'for': 'tex' }
+    Plug 'machakann/vim-sandwich'
+    Plug 'michaeljsmith/vim-indent-object'
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    Plug 'rbong/vim-flog', { 'on': 'Flog' }
+    Plug 'svermeulen/vim-subversive'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-fugitive', { 'on': 'Flog' }
+    Plug 'tpope/vim-sleuth'
+    Plug 'wellle/targets.vim'
+call plug#end()
 
 " APPEARANCE (echo synIDattr(synID(line("."), col("."), 1), "name"))
 colorscheme nord
@@ -261,6 +267,11 @@ au User targets#mappings#user cal targets#mappings#extend({
 let g:textobj_sandwich_no_default_key_mappings = 1
 nm cd cId
 nm cs cIs
+
+" PLUG
+nnoremap <silent> <space>pc :PlugClean<cr>
+nnoremap <silent> <space>pi :PlugInstall<cr>
+nnoremap <silent> <space>pu :PlugUpgrade <bar> PlugUpdate<cr>
 
 " SEARCH
 hi incsearch cterm=none ctermbg=yellow ctermfg=black

@@ -3,12 +3,18 @@ aug group | au! | aug end
 let mapleader = ' '
 scriptencoding utf-8
 
-pa! commentary
-pa! indent-object
-pa! sandwich
-pa! subversive
-pa! switch
-pa! targets
+if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd vimenter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
+    Plug 'AndrewRadev/switch.vim'
+    Plug 'machakann/vim-sandwich'
+    Plug 'michaeljsmith/vim-indent-object'
+    Plug 'svermeulen/vim-subversive'
+    Plug 'tpope/vim-commentary'
+    Plug 'wellle/targets.vim'
+call plug#end()
 
 " CODE
 nn <silent> <space>i :call VSCodeNotify('git.openChange')<cr>

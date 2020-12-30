@@ -8,7 +8,11 @@
     "body": ["if $1\n\t\nendif"]
   },
   "packadd": {
-    "prefix": ["p"],
+    "prefix": ["pa"],
     "body": ["packadd! "]
+  },
+  "plug": {
+    "prefix": ["p"],
+    "body": ["Plug '$0'"]
   }
 }
