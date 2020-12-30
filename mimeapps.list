@@ -1,0 +1,11 @@
+[Default Applications]
+application/json=visual-studio-code.desktop
+application/pdf=firefox.desktop
+application/x-shellscript=visual-studio-code.desktop;
+image/jpeg=eog.desktop
+image/png=eog.desktop
+inode/x-empty=visual-studio-code.desktop
+text/plain=visual-studio-code.desktop
+text/x-diff=visual-studio-code.desktop
+text/x-python=visual-studio-code.desktop
+text/x-shellscript=visual-studio-code.desktop

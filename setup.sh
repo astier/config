@@ -18,6 +18,7 @@ link gtk-2.0 "$XDG_CONFIG_HOME"
 link gtk-3.0 "$XDG_CONFIG_HOME"
 link inputrc "$XDG_CONFIG_HOME"
 link markdownlint "$XDG_CONFIG_HOME"
+link mimeapps.list ~/.config/
 link nvim "$XDG_CONFIG_HOME"
 link pylintrc "$XDG_CONFIG_HOME"
 link pythonrc.py "$XDG_CONFIG_HOME"
