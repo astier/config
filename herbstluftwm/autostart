@@ -40,7 +40,7 @@ herbstclient keybind $altgr-Shift-l resize right $resizestep
 herbstclient unrule -F
 herbstclient rule focus=on
 herbstclient rule instance~.* index=0
-herbstclient rule instance~'st-256color|.*Nautilus' index=1
+herbstclient rule instance~'st-256color|.*Nautilus|nemo' index=1
 
 # TAGS
 herbstclient rename default 1
