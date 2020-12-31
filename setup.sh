@@ -43,8 +43,7 @@ if [ -d "$code_dir" ]; then
 fi
 
 if groups "$USER" | grep -q wheel; then
-    copy 10-udev.rules /etc/udev/rules.d/
-    sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
+
     copy iptables.rules /etc/iptables
     copy iwd.conf /etc/iwd/main.conf
     copy pacman/pacman.conf /etc
@@ -61,4 +60,8 @@ if groups "$USER" | grep -q wheel; then
     link sx "$XDG_CONFIG_HOME"
     link sxhkd "$XDG_CONFIG_HOME"
     link tint2 "$XDG_CONFIG_HOME"
+
+    # copy 10-udev.rules /etc/udev/rules.d/
+    # sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
+
 fi
