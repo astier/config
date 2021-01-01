@@ -7,6 +7,9 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
     silent !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd vimenter * PlugInstall --sync | source $MYVIMRC
 endif
+nnoremap <silent> <space>pc :PlugClean<cr>
+nnoremap <silent> <space>pi :PlugInstall<cr>
+nnoremap <silent> <space>pu :PlugUpgrade <bar> PlugUpdate<cr>
 call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
@@ -267,11 +270,6 @@ au User targets#mappings#user cal targets#mappings#extend({
 let g:textobj_sandwich_no_default_key_mappings = 1
 nm cd cId
 nm cs cIs
-
-" PLUG
-nnoremap <silent> <space>pc :PlugClean<cr>
-nnoremap <silent> <space>pi :PlugInstall<cr>
-nnoremap <silent> <space>pu :PlugUpgrade <bar> PlugUpdate<cr>
 
 " SEARCH
 hi incsearch cterm=none ctermbg=yellow ctermfg=black
