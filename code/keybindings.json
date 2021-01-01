@@ -46,17 +46,17 @@
     {
         "key": "z m",
         "command": "editor.toggleFold",
-        "when": "editorTextFocus && foldingEnabled"
+        "when": "editorTextFocus && foldingEnabled && neovim.mode == normal"
     },
     {
         "key": "z f",
         "command": "editor.foldLevel1",
-        "when": "editorTextFocus && foldingEnabled"
+        "when": "editorTextFocus && foldingEnabled && neovim.mode == normal"
     },
     {
         "key": "z shift+f",
         "command": "editor.unfoldAll",
-        "when": "editorTextFocus && foldingEnabled"
+        "when": "editorTextFocus && foldingEnabled && neovim.mode == normal"
     },
 
 ]
