@@ -226,3 +226,8 @@ vpd() {
     git rm -f "nvim/pack/plugins/opt/$1"
     rm -fr ".git/modules/$1"
 }
+
+# WALLPAPERS
+alias jwl="cd ~/cloud/pictures/wallpapers"
+alias wd="wal -d"
+alias wn="cd ~/cloud/pictures/wallpapers && wal"
