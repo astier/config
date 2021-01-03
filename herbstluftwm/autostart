@@ -41,6 +41,7 @@ herbstclient unrule -F
 herbstclient rule focus=on
 herbstclient rule instance~.* index=0
 herbstclient rule instance~'st-256color|.*Nautilus|nemo' index=1
+herbstclient rule instance~'menu|notification' pseudotile=on
 
 # TAGS
 herbstclient rename default 1
