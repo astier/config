@@ -35,8 +35,10 @@ call plug#end()
 colorscheme nord
 hi comment cterm=italic
 hi errormsg ctermbg=none
+hi float ctermfg=none
 hi function ctermfg=none
 hi matchparen cterm=none ctermbg=none ctermfg=none
+hi number ctermfg=none
 hi vimaugroup ctermfg=none
 hi vimmaprhs ctermfg=none
 hi vimnotation ctermfg=none
