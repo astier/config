@@ -33,6 +33,7 @@ call plug#end()
 
 " APPEARANCE (echo synIDattr(synID(line("."), col("."), 1), "name"))
 colorscheme nord
+hi cincluded ctermfg=none
 hi comment cterm=italic
 hi errormsg ctermbg=none
 hi float ctermfg=none
