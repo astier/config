@@ -65,7 +65,6 @@ if herbstclient silent new_attr bool my_not_first_autostart ; then
     herbstclient load 2 "$layout"
     herbstclient spawn "$BROWSER"
     herbstclient spawn "$TERMINAL" -e tmux new -A &
-    herbstclient spawn wal -l &
-    herbstclient spawn xcompmgr &
+    herbstclient spawn xcompmgr & hsetroot
 fi
 herbstclient unlock
