@@ -51,6 +51,7 @@ highlight bufferinactive ctermfg=8
 let bufferline = {}
 let bufferline.animation = v:false
 let bufferline.auto_hide = v:true
+let bufferline.icons = v:false
 let bufferline.maximum_padding = 0
 
 " BUFFERS
