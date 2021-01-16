@@ -17,7 +17,6 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
     Plug 'hrsh7th/vim-vsnip'
-    Plug 'kyazdani42/nvim-web-devicons'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
@@ -51,6 +50,7 @@ highlight bufferinactive ctermfg=8
 let bufferline = {}
 let bufferline.animation = v:false
 let bufferline.auto_hide = v:true
+let bufferline.closable = v:false
 let bufferline.icons = v:false
 let bufferline.maximum_padding = 0
 
