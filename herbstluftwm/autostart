@@ -39,7 +39,7 @@ herbstclient keybind $altgr-Shift-l resize right $resizestep
 # RULES
 herbstclient unrule -F
 herbstclient rule floatplacement=center focus=on index=0
-herbstclient rule instance~'st-256color|.*Nautilus|nemo' index=1
+herbstclient rule instance~'.*Nautilus|nemo' index=1
 herbstclient rule instance~'menu|notification' pseudotile=on
 
 # TAGS
@@ -60,6 +60,7 @@ herbstclient set window_gap -1
 # INIT
 layout='(split horizontal:0.53:1 (clients max:0) (clients max:0))'
 if herbstclient silent new_attr bool my_not_first_autostart ; then
+    herbstclient rule instance~'st-256color' index=1 once
     herbstclient load 1 "$layout"
     herbstclient load 2 "$layout"
     herbstclient spawn "$BROWSER"
