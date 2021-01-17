@@ -8,8 +8,7 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
     autocmd vimenter * PlugInstall --sync | source $MYVIMRC
 endif
 nnoremap <silent> <space>pc :PlugClean<cr>
-nnoremap <silent> <space>pi :PlugInstall<cr>
-nnoremap <silent> <space>pu :PlugUpgrade <bar> PlugUpdate<cr>
+nnoremap <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
