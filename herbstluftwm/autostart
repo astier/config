@@ -39,7 +39,7 @@ herbstclient keybind $altgr-Shift-l resize right $resizestep
 
 # RULES
 herbstclient unrule -F
-herbstclient rule floatplacement=center focus=on index=0
+herbstclient rule focus=on index=0
 herbstclient rule instance~'.*Nautilus|nemo' index=1
 herbstclient rule instance~'menu|notification' pseudotile=on
 
