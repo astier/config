@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
 # PREPARE
-herbstclient auto_detect_monitors
 herbstclient emit_hook reload
+herbstclient auto_detect_monitors
 herbstclient keyunbind --all
 altgr=Mod5
 super=Mod4
