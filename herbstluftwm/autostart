@@ -21,7 +21,8 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 
 # MOUSE
 herbstclient mouseunbind --all
-herbstclient mousebind $super-B1 resize
+herbstclient mousebind $super-B1 move
+herbstclient mousebind $super-B3 resize
 herbstclient set focus_follows_mouse 1
 
 # NAVIGATION
