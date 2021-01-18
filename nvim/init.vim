@@ -17,6 +17,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
@@ -103,6 +104,11 @@ nm s  <plug>(SubversiveSubstitute)
 nm S  <plug>(SubversiveSubstituteToEndOfLine)
 nm ss <plug>(SubversiveSubstituteLine)
 xm s  <plug>(SubversiveSubstitute)
+
+" EASY-ALIGN
+nmap ga  <plug>(EasyAlign)
+xmap ga  <plug>(EasyAlign)
+xmap gaa <plug>(EasyAlign)*<space>
 
 " EXPLORER
 fu! Open()
