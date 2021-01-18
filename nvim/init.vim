@@ -128,10 +128,10 @@ fu! Open()
 endf
 au group filetype netrw nm <buffer> <c-rightmouse> <Plug>NetrwSLeftmouse
 au group filetype netrw nm <buffer> <cr> mf
+au group filetype netrw nm <buffer><silent> <rightmouse> -
+au group filetype netrw nm <buffer><silent> h -
 au group filetype netrw nn <buffer><silent> <leftmouse> <leftmouse>:cal Open()<cr>
-au group filetype netrw nn <buffer><silent> <rightmouse> :sil! norm -<cr>
 au group filetype netrw nn <buffer><silent> <space>e :Rexplore<cr>
-au group filetype netrw nn <buffer><silent> h :sil! norm -<cr>
 au group filetype netrw nn <buffer><silent> l :cal Open()<cr>
 hi netrwMarkFile cterm=bold ctermfg=yellow
 let g:netrw_altfile = 1
