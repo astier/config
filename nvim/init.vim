@@ -23,7 +23,6 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
-    Plug 'romgrk/barbar.nvim'
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive', { 'on': 'Flog' }
@@ -46,21 +45,12 @@ hi vimnotation ctermfg=none
 hi warningmsg ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 
-" BARBAR
-highlight bufferinactive ctermfg=8
-let bufferline = {}
-let bufferline.animation = v:false
-let bufferline.auto_hide = v:true
-let bufferline.closable = v:false
-let bufferline.icons = v:false
-let bufferline.maximum_padding = 0
-
 " BUFFERS
 au group textchanged,insertleave * nested sil! up
 au group vimenter * let @#=expand("#2:p")
 nn <a-tab> :ls<cr>:b<space>
-nn <silent> <a-e> :BufferPrevious<cr>
-nn <silent> <a-r> :BufferNext<cr>
+nn <silent> <a-e> :bp<cr>
+nn <silent> <a-r> :bn<cr>
 nn <silent> <space>f :FZF<cr>
 nn <silent> <space>s <c-w>s
 nn <silent> <space>t :tabn<cr>
@@ -181,7 +171,7 @@ se signcolumn=yes
 " KILL
 nn <silent> <space>c :close<cr>zz
 nn <silent> <space>d :qa!<cr>
-nn <silent> <space>q :BufferClose<cr>
+nn <silent> <space>q :bn<bar>bd!#<cr>
 nn <silent> <space>z :wincmd z<cr>
 
 " LATEX
