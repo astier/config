@@ -17,6 +17,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
     Plug 'junegunn/vim-easy-align'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
@@ -48,9 +49,9 @@ se cursorline | hi clear cursorline
 " BUFFERS
 au group textchanged,insertleave * nested sil! up
 au group vimenter * let @#=expand("#2:p")
-nn <a-tab> :ls<cr>:b<space>
 nn <silent> <a-e> :bp<cr>
 nn <silent> <a-r> :bn<cr>
+nn <silent> <a-tab> :Buffers<cr>
 nn <silent> <space>f :FZF<cr>
 nn <silent> <space>s <c-w>s
 nn <silent> <space>t :tabn<cr>
@@ -240,7 +241,7 @@ au group filetype gitcommit,markdown,tex setlocal spell
 au group filetype hog se ft=udevrules
 au group filetype markdown se textwidth=80
 au group vimresized * wincmd =
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let g:fzf_preview_window = []
 se clipboard=unnamedplus
 se expandtab shiftwidth=4 tabstop=4
 se hidden
