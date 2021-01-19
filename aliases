@@ -42,6 +42,7 @@ alias fp="jumpopen \$DOTS .profile"
 alias fr="\$EDITOR \$(git rev-parse --show-toplevel)/README.md"
 alias fx="jumpopen \$DOTS sx/sxrc"
 alias n="jumpopen ~/cloud/notes notes"
+jumpopen() { cd "$1" >/dev/null && shift && "$OPENER" "$@" ; }
 
 f() {
     if [ -f "$1" ]; then
@@ -52,7 +53,6 @@ f() {
         ffind -maxdepth 1 -type f | fzf --filter="$*" | head -n1 | xargs -r "$OPENER"
     fi
 }
-jumpopen() { cd "$1" >/dev/null && shift && "$OPENER" "$@" ; }
 
 # BOOKMARKS - DIRS
 alias dl="cd ~/Downloads"
