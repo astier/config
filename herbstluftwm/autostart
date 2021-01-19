@@ -15,8 +15,9 @@ herbstclient keybind $altgr-d close
 herbstclient keybind $altgr-Shift-r reload
 herbstclient keybind $altgr-Shift-s quit
 
-# LAYOUTS
+# MISC
 herbstclient set default_frame_layout 2
+herbstclient set focus_stealing_prevention 0
 herbstclient set tree_style '╾│ ├└╼─┐'
 
 # MOUSE
@@ -30,7 +31,6 @@ herbstclient keybind $altgr-a substitute WINID clients.focus.winid chain , cycle
 herbstclient keybind $altgr-j cycle -1
 herbstclient keybind $altgr-k cycle +1
 herbstclient keybind $altgr-l cycle_frame
-herbstclient set focus_stealing_prevention 0
 
 # RESIZING
 resizestep=0.03
@@ -45,8 +45,8 @@ herbstclient rule instance='popup' pseudotile=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 
 # TAGS
-herbstclient rename default 1
-herbstclient add 2
+herbstclient rename default 0
+herbstclient add 1
 herbstclient keybind $altgr-o use_index +1
 herbstclient keybind $altgr-Shift-o move_index +1
 
@@ -63,8 +63,8 @@ herbstclient set window_gap -1
 layout='(split horizontal:0.53:1 (clients max:0) (clients max:0))'
 if herbstclient silent new_attr bool my_not_first_autostart ; then
     herbstclient rule instance~'st-256color' index=1 once
+    herbstclient load 0 "$layout"
     herbstclient load 1 "$layout"
-    herbstclient load 2 "$layout"
     herbstclient spawn "$BROWSER"
     herbstclient spawn "$TERMINAL" -e tmux new -A
 fi
