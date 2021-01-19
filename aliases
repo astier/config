@@ -62,16 +62,13 @@ alias jt="cd ~/projects/st"
 alias jw="cd ~/projects/dwm"
 
 j() {
-    if [ -d "$1" ]; then
-        cd "$1" || return
-    elif [ $# = 0 ]; then
+    dir=$1
+    if [ $# = 0 ]; then
         dir=$(ffind -type d 2>/dev/null | fzf)
-    else
-        dir=$(ffind -maxdepth 1 -type d 2>/dev/null | fzf --filter="$*" | head -n1)
+    elif [ ! -d "$dir" ]; then
+        mkdir -p "$dir"
     fi
-    if [ -n "$dir" ]; then
-        cd "$dir" || return
-    fi
+    [ -n "$dir" ] && cd "$dir" || return
 }
 
 # CLOUD
@@ -186,7 +183,6 @@ y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 # MK
 alias md="mkdir -p"
 alias mf="touch"
-mdj() { mkdir "$1" && cd "$1" || return; }
 mfx() { touch "$1"; chmod +x "$1"; }
 
 # PREVIEW
