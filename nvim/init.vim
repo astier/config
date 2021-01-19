@@ -282,10 +282,10 @@ ino <silent> <a-l> <c-o>:TmuxNavigateRight<cr>
 
 " OBJECTS
 au User targets#mappings#user cal targets#mappings#extend({
-    \ 'd': {'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}]},
-    \ 's': {'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]},
-    \ 'b': {}, 'q': {},
-\ })
+\   'd': {'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}]},
+\   's': {'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]},
+\   'b': {}, 'q': {},
+\})
 let g:textobj_sandwich_no_default_key_mappings = 1
 nm cd cId
 nm cs cIs
