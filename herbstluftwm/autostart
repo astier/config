@@ -39,9 +39,10 @@ herbstclient keybind $altgr-Shift-l resize right $resizestep
 
 # RULES
 herbstclient unrule -F
-herbstclient rule focus=on index=0
-herbstclient rule instance~'.*Nautilus|nemo' index=1
-herbstclient rule instance~'menu|notification' pseudotile=on
+herbstclient rule floating=off focus=on index=0
+herbstclient rule instance='nemo' index=1
+herbstclient rule instance='popup' pseudotile=on
+herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 
 # TAGS
 herbstclient rename default 1
