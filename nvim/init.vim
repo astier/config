@@ -57,6 +57,7 @@ let bufferline.maximum_padding = 0
 
 " BUFFERS
 au group textchanged,insertleave * nested sil! up
+au group vimenter * let @#=expand("#2:p")
 nn <a-tab> :ls<cr>:b<space>
 nn <silent> <a-e> :BufferPrevious<cr>
 nn <silent> <a-r> :BufferNext<cr>
