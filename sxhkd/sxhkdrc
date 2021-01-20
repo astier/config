@@ -16,6 +16,6 @@ mod5 + t
 {button2,mod5 + m}
     herbstclient spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
 button8
-    herbstclient spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" -
+    herbstclient cycle +1
 button9
-    herbstclient spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" +
+    herbstclient cycle -1
