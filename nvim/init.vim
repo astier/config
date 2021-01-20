@@ -89,7 +89,7 @@ nn dw daw
 nn dW daW
 
 " EDITING - PASTE
-ino <c-v> <c-o>p
+ino <c-v> <esc>pa
 let g:subversivePreserveCursorPosition = 1
 let g:subversivePromptWithCurrent = 1
 nm s  <plug>(SubversiveSubstitute)
