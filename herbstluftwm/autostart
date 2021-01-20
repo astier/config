@@ -31,6 +31,8 @@ herbstclient keybind $altgr-a substitute OLDWIN clients.focus.winid chain , cycl
 herbstclient keybind $altgr-j spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" -
 herbstclient keybind $altgr-k spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" +
 herbstclient keybind $altgr-l cycle_frame
+herbstclient keybind $altgr-o use_index +1
+herbstclient keybind $altgr-Shift-o move_index +1
 
 # RESIZING
 resizestep=0.03
@@ -42,12 +44,6 @@ herbstclient unrule -F
 herbstclient rule floating=off focus=on index=0
 herbstclient rule instance='popup' pseudotile=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
-
-# TAGS
-herbstclient rename default 0
-herbstclient add 1
-herbstclient keybind $altgr-o use_index +1
-herbstclient keybind $altgr-Shift-o move_index +1
 
 # THEME
 herbstclient attr theme.floating.reset 1
@@ -61,9 +57,11 @@ herbstclient set window_gap -1
 # INIT
 layout='(split horizontal:0.53:1 (clients max:0) (clients max:0))'
 if herbstclient silent new_attr bool my_not_first_autostart ; then
-    herbstclient rule instance~'st-256color' index=1 once
+    herbstclient rename default 0
+    herbstclient add 1
     herbstclient load 0 "$layout"
     herbstclient load 1 "$layout"
+    herbstclient rule instance~'st-256color' index=1 once
     herbstclient spawn "$BROWSER"
     herbstclient spawn "$TERMINAL" -e tmux new -A
 fi
