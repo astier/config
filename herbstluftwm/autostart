@@ -27,9 +27,9 @@ herbstclient mousebind $super-B3 resize
 herbstclient set focus_follows_mouse 1
 
 # NAVIGATION
-herbstclient keybind $altgr-a substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID
-herbstclient keybind $altgr-j cycle -1
-herbstclient keybind $altgr-k cycle +1
+herbstclient keybind $altgr-a substitute OLDWIN clients.focus.winid chain , cycle_frame , substitute NEWWIN clients.focus.winid spawn sh -c 'l=$(herbstclient dump | sed "s,\\<$1\\>,0xTMP,;s,\\<$2\\>,$1,;s,\\<0xTMP\\>,$2,") ; herbstclient load "$l"' -- OLDWIN NEWWIN
+herbstclient keybind $altgr-j spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" -
+herbstclient keybind $altgr-k spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" +
 herbstclient keybind $altgr-l cycle_frame
 
 # RESIZING
@@ -40,7 +40,6 @@ herbstclient keybind $altgr-Shift-l resize right $resizestep
 # RULES
 herbstclient unrule -F
 herbstclient rule floating=off focus=on index=0
-herbstclient rule instance='nemo' index=1
 herbstclient rule instance='popup' pseudotile=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 
