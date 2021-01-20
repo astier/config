@@ -48,7 +48,7 @@ se cursorline | hi clear cursorline
 
 " BUFFERS
 au group textchanged,insertleave * nested sil! up
-au group vimenter * let @#=expand("#2:p")
+au group vimenter * silent! let @#=expand("#2:p")
 nn <silent> <a-e> :bp<cr>
 nn <silent> <a-r> :bn<cr>
 nn <silent> <a-tab> :Buffers<cr>
