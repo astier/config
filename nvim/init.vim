@@ -19,6 +19,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
     Plug 'junegunn/vim-easy-align'
+    Plug 'kevinhwang91/nvim-bqf'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
