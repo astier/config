@@ -2,13 +2,15 @@
 
 # PREPARE
 herbstclient emit_hook reload
-herbstclient auto_detect_monitors
 herbstclient keyunbind --all
 altgr=Mod5
 super=Mod4
 
-# FAKEFULLSCREEN
-herbstclient keybind $super-x substitute FSRESTORE clients.focus.fullscreen chain , fullscreen on , attr clients.focus.ewmhrequests off , attr clients.focus.ewmhnotify toggle , spawn herbstclient fullscreen FSRESTORE
+# FRAMES & WINDOWS
+herbstclient keybind $altgr-a substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID
+herbstclient keybind $altgr-j cycle -1
+herbstclient keybind $altgr-k cycle +1
+herbstclient keybind $altgr-l cycle_frame
 
 # KILL
 herbstclient keybind $altgr-d close
@@ -20,24 +22,23 @@ herbstclient set default_frame_layout 2
 herbstclient set focus_stealing_prevention 0
 herbstclient set tree_style '╾│ ├└╼─┐'
 
+# MONITORS & TAGS
+herbstclient auto_detect_monitors
+herbstclient keybind $altgr-o use_index +1
+herbstclient keybind $altgr-Shift-o move_index +1
+herbstclient set swap_monitors_to_get_tag 0
+
 # MOUSE
 herbstclient mouseunbind --all
 herbstclient mousebind $super-B1 move
 herbstclient mousebind $super-B3 resize
 herbstclient set focus_follows_mouse 1
 
-# NAVIGATION
-herbstclient keybind $altgr-a substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID
-herbstclient keybind $altgr-j cycle -1
-herbstclient keybind $altgr-k cycle +1
-herbstclient keybind $altgr-l cycle_frame
-herbstclient keybind $altgr-o use_index +1
-herbstclient keybind $altgr-Shift-o move_index +1
-
 # RESIZING
 resizestep=0.03
 herbstclient keybind $altgr-Shift-h resize left $resizestep
 herbstclient keybind $altgr-Shift-l resize right $resizestep
+herbstclient keybind $super-x substitute FSRESTORE clients.focus.fullscreen chain , fullscreen on , attr clients.focus.ewmhrequests off , attr clients.focus.ewmhnotify toggle , spawn herbstclient fullscreen FSRESTORE
 
 # RULES
 herbstclient unrule -F
