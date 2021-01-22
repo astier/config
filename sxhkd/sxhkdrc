@@ -14,7 +14,7 @@ mod5 + t
     libreoffice ~/cloud/notes/tracker.ods
 
 {button2,mod5 + m}
-    herbstclient spawn /usr/share/doc/herbstluftwm/examples/maximize.sh
+    /usr/share/doc/herbstluftwm/examples/maximize.sh
 button8
     "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh"
 button9
