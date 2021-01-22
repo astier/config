@@ -16,6 +16,6 @@ mod5 + t
 {button2,mod5 + m}
     /usr/share/doc/herbstluftwm/examples/maximize.sh
 button8
-    "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh"
+    "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" -
 button9
-    herbstclient use_index +1
+    "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" +
