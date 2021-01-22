@@ -335,14 +335,14 @@ se viewoptions=cursor
 hi statusline ctermbg=none ctermfg=8
 hi statuslinenc ctermbg=none ctermfg=8
 hi vertsplit ctermbg=none ctermfg=8
-se fillchars+=eob:\ ,fold:\ ,stl:―,stlnc:―,vert:▏
+se fillchars+=eob:\ ,fold:\ ,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
 se rulerformat=%=%l/%L
 fu! StatusLine()
     if empty(expand('%'))
         retu repeat('―', winwidth(0))
     en
-    let left = '―[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
+    let left = '─[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
     let right = '[' . line('.') . '/' . line('$') . ']'
     retu left . repeat('―', winwidth(0) - len(left) - len(right)) . right
 endf
