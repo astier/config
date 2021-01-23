@@ -7,11 +7,11 @@ altgr=Mod5
 super=Mod4
 
 # FRAMES & WINDOWS
-herbstclient keybind $altgr-a substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID
-herbstclient keybind $altgr-Shift-a substitute OLDWIN clients.focus.winid chain , cycle_frame , substitute NEWWIN clients.focus.winid spawn sh -c 'l=$(herbstclient dump | sed "s,\\<$1\\>,0xTMP,;s,\\<$2\\>,$1,;s,\\<0xTMP\\>,$2,") ; herbstclient load "$l"' -- OLDWIN NEWWIN
+herbstclient keybind $altgr-a substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID # move window to next frame
 herbstclient keybind $altgr-j spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" -
 herbstclient keybind $altgr-k spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" +
 herbstclient keybind $altgr-l cycle_frame
+herbstclient keybind $altgr-Shift-a substitute OLDWIN clients.focus.winid chain , cycle_frame , substitute NEWWIN clients.focus.winid spawn sh -c 'l=$(herbstclient dump | sed "s,\\<$1\\>,0xTMP,;s,\\<$2\\>,$1,;s,\\<0xTMP\\>,$2,") ; herbstclient load "$l"' -- OLDWIN NEWWIN # swap two windows between two frames
 herbstclient keybind $altgr-Shift-m mirror
 
 # KILL
