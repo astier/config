@@ -12,6 +12,7 @@ herbstclient keybind $altgr-Shift-a substitute OLDWIN clients.focus.winid chain 
 herbstclient keybind $altgr-j spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" -
 herbstclient keybind $altgr-k spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" +
 herbstclient keybind $altgr-l cycle_frame
+herbstclient keybind $altgr-Shift-m mirror
 
 # KILL
 herbstclient keybind $altgr-d close
