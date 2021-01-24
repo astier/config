@@ -322,7 +322,7 @@ smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)'     
 smap <silent> <expr> <tab>   vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
 
 " SORT
-nm <silent> gsi my vii :sort i<cr> `y
+nn <silent> gsi my :norm vii<cr> :sort i<cr> `y
 nn <silent> gss my vip :sort i<cr> `y
 xn <silent> gs  my :sort i<cr> `y
 
