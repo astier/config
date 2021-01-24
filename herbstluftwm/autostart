@@ -40,6 +40,7 @@ herbstclient set focus_follows_mouse 1
 resizestep=0.03
 herbstclient keybind $altgr-Shift-h resize left $resizestep
 herbstclient keybind $altgr-Shift-l resize right $resizestep
+herbstclient keybind $altgr-i pseudotile toggle
 herbstclient keybind $super-x substitute FSRESTORE clients.focus.fullscreen chain , fullscreen on , attr clients.focus.ewmhrequests off , attr clients.focus.ewmhnotify toggle , spawn herbstclient fullscreen FSRESTORE # fakefullscreen
 
 # RULES
