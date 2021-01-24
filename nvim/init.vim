@@ -56,6 +56,7 @@ nn <silent> <a-r> :bn<cr>
 nn <silent> <a-tab> :Buffers<cr>
 nn <silent> <space>f :FZF<cr>
 nn <silent> <space>s <c-w>s
+nn <silent> <space>v <c-w>v
 nn <silent> <space>t :tabn<cr>
 nn <silent> <tab> :b#<cr>
 
