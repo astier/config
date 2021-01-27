@@ -63,7 +63,7 @@ nn <silent> <tab> :b#<cr>
 
 " COMMENTS
 au group bufenter * se formatoptions-=cro
-nm gcp my vip gc `y
+nn <silent> gcp my :norm vip <bar> gc<cr> `y
 se commentstring=//\ %s
 
 " COMPLETION
