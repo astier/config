@@ -309,6 +309,7 @@ nn <a-f> 4<c-e>
 nn <cr> o<esc>
 nn <p <ap
 nn >p >ap
+nn G G0
 nn gg gg0
 nn Q <c-q>
 nn vp vip
