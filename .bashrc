@@ -8,7 +8,7 @@ NO_COLOR="\[\e[m\]"
 RED="\[\e[31m\]"
 GREEN="\[\e[32m\]"
 njobs() { n=$(jobs | wc -l) && [ "$n" -gt 0 ] && echo " $n"; }
-PS1="${GREEN}───── \W\$(__git_ps1 ' ─ %s')${RED}\$(njobs)${GREEN} ─────\n${NO_COLOR}> "
+PS1="${GREEN}[\W\$(__git_ps1 ' %s')${RED}\$(njobs)${GREEN}] ${NO_COLOR}"
 
 # SOURCE
 aliases="$XDG_CONFIG_HOME/aliases"
