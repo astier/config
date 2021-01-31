@@ -161,7 +161,6 @@ alias nww="\$EDITOR ~/cloud/newsboat"
 alias o="autopen"
 alias p="cp"
 alias pa="patch -p1 <"
-alias pm="pulsemixer"
 alias pw="pwd | sed \"s|\$HOME|~|\""
 alias r="pkg -r"
 alias re="sudo \$(fc -ln -1)"
@@ -170,7 +169,7 @@ alias td="tree -d"
 alias tf="tree"
 alias tmp="nvim +'set nospell' /tmp/scratch.md"
 alias u="doas sh -c \"curl -s 'https://archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && paru"
-alias v="\$EDITOR"
+alias v="pulsemixer"
 ar() { dir="$(basename "$1").tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
 cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm "$@"; fi }
