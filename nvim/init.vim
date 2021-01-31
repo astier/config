@@ -25,6 +25,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
+    Plug 'sickill/vim-pasta'
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive', { 'on': 'Flog' }
