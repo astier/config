@@ -55,6 +55,7 @@ if groups "$USER" | grep -q wheel; then
     copy systemd/system/getty@tty1.service.d /etc/systemd/system
     copy systemd/system/getty@tty2.service.d /etc/systemd/system
     copy tty-cursor.conf /etc/tmpfiles.d
+    copy xorg.conf /etc/X11
     link herbstluftwm "$XDG_CONFIG_HOME"
     link newsboat "$XDG_CONFIG_HOME"
     link pacman "$XDG_CONFIG_HOME"
