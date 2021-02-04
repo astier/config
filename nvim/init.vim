@@ -55,12 +55,12 @@ au group textchanged,insertleave * nested sil! up
 au group vimenter * silent! let @#=expand("#2:p")
 nn <silent> <a-e> :bp<cr>
 nn <silent> <a-r> :bn<cr>
-nn <silent> <a-tab> :Buffers<cr>
-nn <silent> <space>f :FZF<cr>
 nn <silent> <space>s <c-w>s
-nn <silent> <space>v <c-w>v
 nn <silent> <space>t :tabn<cr>
+nn <silent> <space>v <c-w>v
 nn <silent> <tab> :b#<cr>
+nn <silent> F :Buffers<cr>
+nn <silent> f :FZF<cr>
 
 " COMMENTS
 au group bufenter * se formatoptions-=cro
@@ -292,10 +292,6 @@ hi incsearch cterm=none ctermbg=yellow ctermfg=black
 hi search    cterm=none ctermbg=none   ctermfg=red
 nn n nzz
 nn N Nzz
-nn / <nop>
-nn ? <nop>
-nn f /
-nn F ?
 nn <silent> <esc> :noh <bar> echo<cr>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nn <silent> , :let @/= expand('<cword>') <bar> se hlsearch <cr>
