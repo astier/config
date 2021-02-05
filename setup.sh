@@ -48,6 +48,7 @@ if groups "$USER" | grep -q wheel; then
     copy iptables.rules /etc/iptables
     copy iwd.conf /etc/iwd/main.conf
     copy pacman/pacman.conf /etc
+    copy sofficerc /etc/libreoffice
     copy systemd/journald.conf /etc/systemd
     copy systemd/logind.conf /etc/systemd
     copy systemd/resolved.conf /etc/systemd
