@@ -21,7 +21,7 @@ herbstclient keybind $altgr-Shift-s quit
 
 # MISC
 herbstclient set default_frame_layout 2
-herbstclient set focus_stealing_prevention 0
+herbstclient set focus_stealing_prevention 1
 herbstclient set tree_style '╾│ ├└╼─┐'
 
 # MONITORS & TAGS
