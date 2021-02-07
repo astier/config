@@ -174,6 +174,12 @@ nm [c <Plug>(GitGutterPrevHunk)zz
 nm ]c <Plug>(GitGutterNextHunk)zz
 se signcolumn=yes
 
+" INCREMENT
+vn <C-a> g<C-a>
+vn <C-x> g<C-x>
+vn g<C-a> <C-a>
+vn g<C-x> <C-x>
+
 " KILL
 nn <silent> <space>c :close<cr>zz
 nn <silent> <space>d :qa!<cr>
