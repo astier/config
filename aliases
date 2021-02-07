@@ -193,8 +193,8 @@ l() {
 # TMUX
 alias t="tmux new -A"
 alias ta="tmux a -t"
-alias tk="tmux kill-session -t"
-alias tkk="tmux kill-session -a"
+alias tk="tmux kill-session -a"
+alias tkt="tmux kill-session -t"
 alias tl="tmux ls"
 alias ts="tmux switch -t"
 tt() { echo "$TMUX_PANE" > /tmp/tmuxsend; }
