@@ -332,9 +332,9 @@ let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 se viewoptions=cursor
 
 " STATUSLINE
-hi statusline ctermbg=none ctermfg=8
-hi statuslinenc ctermbg=none ctermfg=8
-hi vertsplit ctermbg=none ctermfg=8
+hi statusline ctermbg=none ctermfg=16
+hi statuslinenc ctermbg=none ctermfg=16
+hi vertsplit ctermbg=none ctermfg=16
 se fillchars+=eob:\ ,fold:\ ,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
 se rulerformat=%=%l/%L
