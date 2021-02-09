@@ -8,14 +8,15 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
     silent !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd vimenter * PlugInstall --sync | source $MYVIMRC
 endif
-nnoremap <silent> <space>pc :PlugClean<cr>
-nnoremap <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
+nn <silent> <space>pc :PlugClean<cr>
+nn <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
     Plug 'arcticicestudio/nord-vim'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
+    Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
     Plug 'junegunn/vim-easy-align'
@@ -23,7 +24,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
@@ -72,6 +73,17 @@ se commentstring=//\ %s
 " COMPLETION
 hi pmenusel ctermfg=none
 ino <expr> <c-k> pumvisible() ? "\<c-e>" : "\<c-k>"
+let g:compe = {}
+let g:compe.documentation = v:false
+let g:compe.preselect = 'always'
+let g:compe.source = {}
+let g:compe.source.buffer = v:true
+let g:compe.source.buffer = {}
+let g:compe.source.buffer.menu = '[B]'
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lsp = {}
+let g:compe.source.nvim_lsp.menu = '[L]'
+let g:compe.source.path = v:true
 se completeopt=menuone,noinsert
 se infercase shortmess+=c
 se pumheight=8 pumwidth=0
@@ -238,20 +250,15 @@ let g:loaded_zip = 0
 let g:loaded_zipPlugin = 0
 
 " LSP
-let g:coc_global_extensions = ['coc-json', 'coc-python', 'coc-vimtex']
-nm <silent> gd <plug>(coc-definition)zz
-nm <silent> gR <plug>(coc-references)
-nm <silent> gr <plug>(coc-rename)
-nn <silent> K :cal <sid>show_documentation()<cr>
-fu! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        exe 'h '.expand('<cword>')
-    elsei (coc#rpc#ready())
-        cal CocActionAsync('doHover')
-    el
-        exe '!' . &keywordprg . " " . expand('<cword>')
-    en
-endf
+lua require 'lspconfig'.clangd.setup{}
+lua require 'lspconfig'.jedi_language_server.setup{}
+lua vim.lsp.callbacks['textDocument/publishDiagnostics'] = function() end
+nn <silent> gA :lua vim.lsp.buf.code_action()<cr>
+nn <silent> gd :lua vim.lsp.buf.definition()<cr>
+nn <silent> gp :lua vim.lsp.buf.signature_help()<cr>
+nn <silent> gR :lua vim.lsp.buf.references()<cr>
+nn <silent> gr :lua vim.lsp.buf.rename()<cr>
+nn <silent> K  :lua vim.lsp.buf.hover()<cr>
 
 " MISC
 au group filetype diff se textwidth=72
