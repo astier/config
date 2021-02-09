@@ -3,6 +3,7 @@
 autorandr --change
 bstatus -l &
 hsetroot
+nm-applet &
 picom --config /dev/null -b
 pulsemixer --unmute
 sxhkd &
