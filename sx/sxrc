@@ -7,6 +7,7 @@ nm-applet &
 picom --config /dev/null -b
 pulsemixer --unmute
 sxhkd &
+wal -l &
 xbanish &
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
