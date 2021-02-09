@@ -130,7 +130,7 @@ alias krc="git rebase --continue"
 krb() { n=16; [ "$1" ] && n=$1; git rebase -i HEAD~"$n"; }
 
 alias krr="git reset --hard; git clean -f"
-alias krs="git reset --soft"
+alias krs="git reset --soft HEAD~1"
 alias krv="git revert"
 
 alias ksd="git stash drop"
