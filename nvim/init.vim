@@ -24,6 +24,8 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
     Plug 'sickill/vim-pasta'
     Plug 'svermeulen/vim-subversive'
@@ -139,6 +141,11 @@ let g:netrw_keepdir = 0
 let g:netrw_list_hide = '^\.*/$'
 nn <silent> <rightmouse> :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
 nn <silent> <space>e :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
+
+" FOLD
+se foldexpr=nvim_treesitter#foldexpr()
+se foldmethod=expr
+se nofoldenable
 
 " FORMAT
 fu! Format()
@@ -256,7 +263,6 @@ let g:fzf_preview_window = []
 se clipboard=unnamedplus
 se expandtab shiftwidth=4 tabstop=4
 se hidden
-se nofoldenable
 se nojoinspaces
 se noswapfile
 se notimeout
@@ -392,6 +398,49 @@ nn <silent> <space><space> :cal T(getline('.'))<cr>
 xn <silent> <space><space> "vy :cal T(substitute(@v, '\n$', '', ''))<cr>
 nn <silent> <space>l :T lint %<cr>
 nn <silent> <space>a :T execute<cr>
+
+" TREESITTER
+highlight tserror ctermfg=15
+lua << END
+require 'nvim-treesitter.configs'.setup {
+    ensure_installed = {"bash", "c", "cpp", "json", "lua", "python"},
+    highlight = { enable = false },
+    indent = { enable = true },
+    textobjects = {
+        select = {
+            enable = true,
+            keymaps = {
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+            },
+        },
+        move = {
+            enable = true,
+            goto_next_start = {
+               ["]f"] = "@function.outer",
+            },
+            goto_next_end = {
+               ["]F"] = "@function.outer",
+            },
+            goto_previous_start = {
+               ["[f"] = "@function.outer",
+            },
+            goto_previous_end = {
+               ["[F"] = "@function.outer",
+            },
+        },
+        swap = {
+            enable = true,
+            swap_next = {
+               ["]a"] = "@parameter.inner",
+            },
+            swap_previous = {
+               ["[a"] = "@parameter.inner",
+            },
+        },
+    },
+}
+END
 
 " WRAP
 nn $ g$
