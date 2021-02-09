@@ -13,7 +13,6 @@
 *.rej
 *.snm
 *.toc
-.ccls-cache
 .idea
 .vim
 .vscode
