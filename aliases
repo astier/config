@@ -40,6 +40,7 @@ alias fgm="\$EDITOR \$(git rev-parse --show-toplevel)/.gitmodules"
 alias fn="jumpopen \$DOTS nvim/init.vim"
 alias fp="jumpopen \$DOTS .profile"
 alias fr="\$EDITOR \$(git rev-parse --show-toplevel)/README.md"
+alias fv="jumpopen ~/projects/vlugins README.md"
 alias fx="jumpopen \$DOTS sx/sxrc"
 alias n="jumpopen ~/cloud/notes notes"
 f() { if [ -d "$1" ]; then cd "$1" || return; else "$OPENER" "$@"; fi }
@@ -59,6 +60,7 @@ alias js="cd ~/projects/scripts"
 alias jsf="cd ~/projects/scripts && f"
 alias jsh="cd \$XDG_DATA_HOME"
 alias jt="cd ~/projects/st"
+alias jv="cd ~/projects/vlugins"
 
 j() {
     dir=$1
