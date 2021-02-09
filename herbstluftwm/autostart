@@ -60,11 +60,12 @@ herbstclient set frame_gap 0
 herbstclient set window_gap -1
 
 # INIT
+layout="(split horizontal:0.5:1 (clients max:0) (clients max:0))"
 if herbstclient silent new_attr bool my_not_first_autostart ; then
     herbstclient rename default 0
     herbstclient add 1
-    herbstclient load 0 '(split horizontal:0.5:1 (clients max:0) (clients max:0))'
-    herbstclient load 1 '(clients max:0)'
+    herbstclient load 0 "$layout"
+    herbstclient load 1 "$layout"
     herbstclient rule instance~'st-256color' index=1 once
     herbstclient spawn "$BROWSER"
     herbstclient spawn "$TERMINAL" -e tmux new -A
