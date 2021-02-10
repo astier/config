@@ -128,6 +128,7 @@ alias kpf="git push -f"
 alias kpl="git pull"
 
 alias kra="git rebase --abort"
+alias krbr="git rebase -i --root"
 alias krc="git rebase --continue"
 alias krm="git rebase master"
 krb() { n=16; [ "$1" ] && n=$1; git rebase -i HEAD~"$n"; }
