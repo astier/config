@@ -95,7 +95,7 @@ alias kfp="git format-patch --stdout HEAD^ >"
 alias ki="git init"
 alias kii="git add --all && git commit -m 'Create repository'"
 alias kr="cd \$(git rev-parse --show-toplevel)"
-alias krm="git remote -v"
+alias krv="git remote -v"
 alias kt="git tag"
 
 alias kc="git commit -v"
@@ -129,6 +129,7 @@ alias kpl="git pull"
 
 alias kra="git rebase --abort"
 alias krc="git rebase --continue"
+alias krm="git rebase master"
 krb() { n=16; [ "$1" ] && n=$1; git rebase -i HEAD~"$n"; }
 
 alias kr.="git reset ."
