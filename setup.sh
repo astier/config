@@ -12,7 +12,6 @@ mkdir -p "$XDG_CONFIG_HOME"
 
 link .bashrc ~
 link .profile ~
-link .stalonetrayrc ~
 link aliases "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
 link gtk-2.0 "$XDG_CONFIG_HOME"
