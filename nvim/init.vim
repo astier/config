@@ -261,7 +261,6 @@ nn <silent> <space>m :MaximizerToggle<cr>
 
 " MISC
 au group filetype diff se textwidth=72
-au group filetype gitcommit,markdown,tex setlocal spell
 au group filetype hog se ft=udevrules
 au group filetype markdown se textwidth=80
 au group vimresized * wincmd =
@@ -275,7 +274,6 @@ se notimeout
 se splitbelow splitright
 se virtualedit=block
 se wildmode=longest,list
-set spellcapcheck=
 
 " MOUSE
 nm <silent> <2-rightmouse> <rightmouse>
@@ -342,6 +340,11 @@ smap <silent> <expr> <tab>   vsnip#available(1) ? '<plug>(vsnip-expand-or-next)'
 nn <silent> gsi my :norm vii<cr> :sort i<cr> `y
 nn <silent> gss my vip :sort i<cr> `y
 xn <silent> gs  my :sort i<cr> `y
+
+" SPELL
+au group filetype gitcommit,markdown,tex setlocal spell
+se spellcapcheck=
+se spellfile=$XDG_CONFIG_HOME/nvim/spell/en.utf-8.add
 
 " STATE
 au group bufwinenter * if index(ignore_ft, &ft) < 0 | sil! loadview | en
