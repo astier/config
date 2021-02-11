@@ -29,6 +29,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
     Plug 'sickill/vim-pasta'
     Plug 'svermeulen/vim-subversive'
+    Plug 'szw/vim-maximizer'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive', { 'on': 'Flog' }
     Plug 'tpope/vim-sleuth'
@@ -252,6 +253,11 @@ fu! s:show_documentation()
         exe '!' . &keywordprg . " " . expand('<cword>')
     en
 endf
+
+" MAXIMIZER
+let g:maximizer_set_default_mapping = 1
+let g:maximizer_set_mapping_with_bang = 1
+nn <silent> <space>m :MaximizerToggle<cr>
 
 " MISC
 au group filetype diff se textwidth=72
