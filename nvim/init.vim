@@ -121,7 +121,7 @@ fu! Open()
     let file = fnameescape(path . getline('.'))
     let mime = system('file -bL --mime-type ' . file)
     if isdirectory(file) || empty(glob(file)) || mime =~# '\(text/.*\|.*/json\|.*csv\)'
-        exe "normal \<Plug>NetrwLocalBrowseCheck"
+        exe "normal \<Plug>NetrwLocalBrowseCheck zz"
     el
         exe 'sil !open' file
     en
