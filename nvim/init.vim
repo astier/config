@@ -267,7 +267,6 @@ au group vimresized * wincmd =
 let g:fzf_preview_window = []
 se clipboard=unnamedplus
 se expandtab shiftwidth=4 tabstop=4
-se hidden
 se nojoinspaces
 se noswapfile
 se notimeout
