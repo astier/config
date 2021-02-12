@@ -136,7 +136,6 @@ au group filetype netrw nn <buffer><silent> l :cal Open()<cr>
 hi netrwMarkFile cterm=bold ctermfg=yellow
 let g:netrw_altfile = 1
 let g:netrw_banner = 0
-let g:netrw_browsex_viewer= 'open'
 let g:netrw_dirhistmax = 0
 let g:netrw_list_hide = '^\.*/$'
 nn <silent> <rightmouse> :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
