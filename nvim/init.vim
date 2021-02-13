@@ -370,6 +370,7 @@ xn <silent> gs  my :sort i<cr> `y
 
 " SPELL
 au group filetype gitcommit,markdown,tex setlocal spell
+hi spellrare cterm=none ctermfg=none
 se spellcapcheck=
 se spellfile=$XDG_CONFIG_HOME/nvim/spell/en.utf-8.add
 
