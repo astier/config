@@ -59,7 +59,7 @@ se cursorline | hi clear cursorline
 " BARBAR
 highlight bufferinactive ctermfg=8
 let bufferline = {}
-let bufferline.animation = v:false
+let bufferline.animation = v:true
 let bufferline.auto_hide = v:true
 let bufferline.closable = v:true
 let bufferline.icons = v:true
