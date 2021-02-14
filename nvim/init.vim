@@ -8,8 +8,8 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
     silent !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd vimenter * PlugInstall --sync | source $MYVIMRC
 endif
-nnoremap <silent> <space>pc :PlugClean<cr>
-nnoremap <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
+nn <silent> <space>pc :PlugClean<cr>
+nn <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
