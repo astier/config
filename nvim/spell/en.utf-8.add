@@ -274,8 +274,10 @@ tmux
 TOC
 toc
 TODO
+toggleterm
 Toolchain
 toolchain
+tpipeline
 treesitter
 tschoepp
 ub
@@ -312,5 +314,3 @@ yanil
 YouCompleteMe
 youtube
 z
-nnoremap
-nn
