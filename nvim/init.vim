@@ -16,6 +16,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'arcticicestudio/nord-vim'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
+    Plug 'dstein64/nvim-scrollview'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
     Plug 'junegunn/vim-easy-align'
@@ -64,7 +65,7 @@ let bufferline.auto_hide = v:true
 let bufferline.closable = v:true
 let bufferline.icons = v:true
 let bufferline.maximum_padding = 1
-nn <silent> <space>b :BarbarEnable<cr>
+nn <silent> <space>b :BarbarEnable<cr>:ScrollViewEnable<cr>
 
 " BUFFERS
 au group textchanged,insertleave * nested sil! up
@@ -329,6 +330,12 @@ au User targets#mappings#user cal targets#mappings#extend({
 \})
 let g:textobj_sandwich_no_default_key_mappings = 1
 nm cd cId
+
+" SCROLLBAR
+let g:scrollview_on_startup = 0
+let g:scrollview_winblend = 100
+nm <scrollwheeldown> <scrollwheeldown><plug>(ScrollViewRefresh)
+nm <scrollwheelup> <scrollwheelup><plug>(ScrollViewRefresh)
 
 " SEARCH
 hi incsearch cterm=none ctermbg=yellow ctermfg=black
