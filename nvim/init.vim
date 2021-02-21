@@ -59,13 +59,11 @@ se cursorline | hi clear cursorline
 
 " BARBAR
 highlight bufferinactive ctermfg=8
-let bufferline = {}
-let bufferline.animation = v:true
+let bufferline = get(g:, 'bufferline', {})
+let bufferline.animation = v:false
 let bufferline.auto_hide = v:true
-let bufferline.closable = v:true
-let bufferline.icons = v:true
 let bufferline.maximum_padding = 1
-nn <silent> <space>b :BarbarEnable<cr> :ScrollViewEnable<cr> :se laststatus=2<cr>
+nn <silent> <space>b :BarbarEnable<cr> :ScrollViewEnable<cr> :se laststatus=1<cr>
 
 " BUFFERS
 au group textchanged,insertleave * nested sil! up
