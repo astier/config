@@ -65,7 +65,7 @@ let bufferline.auto_hide = v:true
 let bufferline.closable = v:true
 let bufferline.icons = v:true
 let bufferline.maximum_padding = 1
-nn <silent> <space>b :BarbarEnable<cr>:ScrollViewEnable<cr>
+nn <silent> <space>b :BarbarEnable<cr> :ScrollViewEnable<cr> :se laststatus=2<cr>
 
 " BUFFERS
 au group textchanged,insertleave * nested sil! up
@@ -395,14 +395,14 @@ se fillchars+=eob:\ ,fold:\ ,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
 se rulerformat=%=%l/%L
 fu! StatusLine()
-    if bufname() =~# 'NERD' || empty(expand('%'))
+    if bufname() =~# 'NERD' || empty(expand('%')) || &laststatus == 0
         retu repeat('―', winwidth(0))
     en
     let left = '─[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
     let right = '[' . line('.') . '/' . line('$') . ']'
     retu left . repeat('―', winwidth(0) - len(left) - len(right)) . right
 endf
-se statusline=\ 
+se statusline=%{StatusLine()}
 
 " SWITCH
 au group filetype gitrebase let b:switch_custom_definitions = [['pick', 'f', 'r', 'd']]
