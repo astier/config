@@ -20,6 +20,7 @@ blt
 bootloader
 bootloaders
 bqf
+br
 bufferline
 bufterm
 c
@@ -40,6 +41,7 @@ clangd
 clion
 CMake
 cmake
+CMakeLists
 coc
 colorizer
 CommentFrame
@@ -70,6 +72,7 @@ delimitMate
 deol
 deoplete
 detectindent
+dev
 devdocs
 DFG
 diff
@@ -81,6 +84,7 @@ doesnt
 Dont
 dont
 dotfiles
+dpkg
 dwm
 eabi
 easydir
@@ -88,11 +92,13 @@ easymotion
 easytree
 ec
 efistub
+efm
 eft
 endwise
 ENV
 esc
 estream
+etc
 EXC
 f
 FastFold
@@ -109,6 +115,7 @@ github
 gitlab
 gpio
 grammarous
+grep
 grepper
 gtkterm
 gv
@@ -143,6 +150,8 @@ kdch1
 kok
 Korthals
 l
+langserver
+languageserver
 LanguageTool
 lexima
 lightbulb
@@ -164,6 +173,7 @@ matchindent
 matchup
 mcuconf
 MCUs
+md
 microcontroller
 microcontrollers
 miniSnip
@@ -208,6 +218,7 @@ packadd
 param
 pe
 perl
+php
 PlantUML
 plugin
 Plugins
@@ -249,6 +260,7 @@ Spellchecker
 splitjoin
 src
 SSSP
+StatusLine
 statusline
 stderr
 stdout
@@ -257,6 +269,7 @@ stm32flash
 stt
 subfolders
 subprojects
+sudo
 svn
 svn2git
 sxhkd
@@ -274,18 +287,21 @@ tmux
 TOC
 toc
 TODO
+toggleable
 toggleterm
 Toolchain
 toolchain
 tpipeline
 treesitter
 tschoepp
+txt
 ub
 Ubuntu
 udev
 ultisnips
 UML
 urlview
+usb
 usr
 utils
 vem
@@ -306,6 +322,7 @@ whitepaper
 wiki
 wordmotion
 workflow
+www
 xsel
 y
 yadi
@@ -314,3 +331,6 @@ yanil
 YouCompleteMe
 youtube
 z
+scrot
+rnvimr
+laststatus
