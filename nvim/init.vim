@@ -65,7 +65,7 @@ nn <silent> F :Buffers<cr>
 nn <silent> f :FZF<cr>
 
 " COMMENTS
-au group bufenter * se formatoptions-=cro
+au group filetype * se formatoptions-=cro
 nn <silent> gcp my :norm vip <bar> gc<cr> `y
 se commentstring=//\ %s
 
