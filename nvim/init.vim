@@ -356,7 +356,7 @@ xn <silent> gs  my :sort i<cr> `y
 au group filetype gitcommit,markdown,tex setlocal spell
 hi spellrare cterm=none ctermfg=none
 se spellcapcheck=
-se spellfile=$XDG_CONFIG_HOME/nvim/spell/en.utf-8.add
+se spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATE
 au group bufwinenter * if index(ignore_ft, &ft) < 0 | sil! loadview | en
