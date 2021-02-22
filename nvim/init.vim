@@ -368,10 +368,9 @@ se viewoptions=cursor
 hi statusline ctermbg=none ctermfg=8
 hi statuslinenc ctermbg=none ctermfg=8
 hi vertsplit ctermbg=none ctermfg=8
-nn <silent> <space>b :se laststatus=2<cr>
 se fillchars+=eob:\ ,fold:\ ,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
-se rulerformat=%=%l/%L
+se statusline=\  rulerformat=%=%l/%L
 
 " STATUSLINE - DEFINITION
 fu! StatusLine()
@@ -382,7 +381,16 @@ fu! StatusLine()
     let right = '[' . line('.') . '/' . line('$') . ']'
     retu left . repeat('─', winwidth(0) - len(left) - len(right)) . right
 endf
-se statusline=%{StatusLine()}
+
+" STATUSLINE - TOGGLE
+fu! StatusLineToggle()
+    if &laststatus == 0
+        exe 'se laststatus=2 statusline=%{StatusLine()}'
+    else
+        exe 'se laststatus=0  statusline=\ '
+    en
+endf
+nn <silent> <space>b :cal StatusLineToggle()<cr>
 
 " SWITCH
 au group filetype gitrebase let b:switch_custom_definitions = [['pick', 'f', 'r', 'd']]
