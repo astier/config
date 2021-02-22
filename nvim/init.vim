@@ -20,7 +20,6 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
     Plug 'junegunn/vim-easy-align'
     Plug 'kevinhwang91/nvim-bqf'
-    Plug 'kyazdani42/nvim-web-devicons'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
@@ -28,7 +27,6 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
-    Plug 'romgrk/barbar.nvim', { 'on': 'BarbarEnable' }
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'sickill/vim-pasta'
     Plug 'svermeulen/vim-subversive'
@@ -56,21 +54,9 @@ hi vimnotation ctermfg=none
 hi warningmsg ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 
-" BARBAR
-highlight bufferinactive ctermfg=8
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.animation = v:false
-let bufferline.auto_hide = v:true
-let bufferline.maximum_padding = 1
-nn <silent> <space>b :BarbarEnable<cr> :se laststatus=2<cr>
-
 " BUFFERS
 au group textchanged,insertleave * nested sil! up
 au group vimenter * silent! let @#=expand('#2:p')
-nn <silent> <a-E> :BufferMovePrevious<cr>
-nn <silent> <a-e> :BufferPrevious<cr>
-nn <silent> <a-R> :BufferMoveNext<cr>
-nn <silent> <a-r> :BufferNext<cr>
 nn <silent> <space>s <c-w>s
 nn <silent> <space>t :tabn<cr>
 nn <silent> <space>v <c-w>v
@@ -217,7 +203,7 @@ vn g<C-x> <C-x>
 " KILL
 nn <silent> <space>c :close<cr>zz
 nn <silent> <space>d :qa!<cr>
-nn <silent> <space>q :BufferClose<cr>
+nn <silent> <space>q :bn<bar>bd!#<cr>
 nn <silent> <space>z :wincmd z<cr>
 
 " LATEX
@@ -382,6 +368,7 @@ se viewoptions=cursor
 hi statusline ctermbg=none ctermfg=8
 hi statuslinenc ctermbg=none ctermfg=8
 hi vertsplit ctermbg=none ctermfg=8
+nn <silent> <space>b :se laststatus=2<cr>
 se fillchars+=eob:\ ,fold:\ ,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
 se rulerformat=%=%l/%L
