@@ -303,6 +303,7 @@ let g:textobj_sandwich_no_default_key_mappings = 1
 nm cm cIm
 nm dm dIm
 nm sm sIm
+nm ym yIm
 
 " SEARCH
 hi incsearch cterm=none ctermbg=yellow ctermfg=black
