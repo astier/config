@@ -394,11 +394,11 @@ se noruler noshowcmd noshowmode laststatus=0
 se rulerformat=%=%l/%L
 fu! StatusLine()
     if bufname() =~# 'NERD' || empty(expand('%')) || &laststatus == 0
-        retu repeat('―', winwidth(0))
+        retu repeat('─', winwidth(0))
     en
     let left = '─[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
     let right = '[' . line('.') . '/' . line('$') . ']'
-    retu left . repeat('―', winwidth(0) - len(left) - len(right)) . right
+    retu left . repeat('─', winwidth(0) - len(left) - len(right)) . right
 endf
 se statusline=%{StatusLine()}
 
