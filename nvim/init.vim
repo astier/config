@@ -372,6 +372,8 @@ nn <silent> <space>b :se laststatus=2<cr>
 se fillchars+=eob:\ ,fold:\ ,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
 se rulerformat=%=%l/%L
+
+" STATUSLINE - DEFINITION
 fu! StatusLine()
     if bufname() =~# 'NERD' || empty(expand('%'))
         retu repeat('─', winwidth(0))
