@@ -63,7 +63,7 @@ let bufferline = get(g:, 'bufferline', {})
 let bufferline.animation = v:false
 let bufferline.auto_hide = v:true
 let bufferline.maximum_padding = 1
-nn <silent> <space>b :BarbarEnable<cr> :ScrollViewEnable<cr> :se laststatus=1<cr>
+nn <silent> <space>b :BarbarEnable<cr> :ScrollViewEnable<cr> :se laststatus=2<cr>
 
 " BUFFERS
 au group textchanged,insertleave * nested sil! up
@@ -393,7 +393,7 @@ se fillchars+=eob:\ ,fold:\ ,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
 se rulerformat=%=%l/%L
 fu! StatusLine()
-    if bufname() =~# 'NERD' || empty(expand('%')) || &laststatus == 0
+    if bufname() =~# 'NERD' || empty(expand('%'))
         retu repeat('─', winwidth(0))
     en
     let left = '─[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
