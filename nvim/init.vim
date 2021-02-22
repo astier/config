@@ -5,9 +5,9 @@ scriptencoding utf-8
 
 " PLUGINS
 if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd vimenter * PlugInstall --sync | source $MYVIMRC
-endif
+    sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    au group vimenter * PlugInstall --sync | source $MYVIMRC
+en
 nn <silent> <space>pc :PlugClean<cr>
 nn <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
