@@ -18,7 +18,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'cohama/lexima.vim'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
-    Plug 'junegunn/vim-easy-align'
     Plug 'kevinhwang91/nvim-bqf'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
@@ -51,7 +50,7 @@ hi number ctermfg=none
 hi vimaugroup ctermfg=none
 hi vimmaprhs ctermfg=none
 hi vimnotation ctermfg=none
-hi warningmsg ctermbg=none ctermfg=none
+hi warningmsg  ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 
 " BUFFERS
@@ -103,11 +102,6 @@ nm s  <plug>(SubversiveSubstitute)
 nm S  <plug>(SubversiveSubstituteToEndOfLine)
 nm ss <plug>(SubversiveSubstituteLine)
 xm s  <plug>(SubversiveSubstitute)
-
-" EASY-ALIGN
-nmap ga  <plug>(EasyAlign)
-xmap ga  <plug>(EasyAlign)
-xmap gaa <plug>(EasyAlign)*<space>
 
 " EXPLORER - NETRW
 fu! Open()
