@@ -10,7 +10,7 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
 endif
 nn <silent> <space>pc :PlugClean<cr>
 nn <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
-call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
+cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
     Plug 'arcticicestudio/nord-vim'
@@ -35,7 +35,7 @@ call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'tpope/vim-fugitive', { 'on': 'Flog' }
     Plug 'tpope/vim-sleuth'
     Plug 'wellle/targets.vim'
-call plug#end()
+cal plug#end()
 
 " APPEARANCE (echo synIDattr(synID(line("."), col("."), 1), "name"))
 au textyankpost * silent! lua vim.highlight.on_yank{}
