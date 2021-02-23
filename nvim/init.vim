@@ -368,7 +368,7 @@ fu! StatusLine()
     if bufname() =~# 'NERD' || empty(expand('%'))
         retu repeat('─', winwidth(0))
     en
-    let left = '─[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
+    let left = '[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
     let right = '[' . line('.') . '/' . line('$') . ']'
     retu left . repeat('─', winwidth(0) - len(left) - len(right)) . right
 endf
