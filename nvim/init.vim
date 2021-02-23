@@ -69,7 +69,6 @@ se commentstring=//\ %s
 
 " COMPLETION
 hi pmenusel ctermfg=none
-ino <expr> <c-k> pumvisible() ? "\<c-e>" : "\<c-k>"
 se completeopt=menuone,noinsert
 se infercase shortmess+=c
 se pumheight=8 pumwidth=0
