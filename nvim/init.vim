@@ -124,7 +124,7 @@ au group filetype netrw nm <buffer><silent> h -<left>
 au group filetype netrw nn <buffer><silent> <leftmouse> <leftmouse>:cal Open()<cr>
 au group filetype netrw nn <buffer><silent> <space>e :Rexplore<cr>
 au group filetype netrw nn <buffer><silent> l :cal Open()<cr>
-hi netrwMarkFile cterm=bold ctermfg=yellow
+hi netrwMarkFile ctermfg=yellow
 let g:netrw_altfile = 1
 let g:netrw_banner = 0
 let g:netrw_dirhistmax = 0
