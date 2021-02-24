@@ -26,7 +26,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'sickill/vim-pasta'
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
@@ -101,7 +100,7 @@ nm S  <plug>(SubversiveSubstituteToEndOfLine)
 nm ss <plug>(SubversiveSubstituteLine)
 xm s  <plug>(SubversiveSubstitute)
 
-" EXPLORER - NETRW
+" EXPLORER
 fu! Open()
     let path = expand('%:p')
     if !isdirectory(path)
@@ -129,23 +128,8 @@ let g:netrw_altfile = 1
 let g:netrw_banner = 0
 let g:netrw_dirhistmax = 0
 let g:netrw_list_hide = '^\.*/$'
-nn <silent> <c-e> :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
-
-" EXPLORER - NERDTree
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-au bufenter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | buffer# | exe "normal! \<C-W>w" | exe 'buffer'.buf | en
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
-let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeIgnore = ['.git$', '__pycache__$', 'tags$', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
-let g:NERDTreeMinimalMenu = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMouseMode = 3
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeStatusline = ''
-let g:NERDTreeWinPos = "right"
-nn <silent> <rightmouse> :NERDTreeToggle<cr>
-nn <silent> <space>e :NERDTreeToggle<cr>
+nn <silent> <rightmouse> :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
+nn <silent> <space>e :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
 
 " FOLD
 se foldexpr=nvim_treesitter#foldexpr()
@@ -364,7 +348,7 @@ se statusline=\  rulerformat=%=%l/%L
 
 " STATUSLINE - DEFINITION
 fu! StatusLine()
-    if bufname() =~# 'NERD' || empty(expand('%'))
+    if empty(expand('%'))
         retu repeat('─', winwidth(0))
     en
     let left = '[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
