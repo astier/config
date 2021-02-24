@@ -100,37 +100,6 @@ nm S  <plug>(SubversiveSubstituteToEndOfLine)
 nm ss <plug>(SubversiveSubstituteLine)
 xm s  <plug>(SubversiveSubstitute)
 
-" EXPLORER
-fu! Open()
-    let path = expand('%:p')
-    if !isdirectory(path)
-        " Fixes bug where the current directory is added two times
-        " to the end of the path-variable
-        let path = fnamemodify(path, ':h') . '/'
-    en
-    let file = fnameescape(path . getline('.'))
-    let mime = system('file -bL --mime-type ' . file)
-    if isdirectory(file) || empty(glob(file)) || mime =~# '\(text/.*\|.*/json\|.*csv\)'
-        exe "normal \<Plug>NetrwLocalBrowseCheck zz"
-    el
-        exe 'sil !open' file
-    en
-endf
-au group filetype netrw nm <buffer> <c-rightmouse> <Plug>NetrwSLeftmouse
-au group filetype netrw nm <buffer> <cr> mf
-au group filetype netrw nm <buffer><silent> <rightmouse> -<left>
-au group filetype netrw nm <buffer><silent> h -<left>
-au group filetype netrw nn <buffer><silent> <leftmouse> <leftmouse>:cal Open()<cr>
-au group filetype netrw nn <buffer><silent> <space>e :Rexplore<cr>
-au group filetype netrw nn <buffer><silent> l :cal Open()<cr>
-hi netrwMarkFile ctermfg=yellow
-let g:netrw_altfile = 1
-let g:netrw_banner = 0
-let g:netrw_dirhistmax = 0
-let g:netrw_list_hide = '^\.*/$'
-nn <silent> <rightmouse> :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
-nn <silent> <space>e :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
-
 " FOLD
 se foldexpr=nvim_treesitter#foldexpr()
 se foldmethod=expr
@@ -274,6 +243,39 @@ ino <silent> <a-h> <c-o>:TmuxNavigateLeft<cr>
 ino <silent> <a-j> <c-o>:TmuxNavigateDown<cr>
 ino <silent> <a-k> <c-o>:TmuxNavigateUp<cr>
 ino <silent> <a-l> <c-o>:TmuxNavigateRight<cr>
+
+" NETRW
+au group filetype netrw nm <buffer> <c-rightmouse> <Plug>NetrwSLeftmouse
+au group filetype netrw nm <buffer> <cr> mf
+au group filetype netrw nm <buffer><silent> <rightmouse> -<left>
+au group filetype netrw nm <buffer><silent> h -<left>
+au group filetype netrw nn <buffer><silent> <leftmouse> <leftmouse>:cal NetrwOpen()<cr>
+au group filetype netrw nn <buffer><silent> <space>e :Rexplore<cr>
+au group filetype netrw nn <buffer><silent> l :cal NetrwOpen()<cr>
+hi netrwMarkFile ctermfg=yellow
+let g:netrw_altfile = 1
+let g:netrw_banner = 0
+let g:netrw_dirhistmax = 0
+let g:netrw_list_hide = '^\.*/$'
+nn <silent> <rightmouse> :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
+nn <silent> <space>e :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
+
+" NETRW - OPEN
+fu! NetrwOpen()
+    let path = expand('%:p')
+    if !isdirectory(path)
+        " Fixes bug where the current directory is added two times
+        " to the end of the path-variable
+        let path = fnamemodify(path, ':h') . '/'
+    en
+    let file = fnameescape(path . getline('.'))
+    let mime = system('file -bL --mime-type ' . file)
+    if isdirectory(file) || empty(glob(file)) || mime =~# '\(text/.*\|.*/json\|.*csv\)'
+        exe "normal \<Plug>NetrwLocalBrowseCheck zz"
+    el
+        exe 'sil !open' file
+    en
+endf
 
 " OBJECTS
 au User targets#mappings#user cal targets#mappings#extend({
