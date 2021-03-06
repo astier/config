@@ -52,7 +52,7 @@ hi warningmsg  ctermbg=none ctermfg=none
 se cursorline | hi clear cursorline
 
 " BUFFERS
-au group textchanged,insertleave * nested sil! up
+au group textchanged,insertleave * nested if &readonly == 0 | sil! up | en
 au group vimenter * silent! let @#=expand('#2:p')
 nn <silent> <space>s <c-w>s
 nn <silent> <space>t :tabn<cr>
