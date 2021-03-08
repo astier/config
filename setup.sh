@@ -58,7 +58,6 @@ if groups "$USER" | grep -q wheel; then
     copy tty-cursor.conf /etc/tmpfiles.d
     copy xorg.conf /etc/X11
     link herbstluftwm "$XDG_CONFIG_HOME"
-    link newsboat "$XDG_CONFIG_HOME"
     link pacman "$XDG_CONFIG_HOME"
     link sx "$XDG_CONFIG_HOME"
     link sxhkd "$XDG_CONFIG_HOME"
