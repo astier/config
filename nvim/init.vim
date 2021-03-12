@@ -311,7 +311,7 @@ nn <p <ap
 nn >p >ap
 nn G G0zz
 nn gg gg0
-nn Q <c-q>
+nn Q <nop>
 nn vp vip
 nn { {zz
 nn } }zz
