@@ -1,15 +1,15 @@
 {
   "function": {
     "prefix": ["f"],
-    "body": ["function! $1()\n\t$0\nendfunction"]
+    "body": ["fu! $1()\n\t$0\nendf"]
   },
   "if": {
     "prefix": ["i"],
-    "body": ["if $1\n\t\nendif"]
+    "body": ["if $1\n\t\nen"]
   },
   "packadd": {
     "prefix": ["pa"],
-    "body": ["packadd! "]
+    "body": ["pa! "]
   },
   "plug": {
     "prefix": ["p"],
