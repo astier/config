@@ -8,6 +8,12 @@ link() {
     ln -rs "$TARGET" "$DESTINATION" && echo Installed: "$TARGET"
 }
 
+link_sudo() {
+    TARGET=$1 DESTINATION=$2/$(basename "$TARGET")
+    sudo rm -fr "$DESTINATION"
+    sudo ln -rs "$TARGET" "$DESTINATION" && echo Installed: "$TARGET"
+}
+
 mkdir -p "$XDG_CONFIG_HOME"
 
 link .bashrc ~
@@ -44,24 +50,24 @@ fi
 
 if groups "$USER" | grep -q wheel; then
 
-    copy iptables.rules /etc/iptables
     copy iwd.conf /etc/iwd/main.conf
-    copy NetworkManager.conf /etc/NetworkManager
-    copy pacman/pacman.conf /etc
-    copy sofficerc /etc/libreoffice
     copy systemd/journald.conf /etc/systemd
     copy systemd/logind.conf /etc/systemd
     copy systemd/resolved.conf /etc/systemd
     copy systemd/system.conf /etc/systemd
-    copy systemd/system/getty@tty1.service.d /etc/systemd/system
-    copy systemd/system/getty@tty2.service.d /etc/systemd/system
-    copy tty-cursor.conf /etc/tmpfiles.d
-    copy xorg.conf /etc/X11
     link herbstluftwm "$XDG_CONFIG_HOME"
     link pacman "$XDG_CONFIG_HOME"
     link sx "$XDG_CONFIG_HOME"
     link sxhkd "$XDG_CONFIG_HOME"
     link tint2 "$XDG_CONFIG_HOME"
+    link_sudo iptables.rules /etc/iptables
+    link_sudo NetworkManager.conf /etc/NetworkManager
+    link_sudo pacman/pacman.conf /etc
+    link_sudo sofficerc /etc/libreoffice
+    link_sudo systemd/system/getty@tty1.service.d /etc/systemd/system
+    link_sudo systemd/system/getty@tty2.service.d /etc/systemd/system
+    link_sudo tty-cursor.conf /etc/tmpfiles.d
+    link_sudo xorg.conf /etc/X11
 
     # copy 10-udev.rules /etc/udev/rules.d/
     # sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
