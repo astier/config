@@ -100,11 +100,6 @@ nm S  <plug>(SubversiveSubstituteToEndOfLine)
 nm ss <plug>(SubversiveSubstituteLine)
 xm s  <plug>(SubversiveSubstitute)
 
-" FOLD
-se foldexpr=nvim_treesitter#foldexpr()
-se foldmethod=expr
-se nofoldenable
-
 " FORMAT
 fu! Format()
     let l:save = winsaveview()
@@ -219,6 +214,7 @@ au group vimresized * wincmd =
 let g:fzf_preview_window = []
 se clipboard=unnamedplus
 se expandtab shiftwidth=4 tabstop=4
+se nofoldenable
 se nojoinspaces
 se noswapfile
 se notimeout
