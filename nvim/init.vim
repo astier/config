@@ -412,46 +412,44 @@ nn <silent> <space>a :T execute<cr>
 
 " TREESITTER
 highlight tserror ctermfg=15
-lua << END
-require 'nvim-treesitter.configs'.setup {
-    ensure_installed = {"bash", "c", "cpp", "json", "lua", "python"},
-    highlight = { enable = false },
-    indent = { enable = true },
-    textobjects = {
-        select = {
-            enable = true,
-            keymaps = {
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-            },
-        },
-        move = {
-            enable = true,
-            goto_next_start = {
-               ["]f"] = "@function.outer",
-            },
-            goto_next_end = {
-               ["]F"] = "@function.outer",
-            },
-            goto_previous_start = {
-               ["[f"] = "@function.outer",
-            },
-            goto_previous_end = {
-               ["[F"] = "@function.outer",
-            },
-        },
-        swap = {
-            enable = true,
-            swap_next = {
-               ["]a"] = "@parameter.inner",
-            },
-            swap_previous = {
-               ["[a"] = "@parameter.inner",
-            },
-        },
-    },
-}
-END
+lua require 'nvim-treesitter.configs'.setup {
+\   ensure_installed = {"bash", "c", "cpp", "json", "lua", "python"},
+\   highlight = { enable = false },
+\   indent = { enable = true },
+\   textobjects = {
+\       select = {
+\           enable = true,
+\           keymaps = {
+\               ["af"] = "@function.outer",
+\               ["if"] = "@function.inner",
+\           },
+\       },
+\       move = {
+\           enable = true,
+\           goto_next_start = {
+\              ["]f"] = "@function.outer",
+\           },
+\           goto_next_end = {
+\              ["]F"] = "@function.outer",
+\           },
+\           goto_previous_start = {
+\              ["[f"] = "@function.outer",
+\           },
+\           goto_previous_end = {
+\              ["[F"] = "@function.outer",
+\           },
+\       },
+\       swap = {
+\           enable = true,
+\           swap_next = {
+\              ["]a"] = "@parameter.inner",
+\           },
+\           swap_previous = {
+\              ["[a"] = "@parameter.inner",
+\           },
+\       },
+\   },
+\}
 
 " WRAP
 nn $ g$
