@@ -22,5 +22,9 @@
   "if": {
     "prefix": ["i"],
     "body": ["if [ $0 ]; then\nfi"]
+  },
+  "case": {
+    "prefix": ["c"],
+    "body": ["case $1 in\n\t$2) $0 ;;\nesac"]
   }
 }
