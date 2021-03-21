@@ -411,7 +411,6 @@ highlight tserror ctermfg=15
 lua require 'nvim-treesitter.configs'.setup {
 \   ensure_installed = {"bash", "c", "cpp", "json", "lua", "python"},
 \   highlight = { enable = false },
-\   indent = { enable = true },
 \   textobjects = {
 \       select = {
 \           enable = true,
