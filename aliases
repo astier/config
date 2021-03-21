@@ -10,7 +10,6 @@ alias ls="ls -Ahv --color --group-directories-first"
 alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
 alias mount="sudo mount"
 alias pacman="doas pacman"
-alias rm="rm -fr"
 alias tree="tree -aCI '__pycache__|.git|*.aux|*.fdb_latexmk|*.fls|*.log|*.nav|*.snm|*.gz|*.toc' --dirsfirst --noreport"
 alias umount="sudo umount"
 alias watch="watch --color"
@@ -146,7 +145,7 @@ alias a="execute"
 alias as="echo Remapped to do nothing."
 alias b="cd - >/dev/null && ls"
 alias c="cd .."
-alias clean="doas pacman -Rns \$(pacman -Qttdq); doas pacman -Sc; rm -r \$XDG_CACHE_HOME/*; doas rm -fr /var/log/journal/*; rm -r \$XDG_DATA_HOME/nvim/view/*"
+alias clean="doas pacman -Rns \$(pacman -Qttdq); doas pacman -Sc; rm -fr \$XDG_CACHE_HOME/*; doas rm -fr /var/log/journal/*; rm -fr \$XDG_DATA_HOME/nvim/view/*"
 alias dus="du -s"
 alias e="\$EDITOR ."
 alias g="grep -Rn"
@@ -173,7 +172,7 @@ alias u="doas sh -c \"curl -s 'https://archlinux.org/mirrorlist/?country=DE&prot
 alias v="pulsemixer"
 ar() { dir="$(basename "$1").tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
 cd() { builtin cd "$@" && ls; }
-d() { if [ $# = 0 ]; then exit; else rm $(realpath -s "$@"); fi }
+d() { if [ $# = 0 ]; then exit; else rm -fr $(realpath -s "$@"); fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 p() { if [ $# = 0 ]; then pwd | sed "s|$HOME|~|"; else cp -irv "$@"; fi }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
