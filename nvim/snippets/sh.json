@@ -18,5 +18,9 @@
   "[  ]": {
     "prefix": ["["],
     "body": ["[ $0 ]"]
+  },
+  "if": {
+    "prefix": ["i"],
+    "body": ["if [ $0 ]; then\nfi"]
   }
 }
