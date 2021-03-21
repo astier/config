@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 # DEFAULTS
-alias cp='cp -irv'
 alias df="df -h"
 alias du="du -h"
 alias fdisk="sudo fdisk"
@@ -162,9 +161,7 @@ alias ll="ls -l"
 alias lt="lint"
 alias m="mmrdf"
 alias o="autopen"
-alias p="cp"
 alias pa="patch -p1 <"
-alias pw="pwd | sed \"s|\$HOME|~|\""
 alias r="pkg -r"
 alias re="sudo \$(fc -ln -1)"
 alias s="echo \$(bstatus)% \| \$(pulsemixer --get-volume) \$(pulsemixer --get-mute) \| \$(date +%H:%M) \| \$(date +%d.%m.%y)"
@@ -178,6 +175,7 @@ ar() { dir="$(basename "$1").tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$
 cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm $(realpath -s "$@"); fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
+p() { if [ $# = 0 ]; then pwd | sed "s|$HOME|~|"; else cp -irv "$@"; fi }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # PREVIEW
