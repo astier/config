@@ -9,9 +9,7 @@ alias gdisk="sudo gdisk"
 alias grep="grep --color --exclude-dir=.git"
 alias ls="ls -Ahv --color --group-directories-first"
 alias lsblk="lsblk -o name,label,mountpoint,fstype,size"
-alias mkdir="mkdir -p"
 alias mount="sudo mount"
-alias mv="mv -iv"
 alias pacman="doas pacman"
 alias rm="rm -fr"
 alias tree="tree -aCI '__pycache__|.git|*.aux|*.fdb_latexmk|*.fls|*.log|*.nav|*.snm|*.gz|*.toc' --dirsfirst --noreport"
@@ -162,7 +160,7 @@ alias is="iwctl station wlan0 scan"
 alias lb="lsblk"
 alias ll="ls -l"
 alias lt="lint"
-alias m="mv"
+alias m="mmrdf"
 alias o="autopen"
 alias p="cp"
 alias pa="patch -p1 <"
@@ -181,11 +179,6 @@ cd() { builtin cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else rm $(realpath -s "$@"); fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
-
-# MK
-alias md="mkdir -p"
-alias mf="touch"
-mfx() { touch "$1"; chmod +x "$1"; }
 
 # PREVIEW
 l() {
