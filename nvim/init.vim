@@ -36,6 +36,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
 cal plug#end()
 
 " APPEARANCE (echo synIDattr(synID(line("."), col("."), 1), "name"))
+au group filetype sh hi link shiferror shconditional
 au textyankpost * silent! lua vim.highlight.on_yank{}
 colorscheme nord
 hi cincluded ctermfg=none
