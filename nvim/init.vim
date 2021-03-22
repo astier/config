@@ -100,7 +100,7 @@ let g:subversivePromptWithCurrent = 1
 nm s  <plug>(SubversiveSubstitute)
 nm S  <plug>(SubversiveSubstituteToEndOfLine)
 nm ss <plug>(SubversiveSubstituteLine)
-xm s  <plug>(SubversiveSubstitute)
+xm ss <plug>(SubversiveSubstitute)
 
 " FORMAT
 fu! Format()
