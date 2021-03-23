@@ -51,10 +51,10 @@ fi
 if groups "$USER" | grep -q wheel; then
 
     copy iwd.conf /etc/iwd/main.conf
-    copy systemd/journald.conf /etc/systemd
-    copy systemd/logind.conf /etc/systemd
-    copy systemd/resolved.conf /etc/systemd
-    copy systemd/system.conf /etc/systemd
+    copy systemd/journald.conf.d /etc/systemd
+    copy systemd/logind.conf.d /etc/systemd
+    copy systemd/resolved.conf.d /etc/systemd
+    copy systemd/system.conf.d /etc/systemd
     link herbstluftwm "$XDG_CONFIG_HOME"
     link pacman "$XDG_CONFIG_HOME"
     link sx "$XDG_CONFIG_HOME"
