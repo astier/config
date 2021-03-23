@@ -56,6 +56,8 @@ se cursorline | hi clear cursorline
 " BUFFERS
 au group textchanged,insertleave * nested if &readonly == 0 | sil! up | en
 au group vimenter * silent! let @#=expand('#2:p')
+nn <silent> <a-e> :bp<cr><c-g>
+nn <silent> <a-r> :bn<cr><c-g>
 nn <silent> <space>s <c-w>s
 nn <silent> <space>t :tabn<cr>
 nn <silent> <space>v <c-w>v
