@@ -371,6 +371,7 @@ nn <silent> <space>b :cal StatusLineToggle()<cr>
 " SWITCH
 let g:switch_custom_definitions = [
     \['0', '1'],
+    \['yes', 'no'],
     \['==', '!='],
     \['pick', 'f', 'r'],
 \]
