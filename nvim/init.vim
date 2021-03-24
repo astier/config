@@ -413,6 +413,7 @@ nn <silent> <space>a :T execute<cr>
 
 " TREESITTER
 highlight tserror ctermfg=15
+nm df vafjd
 lua require 'nvim-treesitter.configs'.setup {
 \   ensure_installed = {"bash", "c", "cpp", "json", "lua", "python"},
 \   highlight = { enable = false },
