@@ -31,7 +31,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'sickill/vim-pasta'
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-eunuch', { 'on': ['Delete', 'Mkdir', 'Move', 'Rename'] }
+    Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive', { 'on': 'Flog' }
     Plug 'tpope/vim-sleuth'
     Plug 'wellle/targets.vim'
