@@ -18,10 +18,12 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'cohama/lexima.vim'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
+    Plug 'kana/vim-textobj-indent'
+    Plug 'kana/vim-textobj-line'
+    Plug 'kana/vim-textobj-user'
     Plug 'kevinhwang91/nvim-bqf'
     Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
-    Plug 'michaeljsmith/vim-indent-object'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -289,6 +291,7 @@ nm cm cIm
 nm dm dIm
 nm sm sIm
 nm ym yIm
+nm yl my yal `y
 
 " SEARCH
 hi incsearch cterm=none ctermbg=yellow ctermfg=black
@@ -324,7 +327,7 @@ smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)'     
 smap <silent> <expr> <tab>   vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
 
 " SORT
-nn <silent> gsi my :norm vii<cr> :sort i<cr> `y
+nn <silent> gsi my :norm viik<cr> :sort i<cr> `y
 nn <silent> gss my vip :sort i<cr> `y
 xn <silent> gs  my :sort i<cr> `y
 
