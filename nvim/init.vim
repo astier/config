@@ -28,7 +28,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
-    Plug 'sickill/vim-pasta'
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
