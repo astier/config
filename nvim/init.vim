@@ -355,7 +355,7 @@ fu! StatusLine()
     if empty(expand('%'))
         retu repeat('─', winwidth(0))
     en
-    let left = '[' . substitute(expand('%'), '^[^/]*\/', '', '') . ']'
+    let left = '[' . substitute(expand('%:t'), '^[^/]*\/', '', '') . ']'
     let right = '[' . line('.') . '/' . line('$') . ']'
     retu left . repeat('─', winwidth(0) - len(left) - len(right)) . right
 endf
