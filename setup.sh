@@ -34,6 +34,9 @@ link tmux "$XDG_CONFIG_HOME"
 link xkb "$XDG_CONFIG_HOME"
 link zathura "$XDG_CONFIG_HOME"
 
+mkdir -p "$XDG_CONFIG_HOME"/autostart
+link autostart/xkbcomp.desktop "$XDG_CONFIG_HOME"/autostart
+
 code_dir="$XDG_CONFIG_HOME"/Code/User
 if [ -d "$code_dir" ]; then
     link code/code.vim "$code_dir"
