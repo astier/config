@@ -42,6 +42,7 @@ au textyankpost * silent! lua vim.highlight.on_yank{}
 colorscheme nord
 hi cincluded ctermfg=none
 hi comment cterm=italic
+hi coperator ctermfg=none
 hi errormsg ctermbg=none
 hi float ctermfg=none
 hi function ctermfg=none
