@@ -130,7 +130,6 @@ nn <silent> <space>kk :Flog -all<cr>
 
 " GITGUTTER
 au group vimenter,bufwritepost * GitGutter
-let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_show_msg_on_hunk_jumping = 0
 nm <space>i <Plug>(GitGutterPreviewHunk)
