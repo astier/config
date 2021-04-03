@@ -225,7 +225,7 @@ se noswapfile
 se notimeout
 se splitbelow splitright
 se virtualedit=block
-se wildmode=longest,list
+se wildmode=longest:full,full
 
 " MOUSE
 nm <silent> <2-rightmouse> <rightmouse>
