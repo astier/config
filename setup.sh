@@ -64,13 +64,21 @@ if groups "$USER" | grep -q wheel; then
     link sxhkd "$XDG_CONFIG_HOME"
     link tint2 "$XDG_CONFIG_HOME"
     link_sudo iptables.rules /etc/iptables
-    link_sudo NetworkManager.conf /etc/NetworkManager
     link_sudo pacman/pacman.conf /etc
-    link_sudo sofficerc /etc/libreoffice
     link_sudo systemd/system/getty@tty1.service.d /etc/systemd/system
     link_sudo systemd/system/getty@tty2.service.d /etc/systemd/system
     link_sudo tty-cursor.conf /etc/tmpfiles.d
     link_sudo xorg.conf /etc/X11
+
+    nm_dir=/etc/NetworkManager
+    if [ -d "$nm_dir" ]; then
+        link_sudo NetworkManager.conf "$nm_dir"
+    fi
+
+    libreoffice_dir=/etc/libreoffice
+    if [ -d "$libreoffice_dir" ]; then
+        link_sudo sofficerc "$libreoffice_dir"
+    fi
 
     # copy 10-udev.rules /etc/udev/rules.d/
     # sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
