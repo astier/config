@@ -22,6 +22,7 @@ link aliases "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
 link gtk-2.0 "$XDG_CONFIG_HOME"
 link gtk-3.0 "$XDG_CONFIG_HOME"
+link gtk-4.0 "$XDG_CONFIG_HOME"
 link inputrc "$XDG_CONFIG_HOME"
 link markdownlint "$XDG_CONFIG_HOME"
 link mimeapps.list ~/.config/
