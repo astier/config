@@ -387,17 +387,6 @@ hi tablinefill ctermbg=none
 hi tablinesel ctermbg=none ctermfg=none
 se showtabline=0
 
-" TMUXRENAME
-fu! TmuxRename()
-    if &ft == 'git'
-        cal system('tmux renamew git')
-    el
-        cal system('tmux renamew "#{b:pane_current_path}"')
-    en
-endf
-au group vimenter,vimresume,focusgained * cal TmuxRename()
-au group vimleave,vimsuspend * cal system('tmux setw automatic-rename')
-
 " TMUXSEND
 fu! T(...)
     if !empty(system('tmux has -t $(cat /tmp/tmuxsend)'))
