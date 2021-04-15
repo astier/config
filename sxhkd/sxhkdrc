@@ -8,6 +8,8 @@ mod4 + {s,d}
 mod4 + {S,D}
     lux -{s,a} 8%
 
+mod5 + c
+    st
 mod5 + f
     launch
 mod5 + D ; {p,r,s}
