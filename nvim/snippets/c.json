@@ -10,5 +10,13 @@
   "->": {
     "prefix": ["."],
     "body": ["->"]
+  },
+  "else": {
+    "prefix": ["e"],
+    "body": ["else"]
+  },
+  "else if": {
+    "prefix": ["ei"],
+    "body": ["else if ($0)"]
   }
 }
