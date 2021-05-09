@@ -28,6 +28,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
+    Plug 'stsewd/gx-extended.vim'
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
@@ -258,7 +259,6 @@ let g:netrw_altfile = 1
 let g:netrw_banner = 0
 let g:netrw_dirhistmax = 0
 let g:netrw_list_hide = '^\.*/$'
-nn <silent> <rightmouse> :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
 nn <silent> <space>e :Explore <bar> :sil! /<c-r>=expand("%:t")<cr><cr>:nohl<cr>
 
 " NETRW - OPEN
@@ -306,6 +306,7 @@ se inccommand=nosplit
 
 " SHORTCUTS
 ino <c-l> <esc>la
+nm <rightmouse> <leftmouse>gx
 nn <a-d> 4<c-y>
 nn <a-f> 4<c-e>
 nn <cr> o<esc>
