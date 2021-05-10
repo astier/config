@@ -410,7 +410,10 @@ highlight tserror ctermfg=15
 nm df vafjd
 lua require 'nvim-treesitter.configs'.setup {
 \   ensure_installed = {"bash", "c", "cpp", "json", "lua", "python"},
-\   highlight = { enable = false },
+\   highlight = {
+\       enable = false,
+\       additional_vim_regex_highlighting = true,
+\   },
 \   textobjects = {
 \       select = {
 \           enable = true,
