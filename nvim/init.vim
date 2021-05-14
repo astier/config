@@ -309,12 +309,14 @@ ino <c-l> <esc>la
 nm <rightmouse> <leftmouse>gx
 nn <a-d> 4<c-y>
 nn <a-f> 4<c-e>
+nn <c-r> <c-r>:echo<cr>
 nn <cr> o<esc>
 nn <p <ap
 nn >p >ap
 nn G G0
 nn gg gg0
 nn Q <nop>
+nn u u:echo<cr>
 nn vp vip
 nn { {zz
 nn } }zz
