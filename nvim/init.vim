@@ -11,7 +11,6 @@ en
 nn <silent> <space>pc :PlugClean<cr>
 nn <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
-    Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
     Plug 'arcticicestudio/nord-vim'
     Plug 'christoomey/vim-tmux-navigator'
@@ -121,20 +120,13 @@ au group filetype floggraph xm <buffer> <rightmouse> <cr>
 hi diffadded cterm=none ctermbg=none ctermfg=green
 hi diffremoved cterm=none ctermbg=none ctermfg=red
 hi difftext cterm=none ctermbg=none ctermfg=green
-nn <silent> <space>kd :Gdiff<cr>
+nn <silent> <space>i :Gdiff<cr>
 nn <silent> <space>kK :Flog -all -path=%<cr>
 nn <silent> <space>kk :Flog -all<cr>
-
-" GITGUTTER
-au group vimenter,bufwritepost * GitGutter
-let g:gitgutter_preview_win_floating = 0
-let g:gitgutter_show_msg_on_hunk_jumping = 0
-nm <space>i <Plug>(GitGutterPreviewHunk)
-nm <space>S <Plug>(GitGutterStageHunk)
-nm <space>u <Plug>(GitGutterUndoHunk)
-nm [c <Plug>(GitGutterPrevHunk)zz
-nm ]c <Plug>(GitGutterNextHunk)zz
-se signcolumn=yes
+nn <silent> <space>S :diffget<cr>
+nn <silent> <space>u :diffput<cr>
+nn [c [czz
+nn ]c ]czz
 
 " INCREMENT
 vn <C-a> g<C-a>
