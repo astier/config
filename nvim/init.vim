@@ -22,8 +22,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
     Plug 'stsewd/gx-extended.vim'
     Plug 'svermeulen/vim-subversive'
@@ -400,50 +398,6 @@ nn <silent> <space><space> :cal T(getline('.'))<cr>
 xn <silent> <space><space> "vy :cal T(substitute(@v, '\n$', '', ''))<cr>
 nn <silent> <space>l :T lint %<cr>
 nn <silent> <space>a :T execute<cr>
-
-" TREESITTER
-highlight tserror ctermfg=15
-nm df vafjd
-lua require 'nvim-treesitter.configs'.setup {
-\   ensure_installed = {"bash", "c", "cpp", "json", "lua", "python"},
-\   highlight = {
-\       enable = false,
-\       additional_vim_regex_highlighting = true,
-\   },
-\   textobjects = {
-\       select = {
-\           enable = true,
-\           keymaps = {
-\               ["af"] = "@function.outer",
-\               ["if"] = "@function.inner",
-\           },
-\       },
-\       move = {
-\           enable = true,
-\           goto_next_start = {
-\              ["]f"] = "@function.outer",
-\           },
-\           goto_next_end = {
-\              ["]F"] = "@function.outer",
-\           },
-\           goto_previous_start = {
-\              ["[f"] = "@function.outer",
-\           },
-\           goto_previous_end = {
-\              ["[F"] = "@function.outer",
-\           },
-\       },
-\       swap = {
-\           enable = true,
-\           swap_next = {
-\              ["]a"] = "@parameter.inner",
-\           },
-\           swap_previous = {
-\              ["[a"] = "@parameter.inner",
-\           },
-\       },
-\   },
-\}
 
 " WRAP
 nn $ g$
