@@ -301,6 +301,7 @@ nn >p >ap
 nn G G0
 nn gg gg0
 nn Q <nop>
+nn U <c-r>:echo<cr>
 nn u u:echo<cr>
 nn vp vip
 nn { {zz
