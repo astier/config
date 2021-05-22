@@ -33,6 +33,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
 cal plug#end()
 
 " APPEARANCE (echo synIDattr(synID(line("."), col("."), 1), "name"))
+au group filetype * se nocursorline
 au group filetype sh hi link shiferror shconditional
 au textyankpost * silent! lua vim.highlight.on_yank{}
 colorscheme nord
@@ -49,7 +50,7 @@ hi vimaugroup ctermfg=none
 hi vimmaprhs ctermfg=none
 hi vimnotation ctermfg=none
 hi warningmsg  ctermbg=none ctermfg=none
-se cursorline | hi clear cursorline
+se nocursorcolumn
 
 " BUFFERS
 au group textchanged,insertleave * nested if &readonly == 0 | sil! up | en
