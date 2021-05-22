@@ -15,7 +15,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'AndrewRadev/switch.vim'
     Plug 'arcticicestudio/nord-vim'
     Plug 'christoomey/vim-tmux-navigator'
-    Plug 'cohama/lexima.vim'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
     Plug 'kevinhwang91/nvim-bqf'
@@ -174,11 +173,6 @@ fu! ViewPDF()
     en
     exe 'ec'
 endf
-
-" LEXIMA
-let g:lexima_ctrlh_as_backspace = 1
-let g:lexima_enable_endwise_rules = 0
-let g:lexima_map_escape = ''
 
 " LOADED
 let g:loaded_gzip = 0
