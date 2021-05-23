@@ -26,7 +26,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
-    Plug 'tpope/vim-fugitive', { 'on': ['Flog', 'Gblame'] }
+    Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-sleuth'
     Plug 'wellle/targets.vim'
 cal plug#end()
