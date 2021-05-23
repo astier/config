@@ -89,7 +89,7 @@ nn yw my yiw `y
 nn yW my yiW `y
 
 " EDITING - CUT
-nn dp dap
+nn dp dap:echo<cr>
 nn dw daw
 nn dW daW
 
