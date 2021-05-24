@@ -24,7 +24,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'stsewd/gx-extended.vim'
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-eunuch'
+    Plug 'tpope/vim-eunuch', { 'on': ['Delete', 'Move'] }
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-sleuth'
     Plug 'wellle/targets.vim'
