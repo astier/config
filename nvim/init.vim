@@ -13,7 +13,6 @@ nn <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'AndrewRadev/switch.vim'
     Plug 'arcticicestudio/nord-vim'
-    Plug 'christoomey/vim-tmux-navigator'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
     Plug 'kevinhwang91/nvim-bqf'
@@ -55,9 +54,7 @@ au group textchanged,insertleave * nested if &readonly == 0 | sil! up | en
 au group vimenter * silent! let @#=expand('#2:p')
 nn <silent> <a-e> :bp<cr><c-g>
 nn <silent> <a-r> :bn<cr><c-g>
-nn <silent> <space>s <c-w>s
 nn <silent> <space>t :tabn<cr>
-nn <silent> <space>v <c-w>v
 nn <silent> <tab> :b#<cr>
 nn <silent> F :Buffers<cr>
 nn <silent> f :FZF<cr>
@@ -134,7 +131,6 @@ vn g<C-a> <C-a>
 vn g<C-x> <C-x>
 
 " KILL
-nn <silent> <space>c :close<cr>zz
 nn <silent> <space>d :qa!<cr>
 nn <silent> <space>q :bn<bar>bd!#<cr>
 nn <silent> <space>z :wincmd z<cr>
@@ -196,17 +192,6 @@ nm <silent> <3-rightmouse> <rightmouse>
 nm <silent> <4-rightmouse> <rightmouse>
 se mouse=a
 se mousemodel=popup
-
-" NAVIGATION
-let g:tmux_navigator_no_mappings = 1
-nn <silent> <a-h> :TmuxNavigateLeft<cr>
-nn <silent> <a-j> :TmuxNavigateDown<cr>
-nn <silent> <a-k> :TmuxNavigateUp<cr>
-nn <silent> <a-l> :TmuxNavigateRight<cr>
-ino <silent> <a-h> <c-o>:TmuxNavigateLeft<cr>
-ino <silent> <a-j> <c-o>:TmuxNavigateDown<cr>
-ino <silent> <a-k> <c-o>:TmuxNavigateUp<cr>
-ino <silent> <a-l> <c-o>:TmuxNavigateRight<cr>
 
 " OBJECTS
 au User targets#mappings#user cal targets#mappings#extend({
@@ -338,6 +323,15 @@ nn <silent> <space><space> :cal T(getline('.'))<cr>
 xn <silent> <space><space> "vy :cal T(substitute(@v, '\n$', '', ''))<cr>
 nn <silent> <space>l :T lint %<cr>
 nn <silent> <space>a :T execute<cr>
+
+" WINDOWS
+nn <c-h> <c-w>h
+nn <c-j> <c-w>j
+nn <c-k> <c-w>k
+nn <c-l> <c-w>l
+nn <space>c <c-w>czz
+nn <space>s <c-w>s
+nn <space>v <c-w>v
 
 " WRAP
 nn $ g$
