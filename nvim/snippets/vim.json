@@ -14,5 +14,17 @@
   "plug": {
     "prefix": ["p"],
     "body": ["Plug '$0'"]
+  },
+  "highlight": {
+    "prefix": ["h"],
+    "body": ["hi $1 ctermbg=none ctermfg=none cterm=none \" $0"]
+  },
+  "highlight link": {
+    "prefix": ["hl"],
+    "body": ["hi! link $1 \" $0"]
+  },
+  "highight link none": {
+    "prefix": ["hln"],
+    "body": ["hi! link $1 none \" $0"]
   }
 }
