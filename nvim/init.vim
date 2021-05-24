@@ -275,6 +275,7 @@ nn <p <ap
 nn >p >ap
 nn G G0
 nn gg gg0
+nn p p:echo<cr>
 nn Q <nop>
 nn U <c-r>:echo<cr>
 nn u u:echo<cr>
