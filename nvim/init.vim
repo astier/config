@@ -17,7 +17,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
     Plug 'kevinhwang91/nvim-bqf'
-    Plug 'lervag/vimtex', { 'for': 'tex' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
@@ -140,31 +139,6 @@ nn <silent> <space>d :qa!<cr>
 nn <silent> <space>q :bn<bar>bd!#<cr>
 nn <silent> <space>z :wincmd z<cr>
 
-" LATEX
-let g:tex_flavor = 'latex'
-let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_compiler_latexmk = {
-    \'callback' : 0,
-    \'continuous' : 0,
-    \'options' : [
-        \'-verbose',
-        \'-file-line-error',
-        \'-synctex=0',
-        \'-interaction=nonstopmode',
-    \],
-\}
-au group filetype tex nn <silent> <space>a :VimtexCompile<cr>
-au user VimtexEventCompileSuccess cal ViewPDF()
-fu! ViewPDF()
-    if system('pidof zathura')
-        exe 'sil !wmctrl -xa zathura'
-    el
-        exe 'VimtexView'
-    en
-    exe 'ec'
-endf
-
 " LOADED
 let g:loaded_gzip = 0
 let g:loaded_matchparen = 0
@@ -203,6 +177,7 @@ au group filetype hog se ft=udevrules
 au group filetype markdown se textwidth=80
 au group vimresized * wincmd =
 let g:fzf_preview_window = []
+let g:tex_flavor = 'latex'
 se clipboard=unnamedplus
 se expandtab shiftwidth=4 tabstop=4
 se nofoldenable
