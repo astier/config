@@ -128,7 +128,7 @@ fu! s:show_documentation()
     en
 endf
 
-" MISC MAPPINGS
+" MISC - MAPPINGS
 ino <c-l> <right>
 nm <rightmouse> <leftmouse>gx
 nn <a-d> 4<c-y>
@@ -145,7 +145,7 @@ nn vp vip
 nn { {zz
 nn } }zz
 
-" MISC SETTINGS
+" MISC - SETTINGS
 au group filetype diff se textwidth=72
 au group filetype hog se ft=udevrules
 au group filetype markdown se textwidth=80
