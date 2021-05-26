@@ -75,16 +75,6 @@ nm S  <plug>(SubversiveSubstituteToEndOfLine)
 nm ss <plug>(SubversiveSubstituteLine)
 xm ss <plug>(SubversiveSubstitute)
 
-" FORMAT
-fu! Format()
-    let l:save = winsaveview()
-    exe 'retab! | sil up'
-    cal system('format ' . bufname('%'))
-    exe 'edit'
-    cal winrestview(l:save)
-endf
-nn <silent> <space>gf :cal Format()<cr>
-
 " GIT
 au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqp gqip | en
 au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqq Vgq | en
