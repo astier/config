@@ -44,7 +44,7 @@ se commentstring=//\ %s
 
 " COMPLETION
 se completeopt=menuone,noinsert
-se infercase shortmess+=c
+se shortmess+=c
 se pumheight=8 pumwidth=0
 
 " EDITING - CHANGE
