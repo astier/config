@@ -69,13 +69,17 @@ nn dW daW
 
 " EDITING - PASTE
 ino <c-v> <c-r>0
+nn p p:echo<cr>
+
+" EDITING - REPLACE
 let g:subversivePreserveCursorPosition = 1
 let g:subversivePromptWithCurrent = 1
 nm s <plug>(SubversiveSubstitute)
-nn p p:echo<cr>
-nn S C<c-r>0<esc>
-nn ss cc<c-r>0<esc>
-xn ss c<c-r>0<esc>
+nm S <plug>(SubversiveSubstituteToEndOfLine)
+nm ss <plug>(SubversiveSubstituteLine)
+nm sw siw
+nm sW siW
+xm ss <plug>(SubversiveSubstitute)
 
 " EDITING - UNDO
 nn <c-r> <c-r>:echo<cr>
