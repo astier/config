@@ -69,10 +69,10 @@ nn dW daW
 ino <c-v> <c-r>0
 let g:subversivePreserveCursorPosition = 1
 let g:subversivePromptWithCurrent = 1
-nm s  <plug>(SubversiveSubstitute)
-nm S  <plug>(SubversiveSubstituteToEndOfLine)
-nm ss <plug>(SubversiveSubstituteLine)
-xm ss <plug>(SubversiveSubstitute)
+nm s <plug>(SubversiveSubstitute)
+nn S C<c-r>0<esc>
+nn ss cc<c-r>0<esc>
+xn ss c<c-r>0<esc>
 
 " GIT
 au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqp gqip | en
