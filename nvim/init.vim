@@ -87,12 +87,6 @@ nn <silent> <space>u :diffput<cr>
 nn [c [czz
 nn ]c ]czz
 
-" INCREMENT
-vn <C-a> g<C-a>
-vn <C-x> g<C-x>
-vn g<C-a> <C-a>
-vn g<C-x> <C-x>
-
 " KILL
 nn <silent> <space>d :qa!<cr>
 nn <silent> <space>q :bn<bar>bd!#<cr>
