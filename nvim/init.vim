@@ -124,7 +124,7 @@ fu! s:show_documentation()
 endf
 
 " MISC MAPPINGS
-ino <c-l> <esc>la
+ino <c-l> <right>
 nm <rightmouse> <leftmouse>gx
 nn <a-d> 4<c-y>
 nn <a-f> 4<c-e>
