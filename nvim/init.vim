@@ -19,7 +19,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'tpope/vim-eunuch', { 'on': ['Delete', 'Move'] }
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-sleuth'
-    Plug 'wellle/targets.vim'
 cal plug#end()
 
 " FIRST THINGS FIRST
@@ -177,18 +176,11 @@ nm <silent> <4-rightmouse> <rightmouse>
 se mouse=a
 se mousemodel=popup
 
-" OBJECTS
-au User targets#mappings#user cal targets#mappings#extend({
-\   'b': {}, 'q': {}, 'm': {
-\       'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}],
-\       'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]
-\   },
-\})
-let g:textobj_sandwich_no_default_key_mappings = 1
-nm cm cIm
-nm dm dIm
-nm sm sIm
-nm ym yIm
+" SANDWICH
+nm cb cib
+nm db dib
+nm sb sib
+nm yb yib
 
 " SEARCH
 nn n nzz
