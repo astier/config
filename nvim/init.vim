@@ -205,7 +205,6 @@ nm cm cIm
 nm dm dIm
 nm sm sIm
 nm ym yIm
-nm yl my yal `y
 
 " SEARCH
 hi incsearch cterm=none ctermbg=yellow ctermfg=black
