@@ -1,18 +1,11 @@
-" FIRST THINGS FIRST
-aug group | au! | aug end
-let mapleader = ' '
-scriptencoding utf-8
-
 " PLUGINS
 if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
     sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    au group vimenter * PlugInstall --sync | source $MYVIMRC
 en
 nn <silent> <space>pc :PlugClean<cr>
 nn <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'AndrewRadev/switch.vim'
-    Plug 'arcticicestudio/nord-vim'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
     Plug 'kevinhwang91/nvim-bqf'
@@ -29,25 +22,10 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'wellle/targets.vim'
 cal plug#end()
 
-" APPEARANCE (echo synIDattr(synID(line("."), col("."), 1), "name"))
-au group filetype * se nocursorline
-au group filetype sh hi link shiferror shconditional
-au textyankpost * silent! lua vim.highlight.on_yank{on_visual=false}
-colorscheme nord
-hi cincluded ctermfg=none
-hi comment cterm=italic
-hi coperator ctermfg=none
-hi errormsg ctermbg=none
-hi float ctermfg=none
-hi function ctermfg=none
-hi link conftodo comment
-hi matchparen cterm=none ctermbg=none ctermfg=none
-hi number ctermfg=none
-hi vimaugroup ctermfg=none
-hi vimmaprhs ctermfg=none
-hi vimnotation ctermfg=none
-hi warningmsg  ctermbg=none ctermfg=none
-se nocursorcolumn
+" FIRST THINGS FIRST
+aug group | au! | aug end
+colorscheme colors
+scriptencoding utf-8
 
 " BUFFERS
 au group textchanged,insertleave * nested if &readonly == 0 | sil! up | en
@@ -65,7 +43,6 @@ nn <silent> gcp my:norm vip<bar>gc<cr>`y
 se commentstring=//\ %s
 
 " COMPLETION
-hi pmenusel ctermfg=none
 se completeopt=menuone,noinsert
 se infercase shortmess+=c
 se pumheight=8 pumwidth=0
@@ -113,13 +90,9 @@ au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqp gqip | en
 au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqq Vgq | en
 au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
 au group filetype floggraph xm <buffer> <rightmouse> <cr>
-hi diffadded cterm=none ctermbg=none ctermfg=green
-hi diffremoved cterm=none ctermbg=none ctermfg=red
-hi difftext cterm=none ctermbg=none ctermfg=green
 nn <silent> <space>i :Gdiff<cr>
 nn <silent> <space>kK :Flog -all -path=%<cr>
 nn <silent> <space>kk :Flog -all<cr>
-nn <silent> <space>S :diffget<cr>
 nn <silent> <space>u :diffput<cr>
 nn [c [czz
 nn ]c ]czz
@@ -169,10 +142,31 @@ fu! s:show_documentation()
     en
 endf
 
-" MISC
+" MISC MAPPINGS
+ino <c-l> <esc>la
+nm <rightmouse> <leftmouse>gx
+nn <a-d> 4<c-y>
+nn <a-f> 4<c-e>
+nn <c-r> <c-r>:echo<cr>
+nn <cr> o<esc>
+nn <p <ap
+nn <silent> <space>h :exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
+nn >p >ap
+nn G G0
+nn gg gg0
+nn p p:echo<cr>
+nn Q <nop>
+nn U <c-r>:echo<cr>
+nn u u:echo<cr>
+nn vp vip
+nn { {zz
+nn } }zz
+
+" MISC SETTINGS
 au group filetype diff se textwidth=72
 au group filetype hog se ft=udevrules
 au group filetype markdown se textwidth=80
+au group textyankpost * silent! lua vim.highlight.on_yank{on_visual=false}
 au group vimresized * wincmd =
 let g:fzf_preview_window = []
 let g:tex_flavor = 'latex'
@@ -207,8 +201,6 @@ nm sm sIm
 nm ym yIm
 
 " SEARCH
-hi incsearch cterm=none ctermbg=yellow ctermfg=black
-hi search    cterm=none ctermbg=none   ctermfg=red
 nn n nzz
 nn N Nzz
 nn <silent> <esc> :noh <bar> echo<cr>
@@ -217,25 +209,6 @@ nn <silent> , :let @/= expand('<cword>') <bar> se hlsearch <cr>
 xn <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1] <bar> se hlsearch <cr>
 se ignorecase smartcase
 se inccommand=nosplit
-
-" SHORTCUTS
-ino <c-l> <esc>la
-nm <rightmouse> <leftmouse>gx
-nn <a-d> 4<c-y>
-nn <a-f> 4<c-e>
-nn <c-r> <c-r>:echo<cr>
-nn <cr> o<esc>
-nn <p <ap
-nn >p >ap
-nn G G0
-nn gg gg0
-nn p p:echo<cr>
-nn Q <nop>
-nn U <c-r>:echo<cr>
-nn u u:echo<cr>
-nn vp vip
-nn { {zz
-nn } }zz
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
@@ -250,8 +223,7 @@ nn <silent> gss myvip:sort i<cr>`y
 xn <silent> gs  my:sort i<cr>`y
 
 " SPELL
-au group filetype gitcommit,markdown,tex setlocal spell
-hi spellrare cterm=none ctermfg=none
+au group filetype gitcommit,markdown,tex setl spell
 se spellcapcheck=
 se spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
@@ -262,12 +234,9 @@ let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 se viewoptions=cursor
 
 " STATUSLINE
-hi statusline ctermbg=none ctermfg=8
-hi statuslinenc ctermbg=none ctermfg=8
-hi vertsplit ctermbg=none ctermfg=8
-se fillchars+=eob:\ ,fold:\ ,stl:─,stlnc:─,vert:│
+se fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
-se statusline=\  rulerformat=%=%l/%L
+se statusline=\  rulerformat=%=%l/%L showtabline=0
 
 " STATUSLINE - DEFINITION
 fu! StatusLine()
@@ -299,12 +268,6 @@ let g:switch_custom_definitions = [
     \['yes', 'no'],
 \]
 let g:switch_mapping = 't'
-
-" TABLINE
-hi tabline ctermbg=none ctermfg=8
-hi tablinefill ctermbg=none
-hi tablinesel ctermbg=none ctermfg=none
-se showtabline=0
 
 " TMUXSEND
 fu! T(...)
