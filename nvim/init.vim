@@ -32,6 +32,8 @@ au group vimenter * silent! let @#=expand('#2:p')
 nn <silent> <a-e> :bp<cr><c-g>
 nn <silent> <a-r> :bn<cr><c-g>
 nn <silent> <a-tab> :b#<cr>
+nn <silent> <space>d :qa!<cr>
+nn <silent> <space>q :bn<bar>bd!#<cr>
 nn <silent> <space>t :tabn<cr>
 nn <silent> F :Buffers<cr>
 nn <silent> f :FZF<cr>
@@ -86,11 +88,6 @@ nn <silent> <space>S :diffget<cr>
 nn <silent> <space>u :diffput<cr>
 nn [c [czz
 nn ]c ]czz
-
-" KILL
-nn <silent> <space>d :qa!<cr>
-nn <silent> <space>q :bn<bar>bd!#<cr>
-nn <silent> <space>z :wincmd z<cr>
 
 " LOADED
 let g:loaded_gzip = 0
@@ -271,6 +268,7 @@ nn <c-l> <c-w>l
 nn <space>c <c-w>czz
 nn <space>s <c-w>s
 nn <space>v <c-w>v
+nn <space>z <c-w>z
 
 " WRAP
 nn $ g$
