@@ -76,6 +76,11 @@ nn S C<c-r>0<esc>
 nn ss cc<c-r>0<esc>
 xn ss c<c-r>0<esc>
 
+" EDITING - UNDO
+nn <c-r> <c-r>:echo<cr>
+nn U <c-r>:echo<cr>
+nn u u:echo<cr>
+
 " GIT
 au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqp gqip | en
 au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqq Vgq | en
@@ -128,7 +133,6 @@ ino <c-l> <right>
 nm <rightmouse> <leftmouse>gx
 nn <a-d> 4<c-y>
 nn <a-f> 4<c-e>
-nn <c-r> <c-r>:echo<cr>
 nn <cr> o<esc>
 nn <p <ap
 nn <silent> <space>h :exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
@@ -137,8 +141,6 @@ nn G G0
 nn gg gg0
 nn p p:echo<cr>
 nn Q <nop>
-nn U <c-r>:echo<cr>
-nn u u:echo<cr>
 nn vp vip
 nn { {zz
 nn } }zz
