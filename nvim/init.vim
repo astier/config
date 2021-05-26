@@ -28,7 +28,7 @@ scriptencoding utf-8
 
 " BUFFERS
 au group textchanged,insertleave * nested if &readonly == 0 | sil! up | en
-au group vimenter * silent! let @#=expand('#2:p')
+au group vimenter * sil! let @#=expand('#2:p')
 nn <silent> <a-e> :bp<cr><c-g>
 nn <silent> <a-r> :bn<cr><c-g>
 nn <silent> <a-tab> :b#<cr>
@@ -72,6 +72,7 @@ ino <c-v> <c-r>0
 let g:subversivePreserveCursorPosition = 1
 let g:subversivePromptWithCurrent = 1
 nm s <plug>(SubversiveSubstitute)
+nn p p:echo<cr>
 nn S C<c-r>0<esc>
 nn ss cc<c-r>0<esc>
 xn ss c<c-r>0<esc>
@@ -93,6 +94,13 @@ nn <silent> <space>S :diffget<cr>
 nn <silent> <space>u :diffput<cr>
 nn [c [czz
 nn ]c ]czz
+
+" INDENTATION
+nn <p <ap
+nn >p >ap
+se expandtab
+se shiftwidth=4
+se tabstop=4
 
 " LOADED
 let g:loaded_gzip = 0
@@ -128,47 +136,42 @@ fu! s:show_documentation()
     en
 endf
 
-" MISC - MAPPINGS
-ino <c-l> <right>
-nm <rightmouse> <leftmouse>gx
-nn <a-d> 4<c-y>
-nn <a-f> 4<c-e>
-nn <cr> o<esc>
-nn <p <ap
-nn <silent> <space>h :exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
-nn >p >ap
-nn G G0
-nn gg gg0
-nn p p:echo<cr>
-nn Q <nop>
-nn vp vip
-nn { {zz
-nn } }zz
-
-" MISC - SETTINGS
+" MISC
 au group filetype diff se textwidth=72
 au group filetype hog se ft=udevrules
 au group filetype markdown se textwidth=80
-au group textyankpost * silent! lua vim.highlight.on_yank{on_visual=false}
-au group vimresized * wincmd =
+au group textyankpost * sil! lua vim.highlight.on_yank{on_visual=false}
 let g:fzf_preview_window = []
 let g:tex_flavor = 'latex'
+nn <silent> <space>h :exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
+nn Q <nop>
 se clipboard=unnamedplus
-se expandtab shiftwidth=4 tabstop=4
 se nofoldenable
 se nojoinspaces
 se noswapfile
 se notimeout
-se splitbelow splitright
 se virtualedit=block
 se wildmode=longest:full,full
 
 " MOUSE
+nm <rightmouse> <leftmouse>gx
 nm <silent> <2-rightmouse> <rightmouse>
 nm <silent> <3-rightmouse> <rightmouse>
 nm <silent> <4-rightmouse> <rightmouse>
 se mouse=a
 se mousemodel=popup
+
+" MOVEMENT
+ino <c-l> <right>
+nn <a-d> 4<c-y>
+nn <a-f> 4<c-e>
+nn <cr> o<esc>
+nn G G0
+nn gg gg0
+nn n nzz
+nn N Nzz
+nn { {zz
+nn } }zz
 
 " SANDWICH
 nm cb cib
@@ -177,8 +180,6 @@ nm sb sib
 nm yb yib
 
 " SEARCH
-nn n nzz
-nn N Nzz
 nn <silent> <esc> :noh <bar> echo<cr>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nn <silent> , :let @/= expand('<cword>') <bar> se hlsearch <cr>
@@ -228,7 +229,7 @@ endf
 fu! StatusLineToggle()
     if &laststatus == 0
         exe 'se laststatus=2 statusline=%{StatusLine()}'
-    else
+    el
         exe 'se laststatus=0  statusline=\ '
     en
 endf
@@ -263,6 +264,7 @@ nn <silent> <space>l :T lint %<cr>
 nn <silent> <space>a :T execute<cr>
 
 " WINDOWS
+au group vimresized * wincmd =
 nn <c-h> <c-w>h
 nn <c-j> <c-w>j
 nn <c-k> <c-w>k
@@ -271,6 +273,7 @@ nn <space>c <c-w>czz
 nn <space>s <c-w>s
 nn <space>v <c-w>v
 nn <space>z <c-w>z
+se splitbelow splitright
 
 " WRAP
 nn $ g$
