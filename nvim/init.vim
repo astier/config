@@ -228,7 +228,7 @@ se spellcapcheck=
 se spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATE
-au group bufwinenter * if index(ignore_ft, &ft) < 0 | sil! loadview | en
+au group bufenter * if index(ignore_ft, &ft) < 0 | sil! loadview | en
 au group bufwinleave * if index(ignore_ft, &ft) < 0 | sil! mkview | en
 let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
 se viewoptions=cursor
