@@ -82,6 +82,7 @@ au group filetype floggraph xm <buffer> <rightmouse> <cr>
 nn <silent> <space>i :Gdiff<cr>
 nn <silent> <space>kK :Flog -all -path=%<cr>
 nn <silent> <space>kk :Flog -all<cr>
+nn <silent> <space>S :diffget<cr>
 nn <silent> <space>u :diffput<cr>
 nn [c [czz
 nn ]c ]czz
