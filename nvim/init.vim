@@ -61,7 +61,7 @@ nn <silent> f :FZF<cr>
 
 " COMMENTS
 au group filetype * se formatoptions-=cro
-nn <silent> gcp my :norm vip <bar> gc<cr> `y
+nn <silent> gcp my:norm vip<bar>gc<cr>`y
 se commentstring=//\ %s
 
 " COMPLETION
@@ -80,9 +80,9 @@ xn c "_c
 
 " EDITING - COPY
 nn Y y$
-nn yp my yip `y
-nn yw my yiw `y
-nn yW my yiW `y
+nn yp myyip`y
+nn yw myyiw`y
+nn yW myyiW`y
 
 " EDITING - CUT
 nn dp dap:echo<cr>
@@ -245,9 +245,9 @@ smap <silent> <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)'     
 smap <silent> <expr> <tab>   vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
 
 " SORT
-nn <silent> gsi my :norm vii<cr> :sort i<cr> `y
-nn <silent> gss my vip :sort i<cr> `y
-xn <silent> gs  my :sort i<cr> `y
+nn <silent> gsi my:norm vii<cr>:sort i<cr>`y
+nn <silent> gss myvip:sort i<cr>`y
+xn <silent> gs  my:sort i<cr>`y
 
 " SPELL
 au group filetype gitcommit,markdown,tex setlocal spell
