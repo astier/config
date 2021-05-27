@@ -74,12 +74,13 @@ nn p p:echo<cr>
 " EDITING - REPLACE
 let g:subversivePreserveCursorPosition = 1
 let g:subversivePromptWithCurrent = 1
-nm s <plug>(SubversiveSubstitute)
-nm S <plug>(SubversiveSubstituteToEndOfLine)
-nm ss <plug>(SubversiveSubstituteLine)
-nm sw siw
-nm sW siW
-xm ss <plug>(SubversiveSubstitute)
+nm r <plug>(SubversiveSubstitute)
+nm R <plug>(SubversiveSubstituteToEndOfLine)
+nm rr <plug>(SubversiveSubstituteLine)
+xm rr <plug>(SubversiveSubstitute)
+nm rw riw
+nm rW riW
+nn rl r
 
 " EDITING - UNDO
 nn <c-r> <c-r>:echo<cr>
@@ -181,6 +182,8 @@ nn } }zz
 nm cb cib
 nm db dib
 nm sb sib
+nm sw saiw
+nm sW saiW
 nm yb yib
 
 " SEARCH
