@@ -14,7 +14,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'neovim/nvim-lspconfig'
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
     Plug 'stsewd/gx-extended.vim'
-    Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch', { 'on': ['Delete', 'Move'] }
     Plug 'tpope/vim-fugitive'
@@ -72,14 +71,11 @@ ino <c-v> <c-r>0
 nn p p:echo<cr>
 
 " EDITING - REPLACE
-let g:subversivePreserveCursorPosition = 1
-let g:subversivePromptWithCurrent = 1
-nm r <plug>(SubversiveSubstitute)
-nm R <plug>(SubversiveSubstituteToEndOfLine)
-nm rr <plug>(SubversiveSubstituteLine)
-xm rr <plug>(SubversiveSubstitute)
-nm rw riw
-nm rW riW
+nm R C<c-r>+<esc>
+nm rr cc<c-r>+<esc>
+nm rw ciw<c-r>+<esc>
+nm rW ciW<c-r>+<esc>
+xm rr c<c-r>+<esc>
 nn rl r
 
 " EDITING - UNDO
