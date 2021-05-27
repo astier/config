@@ -5,7 +5,7 @@
   },
   "if": {
     "prefix": ["i"],
-    "body": ["if $1\n\t\nen"]
+    "body": ["if $0\n\t\nen"]
   },
   "packadd": {
     "prefix": ["pa"],
