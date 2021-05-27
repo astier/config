@@ -39,7 +39,7 @@ alias fp="jumpopen \$DOTS .profile"
 alias fr="\$EDITOR \$(git rev-parse --show-toplevel)/README.md"
 alias fv="jumpopen ~/projects/vlugins README.md"
 alias fx="jumpopen \$DOTS sx/sxrc"
-alias n="jumpopen ~/cloud/notes notes"
+alias n="jumpopen ~/cloud/notes notes.md"
 f() { if [ -d "$1" ]; then cd "$1" || return; else "$OPENER" "$@"; fi }
 jumpopen() { cd "$1" >/dev/null && shift && "$OPENER" "$@" ; }
 
