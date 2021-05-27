@@ -25,6 +25,7 @@ colorscheme colors
 scriptencoding utf-8
 
 " BUFFERS
+au group filetype * se nocursorline
 au group textchanged,insertleave * nested if &readonly == 0 | sil! up | en
 au group vimenter * sil! let @#=expand('#2:p')
 nn <silent> <a-e> :bp<cr><c-g>
