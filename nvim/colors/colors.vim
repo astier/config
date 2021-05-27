@@ -22,9 +22,9 @@ hi linenr ctermbg=none ctermfg=8 cterm=none " none
 hi! link cursorline visual " none
 
 " DIFF
-hi diffadd ctermbg=green ctermfg=black cterm=none " none
+hi diffadd ctermbg=red ctermfg=black cterm=none " none
 hi diffchange ctermbg=yellow ctermfg=black cterm=none " none
-hi diffdelete ctermbg=red ctermfg=black cterm=none " none
+hi diffdelete ctermbg=green ctermfg=black cterm=none " none
 hi difftext ctermbg=red ctermfg=black cterm=none " none
 
 " ERROR
