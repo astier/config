@@ -66,7 +66,7 @@ nn dw daw
 nn dW daW
 
 " EDITING - PASTE
-ino <c-v> <c-r>0
+ino <c-v> <c-r>+
 nn p p:echo<cr>
 
 " EDITING - REPLACE
