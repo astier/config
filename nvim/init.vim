@@ -3,7 +3,7 @@ if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
     sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 en
 nn <silent> <space>pc :PlugClean<cr>
-nn <silent> <space>pp :PlugUpgrade <bar> PlugUpdate<cr>
+nn <silent> <space>pp :PlugUpgrade<bar>PlugUpdate<cr>
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'AndrewRadev/switch.vim'
     Plug 'hrsh7th/vim-vsnip'
@@ -89,8 +89,8 @@ nn u u:echo<cr>
 " GIT
 au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqp gqip | en
 au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqq Vgq | en
-au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
-au group filetype floggraph xm <buffer> <rightmouse> <cr>
+au group filetype floggraph nm <buffer> <rightmouse><leftmouse><cr>
+au group filetype floggraph xm <buffer> <rightmouse><cr>
 nn <silent> <space>i :Gdiff<cr>
 nn <silent> <space>kK :Flog -all -path=%<cr>
 nn <silent> <space>kk :Flog -all<cr>
@@ -184,10 +184,10 @@ nm sb sib
 nm yb yib
 
 " SEARCH
-nn <silent> <esc> :noh <bar> echo<cr>
+nn <silent> <esc> :noh<bar>echo<cr>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
-nn <silent> , :let @/= expand('<cword>') <bar> se hlsearch <cr>
-xn <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1] <bar> se hlsearch <cr>
+nn <silent> , :let @/= expand('<cword>')<bar>se hlsearch<cr>
+xn <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1]<bar>se hlsearch<cr>
 se ignorecase smartcase
 se inccommand=nosplit
 
