@@ -86,8 +86,8 @@ nn u u:echo<cr>
 " GIT
 au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqp gqip | en
 au group filetype * if index(['floggraph'], &ft) < 0 | nn <buffer> gqq Vgq | en
-au group filetype floggraph nm <buffer> <rightmouse><leftmouse><cr>
-au group filetype floggraph xm <buffer> <rightmouse><cr>
+au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
+au group filetype floggraph xm <buffer> <rightmouse> <cr>
 nn <silent> <space>i :Gdiff<cr>
 nn <silent> <space>kK :Flog -all -path=%<cr>
 nn <silent> <space>kk :Flog -all<cr>
