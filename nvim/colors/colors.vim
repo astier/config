@@ -66,9 +66,9 @@ hi! link plugdeleted none " ignore
 
 " PMENU
 hi pmenu ctermbg=0 ctermfg=none cterm=none " none
+hi pmenusbar ctermbg=black ctermfg=none cterm=none " none
 hi pmenusel ctermbg=8 ctermfg=none cterm=none " none
-hi! link pmenusbar none " none
-hi! link pmenuthumb none " none
+hi pmenuthumb ctermbg=8 ctermfg=none cterm=none " none
 
 " SEARCH
 hi incsearch ctermbg=yellow ctermfg=black cterm=none " none
