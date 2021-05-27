@@ -1,0 +1,6 @@
+{
+  "nvim": {
+    "prefix": ["n"],
+    "body": ["[nvim]"]
+  }
+}
