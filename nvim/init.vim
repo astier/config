@@ -123,7 +123,7 @@ let g:loaded_zipPlugin = 0
 lua require 'lspconfig'.clangd.setup{}
 lua require 'lspconfig'.jedi_language_server.setup{}
 lua vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
-nn <silent> gA :lua vim.lsp.buf.code_action()<cr>
+nn <silent> ga :lua vim.lsp.buf.code_action()<cr>
 nn <silent> gd :lua vim.lsp.buf.definition()<cr>
 nn <silent> gp :lua vim.lsp.buf.signature_help()<cr>
 nn <silent> gR :lua vim.lsp.buf.references()<cr>
