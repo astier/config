@@ -203,7 +203,6 @@ nn <silent> gss myvip:sort i<cr>`y
 xn <silent> gs  my:sort i<cr>`y
 
 " SPELL
-au group filetype gitcommit,markdown,tex setl spell
 se spellcapcheck=
 se spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
