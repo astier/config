@@ -14,7 +14,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
     Plug 'stsewd/gx-extended.vim'
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-eunuch', { 'on': ['Delete', 'Move'] }
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-sleuth'
 cal plug#end()
