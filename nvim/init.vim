@@ -82,9 +82,11 @@ nn <c-r> <c-r>:echo<cr>
 nn U <c-r>:echo<cr>
 nn u u:echo<cr>
 
+" FORMATTING
+nn gqp gqip
+nn gqq Vgq
+
 " GIT
-au group filetype * if index(['floggraph', 'git'], &ft) < 0 | nn <buffer> gqp gqip | en
-au group filetype * if index(['floggraph', 'git'], &ft) < 0 | nn <buffer> gqq Vgq | en
 au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
 au group filetype floggraph xm <buffer> <rightmouse> <cr>
 nn <silent> <space>i :Gdiff<cr>
