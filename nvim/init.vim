@@ -268,7 +268,7 @@ nn <silent> <space>l :T lint %<cr>
 nn <silent> <space>a :T execute<cr>
 
 " WINDOWS
-au group vimresized * wincmd =
+au group vimresized * winc =
 nn <c-h> <c-w>h
 nn <c-j> <c-w>j
 nn <c-k> <c-w>k
