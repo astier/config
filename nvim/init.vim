@@ -89,7 +89,7 @@ nn gqq Vgq
 au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
 au group filetype floggraph xm <buffer> <rightmouse> <cr>
 let g:flog_permanent_default_arguments = { 'date': 'short' }
-nn <silent> <space>i :Gdiffsplit<cr>
+nn <expr> <space>i &diff ? ':x<cr>zz' : ':Gdiffsplit<cr>'
 nn <silent> <space>kd :0G diff<cr>
 nn <silent> <space>kK :Flog -all -path=%<cr>
 nn <silent> <space>kk :Flog -all<cr>
