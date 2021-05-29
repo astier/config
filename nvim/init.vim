@@ -31,6 +31,7 @@ nn <silent> <a-e> :bp<cr><c-g>
 nn <silent> <a-r> :bn<cr><c-g>
 nn <silent> <a-tab> :b#<cr>
 nn <silent> <space>d :qa!<cr>
+nn <silent> <space>q :bd!<cr>
 nn <silent> <space>t :tabn<cr>
 nn <silent> F :Buffers<cr>
 nn <silent> f :FZF<cr>
