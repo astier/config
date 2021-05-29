@@ -60,7 +60,7 @@ nn yw myyiw`y
 nn yW myyiW`y
 
 " EDITING - CUT
-nn dp dap:echo<cr>
+nn <expr> dp &diff ? 'dp' : 'dap:echo<cr>'
 nn dw daw
 nn dW daW
 
@@ -93,8 +93,6 @@ nn <silent> <space>i :Gdiffsplit<cr>
 nn <silent> <space>kd :0G diff<cr>
 nn <silent> <space>kK :Flog -all -path=%<cr>
 nn <silent> <space>kk :Flog -all<cr>
-nn <silent> <space>S :diffget<cr>
-nn <silent> <space>u :diffput<cr>
 nn [c [czz
 nn ]c ]czz
 
