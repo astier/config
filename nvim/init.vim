@@ -11,10 +11,8 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'rbong/vim-flog', { 'on': 'Flog' }
     Plug 'stsewd/gx-extended.vim'
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-sleuth'
 cal plug#end()
 
@@ -45,6 +43,26 @@ se commentstring=//\ %s
 se completeopt=menuone,noinsert
 se pumheight=8 pumwidth=0
 se shortmess+=c
+
+" DIFF
+function! Diff()
+    let pos = getcurpos()
+    split
+    diffthis
+    wincmd p
+    enew
+    let &ft=getbufvar('#', '&filetype')
+    set bufhidden=wipe
+    set buftype=nofile
+    set nobuflisted
+    silent read !git show HEAD:#
+    0d_
+    call setpos(".", pos)
+    diffthis
+endfunction
+nn <silent> <expr> <space>i &diff ? ':clo<cr>zz' : ':cal Diff()<cr>'
+nn [c [czz
+nn ]c ]czz
 
 " EDITING - CHANGE
 nm cp cip
@@ -85,17 +103,6 @@ nn u u:echo<cr>
 " FORMATTING
 nn gqp gqip
 nn gqq Vgq
-
-" GIT
-au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
-au group filetype floggraph xm <buffer> <rightmouse> <cr>
-let g:flog_permanent_default_arguments = { 'date': 'short' }
-nn <expr> <space>i &diff ? ':x<cr>zz' : ':Gdiffsplit<cr>'
-nn <silent> <space>kd :0G diff<cr>
-nn <silent> <space>kK :Flog -all -path=%<cr>
-nn <silent> <space>kk :Flog -all<cr>
-nn [c [czz
-nn ]c ]czz
 
 " INDENTATION
 nn <p <ap
