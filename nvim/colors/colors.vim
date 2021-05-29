@@ -80,6 +80,7 @@ hi statuslinenc ctermbg=none ctermfg=8 cterm=none " none
 hi vertsplit ctermbg=none ctermfg=8 cterm=none " none
 
 " VIM
+hi! link vimautocmdmod none " special
 hi! link vimenvvar none " preproc
 hi! link vimfuncvar none " identifier
 hi! link vimgroup none " type
