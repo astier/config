@@ -15,6 +15,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'neovim/nvim-lspconfig'
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
     Plug 'stsewd/gx-extended.vim'
+    Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-sleuth'
@@ -72,12 +73,14 @@ ino <c-v> <c-r>+
 nn p p:echo<cr>
 
 " EDITING - REPLACE
-nm R C<c-r>+<esc>
-nm rr cc<c-r>+<esc>
-nm rw ciw<c-r>+<esc>
-nm rW ciW<c-r>+<esc>
-xm rr c<c-r>+<esc>
-nn rl r
+let g:subversivePreserveCursorPosition = 1
+let g:subversivePromptWithCurrent = 1
+nm s <plug>(SubversiveSubstitute)
+nm S <plug>(SubversiveSubstituteToEndOfLine)
+nm ss <plug>(SubversiveSubstituteLine)
+xm ss <plug>(SubversiveSubstitute)
+nm sw siw
+nm sW siW
 
 " EDITING - UNDO
 nn <c-r> <c-r>:echo<cr>
@@ -191,9 +194,9 @@ nn } }zz
 " SANDWICH
 nm cb cib
 nm db dib
+nm saw saiw
+nm saW saiW
 nm sb sib
-nm sw saiw
-nm sW saiW
 nm yb yib
 
 " SEARCH
