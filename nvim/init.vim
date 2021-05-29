@@ -141,7 +141,7 @@ endf
 au group filetype diff se textwidth=72
 au group filetype hog se ft=udevrules
 au group filetype markdown se textwidth=80
-au group textyankpost * sil! lua vim.highlight.on_yank{on_visual=false}
+au group textyankpost * sil! lua vim.highlight.on_yank{}
 let g:fzf_preview_window = []
 let g:tex_flavor = 'latex'
 nn <silent> <space>h :exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
