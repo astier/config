@@ -77,6 +77,7 @@ alias snn="rclone sync -P cloud: ~/cloud"
 # GIT
 k() { n=24; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline --show-pulls -n"$n"; }
 kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
+kg() { nvim +"Flog -search=$1"; }
 krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
 ksf() { if [ $# = 0 ]; then git show | "$EDITOR"; else git show "$1" | "$EDITOR"; fi }
 
@@ -90,7 +91,6 @@ alias kbd="git branch -D"
 alias kbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs -r \$BROWSER"
 alias kd="git diff"
 alias kfp="git format-patch --stdout HEAD^ >"
-alias kg="git log --color --oneline --grep"
 alias kk="nvim +Flog"
 alias kr="cd \$(git rev-parse --show-toplevel)"
 alias krv="git remote -v"
