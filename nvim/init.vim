@@ -5,6 +5,7 @@ en
 nn <silent> <space>pc :PlugClean<cr>
 nn <silent> <space>pp :PlugUpgrade<bar>PlugUpdate<cr>
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
+    Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
@@ -96,8 +97,17 @@ nn <silent> <space>kK :Flog -all -path=%<cr>
 nn <silent> <space>kk :Flog -all<cr>
 nn <silent><expr> <space>km &diff ? ':x<cr>zz' : ':Gdiffsplit<cr>'
 nn <space>kg :Flog -search=
-nn [c [czz
-nn ]c ]czz
+
+" GITGUTTER
+au group vimenter,bufwritepost * GitGutter
+let g:gitgutter_preview_win_floating = 0
+let g:gitgutter_show_msg_on_hunk_jumping = 0
+nm <space>i <plug>(GitGutterPreviewHunk)
+nm <space>S <plug>(GitGutterStageHunk)
+nm <space>u <plug>(GitGutterUndoHunk):echo<cr>
+nm [c <plug>(GitGutterPrevHunk)zz
+nm ]c <plug>(GitGutterNextHunk)zz
+se signcolumn=yes
 
 " INDENTATION
 nn <p <ap
