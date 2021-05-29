@@ -12,7 +12,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
-    Plug 'neovim/nvim-lspconfig'
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
     Plug 'stsewd/gx-extended.vim'
     Plug 'svermeulen/vim-subversive'
@@ -137,20 +137,19 @@ let g:loaded_zip = 0
 let g:loaded_zipPlugin = 0
 
 " LSP
-lua require 'lspconfig'.clangd.setup{}
-lua require 'lspconfig'.jedi_language_server.setup{}
-lua vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
-nn <silent> ga :lua vim.lsp.buf.code_action()<cr>
-nn <silent> gd :lua vim.lsp.buf.definition()<cr>
-nn <silent> gp :lua vim.lsp.buf.signature_help()<cr>
-nn <silent> gR :lua vim.lsp.buf.references()<cr>
-nn <silent> gr :lua vim.lsp.buf.rename()<cr>
-nn <silent> K  :cal <sid>show_documentation()<cr>
+let g:coc_global_extensions = ['coc-json', 'coc-python']
+ino <silent><expr> <c-space> coc#refresh()
+nm <silent> gd <plug>(coc-definition)zz
+nm <silent> gR <plug>(coc-references)
+nm <silent> gr <plug>(coc-rename)
+nn <silent> K :cal <sid>show_documentation()<cr>
 fu! s:show_documentation()
-    if (index(['vim','help'], &ft) >= 0)
+    if (index(['vim','help'], &filetype) >= 0)
         exe 'h '.expand('<cword>')
+    elsei (coc#rpc#ready())
+        cal CocActionAsync('doHover')
     el
-        lua vim.lsp.buf.hover()
+        exe '!' . &keywordprg . " " . expand('<cword>')
     en
 endf
 
