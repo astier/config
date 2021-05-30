@@ -43,8 +43,8 @@ se commentstring=//\ %s
 
 " COMPLETION
 se completeopt=menuone,noinsert
-se shortmess+=c
 se pumheight=8 pumwidth=0
+se shortmess+=c
 
 " EDITING - CHANGE
 nm cp cip
