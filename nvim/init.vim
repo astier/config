@@ -29,7 +29,7 @@ scriptencoding utf-8
 
 " BUFFERS
 au group filetype * se nocursorline
-au group textchanged,insertleave * nested if &readonly == 0 | sil! up | en
+au group textchanged,insertleave * nested if !&readonly | sil! up | en
 au group vimenter * sil! let @#=expand('#2:p')
 nn <silent> <a-e> :bp<cr><c-g>
 nn <silent> <a-r> :bn<cr><c-g>
@@ -239,7 +239,7 @@ endf
 
 " STATUSLINE - TOGGLE
 fu! StatusLineToggle()
-    if &laststatus == 0
+    if !&laststatus
         exe 'se laststatus=2 statusline=%{StatusLine()}'
     el
         exe 'se laststatus=0  statusline=\ '
