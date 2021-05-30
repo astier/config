@@ -8,6 +8,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'farmergreg/vim-lastplace'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
     Plug 'machakann/vim-sandwich'
@@ -221,12 +222,6 @@ xn <silent> gs  my:sort i<cr>`y
 " SPELL
 se spellcapcheck=
 se spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
-
-" STATE
-au group bufwinenter * if index(ignore_ft, &ft) < 0 | sil! loadview | exe 'norm zz' | en
-au group bufwinleave * if index(ignore_ft, &ft) < 0 | sil! mkview | en
-let ignore_ft = ['diff', 'gitcommit', 'gitrebase']
-se viewoptions=cursor
 
 " STATUSLINE
 se fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
