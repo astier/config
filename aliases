@@ -149,6 +149,7 @@ alias i="pkg -i"
 alias ig="iwctl station wlan0 get-networks"
 alias ir="systemctl restart iwd.service"
 alias is="iwctl station wlan0 scan"
+alias l="preview"
 alias lb="lsblk"
 alias ll="ls -l"
 alias lt="lint"
@@ -170,15 +171,6 @@ d() { if [ $# = 0 ]; then exit; else realpath -s "$@" | sed 's/.*/"&"/' | xargs 
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 p() { if [ $# = 0 ]; then pwd | sed "s|$HOME|~|"; else cp -irv "$@"; fi }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
-
-# PREVIEW
-l() {
-    if [ $# = 0 ] || [ -e "$1" ]; then
-        preview "$1"
-    else
-        ffind -maxdepth 1 | fzf --filter="$*" | head -n1 | xargs -r preview
-    fi
-}
 
 # TMUX
 alias t="tmux new -A"
