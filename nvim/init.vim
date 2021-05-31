@@ -217,6 +217,14 @@ xn <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1
 se ignorecase smartcase
 se inccommand=nosplit
 se shortmess+=Ss
+fu! CenterSearch()
+  let cmdtype = getcmdtype()
+  if cmdtype == '/' || cmdtype == '?'
+    retu "\<enter>:echo\<cr>zz"
+  en
+  retu "\<enter>"
+endf
+cno <silent><expr> <enter> CenterSearch()
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
