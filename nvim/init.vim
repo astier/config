@@ -113,6 +113,7 @@ let g:flog_permanent_default_arguments = { 'date': 'short' }
 nn <silent> <space>kd :0G diff<cr>
 nn <silent> <space>kK :Flog -all -path=%<cr>
 nn <silent> <space>kk :Flog -all<cr>
+nn <silent> <space>kr :G reset --hard<cr>
 nn <silent><expr> <space>km &diff ? ':x<cr>zz' : ':Gdiffsplit<cr>'
 nn <space>kg :Flog -search=
 
