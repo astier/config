@@ -253,6 +253,7 @@ let g:switch_custom_definitions = [
     \['0', '1'],
     \['<', '>'],
     \['==', '!='],
+    \['on', 'off'],
     \['pick', 'fixup', 'reword'],
     \['yes', 'no'],
 \]
