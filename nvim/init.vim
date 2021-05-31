@@ -34,7 +34,7 @@ let g:fzf_preview_window = []
 nn <silent> <space>h :exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 
 " BUFFERS
-au group textchanged,insertleave * nested if !&readonly | sil! up | en
+au group textchanged,insertleave * nested if !&ro | sil! up | en
 au group vimenter * sil! let @#=expand('#2:p')
 nn <silent> <a-e> :bp<cr><c-g>
 nn <silent> <a-r> :bn<cr><c-g>
