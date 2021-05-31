@@ -18,6 +18,8 @@ set echo-control-characters off
 set enable-bracketed-paste off
 set mark-symlinked-directories on
 set menu-complete-display-prefix on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
 
 # VI
 set editing-mode vi
