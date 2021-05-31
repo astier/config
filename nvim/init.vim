@@ -196,7 +196,7 @@ nm db dib
 nm saw saiw
 nm saW saiW
 nm sb sib
-nm yb yib
+nm yb myyib`y
 
 " SEARCH
 nn <silent> <esc> :noh<bar>echo<cr>
