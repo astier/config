@@ -288,10 +288,6 @@ nn <silent> <a-h> :TmuxNavigateLeft<cr>
 nn <silent> <a-j> :TmuxNavigateDown<cr>
 nn <silent> <a-k> :TmuxNavigateUp<cr>
 nn <silent> <a-l> :TmuxNavigateRight<cr>
-ino <silent> <a-h> <c-o>:TmuxNavigateLeft<cr>
-ino <silent> <a-j> <c-o>:TmuxNavigateDown<cr>
-ino <silent> <a-k> <c-o>:TmuxNavigateUp<cr>
-ino <silent> <a-l> <c-o>:TmuxNavigateRight<cr>
 nn <space>c <c-w>czz
 nn <space>s <c-w>s
 nn <space>v <c-w>v
