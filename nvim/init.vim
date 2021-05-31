@@ -185,8 +185,6 @@ nn <a-f> 4<c-e>
 nn <cr> o<esc>
 nn G G0
 nn gg gg0
-nn n nzz
-nn N Nzz
 nn { {zz
 nn } }zz
 
@@ -199,6 +197,8 @@ nm sb sib
 nm yb myyib`y
 
 " SEARCH
+nn <silent> n nzz
+nn <silent> N Nzz
 nn <silent> <esc> :noh<bar>echo<cr>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nn <silent> , :let @/= expand('<cword>')<bar>se hlsearch<cr>
