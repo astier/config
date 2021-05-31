@@ -1,3 +1,7 @@
+" FIRST THINGS FIRST
+aug group | au! | aug end
+scriptencoding utf-8
+
 " PLUGINS
 if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
     sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -22,13 +26,14 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'tpope/vim-sleuth'
 cal plug#end()
 
-" FIRST THINGS FIRST
-aug group | au! | aug end
+" APPEARANCE
+au group filetype * se nocursorline
+au group textyankpost * sil! lua vim.highlight.on_yank{}
 colorscheme colors
-scriptencoding utf-8
+let g:fzf_preview_window = []
+nn <silent> <space>h :exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 
 " BUFFERS
-au group filetype * se nocursorline
 au group textchanged,insertleave * nested if !&readonly | sil! up | en
 au group vimenter * sil! let @#=expand('#2:p')
 nn <silent> <a-e> :bp<cr><c-g>
@@ -38,7 +43,7 @@ nn <silent> <space>d :qa!<cr>
 nn <silent> F :Buffers<cr>
 nn <silent> f :FZF<cr>
 nn <silent> t :b#<cr>
-se hidden
+se hidden noswapfile
 
 " COMMENTS
 au group filetype * se formatoptions-=cro
@@ -49,6 +54,7 @@ se commentstring=//\ %s
 se completeopt=menuone,noinsert
 se pumheight=8 pumwidth=0
 se shortmess+=c
+se wildmode=longest:full,full
 
 " EDITING - CHANGE
 nm cp cip
@@ -87,6 +93,12 @@ nm sW siW
 nn <c-r> <c-r>:echo<cr>
 nn U <c-r>:echo<cr>
 nn u u:echo<cr>
+
+" FILETYPE
+au group filetype diff se textwidth=72
+au group filetype hog se ft=udevrules
+au group filetype markdown se textwidth=80
+let g:tex_flavor = 'latex'
 
 " FORMATTING
 nn gqp gqip
@@ -155,21 +167,12 @@ fu! s:show_documentation()
 endf
 
 " MISC
-au group filetype diff se textwidth=72
-au group filetype hog se ft=udevrules
-au group filetype markdown se textwidth=80
-au group textyankpost * sil! lua vim.highlight.on_yank{}
-let g:fzf_preview_window = []
-let g:tex_flavor = 'latex'
-nn <silent> <space>h :exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 nn Q <nop>
 se clipboard=unnamedplus
 se nofoldenable
 se nojoinspaces
-se noswapfile
 se notimeout
 se virtualedit=block
-se wildmode=longest:full,full
 
 " MOUSE
 nm <rightmouse> <leftmouse>gx
