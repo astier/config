@@ -205,6 +205,7 @@ nn <silent> , :let @/= expand('<cword>')<bar>se hlsearch<cr>
 xn <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1]<bar>se hlsearch<cr>
 se ignorecase smartcase
 se inccommand=nosplit
+se shortmess+=S
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
