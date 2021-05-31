@@ -176,6 +176,19 @@ se nojoinspaces
 se notimeout
 se virtualedit=block
 
+" MOTIONS
+ino <c-l> <right>
+nn <a-d> 4<c-y>
+nn <a-f> 4<c-e>
+nn <cr> o<esc>
+nn G G0
+nn gg gg0
+nn H H0
+nn L L0
+nn M M0
+nn { {zz
+nn } }zz
+
 " MOUSE
 nm <rightmouse> <leftmouse>gx
 nm <silent> <2-rightmouse> <rightmouse>
@@ -183,16 +196,6 @@ nm <silent> <3-rightmouse> <rightmouse>
 nm <silent> <4-rightmouse> <rightmouse>
 se mouse=a
 se mousemodel=popup
-
-" MOVEMENT
-ino <c-l> <right>
-nn <a-d> 4<c-y>
-nn <a-f> 4<c-e>
-nn <cr> o<esc>
-nn G G0
-nn gg gg0
-nn { {zz
-nn } }zz
 
 " SANDWICH
 nm cb cib
