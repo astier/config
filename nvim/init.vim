@@ -38,6 +38,7 @@ nn <silent> <space>d :qa!<cr>
 nn <silent> F :Buffers<cr>
 nn <silent> f :FZF<cr>
 nn <silent> t :b#<cr>
+se hidden
 
 " COMMENTS
 au group filetype * se formatoptions-=cro
