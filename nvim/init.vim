@@ -38,8 +38,8 @@ au group textchanged,insertleave * nested if !&ro | sil! up | en
 au group vimenter * sil! let @#=expand('#2:p')
 nn <silent> <a-e> :bp<cr><c-g>
 nn <silent> <a-r> :bn<cr><c-g>
-nn <silent> <a-tab> :bd!<cr>
 nn <silent> <space>d :qa!<cr>
+nn <silent> <space>q :bd!<cr>
 nn <silent> F :Buffers<cr>
 nn <silent> f :FZF<cr>
 nn <silent> q :b#<cr>
@@ -106,8 +106,8 @@ nn gqp gqip
 nn gqq Vgq
 
 " GIT
-au group filetype floggraph nm <buffer> <a-tab> <plug>(FlogQuit)
 au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
+au group filetype floggraph nm <buffer> <space>q <plug>(FlogQuit)
 au group filetype floggraph xm <buffer> <rightmouse> <cr>
 let g:flog_permanent_default_arguments = { 'date': 'short' }
 nn <silent> <space>kd :0G diff<cr>
