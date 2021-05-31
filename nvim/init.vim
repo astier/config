@@ -245,9 +245,9 @@ endf
 " STATUSLINE - TOGGLE
 fu! StatusLineToggle()
     if !&laststatus
-        exe 'se laststatus=2 statusline=%{StatusLine()}'
+        se laststatus=2 statusline=%{StatusLine()}
     el
-        exe 'se laststatus=0  statusline=\ '
+        se statusline=\  laststatus=0
     en
 endf
 nn <silent> <space>b :cal StatusLineToggle()<cr>
