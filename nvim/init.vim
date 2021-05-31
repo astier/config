@@ -228,11 +228,6 @@ se spellcapcheck=
 se spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATUSLINE
-se fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
-se noruler noshowcmd noshowmode laststatus=0
-se statusline=\  rulerformat=%=%l/%L showtabline=0
-
-" STATUSLINE - DEFINITION
 fu! StatusLine()
     if empty(expand('%'))
         retu repeat('─', winwidth(0))
@@ -241,16 +236,10 @@ fu! StatusLine()
     let right = '[' . line('.') . '/' . line('$') . ']'
     retu left . repeat('─', winwidth(0) - len(left) - len(right)) . right
 endf
-
-" STATUSLINE - TOGGLE
-fu! StatusLineToggle()
-    if !&laststatus
-        se laststatus=2 statusline=%{StatusLine()}
-    el
-        se statusline=\  laststatus=0
-    en
-endf
-nn <silent> <space>b :cal StatusLineToggle()<cr>
+nn <silent><expr> <space>b &ls ? ':se stl=\  ls=0<cr>' : ':se ls=2 stl=%{StatusLine()}<cr>'
+se fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
+se noruler noshowcmd noshowmode laststatus=0
+se statusline=\  rulerformat=%=%l/%L showtabline=0
 
 " SWITCH
 let g:switch_custom_definitions = [
