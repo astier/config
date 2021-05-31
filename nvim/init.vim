@@ -42,7 +42,7 @@ nn <silent> <a-tab> :bd!<cr>
 nn <silent> <space>d :qa!<cr>
 nn <silent> F :Buffers<cr>
 nn <silent> f :FZF<cr>
-nn <silent> t :b#<cr>
+nn <silent> q :b#<cr>
 se hidden noswapfile
 
 " COMMENTS
@@ -167,7 +167,7 @@ fu! s:show_documentation()
 endf
 
 " MISC
-nn Q <nop>
+nn Q q
 se clipboard=unnamedplus
 se nofoldenable
 se nojoinspaces
@@ -262,7 +262,7 @@ let g:switch_custom_definitions = [
     \['pick', 'fixup', 'reword'],
     \['yes', 'no'],
 \]
-let g:switch_mapping = '<space>t'
+let g:switch_mapping = 't'
 
 " TMUXSEND
 fu! T(...)
