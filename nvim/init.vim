@@ -180,7 +180,11 @@ se virtualedit=block
 ino <c-l> <right>
 nn <a-d> 4<c-y>
 nn <a-f> 4<c-e>
+nn <c-i> <c-i>zz
+nn <c-o> <c-o>zz
 nn <cr> o<esc>
+nn <silent> n nzz
+nn <silent> N Nzz
 nn G G0
 nn gg gg0
 nn H H0
@@ -206,8 +210,6 @@ nm sb sib
 nm yb myyib`y
 
 " SEARCH
-nn <silent> n nzz
-nn <silent> N Nzz
 nn <silent> <esc> :noh<bar>echo<cr><esc>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nn <silent> , :let @/= expand('<cword>')<bar>se hlsearch<cr>
