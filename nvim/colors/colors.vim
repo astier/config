@@ -52,6 +52,7 @@ hi! link markdownHeadingDelimiter comment " delimiter->special
 hi! link markdownurl special " float
 
 " MISC
+hi directory ctermbg=none ctermfg=blue cterm=none " none
 hi healthsuccess ctermbg=none ctermfg=green cterm=none " none
 hi visual ctermbg=black ctermfg=none cterm=none " none
 hi wildmenu ctermbg=none ctermfg=none cterm=none " none
