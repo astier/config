@@ -52,10 +52,8 @@ se commentstring=//\ %s
 
 " COMPLETION
 se completeopt=menuone,noinsert
-se path+=** path-=/usr/include
 se pumheight=8 pumwidth=0
 se shortmess+=c
-se wildmode=longest:list,full
 
 " EDITING - CHANGE
 nm cp cip
@@ -281,6 +279,19 @@ nn <silent> <space><space> :cal T(getline('.'))<cr>
 xn <silent> <space><space> "vy :cal T(substitute(@v, '\n$', '', ''))<cr>
 nn <silent> <space>l :T lint %<cr>
 nn <silent> <space>a :T execute<cr>
+
+" WILDMENU
+se path-=/usr/include path+=**
+se wildignore+=*.o
+se wildignore+=*.pdf
+se wildignore+=*.zip
+se wildignore+=*/.ccls_cache/*
+se wildignore+=*/.git/*
+se wildignore+=*/.idea/*
+se wildignore+=*/.vscode/*
+se wildignore+=*/__pycache__/*
+se wildignore+=*/build/*
+se wildmode=longest:list,full
 
 " WINDOWS
 au group vimresized * winc =
