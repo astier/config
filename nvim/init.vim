@@ -213,8 +213,8 @@ nm yb myyib`y
 cno <silent><expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter>:echo<cr>zz' : '<enter>'
 nn <silent> <esc> :noh<bar>echo<cr><esc>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
-nn <silent> , :let @/= expand('<cword>')<bar>se hlsearch<cr>
-xn <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1]<bar>se hlsearch<cr>
+nn <silent> , :let @/= expand('<cword>')<bar>se hls<cr>
+xn <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1]<bar>se hls<cr>
 se ignorecase smartcase
 se inccommand=nosplit
 se shortmess+=Ss
