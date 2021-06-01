@@ -55,7 +55,7 @@ se completeopt=menuone,noinsert
 se path+=** path-=/usr/include
 se pumheight=8 pumwidth=0
 se shortmess+=c
-se wildmode=longest:full,full
+se wildmode=longest:list,full
 
 " EDITING - CHANGE
 nm cp cip
