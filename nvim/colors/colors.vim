@@ -54,6 +54,7 @@ hi! link markdownurl special " float
 " MISC
 hi healthsuccess ctermbg=none ctermfg=green cterm=none " none
 hi visual ctermbg=black ctermfg=none cterm=none " none
+hi wildmenu ctermbg=none ctermfg=none cterm=none " none
 hi! link boolean none " constant
 hi! link function none " identifier
 hi! link number none " constant
