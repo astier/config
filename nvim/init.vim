@@ -119,13 +119,14 @@ nn <space>kg :Flog -search=
 
 " GITGUTTER
 au group vimenter,bufwritepost * GitGutter
+let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_show_msg_on_hunk_jumping = 0
-nm <space>i <plug>(GitGutterPreviewHunk)
-nm <space>S <plug>(GitGutterStageHunk)
-nm <space>u <plug>(GitGutterUndoHunk):echo<cr>
-nm [c <plug>(GitGutterPrevHunk)zz
-nm ]c <plug>(GitGutterNextHunk)zz
+nm <silent> <space>i :GitGutterPreviewHunk<cr>
+nm <silent> <space>S :GitGutterStageHunk<cr>
+nm <silent> <space>u :sil GitGutterUndoHunk<cr>
+nm <silent> [c :sil GitGutterPrevHunk<cr>zz
+nm <silent> ]c :sil GitGutterNextHunk<cr>zz
 se signcolumn=yes
 
 " INDENTATION

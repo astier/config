@@ -1,3 +1,3 @@
 if !exists('g:vscode') && exists('#gitgutter')
-    au! gitgutter CursorHold,CursorHoldI
+    au! gitgutter cursorhold,cursorholdi
 en
