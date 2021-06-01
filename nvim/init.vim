@@ -211,6 +211,8 @@ nm sb sib
 nm yb myyib`y
 
 " SEARCH
+au group cmdlineenter [/\?] se nohls
+au group cmdlineleave [/\?] se hls
 cno <silent><expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter>:noh<bar>ec<cr>zz' : '<enter>'
 nn <silent> <esc> :noh<bar>ec<cr><esc>
 nn <silent> <a-esc> :se hls<cr>
