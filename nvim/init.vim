@@ -225,10 +225,10 @@ se shortmess+=Ss
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
-im   <silent><expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)'      : '<a-tab>'
-im   <silent><expr> <tab>   vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-smap <silent><expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)'      : '<a-tab>'
-smap <silent><expr> <tab>   vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
+im <silent><expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
+im <silent><expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
+smap <silent><expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
+smap <silent><expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
 
 " SORT
 nn <silent> gsi my:norm vii<cr>:sort i<cr>`y
