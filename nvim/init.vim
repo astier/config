@@ -238,7 +238,7 @@ se spellcapcheck=
 se spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATUSLINE
-fu! StatusLine()
+fu! s:statusline()
     if empty(expand('%'))
         retu repeat('─', winwidth(0))
     en
@@ -246,7 +246,7 @@ fu! StatusLine()
     let right = '[' . line('.') . '/' . line('$') . ']'
     retu left . repeat('─', winwidth(0) - len(left) - len(right)) . right
 endf
-nn <silent><expr> <space>b &ls ? ':se stl=\  ls=0<cr>' : ':se ls=2 stl=%{StatusLine()}<cr>'
+nn <silent><expr> <space>b &ls ? ':se stl=\  ls=0<cr>' : ':se ls=2 stl=%{<sid>statusline()}<cr>'
 se fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
 se statusline=\  rulerformat=%=%l/%L showtabline=0
