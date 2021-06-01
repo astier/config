@@ -72,13 +72,13 @@ nn yw myyiw`y
 nn yW myyiW`y
 
 " EDITING - CUT
-nn <expr> dp &diff ? 'dp' : 'dap:echo<cr>'
+nn <expr> dp &diff ? 'dp' : 'dap:ec<cr>'
 nn dw daw
 nn dW daW
 
 " EDITING - PASTE
 ino <c-v> <c-r>+
-nn p p:echo<cr>
+nn p p:ec<cr>
 
 " EDITING - REPLACE
 let g:subversivePreserveCursorPosition = 1
@@ -91,9 +91,9 @@ nm sw siw
 nm sW siW
 
 " EDITING - UNDO
-nn <c-r> <c-r>:echo<cr>
-nn U <c-r>:echo<cr>
-nn u u:echo<cr>
+nn <c-r> <c-r>:ec<cr>
+nn U <c-r>:ec<cr>
+nn u u:ec<cr>
 
 " FILETYPE
 au group filetype diff se textwidth=72
@@ -211,8 +211,8 @@ nm sb sib
 nm yb myyib`y
 
 " SEARCH
-cno <silent><expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter>:noh<bar>echo<cr>zz' : '<enter>'
-nn <silent> <esc> :noh<bar>echo<cr><esc>
+cno <silent><expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter>:noh<bar>ec<cr>zz' : '<enter>'
+nn <silent> <esc> :noh<bar>ec<cr><esc>
 nn <silent> <a-esc> :se hls<cr>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nn <silent> , :let @/= expand('<cword>')<bar>se hls<cr>
