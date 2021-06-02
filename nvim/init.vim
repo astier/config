@@ -254,13 +254,13 @@ se statusline=\  rulerformat=%=%l/%L showtabline=0
 
 " SWITCH
 let g:switch_custom_definitions = [
-    \['+', '-'],
-    \['0', '1'],
-    \['<', '>'],
-    \['==', '!='],
-    \['on', 'off'],
-    \['pick', 'fixup', 'reword'],
-    \['yes', 'no'],
+\   ['+', '-'],
+\   ['0', '1'],
+\   ['<', '>'],
+\   ['==', '!='],
+\   ['on', 'off'],
+\   ['pick', 'fixup', 'reword'],
+\   ['yes', 'no'],
 \]
 let g:switch_mapping = 't'
 
