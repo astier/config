@@ -153,6 +153,7 @@ let g:loaded_zipPlugin = 0
 
 " LSP
 let g:coc_global_extensions = ['coc-json', 'coc-python']
+nn <silent> <space>l :CocDiagnostics<cr>
 nn <silent> <space>o :CocList outline<cr>
 ino <silent><expr> <c-space> coc#refresh()
 nm <silent> gd <plug>(coc-definition)zz
@@ -292,7 +293,6 @@ endf
 com! -complete=shellcmd -nargs=+ T cal T(expandcmd(<q-args>))
 nn <silent> <space><space> :cal T(getline('.'))<cr>
 xn <silent> <space><space> "vy :cal T(substitute(@v, '\n$', '', ''))<cr>
-nn <silent> <space>l :T lint %<cr>
 nn <silent> <space>a :T execute<cr>
 
 " WILDMENU
