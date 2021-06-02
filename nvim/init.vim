@@ -24,6 +24,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-sleuth'
+    Plug 'wellle/targets.vim'
 cal plug#end()
 
 " APPEARANCE
@@ -201,12 +202,9 @@ se mouse=a
 se mousemodel=popup
 
 " SANDWICH
-nm cb cib
-nm db dib
+let g:textobj_sandwich_no_default_key_mappings = 1
 nm saw saiw
 nm saW saiW
-nm sb sib
-nm yb myyib`y
 
 " SEARCH
 au group cmdlineenter [/\?] se nohls
@@ -262,6 +260,22 @@ let g:switch_custom_definitions = [
     \['yes', 'no'],
 \]
 let g:switch_mapping = 't'
+
+" TARGETS
+au User targets#mappings#user cal targets#mappings#extend({
+\   'q': {}, 'b': {
+\       'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}],
+\       'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]
+\   },
+\})
+nm cb cIb
+nm db dIb
+nm sb sIb
+nm yb myyIb`y
+nm cnb cInb
+nm dnb dInb
+nm snb sInb
+nm ynb myyInb`y
 
 " TMUXSEND
 fu! T(...)
