@@ -14,6 +14,7 @@ hi! link underlined none
 
 " C
 hi! link cconstant none " constant
+hi! link cincluded none " cstring->string
 hi! link coperator none " operator->statement
 
 " CURSORLINE
