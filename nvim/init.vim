@@ -170,6 +170,7 @@ fu! s:show_documentation()
 endf
 
 " MISC
+nn <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
 nn Q q
 se clipboard=unnamedplus
 se nofoldenable
@@ -183,7 +184,6 @@ nn <a-d> 4<c-y>
 nn <a-f> 4<c-e>
 nn <c-i> <c-i>zz
 nn <c-o> <c-o>zz
-nn <cr> o<esc>
 nn <silent> n nzz
 nn <silent> N Nzz
 nn G G0
