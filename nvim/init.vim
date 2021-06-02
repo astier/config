@@ -153,6 +153,7 @@ let g:loaded_zipPlugin = 0
 
 " LSP
 let g:coc_global_extensions = ['coc-json', 'coc-python']
+nn <silent> <space>o :CocList outline<cr>
 ino <silent><expr> <c-space> coc#refresh()
 nm <silent> gd <plug>(coc-definition)zz
 nm <silent> gR <plug>(coc-references)
