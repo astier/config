@@ -210,16 +210,14 @@ nm saw saiw
 nm saW saiW
 
 " SEARCH
-au group cmdlineenter [/\?] se nohls
-cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter>:ec<cr>zz' : '<enter>'
-nn <silent> <esc> :se nohls<bar>ec<cr><esc>
+cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter>:noh<cr>:ec<cr>zz' : '<enter>'
+nn <silent> <esc> :noh<bar>ec<cr><esc>
 nn <silent> <a-esc> :se hls<cr>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nn <silent> , :let @/= expand('<cword>')<bar>se hls<cr>
 xn <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1]<bar>se hls<cr>
 se ignorecase smartcase
 se inccommand=nosplit
-se nohlsearch
 se shortmess+=Ss
 
 " SNIPPETS
