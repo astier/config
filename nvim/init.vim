@@ -211,7 +211,7 @@ nm yb myyib`y
 " SEARCH
 au group cmdlineenter [/\?] se nohls
 cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter>:ec<cr>zz' : '<enter>'
-nn <silent> <esc> :noh<bar>ec<cr><esc>
+nn <silent> <esc> :se nohls<bar>ec<cr><esc>
 nn <silent> <a-esc> :se hls<cr>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nn <silent> , :let @/= expand('<cword>')<bar>se hls<cr>
