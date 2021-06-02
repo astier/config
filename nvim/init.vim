@@ -32,7 +32,7 @@ au group filetype * se nocursorline
 au group textyankpost * sil! lua vim.highlight.on_yank{}
 colorscheme colors
 let g:fzf_preview_window = []
-nn <silent> <space>h :exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
+nn <silent> <space>H :exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 
 " BUFFERS
 au group textchanged,insertleave * nested if !&ro | sil! up | en
@@ -153,6 +153,7 @@ let g:loaded_zipPlugin = 0
 
 " LSP
 let g:coc_global_extensions = ['coc-json', 'coc-python']
+nn <silent> <space>h :cal CocActionAsync('highlight')<cr>
 nn <silent> <space>L :CocDiagnostics<cr>
 nn <silent> <space>o :CocList outline<cr>
 ino <silent><expr> <c-space> coc#refresh()
