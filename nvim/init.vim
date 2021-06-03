@@ -228,9 +228,8 @@ smap <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
 smap <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
 
 " SORT
-nn <silent> gsi my<cmd>norm vii<cr>:sort i<cr>`y
-nn <silent> gss myvip:sort i<cr>`y
-xn <silent> gs  my:sort i<cr>`y
+nm <silent> gs myvii:sort i<cr>`y
+xn <silent> gs my:sort i<cr>`y
 
 " SPELL
 se spellcapcheck=
