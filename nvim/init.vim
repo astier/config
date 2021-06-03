@@ -6,8 +6,8 @@ scriptencoding utf-8
 if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
     sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 en
-nn <silent> <space>pc :PlugClean<cr>
-nn <silent> <space>pp :PlugUpgrade<bar>PlugUpdate<cr>
+nn <space>pc <cmd>PlugClean<cr>
+nn <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
@@ -32,23 +32,23 @@ au group filetype * se nocursorline
 au group textyankpost * sil! lua vim.highlight.on_yank{}
 colorscheme colors
 let g:fzf_preview_window = []
-nn <silent> <space>H :exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
+nn <space>H <cmd>exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 
 " BUFFERS
 au group textchanged,insertleave * nested if !&ro | sil! up | en
 au group vimenter * sil! let @#=expand('#2:p')
-nn <silent> <a-e> :bp<cr><c-g>
-nn <silent> <a-r> :bn<cr><c-g>
-nn <silent> <space>d :qa!<cr>
-nn <silent> <space>q :bd!<cr>
-nn <silent> F :Buffers<cr>
-nn <silent> f :FZF<cr>
-nn <silent> q :b#<cr>
+nn <a-e> <cmd>bp<cr><c-g>
+nn <a-r> <cmd>bn<cr><c-g>
+nn <space>d <cmd>qa!<cr>
+nn <space>q <cmd>bd!<cr>
+nn F <cmd>Buffers<cr>
+nn f <cmd>FZF<cr>
+nn q <cmd>b#<cr>
 se hidden noswapfile
 
 " COMMENTS
 au group filetype * se formatoptions-=cro
-nn <silent> gcp my:norm vip<bar>gc<cr>`y
+nn gcp my<cmd>norm vip<bar>gc<cr>`y
 se commentstring=//\ %s
 
 " COMPLETION
@@ -71,13 +71,13 @@ nn yw myyiw`y
 nn yW myyiW`y
 
 " EDITING - CUT
-nn <expr> dp &diff ? 'dp' : 'dap:ec<cr>'
+nn <expr> dp &diff ? 'dp' : 'dap<cmd>ec<cr>'
 nn dw daw
 nn dW daW
 
 " EDITING - PASTE
 ino <c-v> <c-r>+
-nn p p:ec<cr>
+nn p p<cmd>ec<cr>
 
 " EDITING - REPLACE
 let g:subversivePreserveCursorPosition = 1
@@ -90,9 +90,9 @@ nm sw siw
 nm sW siW
 
 " EDITING - UNDO
-nn <c-r> <c-r>:ec<cr>
-nn U <c-r>:ec<cr>
-nn u u:ec<cr>
+nn <c-r> <c-r><cmd>ec<cr>
+nn U <c-r><cmd>ec<cr>
+nn u u<cmd>ec<cr>
 
 " FILETYPE
 au group filetype diff se textwidth=72
@@ -109,23 +109,23 @@ au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
 au group filetype floggraph nm <buffer> <space>q <plug>(FlogQuit)
 au group filetype floggraph xm <buffer> <rightmouse> <cr>
 let g:flog_permanent_default_arguments = { 'date': 'short' }
-nn <silent> <space>kd :0G diff<cr>
-nn <silent> <space>kK :Flog -all -path=%<cr>
-nn <silent> <space>kk :Flog -all<cr>
-nn <silent> <space>kr :G reset --hard<cr>
-nn <silent><expr> <space>km &diff ? ':x<cr>zz' : ':Gdiffsplit<cr>'
-nn <space>kg :Flog -search=
+nn <space>kd <cmd>0G diff<cr>
+nn <space>kK <cmd>Flog -all -path=%<cr>
+nn <space>kk <cmd>Flog -all<cr>
+nn <space>kr <cmd>G reset --hard<cr>
+nn <expr> <space>km &diff ? '<cmd>x<cr>zz' : '<cmd>Gdiffsplit<cr>'
+nn <space>kg <cmd>Flog -search=
 
 " GITGUTTER
 au group vimenter,bufwritepost * GitGutter
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_show_msg_on_hunk_jumping = 0
-nm <silent> <space>i :GitGutterPreviewHunk<cr>
-nm <silent> <space>S :GitGutterStageHunk<cr>
-nm <silent> <space>u :sil GitGutterUndoHunk<cr>
-nm <silent> [c :sil GitGutterPrevHunk<cr>zz
-nm <silent> ]c :sil GitGutterNextHunk<cr>zz
+nm <space>i <cmd>GitGutterPreviewHunk<cr>
+nm <space>S <cmd>GitGutterStageHunk<cr>
+nm <space>u <cmd>sil GitGutterUndoHunk<cr>
+nm [c <cmd>sil GitGutterPrevHunk<cr>zz
+nm ]c <cmd>sil GitGutterNextHunk<cr>zz
 se signcolumn=yes
 
 " INDENTATION
@@ -153,14 +153,14 @@ let g:loaded_zipPlugin = 0
 
 " LSP
 let g:coc_global_extensions = ['coc-json', 'coc-python']
-nn <silent> <space>h :cal CocActionAsync('highlight')<cr>
-nn <silent> <space>L :CocDiagnostics<cr>
-nn <silent> <space>o :CocList outline<cr>
-ino <silent><expr> <c-space> coc#refresh()
-nm <silent> gd <plug>(coc-definition)zz
-nm <silent> gR <plug>(coc-references)
-nm <silent> gr <plug>(coc-rename)
-nn <silent> K :cal <sid>show_documentation()<cr>
+nn <space>h <cmd>cal CocActionAsync('highlight')<cr>
+nn <space>L <cmd>CocDiagnostics<cr>
+nn <space>o <cmd>CocList outline<cr>
+ino <expr> <c-space> coc#refresh()
+nm gd <plug>(coc-definition)zz
+nm gR <plug>(coc-references)
+nm gr <plug>(coc-rename)
+nn K <cmd>cal <sid>show_documentation()<cr>
 fu! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         exe 'h '.expand('<cword>')
@@ -198,9 +198,9 @@ nn } }zz
 
 " MOUSE
 nm <rightmouse> <leftmouse>gx
-nm <silent> <2-rightmouse> <rightmouse>
-nm <silent> <3-rightmouse> <rightmouse>
-nm <silent> <4-rightmouse> <rightmouse>
+nm <2-rightmouse> <rightmouse>
+nm <3-rightmouse> <rightmouse>
+nm <4-rightmouse> <rightmouse>
 se mouse=a
 se mousemodel=popup
 
@@ -210,25 +210,25 @@ nm saw saiw
 nm saW saiW
 
 " SEARCH
-cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter>:noh<cr>:ec<cr>zz' : '<enter>'
-nn <silent> <esc> :noh<bar>ec<cr><esc>
-nn <silent> <a-esc> :se hls<cr>
+cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>noh<bar>ec<cr>zz' : '<enter>'
+nn <esc> <cmd>noh<bar>ec<cr><esc>
+nn <a-esc> <cmd>se hls<cr>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
-nn <silent> , :let @/= expand('<cword>')<bar>se hls<cr>
-xn <silent> , :<c-u>let @/= getline(".")[getpos("'<")[2] - 1:getpos("'>")[2] - 1]<bar>se hls<cr>
+nn , <cmd>let @/= expand('<cword>')<bar>se hls<cr>
+xn , <cmd>let @/= getline(".")[col('v') - 1 : getpos('.')[2] - 1]<bar>se hls<cr><esc>
 se ignorecase smartcase
 se inccommand=nosplit
 se shortmess+=Ss
 
 " SNIPPETS
 let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
-im <silent><expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
-im <silent><expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-smap <silent><expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
-smap <silent><expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
+im <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
+im <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
+smap <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
+smap <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
 
 " SORT
-nn <silent> gsi my:norm vii<cr>:sort i<cr>`y
+nn <silent> gsi my<cmd>norm vii<cr>:sort i<cr>`y
 nn <silent> gss myvip:sort i<cr>`y
 xn <silent> gs  my:sort i<cr>`y
 
@@ -245,7 +245,7 @@ fu! s:statusline()
     let right = '[' . line('.') . '/' . line('$') . ']'
     retu left . repeat('─', winwidth(0) - len(left) - len(right)) . right
 endf
-nn <silent><expr> <space>b &ls ? ':se stl=\  ls=0<cr>' : ':se ls=2 stl=%{<sid>statusline()}<cr>'
+nn <expr> <space>b &ls ? '<cmd>se stl=\  ls=0<cr>' : '<cmd>se ls=2 stl=%{<sid>statusline()}<cr>'
 se fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
 se statusline=\  rulerformat=%=%l/%L showtabline=0
@@ -290,10 +290,10 @@ fu! T(...)
     en
 endf
 com! -complete=shellcmd -nargs=+ T cal T(expandcmd(<q-args>))
-nn <silent> <space><space> :cal T(getline('.'))<cr>
-xn <silent> <space><space> "vy :cal T(substitute(@v, '\n$', '', ''))<cr>
-nn <silent> <space>a :T execute<cr>
-nn <silent> <space>l :T lint %<cr>
+nn <space><space> <cmd>cal T(getline('.'))<cr>
+xn <space><space> "vy <cmd>cal T(substitute(@v, '\n$', '', ''))<cr>
+nn <space>a <cmd>T execute<cr>
+nn <space>l <cmd>T lint %<cr>
 
 " WILDMENU
 se path-=/usr/include path+=**
@@ -311,10 +311,10 @@ se wildmode=longest:list,full
 " WINDOWS
 au group vimresized * winc =
 let g:tmux_navigator_no_mappings = 1
-nn <silent> <a-h> :TmuxNavigateLeft<cr>
-nn <silent> <a-j> :TmuxNavigateDown<cr>
-nn <silent> <a-k> :TmuxNavigateUp<cr>
-nn <silent> <a-l> :TmuxNavigateRight<cr>
+nn <a-h> <cmd>TmuxNavigateLeft<cr>
+nn <a-j> <cmd>TmuxNavigateDown<cr>
+nn <a-k> <cmd>TmuxNavigateUp<cr>
+nn <a-l> <cmd>TmuxNavigateRight<cr>
 nn <space>c <c-w>czz
 nn <space>s <c-w>s
 nn <space>v <c-w>v
