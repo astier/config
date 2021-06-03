@@ -20,7 +20,6 @@ $endif
 set bell-style none
 set echo-control-characters off
 set enable-bracketed-paste off
-set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
 # VI
