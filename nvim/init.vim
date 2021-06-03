@@ -161,16 +161,7 @@ ino <expr> <c-space> coc#refresh()
 nm gd <plug>(coc-definition)zz
 nm gR <plug>(coc-references)
 nm gr <plug>(coc-rename)
-nn K <cmd>cal <sid>show_documentation()<cr>
-fu! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        exe 'h '.expand('<cword>')
-    elsei (coc#rpc#ready())
-        cal CocActionAsync('doHover')
-    el
-        exe '!' . &keywordprg . " " . expand('<cword>')
-    en
-endf
+nn <expr> K '<cmd>'.(index(['vim','help'], &ft) >= 0 ? 'h '.expand('<cword>') : "cal CocActionAsync('doHover')").'<cr>'
 
 " MISC
 nn <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
