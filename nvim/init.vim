@@ -13,11 +13,13 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'AndrewRadev/switch.vim'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'farmergreg/vim-lastplace'
+    Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
-    Plug 'junegunn/fzf.vim', { 'on': 'Buffers' }
+    Plug 'junegunn/fzf.vim'
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'ojroques/nvim-lspfuzzy'
     Plug 'rbong/vim-flog', { 'on': 'Flog' }
     Plug 'stsewd/gx-extended.vim'
     Plug 'svermeulen/vim-subversive'
@@ -52,7 +54,20 @@ nn gcp my<cmd>norm vip<bar>gc<cr>`y
 se commentstring=//\ %s
 
 " COMPLETION
-se completeopt=menuone,noinsert
+ino <expr> <c-space> compe#complete()
+ino <expr> <cr> compe#confirm('<cr>')
+ino <silent><expr> <c-e> compe#close('<c-e>')
+let g:compe = {}
+let g:compe.documentation = v:false
+let g:compe.max_abbr_width = 0
+let g:compe.preselect = 'always'
+let g:compe.source = {}
+let g:compe.source.buffer = {}
+let g:compe.source.buffer.menu = ''
+let g:compe.source.nvim_lsp = {}
+let g:compe.source.nvim_lsp.menu = ''
+let g:compe.source.path = v:true
+se completeopt=menuone,noselect
 se pumheight=8 pumwidth=0
 se shortmess+=c
 
@@ -152,16 +167,57 @@ let g:loaded_tarPlugin = 0
 let g:loaded_zip = 0
 let g:loaded_zipPlugin = 0
 
-" LSP
-let g:coc_global_extensions = ['coc-json', 'coc-python']
-nn <space>h <cmd>cal CocActionAsync('highlight')<cr>
-nn <space>L <cmd>CocDiagnostics<cr>
-nn <space>o <cmd>CocList outline<cr>
-ino <expr> <c-space> coc#refresh()
-nm gd <plug>(coc-definition)zz
-nm gR <plug>(coc-references)
-nm gr <plug>(coc-rename)
-nn <expr> K '<cmd>'.(index(['vim','help'], &ft) >= 0 ? 'h '.expand('<cword>') : "cal CocActionAsync('doHover')").'<cr>'
+" LSP - SERVERS
+lua << EOF
+vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = { 'documentation', 'detail', 'additionalTextEdits', }
+}
+require 'lspconfig'.ccls.setup{capabilities = capabilities}
+require 'lspconfig'.jedi_language_server.setup{capabilities = capabilities}
+require('lspfuzzy').setup{fzf_preview = {'right:+{2}-/2'}}
+EOF
+
+" LSP - MAPPINGS
+nn <expr> K '<cmd>'.(index(['vim','help'], &ft) >= 0 ? 'h '.expand('<cword>') : 'lua vim.lsp.buf.hover()').'<cr>'
+nn ga <cmd>lua vim.lsp.buf.code_action()<cr>
+nn gd <cmd>lua vim.lsp.buf.definition()<cr>
+nn go <cmd>lua vim.lsp.buf.document_symbol()<cr>
+nn gR <cmd>lua vim.lsp.buf.references()<cr>
+nn gr <cmd>lua vim.lsp.buf.rename()<cr>
+
+" LSP - KIND
+lua << EOF
+require('vim.lsp.protocol').CompletionItemKind = {
+    '', -- Text
+    '', -- Method
+    '', -- Function
+    '', -- Constructor
+    '', -- Field
+    '', -- Variable
+    '', -- Class
+    'ﰮ', -- Interface
+    '', -- Module
+    '', -- Property
+    '', -- Unit
+    '', -- Value
+    '了', -- Enum
+    '', -- Keyword
+    '﬌', -- Snippet
+    '', -- Color
+    '', -- File
+    '', -- Reference
+    '', -- Folder
+    '', -- EnumMember
+    '', -- Constant
+    '', -- Struct
+    '', -- Event
+    'ﬦ', -- Operator
+    '', -- TypeParameter
+}
+EOF
 
 " MISC
 nn <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
