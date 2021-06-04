@@ -66,9 +66,10 @@ xn c "_c
 
 " EDITING - COPY
 nn Y y$
-nn yp myyip`y
+nn yp myyip<cmd>ec<cr>`y
 nn yw myyiw`y
 nn yW myyiW`y
+xn y myy<cmd>ec<cr>`y
 
 " EDITING - CUT
 nn <expr> dp &diff ? 'dp' : 'dap<cmd>ec<cr>'
