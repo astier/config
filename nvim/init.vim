@@ -12,6 +12,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'cohama/lexima.vim'
     Plug 'farmergreg/vim-lastplace'
     Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
@@ -36,6 +37,13 @@ colorscheme colors
 let g:fzf_preview_window = []
 nn <space>H <cmd>exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 
+" AUTO-PAIR
+let g:lexima_ctrlh_as_backspace = 1
+let g:lexima_enable_basic_rules = 0
+let g:lexima_enable_endwise_rules = 0
+let g:lexima_no_default_rules = 1
+cal lexima#set_default_rules()
+
 " BUFFERS
 au group textchanged,insertleave * nested if !&ro | sil! up | en
 au group vimenter * sil! let @#=expand('#2:p')
@@ -55,7 +63,7 @@ se commentstring=//\ %s
 
 " COMPLETION
 ino <expr> <c-space> compe#complete()
-ino <expr> <cr> compe#confirm('<cr>')
+ino <expr> <cr> compe#confirm(lexima#expand('<lt>cr>', 'i'))
 ino <silent><expr> <c-e> compe#close('<c-e>')
 let g:compe = {}
 let g:compe.documentation = v:false
