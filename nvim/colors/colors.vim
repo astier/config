@@ -109,3 +109,10 @@ hi! link shvarassign statement " none
 " SPELL
 hi spellbad ctermbg=none ctermfg=red cterm=none " none
 hi! link spellrare none " none
+
+" TELESCOPE
+hi TelescopeMatching ctermbg=none ctermfg=red cterm=none
+hi TelescopeMultiSelection ctermbg=none ctermfg=red cterm=none
+hi TelescopePromptPrefix ctermbg=none ctermfg=blue cterm=bold
+hi TelescopeSelection ctermbg=none ctermfg=none cterm=bold
+hi TelescopeSelectionCaret ctermbg=none ctermfg=green cterm=bold

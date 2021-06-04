@@ -16,11 +16,13 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'farmergreg/vim-lastplace'
     Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
-    Plug 'junegunn/fzf.vim'
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'ojroques/nvim-lspfuzzy'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-telescope/telescope-fzy-native.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
     Plug 'rbong/vim-flog'
     Plug 'stsewd/gx-extended.vim'
     Plug 'svermeulen/vim-subversive'
@@ -34,7 +36,6 @@ cal plug#end()
 au group filetype * se nocursorline
 au group textyankpost * sil! lua vim.highlight.on_yank{}
 colorscheme colors
-let g:fzf_preview_window = []
 nn <space>H <cmd>exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 
 " AUTO-PAIR
@@ -51,8 +52,6 @@ nn <a-e> <cmd>bp<cr><c-g>
 nn <a-r> <cmd>bn<cr><c-g>
 nn <space>d <cmd>qa!<cr>
 nn <space>q <cmd>bd!<cr>
-nn F <cmd>Buffers<cr>
-nn f <cmd>FZF<cr>
 nn q <cmd>b#<cr>
 se hidden noswapfile
 
@@ -128,6 +127,37 @@ let g:tex_flavor = 'latex'
 nn gqp gqip
 nn gqq Vgq
 
+" FUZZY - CONFIG
+lua << EOF
+require('telescope').setup{
+    defaults = {
+        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+        file_sorter =  require'telescope.sorters'.get_fzy_sorter,
+        generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
+        prompt_position = "top",
+        sorting_strategy = "ascending",
+    }
+}
+require('telescope').load_extension('fzy_native')
+EOF
+
+" FUZZY - MAPPINGS
+nn fa <cmd>Telescope lsp_code_actions<cr>
+nn fb <cmd>Telescope buffers<cr>
+nn fd <cmd>Telescope lsp_document_diagnostics<cr>
+nn fD <cmd>Telescope lsp_workspace_diagnostics<cr>
+nn fe <cmd>Telescope file_browser<cr>
+nn ff <cmd>Telescope find_files<cr>
+nn fF <cmd>Telescope oldfiles<cr>
+nn fh <cmd>Telescope help_tags<cr>
+nn fl <cmd>Telescope current_buffer_fuzzy_find<cr>
+nn fo <cmd>Telescope lsp_document_symbols<cr>
+nn fQ <cmd>Telescope loclist<cr>
+nn fq <cmd>Telescope quickfix<cr>
+nn fr <cmd>Telescope lsp_references<cr>
+nn fs <cmd>Telescope spell_suggest<cr>
+nn ft <cmd>Telescope builtin<cr>
+
 " GIT
 au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
 au group filetype floggraph nm <buffer> <space>q <plug>(FlogQuit)
@@ -185,7 +215,6 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 require 'lspconfig'.ccls.setup{capabilities = capabilities}
 require 'lspconfig'.jedi_language_server.setup{capabilities = capabilities}
-require('lspfuzzy').setup{fzf_preview = {'right:+{2}-/2'}}
 EOF
 
 " LSP - MAPPINGS
