@@ -227,9 +227,13 @@ require('vim.lsp.protocol').CompletionItemKind = {
 }
 EOF
 
-" MISC
+" MISC - MAPPINGS
 nn <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
+nn guw myguiw`y
+nn gUW mygUiW`y
 nn Q q
+
+" MISC - SETTINGS
 se clipboard=unnamedplus
 se nofoldenable
 se nojoinspaces
