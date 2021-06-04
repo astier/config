@@ -297,6 +297,7 @@ nn <space>l <cmd>T lint %<cr>
 
 " WILDMENU
 se path-=/usr/include path+=**
+se wildcharm=<c-z>
 se wildignore+=*.o
 se wildignore+=*.pdf
 se wildignore+=*.zip
