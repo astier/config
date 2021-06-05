@@ -62,9 +62,9 @@ nn gcp my<cmd>norm vip<bar>gc<cr>`y
 se commentstring=//\ %s
 
 " COMPLETION
-ino <expr> <c-space> compe#complete()
-ino <expr> <cr> compe#confirm(lexima#expand('<lt>cr>', 'i'))
 ino <silent><expr> <c-e> compe#close('<c-e>')
+ino <silent><expr> <c-space> compe#complete()
+ino <silent><expr> <cr> compe#confirm(lexima#expand('<lt>cr>', 'i'))
 let g:compe = {}
 let g:compe.documentation = v:false
 let g:compe.max_abbr_width = 0
