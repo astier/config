@@ -145,12 +145,12 @@ au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
 au group filetype floggraph nm <buffer> <space>q <plug>(FlogQuit)
 au group filetype floggraph xm <buffer> <rightmouse> <cr>
 let g:flog_permanent_default_arguments = { 'date': 'short' }
+nn <expr> <space>km &diff ? '<cmd>x<cr>zz' : '<cmd>Gdiffsplit<cr>'
 nn <space>kd <cmd>0G diff<cr>
+nn <space>kg :Flog -search=
 nn <space>kK <cmd>Flog -all -path=%<cr>
 nn <space>kk <cmd>Flog -all<cr>
 nn <space>kr <cmd>G reset --hard<cr>
-nn <expr> <space>km &diff ? '<cmd>x<cr>zz' : '<cmd>Gdiffsplit<cr>'
-nn <space>kg :Flog -search=
 
 " GITGUTTER
 au group vimenter,bufwritepost * GitGutter
