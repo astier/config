@@ -14,15 +14,13 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
     Plug 'farmergreg/vim-lastplace'
+    Plug 'gfanto/fzf-lsp.nvim'
     Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'junegunn/fzf.vim'
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-telescope/telescope-fzy-native.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
     Plug 'rbong/vim-flog'
     Plug 'stsewd/gx-extended.vim'
     Plug 'svermeulen/vim-subversive'
@@ -127,36 +125,20 @@ let g:tex_flavor = 'latex'
 nn gqp gqip
 nn gqq Vgq
 
-" FUZZY - CONFIG
-lua << EOF
-require('telescope').setup{
-    defaults = {
-        borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
-        file_sorter =  require'telescope.sorters'.get_fzy_sorter,
-        generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
-        prompt_position = "top",
-        sorting_strategy = "ascending",
-    }
-}
-require('telescope').load_extension('fzy_native')
-EOF
-
-" FUZZY - MAPPINGS
-nn fa <cmd>Telescope lsp_code_actions<cr>
-nn fb <cmd>Telescope buffers<cr>
-nn fd <cmd>Telescope lsp_document_diagnostics<cr>
-nn fD <cmd>Telescope lsp_workspace_diagnostics<cr>
-nn fe <cmd>Telescope file_browser<cr>
-nn ff <cmd>Telescope find_files<cr>
-nn fF <cmd>Telescope oldfiles<cr>
-nn fh <cmd>Telescope help_tags<cr>
-nn fl <cmd>Telescope current_buffer_fuzzy_find<cr>
-nn fo <cmd>Telescope lsp_document_symbols<cr>
-nn fQ <cmd>Telescope loclist<cr>
-nn fq <cmd>Telescope quickfix<cr>
-nn fr <cmd>Telescope lsp_references<cr>
-nn fs <cmd>Telescope spell_suggest<cr>
-nn ft <cmd>Telescope builtin<cr>
+" FUZZY
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_preview_window = []
+nn fa <cmd>CodeActions<cr>
+nn fb <cmd>Buffer<cr>
+nn fd <cmd>Diagnostics<cr>
+nn fD <cmd>DiagnosticsAll<cr>
+nn ff <cmd>History<cr>
+nn fh <cmd>Helptags<cr>
+nn fj <cmd>Files<cr>
+nn fl <cmd>BLines<cr>
+nn fL <cmd>Lines<cr>
+nn fo <cmd>DocumentSymbols<cr>
+nn fr <cmd>References<cr>
 
 " GIT
 au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
@@ -304,8 +286,8 @@ cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>noh<bar>e
 nn <esc> <cmd>noh<bar>ec<cr><esc>
 nn <a-esc> <cmd>se hls<cr>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
-nn , <cmd>let @/= expand('<cword>')<bar>se hls<cr>
-xn , <cmd>let @/= getline(".")[col('v') - 1 : getpos('.')[2] - 1]<bar>se hls<cr><esc>
+nn fw <cmd>let @/= expand('<cword>')<bar>se hls<cr>
+xn fw <cmd>let @/= getline(".")[col('v') - 1 : getpos('.')[2] - 1]<bar>se hls<cr><esc>
 se ignorecase smartcase
 se inccommand=nosplit
 se shortmess+=Ss
