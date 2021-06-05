@@ -150,7 +150,7 @@ nn <space>kK <cmd>Flog -all -path=%<cr>
 nn <space>kk <cmd>Flog -all<cr>
 nn <space>kr <cmd>G reset --hard<cr>
 nn <expr> <space>km &diff ? '<cmd>x<cr>zz' : '<cmd>Gdiffsplit<cr>'
-nn <space>kg <cmd>Flog -search=
+nn <space>kg :Flog -search=
 
 " GITGUTTER
 au group vimenter,bufwritepost * GitGutter
