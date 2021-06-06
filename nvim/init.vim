@@ -373,7 +373,7 @@ let g:switch_custom_definitions = [
 let g:switch_mapping = 't'
 
 " TARGETS
-au User targets#mappings#user cal targets#mappings#extend({
+au group user targets#mappings#user cal targets#mappings#extend({
 \   'q': {}, 'b': {
 \       'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}],
 \       'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]
