@@ -191,7 +191,7 @@ nn <space>kd <cmd>0G diff<cr>
 nn <space>kg :Flog -search=
 nn <space>kK <cmd>Flog -all -path=%<cr>
 nn <space>kk <cmd>Flog -all<cr>
-nn <space>kr <cmd>G reset --hard<cr>
+nn <space>kr <cmd>G reset --hard<bar>e<cr>
 
 " GITGUTTER
 au group vimenter,bufwritepost * GitGutter
