@@ -115,6 +115,47 @@ nn <c-r> <c-r><cmd>ec<cr>
 nn U <c-r><cmd>ec<cr>
 nn u u<cmd>ec<cr>
 
+" NETRW
+au group filetype netrw nm <buffer> <c-rightmouse> <plug>NetrwSLeftmouse
+au group filetype netrw nm <buffer> <cr> mf
+au group filetype netrw nm <buffer> <rightmouse> -
+au group filetype netrw nm <buffer> h -
+au group filetype netrw nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>Open()<cr>
+au group filetype netrw nn <buffer> <space>e <cmd>Rexplore<cr>`y
+au group filetype netrw nn <buffer> l <cmd>cal <sid>Open()<cr>
+let g:netrw_altfile = 1
+let g:netrw_banner = 0
+let g:netrw_dirhistmax = 0
+let g:netrw_list_hide = '^\..*/$'
+nn <rightmouse> <cmd>cal <sid>Explore()<cr>
+nn <space>e <cmd>cal <sid>Explore()<cr>
+
+" NETRW - EXPLORE
+fu! s:Explore()
+    norm my
+    let l:file = expand("%:t")
+    Explore
+    exe search(l:file)
+endf
+
+" NETRW - OPEN
+fu! s:Open()
+    let l:path = expand('%:p')
+    if !isdirectory(l:path)
+        " Fixes bug where the current directory is added two times
+        " to the end of the path-variable
+        let l:path = fnamemodify(l:path, ':h') . '/'
+    en
+    let l:file = fnameescape(l:path . getline('.'))
+    let l:mime = system('file -bL --mime-type ' . l:file)
+    if isdirectory(l:file) || l:mime =~# '\(text/.*\|.*/json\|.*/csv\|inode/x-empty\)'
+        exe "norm \<plug>NetrwLocalBrowseCheck zz"
+        sil! norm `y
+    el
+        exe 'sil !open' l:file
+    en
+endf
+
 " FILETYPE
 au group filetype diff se textwidth=72
 au group filetype hog se ft=udevrules
@@ -174,8 +215,6 @@ se tabstop=4
 " LOADED
 let g:loaded_gzip = 0
 let g:loaded_matchparen = 0
-let g:loaded_netrw = 0
-let g:loaded_netrwPlugin = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python3_provider = 0
@@ -269,7 +308,6 @@ nn { {zz
 nn } }zz
 
 " MOUSE
-nm <rightmouse> <leftmouse>gx
 nm <2-rightmouse> <rightmouse>
 nm <3-rightmouse> <rightmouse>
 nm <4-rightmouse> <rightmouse>
