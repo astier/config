@@ -62,7 +62,6 @@ se commentstring=//\ %s
 lua << EOF
 require'compe'.setup {
     documentation = false;
-    max_abbr_width = 0;
     preselect = 'always';
     source = {
         buffer = { menu = '' };
