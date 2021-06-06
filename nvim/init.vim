@@ -350,9 +350,9 @@ fu! s:statusline()
     if empty(expand('%'))
         retu repeat('─', winwidth(0))
     en
-    let left = '[' . substitute(expand('%:t'), '^[^/]*\/', '', '') . ']'
-    let right = '[' . line('.') . '/' . line('$') . ']'
-    retu left . repeat('─', winwidth(0) - len(left) - len(right)) . right
+    let l:left = '[' . substitute(expand('%:t'), '^[^/]*\/', '', '') . ']'
+    let l:right = '[' . line('.') . '/' . line('$') . ']'
+    retu l:left . repeat('─', winwidth(0) - len(l:left) - len(l:right)) . l:right
 endf
 nn <expr> <space>b &ls ? '<cmd>se stl=\  ls=0<cr>' : '<cmd>se ls=2 stl=%{<sid>statusline()}<cr>'
 se fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
