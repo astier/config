@@ -167,6 +167,7 @@ nn gqp gqip
 nn gqq Vgq
 
 " FUZZY
+au group user FzfStatusLine setl stl=─
 let g:fzf_layout = { 'window': 'enew' }
 let g:fzf_preview_window = []
 nn fa <cmd>CodeActions<cr>
@@ -346,7 +347,7 @@ se spellcapcheck=
 se spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATUSLINE
-fu! s:statusline()
+fu! s:statusLine()
     if empty(expand('%'))
         retu repeat('─', winwidth(0))
     en
@@ -354,7 +355,7 @@ fu! s:statusline()
     let l:right = '[' . line('.') . '/' . line('$') . ']'
     retu l:left . repeat('─', winwidth(0) - len(l:left) - len(l:right)) . l:right
 endf
-nn <expr> <space>b &ls ? '<cmd>se stl=\  ls=0<cr>' : '<cmd>se ls=2 stl=%{<sid>statusline()}<cr>'
+nn <expr> <space>b &ls ? '<cmd>se stl=\  ls=0<cr>' : '<cmd>se ls=2 stl=%{<sid>statusLine()}<cr>'
 se fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
 se statusline=\  rulerformat=%=%l/%L showtabline=0
