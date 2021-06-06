@@ -59,19 +59,21 @@ nn gcp my<cmd>norm vip<bar>gc<cr>`y
 se commentstring=//\ %s
 
 " COMPLETION
+lua << EOF
+require'compe'.setup {
+    documentation = false;
+    max_abbr_width = 0;
+    preselect = 'always';
+    source = {
+        buffer = { menu = '' };
+        nvim_lsp = { menu = '' };
+        path = true;
+    }
+}
+EOF
 ino <silent><expr> <c-e> compe#close('<c-e>')
 ino <silent><expr> <c-space> compe#complete()
 ino <silent><expr> <cr> compe#confirm(lexima#expand('<lt>cr>', 'i'))
-let g:compe = {}
-let g:compe.documentation = v:false
-let g:compe.max_abbr_width = 0
-let g:compe.preselect = 'always'
-let g:compe.source = {}
-let g:compe.source.buffer = {}
-let g:compe.source.buffer.menu = ''
-let g:compe.source.nvim_lsp = {}
-let g:compe.source.nvim_lsp.menu = ''
-let g:compe.source.path = v:true
 se completeopt=menuone,noselect
 se pumheight=8 pumwidth=0
 se shortmess+=c
