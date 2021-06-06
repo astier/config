@@ -61,12 +61,10 @@ hi wildmenu ctermbg=none ctermfg=none cterm=none " none
 hi! link boolean none " constant
 hi! link function none " identifier
 hi! link number none " constant
+hi! link plugdeleted none " ignore
 hi! link question none " none
 hi! link signcolumn none " none
 hi! link title comment " none
-
-" PLUG
-hi! link plugdeleted none " ignore
 
 " PMENU
 hi pmenu ctermbg=0 ctermfg=none cterm=none " none
