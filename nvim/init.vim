@@ -282,6 +282,8 @@ EOF
 " MISC - MAPPINGS
 nn <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
 nn guw myguiw`y
+nn guW myguiW`y
+nn gUw mygUiw`y
 nn gUW mygUiW`y
 nn Q q
 
