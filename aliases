@@ -39,7 +39,6 @@ alias fr="\$EDITOR \$(git rev-parse --show-toplevel)/README.md"
 alias fu="nvim +'h user-manual | winc o'"
 alias fv="jumpopen ~/projects/vlugins README.md"
 alias fx="jumpopen \$DOTS sx/sxrc"
-alias n="jumpopen ~/cloud/notes notes.md"
 f() { if [ -d "$1" ]; then cd "$1" || return; else "$OPENER" "$@"; fi }
 jumpopen() { cd "$1" >/dev/null && shift && "$OPENER" "$@" ; }
 
@@ -59,6 +58,10 @@ alias jsh="cd \$XDG_DATA_HOME"
 alias jt="cd ~/projects/st"
 alias jv="cd ~/projects/vlugins"
 alias jw="cd ~/projects/stwm"
+
+# BOOKMARKS - NOTES
+alias n="jumpopen ~/cloud/notes notes.md"
+alias ni="jumpopen ~/cloud/notes ideas.md"
 
 j() {
     dir=$1
