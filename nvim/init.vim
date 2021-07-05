@@ -87,7 +87,7 @@ xn c "_c
 
 " EDITING - COPY
 nn Y y$
-nn yp myyip<cmd>ec<cr>`y
+nn yp myyap<cmd>ec<cr>`y
 nn yw myyiw`y
 nn yW myyiW`y
 xn y myy<cmd>ec<cr>`y
