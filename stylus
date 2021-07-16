@@ -1,5 +1,0 @@
-html, body, div {
-  scrollbar-color: unset !important;
-  scrollbar-width: unset !important;
-}
-@-moz-document url-prefix(about:blank) {*{background-color:#383C4A;}}

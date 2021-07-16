@@ -1,0 +1,9 @@
+/* Prevent YouTube from changing scrollbar */
+html {
+    scrollbar-color: unset !important;
+    scrollbar-width: unset !important;
+}
+
+@-moz-document url-prefix(about:blank) {
+    html { background-color: #383c4a; }
+}
