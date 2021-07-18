@@ -61,7 +61,7 @@ se commentstring=//\ %s
 " COMPLETION
 lua << EOF
 require'compe'.setup {
-    autocomplete = false;
+    autocomplete = true;
     documentation = false;
     preselect = 'always';
     source = {
