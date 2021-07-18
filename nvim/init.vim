@@ -54,9 +54,9 @@ nn q <cmd>b#<cr>
 se hidden noswapfile
 
 " COMMENTS
+au filetype c setl commentstring=//\ %s
 au group filetype * se formatoptions-=cro
 nn gcp my<cmd>norm vip<bar>gc<cr>`y
-se commentstring=//\ %s
 
 " COMPLETION
 lua << EOF
