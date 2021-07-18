@@ -18,5 +18,9 @@
   "else if": {
     "prefix": ["ei"],
     "body": ["else if ($0)"]
+  },
+  "function": {
+    "prefix": ["f"],
+    "body": ["$1($2) {\n\t$0\n}"]
   }
 }
