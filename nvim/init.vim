@@ -176,13 +176,12 @@ nn fa <cmd>CodeActions<cr>
 nn fb <cmd>Buffer<cr>
 nn fd <cmd>Diagnostics<cr>
 nn fD <cmd>DiagnosticsAll<cr>
-nn ff <cmd>History<cr>
-nn fh <cmd>Helptags<cr>
-nn fj <cmd>Files<cr>
+nn ff <cmd>Files<cr>
+nn fh <cmd>History<cr>
 nn fl <cmd>BLines<cr>
 nn fL <cmd>Lines<cr>
-nn fo <cmd>DocumentSymbols<cr>
 nn fr <cmd>References<cr>
+nn fs <cmd>DocumentSymbols<cr>
 
 " GIT
 au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
