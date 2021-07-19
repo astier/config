@@ -57,7 +57,6 @@ alias jsf="cd ~/projects/scripts && f"
 alias jsh="cd \$XDG_DATA_HOME"
 alias jt="cd ~/projects/st"
 alias jv="cd ~/projects/vlugins"
-alias jw="cd ~/projects/stwm"
 
 # BOOKMARKS - NOTES
 alias n="jumpopen ~/cloud/notes notes.md"
