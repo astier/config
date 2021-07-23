@@ -170,7 +170,7 @@ alias u="doas sh -c \"curl -s 'https://archlinux.org/mirrorlist/?country=DE&prot
 alias v="pulsemixer"
 ar() { dir="$(basename "$1").tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
 cd() { builtin cd "$@" && ls; }
-d() { if [ $# = 0 ]; then exit; else realpath -s "$@" | sed 's/.*/"&"/' | xargs rm -fr; fi }
+d() { if [ $# = 0 ]; then exit; else realpath -s "$@" | sed 's/.*/"&"/' | xargs rm -fr; ls; fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 p() { if [ $# = 0 ]; then pwd | sed "s|$HOME|~|"; else cp -irv "$@"; fi }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
