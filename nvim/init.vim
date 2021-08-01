@@ -114,6 +114,10 @@ nm sw siw
 nm sW siW
 
 " EDITING - UNDO
+ino ! !<c-g>u
+ino , ,<c-g>u
+ino . .<c-g>u
+ino ? ?<c-g>u
 nn <c-r> <c-r><cmd>ec<cr>
 nn U <c-r><cmd>ec<cr>
 nn u u<cmd>ec<cr>
