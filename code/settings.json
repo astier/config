@@ -77,5 +77,6 @@
     "workbench.statusBar.visible": false,
     "workbench.tips.enabled": false,
     "workbench.tree.renderIndentGuides": "none",
+    "security.workspace.trust.untrustedFiles": "open",
 
 }
