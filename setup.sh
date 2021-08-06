@@ -19,7 +19,7 @@ mkdir -p "$XDG_CONFIG_HOME"
 link .bashrc ~
 link .profile ~
 link aliases "$XDG_CONFIG_HOME"
-link chrome "$HOME"/.mozilla/firefox/yzw9yq28.default-release
+link chrome "$HOME"/.mozilla/firefox/tanwop6x.default-release # TODO: automatically figure out profile-name
 link git "$XDG_CONFIG_HOME"
 link gtk-2.0 "$XDG_CONFIG_HOME"
 link gtk-3.0 "$XDG_CONFIG_HOME"
