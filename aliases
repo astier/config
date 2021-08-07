@@ -59,6 +59,7 @@ alias jt="cd ~/projects/st"
 alias jv="cd ~/projects/vlugins"
 
 # BOOKMARKS - NOTES
+alias jn="cd ~/cloud/notes"
 alias n="jumpopen ~/cloud/notes notes.md"
 alias ni="jumpopen ~/cloud/notes ideas.md"
 
