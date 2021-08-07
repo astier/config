@@ -1,11 +1,11 @@
 mod5 + ctrl + r
     pkill -SIGUSR1 sxhkd
 
-mod4 + m
+XF86AudioMute
     pulsemixer --toggle-mute
-mod4 + {s,d}
+XF86Audio{Lower,Raise}Volume
     pulsemixer --change-volume {-,+}4
-mod4 + {S,D}
+XF86MonBrightness{Down,Up}
     lux -{s,a} 8%
 
 mod5 + c
