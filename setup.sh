@@ -18,6 +18,7 @@ mkdir -p "$XDG_CONFIG_HOME"
 
 link .bashrc ~
 link .profile ~
+link alacritty.yml "$XDG_CONFIG_HOME"
 link aliases "$XDG_CONFIG_HOME"
 link chrome "$HOME"/.mozilla/firefox/tanwop6x.default-release # TODO: automatically figure out profile-name
 link git "$XDG_CONFIG_HOME"
