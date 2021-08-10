@@ -182,7 +182,7 @@ alias ta="tmux a -t"
 alias tk="tmux kill-session -a"
 alias tkt="tmux kill-session -t"
 alias tl="tmux ls"
-alias ts="tmux switch -t"
+ts() { num=0; [ -n "$1" ] && num="$1"; tmux switch -t "$num"; }
 tt() { echo "$TMUX_PANE" > /tmp/tmuxsend; }
 
 # VIM
