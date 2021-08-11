@@ -1,0 +1,4 @@
+/* Disable left drag-space */
+.titlebar-spacer[type="pre-tabs"] {
+    display:none !important;
+}
