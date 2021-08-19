@@ -18,6 +18,7 @@ herbstclient keybind $altgr-Shift-m mirror
 herbstclient keybind $altgr-d close
 herbstclient keybind $altgr-Shift-r reload
 herbstclient keybind $altgr-Shift-s quit
+herbstclient keybind $super-d close
 
 # MISC
 herbstclient set default_frame_layout 2
