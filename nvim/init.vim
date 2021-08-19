@@ -15,7 +15,10 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'cohama/lexima.vim'
     Plug 'farmergreg/vim-lastplace'
     Plug 'gfanto/fzf-lsp.nvim'
-    Plug 'hrsh7th/nvim-compe'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim'
     Plug 'kevinhwang91/nvim-bqf'
@@ -42,8 +45,6 @@ nn <space>H <cmd>exe 'hi' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 let g:lexima_ctrlh_as_backspace = 1
 let g:lexima_enable_basic_rules = 0
 let g:lexima_enable_endwise_rules = 0
-let g:lexima_no_default_rules = 1
-cal lexima#set_default_rules()
 
 " BUFFERS
 au group textchanged,insertleave * nested if !&ro | sil! up | en
@@ -61,24 +62,67 @@ au group filetype * se formatoptions-=cro
 nn gcp my<cmd>norm vip<bar>gc<cr>`y
 
 " COMPLETION
-lua << EOF
-require'compe'.setup {
-    autocomplete = true;
-    documentation = false;
-    preselect = 'always';
-    source = {
-        buffer = { menu = '' };
-        nvim_lsp = { menu = '' };
-        path = true;
-    }
-}
-EOF
-ino <silent><expr> <c-e> compe#close('<c-e>')
-ino <silent><expr> <c-space> compe#complete()
-ino <silent><expr> <cr> compe#confirm(lexima#expand('<lt>cr>', 'i'))
-se completeopt=menuone,noselect
+se completeopt=menuone,noinsert
 se pumheight=8 pumwidth=0
 se shortmess+=c
+lua << EOF
+local cmp = require'cmp'
+cmp.setup {
+  sources = {
+    { name = 'path' },
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+  },
+  completion = {
+    completeopt = table.concat(vim.opt.completeopt:get(), ","),
+  },
+  documentation = false,
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  mapping = {
+    ['<cr>'] = cmp.mapping.confirm({ select = true }),
+  },
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.menu = ({
+        buffer        = '',
+        nvim_lsp      = '',
+      })[entry.source.name]
+      vim_item.kind = ({
+        Text          = '',
+        Method        = '',
+        Function      = '',
+        Constructor   = '',
+        Field         = '',
+        Variable      = '',
+        Class         = 'ﴯ',
+        Interface     = '',
+        Module        = '',
+        Property      = '',
+        Unit          = '',
+        Value         = '',
+        Enum          = '',
+        Keyword       = '',
+        Snippet       = '﬌',
+        Color         = '',
+        File          = '',
+        Reference     = '',
+        Folder        = '',
+        EnumMember    = '',
+        Constant      = '',
+        Struct        = 'פּ',
+        Event         = '',
+        Operator      = '',
+        TypeParameter = '',
+      })[vim_item.kind]
+      return vim_item
+    end
+  },
+}
+EOF
 
 " EDITING - CHANGE
 nm cp cip
@@ -246,10 +290,7 @@ let g:loaded_zipPlugin = 0
 lua << EOF
 vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = { 'documentation', 'detail', 'additionalTextEdits', }
-}
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 require 'lspconfig'.ccls.setup { capabilities = capabilities }
 require 'lspconfig'.jedi_language_server.setup { capabilities = capabilities }
 EOF
@@ -261,37 +302,6 @@ nn gd <cmd>lua vim.lsp.buf.definition()<cr>
 nn go <cmd>lua vim.lsp.buf.document_symbol()<cr>
 nn gR <cmd>lua vim.lsp.buf.references()<cr>
 nn gr <cmd>lua vim.lsp.buf.rename()<cr>
-
-" LSP - KIND
-lua << EOF
-require('vim.lsp.protocol').CompletionItemKind = {
-    '', -- Text
-    '', -- Method
-    '', -- Function
-    '', -- Constructor
-    '', -- Field
-    '', -- Variable
-    '', -- Class
-    'ﰮ', -- Interface
-    '', -- Module
-    '', -- Property
-    '', -- Unit
-    '', -- Value
-    '了', -- Enum
-    '', -- Keyword
-    '﬌', -- Snippet
-    '', -- Color
-    '', -- File
-    '', -- Reference
-    '', -- Folder
-    '', -- EnumMember
-    '', -- Constant
-    '', -- Struct
-    '', -- Event
-    'ﬦ', -- Operator
-    '', -- TypeParameter
-}
-EOF
 
 " MISC - MAPPINGS
 nn <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
