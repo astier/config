@@ -48,7 +48,7 @@ herbstclient keybind $super-x substitute FSRESTORE clients.focus.fullscreen chai
 herbstclient unrule -F
 herbstclient rule floating=off focus=on index=0
 herbstclient rule instance='popup' floating=on floatplacement=center
-herbstclient rule instance~'.*Nautilus|nemo|thunar|jetbrains-.*|code' index=1
+herbstclient rule instance~'.*Nautilus|nemo|thunar|jetbrains-.*|JetBrains.*|code' index=1
 herbstclient rule instance~'libreoffice|soffice' tag=1 switchtag=on
 herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 
