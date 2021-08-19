@@ -249,8 +249,8 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = { 'documentation', 'detail', 'additionalTextEdits', }
 }
-require 'lspconfig'.ccls.setup{capabilities = capabilities}
-require 'lspconfig'.jedi_language_server.setup{capabilities = capabilities}
+require 'lspconfig'.ccls.setup { capabilities = capabilities }
+require 'lspconfig'.jedi_language_server.setup { capabilities = capabilities }
 EOF
 
 " LSP - MAPPINGS
