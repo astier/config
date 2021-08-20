@@ -18,6 +18,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'junegunn/fzf.vim'
+    Plug 'kevinhwang91/nvim-bqf'
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
