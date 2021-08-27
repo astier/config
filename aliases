@@ -166,7 +166,7 @@ alias sc="scrot -s"
 alias td="tree -d"
 alias tf="tree"
 alias tmp="nvim +'set nospell' /tmp/scratch.md"
-alias u="doas sh -c \"curl -s 'https://archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d > /etc/pacman.d/mirrorlist\" && paru"
+alias u="curl -s 'https://archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d | doas tee /etc/pacman.d/mirrorlist >/dev/null && paru"
 alias v="pulsemixer"
 ar() { dir="$(basename "$1").tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
 cd() { builtin cd "$@" && ls; }
