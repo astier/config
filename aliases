@@ -74,7 +74,7 @@ j() {
 
 # CLOUD
 alias jc="cd ~/cloud"
-alias sn="rclone sync -P ~/cloud cloud:"
+alias sn="rclone sync -P --exclude .~* ~/cloud cloud:"
 alias snn="rclone sync -P cloud: ~/cloud"
 
 # GIT
