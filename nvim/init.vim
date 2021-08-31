@@ -167,7 +167,7 @@ nn <c-r> <c-r><cmd>ec<cr>
 nn U <c-r><cmd>ec<cr>
 nn u u<cmd>ec<cr>
 
-" NETRW
+" EXPLORER - NETRW
 au group filetype netrw nm <buffer> <c-rightmouse> <plug>NetrwSLeftmouse
 au group filetype netrw nm <buffer> <cr> mf
 au group filetype netrw nm <buffer> <rightmouse> -
@@ -182,7 +182,7 @@ let g:netrw_list_hide = '^\..*/$'
 nn <rightmouse> <cmd>cal <sid>Explore()<cr>
 nn <space>e <cmd>cal <sid>Explore()<cr>
 
-" NETRW - EXPLORE
+" EXPLORER - NETRW (EXPLORE)
 fu! s:Explore()
     norm my
     let l:file = expand("%:t")
@@ -190,7 +190,7 @@ fu! s:Explore()
     exe search(l:file)
 endf
 
-" NETRW - OPEN
+" EXPLORER - NETRW (OPEN)
 fu! s:Open()
     let l:path = expand('%:p')
     if !isdirectory(l:path)
