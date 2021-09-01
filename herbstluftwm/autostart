@@ -1,75 +1,77 @@
 #!/usr/bin/env sh
 
+hc() { herbstclient "$@"; }
+
 # PREPARE
-herbstclient emit_hook reload
-herbstclient keyunbind --all
+hc emit_hook reload
+hc keyunbind --all
 altgr=Mod5
 super=Mod4
 
 # FRAMES & WINDOWS
-herbstclient keybind $altgr-a substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID # move window to next frame
-herbstclient keybind $altgr-j spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" +
-herbstclient keybind $altgr-k spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" -
-herbstclient keybind $altgr-l cycle_frame
-herbstclient keybind $altgr-Shift-a substitute OLDWIN clients.focus.winid chain , cycle_frame , substitute NEWWIN clients.focus.winid spawn sh -c 'l=$(herbstclient dump | sed "s,\\<$1\\>,0xTMP,;s,\\<$2\\>,$1,;s,\\<0xTMP\\>,$2,") ; herbstclient load "$l"' -- OLDWIN NEWWIN # swap two windows between two frames
-herbstclient keybind $altgr-Shift-m mirror
+hc keybind $altgr-a substitute WINID clients.focus.winid chain , cycle_all --skip-invisible +1 , bring WINID # move window to next frame
+hc keybind $altgr-j spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" +
+hc keybind $altgr-k spawn "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" -
+hc keybind $altgr-l cycle_frame
+hc keybind $altgr-Shift-a substitute OLDWIN clients.focus.winid chain , cycle_frame , substitute NEWWIN clients.focus.winid spawn sh -c 'l=$(hc dump | sed "s,\\<$1\\>,0xTMP,;s,\\<$2\\>,$1,;s,\\<0xTMP\\>,$2,") ; hc load "$l"' -- OLDWIN NEWWIN # swap two windows between two frames
+hc keybind $altgr-Shift-m mirror
 
 # KILL
-herbstclient keybind $altgr-d close
-herbstclient keybind $altgr-Shift-r reload
-herbstclient keybind $altgr-Shift-s quit
-herbstclient keybind $super-d close
+hc keybind $altgr-d close
+hc keybind $altgr-Shift-r reload
+hc keybind $altgr-Shift-s quit
+hc keybind $super-d close
 
 # MISC
-herbstclient set default_frame_layout 2
-herbstclient set focus_stealing_prevention 0
-herbstclient set tree_style '╾│ ├└╼─┐'
+hc set default_frame_layout 2
+hc set focus_stealing_prevention 0
+hc set tree_style '╾│ ├└╼─┐'
 
 # MONITORS & TAGS
-herbstclient auto_detect_monitors
-herbstclient keybind $altgr-o use_index +1
-herbstclient keybind $altgr-Shift-o move_index +1
-herbstclient set swap_monitors_to_get_tag 0
+hc auto_detect_monitors
+hc keybind $altgr-o use_index +1
+hc keybind $altgr-Shift-o move_index +1
+hc set swap_monitors_to_get_tag 0
 
 # MOUSE
-herbstclient mouseunbind --all
-herbstclient mousebind $super-B1 move
-herbstclient mousebind $super-B3 resize
-herbstclient set focus_follows_mouse 1
+hc mouseunbind --all
+hc mousebind $super-B1 move
+hc mousebind $super-B3 resize
+hc set focus_follows_mouse 1
 
 # RESIZING
 resizestep=0.03
-herbstclient keybind $altgr-Shift-h resize left $resizestep
-herbstclient keybind $altgr-Shift-l resize right $resizestep
-herbstclient keybind $altgr-i pseudotile toggle
-herbstclient keybind $super-x substitute FSRESTORE clients.focus.fullscreen chain , fullscreen on , attr clients.focus.ewmhrequests off , attr clients.focus.ewmhnotify toggle , spawn herbstclient fullscreen FSRESTORE # fakefullscreen
+hc keybind $altgr-Shift-h resize left $resizestep
+hc keybind $altgr-Shift-l resize right $resizestep
+hc keybind $altgr-i pseudotile toggle
+hc keybind $super-x substitute FSRESTORE clients.focus.fullscreen chain , fullscreen on , attr clients.focus.ewmhrequests off , attr clients.focus.ewmhnotify toggle , spawn hc fullscreen FSRESTORE # fakefullscreen
 
 # RULES
-herbstclient unrule -F
-herbstclient rule floating=off focus=on index=0
-herbstclient rule instance='popup' pseudotile=on
-herbstclient rule instance~'.*Nautilus|nemo|thunar|jetbrains-.*|JetBrains.*|code' index=1
-herbstclient rule instance~'libreoffice|soffice' tag=1 switchtag=on
-herbstclient rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
+hc unrule -F
+hc rule floating=off focus=on index=0
+hc rule instance='popup' pseudotile=on
+hc rule instance~'.*Nautilus|nemo|thunar|jetbrains-.*|JetBrains.*|code' index=1
+hc rule instance~'libreoffice|soffice' tag=1 switchtag=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 
 # THEME
-herbstclient attr theme.floating.reset 1
-herbstclient attr theme.tiling.reset 1
-herbstclient attr theme.border_width 1
-herbstclient set frame_bg_transparent 1
-herbstclient set frame_border_width 0
-herbstclient set frame_gap 0
-herbstclient set window_gap -1
+hc attr theme.floating.reset 1
+hc attr theme.tiling.reset 1
+hc attr theme.border_width 1
+hc set frame_bg_transparent 1
+hc set frame_border_width 0
+hc set frame_gap 0
+hc set window_gap -1
 
 # INIT
-if herbstclient silent new_attr bool my_not_first_autostart ; then
-    herbstclient rename default 0
-    herbstclient add 1
-    herbstclient load 0 "(split horizontal:0.5:1 (clients max:0) (clients max:0))"
-    herbstclient load 1 "(clients max:0)"
-    herbstclient rule instance='st-256color' index=1 once
-    herbstclient spawn "$BROWSER"
-    herbstclient spawn "$TERMINAL" -e tmux new -A
-    herbstclient spawn alttab -bg '#2e3440' -fg "#2e3440" -frame "#434c5e" -d 1 -border black -borderw 1 -t 64x64 -i 64x64
+if hc silent new_attr bool my_not_first_autostart ; then
+    hc rename default 0
+    hc add 1
+    hc load 0 "(split horizontal:0.5:1 (clients max:0) (clients max:0))"
+    hc load 1 "(clients max:0)"
+    hc rule instance='st-256color' index=1 once
+    hc spawn "$BROWSER"
+    hc spawn "$TERMINAL" -e tmux new -A
+    hc spawn alttab -bg '#2e3440' -fg "#2e3440" -frame "#434c5e" -d 1 -border black -borderw 1 -t 64x64 -i 64x64
 fi
-herbstclient unlock
+hc unlock
