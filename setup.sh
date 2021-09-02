@@ -80,11 +80,6 @@ if groups "$USER" | grep -q wheel; then
         link_sudo NetworkManager.conf "$nm_dir"
     fi
 
-    libreoffice_dir=/etc/libreoffice
-    if [ -d "$libreoffice_dir" ]; then
-        link_sudo sofficerc "$libreoffice_dir"
-    fi
-
     # copy 10-udev.rules /etc/udev/rules.d/
     # sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
 
