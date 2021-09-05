@@ -40,6 +40,9 @@ link tmux "$XDG_CONFIG_HOME"
 link xkb "$XDG_CONFIG_HOME"
 link zathura "$XDG_CONFIG_HOME"
 
+link plank "$XDG_CONFIG_HOME"
+cat "$XDG_CONFIG_HOME/plank/dock1/launchers/config" | dconf load /net/launchpad/plank/docks/
+
 mkdir -p "$XDG_CONFIG_HOME"/autostart
 link autostart/xkbcomp.desktop "$XDG_CONFIG_HOME"/autostart
 
