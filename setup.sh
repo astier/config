@@ -44,6 +44,7 @@ link plank "$XDG_CONFIG_HOME"
 cat "$XDG_CONFIG_HOME/plank/dock1/launchers/config" | dconf load /net/launchpad/plank/docks/
 
 mkdir -p "$XDG_CONFIG_HOME"/autostart
+link autostart/xbanish.desktop "$XDG_CONFIG_HOME"/autostart
 link autostart/xkbcomp.desktop "$XDG_CONFIG_HOME"/autostart
 
 code_dir="$XDG_CONFIG_HOME"/Code/User
