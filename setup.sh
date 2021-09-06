@@ -21,6 +21,7 @@ link .profile ~
 link alacritty.yml "$XDG_CONFIG_HOME"
 link aliases "$XDG_CONFIG_HOME"
 link chrome "$HOME"/.mozilla/firefox/tanwop6x.default-release # TODO: automatically figure out profile-name
+link dunst "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
 link gtk-2.0 "$XDG_CONFIG_HOME"
 link gtk-3.0 "$XDG_CONFIG_HOME"
