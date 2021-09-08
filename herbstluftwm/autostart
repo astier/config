@@ -51,7 +51,6 @@ hc unrule -F
 hc rule floating=off focus=on index=0
 hc rule instance='popup' pseudotile=on
 hc rule instance~'.*Nautilus|nemo|thunar|jetbrains-.*|JetBrains.*|code' index=1
-hc rule instance~'libreoffice|soffice' tag=1 switchtag=on
 hc rule title='win0' pseudotile=on # jetbrains-splash-window
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 hc rule instance='tint2conf' pseudotile=off
