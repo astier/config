@@ -476,6 +476,7 @@ nn <space>z <c-w>z
 se splitbelow splitright
 
 " WRAP
+au group filetype * se formatoptions-=t
 nn $ g$
 nn 0 g0
 nn j gj
