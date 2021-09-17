@@ -62,6 +62,8 @@ alias jw="cd ~/projects/saswm"
 alias jn="cd ~/cloud/notes"
 alias n="jumpopen ~/cloud/notes notes.md"
 alias ni="jumpopen ~/cloud/notes ideas.md"
+alias nn="\$EDITOR ~/cloud/notes/newsboat"
+alias nw="newsboat -u ~/cloud/notes/newsboat"
 
 j() {
     dir=$1
@@ -173,6 +175,7 @@ alias l="preview"
 alias lb="lsblk -o name,label,mountpoint,fstype,size"
 alias ll="ls -l"
 alias lt="lint"
+alias m="mv"
 alias o="autopen"
 alias pa="patch -p1 <"
 alias r="pkg -r"
