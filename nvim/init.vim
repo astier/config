@@ -487,3 +487,4 @@ xn j gj
 xn k gk
 se breakindent
 se linebreak
+se showbreak=\ 
