@@ -140,13 +140,9 @@ alias ksp="git stash pop"
 alias kst="git stash"
 
 # MMRDF
+alias m="mv -iv"
 alias md="mkdir -pv"
 mx() { touch "$1" && chmod +x "$1"; }
-m() {
-    for last; do true; done
-    [ ! -d "$last" ] && [ $# -gt 2 ] && mkdir -pv "$last"
-    mv -iv "$@"
-}
 mf() {
     for arg in "$@"; do
         dir=$(dirname "$arg")
