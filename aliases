@@ -61,8 +61,11 @@ alias jw="cd ~/projects/saswm"
 # BOOKMARKS - NOTES
 alias jn="cd ~/cloud/notes"
 alias n="jumpopen ~/cloud/notes notes.md"
+alias nb="jumpopen ~/cloud/notes books.md"
 alias ni="jumpopen ~/cloud/notes ideas.md"
-alias nn="\$EDITOR ~/cloud/notes/newsboat"
+alias nn="jumpopen ~/cloud/notes newsboat"
+alias nr="jumpopen ~/cloud/notes research.md"
+alias ns="jumpopen ~/cloud/notes sites.md"
 alias nw="newsboat -u ~/cloud/notes/newsboat"
 
 j() {
