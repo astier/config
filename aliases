@@ -16,7 +16,7 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # BOOKMARKS - HIDDEN
-path_bm="$HOME"/cloud/notes/bookmarks.sh
+path_bm="$HOME"/data/notes/bookmarks.sh
 [ -r "$path_bm" ] && . "$path_bm"
 alias bm="\$EDITOR \$path_bm && . \$path_bm"
 
@@ -54,14 +54,14 @@ alias jv="cd ~/projects/vlugins"
 alias jw="cd ~/projects/saswm"
 
 # BOOKMARKS - NOTES
-alias jn="cd ~/cloud/notes"
-alias n="jumpopen ~/cloud/notes notes.md"
-alias nb="jumpopen ~/cloud/notes books.md"
-alias ni="jumpopen ~/cloud/notes ideas.md"
-alias nn="jumpopen ~/cloud/notes newsboat"
-alias nr="jumpopen ~/cloud/notes research.md"
-alias ns="jumpopen ~/cloud/notes sites.md"
-alias rss="newsboat -u ~/cloud/notes/newsboat"
+alias jn="cd ~/data/notes"
+alias n="jumpopen ~/data/notes notes.md"
+alias nb="jumpopen ~/data/notes books.md"
+alias ni="jumpopen ~/data/notes ideas.md"
+alias nn="jumpopen ~/data/notes newsboat"
+alias nr="jumpopen ~/data/notes research.md"
+alias ns="jumpopen ~/data/notes sites.md"
+alias rss="newsboat -u ~/data/notes/newsboat"
 
 j() {
     dir=$1
@@ -73,10 +73,10 @@ j() {
     [ -n "$dir" ] && cd "$dir" || return
 }
 
-# CLOUD
-alias jc="cd ~/cloud"
-alias sn="rclone sync -P --exclude .~* ~/cloud cloud:"
-alias snn="rclone sync -P cloud: ~/cloud"
+# DATA
+alias jc="cd ~/data"
+alias sn="rclone sync -P --exclude .~* ~/data data:"
+alias snn="rclone sync -P data: ~/data"
 
 # GIT
 k() { n=24; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline --show-pulls -n"$n"; }
@@ -210,6 +210,6 @@ vpd() {
 }
 
 # WALLPAPERS
-alias jwl="cd ~/cloud/pictures/wallpapers"
+alias jwl="cd ~/data/pictures/wallpapers"
 alias wd="wal -d"
-alias wn="cd ~/cloud/pictures/wallpapers && wal"
+alias wn="cd ~/data/pictures/wallpapers && wal"
