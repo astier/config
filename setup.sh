@@ -1,17 +1,17 @@
 #!/usr/bin/env sh
 
-copy() { sudo cp -fr "$1" "$2" && echo Installed: "$1"; }
+copy() { sudo cp -frv "$1" "$2"; }
 
 link() {
     TARGET=$1 DESTINATION=$2/$(basename "$TARGET")
     rm -fr "$DESTINATION"
-    ln -rs "$TARGET" "$DESTINATION" && echo Installed: "$TARGET"
+    ln -rsv "$TARGET" "$DESTINATION"
 }
 
 link_sudo() {
     TARGET=$1 DESTINATION=$2/$(basename "$TARGET")
     sudo rm -fr "$DESTINATION"
-    sudo ln -rs "$TARGET" "$DESTINATION" && echo Installed: "$TARGET"
+    sudo ln -rsv "$TARGET" "$DESTINATION"
 }
 
 mkdir -p "$XDG_CONFIG_HOME"
