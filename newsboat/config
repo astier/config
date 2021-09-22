@@ -4,6 +4,8 @@ color listfocus red default
 color listfocus_unread red default
 color listnormal_unread default default
 feedlist-format "%n %t"
+highlight feedlist "===.*===" black default bold
+reload-threads 4
 show-keymap-hint no
 show-read-articles yes
 show-read-feeds yes
