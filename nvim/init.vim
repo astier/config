@@ -69,13 +69,14 @@ se shortmess+=c
 lua << EOF
 local cmp = require'cmp'
 cmp.setup {
+  completion = {
+    autocomplete = false,
+    completeopt = table.concat(vim.opt.completeopt:get(), ","),
+  },
   sources = {
     { name = 'path' },
     { name = 'nvim_lsp' },
     { name = 'buffer' },
-  },
-  completion = {
-    completeopt = table.concat(vim.opt.completeopt:get(), ","),
   },
   documentation = false,
   snippet = {
@@ -84,6 +85,7 @@ cmp.setup {
     end,
   },
   mapping = {
+    ['<c-space>'] = cmp.mapping.complete(),
     ['<cr>'] = cmp.mapping.confirm({ select = true }),
   },
   formatting = {
