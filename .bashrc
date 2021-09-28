@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 [[ $- != *i* ]] && return
-shopt -s dotglob
+
+shopt -s autocd cdspell dotglob histappend
 
 # PROMPT
 NO_COLOR="\[\e[m\]"
