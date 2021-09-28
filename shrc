@@ -38,7 +38,7 @@ alias jdp="cd ~/data/pictures"
 alias jdu="cd ~/data/uni"
 
 # BOOKMARKS - HIDDEN
-bookmarks="$HOME"/data/config/bookmarks
+bookmarks=$HOME/data/config/bookmarks
 [ -r "$bookmarks" ] && . "$bookmarks"
 alias bm="\$EDITOR \$bookmarks && . \$bookmarks"
 

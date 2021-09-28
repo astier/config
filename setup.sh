@@ -48,14 +48,14 @@ mkdir -p "$XDG_CONFIG_HOME"/autostart
 link autostart/xbanish.desktop "$XDG_CONFIG_HOME"/autostart
 link autostart/xkbcomp.desktop "$XDG_CONFIG_HOME"/autostart
 
-code_dir="$XDG_CONFIG_HOME"/Code/User
+code_dir=$XDG_CONFIG_HOME/Code/User
 if [ -d "$code_dir" ]; then
     link code/code.vim "$code_dir"
     link code/keybindings.json "$code_dir"
     link code/settings.json "$code_dir"
 fi
 
-code_dir="$XDG_CONFIG_HOME"/Code\ -\ OSS/User
+code_dir=$XDG_CONFIG_HOME/Code\ -\ OSS/User
 if [ -d "$code_dir" ]; then
     link code/code.vim "$code_dir"
     link code/keybindings.json "$code_dir"
