@@ -15,14 +15,8 @@ alias xd="cpm -d"
 alias xm="cpm -m"
 alias xp="cpm -p"
 
-# BOOKMARKS - HIDDEN
-bookmarks="$HOME"/data/config/bookmarks
-[ -r "$bookmarks" ] && . "$bookmarks"
-alias bm="\$EDITOR \$bookmarks && . \$bookmarks"
-
 # BOOKMARKS - FILES
 alias fa="jumpopen \$DOTS aliases && . \$DOTS/aliases"
-alias faa="jumpopen ~/projects/arch desktop.sh base.sh"
 alias fb="jumpopen \$DOTS .bashrc && . \$DOTS/.bashrc"
 alias fbl="\$EDITOR ~/.config/bashrc_local && . ~/.config/bashrc_local"
 alias fgi="\$EDITOR \$(git rev-parse --show-toplevel)/.gitignore"
@@ -31,28 +25,30 @@ alias fn="jumpopen \$DOTS nvim/init.vim"
 alias fp="jumpopen \$DOTS .profile"
 alias fr="\$EDITOR \$(git rev-parse --show-toplevel)/README.md"
 alias fu="nvim +'h user-manual | winc o'"
-alias fv="jumpopen ~/projects/vlugins README.md"
 alias fx="jumpopen \$DOTS sx/sxrc"
 f() { if [ -d "$1" ]; then cd "$1" || return; else "$OPENER" "$@"; fi }
 jumpopen() { cd "$1" >/dev/null && shift && "$OPENER" "$@" ; }
 
-# BOOKMARKS - DIRS
+# BOOKMARKS - DATA
+alias jd="cd ~/data"
+alias jdc="cd ~/data/config/"
+alias jde="cd ~/data/education"
+alias jdj="cd ~/data && j"
+alias jdp="cd ~/data/pictures"
+alias jdu="cd ~/data/uni"
+
+# BOOKMARKS - HIDDEN
+bookmarks="$HOME"/data/config/bookmarks
+[ -r "$bookmarks" ] && . "$bookmarks"
+alias bm="\$EDITOR \$bookmarks && . \$bookmarks"
+
+# BOOKMARKS - HOME
 alias dl="cd ~/Downloads"
-alias ja="cd ~/projects/arch"
-alias jc="cd ~/projects/config"
 alias jca="cd \$XDG_CACHE_HOME"
-alias jcf="cd ~/projects/config && f"
 alias jch="cd \$XDG_CONFIG_HOME"
 alias jl="cd \$HOME/.local"
 alias jlb="cd \$HOME/.local/bin"
 alias jls="cd \$XDG_DATA_HOME"
-alias jp="cd ~/projects"
-alias jpj="cd ~/projects && j"
-alias js="cd ~/projects/scripts"
-alias jsf="cd ~/projects/scripts && f"
-alias jt="cd ~/projects/st"
-alias jv="cd ~/projects/vlugins"
-alias jw="cd ~/projects/saswm"
 
 # BOOKMARKS - NOTES
 alias jn="cd ~/data/notes"
@@ -64,6 +60,20 @@ alias nr="jumpopen ~/data/notes research.md"
 alias ns="jumpopen ~/data/notes sites.md"
 alias rss="newsboat -u ~/data/notes/newsboat"
 
+# BOOKMARKS - PROJECTS
+alias faa="jumpopen ~/projects/arch desktop.sh base.sh"
+alias fv="jumpopen ~/projects/vlugins README.md"
+alias ja="cd ~/projects/arch"
+alias jc="cd ~/projects/config"
+alias jcf="cd ~/projects/config && f"
+alias jp="cd ~/projects"
+alias jpj="cd ~/projects && j"
+alias js="cd ~/projects/scripts"
+alias jsf="cd ~/projects/scripts && f"
+alias jt="cd ~/projects/st"
+alias jv="cd ~/projects/vlugins"
+alias jw="cd ~/projects/saswm"
+
 j() {
     dir=$1
     if [ $# = 0 ]; then
@@ -73,14 +83,6 @@ j() {
     fi
     [ -n "$dir" ] && cd "$dir" || return
 }
-
-# DATA
-alias jd="cd ~/data"
-alias jdc="cd ~/data/config/"
-alias jde="cd ~/data/education"
-alias jdj="cd ~/data && j"
-alias jdp="cd ~/data/pictures"
-alias jdu="cd ~/data/uni"
 
 # GIT
 k() { n=24; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline --show-pulls -n"$n"; }
