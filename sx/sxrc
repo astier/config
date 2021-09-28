@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+export XDG_SESSION_TYPE=x11
+
 autorandr --change || monitor
 bstatus -l &
 hsetroot
