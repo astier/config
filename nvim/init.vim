@@ -20,6 +20,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'kevinhwang91/nvim-bqf'
     Plug 'machakann/vim-sandwich'
