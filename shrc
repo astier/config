@@ -16,14 +16,14 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # BOOKMARKS - FILES
-alias fb="jumpopen \$CONFIG .bashrc && . \$CONFIG/.bashrc"
+alias fb="jumpopen \$CONFIG .bashrc && . .bashrc"
 alias fbl="\$EDITOR ~/.config/bashrc_local && . ~/.config/bashrc_local"
 alias fgi="\$EDITOR \$(git rev-parse --show-toplevel)/.gitignore"
 alias fgm="\$EDITOR \$(git rev-parse --show-toplevel)/.gitmodules"
 alias fn="jumpopen \$CONFIG nvim/init.vim"
-alias fp="jumpopen \$CONFIG .profile"
+alias fp="jumpopen \$CONFIG .profile && . .profile"
 alias fr="\$EDITOR \$(git rev-parse --show-toplevel)/README.md"
-alias fs="jumpopen \$CONFIG shrc && . \$CONFIG/shrc"
+alias fs="jumpopen \$CONFIG shrc && . shrc"
 alias fu="nvim +'h user-manual | winc o'"
 alias fx="jumpopen \$CONFIG sx/sxrc"
 f() { if [ -d "$1" ]; then cd "$1" || return; else "$LAUNCHER" "$@"; fi }
