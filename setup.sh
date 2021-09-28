@@ -19,7 +19,6 @@ mkdir -p "$XDG_CONFIG_HOME"
 link .bashrc ~
 link .profile ~
 link alacritty.yml "$XDG_CONFIG_HOME"
-link aliases "$XDG_CONFIG_HOME"
 link chrome "$HOME"/.mozilla/firefox/tanwop6x.default-release # TODO: automatically figure out profile-name
 link dunst "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
@@ -34,6 +33,7 @@ link nvim "$XDG_CONFIG_HOME"
 link pylintrc "$XDG_CONFIG_HOME"
 link pythonrc.py "$XDG_CONFIG_HOME"
 link shellcheckrc "$XDG_CONFIG_HOME"
+link shrc "$XDG_CONFIG_HOME"
 link skippy-xd "$XDG_CONFIG_HOME"
 link templates "$XDG_CONFIG_HOME"
 link tig "$XDG_CONFIG_HOME"
