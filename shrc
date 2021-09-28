@@ -16,16 +16,16 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # BOOKMARKS - FILES
-alias fb="jumpopen \$DOTS .bashrc && . \$DOTS/.bashrc"
+alias fb="jumpopen \$CONFIG .bashrc && . \$CONFIG/.bashrc"
 alias fbl="\$EDITOR ~/.config/bashrc_local && . ~/.config/bashrc_local"
 alias fgi="\$EDITOR \$(git rev-parse --show-toplevel)/.gitignore"
 alias fgm="\$EDITOR \$(git rev-parse --show-toplevel)/.gitmodules"
-alias fn="jumpopen \$DOTS nvim/init.vim"
-alias fp="jumpopen \$DOTS .profile"
+alias fn="jumpopen \$CONFIG nvim/init.vim"
+alias fp="jumpopen \$CONFIG .profile"
 alias fr="\$EDITOR \$(git rev-parse --show-toplevel)/README.md"
-alias fs="jumpopen \$DOTS shrc && . \$DOTS/shrc"
+alias fs="jumpopen \$CONFIG shrc && . \$CONFIG/shrc"
 alias fu="nvim +'h user-manual | winc o'"
-alias fx="jumpopen \$DOTS sx/sxrc"
+alias fx="jumpopen \$CONFIG sx/sxrc"
 f() { if [ -d "$1" ]; then cd "$1" || return; else "$OPENER" "$@"; fi }
 jumpopen() { cd "$1" >/dev/null && shift && "$OPENER" "$@" ; }
 

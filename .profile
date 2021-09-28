@@ -18,7 +18,7 @@ export VIEWER_MP3=$BROWSER
 export VIEWER_PDF=$BROWSER
 export VIEWER_VID=$BROWSER
 
-export DOTS=~/projects/config
+export CONFIG=$HOME/projects/config
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/settings.ini
 export INPUTRC=$XDG_CONFIG_HOME/inputrc
