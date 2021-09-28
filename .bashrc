@@ -5,7 +5,7 @@
 # CONFIG
 shopt -s autocd cdspell dotglob histappend
 SHRC=$XDG_CONFIG_HOME/shrc
-[ -r "$SHRC" ] && . "$SHRC"
+[ -f "$SHRC" ] && . "$SHRC"
 
 # PROMPT
 NO_COLOR="\[\e[m\]"
@@ -16,15 +16,15 @@ PS1="${GREEN}[\W\$(__git_ps1 ' %s')${RED}\$(njobs)${GREEN}] ${NO_COLOR}"
 
 # SOURCE
 BASH_COMPLETION=/usr/share/bash-completion/bash_completion
-[ -r "$BASH_COMPLETION" ] && . "$BASH_COMPLETION"
+[ -f "$BASH_COMPLETION" ] && . "$BASH_COMPLETION"
 BASHRC_LOCAL="$XDG_CONFIG_HOME/bashrc_local"
-[ -r "$BASHRC_LOCAL" ] && . "$BASHRC_LOCAL"
+[ -f "$BASHRC_LOCAL" ] && . "$BASHRC_LOCAL"
 FZF_COMPLETION=/usr/share/fzf/completion.bash
-[ -r "$FZF_COMPLETION" ] && . "$FZF_COMPLETION"
+[ -f "$FZF_COMPLETION" ] && . "$FZF_COMPLETION"
 FZF_KEY_BINDINGS=/usr/share/fzf/key-bindings.bash
-[ -r "$FZF_KEY_BINDINGS" ] && . "$FZF_KEY_BINDINGS"
+[ -f "$FZF_KEY_BINDINGS" ] && . "$FZF_KEY_BINDINGS"
 GIT_COMPLETION=/usr/share/git/completion/git-prompt.sh
-[ -r "$GIT_COMPLETION" ] && . "$GIT_COMPLETION"
+[ -f "$GIT_COMPLETION" ] && . "$GIT_COMPLETION"
 
 # HISTORY
 aliases() { alias | cut -d' ' -f2 | cut -d= -f1 | awk 'length<3' | tr '\n' :; }
