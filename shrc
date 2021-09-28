@@ -22,8 +22,8 @@ export TERMINFO_DIRS=$TERMINFO:/usr/share/terminfo
 
 export BROWSER=firefox
 export EDITOR=nvim
+export LAUNCHER=open
 export MANPAGER="nvim +Man!"
-export OPENER=open
 export TERMINAL=st
 
 export FZF_CTRL_T_OPTS="--select-1 --exit-0"
@@ -60,8 +60,8 @@ alias fr="\$EDITOR \$(git rev-parse --show-toplevel)/README.md"
 alias fs="jumpopen \$CONFIG shrc && . \$CONFIG/shrc"
 alias fu="nvim +'h user-manual | winc o'"
 alias fx="jumpopen \$CONFIG sx/sxrc"
-f() { if [ -d "$1" ]; then cd "$1" || return; else "$OPENER" "$@"; fi }
-jumpopen() { cd "$1" >/dev/null && shift && "$OPENER" "$@" ; }
+f() { if [ -d "$1" ]; then cd "$1" || return; else "$LAUNCHER" "$@"; fi }
+jumpopen() { cd "$1" >/dev/null && shift && "$LAUNCHER" "$@" ; }
 
 # BOOKMARKS - DATA
 alias jd="cd ~/data"
