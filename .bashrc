@@ -2,7 +2,10 @@
 
 [[ $- != *i* ]] && return
 
+# CONFIG
 shopt -s autocd cdspell dotglob histappend
+SHRC="$XDG_CONFIG_HOME/shrc"
+[ -r "$SHRC" ] && . "$SHRC"
 
 # PROMPT
 NO_COLOR="\[\e[m\]"
@@ -12,18 +15,16 @@ njobs() { n=$(jobs | wc -l) && [ "$n" -gt 0 ] && echo " $n"; }
 PS1="${GREEN}[\W\$(__git_ps1 ' %s')${RED}\$(njobs)${GREEN}] ${NO_COLOR}"
 
 # SOURCE
-bash_completion=/usr/share/bash-completion/bash_completion
-bashrc_local="$XDG_CONFIG_HOME/bashrc_local"
-fzf_completion=/usr/share/fzf/completion.bash
-fzf_key_bindings=/usr/share/fzf/key-bindings.bash
-git_completion=/usr/share/git/completion/git-prompt.sh
-shrc="$XDG_CONFIG_HOME/shrc"
-[ -r "$bash_completion" ] && . "$bash_completion"
-[ -r "$bashrc_local" ] && . "$bashrc_local"
-[ -r "$fzf_completion" ] && . "$fzf_completion"
-[ -r "$fzf_key_bindings" ] && . "$fzf_key_bindings"
-[ -r "$git_completion" ] && . "$git_completion"
-[ -r "$shrc" ] && . "$shrc"
+BASH_COMPLETION=/usr/share/bash-completion/bash_completion
+[ -r "$BASH_COMPLETION" ] && . "$BASH_COMPLETION"
+BASHRC_LOCAL="$XDG_CONFIG_HOME/bashrc_local"
+[ -r "$BASHRC_LOCAL" ] && . "$BASHRC_LOCAL"
+FZF_COMPLETION=/usr/share/fzf/completion.bash
+[ -r "$FZF_COMPLETION" ] && . "$FZF_COMPLETION"
+FZF_KEY_BINDINGS=/usr/share/fzf/key-bindings.bash
+[ -r "$FZF_KEY_BINDINGS" ] && . "$FZF_KEY_BINDINGS"
+GIT_COMPLETION=/usr/share/git/completion/git-prompt.sh
+[ -r "$GIT_COMPLETION" ] && . "$GIT_COMPLETION"
 
 # HISTORY
 aliases() { alias | cut -d' ' -f2 | cut -d= -f1 | awk 'length<3' | tr '\n' :; }
