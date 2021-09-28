@@ -61,7 +61,7 @@ alias ns="jumpopen ~/data/notes sites.md"
 alias rss="newsboat -u ~/data/notes/newsboat"
 
 # BOOKMARKS - PROJECTS
-alias faa="jumpopen ~/projects/arch desktop.sh base.sh"
+alias fa="jumpopen ~/projects/arch desktop.sh base.sh"
 alias fv="jumpopen ~/projects/vlugins README.md"
 alias ja="cd ~/projects/arch"
 alias jc="cd ~/projects/config"
