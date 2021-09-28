@@ -42,7 +42,7 @@ link xkb "$XDG_CONFIG_HOME"
 link zathura "$XDG_CONFIG_HOME"
 
 link plank "$XDG_CONFIG_HOME"
-cat "$XDG_CONFIG_HOME/plank/dock1/launchers/config" | dconf load /net/launchpad/plank/docks/
+dconf load /net/launchpad/plank/docks/ < plank/config.ini
 
 mkdir -p "$XDG_CONFIG_HOME"/autostart
 link autostart/xbanish.desktop "$XDG_CONFIG_HOME"/autostart
