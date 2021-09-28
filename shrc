@@ -188,7 +188,7 @@ alias tmp="nvim +'set nospell' /tmp/scratch.md"
 alias u="curl -s 'https://archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d | sudo tee /etc/pacman.d/mirrorlist >/dev/null && paru"
 alias v="pulsemixer"
 ar() { dir="$(basename "$1").tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
-cd() { builtin cd "$@" && ls; }
+cd() { command cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else realpath -s "$@" | sed 's/.*/"&"/' | xargs rm -fr; ls; fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 p() { if [ $# = 0 ]; then pwd | sed "s|$HOME|~|"; else cp -irv "$@"; fi }
