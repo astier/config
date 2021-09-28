@@ -37,4 +37,7 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM="auto"
 
+SHRC="$XDG_CONFIG_HOME/shrc"
+[ -r "$SHRC" ] && . "$SHRC"
+
 [ "$(tty)" = "/dev/tty1" ] && [ "$(whoami)" != "root" ] && sx
