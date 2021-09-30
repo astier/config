@@ -27,7 +27,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'neovim/nvim-lspconfig'
     Plug 'rbong/vim-flog'
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'stsewd/gx-extended.vim'
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
@@ -183,6 +182,8 @@ let g:netrw_altfile = 1
 let g:netrw_banner = 0
 let g:netrw_dirhistmax = 0
 let g:netrw_list_hide = '^\..*/$'
+nn <rightmouse> <cmd>cal <sid>Explore()<cr>
+nn <space>e <cmd>cal <sid>Explore()<cr>
 
 " EXPLORER - NETRW (EXPLORE)
 fu! s:Explore()
@@ -209,22 +210,6 @@ fu! s:Open()
         exe 'sil !open' l:file
     en
 endf
-
-" EXPLORER - NERDTree
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-au bufenter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | buffer# | exe "normal! \<C-W>w" | exe 'buffer'.buf | en
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
-let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeIgnore = ['.git$', '__pycache__$', 'tags$', '\.aux$', '\.fdb_latexmk$', '\.fls$', '\.log$', '\.nav$', '\.out$', '\.snm$', '\.gz$', '\.toc$']
-let g:NERDTreeMinimalMenu = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeMouseMode = 3
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeStatusline = ''
-let g:NERDTreeWinPos = "left"
-nn <silent> <rightmouse> :NERDTreeToggle<cr>
-nn <silent> <space>e :NERDTreeToggle<cr>
 
 " FILETYPE
 au group filetype diff se textwidth=72
@@ -394,7 +379,7 @@ se spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATUSLINE
 fu! s:statusLine()
-    if bufname() =~# 'NERD' || empty(expand('%'))
+    if empty(expand('%'))
         retu repeat('─', winwidth(0))
     en
     let l:left = '[' . substitute(expand('%:t'), '^[^/]*\/', '', '') . ']'
