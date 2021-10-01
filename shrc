@@ -52,12 +52,12 @@ alias jls="cd \$XDG_DATA_HOME"
 
 # BOOKMARKS - NOTES
 alias jn="cd ~/data/notes"
-alias n="jumpopen ~/data/notes notes.md"
-alias nb="jumpopen ~/data/notes books.md"
-alias ni="jumpopen ~/data/notes ideas.md"
+alias n="jumpopen ~/data/notes notes"
+alias nb="jumpopen ~/data/notes books"
+alias ni="jumpopen ~/data/notes ideas"
 alias nn="jumpopen ~/data/notes newsboat"
-alias nr="jumpopen ~/data/notes research.md"
-alias ns="jumpopen ~/data/notes sites.md"
+alias nr="jumpopen ~/data/notes research"
+alias ns="jumpopen ~/data/notes sites"
 alias rss="newsboat -u ~/data/notes/newsboat"
 
 # BOOKMARKS - PROJECTS
