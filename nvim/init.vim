@@ -63,6 +63,7 @@ au group filetype * se formatoptions-=cro
 nn gcp my<cmd>norm vip<bar>gc<cr>`y
 
 " COMPLETION
+au filetype * se omnifunc=v:lua.vim.lsp.omnifunc
 se completeopt=menuone,noinsert
 se pumheight=8 pumwidth=0
 se shortmess+=c
