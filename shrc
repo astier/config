@@ -53,9 +53,9 @@ alias jn="cd ~/data/notes"
 alias n="jumpopen ~/data/notes notes"
 alias nb="jumpopen ~/data/notes books"
 alias ni="jumpopen ~/data/notes ideas"
+alias nl="jumpopen ~/data/notes links"
 alias nn="jumpopen ~/data/notes newsboat"
-alias nr="jumpopen ~/data/notes research"
-alias ns="jumpopen ~/data/notes sites"
+alias ns="jumpopen ~/data/notes study"
 alias rss="newsboat -u ~/data/notes/newsboat"
 
 # BOOKMARKS - PROJECTS
