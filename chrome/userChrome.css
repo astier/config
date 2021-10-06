@@ -2,3 +2,6 @@
 .titlebar-spacer[type="pre-tabs"] {
     display:none !important;
 }
+
+/* Disable tracking-protection-icon in the url-bar */
+#tracking-protection-icon-container { display: none; }
