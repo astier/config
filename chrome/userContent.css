@@ -4,6 +4,7 @@ html {
     scrollbar-width: unset !important;
 }
 
+/* Set background-color of new tabs */
 @-moz-document url-prefix(about:blank) {
     html { background-color: #383c4a; }
 }
