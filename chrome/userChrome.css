@@ -1,7 +1,5 @@
 /* Disable left drag-space */
-.titlebar-spacer[type="pre-tabs"] {
-    display:none !important;
-}
+.titlebar-spacer[type="pre-tabs"] { display:none; }
 
 /* Disable tracking-protection-icon in the url-bar */
 #tracking-protection-icon-container { display: none; }
