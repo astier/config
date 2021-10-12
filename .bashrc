@@ -11,8 +11,9 @@ SHRC=$XDG_CONFIG_HOME/shrc
 NO_COLOR="\[\e[m\]"
 RED="\[\e[31m\]"
 GREEN="\[\e[32m\]"
+am_i_root() { [ "$(whoami)" = root ] && echo !; }
 njobs() { n=$(jobs | wc -l) && [ "$n" -gt 0 ] && echo " $n"; }
-PS1="${GREEN}[\W\$(__git_ps1 ' %s')${RED}\$(njobs)${GREEN}] ${NO_COLOR}"
+PS1="${RED}\$(am_i_root)${GREEN}[\W\$(__git_ps1 ' %s')${RED}\$(njobs)${GREEN}] ${NO_COLOR}"
 
 # SOURCE
 BASH_COMPLETION=/usr/share/bash-completion/bash_completion
