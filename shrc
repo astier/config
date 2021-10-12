@@ -177,7 +177,6 @@ alias m="mv"
 alias pa="patch -p1 <"
 alias r="pkg -r"
 alias re="sudo \$(fc -ln -1)"
-alias s="echo \$(bstatus)% \| \$(pulsemixer --get-volume) \$(pulsemixer --get-mute) \| \$(date +%H:%M) \| \$(date +%d.%m.%y)"
 alias sc="scrot -s"
 alias td="tree -d"
 alias tf="tree"
@@ -189,6 +188,7 @@ cd() { command cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else realpath -s "$@" | sed 's/.*/"&"/' | xargs rm -fr; ls; fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 p() { if [ $# = 0 ]; then pwd | sed "s|$HOME|~|"; else cp -irv "$@"; fi }
+s() { if [ $# = 0 ]; then echo "$(bstatus)% | $(pulsemixer --get-volume) | $(date +%H:%M) | $(date +%d.%m.%y)"; else googler --colors=eecghi -g us -l en "$@"; fi }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # OPEN PROJECT-FILES
