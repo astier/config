@@ -11,7 +11,6 @@ nn <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
-    Plug 'christoomey/vim-tmux-navigator'
     Plug 'cohama/lexima.vim'
     Plug 'farmergreg/vim-lastplace'
     Plug 'gfanto/fzf-lsp.nvim'
@@ -25,6 +24,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'kevinhwang91/nvim-bqf'
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
+    Plug 'nathom/tmux.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'rbong/vim-flog'
     Plug 'stsewd/gx-extended.vim'
@@ -453,11 +453,10 @@ se wildmode=longest:list,full
 
 " WINDOWS
 au group vimresized * winc =
-let g:tmux_navigator_no_mappings = 1
-nn <a-h> <cmd>TmuxNavigateLeft<cr>
-nn <a-j> <cmd>TmuxNavigateDown<cr>
-nn <a-k> <cmd>TmuxNavigateUp<cr>
-nn <a-l> <cmd>TmuxNavigateRight<cr>
+nn <a-h> <cmd>lua require('tmux').move_left()<cr>
+nn <a-j> <cmd>lua require('tmux').move_down()<cr>
+nn <a-k> <cmd>lua require('tmux').move_up()<cr>
+nn <a-l> <cmd>lua require('tmux').move_right()<cr>
 nn <space>c <c-w>czz
 nn <space>s <c-w>s
 nn <space>v <c-w>v
