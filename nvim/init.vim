@@ -12,6 +12,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'airblade/vim-gitgutter'
     Plug 'AndrewRadev/switch.vim'
     Plug 'cohama/lexima.vim'
+    Plug 'Darazaki/indent-o-matic'
     Plug 'farmergreg/vim-lastplace'
     Plug 'gfanto/fzf-lsp.nvim'
     Plug 'hrsh7th/cmp-buffer'
@@ -32,7 +33,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-sleuth'
     Plug 'wellle/targets.vim'
 cal plug#end()
 
