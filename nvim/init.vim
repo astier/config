@@ -353,6 +353,9 @@ nm <4-rightmouse> <rightmouse>
 se mouse=a
 se mousemodel=popup
 
+" QUICKFIX
+au filetype qf se nonu
+
 " SANDWICH
 let g:textobj_sandwich_no_default_key_mappings = 1
 nm saw saiw
