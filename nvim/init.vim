@@ -13,7 +13,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'AndrewRadev/switch.vim'
     Plug 'cohama/lexima.vim'
     Plug 'Darazaki/indent-o-matic'
-    Plug 'farmergreg/vim-lastplace'
+    Plug 'ethanholz/nvim-lastplace'
     Plug 'gfanto/fzf-lsp.nvim'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-nvim-lsp'
@@ -321,6 +321,7 @@ nn gUW mygUiW`y
 nn Q q
 
 " MISC - SETTINGS
+lua require'nvim-lastplace'.setup{}
 se clipboard=unnamedplus
 se nofoldenable
 se nojoinspaces
