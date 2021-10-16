@@ -266,6 +266,9 @@ nm [c <cmd>sil GitGutterPrevHunk<cr>zz
 nm ]c <cmd>sil GitGutterNextHunk<cr>zz
 se signcolumn=yes
 
+" GREP
+se grepprg=grep\ -IRn\ --exclude-dir=.?*\ $*\ /dev/null
+
 " INDENTATION
 nn <p <ap
 nn >p >ap
