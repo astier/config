@@ -224,18 +224,18 @@ nn gqq Vgq
 
 " FUZZY
 au group user FzfStatusLine setl stl=─
-let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'border': 'sharp' } }
 let g:fzf_preview_window = []
-nn fa <cmd>CodeActions<cr>
 nn fb <cmd>Buffer<cr>
-nn fd <cmd>Diagnostics<cr>
-nn fD <cmd>DiagnosticsAll<cr>
 nn ff <cmd>Files<cr>
-nn fh <cmd>History<cr>
+nn fg :Rg<space>
+nn fh <cmd>Helptags<cr>
 nn fl <cmd>BLines<cr>
-nn fL <cmd>Lines<cr>
-nn fr <cmd>References<cr>
-nn fs <cmd>DocumentSymbols<cr>
+nn fr <cmd>lua require'fzf_lsp'.references_call()<cr>
+nn fs <cmd>lua require'fzf_lsp'.document_symbol_call()<cr>
+nn fS <cmd>lua require'fzf_lsp'.workspace_symbol_call()<cr>
+nn fw <cmd>exe 'Rg '.expand('<cword>')<cr>
+nn fW <cmd>exe 'Rg '.expand('<cWORD>')<cr>
 
 " GIT
 au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
@@ -308,9 +308,10 @@ EOF
 nn <expr> K '<cmd>'.(index(['vim','help'], &ft) >= 0 ? 'h '.expand('<cword>') : 'lua vim.lsp.buf.hover()').'<cr>'
 nn ga <cmd>lua vim.lsp.buf.code_action()<cr>
 nn gd <cmd>lua vim.lsp.buf.definition()<cr>
-nn go <cmd>lua vim.lsp.buf.document_symbol()<cr>
-nn gR <cmd>lua vim.lsp.buf.references()<cr>
-nn gr <cmd>lua vim.lsp.buf.rename()<cr>
+nn gr <cmd>lua vim.lsp.buf.references()<cr>
+nn gR <cmd>lua vim.lsp.buf.rename()<cr>
+nn gs <cmd>lua vim.lsp.buf.document_symbol()<cr>
+nn gS <cmd>lua vim.lsp.buf.workspace_symbol()<cr>
 
 " MISC - MAPPINGS
 nn <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
@@ -366,8 +367,8 @@ cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>noh<bar>e
 nn <esc> <cmd>noh<bar>ec<cr><esc>
 nn <a-esc> <cmd>se hls<cr>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
-nn fw <cmd>let @/= expand('<cword>')<bar>se hls<cr>
-xn fw <cmd>let @/= getline(".")[col('v') - 1 : getpos('.')[2] - 1]<bar>se hls<cr><esc>
+nn , <cmd>let @/= expand('<cword>')<bar>se hls<cr>
+xn , <cmd>let @/= getline(".")[col('v') - 1 : getpos('.')[2] - 1]<bar>se hls<cr><esc>
 se ignorecase smartcase
 se inccommand=nosplit
 se shortmess+=Ss
@@ -380,8 +381,8 @@ smap <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
 smap <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
 
 " SORT
-nm <silent> gs myvii:sort i<cr>`y
-xn <silent> gs my:sort i<cr>`y
+nm <silent> <space>s myvii:sort i<cr>`y
+xn <silent> <space>s my:sort i<cr>`y
 
 " SPELL
 se spellcapcheck=
@@ -467,8 +468,8 @@ nn <a-j> <cmd>lua require('tmux').move_down()<cr>
 nn <a-k> <cmd>lua require('tmux').move_up()<cr>
 nn <a-l> <cmd>lua require('tmux').move_right()<cr>
 nn <space>c <c-w>czz
-nn <space>s <c-w>s
 nn <space>v <c-w>v
+nn <space>x <c-w>s
 nn <space>z <c-w>z
 se splitbelow splitright
 
