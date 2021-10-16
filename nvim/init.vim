@@ -14,25 +14,26 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
     Plug 'cohama/lexima.vim'
     Plug 'Darazaki/indent-o-matic'
     Plug 'ethanholz/nvim-lastplace'
-    Plug 'gfanto/fzf-lsp.nvim'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'ibhagwan/fzf-lua'
     Plug 'junegunn/fzf'
-    Plug 'junegunn/fzf.vim'
     Plug 'kevinhwang91/nvim-bqf'
     Plug 'machakann/vim-sandwich'
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'nathom/tmux.nvim'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/plenary.nvim'
     Plug 'rbong/vim-flog'
     Plug 'stsewd/gx-extended.vim'
     Plug 'svermeulen/vim-subversive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-fugitive'
+    Plug 'vijaymarupudi/nvim-fzf'
     Plug 'wellle/targets.vim'
 cal plug#end()
 
@@ -222,20 +223,61 @@ let g:tex_flavor = 'latex'
 nn gqp gqip
 nn gqq Vgq
 
-" FUZZY
-au group user FzfStatusLine setl stl=─
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'border': 'sharp' } }
-let g:fzf_preview_window = []
-nn fb <cmd>Buffer<cr>
-nn ff <cmd>Files<cr>
-nn fg :Rg<space>
-nn fh <cmd>Helptags<cr>
-nn fl <cmd>BLines<cr>
-nn fr <cmd>lua require'fzf_lsp'.references_call()<cr>
-nn fs <cmd>lua require'fzf_lsp'.document_symbol_call()<cr>
-nn fS <cmd>lua require'fzf_lsp'.workspace_symbol_call()<cr>
-nn fw <cmd>exe 'Rg '.expand('<cword>')<cr>
-nn fW <cmd>exe 'Rg '.expand('<cWORD>')<cr>
+" FUZZY - CONFIG
+lua << EOF
+require'fzf-lua'.setup {
+  winopts = {
+    border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
+    hl = { border = 'Comment' },
+    preview = { hidden = 'hidden' },
+  },
+  files = {
+    cmd = 'ffind -type f',
+    git_icons = false,
+    file_icons = false,
+  },
+  git = {
+    files = { git_icons = false, file_icons = false },
+    status = { git_icons = false, file_icons = false },
+  },
+  oldfiles = {
+    cwd_only = true,
+    git_icons = false,
+    file_icons = false,
+  },
+  grep = { git_icons = false, file_icons = false },
+  helptags = { previewer = { _ctor = false } },
+  lines = { git_icons = false, file_icons = false },
+  lsp = { git_icons = false, file_icons = false },
+  quickfix = { git_icons = false, file_icons = false },
+}
+EOF
+
+" FUZZY - MAPPINGS (MISC)
+nn fb <cmd>lua require('fzf-lua').buffers()<cr>
+nn fB <cmd>lua require('fzf-lua').builtin()<cr>
+nn fc <cmd>lua require('fzf-lua').commands()<cr>
+nn ff <cmd>lua require('fzf-lua').files()<cr>
+nn fh <cmd>lua require('fzf-lua').help_tags()<cr>
+nn fl <cmd>lua require('fzf-lua').lines()<cr>
+nn fo <cmd>lua require('fzf-lua').oldfiles()<cr>
+nn fQ <cmd>lua require('fzf-lua').loclist()<cr>
+nn fq <cmd>lua require('fzf-lua').quickfix()<cr>
+nn fR <cmd>lua require('fzf-lua').registers()<cr>
+
+" FUZZY - MAPPINGS (GREP)
+nn fg <cmd>lua require('fzf-lua').grep()<cr>
+nn fG <cmd>lua require('fzf-lua').live_grep()<cr>
+nn fw <cmd>lua require('fzf-lua').grep_cword()<cr>
+nn fW <cmd>lua require('fzf-lua').grep_cWORD()<cr>
+xn fw <cmd>lua require('fzf-lua').grep_visual()<cr>
+
+" FUZZY - MAPPINGS (LSP)
+nn fd <cmd>lua require('fzf-lua').lsp_definitions()<cr>
+nn fi <cmd>lua require('fzf-lua').lsp_implementations()<cr>
+nn fr <cmd>lua require('fzf-lua').lsp_references()<cr>
+nn fs <cmd>lua require('fzf-lua').lsp_document_symbols()<cr>
+nn fS <cmd>lua require('fzf-lua').lsp_workspace_symbols()<cr>
 
 " GIT
 au group filetype floggraph nm <buffer> <rightmouse> <leftmouse><cr>
@@ -370,8 +412,8 @@ cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>noh<bar>e
 nn <esc> <cmd>noh<bar>ec<cr><esc>
 nn <a-esc> <cmd>se hls<cr>
 nn <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
-nn , <cmd>let @/= expand('<cword>')<bar>se hls<cr>
-xn , <cmd>let @/= getline(".")[col('v') - 1 : getpos('.')[2] - 1]<bar>se hls<cr><esc>
+nn ,w <cmd>let @/= expand('<cword>')<bar>se hls<cr>
+xn ,w <cmd>let @/= getline(".")[col('v') - 1 : getpos('.')[2] - 1]<bar>se hls<cr><esc>
 se ignorecase smartcase
 se inccommand=nosplit
 se shortmess+=Ss
@@ -384,8 +426,8 @@ smap <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
 smap <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
 
 " SORT
-nm <silent> <space>s myvii:sort i<cr>`y
-xn <silent> <space>s my:sort i<cr>`y
+nm <silent> ,s myvii:sort i<cr>`y
+xn <silent> ,s my:sort i<cr>`y
 
 " SPELL
 se spellcapcheck=
@@ -471,8 +513,8 @@ nn <a-j> <cmd>lua require('tmux').move_down()<cr>
 nn <a-k> <cmd>lua require('tmux').move_up()<cr>
 nn <a-l> <cmd>lua require('tmux').move_right()<cr>
 nn <space>c <c-w>czz
+nn <space>s <c-w>s
 nn <space>v <c-w>v
-nn <space>x <c-w>s
 nn <space>z <c-w>z
 se splitbelow splitright
 
