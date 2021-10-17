@@ -22,6 +22,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
   Plug 'ibhagwan/fzf-lua'
   Plug 'junegunn/fzf'
   Plug 'kevinhwang91/nvim-bqf'
+  Plug 'liuchengxu/vista.vim'
   Plug 'machakann/vim-sandwich'
   Plug 'mhinz/vim-grepper'
   Plug 'michaeljsmith/vim-indent-object'
@@ -471,6 +472,15 @@ nn <expr> <space>b &ls ? '<cmd>se stl=\  ls=0<cr>' : '<cmd>se ls=2 stl=%{<sid>st
 se fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
 se statusline=\  rulerformat=%=%l/%L
+
+" SYMBOLS
+let g:vista_blink = [0, 0]
+let g:vista_default_executive = 'nvim_lsp'
+let g:vista_echo_cursor = 0
+let g:vista_echo_cursor_strategy = 'floating_win'
+let g:vista_finder_alternative_executives = 'ctags'
+let g:vista_sidebar_keepalt = 1
+nn <space>t <cmd>Vista!!<cr>
 
 " TABLINE
 se showtabline=1
