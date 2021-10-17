@@ -22,7 +22,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
   Plug 'ibhagwan/fzf-lua'
   Plug 'junegunn/fzf'
   Plug 'kevinhwang91/nvim-bqf'
-  Plug 'liuchengxu/vista.vim'
   Plug 'machakann/vim-sandwich'
   Plug 'mhinz/vim-grepper'
   Plug 'michaeljsmith/vim-indent-object'
@@ -30,6 +29,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'rbong/vim-flog'
+  Plug 'simrat39/symbols-outline.nvim'
   Plug 'stsewd/gx-extended.vim'
   Plug 'svermeulen/vim-subversive'
   Plug 'tpope/vim-commentary'
@@ -474,13 +474,40 @@ se noruler noshowcmd noshowmode laststatus=0
 se statusline=\  rulerformat=%=%l/%L
 
 " SYMBOLS
-let g:vista_blink = [0, 0]
-let g:vista_default_executive = 'nvim_lsp'
-let g:vista_echo_cursor = 0
-let g:vista_echo_cursor_strategy = 'floating_win'
-let g:vista_finder_alternative_executives = 'ctags'
-let g:vista_sidebar_keepalt = 1
-nn <space>t <cmd>Vista!!<cr>
+nn <space>t <cmd>SymbolsOutline<cr>
+lua << EOF
+vim.g.symbols_outline = {
+  auto_preview = false,
+  preview_bg_highlight = 'none',
+  show_symbol_details = false,
+  keymaps = {
+    close = 'q',
+    focus_location = { 'o', '<leftmouse>' },
+    hover_symbol = 'p',
+  },
+  symbols = {
+    File = {icon = '', hl = 'TSURI'},
+    Module = {icon = '', hl = 'TSNamespace'},
+    Class = {icon = 'ﴯ', hl = 'TSType'},
+    Method = {icon = '', hl = 'TSMethod'},
+    Field = {icon = '', hl = 'TSField'},
+    Enum = {icon = '', hl = 'TSType'},
+    Interface = {icon = '', hl = 'TSType'},
+    Function = {icon = '', hl = 'TSFunction'},
+    String = {icon = '', hl = 'TSString'},
+    Number = {icon = '', hl = 'TSNumber'},
+    Boolean = {icon = '', hl = 'TSBoolean'},
+    Key = {icon = '', hl = 'TSType'},
+    EnumMember = {icon = 'ℰ', hl = 'TSField'},
+    Struct = {icon = 'פּ', hl = 'TSType'},
+    Event = {icon = '', hl = 'TSType'},
+    Operator = {icon = '', hl = 'TSOperator'},
+    TypeParameter = {icon = '', hl = 'TSParameter'}
+  }
+}
+EOF
+hi! link symbolsoutlineconnector comment
+hi! link focusedsymbol search
 
 " TABLINE
 se showtabline=1
