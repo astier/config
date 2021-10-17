@@ -23,6 +23,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
   Plug 'junegunn/fzf'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
+  Plug 'mhinz/vim-grepper'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
@@ -309,7 +310,20 @@ nm ]c <cmd>sil GitGutterNextHunk<cr>zz
 se signcolumn=yes
 
 " GREP
-se grepprg=grep\ -IRn\ --exclude-dir=.?*\ $*\ /dev/null
+se grepprg=grep\ -IRn\ --exclude-dir=.?*
+let g:grepper = {
+\ 'grep': {'grepprg': 'grep -IRn --exclude-dir=.?*'},
+\ 'highlight' : 1,
+\ 'side_cmd' : 'new',
+\ 'simple_prompt' : 1,
+\ 'tools': ['grep'],
+\}
+nm gw <plug>(GrepperOperator)iw
+nm gW <plug>(GrepperOperator)iW
+xm gw <plug>(GrepperOperator)
+nn gb <cmd>Grepper -buffer<cr>
+nn gB <cmd>Grepper -buffers<cr>
+nn gG <cmd>Grepper<cr>
 
 " INDENTATION
 nn <p <ap
