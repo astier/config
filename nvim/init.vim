@@ -470,7 +470,29 @@ endf
 nn <expr> <space>b &ls ? '<cmd>se stl=\  ls=0<cr>' : '<cmd>se ls=2 stl=%{<sid>statusLine()}<cr>'
 se fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 se noruler noshowcmd noshowmode laststatus=0
-se statusline=\  rulerformat=%=%l/%L showtabline=0
+se statusline=\  rulerformat=%=%l/%L
+
+" TABLINE
+se showtabline=1
+se tabline=%!TabLine()
+fu! TabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    el
+      let s .= '%#TabLine#'
+    en
+    let s .= '%' . (i + 1) . 'T'
+    let bufnr = tabpagebuflist(i + 1)[tabpagewinnr(i + 1) - 1]
+    let s .= '[' . pathshorten(bufname(bufnr)) . '] '
+  endfo
+  let s .= '%#TabLineFill#%T'
+  if tabpagenr('$') > 1
+    let s .= '%=%#TabLineSel#%999X '
+  en
+  retu s
+endf
 
 " SWITCH
 let g:switch_custom_definitions = [

@@ -108,3 +108,8 @@ hi! link shvarassign statement " none
 " SPELL
 hi spellbad ctermbg=none ctermfg=red cterm=none " none
 hi! link spellrare none " none
+
+" TABLINE
+hi tabline ctermbg=none ctermfg=8 cterm=none " none
+hi tablinefill ctermbg=none ctermfg=none cterm=none " none
+hi tablinesel ctermbg=none ctermfg=none cterm=none " none
