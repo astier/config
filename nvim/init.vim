@@ -415,6 +415,19 @@ se mousemodel=popup
 
 " QUICKFIX
 au filetype qf se nonu
+lua << EOF
+require('bqf').setup{
+  preview = {
+    auto_preview = false,
+    border_chars = { '│', '│', '─', '─', '┌', '┐', '└', '┘', '█' },
+  },
+  func_map = { split = '<c-s>', },
+  filter = { fzf = { action_for = { ['ctrl-s'] = 'split' } } },
+}
+EOF
+hi! link bqfpreviewborder Comment
+hi! link bqfpreviewrange none
+hi bqfsign ctermfg=yellow
 
 " SANDWICH
 let g:textobj_sandwich_no_default_key_mappings = 1
