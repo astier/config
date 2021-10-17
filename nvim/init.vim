@@ -4,37 +4,37 @@ scriptencoding utf-8
 
 " PLUGINS
 if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
-    sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  sil !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 en
 nn <space>pc <cmd>PlugClean<cr>
 nn <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
-    Plug 'airblade/vim-gitgutter'
-    Plug 'AndrewRadev/switch.vim'
-    Plug 'cohama/lexima.vim'
-    Plug 'Darazaki/indent-o-matic'
-    Plug 'ethanholz/nvim-lastplace'
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-path'
-    Plug 'hrsh7th/nvim-cmp'
-    Plug 'hrsh7th/vim-vsnip'
-    Plug 'ibhagwan/fzf-lua'
-    Plug 'junegunn/fzf'
-    Plug 'kevinhwang91/nvim-bqf'
-    Plug 'machakann/vim-sandwich'
-    Plug 'michaeljsmith/vim-indent-object'
-    Plug 'nathom/tmux.nvim'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'rbong/vim-flog'
-    Plug 'stsewd/gx-extended.vim'
-    Plug 'svermeulen/vim-subversive'
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-eunuch'
-    Plug 'tpope/vim-fugitive'
-    Plug 'vijaymarupudi/nvim-fzf'
-    Plug 'wellle/targets.vim'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'AndrewRadev/switch.vim'
+  Plug 'cohama/lexima.vim'
+  Plug 'Darazaki/indent-o-matic'
+  Plug 'ethanholz/nvim-lastplace'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'ibhagwan/fzf-lua'
+  Plug 'junegunn/fzf'
+  Plug 'kevinhwang91/nvim-bqf'
+  Plug 'machakann/vim-sandwich'
+  Plug 'michaeljsmith/vim-indent-object'
+  Plug 'nathom/tmux.nvim'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'rbong/vim-flog'
+  Plug 'stsewd/gx-extended.vim'
+  Plug 'svermeulen/vim-subversive'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-eunuch'
+  Plug 'tpope/vim-fugitive'
+  Plug 'vijaymarupudi/nvim-fzf'
+  Plug 'wellle/targets.vim'
 cal plug#end()
 
 " APPEARANCE
@@ -189,28 +189,28 @@ nn <space>e <cmd>cal <sid>Explore()<cr>
 
 " EXPLORER - NETRW (EXPLORE)
 fu! s:Explore()
-    norm my
-    let l:file = expand("%:t")
-    Explore
-    exe search(l:file)
+  norm my
+  let l:file = expand("%:t")
+  Explore
+  exe search(l:file)
 endf
 
 " EXPLORER - NETRW (OPEN)
 fu! s:Open()
-    let l:path = expand('%:p')
-    if !isdirectory(l:path)
-        " Fixes bug where the current directory is added two times
-        " to the end of the path-variable
-        let l:path = fnamemodify(l:path, ':h') . '/'
-    en
-    let l:file = fnameescape(l:path . getline('.'))
-    let l:mime = system('file -bL --mime-type ' . l:file)
-    if isdirectory(l:file) || l:mime =~# '\(text/.*\|.*/json\|.*/csv\|inode/x-empty\)'
-        exe "norm \<plug>NetrwLocalBrowseCheck zz"
-        sil! norm `y
-    el
-        exe 'sil !open' l:file
-    en
+  let l:path = expand('%:p')
+  if !isdirectory(l:path)
+    " Fixes bug where the current directory is added two times
+    " to the end of the path-variable
+    let l:path = fnamemodify(l:path, ':h') . '/'
+  en
+  let l:file = fnameescape(l:path . getline('.'))
+  let l:mime = system('file -bL --mime-type ' . l:file)
+  if isdirectory(l:file) || l:mime =~# '\(text/.*\|.*/json\|.*/csv\|inode/x-empty\)'
+    exe "norm \<plug>NetrwLocalBrowseCheck zz"
+    sil! norm `y
+  el
+    exe 'sil !open' l:file
+  en
 endf
 
 " FILETYPE
@@ -435,12 +435,12 @@ se spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATUSLINE
 fu! s:statusLine()
-    if empty(expand('%'))
-        retu repeat('─', winwidth(0))
-    en
-    let l:left = '[' . substitute(expand('%:t'), '^[^/]*\/', '', '') . ']'
-    let l:right = '[' . line('.') . '/' . line('$') . ']'
-    retu l:left . repeat('─', winwidth(0) - len(l:left) - len(l:right)) . l:right
+  if empty(expand('%'))
+    retu repeat('─', winwidth(0))
+  en
+  let l:left = '[' . substitute(expand('%:t'), '^[^/]*\/', '', '') . ']'
+  let l:right = '[' . line('.') . '/' . line('$') . ']'
+  retu l:left . repeat('─', winwidth(0) - len(l:left) - len(l:right)) . l:right
 endf
 nn <expr> <space>b &ls ? '<cmd>se stl=\  ls=0<cr>' : '<cmd>se ls=2 stl=%{<sid>statusLine()}<cr>'
 se fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
@@ -449,22 +449,22 @@ se statusline=\  rulerformat=%=%l/%L showtabline=0
 
 " SWITCH
 let g:switch_custom_definitions = [
-\   ['+', '-'],
-\   ['0', '1'],
-\   ['<', '>'],
-\   ['==', '!='],
-\   ['on', 'off'],
-\   ['pick', 'fixup', 'reword'],
-\   ['yes', 'no'],
+\ ['+', '-'],
+\ ['0', '1'],
+\ ['<', '>'],
+\ ['==', '!='],
+\ ['on', 'off'],
+\ ['pick', 'fixup', 'reword'],
+\ ['yes', 'no'],
 \]
 let g:switch_mapping = 't'
 
 " TARGETS
 au group user targets#mappings#user cal targets#mappings#extend({
-\   'q': {}, 'b': {
-\       'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}],
-\       'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]
-\   },
+\ 'q': {}, 'b': {
+\   'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}],
+\   'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]
+\ },
 \})
 nm cb cIb
 nm db dIb
@@ -477,14 +477,14 @@ nm ynb myyInb`y
 
 " TMUXSEND
 fu! T(...)
-    if !empty(system('tmux has -t $(cat /tmp/tmuxsend)'))
-        exe system('tmux neww -ac "#{pane_current_path}" -PF "#{pane_id}" > /tmp/tmuxsend')
-        sil !tmux lastp
-    en
-    exe system('tmux send -t $(cat /tmp/tmuxsend) ' . shellescape(join(a:000)) . ' ENTER')
-    if system('tmux display -p "#{window_id}"') != system('tmux display -pt $(cat /tmp/tmuxsend) "#{window_id}"')
-        sil !tmux selectw -t $(cat /tmp/tmuxsend)
-    en
+  if !empty(system('tmux has -t $(cat /tmp/tmuxsend)'))
+    exe system('tmux neww -ac "#{pane_current_path}" -PF "#{pane_id}" > /tmp/tmuxsend')
+    sil !tmux lastp
+  en
+  exe system('tmux send -t $(cat /tmp/tmuxsend) ' . shellescape(join(a:000)) . ' ENTER')
+  if system('tmux display -p "#{window_id}"') != system('tmux display -pt $(cat /tmp/tmuxsend) "#{window_id}"')
+    sil !tmux selectw -t $(cat /tmp/tmuxsend)
+  en
 endf
 com! -complete=shellcmd -nargs=+ T cal T(expandcmd(<q-args>))
 nn <space><space> <cmd>cal T(getline('.'))<cr>
