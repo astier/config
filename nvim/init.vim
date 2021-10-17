@@ -229,7 +229,6 @@ lua << EOF
 require'fzf-lua'.setup {
   winopts = {
     border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-    hl = { border = 'Comment' },
     preview = { hidden = 'hidden' },
   },
   files = {
@@ -425,7 +424,6 @@ require('bqf').setup{
   filter = { fzf = { action_for = { ['ctrl-s'] = 'split' } } },
 }
 EOF
-hi! link bqfpreviewborder Comment
 hi! link bqfpreviewrange none
 hi bqfsign ctermfg=yellow
 
