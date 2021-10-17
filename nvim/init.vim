@@ -329,8 +329,8 @@ nn gG <cmd>Grepper<cr>
 nn <p <ap
 nn >p >ap
 se expandtab
-se shiftwidth=4
-se tabstop=4
+se shiftwidth=2
+se tabstop=2
 
 " LOADED
 let g:loaded_2html_plugin = 0
