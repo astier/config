@@ -202,19 +202,19 @@ endf
 
 " EXPLORER - NETRW (OPEN)
 fu! s:NetrwOpen()
-  let path = expand('%:p')
-  if !isdirectory(path)
+  let dir_path = expand('%:p')
+  if !isdirectory(dir_path)
     " Fixes bug where the current directory is added two times
     " to the end of the path-variable
-    let path = fnamemodify(path, ':h') . '/'
+    let dir_path = fnamemodify(dir_path, ':h') . '/'
   en
-  let file = fnameescape(path . getline('.'))
-  let mime = system('file -bL --mime-type ' . file)
-  if isdirectory(file) || mime =~# '\(text/.*\|.*/json\|.*/csv\|inode/x-empty\)'
+  let file_path = fnameescape(dir_path . getline('.'))
+  let mime = system('file -bL --mime-type ' . file_path)
+  if isdirectory(file_path) || mime =~# '\(text/.*\|.*/json\|.*/csv\|inode/x-empty\)'
     exe "norm \<plug>NetrwLocalBrowseCheck zz"
     sil! norm `y
   el
-    exe 'sil !open' file
+    exe 'sil !open' file_path
   en
 endf
 
