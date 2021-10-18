@@ -574,7 +574,7 @@ nn <a-l> <cmd>lua require('tmux').move_right()<cr>
 nn <space>c <c-w>czz
 nn <space>s <c-w>s
 nn <space>v <c-w>v
-nn <space>z <c-w>z
+nn <space>z <c-w>z<cmd>cclose<cr>
 se splitbelow splitright
 
 " WRAP
