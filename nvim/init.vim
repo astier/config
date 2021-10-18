@@ -324,6 +324,13 @@ nn gb <cmd>Grepper -buffer<cr>
 nn gB <cmd>Grepper -buffers<cr>
 nn gG <cmd>Grepper<cr>
 
+" INCREMENT
+nn + <c-a>
+nn - <c-x>
+se nrformats=
+xn + g<C-a>
+xn - g<C-x>
+
 " INDENTATION
 nn <p <ap
 nn >p >ap
