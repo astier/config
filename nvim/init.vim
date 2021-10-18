@@ -179,10 +179,10 @@ aug netrw | au! filetype netrw call NetrwInit() | aug end
 fu! NetrwInit()
   nm <buffer> <c-rightmouse> <plug>NetrwSLeftmouse
   nm <buffer> <cr> mf
-  nm <buffer> <rightmouse> <cmd>Rexplore<cr>`y
+  nm <buffer> <rightmouse> <cmd>keepalt norm `Y<cr>
   nm <buffer> h -
   nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>Open()<cr>
-  nn <buffer> <space>e <cmd>Rexplore<cr>`y
+  nn <buffer> <space>e <cmd>keepalt norm `Y<cr>
   nn <buffer> l <cmd>cal <sid>Open()<cr>
 endf
 let g:netrw_altfile = 1
@@ -194,7 +194,7 @@ nn <space>e <cmd>cal <sid>Explore()<cr>
 
 " EXPLORER - NETRW (EXPLORE)
 fu! s:Explore()
-  norm my
+  norm mY
   let file = expand('%:t')
   Explore
   exe search(file)
