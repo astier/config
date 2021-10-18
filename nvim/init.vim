@@ -402,7 +402,7 @@ nn <c-i> <c-i>zz
 nn <c-o> <c-o>zz
 nn <silent> n nzz
 nn <silent> N Nzz
-nn F $
+nn F g$
 nn G G0
 nn gg gg0
 nn H H0
