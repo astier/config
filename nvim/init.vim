@@ -175,13 +175,16 @@ nn U <c-r><cmd>ec<cr>
 nn u u<cmd>ec<cr>
 
 " EXPLORER - NETRW
-au group filetype netrw nm <buffer> <c-rightmouse> <plug>NetrwSLeftmouse
-au group filetype netrw nm <buffer> <cr> mf
-au group filetype netrw nm <buffer> <rightmouse> <cmd>Rexplore<cr>`y
-au group filetype netrw nm <buffer> h -
-au group filetype netrw nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>Open()<cr>
-au group filetype netrw nn <buffer> <space>e <cmd>Rexplore<cr>`y
-au group filetype netrw nn <buffer> l <cmd>cal <sid>Open()<cr>
+aug netrw | au! filetype netrw call NetrwInit() | aug end
+fu! NetrwInit()
+  nm <buffer> <c-rightmouse> <plug>NetrwSLeftmouse
+  nm <buffer> <cr> mf
+  nm <buffer> <rightmouse> <cmd>Rexplore<cr>`y
+  nm <buffer> h -
+  nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>Open()<cr>
+  nn <buffer> <space>e <cmd>Rexplore<cr>`y
+  nn <buffer> l <cmd>cal <sid>Open()<cr>
+endf
 let g:netrw_altfile = 1
 let g:netrw_banner = 0
 let g:netrw_dirhistmax = 0
