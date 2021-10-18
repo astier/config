@@ -587,12 +587,10 @@ se splitbelow splitright
 au group filetype * se formatoptions-=t
 nn $ g$
 nn 0 g0
-nn j gj
-nn k gk
+nn <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nn <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 xn $ g$
 xn 0 g0
-xn j gj
-xn k gk
 se breakindent
 se breakindentopt=shift:2
 se linebreak
