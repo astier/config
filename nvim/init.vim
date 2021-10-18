@@ -185,8 +185,9 @@ fu! NetrwInit()
   nn <buffer> <space>e <cmd>keepalt norm `Y<cr>
   nn <buffer> l <cmd>cal <sid>NetrwOpen()<cr>
 endf
-let g:netrw_altfile = 1
+let g:netrw_altfile = 1 " Not respected by Rexplore
 let g:netrw_banner = 0
+let g:netrw_browsex_viewer= 'open'
 let g:netrw_dirhistmax = 0
 let g:netrw_list_hide = '^\./$'
 nn <rightmouse> <cmd>cal <sid>Netrw()<cr>
@@ -202,20 +203,11 @@ endf
 
 " EXPLORER - NETRW (OPEN)
 fu! s:NetrwOpen()
-  let dir_path = expand('%:p')
-  if !isdirectory(dir_path)
-    " Fixes bug where the current directory is added two times
-    " to the end of the path-variable
-    let dir_path = fnamemodify(dir_path, ':h') . '/'
-  en
-  let file_name = split(getline('.'), ' --> ') " Handle symbolic links
-  let file_name = file_name[len(file_name) - 1]
-  let file_path = fnameescape(dir_path . file_name)
-  let mime = system('file -bL --mime-type ' . file_path)
-  if isdirectory(file_path) || mime =~# '\(text/.*\|.*/json\|.*/csv\|inode/x-empty\)'
-    exe "norm \<plug>NetrwLocalBrowseCheck zz"
+  silent exe '!open -n ' split(getline('.'), '@\s*--> ')[0]
+  if !v:shell_error
+    norm x
   el
-    exe 'sil !open' file_path
+    exe "norm \<plug>NetrwLocalBrowseCheck zz"
   en
 endf
 
