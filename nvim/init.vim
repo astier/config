@@ -385,6 +385,8 @@ nn guW myguiW`y
 nn gUw mygUiw`y
 nn gUW mygUiW`y
 nn Q q
+xn . :norm.<cr>
+xn q :'<,'>:normal @q<cr>
 
 " MISC - SETTINGS
 lua require'nvim-lastplace'.setup{}
