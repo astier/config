@@ -214,7 +214,6 @@ fu! s:NetrwOpen()
   let mime = system('file -bL --mime-type ' . file_path)
   if isdirectory(file_path) || mime =~# '\(text/.*\|.*/json\|.*/csv\|inode/x-empty\)'
     exe "norm \<plug>NetrwLocalBrowseCheck zz"
-    sil! norm `y
   el
     exe 'sil !open' file_path
   en
