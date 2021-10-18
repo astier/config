@@ -181,19 +181,19 @@ fu! NetrwInit()
   nm <buffer> <cr> mf
   nm <buffer> <rightmouse> <cmd>keepalt norm `Y<cr>
   nm <buffer> h -
-  nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>Open()<cr>
+  nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>NetrwOpen()<cr>
   nn <buffer> <space>e <cmd>keepalt norm `Y<cr>
-  nn <buffer> l <cmd>cal <sid>Open()<cr>
+  nn <buffer> l <cmd>cal <sid>NetrwOpen()<cr>
 endf
 let g:netrw_altfile = 1
 let g:netrw_banner = 0
 let g:netrw_dirhistmax = 0
 let g:netrw_list_hide = '^\./$'
-nn <rightmouse> <cmd>cal <sid>Explore()<cr>
-nn <space>e <cmd>cal <sid>Explore()<cr>
+nn <rightmouse> <cmd>cal <sid>Netrw()<cr>
+nn <space>e <cmd>cal <sid>Netrw()<cr>
 
 " EXPLORER - NETRW (EXPLORE)
-fu! s:Explore()
+fu! s:Netrw()
   norm mY
   let file = expand('%:t')
   Explore
@@ -201,7 +201,7 @@ fu! s:Explore()
 endf
 
 " EXPLORER - NETRW (OPEN)
-fu! s:Open()
+fu! s:NetrwOpen()
   let path = expand('%:p')
   if !isdirectory(path)
     " Fixes bug where the current directory is added two times
