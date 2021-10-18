@@ -208,7 +208,9 @@ fu! s:NetrwOpen()
     " to the end of the path-variable
     let dir_path = fnamemodify(dir_path, ':h') . '/'
   en
-  let file_path = fnameescape(dir_path . getline('.'))
+  let file_name = split(getline('.'), ' --> ') " Handle symbolic links
+  let file_name = file_name[len(file_name) - 1]
+  let file_path = fnameescape(dir_path . file_name)
   let mime = system('file -bL --mime-type ' . file_path)
   if isdirectory(file_path) || mime =~# '\(text/.*\|.*/json\|.*/csv\|inode/x-empty\)'
     exe "norm \<plug>NetrwLocalBrowseCheck zz"
