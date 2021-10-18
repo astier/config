@@ -195,26 +195,26 @@ nn <space>e <cmd>cal <sid>Explore()<cr>
 " EXPLORER - NETRW (EXPLORE)
 fu! s:Explore()
   norm my
-  let l:file = expand("%:t")
+  let file = expand('%:t')
   Explore
-  exe search(l:file)
+  exe search(file)
 endf
 
 " EXPLORER - NETRW (OPEN)
 fu! s:Open()
-  let l:path = expand('%:p')
-  if !isdirectory(l:path)
+  let path = expand('%:p')
+  if !isdirectory(path)
     " Fixes bug where the current directory is added two times
     " to the end of the path-variable
-    let l:path = fnamemodify(l:path, ':h') . '/'
+    let path = fnamemodify(path, ':h') . '/'
   en
-  let l:file = fnameescape(l:path . getline('.'))
-  let l:mime = system('file -bL --mime-type ' . l:file)
-  if isdirectory(l:file) || l:mime =~# '\(text/.*\|.*/json\|.*/csv\|inode/x-empty\)'
+  let file = fnameescape(path . getline('.'))
+  let mime = system('file -bL --mime-type ' . file)
+  if isdirectory(file) || mime =~# '\(text/.*\|.*/json\|.*/csv\|inode/x-empty\)'
     exe "norm \<plug>NetrwLocalBrowseCheck zz"
     sil! norm `y
   el
-    exe 'sil !open' l:file
+    exe 'sil !open' file
   en
 endf
 
