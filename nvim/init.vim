@@ -28,7 +28,6 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-lua/plenary.nvim'
   Plug 'rbong/vim-flog'
   Plug 'stsewd/gx-extended.vim'
   Plug 'svermeulen/vim-subversive'
