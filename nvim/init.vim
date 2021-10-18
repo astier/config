@@ -152,6 +152,7 @@ nn dW daW
 
 " EDITING - PASTE
 ino <c-v> <c-r>+
+nn cP yap}p
 nn p p<cmd>ec<cr>
 
 " EDITING - REPLACE
