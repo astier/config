@@ -23,13 +23,13 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
   Plug 'junegunn/fzf'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
+  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'mhinz/vim-grepper'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'rbong/vim-flog'
-  Plug 'simrat39/symbols-outline.nvim'
   Plug 'stsewd/gx-extended.vim'
   Plug 'svermeulen/vim-subversive'
   Plug 'tpope/vim-commentary'
@@ -474,40 +474,15 @@ se noruler noshowcmd noshowmode laststatus=0
 se statusline=\  rulerformat=%=%l/%L
 
 " SYMBOLS
-nn <space>t <cmd>SymbolsOutline<cr>
-lua << EOF
-vim.g.symbols_outline = {
-  auto_preview = false,
-  preview_bg_highlight = 'none',
-  show_symbol_details = false,
-  keymaps = {
-    close = 'q',
-    focus_location = { 'o', '<leftmouse>' },
-    hover_symbol = 'p',
-  },
-  symbols = {
-    File = {icon = '', hl = 'TSURI'},
-    Module = {icon = '', hl = 'TSNamespace'},
-    Class = {icon = 'ﴯ', hl = 'TSType'},
-    Method = {icon = '', hl = 'TSMethod'},
-    Field = {icon = '', hl = 'TSField'},
-    Enum = {icon = '', hl = 'TSType'},
-    Interface = {icon = '', hl = 'TSType'},
-    Function = {icon = '', hl = 'TSFunction'},
-    String = {icon = '', hl = 'TSString'},
-    Number = {icon = '', hl = 'TSNumber'},
-    Boolean = {icon = '', hl = 'TSBoolean'},
-    Key = {icon = '', hl = 'TSType'},
-    EnumMember = {icon = 'ℰ', hl = 'TSField'},
-    Struct = {icon = 'פּ', hl = 'TSType'},
-    Event = {icon = '', hl = 'TSType'},
-    Operator = {icon = '', hl = 'TSOperator'},
-    TypeParameter = {icon = '', hl = 'TSParameter'}
-  }
-}
-EOF
-hi! link symbolsoutlineconnector comment
-hi! link focusedsymbol search
+let g:tagbar_autofocus = 1
+let g:tagbar_compact = 2
+let g:tagbar_iconchars = ['▸', '▾']
+let g:tagbar_map_showproto = 'd'
+let g:tagbar_show_data_type = 1
+let g:tagbar_silent = 1
+let g:tagbar_singleclick = 1
+let g:tagbar_zoomwidth = 0
+nn <space>t <cmd>Tagbar<cr>
 
 " TABLINE
 se showtabline=1
