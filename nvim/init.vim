@@ -185,8 +185,9 @@ nn q <cmd>cal <sid>ChangeToRealAltFile()<cr>
 
 fu! NetrwInit()
   nm <buffer> <c-rightmouse> <plug>NetrwSLeftmouse
-  nm <buffer> <cr> mf
+  nm <buffer> <cr> <nop>
   nm <buffer> <rightmouse> <cmd>norm `Y<cr>
+  nm <buffer> <tab> mf
   nm <buffer> h -
   nm <buffer> q <nop>
   nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>NetrwOpen()<cr>
