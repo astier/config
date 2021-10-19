@@ -64,6 +64,7 @@ se hidden noswapfile
 " COMMENTS
 au filetype c setl commentstring=//\ %s
 au group filetype * se formatoptions-=cro
+nn gci my<cmd>norm vii<bar>gc<cr>`y
 nn gcp my<cmd>norm vip<bar>gc<cr>`y
 
 " COMPLETION
