@@ -202,7 +202,7 @@ fu! s:Netrw()
 endf
 
 fu! s:NetrwOpen()
-  silent exe '!open -n ' split(getline('.'), '@\s*--> ')[0]
+  sil exe '!open -n ' split(getline('.'), '@\s*--> ')[0]
   if !v:shell_error
     norm x
   el
