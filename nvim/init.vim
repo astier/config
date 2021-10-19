@@ -56,7 +56,6 @@ nn <a-e> <cmd>bp<cr><c-g>
 nn <a-r> <cmd>bn<cr><c-g>
 nn <space>d <cmd>qa!<cr>
 nn <space>q <cmd>bd!<cr>
-nn q <cmd>b#<cr>
 se hidden noswapfile
 
 " COMMENTS
@@ -179,27 +178,42 @@ aug netrw | au! filetype netrw call NetrwInit() | aug end
 fu! NetrwInit()
   nm <buffer> <c-rightmouse> <plug>NetrwSLeftmouse
   nm <buffer> <cr> mf
-  nm <buffer> <rightmouse> <cmd>keepalt norm `Y<cr>
+  nm <buffer> <rightmouse> <cmd>norm `Y<cr>
   nm <buffer> h -
   nm <buffer> q <nop>
   nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>NetrwOpen()<cr>
-  nn <buffer> <space>e <cmd>keepalt norm `Y<cr>
+  nn <buffer> <space>e <cmd>norm `Y<cr>
   nn <buffer> l <cmd>cal <sid>NetrwOpen()<cr>
 endf
 
-let g:netrw_altfile = 1 " Not respected by Rexplore
 let g:netrw_banner = 0
 let g:netrw_browsex_viewer= 'open'
 let g:netrw_dirhistmax = 0
 let g:netrw_list_hide = '^\./$'
 nn <rightmouse> <cmd>cal <sid>Netrw()<cr>
 nn <space>e <cmd>cal <sid>Netrw()<cr>
+nn q <cmd>cal <sid>ChangeToRealAltFile()<cr>
 
 fu! s:Netrw()
   norm mY
+  let g:abufnr = bufnr('#')
+  let g:obufnr = bufnr('%')
   let file = expand('%:t')
   Explore
   exe search(file)
+endf
+
+fu! s:ChangeToRealAltFile()
+  if getbufvar(bufnr('#'), '&ft') ==# 'netrw'
+    if !exists('g:obufnr') | return | en
+    if bufnr('%') == g:obufnr
+      exe 'b ' g:abufnr
+    el
+      norm `Y
+    en
+  el
+    b #
+  en
 endf
 
 fu! s:NetrwOpen()
@@ -208,6 +222,9 @@ fu! s:NetrwOpen()
     norm x
   el
     exe "norm \<plug>NetrwLocalBrowseCheck zz"
+    if exists('g:obufnr') && bufnr('%') == g:obufnr
+      norm `Y
+    en
   en
 endf
 
