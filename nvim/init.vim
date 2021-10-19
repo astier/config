@@ -533,7 +533,7 @@ fu! TabLine()
   endfo
   let s .= '%#TabLineFill#%T'
   if tabpagenr('$') > 1
-    let s .= '%=%#TabLineSel#%999X '
+    let s .= '%=%#TabLineSel#%999X'
   en
   retu s
 endf
