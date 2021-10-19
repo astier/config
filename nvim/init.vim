@@ -175,6 +175,14 @@ nn u u<cmd>ec<cr>
 
 " EXPLORER
 aug netrw | au! filetype netrw call NetrwInit() | aug end
+let g:netrw_banner = 0
+let g:netrw_browsex_viewer= 'open'
+let g:netrw_dirhistmax = 0
+let g:netrw_list_hide = '^\./$'
+nn <rightmouse> <cmd>cal <sid>Netrw()<cr>
+nn <space>e <cmd>cal <sid>Netrw()<cr>
+nn q <cmd>cal <sid>ChangeToRealAltFile()<cr>
+
 fu! NetrwInit()
   nm <buffer> <c-rightmouse> <plug>NetrwSLeftmouse
   nm <buffer> <cr> mf
@@ -185,14 +193,6 @@ fu! NetrwInit()
   nn <buffer> <space>e <cmd>norm `Y<cr>
   nn <buffer> l <cmd>cal <sid>NetrwOpen()<cr>
 endf
-
-let g:netrw_banner = 0
-let g:netrw_browsex_viewer= 'open'
-let g:netrw_dirhistmax = 0
-let g:netrw_list_hide = '^\./$'
-nn <rightmouse> <cmd>cal <sid>Netrw()<cr>
-nn <space>e <cmd>cal <sid>Netrw()<cr>
-nn q <cmd>cal <sid>ChangeToRealAltFile()<cr>
 
 fu! s:Netrw()
   norm mY
