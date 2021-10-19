@@ -184,7 +184,7 @@ nn <space>e <cmd>cal <sid>NetrwToggle()<cr>
 nn q <cmd>cal <sid>ChangeToRealAltFile()<cr>
 
 fu! NetrwInit()
-  nm <buffer> <c-rightmouse> <plug>NetrwSLeftmouse
+  nm <buffer> <c-leftmouse> <plug>NetrwSLeftmouse
   nm <buffer> <cr> <nop>
   nm <buffer> <rightmouse> <cmd>cal <sid>NetrwToggle()<cr>
   nm <buffer> <tab> mf
