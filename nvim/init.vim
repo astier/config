@@ -179,23 +179,27 @@ let g:netrw_banner = 0
 let g:netrw_browsex_viewer= 'open'
 let g:netrw_dirhistmax = 0
 let g:netrw_list_hide = '^\./$'
-nn <rightmouse> <cmd>cal <sid>Netrw()<cr>
-nn <space>e <cmd>cal <sid>Netrw()<cr>
+nn <rightmouse> <cmd>cal <sid>NetrwToggle()<cr>
+nn <space>e <cmd>cal <sid>NetrwToggle()<cr>
 nn q <cmd>cal <sid>ChangeToRealAltFile()<cr>
 
 fu! NetrwInit()
   nm <buffer> <c-rightmouse> <plug>NetrwSLeftmouse
   nm <buffer> <cr> <nop>
-  nm <buffer> <rightmouse> <cmd>norm `Y<cr>
+  nm <buffer> <rightmouse> <cmd>cal <sid>NetrwToggle()<cr>
   nm <buffer> <tab> mf
   nm <buffer> h -
   nm <buffer> q <nop>
   nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>NetrwOpen()<cr>
-  nn <buffer> <space>e <cmd>norm `Y<cr>
+  nn <buffer> <space>e <cmd>cal <sid>NetrwToggle()<cr>
   nn <buffer> l <cmd>cal <sid>NetrwOpen()<cr>
 endf
 
-fu! s:Netrw()
+fu! s:NetrwToggle()
+  if &ft ==# 'netrw'
+    if exists('g:abufnr') | exe 'norm `Y' | en
+    retu
+  en
   norm mY
   let g:abufnr = bufnr('#')
   let g:obufnr = bufnr('%')
@@ -206,7 +210,7 @@ endf
 
 fu! s:ChangeToRealAltFile()
   if getbufvar(bufnr('#'), '&ft') ==# 'netrw'
-    if !exists('g:obufnr') | return | en
+    if !exists('g:obufnr') | retu | en
     if bufnr('%') == g:obufnr
       exe 'b ' g:abufnr
     el
