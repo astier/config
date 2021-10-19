@@ -201,6 +201,11 @@ fu! s:NetrwToggle()
     retu
   en
   norm mY
+  if getbufvar(bufnr('#'), '&ft') ==# 'netrw'
+    let g:abufnr = bufnr('%')
+  el
+    let g:abufnr = bufnr('#')
+  en
   let g:abufnr = bufnr('#')
   let g:obufnr = bufnr('%')
   let file = expand('%:t')
