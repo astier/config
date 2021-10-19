@@ -217,7 +217,7 @@ fu! s:ChangeToRealAltFile()
 endf
 
 fu! s:NetrwOpen()
-  sil exe '!open -n ' split(getline('.'), '@\s*--> ')[0]
+  sil exe '!open -n ' shellescape(split(getline('.'), '@\s*--> ')[0])
   if !v:shell_error
     norm x
   el
