@@ -30,6 +30,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
   Plug 'neovim/nvim-lspconfig'
   Plug 'rbong/vim-flog'
   Plug 'scrooloose/nerdtree'
+  Plug 'stevearc/stickybuf.nvim'
   Plug 'stsewd/gx-extended.vim'
   Plug 'svermeulen/vim-subversive'
   Plug 'tpope/vim-commentary'
@@ -179,8 +180,6 @@ nn u u<cmd>ec<cr>
 " Start NERDTree when Vim starts with a directory argument.
 au stdinreadpre * let s:std_in=1
 au vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | winc p | ene | exe 'cd '.argv()[0] | en
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-au group bufenter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | b# | exe "norm! \<c-w>w" | exe 'b'.buf | en
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
 let g:NERDTreeDirArrowCollapsible = ''
