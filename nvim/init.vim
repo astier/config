@@ -174,7 +174,7 @@ nn <c-r> <c-r><cmd>ec<cr>
 nn U <c-r><cmd>ec<cr>
 nn u u<cmd>ec<cr>
 
-" EXPLORER - NETRW
+" EXPLORER
 aug netrw | au! filetype netrw call NetrwInit() | aug end
 fu! NetrwInit()
   nm <buffer> <c-rightmouse> <plug>NetrwSLeftmouse
@@ -185,6 +185,7 @@ fu! NetrwInit()
   nn <buffer> <space>e <cmd>keepalt norm `Y<cr>
   nn <buffer> l <cmd>cal <sid>NetrwOpen()<cr>
 endf
+
 let g:netrw_altfile = 1 " Not respected by Rexplore
 let g:netrw_banner = 0
 let g:netrw_browsex_viewer= 'open'
@@ -193,7 +194,6 @@ let g:netrw_list_hide = '^\./$'
 nn <rightmouse> <cmd>cal <sid>Netrw()<cr>
 nn <space>e <cmd>cal <sid>Netrw()<cr>
 
-" EXPLORER - NETRW (EXPLORE)
 fu! s:Netrw()
   norm mY
   let file = expand('%:t')
@@ -201,7 +201,6 @@ fu! s:Netrw()
   exe search(file)
 endf
 
-" EXPLORER - NETRW (OPEN)
 fu! s:NetrwOpen()
   silent exe '!open -n ' split(getline('.'), '@\s*--> ')[0]
   if !v:shell_error
