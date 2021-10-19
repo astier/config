@@ -181,6 +181,7 @@ fu! NetrwInit()
   nm <buffer> <cr> mf
   nm <buffer> <rightmouse> <cmd>keepalt norm `Y<cr>
   nm <buffer> h -
+  nm <buffer> q <nop>
   nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>NetrwOpen()<cr>
   nn <buffer> <space>e <cmd>keepalt norm `Y<cr>
   nn <buffer> l <cmd>cal <sid>NetrwOpen()<cr>
