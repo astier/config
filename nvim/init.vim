@@ -620,4 +620,4 @@ xn 0 g0
 se breakindent
 se breakindentopt=shift:2
 se linebreak
-se showbreak=↳
+se showbreak=↳\ 
