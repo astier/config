@@ -29,6 +29,7 @@ cal plug#begin($XDG_DATA_HOME.'/nvim/plugins')
   Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'rbong/vim-flog'
+  Plug 'scrooloose/nerdtree'
   Plug 'stsewd/gx-extended.vim'
   Plug 'svermeulen/vim-subversive'
   Plug 'tpope/vim-commentary'
@@ -56,6 +57,7 @@ nn <a-e> <cmd>bp<cr><c-g>
 nn <a-r> <cmd>bn<cr><c-g>
 nn <space>d <cmd>qa!<cr>
 nn <space>q <cmd>bd!<cr>
+nn q <cmd>b#<cr>
 se hidden noswapfile
 
 " COMMENTS
@@ -174,67 +176,43 @@ nn U <c-r><cmd>ec<cr>
 nn u u<cmd>ec<cr>
 
 " EXPLORER
-aug netrw | au! filetype netrw call NetrwInit() | aug end
-let g:netrw_banner = 0
-let g:netrw_browsex_viewer= 'open'
-let g:netrw_dirhistmax = 0
-let g:netrw_list_hide = '^\./$'
-nn <rightmouse> <cmd>cal <sid>NetrwToggle()<cr>
-nn <space>e <cmd>cal <sid>NetrwToggle()<cr>
-nn q <cmd>cal <sid>ChangeToRealAltFile()<cr>
+" Start NERDTree when Vim starts with a directory argument.
+au stdinreadpre * let s:std_in=1
+au vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | winc p | ene | exe 'cd '.argv()[0] | en
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+au group bufenter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | let buf=bufnr() | b# | exe "norm! \<c-w>w" | exe 'b'.buf | en
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
+let g:NERDTreeDirArrowCollapsible = ''
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeHighlightCursorline = 0
+let g:NERDTreeHijackNetrw = 0
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeQuitOnOpen = 0
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeSortOrder = ['\/$', 'LICENSE', 'README.*', 'CHANGELOG', 'FAQ', 'Makefile', '[[extension]]']
+let g:NERDTreeStatusline = -1
+nn <rightmouse> <cmd>NERDTreeToggle<cr>
+nn <space>E <cmd>NERDTreeFind<cr>
+nn <space>e <cmd>NERDTreeToggle<cr>
 
-fu! NetrwInit()
-  nm <buffer> <c-leftmouse> <plug>NetrwSLeftmouse
-  nm <buffer> <cr> <nop>
-  nm <buffer> <rightmouse> <cmd>cal <sid>NetrwToggle()<cr>
-  nm <buffer> <tab> mf
-  nm <buffer> h -
-  nm <buffer> q <nop>
-  nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>NetrwOpen()<cr>
-  nn <buffer> <space>e <cmd>cal <sid>NetrwToggle()<cr>
-  nn <buffer> l <cmd>cal <sid>NetrwOpen()<cr>
+aug nerdtree | au! filetype nerdtree call NERDTreeInit() | aug end
+fu! NERDTreeInit()
+  au nerdtree bufenter * if &ft ==# 'nerdtree' | let g:NERDTreeMouseMode = 3 | en
+  nn <buffer> <leftmouse> <leftmouse><cmd>cal <sid>Open()<cr>
+  nn <buffer> l <cmd>cal <sid>Open()<cr>
 endf
 
-fu! s:NetrwToggle()
-  if &ft ==# 'netrw'
-    if exists('g:abufnr') | exe 'norm `Y' | en
-    retu
-  en
-  norm mY
-  if getbufvar(bufnr('#'), '&ft') ==# 'netrw'
-    let g:abufnr = bufnr('%')
+fu! s:Open()
+  if &ft !=# 'nerdtree' | retu | en
+  if g:NERDTreeMouseMode == 3 | let g:NERDTreeMouseMode = 0 | en
+  let file = shellescape(g:NERDTreeFileNode.GetSelected().path.str())
+  if file ==# shellescape(b:NERDTree.root.path.str())
+    norm U
+  elsei split(file, '\.')[-1] =~? '\(pdf\|png\|jpg\|jpeg\|ods\)'
+    cal system('open ' . file)
   el
-    let g:abufnr = bufnr('#')
-  en
-  let g:abufnr = bufnr('#')
-  let g:obufnr = bufnr('%')
-  let file = expand('%:t')
-  Explore
-  exe search(file)
-endf
-
-fu! s:ChangeToRealAltFile()
-  if getbufvar(bufnr('#'), '&ft') ==# 'netrw'
-    if !exists('g:obufnr') | retu | en
-    if bufnr('%') == g:obufnr
-      exe 'b ' g:abufnr
-    el
-      norm `Y
-    en
-  el
-    b #
-  en
-endf
-
-fu! s:NetrwOpen()
-  sil exe '!open -n ' shellescape(split(getline('.'), '@\s*--> ')[0])
-  if !v:shell_error
-    norm x
-  el
-    exe "norm \<plug>NetrwLocalBrowseCheck zz"
-    if exists('g:obufnr') && bufnr('%') == g:obufnr
-      norm `Y
-    en
+    norm o
   en
 endf
 
@@ -370,6 +348,8 @@ let g:loaded_gzip = 0
 let g:loaded_logiPat = 0
 let g:loaded_matchit = 0
 let g:loaded_matchparen = 0
+let g:loaded_netrw = 0
+let g:loaded_netrwPlugin = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python3_provider = 0
@@ -493,7 +473,7 @@ se spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATUSLINE
 fu! s:statusLine()
-  if empty(expand('%'))
+  if bufname() =~# 'NERD' || empty(expand('%'))
     retu repeat('─', winwidth(0))
   en
   let l:left = '[' . substitute(expand('%:t'), '^[^/]*\/', '', '') . ']'
