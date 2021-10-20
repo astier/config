@@ -16,7 +16,7 @@ require 'paq' {
   'AndrewRadev/switch.vim',
   'cohama/lexima.vim',
   'Darazaki/indent-o-matic',
-  'ethanholz/nvim-lastplace',
+  'farmergreg/vim-lastplace',
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-path',
@@ -392,7 +392,6 @@ xnoremap . :normal .<cr>
 xnoremap q :'<,'>:normal @q<cr>
 
 " MISC - SETTINGS
-lua require 'nvim-lastplace'.setup{}
 set clipboard=unnamedplus
 set nofoldenable
 set nojoinspaces
