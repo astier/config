@@ -166,6 +166,7 @@ nmap s <plug>(SubversiveSubstitute)
 nmap S <plug>(SubversiveSubstituteToEndOfLine)
 nmap ss <plug>(SubversiveSubstituteLine)
 xmap ss <plug>(SubversiveSubstitute)
+nmap sp sip
 nmap sw siw
 nmap sW siW
 
