@@ -24,7 +24,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'junegunn/fzf'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
-  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+  Plug 'majutsushi/tagbar'
   Plug 'mhinz/vim-grepper'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathom/tmux.nvim'
