@@ -11,9 +11,9 @@
     "prefix": ["pa"],
     "body": ["pa! "]
   },
-  "plug": {
+  "packer": {
     "prefix": ["p"],
-    "body": ["Plug '$0'"]
+    "body": ["use '$0'"]
   },
   "highlight": {
     "prefix": ["h"],
