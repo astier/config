@@ -178,17 +178,11 @@ nnoremap U <c-r><cmd>ec<cr>
 nnoremap u u<cmd>ec<cr>
 
 " EXPLORER
-" Start NERDTree when Vim starts with a directory argument.
-autocmd stdinreadpre * let s:std_in=1
-autocmd vimenter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+augroup nerdtree | autocmd! filetype nerdtree call NERDTreeInit() | augroup end
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
-let g:NERDTreeDirArrowCollapsible = ''
-let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeHijackNetrw = 0
 let g:NERDTreeMinimalUI = 1
-let g:NERDTreeQuitOnOpen = 0
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeSortOrder = ['\/$', 'LICENSE', 'README.*', 'CHANGELOG', 'FAQ', 'Makefile', '[[extension]]']
 let g:NERDTreeStatusline = -1
@@ -196,7 +190,6 @@ nnoremap <rightmouse> <cmd>NERDTreeToggle<cr>
 nnoremap <space>E <cmd>NERDTreeFind<cr>
 nnoremap <space>e <cmd>NERDTreeToggle<cr>
 
-augroup nerdtree | autocmd! filetype nerdtree call NERDTreeInit() | augroup end
 fun! NERDTreeInit()
   autocmd nerdtree bufenter * if &ft ==# 'nerdtree' | let g:NERDTreeMouseMode = 3 | endif
   nnoremap <buffer> <leftmouse> <leftmouse><cmd>call <sid>Open()<cr>
