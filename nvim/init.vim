@@ -65,8 +65,8 @@ nnoremap q <cmd>b#<cr>
 set hidden noswapfile
 
 " COMMENTS
-" autocmd group filetype c setlocal commentstring=//\ %s
 autocmd group filetype * set formatoptions-=cro
+autocmd group filetype c setlocal commentstring=//\ %s
 nnoremap gci my<cmd>normal vii<bar>gc<cr>`y
 nnoremap gcp my<cmd>normal vip<bar>gc<cr>`y
 
