@@ -11,10 +11,6 @@
     "prefix": ["pa"],
     "body": ["pa! "]
   },
-  "plug": {
-    "prefix": ["p"],
-    "body": ["Plug '$0'"]
-  },
   "highlight": {
     "prefix": ["h"],
     "body": ["hi $1 ctermbg=none ctermfg=none cterm=none \" $0"]
