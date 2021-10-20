@@ -76,7 +76,7 @@ set completeopt=menuone,noinsert
 set pumheight=8 pumwidth=0
 set shortmess+=c
 lua << EOF
-local cmp = require'cmp'
+local cmp = require 'cmp'
 cmp.setup {
   completion = {
     autocomplete = false,
@@ -225,7 +225,7 @@ nnoremap gqq Vgq
 
 " FUZZY - CONFIG
 lua << EOF
-require'fzf-lua'.setup {
+require 'fzf-lua'.setup {
   winopts = {
     border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
     preview = { hidden = 'hidden' },
@@ -253,30 +253,30 @@ require'fzf-lua'.setup {
 EOF
 
 " FUZZY - MAPPINGS (MISC)
-nnoremap fb <cmd>lua require('fzf-lua').buffers()<cr>
-nnoremap fB <cmd>lua require('fzf-lua').builtin()<cr>
-nnoremap fc <cmd>lua require('fzf-lua').commands()<cr>
-nnoremap ff <cmd>lua require('fzf-lua').files()<cr>
-nnoremap fh <cmd>lua require('fzf-lua').help_tags()<cr>
-nnoremap fl <cmd>lua require('fzf-lua').lines()<cr>
-nnoremap fo <cmd>lua require('fzf-lua').oldfiles()<cr>
-nnoremap fQ <cmd>lua require('fzf-lua').loclist()<cr>
-nnoremap fq <cmd>lua require('fzf-lua').quickfix()<cr>
-nnoremap fR <cmd>lua require('fzf-lua').registers()<cr>
+nnoremap fb <cmd>lua require 'fzf-lua'.buffers()<cr>
+nnoremap fB <cmd>lua require 'fzf-lua'.builtin()<cr>
+nnoremap fc <cmd>lua require 'fzf-lua'.commands()<cr>
+nnoremap ff <cmd>lua require 'fzf-lua'.files()<cr>
+nnoremap fh <cmd>lua require 'fzf-lua'.help_tags()<cr>
+nnoremap fl <cmd>lua require 'fzf-lua'.lines()<cr>
+nnoremap fo <cmd>lua require 'fzf-lua'.oldfiles()<cr>
+nnoremap fQ <cmd>lua require 'fzf-lua'.loclist()<cr>
+nnoremap fq <cmd>lua require 'fzf-lua'.quickfix()<cr>
+nnoremap fR <cmd>lua require 'fzf-lua'.registers()<cr>
 
 " FUZZY - MAPPINGS (GREP)
-nnoremap fg <cmd>lua require('fzf-lua').grep()<cr>
-nnoremap fG <cmd>lua require('fzf-lua').live_grep()<cr>
-nnoremap fw <cmd>lua require('fzf-lua').grep_cword()<cr>
-nnoremap fW <cmd>lua require('fzf-lua').grep_cWORD()<cr>
-xnoremap fw <cmd>lua require('fzf-lua').grep_visual()<cr>
+nnoremap fg <cmd>lua require 'fzf-lua'.grep()<cr>
+nnoremap fG <cmd>lua require 'fzf-lua'.live_grep()<cr>
+nnoremap fw <cmd>lua require 'fzf-lua'.grep_cword()<cr>
+nnoremap fW <cmd>lua require 'fzf-lua'.grep_cWORD()<cr>
+xnoremap fw <cmd>lua require 'fzf-lua'.grep_visual()<cr>
 
 " FUZZY - MAPPINGS (LSP)
-nnoremap fd <cmd>lua require('fzf-lua').lsp_definitions()<cr>
-nnoremap fi <cmd>lua require('fzf-lua').lsp_implementations()<cr>
-nnoremap fr <cmd>lua require('fzf-lua').lsp_references()<cr>
-nnoremap fs <cmd>lua require('fzf-lua').lsp_document_symbols()<cr>
-nnoremap fS <cmd>lua require('fzf-lua').lsp_workspace_symbols()<cr>
+nnoremap fd <cmd>lua require 'fzf-lua'.lsp_definitions()<cr>
+nnoremap fi <cmd>lua require 'fzf-lua'.lsp_implementations()<cr>
+nnoremap fr <cmd>lua require 'fzf-lua'.lsp_references()<cr>
+nnoremap fs <cmd>lua require 'fzf-lua'.lsp_document_symbols()<cr>
+nnoremap fS <cmd>lua require 'fzf-lua'.lsp_workspace_symbols()<cr>
 
 " GIT
 autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
@@ -367,7 +367,7 @@ let g:loaded_zipPlugin = 0
 lua << EOF
 vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require 'cmp_nvim_lsp'.update_capabilities(capabilities)
 require 'lspconfig'.ccls.setup { capabilities = capabilities }
 require 'lspconfig'.jedi_language_server.setup { capabilities = capabilities }
 EOF
@@ -392,7 +392,7 @@ xnoremap . :normal .<cr>
 xnoremap q :'<,'>:normal @q<cr>
 
 " MISC - SETTINGS
-lua require'nvim-lastplace'.setup{}
+lua require 'nvim-lastplace'.setup{}
 set clipboard=unnamedplus
 set nofoldenable
 set nojoinspaces
@@ -427,7 +427,7 @@ set mousemodel=popup
 " QUICKFIX
 autocmd group filetype qf set nonu
 lua << EOF
-require('bqf').setup{
+require 'bqf'.setup{
   preview = {
     auto_preview = false,
     border_chars = { '│', '│', '─', '─', '┌', '┐', '└', '┘', '█' },
@@ -578,10 +578,10 @@ set wildmode=longest:list,full
 
 " WINDOWS
 autocmd group vimresized * wincmd =
-nnoremap <a-h> <cmd>lua require('tmux').move_left()<cr>
-nnoremap <a-j> <cmd>lua require('tmux').move_down()<cr>
-nnoremap <a-k> <cmd>lua require('tmux').move_up()<cr>
-nnoremap <a-l> <cmd>lua require('tmux').move_right()<cr>
+nnoremap <a-h> <cmd>lua require 'tmux'.move_left()<cr>
+nnoremap <a-j> <cmd>lua require 'tmux'.move_down()<cr>
+nnoremap <a-k> <cmd>lua require 'tmux'.move_up()<cr>
+nnoremap <a-l> <cmd>lua require 'tmux'.move_right()<cr>
 nnoremap <space>c <c-w>czz
 nnoremap <space>s <c-w>s
 nnoremap <space>v <c-w>v
