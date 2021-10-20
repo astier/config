@@ -49,10 +49,12 @@
     "path-intellisense.absolutePathToWorkspace": false,
     "path-intellisense.autoSlashAfterDirectory": true,
     "path-intellisense.showHiddenFiles": true,
+    "python.analysis.completeFunctionParens": true,
     "python.autoComplete.addBrackets": true,
     "python.jediEnabled": false,
     "python.linting.pylintUseMinimalCheckers": false,
     "search.useGlobalIgnoreFiles": true,
+    "security.workspace.trust.untrustedFiles": "open",
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "terminal.integrated.copyOnSelection": true,
@@ -77,6 +79,5 @@
     "workbench.statusBar.visible": false,
     "workbench.tips.enabled": false,
     "workbench.tree.renderIndentGuides": "none",
-    "security.workspace.trust.untrustedFiles": "open",
 
 }
