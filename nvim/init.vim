@@ -408,6 +408,7 @@ nnoremap <c-o> <c-o>zz
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 nnoremap F g$
+xnoremap F g$
 nnoremap G G0
 nnoremap gg gg0
 nnoremap H H0
