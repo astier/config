@@ -179,7 +179,6 @@ nnoremap U <c-r><cmd>ec<cr>
 nnoremap u u<cmd>ec<cr>
 
 " EXPLORER
-augroup nerdtree | autocmd! filetype nerdtree call NERDTreeInit() | augroup end
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
 let g:NERDTreeHighlightCursorline = 0
@@ -191,8 +190,9 @@ nnoremap <rightmouse> <cmd>NERDTreeToggle<cr>
 nnoremap <space>E <cmd>NERDTreeFind<cr>
 nnoremap <space>e <cmd>NERDTreeToggle<cr>
 
+autocmd group filetype nerdtree call NERDTreeInit()
+autocmd group bufenter * if &ft ==# 'nerdtree' | let g:NERDTreeMouseMode = 3 | endif
 fun! NERDTreeInit()
-  autocmd nerdtree bufenter * if &ft ==# 'nerdtree' | let g:NERDTreeMouseMode = 3 | endif
   nnoremap <buffer> <leftmouse> <leftmouse><cmd>call <sid>Open()<cr>
   nnoremap <buffer> l <cmd>call <sid>Open()<cr>
 endfun
