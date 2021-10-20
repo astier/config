@@ -1,6 +1,7 @@
 {
 
     "breadcrumbs.enabled": false,
+    "C_Cpp.autocompleteAddParentheses": true,
     "cSpell.fixSpellingWithRenameProvider": false,
     "cSpell.showStatus": false,
     "debug.toolBarLocation": "docked",
