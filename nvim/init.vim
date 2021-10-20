@@ -3,45 +3,42 @@ augroup group | autocmd! | augroup end
 scriptencoding utf-8
 
 " PLUGINS
-lua << EOF
-local install_path = vim.fn.stdpath('data') .. '/site/pack/paqs/start/paq-nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/savq/paq-nvim.git', install_path})
-end
-vim.api.nvim_set_keymap('n', '<space>pl', '<cmd>lua require "paq".list()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<space>pL', '<cmd>lua require "paq".log_open()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<space>pp', '<cmd>lua require "paq":sync()<cr>', { noremap = true })
-require 'paq' {
-  'airblade/vim-gitgutter',
-  'AndrewRadev/switch.vim',
-  'cohama/lexima.vim',
-  'Darazaki/indent-o-matic',
-  'farmergreg/vim-lastplace',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-path',
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/vim-vsnip',
-  'ibhagwan/fzf-lua',
-  'junegunn/fzf',
-  'kevinhwang91/nvim-bqf',
-  'machakann/vim-sandwich',
-  'majutsushi/tagbar',
-  'mhinz/vim-grepper',
-  'michaeljsmith/vim-indent-object',
-  'nathom/tmux.nvim',
-  'neovim/nvim-lspconfig',
-  'rbong/vim-flog',
-  'scrooloose/nerdtree',
-  'stevearc/stickybuf.nvim',
-  'stsewd/gx-extended.vim',
-  'svermeulen/vim-subversive',
-  'tpope/vim-commentary',
-  'tpope/vim-fugitive',
-  'vijaymarupudi/nvim-fzf',
-  'wellle/targets.vim',
-}
-EOF
+let plug_path = stdpath('data') . '/site/autoload/plug.vim'
+if empty(glob(plug_path))
+  execute '!curl -fLo' plug_path '--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd group vimenter * PlugInstall --sync | source $MYVIMRC
+endif
+nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugClean<bar>PlugUpdate<cr>
+call plug#begin(stdpath('data') . '/plugged')
+  Plug 'airblade/vim-gitgutter'
+  Plug 'AndrewRadev/switch.vim'
+  Plug 'cohama/lexima.vim'
+  Plug 'Darazaki/indent-o-matic'
+  Plug 'farmergreg/vim-lastplace'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'ibhagwan/fzf-lua'
+  Plug 'junegunn/fzf'
+  Plug 'kevinhwang91/nvim-bqf'
+  Plug 'machakann/vim-sandwich'
+  Plug 'majutsushi/tagbar'
+  Plug 'mhinz/vim-grepper'
+  Plug 'michaeljsmith/vim-indent-object'
+  Plug 'nathom/tmux.nvim'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'rbong/vim-flog'
+  Plug 'scrooloose/nerdtree'
+  Plug 'stevearc/stickybuf.nvim'
+  Plug 'stsewd/gx-extended.vim'
+  Plug 'svermeulen/vim-subversive'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-fugitive'
+  Plug 'vijaymarupudi/nvim-fzf'
+  Plug 'wellle/targets.vim'
+call plug#end()
 
 " APPEARANCE
 autocmd group filetype * set nocursorline
