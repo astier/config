@@ -331,8 +331,8 @@ xnoremap - g<C-x>
 nnoremap <p <ap
 nnoremap >p >ap
 set expandtab
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 
 " LOADED
 let g:loaded_2html_plugin = 0
