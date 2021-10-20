@@ -599,4 +599,4 @@ xnoremap 0 g0
 set breakindent
 set breakindentopt=shift:2
 set linebreak
-set showbreak=↳\ 
+set showbreak=﬌\ 
