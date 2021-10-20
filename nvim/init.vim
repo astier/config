@@ -3,42 +3,42 @@ augroup group | autocmd! | augroup end
 scriptencoding utf-8
 
 " PLUGINS
-lua << EOF
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
-vim.api.nvim_set_keymap('n', '<space>pp', '<cmd>PackerSync<cr>', { noremap = true })
-require('packer').startup(function(use)
-  use { 'airblade/vim-gitgutter' }
-  use { 'AndrewRadev/switch.vim' }
-  use { 'cohama/lexima.vim' }
-  use { 'Darazaki/indent-o-matic' }
-  use { 'ethanholz/nvim-lastplace', config = [[require'nvim-lastplace'.setup{}]] }
-  use { 'hrsh7th/nvim-cmp', requires = { { 'hrsh7th/cmp-buffer' }, { 'hrsh7th/cmp-nvim-lsp' }, { 'hrsh7th/cmp-path' } } }
-  use { 'hrsh7th/vim-vsnip' }
-  use { 'ibhagwan/fzf-lua', requires = { { 'vijaymarupudi/nvim-fzf' } } }
-  use { 'kevinhwang91/nvim-bqf', requires = { { 'junegunn/fzf' } } }
-  use { 'machakann/vim-sandwich' }
-  use { 'majutsushi/tagbar', opt = true, cmd = { 'TagbarToggle' } }
-  use { 'mhinz/vim-grepper' }
-  use { 'michaeljsmith/vim-indent-object' }
-  use { 'nathom/tmux.nvim' }
-  use { 'neovim/nvim-lspconfig' }
-  use { 'rbong/vim-flog', requires = { { 'tpope/vim-fugitive' } } }
-  use { 'scrooloose/nerdtree', requires = { { 'stevearc/stickybuf.nvim' } } }
-  use { 'stsewd/gx-extended.vim' }
-  use { 'svermeulen/vim-subversive' }
-  use { 'tpope/vim-commentary' }
-  use { 'tpope/vim-eunuch', opt = true, cmd = { 'Delete', 'Move', 'Mkdir', 'Rename' } }
-  use { 'wbthomason/packer.nvim' }
-  use { 'wellle/targets.vim' }
-if packer_bootstrap then
-  require('packer').sync()
-end
-end)
-EOF
+if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+nnoremap <space>pc <cmd>PlugClean<cr>
+nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
+call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
+  Plug 'airblade/vim-gitgutter'
+  Plug 'AndrewRadev/switch.vim'
+  Plug 'cohama/lexima.vim'
+  Plug 'Darazaki/indent-o-matic'
+  Plug 'ethanholz/nvim-lastplace'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'ibhagwan/fzf-lua'
+  Plug 'junegunn/fzf'
+  Plug 'kevinhwang91/nvim-bqf'
+  Plug 'machakann/vim-sandwich'
+  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+  Plug 'mhinz/vim-grepper'
+  Plug 'michaeljsmith/vim-indent-object'
+  Plug 'nathom/tmux.nvim'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'rbong/vim-flog'
+  Plug 'scrooloose/nerdtree'
+  Plug 'stevearc/stickybuf.nvim'
+  Plug 'stsewd/gx-extended.vim'
+  Plug 'svermeulen/vim-subversive'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-eunuch'
+  Plug 'tpope/vim-fugitive'
+  Plug 'vijaymarupudi/nvim-fzf'
+  Plug 'wellle/targets.vim'
+call plug#end()
 
 " APPEARANCE
 autocmd group filetype * set nocursorline
@@ -386,6 +386,7 @@ xnoremap . :normal .<cr>
 xnoremap q :'<,'>:normal @q<cr>
 
 " MISC - SETTINGS
+lua require'nvim-lastplace'.setup{}
 set clipboard=unnamedplus
 set nofoldenable
 set nojoinspaces
