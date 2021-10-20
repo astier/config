@@ -3,12 +3,12 @@ augroup group | autocmd! | augroup end
 scriptencoding utf-8
 
 " PLUGINS
-if empty(glob($XDG_DATA_HOME.'/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo "$XDG_DATA_HOME"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+let plug_path = stdpath('data') . '/site/autoload/plug.vim'
+if empty(glob(plug_path))
+  execute '!curl -fLo' plug_path '--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
-nnoremap <space>pc <cmd>PlugClean<cr>
-nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
-call plug#begin($XDG_DATA_HOME.'/nvim/plugins')
+nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugClean<bar>PlugUpdate<cr>
+call plug#begin(stdpath('data') . '/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'AndrewRadev/switch.vim'
   Plug 'cohama/lexima.vim'
