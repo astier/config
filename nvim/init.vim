@@ -6,7 +6,7 @@ scriptencoding utf-8
 let plug_path = stdpath('data') . '/site/autoload/plug.vim'
 if empty(glob(plug_path))
   execute '!curl -fLo' plug_path '--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd vimenter * PlugInstall --sync | source $MYVIMRC
+  autocmd group vimenter * PlugInstall --sync | source $MYVIMRC
 endif
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugClean<bar>PlugUpdate<cr>
 call plug#begin(stdpath('data') . '/plugged')
@@ -63,13 +63,13 @@ nnoremap q <cmd>b#<cr>
 set hidden noswapfile
 
 " COMMENTS
-autocmd filetype c setlocal commentstring=//\ %s
+" autocmd group filetype c setlocal commentstring=//\ %s
 autocmd group filetype * set formatoptions-=cro
 nnoremap gci my<cmd>normal vii<bar>gc<cr>`y
 nnoremap gcp my<cmd>normal vip<bar>gc<cr>`y
 
 " COMPLETION
-autocmd filetype * set omnifunc=v:lua.vim.lsp.omnifunc
+autocmd group filetype * set omnifunc=v:lua.vim.lsp.omnifunc
 set completeopt=menuone,noinsert
 set pumheight=8 pumwidth=0
 set shortmess+=c
@@ -420,7 +420,7 @@ set mouse=a
 set mousemodel=popup
 
 " QUICKFIX
-autocmd filetype qf set nonu
+autocmd group filetype qf set nonu
 lua << EOF
 require('bqf').setup{
   preview = {
