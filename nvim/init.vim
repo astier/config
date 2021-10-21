@@ -469,12 +469,12 @@ set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATUSLINE
 fun! s:statusLine()
-  if bufname() =~# 'NERD' || empty(expand('%'))
-    return repeat('─', winwidth(0))
+  let left = '[' . substitute(expand('%:t'), '^[^/]*\/', '', '') . ']'
+  let right = '[' . line('.') . '/' . line('$') . ']'
+  if &ft =~# '\(nerdtree\|floggraph\|tagbar\)' || empty(expand('%'))
+    let left = ''
   endif
-  let l:left = '[' . substitute(expand('%:t'), '^[^/]*\/', '', '') . ']'
-  let l:right = '[' . line('.') . '/' . line('$') . ']'
-  return l:left . repeat('─', winwidth(0) - len(l:left) - len(l:right)) . l:right
+  return left . repeat('─', winwidth(0) - len(left) - len(right)) . right
 endfun
 nnoremap <expr> <space>b &ls ? '<cmd>set stl=\  ls=0<cr>' : '<cmd>set ls=2 stl=%{<sid>statusLine()}<cr>'
 set fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
