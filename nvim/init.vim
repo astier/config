@@ -30,12 +30,12 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
+  Plug 'numToStr/Comment.nvim'
   Plug 'rbong/vim-flog'
   Plug 'scrooloose/nerdtree'
   Plug 'stevearc/stickybuf.nvim'
   Plug 'stsewd/gx-extended.vim'
   Plug 'svermeulen/vim-subversive'
-  Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
   Plug 'vijaymarupudi/nvim-fzf'
   Plug 'wellle/targets.vim'
@@ -64,9 +64,11 @@ set hidden noswapfile
 
 " COMMENTS
 autocmd group filetype * set formatoptions-=cro
-autocmd group filetype c setlocal commentstring=//\ %s
-nnoremap gci my<cmd>normal vii<bar>gc<cr>`y
-nnoremap gcp my<cmd>normal vip<bar>gc<cr>`y
+lua require('Comment').setup()
+nmap gcj gco
+nmap gck gcO
+nmap gcl gcA
+nmap gcp gcip
 
 " COMPLETION
 autocmd group filetype * set omnifunc=v:lua.vim.lsp.omnifunc
