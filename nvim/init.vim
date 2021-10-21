@@ -469,7 +469,7 @@ set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATUSLINE
 fun! s:statusLine()
-  let left = '[' . substitute(expand('%:t'), '^[^/]*\/', '', '') . ']'
+  let left = '[' . expand('%:t') . ']'
   let right = '[' . line('.') . '/' . line('$') . ']'
   if &ft =~# '\(nerdtree\|floggraph\|tagbar\)' || empty(expand('%'))
     let left = ''
