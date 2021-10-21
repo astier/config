@@ -85,7 +85,7 @@ j() {
 # GIT
 k() { n=24; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline --show-pulls -n"$n"; }
 kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
-kg() { nvim -c "Flog -search=$1" -c 1tabclose; }
+kg() { nvim -c "Flog -all -search=$1" -c 1tabclose; }
 krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
 ksf() { if [ $# = 0 ]; then git show | "$EDITOR"; else git show "$1" | "$EDITOR"; fi }
 
