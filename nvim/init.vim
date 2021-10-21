@@ -11,6 +11,7 @@ endif
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugClean<bar>PlugUpdate<cr>
 call plug#begin(stdpath('data') . '/plugged')
   Plug 'airblade/vim-gitgutter'
+  Plug 'airblade/vim-rooter'
   Plug 'AndrewRadev/switch.vim'
   Plug 'cohama/lexima.vim'
   Plug 'Darazaki/indent-o-matic'
@@ -435,6 +436,10 @@ require 'bqf'.setup{
 EOF
 highlight! link bqfpreviewrange none
 highlight bqfsign ctermfg=yellow
+
+" ROOTER
+let g:rooter_resolve_links = 1
+let g:rooter_silent_chdir = 1
 
 " SANDWICH
 let g:textobj_sandwich_no_default_key_mappings = 1
