@@ -32,7 +32,6 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
   Plug 'rbong/vim-flog'
-  Plug 'scrooloose/nerdtree'
   Plug 'stevearc/stickybuf.nvim'
   Plug 'stsewd/gx-extended.vim'
   Plug 'svermeulen/vim-subversive'
@@ -59,7 +58,6 @@ nnoremap <a-e> <cmd>bp<cr><c-g>
 nnoremap <a-r> <cmd>bn<cr><c-g>
 nnoremap <space>d <cmd>qa!<cr>
 nnoremap <space>q <cmd>bd!<cr>
-nnoremap q <cmd>b#<cr>
 set hidden noswapfile
 
 " COMMENTS
@@ -182,34 +180,67 @@ nnoremap U <c-r><cmd>ec<cr>
 nnoremap u u<cmd>ec<cr>
 
 " EXPLORER
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeBookmarksFile = $XDG_DATA_HOME.'/nvim/NERDTreeBookmarks'
-let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeSortOrder = ['\/$', 'LICENSE', 'README.*', 'CHANGELOG', 'FAQ', 'Makefile', '[[extension]]']
-let g:NERDTreeStatusline = -1
-nnoremap <rightmouse> <cmd>NERDTreeToggle<cr>
-nnoremap <space>E <cmd>NERDTreeFind<cr>
-nnoremap <space>e <cmd>NERDTreeToggle<cr>
+let g:netrw_banner = 0
+let g:netrw_browsex_viewer= 'open'
+let g:netrw_dirhistmax = 0
+let g:netrw_list_hide = '^\./$'
+nnoremap <rightmouse> <cmd>call <sid>NetrwToggle()<cr>
+nnoremap <space>e <cmd>call <sid>NetrwToggle()<cr>
+nnoremap q <cmd>call <sid>ChangeToRealAltFile()<cr>
 
-autocmd group filetype nerdtree call NERDTreeInit()
-autocmd group bufenter * if &ft ==# 'nerdtree' | let g:NERDTreeMouseMode = 3 | endif
-fun! NERDTreeInit()
-  nnoremap <buffer> <leftmouse> <leftmouse><cmd>call <sid>Open()<cr>
-  nnoremap <buffer> l <cmd>call <sid>Open()<cr>
+augroup netrw | autocmd! filetype netrw call NetrwInit() | augroup end
+fun! NetrwInit()
+  nmap <buffer> <c-leftmouse> <plug>NetrwSLeftmouse
+  nmap <buffer> <cr> <nop>
+  nmap <buffer> <rightmouse> <cmd>call <sid>NetrwToggle()<cr>
+  nmap <buffer> <tab> mf
+  nmap <buffer> h -
+  nmap <buffer> q <nop>
+  nnoremap <buffer> <leftmouse> <leftmouse><cmd>call <sid>NetrwOpen()<cr>
+  nnoremap <buffer> <space>e <cmd>call <sid>NetrwToggle()<cr>
+  nnoremap <buffer> l <cmd>call <sid>NetrwOpen()<cr>
 endfun
 
-fun! s:Open()
-  if &ft !=# 'nerdtree' | return | endif
-  if g:NERDTreeMouseMode == 3 | let g:NERDTreeMouseMode = 0 | endif
-  let file = shellescape(g:NERDTreeFileNode.GetSelected().path.str())
-  if file ==# shellescape(b:NERDTree.root.path.str())
-    normal U
-  elseif split(file, '\.')[-1] =~? '\(pdf\|png\|jpg\|jpeg\|ods\)'
-    call system('open ' . file)
+fun! s:NetrwToggle()
+  if &ft ==# 'netrw'
+    if exists('g:abufnr') | execute 'normal `Y' | endif
+    return
+  endif
+  normal mY
+  if getbufvar(bufnr('#'), '&ft') ==# 'netrw'
+    let g:abufnr = bufnr('%')
   else
-    normal o
+    let g:abufnr = bufnr('#')
+  endif
+  let g:abufnr = bufnr('#')
+  let g:obufnr = bufnr('%')
+  let file = expand('%:t')
+  Explore
+  execute search(file)
+endfun
+
+fun! s:ChangeToRealAltFile()
+  if getbufvar(bufnr('#'), '&ft') ==# 'netrw'
+    if !exists('g:obufnr') | return | endif
+    if bufnr('%') == g:obufnr
+      execute 'buffer ' g:abufnr
+    else
+      normal `Y
+    endif
+  else
+    buffer #
+  endif
+endfun
+
+fun! s:NetrwOpen()
+  let file = split(getline('.'), '@\s*--> ')[0]
+  if split(file, '\.')[-1] =~? '\(pdf\|png\|jpg\|jpeg\|ods\)'
+    normal x
+  else
+    execute "normal \<plug>NetrwLocalBrowseCheck zz"
+    if exists('g:obufnr') && bufnr('%') == g:obufnr
+      normal `Y
+    endif
   endif
 endfun
 
@@ -345,8 +376,6 @@ let g:loaded_gzip = 0
 let g:loaded_logiPat = 0
 let g:loaded_matchit = 0
 let g:loaded_matchparen = 0
-let g:loaded_netrw = 0
-let g:loaded_netrwPlugin = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python3_provider = 0
@@ -478,7 +507,7 @@ set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 fun! s:statusLine()
   let left = '[' . pathshorten(expand('%')) . ']'
   let right = '[' . line('.') . '/' . line('$') . ']'
-  if &ft =~# '\(nerdtree\|floggraph\|tagbar\)' || empty(expand('%'))
+  if &ft =~# '\(floggraph\|tagbar\)' || empty(expand('%'))
     let left = ''
   endif
   return left . repeat('─', winwidth(0) - len(left) - len(right)) . right
