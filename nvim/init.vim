@@ -175,9 +175,18 @@ inoremap ! !<c-g>u
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap ? ?<c-g>u
-nnoremap <c-r> <cmd>silent redo<cr>
-nnoremap U <cmd>silent redo<cr>
-nnoremap u <cmd>silent undo<cr>
+nnoremap <c-r> <cmd>call ExeCmdAndRecenter('redo')<cr>
+nnoremap U <cmd>call ExeCmdAndRecenter('redo')<cr>
+nnoremap u <cmd>call ExeCmdAndRecenter('undo')<cr>
+
+" FUNCTIONS
+fun! ExeCmdAndRecenter(cmd)
+  let old_lines = [line('w0'), line('w$')]
+  silent execute a:cmd
+  if !(line('w0') >= old_lines[0] && line('w$') <= old_lines[1])
+    normal zz
+  endif
+endfun
 
 " EXPLORER
 let g:netrw_banner = 0
