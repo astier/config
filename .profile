@@ -3,10 +3,10 @@
 export PATH=$HOME/.local/bin:$PATH
 
 export XDG_CACHE_HOME=$HOME/.cache
-export XDG_CONFIG_DIRS=$XDG_CONFIG_HOME:/etc/xdg:$XDG_CONFIG_DIRS
 export XDG_CONFIG_HOME=$HOME/.config
-export XDG_DATA_DIRS=$XDG_DATA_HOME:/usr/local/share:/usr/share:$XDG_DATA_DIRS
+export XDG_CONFIG_DIRS=$XDG_CONFIG_HOME:/etc/xdg:$XDG_CONFIG_DIRS
 export XDG_DATA_HOME=$HOME/.local/share
+export XDG_DATA_DIRS=$XDG_DATA_HOME:/usr/local/share:/usr/share:$XDG_DATA_DIRS
 
 export CONFIG=$HOME/projects/config
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
