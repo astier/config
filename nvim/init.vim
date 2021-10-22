@@ -175,9 +175,9 @@ inoremap ! !<c-g>u
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap ? ?<c-g>u
-nnoremap <c-r> <c-r><cmd>ec<cr>
-nnoremap U <c-r><cmd>ec<cr>
-nnoremap u u<cmd>ec<cr>
+nnoremap <c-r> <cmd>silent redo<cr>
+nnoremap U <cmd>silent redo<cr>
+nnoremap u <cmd>silent undo<cr>
 
 " EXPLORER
 let g:netrw_banner = 0
