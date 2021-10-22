@@ -1,7 +1,7 @@
 {
   "function": {
     "prefix": ["f"],
-    "body": ["fu! $1()\n\t$0\nendf"]
+    "body": ["fun! $1()\n\t$0\nendfun"]
   },
   "if": {
     "prefix": ["i"],
@@ -9,7 +9,7 @@
   },
   "packadd": {
     "prefix": ["pa"],
-    "body": ["pa! "]
+    "body": ["packadd! "]
   },
   "plug": {
     "prefix": ["p"],
@@ -17,14 +17,14 @@
   },
   "highlight": {
     "prefix": ["h"],
-    "body": ["hi $1 ctermbg=none ctermfg=none cterm=none \" $0"]
+    "body": ["highlight $1 ctermbg=none ctermfg=none cterm=none \" $0"]
   },
   "highlight link": {
     "prefix": ["hl"],
-    "body": ["hi! link $1 \" $0"]
+    "body": ["highlight! link $1 \" $0"]
   },
   "highight link none": {
     "prefix": ["hln"],
-    "body": ["hi! link $1 none \" $0"]
+    "body": ["highlight! link $1 none \" $0"]
   }
 }
