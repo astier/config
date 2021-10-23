@@ -148,20 +148,20 @@ xnoremap c "_c
 
 " EDITING - COPY
 nnoremap Y y$
-nnoremap yp myyap<cmd>ec<cr>`y
+nnoremap yp <cmd>silent normal myyap`y<cr>
 nnoremap yw myyiw`y
 nnoremap yW myyiW`y
-xnoremap y myy<cmd>ec<cr>`y
+xnoremap y <cmd>silent normal! myy`y<cr>
 
 " EDITING - CUT
-nnoremap <expr> dp &diff ? 'dp' : 'dap<cmd>ec<cr>'
+nnoremap <expr> dp &diff ? 'dp' : '<cmd>silent normal dap<cr>'
 nnoremap dw daw
 nnoremap dW daW
 
 " EDITING - PASTE
 inoremap <c-v> <c-r>+
 nnoremap cP yap}p
-nnoremap p p<cmd>ec<cr>
+nnoremap p <cmd>silent normal! p<cr>
 
 " EDITING - REPLACE
 let g:subversivePreserveCursorPosition = 1
@@ -490,8 +490,8 @@ nmap saw saiw
 nmap saW saiW
 
 " SEARCH
-cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>noh<bar>ec<cr>zz' : '<enter>'
-nnoremap <esc> <cmd>noh<bar>ec<cr><esc>
+cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>echo<bar>noh<cr>zz' : '<enter>'
+nnoremap <esc> <cmd>echo<bar>noh<cr><esc>
 nnoremap <a-esc> <cmd>set hls<cr>
 nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nnoremap ,w <cmd>let @/= expand('<cword>')<bar>set hls<cr>
