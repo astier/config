@@ -157,6 +157,7 @@ xnoremap y <cmd>silent normal! myy`y<cr>
 nnoremap <expr> dp &diff ? 'dp' : '<cmd>silent normal dap<cr>'
 nnoremap dw daw
 nnoremap dW daW
+xnoremap d <cmd>silent normal! d<cr>
 
 " EDITING - PASTE
 inoremap <c-v> <c-r>+
