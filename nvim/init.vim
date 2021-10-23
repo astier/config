@@ -8,7 +8,8 @@ if empty(glob(plug_path))
   execute '!curl -fLo' plug_path '--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd group vimenter * PlugInstall --sync | source $MYVIMRC
 endif
-nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugClean<bar>PlugUpdate<cr>
+nnoremap <space>pc <cmd>PlugClean<cr>
+nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin(stdpath('data') . '/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'airblade/vim-rooter'
