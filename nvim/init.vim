@@ -225,7 +225,6 @@ fun! s:NetrwToggle()
   else
     let g:abufnr = bufnr('#')
   endif
-  let g:abufnr = bufnr('#')
   let g:obufnr = bufnr('%')
   let file = expand('%:t')
   Explore
