@@ -7,6 +7,10 @@
     "prefix": ["ag"],
     "body": ["autocmd group "]
   },
+  "nnoremap": {
+    "prefix": ["n"],
+    "body": ["nnoremap "]
+  },
   "function": {
     "prefix": ["f"],
     "body": ["fun! $1()\n\t$0\nendfun"]
