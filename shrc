@@ -192,12 +192,24 @@ s() { if [ $# = 0 ]; then echo "$(bstatus)% | $(pulsemixer --get-volume) | $(dat
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # OPEN PROJECT-FILES
-alias o="[ -f "main.*" ] && \$EDITOR main.*"
+alias o="autopen"
 alias ogi="\$EDITOR \$(git rev-parse --show-toplevel)/.gitignore"
 alias ogm="\$EDITOR \$(git rev-parse --show-toplevel)/.gitmodules"
 alias om="\$EDITOR Makefile"
 alias or="[ -f "README*" ] && \$EDITOR README*"
 alias os="\$EDITOR setup.sh"
+
+autopen() {
+    if [ -r main.* ]; then
+        "$EDITOR" main.*
+    elif [ -r setup.sh ]; then
+        "$EDITOR" setup.sh
+    elif [ -r config.h ]; then
+        "$EDITOR" config.h
+    else
+        echo No appropriate file found.
+    fi
+}
 
 # TMUX
 alias t="tmux new -A"
