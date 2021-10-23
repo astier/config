@@ -1,4 +1,12 @@
 {
+  "autocmd": {
+    "prefix": ["a"],
+    "body": ["autocmd "]
+  },
+  "autocmd group": {
+    "prefix": ["ag"],
+    "body": ["autocmd group "]
+  },
   "function": {
     "prefix": ["f"],
     "body": ["fun! $1()\n\t$0\nendfun"]
