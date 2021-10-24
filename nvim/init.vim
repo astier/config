@@ -163,6 +163,7 @@ xnoremap d <cmd>silent normal! d<cr>
 inoremap <c-v> <c-r>+
 nnoremap cP yap}p
 nnoremap p <cmd>silent normal! p<cr>
+nnoremap P <cmd>silent normal! P<cr>
 
 " EDITING - REPLACE
 let g:subversivePreserveCursorPosition = 1
