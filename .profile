@@ -34,6 +34,10 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM=auto
 
+case $0 in
+    *bash) . "$HOME/.bashrc" ;;
+esac
+
 [ -f /tmp/logged_in ] && return
 touch /tmp/logged_in
 [ "$(tty)" = /dev/tty1 ] && [ "$(whoami)" != root ] && exec sx
