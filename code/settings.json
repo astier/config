@@ -57,7 +57,6 @@
     "telemetry.enableTelemetry": false,
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.rightClickBehavior": "paste",
-    "terminal.integrated.shell.linux": "/usr/bin/bash",
     "update.mode": "manual",
     "vscode-neovim.mouseSelectionStartVisualMode": true,
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
