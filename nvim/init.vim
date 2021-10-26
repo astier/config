@@ -419,8 +419,8 @@ EOF
 nnoremap <expr> K '<cmd>'.(index(['vim','help'], &ft) >= 0 ? 'h '.expand('<cword>') : 'lua vim.lsp.buf.hover()').'<cr>'
 nnoremap ga <cmd>lua vim.lsp.buf.code_action()<cr>
 nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
-nnoremap gr <cmd>lua vim.lsp.buf.references()<cr>
-nnoremap gR <cmd>lua vim.lsp.buf.rename()<cr>
+nnoremap gR <cmd>lua vim.lsp.buf.references()<cr>
+nnoremap gr <cmd>lua vim.lsp.buf.rename()<cr>
 nnoremap gs <cmd>lua vim.lsp.buf.document_symbol()<cr>
 nnoremap gS <cmd>lua vim.lsp.buf.workspace_symbol()<cr>
 
