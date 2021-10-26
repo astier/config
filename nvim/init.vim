@@ -472,7 +472,6 @@ autocmd group filetype qf set nonu
 lua << EOF
 require 'bqf'.setup{
   preview = {
-    auto_preview = false,
     border_chars = { '│', '│', '─', '─', '┌', '┐', '└', '┘', '█' },
   },
   func_map = { split = '<c-s>', },
