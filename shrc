@@ -43,7 +43,7 @@ alias bm="\$EDITOR \$bookmarks && . \$bookmarks"
 # BOOKMARKS - HOME
 alias dl="cd ~/Downloads"
 alias jca="cd \$XDG_CACHE_HOME"
-alias jch="cd \$XDG_CONFIG_HOME"
+alias jco="cd \$XDG_CONFIG_HOME"
 alias jl="cd \$HOME/.local"
 alias jlb="cd \$HOME/.local/bin"
 alias jls="cd \$XDG_DATA_HOME"
