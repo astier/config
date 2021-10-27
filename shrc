@@ -154,6 +154,7 @@ mf() {
 }
 
 # MISC
+alias .s=". \$XDG_CONFIG_HOME/shrc"
 alias a="execute"
 alias as="echo Remapped to do nothing."
 alias b="cd - >/dev/null && ls"
