@@ -70,7 +70,7 @@ alias js="cd ~/projects/scripts"
 alias jsf="cd ~/projects/scripts && f"
 alias jt="cd ~/projects/st"
 alias jv="cd ~/projects/vlugins"
-alias jw="cd ~/projects/saswm"
+alias jw="cd ~/projects/wm"
 
 j() {
     dir=$1
