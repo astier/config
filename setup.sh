@@ -21,6 +21,7 @@ link .profile ~
 link alacritty.yml "$XDG_CONFIG_HOME"
 link chrome "$HOME"/.mozilla/firefox/tanwop6x.default-release # TODO: automatically figure out profile-name
 link dunst "$XDG_CONFIG_HOME"
+link dwmrc "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
 link gtk-2.0 "$XDG_CONFIG_HOME"
 link gtk-3.0 "$XDG_CONFIG_HOME"
@@ -88,7 +89,7 @@ if groups "$USER" | grep -q wheel; then
         link_sudo NetworkManager.conf "$nm_dir"
     fi
 
-    # copy 10-udev.rules /etc/udev/rules.d/
-    # sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
+    copy 10-udev.rules /etc/udev/rules.d/
+    sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
 
 fi
