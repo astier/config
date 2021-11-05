@@ -1,0 +1,13 @@
+# Enable userChrome.css
+toolkit.legacyUserProfileCustomizations.stylesheets true
+
+# Fix screen-tearing inroduced in 94
+gfx.webrender.unaccelerated-widget.force true
+
+# Make scrollbar use gtk-theme
+widget.content.allow-gtk-dark-theme true
+widget.content.gtk-theme-override Arc-Dark
+widget.non-native-theme.enabled false
+
+# Enable compact-mode
+browser.compactmode.show
