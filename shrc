@@ -3,9 +3,13 @@
 # DEFAULTS
 alias df="df -h"
 alias du="du -h"
+alias fdisk="sudo fdisk"
+alias gdisk="sudo gdisk"
 alias grep="grep --color --exclude-dir=.?*"
 alias ls="ls -Ahv --color --group-directories-first"
+alias mount="sudo mount"
 alias tree="tree -aCI '__pycache__|.git|*.aux|*.fdb_latexmk|*.fls|*.log|*.nav|*.snm|*.gz|*.toc' --dirsfirst --noreport"
+alias umount="sudo umount"
 alias watch="watch --color"
 
 # CPM
