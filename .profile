@@ -40,4 +40,5 @@ esac
 
 [ -f /tmp/logged_in ] && return
 touch /tmp/logged_in
-[ "$(tty)" = /dev/tty1 ] && [ "$(whoami)" != root ] && exec sx
+
+[ "$(tty)" = /dev/tty1 ] && [ "$(whoami)" != root ] && [ -f /bin/sx ] && exec sx
