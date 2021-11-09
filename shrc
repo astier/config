@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 # DEFAULTS
+alias cryptsetup="sudo cryptsetup"
 alias df="df -h"
 alias du="du -h"
 alias fdisk="sudo fdisk"
