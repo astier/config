@@ -1,0 +1,4 @@
+GRUB_CMDLINE_LINUX="cryptdevice=/dev/nvme0n1p2:root"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=2 udev.log_priority=3 nowatchdog module_blacklist=iTCO_vendor_support,iTCO_wdt vt.global_cursor_default=0"
+GRUB_GFXPAYLOAD_LINUX=keep
+GRUB_TIMEOUT=0
