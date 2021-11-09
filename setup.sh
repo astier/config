@@ -65,7 +65,10 @@ fi
 
 if groups "$USER" | grep -q wheel; then
 
-    copy iwd.conf /etc/iwd/main.conf
+    iwd=/etc/iwd
+    [ ! -d "$iwd" ] && sudo mkdir "$iwd"
+    copy iwd.conf "$iwd"/main.conf
+
     copy systemd/journald.conf.d /etc/systemd
     copy systemd/logind.conf.d /etc/systemd
     copy systemd/resolved.conf.d /etc/systemd
