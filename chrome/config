@@ -7,4 +7,4 @@ widget.content.gtk-theme-override Arc-Dark
 widget.non-native-theme.enabled false
 
 # Enable compact-mode
-browser.compactmode.show
+browser.compactmode.show true
