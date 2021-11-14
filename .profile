@@ -8,7 +8,7 @@ export XDG_CONFIG_DIRS=$XDG_CONFIG_HOME:/etc/xdg:$XDG_CONFIG_DIRS
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_DATA_DIRS=$XDG_DATA_HOME:/usr/local/share:/usr/share:$XDG_DATA_DIRS
 
-export CONFIG=$HOME/projects/config
+export CONFIG=$HOME/repos/config
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/settings.ini
 export INPUTRC=$XDG_CONFIG_HOME/inputrc

@@ -63,19 +63,19 @@ alias nn="jumpopen ~/data/notes newsboat"
 alias ns="jumpopen ~/data/notes study"
 alias rss="newsboat -u ~/data/notes/newsboat"
 
-# BOOKMARKS - PROJECTS
-alias fa="jumpopen ~/projects/arch desktop.sh base.sh"
-alias fv="jumpopen ~/projects/vlugins README.md"
-alias ja="cd ~/projects/arch"
-alias jc="cd ~/projects/config"
-alias jcf="cd ~/projects/config && f"
-alias jp="cd ~/projects"
-alias jpj="cd ~/projects && j"
-alias js="cd ~/projects/scripts"
-alias jsf="cd ~/projects/scripts && f"
-alias jt="cd ~/projects/st"
-alias jv="cd ~/projects/vlugins"
-alias jw="cd ~/projects/wm"
+# BOOKMARKS - REPOS
+alias fa="jumpopen ~/repos/arch desktop.sh base.sh"
+alias fv="jumpopen ~/repos/vlugins README.md"
+alias ja="cd ~/repos/arch"
+alias jc="cd ~/repos/config"
+alias jcf="cd ~/repos/config && f"
+alias jr="cd ~/repos"
+alias jrj="cd ~/repos && j"
+alias js="cd ~/repos/scripts"
+alias jsf="cd ~/repos/scripts && f"
+alias jt="cd ~/repos/st"
+alias jv="cd ~/repos/vlugins"
+alias jw="cd ~/repos/wm"
 
 j() {
     dir=$1
