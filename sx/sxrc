@@ -4,10 +4,10 @@ export XDG_SESSION_TYPE=x11
 
 autorandr --change || monitor
 bstatus -l &
+hsetroot
 picom --config /dev/null -b
 pulsemixer --unmute
 sxhkd &
-wal -l &
 xbanish &
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
