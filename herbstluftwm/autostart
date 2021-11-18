@@ -75,5 +75,6 @@ if hc silent new_attr bool my_not_first_autostart ; then
     hc spawn "$TERMINAL" -e tmux new -A
     hc spawn alttab -bg '#2e3440' -fg "#2e3440" -frame "#434c5e" -d 1 -borderw 1 -t 64x64 -i 64x64
     hc spawn sh -c "dbus-launch plank"
+    hc spawn tint2
 fi
 hc unlock
