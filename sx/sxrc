@@ -4,7 +4,7 @@ export XDG_SESSION_TYPE=x11
 
 autorandr --change || monitor
 bstatus -l &
-hsetroot
+wal "$(cat "$XDG_DATA_HOME/wal")"
 picom --config /dev/null -b
 pulsemixer --unmute
 sxhkd &
