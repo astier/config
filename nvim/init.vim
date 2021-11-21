@@ -14,7 +14,6 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'airblade/vim-rooter'
   Plug 'AndrewRadev/switch.vim'
-  Plug 'cohama/lexima.vim'
   Plug 'Darazaki/indent-o-matic'
   Plug 'farmergreg/vim-lastplace'
   Plug 'hrsh7th/cmp-buffer'
@@ -39,6 +38,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'vijaymarupudi/nvim-fzf'
   Plug 'wellle/targets.vim'
+  Plug 'windwp/nvim-autopairs'
 call plug#end()
 
 " APPEARANCE
@@ -47,10 +47,37 @@ autocmd group textyankpost * silent! lua vim.highlight.on_yank{}
 colorscheme colors
 nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 
-" AUTO-PAIR
-let g:lexima_ctrlh_as_backspace = 1
-let g:lexima_enable_basic_rules = 0
-let g:lexima_enable_endwise_rules = 0
+" AUTOPAIR
+lua << EOF
+require('nvim-autopairs').setup{}
+local npairs = require'nvim-autopairs'
+local Rule   = require'nvim-autopairs.rule'
+npairs.add_rules {
+  Rule(' ', ' ')
+    :with_pair(function (opts)
+      local pair = opts.line:sub(opts.col - 1, opts.col)
+      return vim.tbl_contains({ '()', '[]', '{}' }, pair)
+    end),
+  Rule('( ', ' )')
+      :with_pair(function() return false end)
+      :with_move(function(opts)
+          return opts.prev_char:match('.%)') ~= nil
+      end)
+      :use_key(')'),
+  Rule('{ ', ' }')
+      :with_pair(function() return false end)
+      :with_move(function(opts)
+          return opts.prev_char:match('.%}') ~= nil
+      end)
+      :use_key('}'),
+  Rule('[ ', ' ]')
+      :with_pair(function() return false end)
+      :with_move(function(opts)
+          return opts.prev_char:match('.%]') ~= nil
+      end)
+      :use_key(']')
+}
+EOF
 
 " BUFFERS
 autocmd group textchanged,insertleave * nested if !&ro | silent! update | endif
