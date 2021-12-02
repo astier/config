@@ -86,7 +86,7 @@ nnoremap <a-e> <cmd>bp<cr><c-g>
 nnoremap <a-r> <cmd>bn<cr><c-g>
 nnoremap <space>d <cmd>qa!<cr>
 nnoremap <space>q <cmd>bd!<cr>
-set hidden noswapfile
+set noswapfile
 
 " COMMENTS
 autocmd group filetype * set formatoptions-=cro
@@ -174,7 +174,6 @@ nnoremap C "_C
 xnoremap c "_c
 
 " EDITING - COPY
-nnoremap Y y$
 nnoremap yp <cmd>silent normal myyap`y<cr>
 nnoremap yw myyiw`y
 nnoremap yW myyiW`y
@@ -464,7 +463,6 @@ xnoremap q :'<,'>:normal @q<cr>
 " MISC - SETTINGS
 set clipboard=unnamedplus
 set nofoldenable
-set nojoinspaces
 set notimeout
 set virtualedit=block
 
@@ -525,7 +523,6 @@ nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nnoremap ,w <cmd>let @/= expand('<cword>')<bar>set hls<cr>
 xnoremap ,w <cmd>let @/= getline(".")[col('v') - 1 : getpos('.')[2] - 1]<bar>set hls<cr><esc>
 set ignorecase smartcase
-set inccommand=nosplit
 set shortmess+=Ss
 
 " SNIPPETS
