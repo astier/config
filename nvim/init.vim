@@ -86,6 +86,7 @@ nnoremap <a-e> <cmd>tabp<cr>
 nnoremap <a-r> <cmd>tabn<cr>
 nnoremap <space>d <cmd>qa!<cr>
 nnoremap <space>q <cmd>bd!<cr>
+nnoremap <space>t <cmd>tab sp<cr>
 set noswapfile
 
 " COMMENTS
@@ -559,7 +560,7 @@ let g:tagbar_show_data_type = 1
 let g:tagbar_silent = 1
 let g:tagbar_singleclick = 1
 let g:tagbar_zoomwidth = 0
-nnoremap <space>t <cmd>Tagbar<cr>
+nnoremap <space>T <cmd>Tagbar<cr>
 
 " TABLINE
 set showtabline=1
