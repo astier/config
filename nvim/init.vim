@@ -326,12 +326,12 @@ require 'fzf-lua'.setup {
 EOF
 
 " FUZZY - MAPPINGS (MISC)
-nnoremap fb <cmd>lua require 'fzf-lua'.buffers()<cr>
-nnoremap fB <cmd>lua require 'fzf-lua'.builtin()<cr>
+nnoremap f<space> <cmd>lua require 'fzf-lua'.buffers()<cr>
+nnoremap fb <cmd>lua require 'fzf-lua'.builtin()<cr>
 nnoremap fc <cmd>lua require 'fzf-lua'.commands()<cr>
 nnoremap ff <cmd>lua require 'fzf-lua'.files()<cr>
 nnoremap fh <cmd>lua require 'fzf-lua'.help_tags()<cr>
-nnoremap fl <cmd>lua require 'fzf-lua'.lines()<cr>
+nnoremap fl <cmd>lua require 'fzf-lua'.blines()<cr>
 nnoremap fo <cmd>lua require 'fzf-lua'.oldfiles()<cr>
 nnoremap fQ <cmd>lua require 'fzf-lua'.loclist()<cr>
 nnoremap fq <cmd>lua require 'fzf-lua'.quickfix()<cr>
