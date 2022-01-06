@@ -300,6 +300,7 @@ require 'fzf-lua'.setup {
   winopts = {
     border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
     preview = { hidden = 'hidden' },
+    hl = { border = 'black' },
   },
   files = {
     cmd = 'ffind -type f',
