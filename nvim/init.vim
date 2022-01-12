@@ -130,11 +130,11 @@ cmp.setup {
   formatting = {
     format = function(entry, vim_item)
       vim_item.menu = ({
-        buffer        = '',
-        nvim_lsp      = '',
+        buffer        = '',
+        nvim_lsp      = '',
       })[entry.source.name]
       vim_item.kind = ({
-        Text          = '',
+        Text          = '',
         Method        = '',
         Function      = '',
         Constructor   = '',
