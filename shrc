@@ -37,7 +37,7 @@ alias jdc="cd ~/data/config/"
 alias jde="cd ~/data/education"
 alias jdj="cd ~/data && j"
 alias jdp="cd ~/data/pictures"
-alias jdu="cd ~/data/uni"
+alias ju="cd ~/data/uni"
 
 # BOOKMARKS - HIDDEN
 bookmarks=$HOME/data/config/bookmarks
