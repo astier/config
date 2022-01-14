@@ -1,14 +1,10 @@
 #!/usr/bin/env sh
 
+export _JAVA_AWT_WM_NONREPARENTING=1
 export XDG_SESSION_TYPE=x11
 
-autorandr --change || monitor
-bstatus -l &
-hsetroot
+monitor
 pulsemixer --unmute
-sxhkd &
-xbanish &
-xcompmgr &
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
-exec herbstluftwm -l
+exec sswm

@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+"$BROWSER" &
+"$TERMINAL" -e tmux new -A &
+bstatus -l &

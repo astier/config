@@ -35,6 +35,7 @@ link pythonrc.py "$XDG_CONFIG_HOME"
 link shellcheckrc "$XDG_CONFIG_HOME"
 link shrc "$XDG_CONFIG_HOME"
 link skippy-xd "$XDG_CONFIG_HOME"
+link sswmrc "$XDG_CONFIG_HOME"
 link templates "$XDG_CONFIG_HOME"
 link tig "$XDG_CONFIG_HOME"
 link tmux "$XDG_CONFIG_HOME"
@@ -90,7 +91,7 @@ if groups "$USER" | grep -q wheel; then
         link_sudo NetworkManager.conf "$nm_dir"
     fi
 
-    # copy 10-udev.rules /etc/udev/rules.d/
-    # sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
+    copy 10-udev.rules /etc/udev/rules.d/
+    sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
 
 fi
