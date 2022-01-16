@@ -226,7 +226,6 @@ let g:netrw_banner = 0
 let g:netrw_browsex_viewer= 'open'
 let g:netrw_dirhistmax = 0
 let g:netrw_list_hide = '^\./$'
-nnoremap <rightmouse> <cmd>call <sid>NetrwToggle()<cr>
 nnoremap <space>e <cmd>call <sid>NetrwToggle()<cr>
 nnoremap q <cmd>call <sid>ChangeToRealAltFile()<cr>
 
@@ -234,7 +233,6 @@ augroup netrw | autocmd! filetype netrw call NetrwInit() | augroup end
 fun! NetrwInit()
   nmap <buffer> <c-leftmouse> <plug>NetrwSLeftmouse
   nmap <buffer> <cr> <nop>
-  nmap <buffer> <rightmouse> <cmd>call <sid>NetrwToggle()<cr>
   nmap <buffer> <tab> mf
   nmap <buffer> h -
   nmap <buffer> q <nop>
