@@ -12,7 +12,7 @@ mod5 + c
     st
 mod5 + f
     launch
-mod5 + D ; {p,r,s}
+mod5 + shift + {1,2,3}
     systemctl {poweroff,reboot,suspend}
 mod5 + t
     libreoffice ~/data/notes/tracker.ods
