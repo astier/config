@@ -69,6 +69,7 @@ if groups "$USER" | grep -q wheel; then
     [ ! -d "$iwd" ] && sudo mkdir "$iwd"
     copy iwd.conf "$iwd"/main.conf
 
+    copy pacman/pacman.conf /etc
     copy systemd/journald.conf.d /etc/systemd
     copy systemd/logind.conf.d /etc/systemd
     copy systemd/resolved.conf.d /etc/systemd
@@ -80,7 +81,6 @@ if groups "$USER" | grep -q wheel; then
     link sxhkd "$XDG_CONFIG_HOME"
     link tint2 "$XDG_CONFIG_HOME"
     link_sudo iptables.rules /etc/iptables
-    link_sudo pacman/pacman.conf /etc
     link_sudo systemd/system/getty@tty1.service.d /etc/systemd/system
     link_sudo systemd/system/getty@tty2.service.d /etc/systemd/system
     link_sudo tty-cursor.conf /etc/tmpfiles.d
