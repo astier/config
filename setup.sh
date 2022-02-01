@@ -83,6 +83,7 @@ if groups "$USER" | grep -q wheel; then
     link_sudo iptables.rules /etc/iptables
     link_sudo systemd/system/getty@tty1.service.d /etc/systemd/system
     link_sudo systemd/system/getty@tty2.service.d /etc/systemd/system
+    link_sudo thinkfan.conf /etc
     link_sudo tty-cursor.conf /etc/tmpfiles.d
     link_sudo xorg.conf /etc/X11
 
