@@ -206,6 +206,7 @@ alias ogm="\$EDITOR \$(git rev-parse --show-toplevel)/.gitmodules"
 alias om="\$EDITOR Makefile"
 alias or="[ -f "README*" ] && \$EDITOR README*"
 alias os="\$EDITOR setup.sh"
+alias ot="\$EDITOR todo"
 
 autopen() {
     if [ -r main.* ]; then
