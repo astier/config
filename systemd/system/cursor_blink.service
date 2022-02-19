@@ -1,0 +1,10 @@
+[Unit]
+Description=Disable cursor-blinking in tty.
+After=getty@tty1.service
+
+[Service]
+Type=oneshot
+ExecStart=sh -c "echo 0 > /sys/class/graphics/fbcon/cursor_blink"
+
+[Install]
+WantedBy=multi-user.target
