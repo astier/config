@@ -74,7 +74,6 @@ if groups "$USER" | grep -q wheel; then
     copy systemd/logind.conf.d /etc/systemd
     copy systemd/resolved.conf.d /etc/systemd
     copy systemd/system.conf.d /etc/systemd
-    copy systemd/system/cursor_blink.service /etc/systemd/system
     link herbstluftwm "$XDG_CONFIG_HOME"
     link newsboat "$XDG_CONFIG_HOME"
     link pacman "$XDG_CONFIG_HOME"
@@ -82,6 +81,7 @@ if groups "$USER" | grep -q wheel; then
     link sxhkd "$XDG_CONFIG_HOME"
     link tint2 "$XDG_CONFIG_HOME"
     link_sudo iptables.rules /etc/iptables
+    link_sudo systemd/system/cursor_blink.service /etc/systemd/system
     link_sudo systemd/system/getty@.service.d /etc/systemd/system
     link_sudo thinkfan.conf /etc
     link_sudo xorg.conf /etc/X11
