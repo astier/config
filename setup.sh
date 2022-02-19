@@ -94,6 +94,6 @@ if groups "$USER" | grep -q wheel; then
     sudo sed -i "s|<user>|$USER|g" /etc/systemd/system/getty@.service.d/override.conf
 
     copy 10-udev.rules /etc/udev/rules.d/
-    sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
+    sudo sed -i "s|<home>|$HOME|g" /etc/udev/rules.d/10-udev.rules
 
 fi
