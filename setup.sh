@@ -82,8 +82,7 @@ if groups "$USER" | grep -q wheel; then
     link sxhkd "$XDG_CONFIG_HOME"
     link tint2 "$XDG_CONFIG_HOME"
     link_sudo iptables.rules /etc/iptables
-    link_sudo systemd/system/getty@tty1.service.d /etc/systemd/system
-    link_sudo systemd/system/getty@tty2.service.d /etc/systemd/system
+    link_sudo systemd/system/getty@.service.d /etc/systemd/system
     link_sudo thinkfan.conf /etc
     link_sudo xorg.conf /etc/X11
 
