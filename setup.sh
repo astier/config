@@ -82,7 +82,6 @@ if groups "$USER" | grep -q wheel; then
     link tint2 "$XDG_CONFIG_HOME"
     link_sudo iptables.rules /etc/iptables
     link_sudo systemd/system/cursor_blink.service /etc/systemd/system
-    link_sudo systemd/system/getty@.service.d /etc/systemd/system
     link_sudo thinkfan.conf /etc
     link_sudo xorg.conf /etc/X11
 
@@ -90,6 +89,9 @@ if groups "$USER" | grep -q wheel; then
     if [ -d "$nm_dir" ]; then
         link_sudo NetworkManager.conf "$nm_dir"
     fi
+
+    copy systemd/system/getty@.service.d /etc/systemd/system
+    sudo sed -i "s|<user>|$USER|g" /etc/systemd/system/getty@.service.d/override.conf
 
     copy 10-udev.rules /etc/udev/rules.d/
     sudo sed -i "s|\$HOME|$HOME|g" /etc/udev/rules.d/10-udev.rules
