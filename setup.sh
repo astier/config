@@ -86,9 +86,8 @@ if groups "$USER" | grep -q wheel; then
     link_sudo xorg.conf /etc/X11
 
     nm_dir=/etc/NetworkManager
-    if [ -d "$nm_dir" ]; then
-        link_sudo NetworkManager.conf "$nm_dir"
-    fi
+    [ ! -d "$nm_dir" ] && sudo mkdir "$nm_dir"
+    link_sudo NetworkManager.conf "$nm_dir"
 
     copy systemd/system/getty@.service.d /etc/systemd/system
     sudo sed -i "s|<user>|$USER|g" /etc/systemd/system/getty@.service.d/override.conf
