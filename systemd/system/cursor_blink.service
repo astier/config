@@ -4,7 +4,7 @@ After=getty.target
 
 [Service]
 Type=oneshot
-ExecStart=sh -c "sleep 1; echo 0 > /sys/class/graphics/fbcon/cursor_blink"
+ExecStart=/usr/bin/sh -c "sleep 1; echo 0 > /sys/class/graphics/fbcon/cursor_blink"
 
 [Install]
 WantedBy=multi-user.target
