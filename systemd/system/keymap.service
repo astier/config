@@ -1,0 +1,10 @@
+[Unit]
+Description=Load tty-keymap.
+After=getty.target
+
+[Service]
+Type=oneshot
+ExecStart=loadkeys /usr/local/share/kbd/keymaps/key.map
+
+[Install]
+WantedBy=multi-user.target

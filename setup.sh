@@ -85,6 +85,11 @@ if groups "$USER" | grep -q wheel; then
     link_sudo thinkfan.conf /etc
     link_sudo xorg.conf /etc/X11
 
+    dir_keymaps=/usr/local/share/kbd/keymaps
+    [ ! -d "$dir_keymaps" ] && sudo mkdir -p "$dir_keymaps"
+    link_sudo key.map "$dir_keymaps"
+    copy systemd/system/keymap.service /etc/systemd/system
+
     nm_dir=/etc/NetworkManager
     [ ! -d "$nm_dir" ] && sudo mkdir "$nm_dir"
     link_sudo NetworkManager.conf "$nm_dir"

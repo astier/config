@@ -1,0 +1,6 @@
+keycode 1 = Caps_Lock
+keycode 58 = Escape
+
+keycode 39 = Return
+keycode 28 = colon
+keycode 99 = semicolon
