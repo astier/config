@@ -83,6 +83,7 @@ if groups "$USER" | grep -q wheel; then
     link tint2 "$XDG_CONFIG_HOME"
     link_sudo iptables.rules /etc/iptables
     link_sudo thinkfan.conf /etc
+    link_sudo vconsole.conf /etc
     link_sudo xorg.conf /etc/X11
 
     dir_keymaps=/usr/local/share/kbd/keymaps
