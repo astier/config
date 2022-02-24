@@ -1,23 +1,19 @@
 window:
   padding:
-    x: 2
-    y: 2
+    x: 8
+    y: 8
 
 scrolling:
   history: 0
 
 font:
-  size: 10
+  size: 12
 
 env:
-    WINIT_X11_SCALE_FACTOR: "1"
+  WINIT_X11_SCALE_FACTOR: "1"
 
 shell:
   program: tmux
-
-mouse:
-  hide_when_typing: true
-
 
 # Copyright (c) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
 # Copyright (c) 2017-present Sven Greb <code@svengreb.de>

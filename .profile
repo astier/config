@@ -27,7 +27,7 @@ export BROWSER=firefox
 export EDITOR=nvim
 export LAUNCHER=open
 export MANPAGER="nvim +Man!"
-export TERMINAL=st
+export TERMINAL=alacritty
 
 export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 export FZF_DEFAULT_COMMAND="ffind -type f"
