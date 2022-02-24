@@ -393,8 +393,8 @@ nnoremap gG <cmd>Grepper<cr>
 nnoremap + <c-a>
 nnoremap - <c-x>
 set nrformats=
-xnoremap + g<C-a>
-xnoremap - g<C-x>
+xnoremap + g<c-a>
+xnoremap - g<c-x>
 
 " INDENTATION
 nnoremap <p <ap
