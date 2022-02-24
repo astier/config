@@ -45,29 +45,30 @@ link zathura "$XDG_CONFIG_HOME"
 link plank "$XDG_CONFIG_HOME"
 dconf load /net/launchpad/plank/docks/ < plank/config.ini
 
-mkdir -p "$XDG_CONFIG_HOME"/autostart
-link autostart/xbanish.desktop "$XDG_CONFIG_HOME"/autostart
-link autostart/xkbcomp.desktop "$XDG_CONFIG_HOME"/autostart
+DIR="$XDG_CONFIG_HOME"/autostart
+mkdir -p "$DIR"
+link autostart/xbanish.desktop "$DIR"
+link autostart/xkbcomp.desktop "$DIR"
 
-code_dir=$XDG_CONFIG_HOME/Code/User
-if [ -d "$code_dir" ]; then
-    link code/code.vim "$code_dir"
-    link code/keybindings.json "$code_dir"
-    link code/settings.json "$code_dir"
+DIR=$XDG_CONFIG_HOME/Code/User
+if [ -d "$DIR" ]; then
+    link code/code.vim "$DIR"
+    link code/keybindings.json "$DIR"
+    link code/settings.json "$DIR"
 fi
 
-code_dir=$XDG_CONFIG_HOME/Code\ -\ OSS/User
-if [ -d "$code_dir" ]; then
-    link code/code.vim "$code_dir"
-    link code/keybindings.json "$code_dir"
-    link code/settings.json "$code_dir"
+DIR=$XDG_CONFIG_HOME/Code\ -\ OSS/User
+if [ -d "$DIR" ]; then
+    link code/code.vim "$DIR"
+    link code/keybindings.json "$DIR"
+    link code/settings.json "$DIR"
 fi
 
 if groups "$USER" | grep -q wheel; then
 
-    iwd=/etc/iwd
-    [ ! -d "$iwd" ] && sudo mkdir "$iwd"
-    copy iwd.conf "$iwd"/main.conf
+    DIR=/etc/iwd
+    [ ! -d "$DIR" ] && sudo mkdir "$DIR"
+    copy iwd.conf "$DIR/main.conf"
 
     copy pacman/pacman.conf /etc
     copy systemd/journald.conf.d /etc/systemd
@@ -85,14 +86,14 @@ if groups "$USER" | grep -q wheel; then
     link_sudo vconsole.conf /etc
     link_sudo xorg.conf /etc/X11
 
-    dir_keymaps=/usr/local/share/kbd/keymaps
-    [ ! -d "$dir_keymaps" ] && sudo mkdir -p "$dir_keymaps"
-    link_sudo key.map "$dir_keymaps"
+    DIR=/usr/local/share/kbd/keymaps
+    [ ! -d "$DIR" ] && sudo mkdir -p "$DIR"
+    link_sudo key.map "$DIR"
     copy systemd/system/tty-conf.service /etc/systemd/system
 
-    nm_dir=/etc/NetworkManager
-    [ ! -d "$nm_dir" ] && sudo mkdir "$nm_dir"
-    link_sudo NetworkManager.conf "$nm_dir"
+    DIR=/etc/NetworkManager
+    [ ! -d "$DIR" ] && sudo mkdir "$DIR"
+    link_sudo NetworkManager.conf "$DIR"
 
     copy systemd/system/getty@.service.d /etc/systemd/system
     sudo sed -i "s|<user>|$USER|g" /etc/systemd/system/getty@.service.d/override.conf
