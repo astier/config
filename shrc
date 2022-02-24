@@ -63,9 +63,8 @@ alias ns="jumpopen ~/data/notes study"
 alias rss="newsboat -u ~/data/notes/newsboat"
 
 # BOOKMARKS - REPOS
-alias fa="jumpopen ~/repos/arch desktop.sh base.sh"
+alias fa="jumpopen ~/repos/scripts arch.sh"
 alias fv="jumpopen ~/repos/vlugins README.md"
-alias ja="cd ~/repos/arch"
 alias jc="cd ~/repos/config"
 alias jcf="cd ~/repos/config && f"
 alias jr="cd ~/repos"
