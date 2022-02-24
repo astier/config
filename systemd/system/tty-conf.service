@@ -1,9 +1,10 @@
 [Unit]
-Description=Disable cursor-blinking in tty.
+Description=Configure tty.
 After=getty.target
 
 [Service]
 Type=oneshot
+ExecStart=/usr/bin/loadkeys /usr/local/share/kbd/keymaps/key.map
 ExecStart=/usr/bin/sh -c "sleep 1; echo 0 > /sys/class/graphics/fbcon/cursor_blink"
 
 [Install]

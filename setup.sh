@@ -74,7 +74,6 @@ if groups "$USER" | grep -q wheel; then
     copy systemd/logind.conf.d /etc/systemd
     copy systemd/resolved.conf.d /etc/systemd
     copy systemd/system.conf.d /etc/systemd
-    copy systemd/system/cursor_blink.service /etc/systemd/system
     link herbstluftwm "$XDG_CONFIG_HOME"
     link newsboat "$XDG_CONFIG_HOME"
     link pacman "$XDG_CONFIG_HOME"
@@ -89,7 +88,7 @@ if groups "$USER" | grep -q wheel; then
     dir_keymaps=/usr/local/share/kbd/keymaps
     [ ! -d "$dir_keymaps" ] && sudo mkdir -p "$dir_keymaps"
     link_sudo key.map "$dir_keymaps"
-    copy systemd/system/keymap.service /etc/systemd/system
+    copy systemd/system/tty-conf.service /etc/systemd/system
 
     nm_dir=/etc/NetworkManager
     [ ! -d "$nm_dir" ] && sudo mkdir "$nm_dir"
