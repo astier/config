@@ -41,7 +41,4 @@ case $0 in
     *bash) . "$HOME/.bashrc" ;;
 esac
 
-[ -f /tmp/logged_in ] && return
-touch /tmp/logged_in
-
-[ "$(tty)" = /dev/tty1 ] && [ "$(whoami)" != root ] && [ -f /bin/sx ] && exec sx
+[ "$(tty)" = /dev/tty1 ] && [ "$(whoami)" != root ] && [ -f /usr/bin/sx ] && [ ! -f /tmp/logged_in ] && touch /tmp/logged_in && exec sx
