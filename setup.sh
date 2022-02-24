@@ -96,6 +96,8 @@ if groups "$USER" | grep -q wheel; then
     [ ! -d "$DIR" ] && sudo mkdir "$DIR"
     link_sudo NetworkManager.conf "$DIR"
 
+    [ ! -f /etc/default/grub ] && copy grub /etc/default
+
     copy systemd/system/getty@.service.d /etc/systemd/system
     sudo sed -i "s|<user>|$USER|g" /etc/systemd/system/getty@.service.d/override.conf
 
