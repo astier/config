@@ -42,3 +42,4 @@ case $0 in
 esac
 
 [ "$(tty)" = /dev/tty1 ] && [ "$(whoami)" != root ] && [ -f /usr/bin/sx ] && [ ! -f /tmp/logged_in ] && touch /tmp/logged_in && exec sx
+[ "$(tty)" = /dev/tty2 ] && [ "$TERM" = linux ] && exec tmux
