@@ -21,6 +21,7 @@ link .profile ~
 link alacritty.yml "$XDG_CONFIG_HOME"
 link chrome "$HOME"/.mozilla/firefox/kvd3mum3.default-release # TODO: automatically figure out profile-name
 link dunst "$XDG_CONFIG_HOME"
+link feh "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
 link gtk-2.0 "$XDG_CONFIG_HOME"
 link gtk-3.0 "$XDG_CONFIG_HOME"
