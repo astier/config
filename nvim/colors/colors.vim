@@ -3,12 +3,12 @@ syntax reset
 
 " *
 hi comment ctermbg=none ctermfg=8 cterm=italic
-hi constant ctermbg=none ctermfg=green cterm=none
-hi identifier ctermbg=none ctermfg=cyan cterm=none
-hi preproc ctermbg=none ctermfg=blue cterm=none
-hi special ctermbg=none ctermfg=cyan cterm=none
-hi statement ctermbg=none ctermfg=blue cterm=none
-hi type ctermbg=none ctermfg=blue cterm=none
+hi constant ctermbg=none ctermfg=darkgreen cterm=none
+hi identifier ctermbg=none ctermfg=darkblue cterm=none
+hi preproc ctermbg=none ctermfg=darkblue cterm=none
+hi special ctermbg=none ctermfg=darkblue cterm=none
+hi statement ctermbg=none ctermfg=darkblue cterm=none
+hi type ctermbg=none ctermfg=darkblue cterm=none
 hi! link todo comment
 hi! link underlined none
 
@@ -56,7 +56,7 @@ hi! link markdownurl special " float
 hi directory ctermbg=none ctermfg=blue cterm=none " none
 hi healthsuccess ctermbg=none ctermfg=green cterm=none " none
 hi netrwMarkFile ctermbg=none ctermfg=yellow cterm=none " tablinesel
-hi visual ctermbg=black ctermfg=none cterm=none " none
+hi visual ctermbg=8 ctermfg=black cterm=none " none
 hi wildmenu ctermbg=none ctermfg=none cterm=none " none
 hi! link boolean none " constant
 hi! link function none " identifier
@@ -67,10 +67,10 @@ hi! link signcolumn none " none
 hi! link title comment " none
 
 " PMENU
-hi pmenu ctermbg=black ctermfg=none cterm=none " none
-hi pmenusbar ctermbg=black ctermfg=none cterm=none " none
-hi pmenusel ctermbg=8 ctermfg=none cterm=none " none
-hi pmenuthumb ctermbg=8 ctermfg=none cterm=none " none
+hi pmenu ctermbg=gray ctermfg=black cterm=none " none
+hi pmenusbar ctermbg=gray ctermfg=none cterm=none " none
+hi pmenusel ctermbg=8 ctermfg=black cterm=none " none
+hi pmenuthumb ctermbg=white ctermfg=none cterm=none " none
 
 " SEARCH
 hi incsearch ctermbg=yellow ctermfg=black cterm=none " none
