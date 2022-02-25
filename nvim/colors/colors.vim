@@ -67,7 +67,7 @@ hi! link signcolumn none " none
 hi! link title comment " none
 
 " PMENU
-hi pmenu ctermbg=0 ctermfg=none cterm=none " none
+hi pmenu ctermbg=black ctermfg=none cterm=none " none
 hi pmenusbar ctermbg=black ctermfg=none cterm=none " none
 hi pmenusel ctermbg=8 ctermfg=none cterm=none " none
 hi pmenuthumb ctermbg=8 ctermfg=none cterm=none " none
