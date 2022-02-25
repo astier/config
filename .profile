@@ -41,5 +41,27 @@ case $0 in
     *bash) . "$HOME/.bashrc" ;;
 esac
 
+if [ "$TERM" = linux ]; then
+    # NORMAL
+    printf "\033]P0000000" # black
+    printf "\033]P1db2d20" # red
+    printf "\033]P201a252" # green
+    printf "\033]P3fded02" # yellow
+    printf "\033]P45e81ac" # blue
+    printf "\033]P5a16a94" # magenta
+    printf "\033]P68fbcbb" # cyan
+    printf "\033]P7a5a2a2" # white
+    # BRIGHT
+    printf "\033]P84c566a" # black
+    printf "\033]P9db2d20" # red
+    printf "\033]PA01a252" # green
+    printf "\033]PBfded02" # yellow
+    printf "\033]PC5e81ac" # blue
+    printf "\033]PDa16a94" # magenta
+    printf "\033]PE8fbcbb" # cyan
+    printf "\033]PFd8dee9" # white
+    clear
+fi
+
 [ "$(tty)" = /dev/tty1 ] && [ "$(whoami)" != root ] && [ ! -f /tmp/logged_in ] && touch /tmp/logged_in && exec sx
 [ "$(tty)" = /dev/tty2 ] && [ "$TERM" = linux ] && exec tmux
