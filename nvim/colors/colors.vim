@@ -56,7 +56,6 @@ hi! link markdownurl special " float
 hi directory ctermbg=none ctermfg=darkblue cterm=none " none
 hi healthsuccess ctermbg=none ctermfg=darkgreen cterm=none " none
 hi netrwMarkFile ctermbg=none ctermfg=darkyellow cterm=none " tablinesel
-hi visual ctermbg=gray ctermfg=black cterm=none " none
 hi wildmenu ctermbg=none ctermfg=none cterm=none " none
 hi! link boolean none " constant
 hi! link function none " identifier
@@ -67,10 +66,19 @@ hi! link signcolumn none " none
 hi! link title comment " none
 
 " PMENU
-hi pmenu ctermbg=gray ctermfg=black cterm=none " none
-hi pmenusbar ctermbg=gray ctermfg=none cterm=none " none
-hi pmenusel ctermbg=darkblue ctermfg=black cterm=none " none
-hi pmenuthumb ctermbg=darkblue ctermfg=none cterm=none " none
+if $TERM ==# 'linux' || $TERM ==# 'screen'
+    hi pmenu ctermbg=gray ctermfg=black cterm=none " none
+    hi pmenusbar ctermbg=gray ctermfg=none cterm=none " none
+    hi pmenusel ctermbg=darkblue ctermfg=black cterm=none " none
+    hi pmenuthumb ctermbg=darkblue ctermfg=none cterm=none " none
+    hi visual ctermbg=gray ctermfg=black cterm=none " none
+else
+    hi pmenu ctermbg=black ctermfg=none cterm=none " none
+    hi pmenusbar ctermbg=black ctermfg=none cterm=none " none
+    hi pmenusel ctermbg=8 ctermfg=none cterm=none " none
+    hi pmenuthumb ctermbg=8 ctermfg=none cterm=none " none
+    hi visual ctermbg=black ctermfg=none cterm=none " none
+endif
 
 " SEARCH
 hi incsearch ctermbg=darkyellow ctermfg=black cterm=none " none
