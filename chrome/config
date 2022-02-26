@@ -3,8 +3,6 @@ toolkit.legacyUserProfileCustomizations.stylesheets true
 
 # Make scrollbar use gtk-theme
 widget.content.allow-gtk-dark-theme true
-widget.content.gtk-theme-override Arc-Dark
-widget.non-native-theme.enabled false
 
 # Enable compact-mode
 browser.compactmode.show true
