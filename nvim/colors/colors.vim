@@ -23,10 +23,10 @@ hi linenr ctermbg=none ctermfg=8 cterm=none " none
 hi! link cursorline visual " none
 
 " DIFF
-hi diffadd ctermbg=red ctermfg=black cterm=none " none
-hi diffchange ctermbg=yellow ctermfg=black cterm=none " none
-hi diffdelete ctermbg=green ctermfg=black cterm=none " none
-hi difftext ctermbg=red ctermfg=black cterm=none " none
+hi diffadd ctermbg=darkred ctermfg=black cterm=none " none
+hi diffchange ctermbg=darkyellow ctermfg=black cterm=none " none
+hi diffdelete ctermbg=darkgreen ctermfg=black cterm=none " none
+hi difftext ctermbg=darkred ctermfg=black cterm=none " none
 
 " ERROR
 hi! link error none " none
@@ -38,8 +38,8 @@ hi foldcolumn ctermbg=none ctermfg=8 cterm=none " none
 hi folded ctermbg=none ctermfg=8 cterm=none " none
 
 " GIT
-hi diffadded ctermbg=none ctermfg=green cterm=none " identifier
-hi diffremoved ctermbg=none ctermfg=red cterm=none " special
+hi diffadded ctermbg=none ctermfg=darkgreen cterm=none " identifier
+hi diffremoved ctermbg=none ctermfg=darkred cterm=none " special
 hi! link difffile comment " type
 hi! link diffindexline comment " preproc
 hi! link gitdate none " number
@@ -53,9 +53,9 @@ hi! link markdownHeadingDelimiter comment " delimiter->special
 hi! link markdownurl special " float
 
 " MISC
-hi directory ctermbg=none ctermfg=blue cterm=none " none
-hi healthsuccess ctermbg=none ctermfg=green cterm=none " none
-hi netrwMarkFile ctermbg=none ctermfg=yellow cterm=none " tablinesel
+hi directory ctermbg=none ctermfg=darkblue cterm=none " none
+hi healthsuccess ctermbg=none ctermfg=darkgreen cterm=none " none
+hi netrwMarkFile ctermbg=none ctermfg=darkyellow cterm=none " tablinesel
 hi visual ctermbg=8 ctermfg=black cterm=none " none
 hi wildmenu ctermbg=none ctermfg=none cterm=none " none
 hi! link boolean none " constant
@@ -73,8 +73,8 @@ hi pmenusel ctermbg=8 ctermfg=black cterm=none " none
 hi pmenuthumb ctermbg=white ctermfg=none cterm=none " none
 
 " SEARCH
-hi incsearch ctermbg=yellow ctermfg=black cterm=none " none
-hi search ctermbg=none ctermfg=red cterm=none " none
+hi incsearch ctermbg=darkyellow ctermfg=black cterm=none " none
+hi search ctermbg=none ctermfg=darkred cterm=none " none
 
 " STATUSLINE
 hi statusline ctermbg=none ctermfg=8 cterm=none " none
@@ -106,7 +106,7 @@ hi! link shtestpattern none " shstring->string->constant
 hi! link shvarassign statement " none
 
 " SPELL
-hi spellbad ctermbg=none ctermfg=red cterm=none " none
+hi spellbad ctermbg=none ctermfg=darkred cterm=none " none
 hi! link spellrare none " none
 
 " TABLINE
