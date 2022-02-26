@@ -1,27 +1,27 @@
 #!/usr/bin/env sh
 
-export PATH=$HOME/.local/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CONFIG_DIRS=$XDG_CONFIG_HOME:/etc/xdg:$XDG_CONFIG_DIRS
-export XDG_DATA_HOME=$HOME/.local/share
-export XDG_DATA_DIRS=$XDG_DATA_HOME:/usr/local/share:/usr/share:$XDG_DATA_DIRS
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CONFIG_DIRS="$XDG_CONFIG_HOME:/etc/xdg:$XDG_CONFIG_DIRS"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_DATA_DIRS="$XDG_DATA_HOME:/usr/local/share:/usr/share:$XDG_DATA_DIRS"
 
 export DISPLAY=:1
-export XAUTHORITY=$XDG_DATA_HOME/sx/xauthority
+export XAUTHORITY="$XDG_DATA_HOME/sx/xauthority"
 
-export CONFIG=$HOME/repos/config
-export GNUPGHOME=$XDG_DATA_HOME/gnupg
-export GTK2_RC_FILES=$XDG_CONFIG_HOME/gtk-2.0/settings.ini
-export INPUTRC=$XDG_CONFIG_HOME/inputrc
-export IPYTHONDIR=$XDG_CONFIG_HOME/ipython
-export LESSHISTFILE=$XDG_CACHE_HOME/lesshst
-export PYLINTHOME=$XDG_CACHE_HOME/pylint
-export PYLINTRC=$XDG_CONFIG_HOME/pylintrc
-export PYTHONSTARTUP=$XDG_CONFIG_HOME/pythonrc.py
-export TERMINFO=$XDG_DATA_HOME/terminfo
-export TERMINFO_DIRS=$TERMINFO:/usr/share/terminfo
+export CONFIG="$HOME/repos/config"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/settings.ini"
+export INPUTRC="$XDG_CONFIG_HOME/inputrc"
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+export LESSHISTFILE="$XDG_CACHE_HOME/lesshst"
+export PYLINTHOME="$XDG_CACHE_HOME/pylint"
+export PYLINTRC="$XDG_CONFIG_HOME/pylintrc"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/pythonrc.py"
+export TERMINFO="$XDG_DATA_HOME/terminfo"
+export TERMINFO_DIRS="$TERMINFO:/usr/share/terminfo"
 
 export BROWSER=firefox
 export EDITOR=nvim
