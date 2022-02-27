@@ -133,33 +133,63 @@ cmp.setup {
         buffer        = '',
         nvim_lsp      = '',
       })[entry.source.name]
-      vim_item.kind = ({
-        Text          = '',
-        Method        = '',
-        Function      = '',
-        Constructor   = '',
-        Field         = '',
-        Variable      = '',
-        Class         = 'ﴯ',
-        Interface     = '',
-        Module        = '',
-        Property      = '',
-        Unit          = '',
-        Value         = '',
-        Enum          = '',
-        Keyword       = '',
-        Snippet       = '﬌',
-        Color         = '',
-        File          = '',
-        Reference     = '',
-        Folder        = '',
-        EnumMember    = 'ℰ',
-        Constant      = '',
-        Struct        = 'פּ',
-        Event         = '',
-        Operator      = '',
-        TypeParameter = '',
-      })[vim_item.kind]
+      if (os.getenv("TERM") == "linux" or os.getenv("TERM") == "screen") then
+        vim_item.kind = ({
+          Text          = '',
+          Method        = '[f]',
+          Function      = '[f]',
+          Constructor   = '[C]',
+          Field         = '[v]',
+          Variable      = '[v]',
+          Class         = '[c]',
+          Interface     = '[i]',
+          Module        = '[m]',
+          Property      = '[p]',
+          Unit          = '[u]',
+          Value         = '[V]',
+          Enum          = '[e]',
+          Keyword       = '[k]',
+          Snippet       = '[~]',
+          Color         = 'Clr',
+          File          = '[F]',
+          Reference     = '[r]',
+          Folder        = '[D]',
+          EnumMember    = '[em]',
+          Constant      = '[π]',
+          Struct        = '[s]',
+          Event         = '[!]',
+          Operator      = '[%]',
+          TypeParameter = '[t]',
+        })[vim_item.kind]
+      else
+        vim_item.kind = ({
+          Text          = '',
+          Method        = '',
+          Function      = '',
+          Constructor   = '',
+          Field         = '',
+          Variable      = '',
+          Class         = 'ﴯ',
+          Interface     = '',
+          Module        = '',
+          Property      = '',
+          Unit          = '',
+          Value         = '',
+          Enum          = '',
+          Keyword       = '',
+          Snippet       = '﬌',
+          Color         = '',
+          File          = '',
+          Reference     = '',
+          Folder        = '',
+          EnumMember    = 'ℰ',
+          Constant      = '',
+          Struct        = 'פּ',
+          Event         = '',
+          Operator      = '',
+          TypeParameter = '',
+        })[vim_item.kind]
+      end
       return vim_item
     end
   },
@@ -664,4 +694,9 @@ xnoremap 0 g0
 set breakindent
 set breakindentopt=shift:2
 set linebreak
-set showbreak=﬌\ 
+
+if $TERM ==# 'linux' || $TERM ==# 'screen'
+  set showbreak=¬\ 
+else
+  set showbreak=﬌\ 
+endif
