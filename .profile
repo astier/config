@@ -64,4 +64,4 @@ if [ "$TERM" = linux ]; then
 fi
 
 [ "$(tty)" = /dev/tty1 ] && [ "$(whoami)" != root ] && [ ! -f /tmp/logged_in ] && touch /tmp/logged_in && exec sx
-[ "$(tty)" = /dev/tty2 ] && [ "$TERM" = linux ] && exec tmux -L tty
+[ "$(tty)" = /dev/tty2 ] && [ "$TERM" = linux ] && printf "\033[?6c" && TERM=screen exec tmux -L tty
