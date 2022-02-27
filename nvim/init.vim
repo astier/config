@@ -35,6 +35,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'stevearc/stickybuf.nvim'
   Plug 'stsewd/gx-extended.vim'
   Plug 'svermeulen/vim-subversive'
+  Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'vijaymarupudi/nvim-fzf'
   Plug 'wellle/targets.vim'
