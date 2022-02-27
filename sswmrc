@@ -2,4 +2,3 @@
 
 "$BROWSER" &
 "$TERMINAL" -e tmux new -A &
-bstatus -l &

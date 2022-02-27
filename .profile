@@ -63,5 +63,13 @@ if [ "$TERM" = linux ]; then
     clear
 fi
 
-[ "$(tty)" = /dev/tty1 ] && [ "$(whoami)" != root ] && [ ! -f /tmp/logged_in ] && touch /tmp/logged_in && exec sx
-[ "$(tty)" = /dev/tty2 ] && [ "$TERM" = linux ] && printf "\033[?6c" && TERM=screen exec tmux -L tty
+# AUTOSTART
+if [ ! -f /tmp/logged_in ]; then
+    touch /tmp/logged_in
+    pulsemixer --unmute
+    tmux -L tty new -d
+    setsid -f bstatus -l > /dev/null 2>&1
+    [ "$(tty)" = /dev/tty1 -a "$(whoami)" != root ] && exec sx
+fi
+
+[ "$(tty)" = /dev/tty2 -a "$TERM" = linux ] && printf "\033[?6c" && TERM=screen exec tmux -L tty new -A
