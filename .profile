@@ -50,8 +50,7 @@ if [ "$TERM" = linux ]; then
     MAGENTA=a16a94
     CYAN=8fbcbb
     WHITE=a5a2a2
-    BRIGHTBLACK=434c5e
-    BRIGHTWHITE=d8dee9
+    BRIGHTBLACK=4c566a
     # NORMAL
     printf "\033]P0$BLACK"
     printf "\033]P1$RED"
@@ -59,7 +58,7 @@ if [ "$TERM" = linux ]; then
     printf "\033]P3$YELLOW"
     printf "\033]P4$BLUE"
     printf "\033]P5$MAGENTA"
-    printf "\033]P6$CYAN"
+    printf "\033]P6$BRIGHTBLACK"
     printf "\033]P7$WHITE"
     # BRIGHT
     printf "\033]P8$BRIGHTBLACK"
@@ -68,8 +67,8 @@ if [ "$TERM" = linux ]; then
     printf "\033]PB$YELLOW"
     printf "\033]PC$BLUE"
     printf "\033]PD$MAGENTA"
-    printf "\033]PE$CYAN"
-    printf "\033]PF$BRIGHTWHITE"
+    printf "\033]PE$BRIGHTBLACK"
+    printf "\033]PF$BRIGHTBLACK"
     clear
 fi
 
