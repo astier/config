@@ -1,1 +1,1 @@
-SUBSYSTEM=="drm", ACTION=="change", ENV{DISPLAY}=":1", ENV{XAUTHORITY}="<home>/.local/share/sx/xauthority", RUN+="<home>/.local/bin/monitor"
+SUBSYSTEM=="drm", ACTION=="change", ENV{DISPLAY}=":1", ENV{XAUTHORITY}="/home/<user>/.local/share/sx/xauthority", RUN+="/usr/bin/su <user> -c /home/<user>/.local/bin/monitor"
