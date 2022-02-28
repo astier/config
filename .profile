@@ -74,12 +74,12 @@ if [ "$TERM" = linux ]; then
 fi
 
 # AUTOSTART
-if [ ! -f /tmp/logged_in ]; then
-    touch /tmp/logged_in
+if [ ! -f /tmp/autostarted ]; then
     pulsemixer --unmute
-    tmux -L tty new -d
     setsid -f bstatus -l > /dev/null 2>&1
-    [ "$(tty)" = /dev/tty1 -a "$(whoami)" != root ] && exec sx
+    tmux -L tty new -d
+    touch /tmp/autostarted
 fi
 
+[ "$(tty)" = /dev/tty1 -a ! -f /tmp/logged_in ] && touch /tmp/logged_in && exec sx
 [ "$(tty)" = /dev/tty2 -a "$TERM" = linux ] && exec tmux -L tty new -A
