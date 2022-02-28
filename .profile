@@ -72,4 +72,4 @@ if [ ! -f /tmp/logged_in ]; then
     [ "$(tty)" = /dev/tty1 -a "$(whoami)" != root ] && exec sx
 fi
 
-[ "$(tty)" = /dev/tty2 -a "$TERM" = linux ] && printf "\033[?6c" && TERM=screen exec tmux -L tty new -A
+[ "$(tty)" = /dev/tty2 -a "$TERM" = linux ] && exec tmux -L tty new -A
