@@ -42,24 +42,34 @@ case $0 in
 esac
 
 if [ "$TERM" = linux ]; then
+    BLACK=000000
+    RED=db2d20
+    GREEN=01a252
+    YELLOW=fded02
+    BLUE=5e81ac
+    MAGENTA=a16a94
+    CYAN=8fbcbb
+    WHITE=a5a2a2
+    BRIGHTBLACK=434c5e
+    BRIGHTWHITE=d8dee9
     # NORMAL
-    printf "\033]P0000000" # black
-    printf "\033]P1db2d20" # red
-    printf "\033]P201a252" # green
-    printf "\033]P3fded02" # yellow
-    printf "\033]P45e81ac" # blue
-    printf "\033]P5a16a94" # magenta
-    printf "\033]P68fbcbb" # cyan
-    printf "\033]P7a5a2a2" # white
+    printf "\033]P0$BLACK"
+    printf "\033]P1$RED"
+    printf "\033]P2$GREEN"
+    printf "\033]P3$YELLOW"
+    printf "\033]P4$BLUE"
+    printf "\033]P5$MAGENTA"
+    printf "\033]P6$CYAN"
+    printf "\033]P7$WHITE"
     # BRIGHT
-    printf "\033]P84c566a" # black
-    printf "\033]P9db2d20" # red
-    printf "\033]PA01a252" # green
-    printf "\033]PBfded02" # yellow
-    printf "\033]PC5e81ac" # blue
-    printf "\033]PDa16a94" # magenta
-    printf "\033]PE8fbcbb" # cyan
-    printf "\033]PFd8dee9" # white
+    printf "\033]P8$BRIGHTBLACK"
+    printf "\033]P9$RED"
+    printf "\033]PA$GREEN"
+    printf "\033]PB$YELLOW"
+    printf "\033]PC$BLUE"
+    printf "\033]PD$MAGENTA"
+    printf "\033]PE$CYAN"
+    printf "\033]PF$BRIGHTWHITE"
     clear
 fi
 
