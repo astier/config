@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
 
-export _JAVA_AWT_WM_NONREPARENTING=1
-export XDG_SESSION_TYPE=x11
-
 monitor
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
