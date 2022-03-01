@@ -625,7 +625,7 @@ let g:switch_mapping = 't'
 " TABS
 nnoremap <a-e> <cmd>tabp<cr>
 nnoremap <a-r> <cmd>tabn<cr>
-nnoremap <space>t <cmd>tab sp<cr>
+nnoremap <space>n <cmd>tab sp<cr>
 tnoremap <silent> <a-e> <c-\><c-n><cmd>tabp<cr>
 tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
 
