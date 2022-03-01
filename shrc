@@ -220,10 +220,8 @@ autopen() {
 }
 
 # TMUX
-alias t="tmux new -A"
-alias ta="tmux a -t"
+alias t="exec tmux new -A"
 alias tk="tmux kill-session -a"
-alias tkt="tmux kill-session -t"
 alias tl="tmux ls"
 ts() { num=0; [ -n "$1" ] && num="$1"; tmux switch -t "$num"; }
 tt() { echo "$TMUX_PANE" > /tmp/tmuxsend; }
