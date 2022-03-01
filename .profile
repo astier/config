@@ -55,23 +55,23 @@ if [ "$TERM" = linux ]; then
     WHITE=a5a2a2
     BRIGHTBLACK=4c566a
     # NORMAL
-    printf "\033]P0$BLACK"
-    printf "\033]P1$RED"
-    printf "\033]P2$GREEN"
-    printf "\033]P3$YELLOW"
-    printf "\033]P4$BLUE"
-    printf "\033]P5$MAGENTA"
-    printf "\033]P6$BRIGHTBLACK"
-    printf "\033]P7$WHITE"
+    printf "\033]P0%s" "$BLACK"
+    printf "\033]P1%s" "$RED"
+    printf "\033]P2%s" "$GREEN"
+    printf "\033]P3%s" "$YELLOW"
+    printf "\033]P4%s" "$BLUE"
+    printf "\033]P5%s" "$MAGENTA"
+    printf "\033]P6%s" "$CYAN"
+    printf "\033]P7%s" "$WHITE"
     # BRIGHT
-    printf "\033]P8$BRIGHTBLACK"
-    printf "\033]P9$RED"
-    printf "\033]PA$GREEN"
-    printf "\033]PB$YELLOW"
-    printf "\033]PC$BLUE"
-    printf "\033]PD$MAGENTA"
-    printf "\033]PE$BRIGHTBLACK"
-    printf "\033]PF$BRIGHTBLACK"
+    printf "\033]P8%s" "$BRIGHTBLACK"
+    printf "\033]P9%s" "$RED"
+    printf "\033]PA%s" "$GREEN"
+    printf "\033]PB%s" "$YELLOW"
+    printf "\033]PC%s" "$BLUE"
+    printf "\033]PD%s" "$MAGENTA"
+    printf "\033]PE%s" "$CYAN"
+    printf "\033]PF%s" "$BRIGHTBLACK"
     clear
 fi
 
