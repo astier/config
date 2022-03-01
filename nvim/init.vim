@@ -83,11 +83,8 @@ EOF
 " BUFFERS
 autocmd group textchanged,insertleave * nested if !&ro | silent! update | endif
 autocmd group vimenter * silent! let @#=expand('#2:p')
-nnoremap <a-e> <cmd>tabp<cr>
-nnoremap <a-r> <cmd>tabn<cr>
 nnoremap <space>d <cmd>qa!<cr>
 nnoremap <space>q <cmd>bd!<cr>
-nnoremap <space>t <cmd>tab sp<cr>
 set noswapfile
 
 " COMMENTS
@@ -625,6 +622,13 @@ let g:switch_custom_definitions = [
 \]
 let g:switch_mapping = 't'
 
+" TABS
+nnoremap <a-e> <cmd>tabp<cr>
+nnoremap <a-r> <cmd>tabn<cr>
+nnoremap <space>t <cmd>tab sp<cr>
+tnoremap <silent> <a-e> <c-\><c-n><cmd>tabp<cr>
+tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
+
 " TARGETS
 autocmd group user targets#mappings#user call targets#mappings#extend({
 \ 'q': {}, 'b': {
@@ -640,6 +644,11 @@ nmap cnb cInb
 nmap dnb dInb
 nmap snb sInb
 nmap ynb myyInb`y
+
+" TERMINAL
+autocmd group bufenter,focusgained,termopen term://* startinsert
+autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
+autocmd group termopen * setlocal signcolumn=no
 
 " TMUXSEND
 fun! T(...)
@@ -683,6 +692,10 @@ nnoremap <space>s <c-w>s
 nnoremap <space>v <c-w>v
 nnoremap <space>z <c-w>z<cmd>cclose<cr>
 set splitbelow splitright
+tnoremap <silent> <a-h> <c-\><c-n><cmd>lua require 'tmux'.move_left()<cr>
+tnoremap <silent> <a-j> <c-\><c-n><cmd>lua require 'tmux'.move_down()<cr>
+tnoremap <silent> <a-k> <c-\><c-n><cmd>lua require 'tmux'.move_up()<cr>
+tnoremap <silent> <a-l> <c-\><c-n><cmd>lua require 'tmux'.move_right()<cr>
 
 " WRAP
 autocmd group filetype * set formatoptions-=t
