@@ -83,12 +83,13 @@ if [ ! -f /tmp/autostarted ]; then
     touch /tmp/autostarted
 fi
 
-if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/logged_in ]; then
-    touch /tmp/logged_in
+if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/xorg_started ]; then
+    touch /tmp/xorg_started
     exec sx
 fi
 
-if [ "$(tty)" = /dev/tty2 ] && [ "$TERM" = linux ]; then
+if [ "$(tty)" = /dev/tty2 ] && [ "$TERM" = linux ] && [ ! -f /tmp/tmux_started ]; then
+    touch /tmp/tmux_started
     if [ -n "$(pgrep -f tmux)" ]; then
         exec tmux attach
     else
