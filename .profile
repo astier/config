@@ -79,9 +79,19 @@ fi
 if [ ! -f /tmp/autostarted ]; then
     pulsemixer --unmute
     setsid -f bstatus -l > /dev/null 2>&1
-    tmux -L tty new -d
+    tmux new -d \; splitw -hb
     touch /tmp/autostarted
 fi
 
-[ "$(tty)" = /dev/tty1 -a ! -f /tmp/logged_in ] && touch /tmp/logged_in && exec sx
-[ "$(tty)" = /dev/tty2 -a "$TERM" = linux ] && exec tmux -L tty new -A
+if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/logged_in ]; then
+    touch /tmp/logged_in
+    exec sx
+fi
+
+if [ "$(tty)" = /dev/tty2 ] && [ "$TERM" = linux ]; then
+    if [ -n "$(pgrep -f tmux)" ]; then
+        exec tmux attach
+    else
+        exec tmux new \; splitw -hb
+    fi
+fi
