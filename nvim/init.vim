@@ -635,18 +635,8 @@ autocmd group bufenter,focusgained,termopen term://* startinsert
 autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
 autocmd group termopen * setlocal signcolumn=no
 
-" TMUXSEND
-fun! T(...)
-  if !empty(system('tmux has -t $(cat /tmp/tmuxsend)'))
-    execute system('tmux neww -ac "#{pane_current_path}" -PF "#{pane_id}" > /tmp/tmuxsend')
-    silent !tmux lastp
-  endif
-  execute system('tmux send -t $(cat /tmp/tmuxsend) ' . shellescape(join(a:000)) . ' ENTER')
-  if system('tmux display -p "#{window_id}"') != system('tmux display -pt $(cat /tmp/tmuxsend) "#{window_id}"')
-    silent !tmux selectw -t $(cat /tmp/tmuxsend)
-  endif
-endfun
-command! -complete=shellcmd -nargs=+ T call T(expandcmd(<q-args>))
+" TMUX
+command! -complete=shellcmd -nargs=* T call system('iwltm --send '.shellescape(expandcmd(<q-args>)))
 nnoremap <space><space> <cmd>call T(getline('.'))<cr>
 xnoremap <space><space> "vy <cmd>call T(substitute(@v, '\n$', '', ''))<cr>
 nnoremap <space>a <cmd>T execute<cr>
