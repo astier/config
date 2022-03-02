@@ -196,7 +196,7 @@ d() { if [ $# = 0 ]; then exit; else realpath -s "$@" | sed 's/.*/"&"/' | xargs 
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 p() { if [ $# = 0 ]; then pwd | sed "s|$HOME|~|"; else cp -irv "$@"; fi }
 play() { if [ $# = 0 ]; then mpv --no-video "$(xsel -ob)"; else mpv --no-video "$@"; fi }
-s() { if [ $# = 0 ]; then echo "$(bstatus)% | "$(volume ?)" | $(date +%H:%M) | $(date +%d.%m.%y)"; else googler --colors=eecghi -g us -l en "$@"; fi }
+s() { if [ $# = 0 ]; then echo "$(bstatus)%B | "$(volume ?)V" | $(date +%H:%M) | $(date +%d.%m.%y)"; else googler --colors=eecghi -g us -l en "$@"; fi }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # OPEN PROJECT-FILES
