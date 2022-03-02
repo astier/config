@@ -189,14 +189,14 @@ alias td="tree -d"
 alias tf="tree"
 alias tmp="nvim +'set nospell' /tmp/scratch.md"
 alias u="curl -s 'https://archlinux.org/mirrorlist/?country=DE&protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d | sudo tee /etc/pacman.d/mirrorlist >/dev/null && paru"
-alias v="alsamixer"
+alias v="volume"
 ar() { dir="$(basename "$1").tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
 cd() { command cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else realpath -s "$@" | sed 's/.*/"&"/' | xargs rm -fr; ls; fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 p() { if [ $# = 0 ]; then pwd | sed "s|$HOME|~|"; else cp -irv "$@"; fi }
 play() { if [ $# = 0 ]; then mpv --no-video "$(xsel -ob)"; else mpv --no-video "$@"; fi }
-s() { if [ $# = 0 ]; then echo "$(bstatus)% | "$(amixer get Master | tail -n1 | awk -F'[][]' '{ print $2 }')" | $(date +%H:%M) | $(date +%d.%m.%y)"; else googler --colors=eecghi -g us -l en "$@"; fi }
+s() { if [ $# = 0 ]; then echo "$(bstatus)% | "$(volume ?)" | $(date +%H:%M) | $(date +%d.%m.%y)"; else googler --colors=eecghi -g us -l en "$@"; fi }
 y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # OPEN PROJECT-FILES

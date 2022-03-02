@@ -2,9 +2,9 @@ mod5 + ctrl + r
     pkill -SIGUSR1 sxhkd
 
 XF86AudioMute
-    amixer set Master toggle > /dev/null
+    volume =
 XF86Audio{Lower,Raise}Volume
-    amixer set Master 4{-,+} > /dev/null
+    volume {-,+}
 XF86MonBrightness{Down,Up}
     lux -{s,a} 8%
 
