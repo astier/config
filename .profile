@@ -77,7 +77,6 @@ fi
 
 # AUTOSTART
 if [ ! -f /tmp/autostarted ]; then
-    pulsemixer --unmute
     setsid -f bstatus -l > /dev/null 2>&1
     tmux -L tty new -d \; splitw -hb
     touch /tmp/autostarted
