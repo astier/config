@@ -556,17 +556,6 @@ set fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 set noruler noshowcmd noshowmode laststatus=0
 set statusline=\  rulerformat=%=%l/%L
 
-" SYMBOLS
-let g:tagbar_autofocus = 1
-let g:tagbar_compact = 2
-let g:tagbar_iconchars = ['▸', '▾']
-let g:tagbar_map_showproto = 'd'
-let g:tagbar_show_data_type = 1
-let g:tagbar_silent = 1
-let g:tagbar_singleclick = 1
-let g:tagbar_zoomwidth = 0
-nnoremap <space>T <cmd>Tagbar<cr>
-
 " TABLINE
 set showtabline=1
 set tabline=%!TabLine()
@@ -588,6 +577,23 @@ fun! TabLine()
   endif
   return s
 endfun
+
+" TAGBAR
+let g:tagbar_autofocus = 1
+let g:tagbar_compact = 2
+let g:tagbar_indent = 0
+let g:tagbar_map_showproto = 'd'
+let g:tagbar_position = 'left'
+let g:tagbar_show_data_type = 1
+let g:tagbar_silent = 1
+let g:tagbar_singleclick = 1
+let g:tagbar_zoomwidth = 0
+nnoremap <space>T <cmd>Tagbar<cr>
+if $TERM ==# 'linux' || $TERM ==# 'screen'
+  let g:tagbar_iconchars = ['<', '>']
+else
+  let g:tagbar_iconchars = ['▸', '▾']
+endif
 
 " SWITCH
 let g:switch_custom_definitions = [
