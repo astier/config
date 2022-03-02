@@ -223,8 +223,9 @@ autopen() {
 alias t="exec tmux new -A"
 alias tk="tmux kill-session -a"
 alias tl="tmux ls"
+alias tt="exec tmux -L tty new -A"
+tm() { echo "$TMUX_PANE" > /tmp/tmuxsend; }
 ts() { num=0; [ -n "$1" ] && num="$1"; tmux switch -t "$num"; }
-tt() { echo "$TMUX_PANE" > /tmp/tmuxsend; }
 
 # VIM
 vpa() {
