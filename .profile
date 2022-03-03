@@ -10,7 +10,7 @@ export XDG_DATA_DIRS="$XDG_DATA_HOME:/usr/local/share:/usr/share:$XDG_DATA_DIRS"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export DISPLAY=:1
-export GTK_THEME=Adwaita:dark
+export GTK_THEME=Arc-Dark
 export XAUTHORITY="$XDG_DATA_HOME/sx/xauthority"
 export XDG_SESSION_TYPE=x11
 
