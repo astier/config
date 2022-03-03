@@ -20,10 +20,6 @@ BASH_COMPLETION=/usr/share/bash-completion/bash_completion
 [ -f "$BASH_COMPLETION" ] && . "$BASH_COMPLETION"
 BASHRC_LOCAL="$XDG_CONFIG_HOME/bashrc_local"
 [ -f "$BASHRC_LOCAL" ] && . "$BASHRC_LOCAL"
-FZF_COMPLETION=/usr/share/fzf/completion.bash
-[ -f "$FZF_COMPLETION" ] && . "$FZF_COMPLETION"
-FZF_KEY_BINDINGS=/usr/share/fzf/key-bindings.bash
-[ -f "$FZF_KEY_BINDINGS" ] && . "$FZF_KEY_BINDINGS"
 GIT_COMPLETION=/usr/share/git/completion/git-prompt.sh
 [ -f "$GIT_COMPLETION" ] && . "$GIT_COMPLETION"
 
