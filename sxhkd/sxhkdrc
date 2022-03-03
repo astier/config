@@ -6,7 +6,7 @@ XF86AudioMute
 XF86Audio{Lower,Raise}Volume
     volume {-,+}
 XF86MonBrightness{Down,Up}
-    lux -{s,a} 8%
+    brightness {-,+}
 
 {mod5,super} + Return
     st
