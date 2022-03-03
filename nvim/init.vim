@@ -96,6 +96,7 @@ nmap gcj gco
 nmap gck gcO
 nmap gcl gcA
 nmap gcp gcip
+unmap gbc
 
 " COMPLETION
 autocmd group filetype * set omnifunc=v:lua.vim.lsp.omnifunc
@@ -390,9 +391,8 @@ let g:grepper = {
 nmap gw <plug>(GrepperOperator)iw
 nmap gW <plug>(GrepperOperator)iW
 xmap gw <plug>(GrepperOperator)
-nnoremap gb <cmd>Grepper -buffer<cr>
-nnoremap gB <cmd>Grepper -buffers<cr>
-nnoremap gG <cmd>Grepper<cr>
+nnoremap <space>G :Grepper<space>
+nnoremap <space>g <cmd>Grepper<cr>
 
 " INCREMENT
 nnoremap + <c-a>
