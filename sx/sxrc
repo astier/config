@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-monitor
+autorandr --change
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
 exec sswm
