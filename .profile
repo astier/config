@@ -46,11 +46,12 @@ esac
 
 if [ "$TERM" = linux ]; then
     BLACK=000000
-    RED=db2d20
+    RED=cc241d
     GREEN=01a252
-    YELLOW=fded02
+    YELLOW=d79921
     BLUE=5e81ac
     MAGENTA=a16a94
+    CYAN=689d6a
     WHITE=a5a2a2
     BRIGHTBLACK=4c566a
     # NORMAL
