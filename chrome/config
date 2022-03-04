@@ -3,3 +3,6 @@ toolkit.legacyUserProfileCustomizations.stylesheets true
 
 # Enable compact-mode
 browser.compactmode.show true
+
+# Disable alt-menu
+ui.key.menuAccessKeyFocuses false
