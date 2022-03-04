@@ -78,10 +78,22 @@ fi
 # AUTOSTART
 if [ ! -f /tmp/autostarted ]; then
     setsid -f bstatus -l > /dev/null 2>&1
+    tmux -L tty new -d \; splitw -hb
     touch /tmp/autostarted
 fi
 
+# XORG
 if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/xorg_started ]; then
     touch /tmp/xorg_started
     exec sx
+fi
+
+# TTY2
+if [ "$(tty)" = /dev/tty2 ] && [ "$TERM" = linux ] && [ ! -f /tmp/tmux_started ]; then
+    touch /tmp/tmux_started
+    if [ -n "$(pgrep -f 'tmux -L tty')" ]; then
+        exec tmux -L tty attach
+    else
+        exec tmux -L tty new \; splitw -hb
+    fi
 fi
