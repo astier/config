@@ -8,12 +8,6 @@ export XDG_CONFIG_DIRS="$XDG_CONFIG_HOME:/etc/xdg:$XDG_CONFIG_DIRS"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_DATA_DIRS="$XDG_DATA_HOME:/usr/local/share:/usr/share:$XDG_DATA_DIRS"
 
-export _JAVA_AWT_WM_NONREPARENTING=1
-export DISPLAY=:1
-export GTK_THEME=Arc-Dark
-export XAUTHORITY="$XDG_DATA_HOME/sx/xauthority"
-export XDG_SESSION_TYPE=x11
-
 export CONFIG="$HOME/repos/config"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/settings.ini"
@@ -78,7 +72,6 @@ fi
 # AUTOSTART
 if [ ! -f /tmp/autostarted ]; then
     setsid -f bstatus -l > /dev/null 2>&1
-    tmux -L tty new -d \; splitw -hb
     touch /tmp/autostarted
 fi
 
@@ -86,14 +79,4 @@ fi
 if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/xorg_started ]; then
     touch /tmp/xorg_started
     exec sx
-fi
-
-# TTY2
-if [ "$(tty)" = /dev/tty2 ] && [ "$TERM" = linux ] && [ ! -f /tmp/tmux_started ]; then
-    touch /tmp/tmux_started
-    if [ -n "$(pgrep -f 'tmux -L tty')" ]; then
-        exec tmux -L tty attach
-    else
-        exec tmux -L tty new \; splitw -hb
-    fi
 fi
