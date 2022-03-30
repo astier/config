@@ -19,7 +19,7 @@ mkdir -p "$XDG_CONFIG_HOME"
 link .bashrc ~
 link .profile ~
 link alacritty.yml "$XDG_CONFIG_HOME"
-link chrome "$HOME"/.mozilla/firefox/kvd3mum3.default-release # TODO: automatically figure out profile-name
+link chrome "$HOME"/.mozilla/firefox/7f1bvkfa.default-release # TODO: automatically figure out profile-name
 link dunst "$XDG_CONFIG_HOME"
 link feh "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
