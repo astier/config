@@ -19,7 +19,6 @@ mkdir -p "$XDG_CONFIG_HOME"
 link .bashrc ~
 link .profile ~
 link alacritty.yml "$XDG_CONFIG_HOME"
-link chrome "$HOME/.mozilla/firefox/$(grep 'Default=' /home/aleks/.mozilla/firefox/profiles.ini | head -1 | cut -d= -f2 | cut -d. -f1).default-release"
 link dunst "$XDG_CONFIG_HOME"
 link feh "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
@@ -42,6 +41,10 @@ link tig "$XDG_CONFIG_HOME"
 link tmux "$XDG_CONFIG_HOME"
 link xkb "$XDG_CONFIG_HOME"
 link zathura "$XDG_CONFIG_HOME"
+
+DIR="$HOME/.mozilla/firefox"
+PROFILE=$(grep "Default=" "$DIR/profiles.ini" | head -1 | cut -d= -f2 | cut -d. -f1)
+link chrome "$DIR/$PROFILE.default-release"
 
 link plank "$XDG_CONFIG_HOME"
 dconf load /net/launchpad/plank/docks/ < plank/config.ini
