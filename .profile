@@ -76,7 +76,7 @@ if [ ! -f /tmp/autostarted ]; then
 fi
 
 # XORG
-if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/xorg_started ]; then
+if [ "$(tty)" = /dev/tty1 ] && [ -f /usr/bin/sx ] && [ ! -f /tmp/xorg_started ]; then
     touch /tmp/xorg_started
     exec sx
 fi
