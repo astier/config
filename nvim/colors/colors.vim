@@ -2,7 +2,7 @@ hi clear
 syntax reset
 
 " *
-hi comment ctermbg=none ctermfg=8 cterm=italic
+hi comment ctermbg=none ctermfg=8
 hi constant ctermbg=none ctermfg=darkgreen cterm=none
 hi identifier ctermbg=none ctermfg=darkblue cterm=none
 hi preproc ctermbg=none ctermfg=darkblue cterm=none
