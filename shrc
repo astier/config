@@ -31,13 +31,19 @@ alias fx="jumpopen \$CONFIG sx/sxrc"
 f() { if [ -d "$1" ]; then cd "$1" || return; else "$LAUNCHER" "$@"; fi }
 jumpopen() { cd "$1" >/dev/null && shift && "$LAUNCHER" "$@" ; }
 
+if uname -r | grep -q WSL; then
+    DATA=/mnt/c/Users/$USER/OneDrive/Documents
+else
+    DATA=$HOME/data
+fi
+
 # BOOKMARKS - DATA
-alias jd="cd ~/data"
-alias jdc="cd ~/data/config/"
-alias jde="cd ~/data/education"
-alias jdj="cd ~/data && j"
-alias jdp="cd ~/data/pictures"
-alias ju="cd ~/data/uni"
+alias jd="cd \$DATA"
+alias jdc="cd \$DATA/config/"
+alias jde="cd \$DATA/education"
+alias jdj="cd \$DATA && j"
+alias jdp="cd \$DATA/pictures"
+alias ju="cd \$DATA/uni"
 
 # BOOKMARKS - HIDDEN
 bookmarks=$HOME/data/config/bookmarks
@@ -53,14 +59,14 @@ alias jl="cd \$HOME/.local"
 alias jsh="cd \$XDG_DATA_HOME"
 
 # BOOKMARKS - NOTES
-alias jn="cd ~/data/notes"
-alias n="jumpopen ~/data/notes notes"
-alias nb="jumpopen ~/data/notes books"
-alias ni="jumpopen ~/data/notes ideas"
-alias nl="jumpopen ~/data/notes links"
-alias nn="jumpopen ~/data/notes newsboat"
-alias ns="jumpopen ~/data/notes study"
-alias rss="newsboat -u ~/data/notes/newsboat"
+alias jn="cd \$DATA/notes"
+alias n="jumpopen \$DATA/notes notes"
+alias nb="jumpopen \$DATA/notes books"
+alias ni="jumpopen \$DATA/notes ideas"
+alias nl="jumpopen \$DATA/notes links"
+alias nn="jumpopen \$DATA/notes newsboat"
+alias ns="jumpopen \$DATA/notes study"
+alias rss="newsboat -u \$DATA/notes/newsboat"
 
 # BOOKMARKS - REPOS
 alias fa="jumpopen ~/repos/scripts arch.sh"
@@ -240,6 +246,6 @@ vpd() {
 }
 
 # WALLPAPERS
-alias jwl="cd ~/data/pictures/wallpapers"
+alias jwl="cd \$DATA/pictures/wallpapers"
 alias wd="wal -d"
-alias wn="cd ~/data/pictures/wallpapers && wal"
+alias wn="cd \$DATA/pictures/wallpapers && wal"
