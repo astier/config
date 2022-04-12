@@ -72,7 +72,6 @@ fi
 # AUTOSTART
 if [ ! -f /tmp/autostarted ]; then
     pulsemixer --unmute
-    setsid -f bstatus -l > /dev/null 2>&1
     touch /tmp/autostarted
 fi
 

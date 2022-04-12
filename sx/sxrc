@@ -3,6 +3,7 @@
 export _JAVA_AWT_WM_NONREPARENTING=1
 export GTK_THEME=Arc-Dark
 
+bstatus -l &
 monitor
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
