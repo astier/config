@@ -118,7 +118,6 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'buffer' },
   },
-  documentation = false,
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
