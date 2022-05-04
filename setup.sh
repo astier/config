@@ -101,6 +101,7 @@ if groups "$USER" | grep -q wheel; then
 
     [ ! -f /etc/default/grub ] && copy grub /etc/default
 
+    # TODO: use envsubst instead of sed
     copy systemd/system/getty@.service.d /etc/systemd/system
     sudo sed -i "s|<user>|$USER|g" /etc/systemd/system/getty@.service.d/override.conf
 
