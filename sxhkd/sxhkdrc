@@ -17,19 +17,7 @@ mod5 + shift + {1,2,3}
 {mod5,super} + t
     libreoffice ~/data/notes/tracker.ods
 
-@Super_L
-    sswm pop
-super + Tab
-    sswm cycle+
-mod5 + S
-    sswm quit
-{mod5,super} + d
-    sswm delete
-{mod5,super} + a
-    sswm swap
-{mod5 + l,super + s}
-    sswm jump
-mod5 + {H,L}
-    sswm ratio{-,+}
-{button2,mod5 + m,super + v}
-    sswm maximize
+{button2,mod5 + m}
+    /usr/share/doc/herbstluftwm/examples/maximize.sh
+button{8,9}
+    "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" {+,-}

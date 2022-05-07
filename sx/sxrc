@@ -1,10 +1,13 @@
 #!/usr/bin/env sh
 
-export _JAVA_AWT_WM_NONREPARENTING=1
 export GTK_THEME=Arc-Dark
 
+autorandr --change
 bstatus -l &
-monitor
+hsetroot
+sxhkd &
+xbanish &
+xcompmgr &
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
-exec sswm
+exec herbstluftwm -l
