@@ -1,1 +1,8 @@
+! disable recommendations on the homepage
 youtube.com##ytd-browse[page-subtype="home"]
+
+! disable overlay which blocks loading more tweets
+twitter.com##html:style(overflow: auto !important;)
+twitter.com##.r-11nfnuw.r-16wqof.r-1dqxon3.r-16y2uox.r-14lw9ot.css-1dbjc4n
+twitter.com##.r-ipm5af.r-zchlnj.r-1xcajam.r-1d2f490.r-1p0dtai.r-1ffj0ar.css-1dbjc4n
+twitter.com##.r-g6jmlv.r-ipm5af.r-1xcajam.r-xr3zp9.r-1pjcn9w.r-1777fci.r-1pi2tsx.r-18u37iz.r-1kihuf0.r-1awozwy.css-1dbjc4n
