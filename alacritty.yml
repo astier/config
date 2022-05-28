@@ -1,13 +1,13 @@
 window:
   padding:
-    x: 4
-    y: 4
+    x: 12
+    y: 12
 
 scrolling:
   history: 0
 
 font:
-  size: 12
+  size: 13
 
 env:
   WINIT_X11_SCALE_FACTOR: "1"
