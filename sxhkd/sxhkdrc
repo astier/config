@@ -9,7 +9,7 @@ XF86MonBrightness{Down,Up}
     brightness {-,+}
 
 {mod5,super} + Return
-    st
+    alacritty
 {mod5,super} + f
     launch term
 mod5 + shift + {1,2,3}
