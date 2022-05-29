@@ -4,6 +4,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export GTK_THEME=Arc-Dark
 
 autorandr --change
+dunst &
 sxhkd &
 xbanish &
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"

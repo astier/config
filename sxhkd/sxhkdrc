@@ -16,6 +16,8 @@ mod5 + shift + {1,2,3}
     systemctl {poweroff,reboot,suspend}
 {mod5,super} + t
     libreoffice ~/data/notes/tracker.ods
+super + {v,space}
+    dunstctl {history-pop,close}
 
 mod5 + S
     pkill sswm
