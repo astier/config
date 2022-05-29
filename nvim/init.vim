@@ -25,7 +25,6 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'junegunn/fzf'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
-  Plug 'majutsushi/tagbar'
   Plug 'mhinz/vim-grepper'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathom/tmux.nvim'
@@ -580,7 +579,7 @@ set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 fun! s:statusLine()
   let left = '[' . pathshorten(expand('%')) . ']'
   let right = '[' . line('.') . '/' . line('$') . ']'
-  if &ft =~# '\(floggraph\|nerdtree\|tagbar\)' || empty(expand('%'))
+  if &ft =~# '\(floggraph\|nerdtree\)' || empty(expand('%'))
     let left = ''
   endif
   return left . repeat('─', winwidth(0) - len(left) - len(right)) . right
@@ -611,23 +610,6 @@ fun! TabLine()
   endif
   return s
 endfun
-
-" TAGBAR
-let g:tagbar_autofocus = 1
-let g:tagbar_compact = 2
-let g:tagbar_indent = 0
-let g:tagbar_map_showproto = 'd'
-let g:tagbar_position = 'left'
-let g:tagbar_show_data_type = 1
-let g:tagbar_silent = 1
-let g:tagbar_singleclick = 1
-let g:tagbar_zoomwidth = 0
-nnoremap <space>T <cmd>Tagbar<cr>
-if $TERM ==# 'linux' || $TERM ==# 'screen'
-  let g:tagbar_iconchars = ['<', '>']
-else
-  let g:tagbar_iconchars = ['▸', '▾']
-endif
 
 " SWITCH
 let g:switch_custom_definitions = [
