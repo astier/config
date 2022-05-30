@@ -1,7 +1,7 @@
 window:
   padding:
     x: 1
-    y: 1
+    y: 0
 
 scrolling:
   history: 0
