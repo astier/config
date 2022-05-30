@@ -11,7 +11,7 @@ XF86MonBrightness{Down,Up}
 {mod5,super} + Return
     alacritty
 {mod5,super} + f
-    launch term
+    dmenu_run
 mod5 + shift + {1,2,3}
     systemctl {poweroff,reboot,suspend}
 {mod5,super} + t
