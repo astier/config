@@ -1,16 +1,21 @@
 #!/usr/bin/env sh
 
+export _JAVA_AWT_WM_NONREPARENTING=1
 export GTK_THEME=Arc-Dark
 
-bstatus -l &
 dunst &
-hsetroot -cover "$(cat ~/.local/share/wal)"
 monitor
 sxhkd &
 xbanish &
-xcompmgr &
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
 while clipnotify; do xsel -bo | xsel -bi; done &
 
-exec herbstluftwm -l
+(sleep .1
+  "$BROWSER" &
+  "$TERMINAL" -e tmux new -A &
+  alttab -bg '#2e3440' -fg "#2e3440" -frame "#434c5e" -d 1 -bw 1 -t 64x64 -i 64x64 &
+  bstatus -l &
+)&
+
+exec sswm
