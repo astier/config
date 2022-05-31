@@ -8,7 +8,7 @@ dunst &
 hsetroot -cover "$(cat ~/.local/share/wal)"
 sxhkd &
 xbanish &
-xcompmgr -cC -fD 3 &
+xcompmgr &
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
 exec herbstluftwm -l
