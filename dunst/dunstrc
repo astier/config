@@ -1,4 +1,5 @@
 [global]
+    width = 350
     offset = 20x20
     separator_height = 1
     padding = 4
