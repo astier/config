@@ -19,9 +19,7 @@ mod5 + shift + {1,2,3}
 super + {v,space}
     dunstctl {history-pop,close}
 
-mod5 + S
-    pkill sswm
-{mod5,super} + d
-    wmctrl -c :ACTIVE:
-{button2,mod5 + l,super + s}
-    wmctrl -ia "$(wmctrl -l | sed -n 2p | cut -d' ' -f1)"
+{button2,mod5 + m}
+    /usr/share/doc/herbstluftwm/examples/maximize.sh
+button{8,9}
+    "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" {+,-}
