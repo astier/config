@@ -2,10 +2,10 @@
 
 export GTK_THEME=Arc-Dark
 
-autorandr --change
 bstatus -l &
 dunst &
 hsetroot -cover "$(cat ~/.local/share/wal)"
+monitor
 sxhkd &
 xbanish &
 xcompmgr &
