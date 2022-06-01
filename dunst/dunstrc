@@ -9,6 +9,7 @@
     font = Monospace 12
     icon_path = /usr/share/icons/Flat-Remix-Blue-Dark/status/scalable/16/:/usr/share/icons/Flat-Remix-Blue-Dark/devices/scalable/
     corner_radius = 4
+    show_age_threshold = -1
 
 [urgency_low]
     background  = "#3b4252"
