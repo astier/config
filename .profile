@@ -8,11 +8,6 @@ export XDG_CONFIG_DIRS="$XDG_CONFIG_HOME:/etc/xdg:$XDG_CONFIG_DIRS"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_DATA_DIRS="$XDG_DATA_HOME:/usr/local/share:/usr/share:$XDG_DATA_DIRS"
 
-export _JAVA_AWT_WM_NONREPARENTING=1
-export DISPLAY=:1
-export GTK_THEME=Arc-Dark
-export XAUTHORITY="$XDG_DATA_HOME/sx/xauthority"
-
 export CONFIG="$HOME/repos/config"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/settings.ini"
@@ -44,16 +39,15 @@ case $0 in
 esac
 
 if [ "$TERM" = linux ]; then
-    BLACK=2e3440
-    RED=bf616a
-    GREEN=a3be8c
-    YELLOW=ebcb8b
-    BLUE=81a1c1
-    MAGENTA=b48ead
-    CYAN=88c0d0
-    WHITE=d8dee9
-    BRIGHTBLACK=626c80
-    BRIGHTWHITE=e5e9f0
+    BLACK=000000
+    RED=cc241d
+    GREEN=01a252
+    YELLOW=d79921
+    BLUE=5e81ac
+    MAGENTA=a16a94
+    CYAN=689d6a
+    WHITE=a5a2a2
+    BRIGHTBLACK=4c566a
     # NORMAL
     printf "\033]P0%s" "$BLACK"
     printf "\033]P1%s" "$RED"
@@ -61,7 +55,7 @@ if [ "$TERM" = linux ]; then
     printf "\033]P3%s" "$YELLOW"
     printf "\033]P4%s" "$BLUE"
     printf "\033]P5%s" "$MAGENTA"
-    printf "\033]P6%s" "$CYAN"
+    printf "\033]P6%s" "$BRIGHTBLACK"
     printf "\033]P7%s" "$WHITE"
     # BRIGHT
     printf "\033]P8%s" "$BRIGHTBLACK"
@@ -70,15 +64,14 @@ if [ "$TERM" = linux ]; then
     printf "\033]PB%s" "$YELLOW"
     printf "\033]PC%s" "$BLUE"
     printf "\033]PD%s" "$MAGENTA"
-    printf "\033]PE%s" "$CYAN"
-    printf "\033]PF%s" "$BRIGHTWHITE"
+    printf "\033]PE%s" "$BRIGHTBLACK"
+    printf "\033]PF%s" "$WHITE"
     clear
 fi
 
 # AUTOSTART
 if [ ! -f /tmp/autostarted ]; then
     pulsemixer --unmute
-    tmux -L tty new -d \; splitw -hb
     touch /tmp/autostarted
 fi
 
@@ -86,14 +79,4 @@ fi
 if [ "$(tty)" = /dev/tty1 ] && [ -f /usr/bin/sx ] && [ ! -f /tmp/xorg_started ]; then
     touch /tmp/xorg_started
     exec sx
-fi
-
-# TTY2
-if [ "$(tty)" = /dev/tty2 ] && [ "$TERM" = linux ] && [ ! -f /tmp/tmux_started ]; then
-    touch /tmp/tmux_started
-    if [ -n "$(pgrep -f 'tmux -L tty')" ]; then
-        exec tmux -L tty attach
-    else
-        exec tmux -L tty new \; splitw -hb
-    fi
 fi

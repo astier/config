@@ -19,11 +19,6 @@ mod5 + shift + {1,2,3}
 super + {v,space}
     dunstctl {history-pop,close}
 
-mod1 + q
-    sudo chvt 2
-mod1 + g
-    launch tty
-
 mod5 + S
     pkill sswm
 {mod5,super} + d
