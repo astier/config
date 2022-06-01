@@ -11,4 +11,6 @@ xbanish &
 xcompmgr &
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
+while clipnotify; do xsel -bo | xsel -bi; done &
+
 exec herbstluftwm -l
