@@ -154,8 +154,8 @@ alias ksp="git stash pop"
 alias kst="git stash"
 
 # MMRDF
-alias m="mv -iv"
 alias md="mkdir -pv"
+m() { if [ $# = 0 ]; then make; else mv -iv "$@"; fi }
 mx() { touch "$1" && chmod +x "$1"; }
 mf() {
     for arg in "$@"; do
@@ -187,7 +187,6 @@ alias lk="sudo /usr/bin/lock"
 alias lko="sudo /usr/bin/lock > /dev/null; sudo \$EDITOR \$XDG_CONFIG_HOME/lockrc; sudo /usr/bin/lock"
 alias ll="ls -l"
 alias lt="lint"
-alias m="mv"
 alias pa="patch -p1 <"
 alias r="pkg -r"
 alias re="sudo \$(fc -ln -1)"
