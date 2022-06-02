@@ -1,6 +1,6 @@
 [user]
     email = aleks.stier@icloud.com
-    name = aleks
+    name = Aleksandrs Stier
 
 [core]
     excludesfile = ~/.config/git/ignore
