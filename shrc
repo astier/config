@@ -65,6 +65,7 @@ alias nb="jumpopen \$DATA/notes books"
 alias ni="jumpopen \$DATA/notes ideas"
 alias nl="jumpopen \$DATA/notes links"
 alias nn="jumpopen \$DATA/notes newsboat"
+alias np="jumpopen \$DATA/notes projects"
 alias ns="jumpopen \$DATA/notes study"
 alias rss="newsboat -u \$DATA/notes/newsboat"
 
