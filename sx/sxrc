@@ -9,8 +9,6 @@ sxhkd &
 xbanish &
 xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
 
-while clipnotify; do xsel -bo | xsel -bi; done &
-
 (sleep .1
   "$BROWSER" &
   "$TERMINAL" -e tmux new -A &
