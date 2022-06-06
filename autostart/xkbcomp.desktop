@@ -1,4 +1,0 @@
-[Desktop Entry]
-Name=xkbcomp
-Exec=sh -c 'xkbcomp "$XDG_CONFIG_HOME"/xkb "$DISPLAY"'
-Type=Application

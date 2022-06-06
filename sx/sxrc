@@ -7,7 +7,7 @@ dunst &
 monitor
 sxhkd &
 xbanish &
-xkbcomp "$XDG_CONFIG_HOME/xkb" "$DISPLAY"
+xkbmap
 
 (sleep .1
   "$BROWSER" &
