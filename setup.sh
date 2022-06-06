@@ -38,7 +38,7 @@ link skippy-xd "$XDG_CONFIG_HOME"
 link templates "$XDG_CONFIG_HOME"
 link tig "$XDG_CONFIG_HOME"
 link tmux "$XDG_CONFIG_HOME"
-link xkbmap ~/.local/bin/
+link xkeymap "$XDG_CONFIG_HOME"
 link zathura "$XDG_CONFIG_HOME"
 
 DIR="$HOME/.mozilla/firefox"
