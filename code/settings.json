@@ -7,7 +7,6 @@
     "debug.toolBarLocation": "docked",
     "diffEditor.renderSideBySide": false,
     "editor.cursorBlinking": "solid",
-    "editor.fontSize": 13.3,
     "editor.formatOnPaste": true,
     "editor.glyphMargin": false,
     "editor.guides.indentation": false,
