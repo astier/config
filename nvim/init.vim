@@ -702,5 +702,5 @@ set linebreak
 if $TERM ==# 'linux' || $TERM ==# 'screen'
   set showbreak=¬\ 
 else
-  set showbreak=﬌\ 
+  set showbreak=↳\ 
 endif
