@@ -9,7 +9,7 @@ XF86MonBrightness{Down,Up}
     brightness {-,+}
 
 {mod5,super} + Return
-    st
+    "$TERMINAL"
 {mod5,super} + f
     dmenu_run
 mod5 + shift + {1,2,3}
