@@ -22,6 +22,8 @@ super + {v,space}
 mod5 + S
     pkill sswm
 {mod5,super} + d
-    wmctrl -c :ACTIVE:
+    xdo close
+{mod5,super} + D
+    xdo kill
 {button2,mod5 + l,super + s}
-    wmctrl -ia "$(wmctrl -l | sed -n 2p | cut -d' ' -f1)"
+    xdo activate "$(xclientlist --last)"
