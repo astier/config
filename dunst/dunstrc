@@ -8,7 +8,7 @@
     frame_color = "#000000"
     font = Monospace 12
     icon_path = /usr/share/icons/Flat-Remix-Blue-Dark/status/scalable/16/:/usr/share/icons/Flat-Remix-Blue-Dark/devices/scalable/
-    corner_radius = 4
+    corner_radius = 0
     show_age_threshold = -1
 
 [urgency_low]
