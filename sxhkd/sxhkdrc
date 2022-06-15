@@ -8,12 +8,17 @@ XF86Audio{Lower,Raise}Volume
 XF86MonBrightness{Down,Up}
     brightness {-,+}
 
+XF86PowerOff
+    systemctl suspend
+super + XF86PowerOff
+    systemctl reboot
+super + shift + XF86PowerOff
+    systemctl poweroff
+
 {mod5,super} + Return
     "$TERMINAL" -e tmux new \; splitw -h
 {mod5,super} + f
     dmenu_run
-mod5 + shift + {1,2,3}
-    systemctl {poweroff,reboot,suspend}
 {mod5,super} + t
     libreoffice ~/data/notes/tracker.ods
 super + {v,space}
