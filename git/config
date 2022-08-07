@@ -23,5 +23,6 @@
 
 [advice]
     addEmptyPathspec = false
+	detachedHead = false
 [diff]
     ignoreSubmodules = dirty
