@@ -6,6 +6,3 @@ browser.compactmode.show true
 
 # Disable alt-menu
 ui.key.menuAccessKeyFocuses false
-
-# Use light color-scheme
-layout.css.prefers-color-scheme.content-override 1
