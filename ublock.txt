@@ -1,5 +1,7 @@
 ! disable recommendations on the homepage
 youtube.com##ytd-browse[page-subtype="home"]
+! disable recommendations in the sidebar
+youtube.com###secondary
 
 ! disable overlay which blocks loading more tweets
 twitter.com##html:style(overflow: auto !important;)
