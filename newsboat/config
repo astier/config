@@ -3,6 +3,8 @@ auto-reload yes
 color listfocus red default
 color listfocus_unread red default
 color listnormal_unread default default
+confirm-mark-all-feeds-read no
+confirm-mark-feed-read no
 feedlist-format "%n %t"
 highlight feedlist "===.*===" black default bold
 reload-threads 4
