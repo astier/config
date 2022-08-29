@@ -2,6 +2,7 @@
 youtube.com##ytd-browse[page-subtype="home"]
 ! disable recommendations in the sidebar
 youtube.com###secondary
+www.youtube.com##ytd-watch-next-secondary-results-renderer.ytd-watch-flexy.style-scope > .ytd-watch-next-secondary-results-renderer.style-scope
 
 ! disable overlay which blocks loading more tweets
 twitter.com##html:style(overflow: auto !important;)
