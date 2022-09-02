@@ -3,8 +3,6 @@ www.youtube.com##ytd-browse[page-subtype="home"]
 ! recommendations in the sidebar
 www.youtube.com###secondary
 www.youtube.com##ytd-watch-next-secondary-results-renderer.ytd-watch-flexy.style-scope > .ytd-watch-next-secondary-results-renderer.style-scope
-! comments
-www.youtube.com###comments > .ytd-comments.style-scope
 ! chat
 www.youtube.com###chat
 
