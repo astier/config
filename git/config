@@ -26,3 +26,5 @@
 	detachedHead = false
 [diff]
     ignoreSubmodules = dirty
+[rebase]
+	updateRefs = true
