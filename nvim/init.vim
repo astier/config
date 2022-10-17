@@ -11,6 +11,11 @@ endif
 nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin(stdpath('data') . '/plugged')
+  " Plug 'David-Kunz/markid'
+  " Plug 'Djancyp/better-comments.nvim'
+  " Plug 'gaoDean/autolist.nvim'
+  " Plug 'smjonas/inc-rename.nvim'
+  " Plug 'woosaaahh/sj.nvim'
   Plug 'airblade/vim-gitgutter'
   Plug 'airblade/vim-rooter'
   Plug 'AndrewRadev/switch.vim'
