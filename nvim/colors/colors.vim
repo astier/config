@@ -5,6 +5,7 @@ syntax reset
 hi comment ctermbg=none ctermfg=8
 hi constant ctermbg=none ctermfg=darkgreen cterm=none
 hi identifier ctermbg=none ctermfg=darkblue cterm=none
+hi normal ctermbg=none ctermfg=white cterm=none
 hi preproc ctermbg=none ctermfg=darkblue cterm=none
 hi special ctermbg=none ctermfg=darkblue cterm=none
 hi statement ctermbg=none ctermfg=darkblue cterm=none
