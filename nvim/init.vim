@@ -104,9 +104,6 @@ nmap gcp gcip
 unmap gbc
 
 " COMPLETION
-autocmd group filetype c lua require('cmp').setup.buffer {
-\ completion = { autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged } }
-\}
 set completeopt=menuone,noinsert
 set pumheight=8 pumwidth=0
 set shortmess+=c
