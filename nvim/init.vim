@@ -529,7 +529,6 @@ nnoremap } }zz
 nmap <2-rightmouse> <rightmouse>
 nmap <3-rightmouse> <rightmouse>
 nmap <4-rightmouse> <rightmouse>
-set mouse=a
 set mousemodel=popup
 set mousescroll=ver:4
 
