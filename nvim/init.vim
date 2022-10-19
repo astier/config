@@ -104,7 +104,6 @@ nmap gcp gcip
 unmap gbc
 
 " COMPLETION
-autocmd group filetype * set omnifunc=v:lua.vim.lsp.omnifunc
 autocmd group filetype c lua require('cmp').setup.buffer {
 \ completion = { autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged } }
 \}
