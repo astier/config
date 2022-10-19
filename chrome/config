@@ -6,3 +6,6 @@ browser.compactmode.show true
 
 # Disable alt-menu
 ui.key.menuAccessKeyFocuses false
+
+# Disable tabmanager in the right corner
+browser.tabs.tabmanager.enabled false
