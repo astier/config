@@ -27,8 +27,6 @@ super + {v,space}
 mod5 + S
     pkill sswm
 {mod5,super} + d
-    xdo close
-{mod5,super} + D
-    xdo kill
+    sswm close
 {button2,mod5 + l,super + s}
-    xdo activate "$(xclientlist --last)"
+    sswm last
