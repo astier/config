@@ -531,6 +531,7 @@ nmap <3-rightmouse> <rightmouse>
 nmap <4-rightmouse> <rightmouse>
 set mouse=a
 set mousemodel=popup
+set mousescroll=ver:4
 
 " QUICKFIX
 autocmd group filetype qf set nonu
