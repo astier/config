@@ -3,13 +3,13 @@ syntax reset
 
 " *
 hi comment ctermbg=none ctermfg=8
-hi constant ctermbg=none ctermfg=darkgreen cterm=none
-hi identifier ctermbg=none ctermfg=darkblue cterm=none
+hi constant ctermbg=none ctermfg=green cterm=none
+hi identifier ctermbg=none ctermfg=blue cterm=none
 hi normal ctermbg=none ctermfg=white cterm=none
-hi preproc ctermbg=none ctermfg=darkblue cterm=none
-hi special ctermbg=none ctermfg=darkblue cterm=none
-hi statement ctermbg=none ctermfg=darkblue cterm=none
-hi type ctermbg=none ctermfg=darkblue cterm=none
+hi preproc ctermbg=none ctermfg=blue cterm=none
+hi special ctermbg=none ctermfg=blue cterm=none
+hi statement ctermbg=none ctermfg=blue cterm=none
+hi type ctermbg=none ctermfg=blue cterm=none
 hi! link todo comment
 hi! link underlined none
 
@@ -24,10 +24,10 @@ hi linenr ctermbg=none ctermfg=8 cterm=none " none
 hi! link cursorline visual " none
 
 " DIFF
-hi diffadd ctermbg=darkred ctermfg=black cterm=none " none
-hi diffchange ctermbg=darkyellow ctermfg=black cterm=none " none
-hi diffdelete ctermbg=darkgreen ctermfg=black cterm=none " none
-hi difftext ctermbg=darkred ctermfg=black cterm=none " none
+hi diffadd ctermbg=red ctermfg=black cterm=none " none
+hi diffchange ctermbg=yellow ctermfg=black cterm=none " none
+hi diffdelete ctermbg=green ctermfg=black cterm=none " none
+hi difftext ctermbg=red ctermfg=black cterm=none " none
 
 " ERROR
 hi! link error none " none
@@ -39,8 +39,8 @@ hi foldcolumn ctermbg=none ctermfg=8 cterm=none " none
 hi folded ctermbg=none ctermfg=8 cterm=none " none
 
 " GIT
-hi diffadded ctermbg=none ctermfg=darkgreen cterm=none " identifier
-hi diffremoved ctermbg=none ctermfg=darkred cterm=none " special
+hi diffadded ctermbg=none ctermfg=green cterm=none " identifier
+hi diffremoved ctermbg=none ctermfg=red cterm=none " special
 hi! link difffile comment " type
 hi! link diffindexline comment " preproc
 hi! link gitdate none " number
@@ -54,9 +54,9 @@ hi! link markdownHeadingDelimiter comment " delimiter->special
 hi! link markdownurl special " float
 
 " MISC
-hi directory ctermbg=none ctermfg=darkblue cterm=none " none
-hi healthsuccess ctermbg=none ctermfg=darkgreen cterm=none " none
-hi netrwMarkFile ctermbg=none ctermfg=darkyellow cterm=none " tablinesel
+hi directory ctermbg=none ctermfg=blue cterm=none " none
+hi healthsuccess ctermbg=none ctermfg=green cterm=none " none
+hi netrwMarkFile ctermbg=none ctermfg=yellow cterm=none " tablinesel
 hi wildmenu ctermbg=none ctermfg=none cterm=none " none
 hi! link boolean none " constant
 hi! link function none " identifier
@@ -70,8 +70,8 @@ hi! link title comment " none
 if $TERM ==# 'linux' || $TERM ==# 'screen'
     hi pmenu ctermbg=gray ctermfg=black cterm=none " none
     hi pmenusbar ctermbg=gray ctermfg=none cterm=none " none
-    hi pmenusel ctermbg=darkblue ctermfg=black cterm=none " none
-    hi pmenuthumb ctermbg=darkblue ctermfg=none cterm=none " none
+    hi pmenusel ctermbg=blue ctermfg=black cterm=none " none
+    hi pmenuthumb ctermbg=blue ctermfg=none cterm=none " none
     hi visual ctermbg=gray ctermfg=black cterm=none " none
 else
     hi pmenu ctermbg=black ctermfg=none cterm=none " none
@@ -82,8 +82,8 @@ else
 endif
 
 " SEARCH
-hi incsearch ctermbg=darkyellow ctermfg=black cterm=none " none
-hi search ctermbg=darkred ctermfg=black cterm=none " none
+hi incsearch ctermbg=yellow ctermfg=black cterm=none " none
+hi search ctermbg=red ctermfg=black cterm=none " none
 
 " STATUSLINE
 hi statusline ctermbg=none ctermfg=8 cterm=none " none
@@ -115,7 +115,7 @@ hi! link shtestpattern none " shstring->string->constant
 hi! link shvarassign statement " none
 
 " SPELL
-hi spellbad ctermbg=none ctermfg=darkred cterm=none " none
+hi spellbad ctermbg=none ctermfg=red cterm=none " none
 hi! link spellrare none " none
 
 " TABLINE
