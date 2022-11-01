@@ -58,7 +58,6 @@ autocmd group filetype * set nocursorline
 autocmd group textyankpost * silent! lua vim.highlight.on_yank{}
 colorscheme colors
 nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
-set cmdheight=0
 
 " AUTOPAIR
 lua << EOF
