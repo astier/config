@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=autostart
+Comment=Execute autostart-script.
+Exec=sh -c "$XDG_CONFIG_HOME"/autostart/autostart.sh
+Type=Application

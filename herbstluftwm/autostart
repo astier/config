@@ -72,9 +72,6 @@ if hc silent new_attr bool my_not_first_autostart ; then
     hc load 0 "(split horizontal:0.5:1 (clients max:0) (clients max:0))"
     hc load 1 "(clients max:0)"
     hc rule instance='st-256color' index=1 once
-    hc spawn "$BROWSER"
-    hc spawn "$TERMINAL" -e tmux new -A
-    hc spawn alttab -bg '#2e3440' -fg "#2e3440" -frame "#434c5e" -d 1 -bw 1 -t 64x64 -i 64x64
-    hc spawn tint2
+    hc spawn "$XDG_CONFIG_HOME"/autostart/autostart.sh
 fi
 hc unlock

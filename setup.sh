@@ -50,8 +50,8 @@ dconf load /net/launchpad/plank/docks/ < plank/config.ini
 
 DIR="$XDG_CONFIG_HOME"/autostart
 mkdir -p "$DIR"
-link autostart/xbanish.desktop "$DIR"
-link autostart/xkbcomp.desktop "$DIR"
+link autostart/autostart.desktop "$DIR"
+link autostart/autostart.sh "$DIR"
 
 DIR=$XDG_CONFIG_HOME/Code/User
 if [ -d "$DIR" ]; then
