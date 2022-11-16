@@ -76,7 +76,6 @@ if groups "$USER" | grep -q wheel; then
     copy systemd/resolved.conf.d /etc/systemd
     copy systemd/system.conf.d /etc/systemd
     link herbstluftwm "$XDG_CONFIG_HOME"
-    link newsboat "$XDG_CONFIG_HOME"
     link pacman "$XDG_CONFIG_HOME"
     link sx "$XDG_CONFIG_HOME"
     link sxhkd "$XDG_CONFIG_HOME"
