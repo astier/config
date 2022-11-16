@@ -72,6 +72,6 @@ if hc silent new_attr bool my_not_first_autostart ; then
     hc load 0 "(split horizontal:0.5:1 (clients max:0) (clients max:0))"
     hc load 1 "(clients max:0)"
     hc rule instance='st-256color' index=1 once
-    hc spawn "$XDG_CONFIG_HOME"/autostart/autostart.sh
+    hc spawn "$XDG_CONFIG_HOME"/autostart/hlwm.sh
 fi
 hc unlock
