@@ -42,9 +42,6 @@ DIR="$HOME/.mozilla/firefox"
 PROFILE=$(grep "Default=" "$DIR/profiles.ini" | head -1 | cut -d= -f2 | cut -d. -f1)
 link chrome "$DIR/$PROFILE.default-release"
 
-link plank "$XDG_CONFIG_HOME"
-dconf load /net/launchpad/plank/docks/ < plank/config.ini
-
 DIR="$XDG_CONFIG_HOME"/autostart
 mkdir -p "$DIR"
 link autostart/autostart.desktop "$DIR"
