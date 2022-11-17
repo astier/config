@@ -9,7 +9,7 @@ XF86MonBrightness{Down,Up}
     brightness {-,+}
 
 {mod5,super} + Return
-    "$TERMINAL" -e tmux new \; splitw -h
+    "$TERMINAL"
 {mod5,super} + f
     dmenu_run
 {mod5,super} + t
@@ -17,9 +17,7 @@ XF86MonBrightness{Down,Up}
 super + {v,space}
     dunstctl {history-pop,close}
 
-mod5 + S
-    pkill sswm
-{mod5,super} + d
-    sswm delete
-{button2,mod5 + l,super + s}
-    sswm last
+{button2,mod5 + m}
+    /usr/share/doc/herbstluftwm/examples/maximize.sh
+button{8,9}
+    "$XDG_CONFIG_HOME/herbstluftwm/cycle.sh" {+,-}
