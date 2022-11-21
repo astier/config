@@ -29,7 +29,7 @@ export TERMINAL=st
 
 export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 export FZF_DEFAULT_COMMAND="ffind -type f"
-export FZF_DEFAULT_OPTS="--cycle --multi --reverse --preview-window border-sharp --tabstop=4 --tiebreak=begin,length,end,index --no-info --color=bg+:-1,fg+:-1,border:8,hl:1,hl+:1,prompt:4,pointer:2,marker:3,info:8"
+export FZF_DEFAULT_OPTS="--cycle --multi --reverse --no-separator --preview-window border-sharp --tabstop=4 --tiebreak=begin,length,end,index --no-info --color=bg+:-1,fg+:-1,border:8,hl:1,hl+:1,prompt:4,pointer:2,marker:3,info:8"
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
