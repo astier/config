@@ -88,10 +88,6 @@ if groups "$USER" | grep -q wheel; then
     link_sudo key.map "$DIR"
     copy systemd/system/tty-conf.service /etc/systemd/system
 
-    DIR=/etc/NetworkManager
-    [ ! -d "$DIR" ] && sudo mkdir "$DIR"
-    link_sudo NetworkManager.conf "$DIR"
-
     [ ! -f /etc/default/grub ] && copy grub /etc/default
 
     # TODO: use envsubst instead of sed
