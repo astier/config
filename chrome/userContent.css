@@ -5,6 +5,6 @@ html {
 }
 
 /* Set background-color of new tabs */
-@-moz-document url-prefix(about:blank) {
-    html { background-color: #383c4a; }
+@-moz-document url(about:newtab) {
+    html { background-color: #383c4a !important; }
 }
