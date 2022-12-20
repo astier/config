@@ -1,4 +1,4 @@
-/* Prevent YouTube from changing scrollbar */
+/* Prevent websites from changing scrollbar */
 html {
     scrollbar-color: unset !important;
     scrollbar-width: unset !important;

@@ -1,5 +1,5 @@
-/* Disable tracking-protection-icon in the url-bar */
+/* Remove tracking-protection-icon from the url-bar */
 #tracking-protection-icon-container { display: none; }
 
-/* Disable left drag-space */
+/* Remove left drag-space from the tab-bar */
 .titlebar-spacer[type="pre-tabs"] { display:none; }
