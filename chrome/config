@@ -9,3 +9,6 @@ ui.key.menuAccessKeyFocuses false
 
 # Disable tabmanager in the right corner
 browser.tabs.tabmanager.enabled false
+
+# Disable reader-mode-button
+reader.parse-on-load.enabled false
