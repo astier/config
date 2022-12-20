@@ -8,3 +8,6 @@ html {
 @-moz-document url(about:newtab) {
     html { background-color: #383c4a !important; }
 }
+
+/* Remove personalize-button from home-page */
+.personalize-button { display: none !important; }
