@@ -530,7 +530,7 @@ nnoremap } }zz
 nmap <2-rightmouse> <rightmouse>
 nmap <3-rightmouse> <rightmouse>
 nmap <4-rightmouse> <rightmouse>
-set mousemodel=popup
+set mousemodel=extend
 set mousescroll=ver:4
 
 " QUICKFIX
