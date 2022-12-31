@@ -156,6 +156,11 @@ alias ksl="git stash list"
 alias ksp="git stash pop"
 alias kst="git stash"
 
+# INTERNET
+alias ig="iwctl station wlan0 get-networks"
+alias ir="sudo systemctl restart iwd.service"
+alias is="iwctl station wlan0 scan"
+
 # MMRDF
 alias md="mkdir -pv"
 m() { if [ $# = 0 ]; then make; else mv -iv "$@"; fi }
@@ -181,9 +186,6 @@ alias g="grep -Rn"
 alias gf="ffind | grep"
 alias h="python"
 alias i="pkg -i"
-alias ig="iwctl station wlan0 get-networks"
-alias ir="sudo systemctl restart iwd.service"
-alias is="iwctl station wlan0 scan"
 alias l="preview"
 alias lb="lsblk -o name,label,mountpoint,fstype,size"
 alias lk="sudo /usr/bin/lock"
