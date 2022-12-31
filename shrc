@@ -231,6 +231,11 @@ autopen() {
     fi
 }
 
+# SYSTEM
+alias sl="systemctl suspend"
+alias sp="systemctl poweroff"
+alias sr="systemctl reboot"
+
 # TMUX
 alias t="exec tmux new -A"
 alias tk="tmux kill-session -a"
