@@ -83,7 +83,7 @@ endif
 
 " SEARCH
 hi incsearch ctermbg=yellow ctermfg=black cterm=none " none
-hi search ctermbg=red ctermfg=black cterm=none " none
+hi search ctermbg=none ctermfg=red cterm=none " none
 
 " STATUSLINE
 hi statusline ctermbg=none ctermfg=8 cterm=none " none
