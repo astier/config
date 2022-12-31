@@ -8,6 +8,11 @@ XF86Audio{Lower,Raise}Volume
 XF86MonBrightness{Down,Up}
     brightness {-,+}
 
+alt + {1,2}
+    volume {-,+}
+alt + {3,4}
+    brightness {-,+}
+
 {mod5,super} + Return
     "$TERMINAL" -e tmux new \; splitw -h
 {mod5,super} + f
