@@ -35,6 +35,9 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM=auto
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+export GTK_THEME=Arc-Dark
+
 case $0 in
     *bash) . "$HOME/.bashrc" ;;
 esac
