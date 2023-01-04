@@ -74,8 +74,8 @@ if [ "$TERM" = linux ]; then
 fi
 
 # AUTOSTART
-if [ ! -f /tmp/autostarted ]; then
-    touch /tmp/autostarted
+if [ ! -f /tmp/started_tty1 ]; then
+    touch /tmp/started_tty1
     pulsemixer --unmute
     [ "$(tty)" = /dev/tty1 ] && [ -f /usr/bin/sx ] && exec sx
 fi
