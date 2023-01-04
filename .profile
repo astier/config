@@ -75,12 +75,7 @@ fi
 
 # AUTOSTART
 if [ ! -f /tmp/autostarted ]; then
-    pulsemixer --unmute
     touch /tmp/autostarted
-fi
-
-# XORG
-if [ "$(tty)" = /dev/tty1 ] && [ -f /usr/bin/sx ] && [ ! -f /tmp/xorg_started ]; then
-    touch /tmp/xorg_started
-    exec sx
+    pulsemixer --unmute
+    [ "$(tty)" = /dev/tty1 ] && [ -f /usr/bin/sx ] && exec sx
 fi
