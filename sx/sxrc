@@ -1,5 +1,3 @@
 #!/usr/bin/env sh
 
-while clipnotify; do xsel -bo | xsel -bi; done &
-
 exec sswm
