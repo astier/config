@@ -73,8 +73,8 @@ if [ "$TERM" = linux ]; then
     clear
 fi
 
-# AUTOSTART
-if [ ! -f /tmp/started_tty1 ]; then
+# AUTOSTART - TTY1
+if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/started_tty1 ]; then
     touch /tmp/started_tty1
-    [ "$(tty)" = /dev/tty1 ] && [ -f /usr/bin/sx ] && exec sx
+    [ -f /usr/bin/sx ] && exec sx
 fi
