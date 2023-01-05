@@ -161,6 +161,11 @@ alias ig="iwctl station wlan0 get-networks"
 alias ir="sudo systemctl restart iwd.service"
 alias is="iwctl station wlan0 scan"
 
+# MEDIA
+pm() { if [ $# = 0 ]; then mpv --no-video "$(xsel -ob)"; else mpv --no-video "$@"; fi }
+pv() { if [ $# = 0 ]; then mpv "$(xsel -ob)"; else mpv "$@"; fi }
+y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
+
 # MMRDF
 alias md="mkdir -pv"
 m() { if [ $# = 0 ]; then make; else mv -iv "$@"; fi }
@@ -207,8 +212,6 @@ cd() { command cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else realpath -s "$@" | sed 's/.*/"&"/' | xargs rm -fr; ls; fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 p() { if [ $# = 0 ]; then pwd | sed "s|$HOME|~|"; else cp -irv "$@"; fi }
-play() { if [ $# = 0 ]; then mpv --no-video "$(xsel -ob)"; else mpv --no-video "$@"; fi }
-y() { youtube-dl "$@" "$(xsel -b | head -n1)"; }
 
 # OPEN PROJECT-FILES
 alias o="autopen"
