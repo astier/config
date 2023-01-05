@@ -12,3 +12,6 @@ browser.tabs.tabmanager.enabled false
 
 # Disable reader-mode-button
 reader.parse-on-load.enabled false
+
+# Enable hardware-acceleration (check arch-wiki)
+media.ffmpeg.vaapi.enabled true
