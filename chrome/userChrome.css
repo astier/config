@@ -3,6 +3,3 @@
 
 /* Remove left drag-space from the tab-bar */
 .titlebar-spacer[type="pre-tabs"] { display:none; }
-
-/* Add padding to the left of the tab-bar */
-#TabsToolbar { padding-left: 1px !important; }
