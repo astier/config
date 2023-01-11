@@ -9,7 +9,6 @@ alias gdisk="sudo gdisk"
 alias grep="grep --color --exclude-dir=.?*"
 alias ls="ls -Ahv --color --group-directories-first"
 alias mount="sudo mount"
-alias tree="tree -aCI '__pycache__|.git|*.aux|*.fdb_latexmk|*.fls|*.log|*.nav|*.snm|*.gz|*.toc' --dirsfirst --noreport"
 alias umount="sudo umount"
 alias watch="watch --color"
 
@@ -202,8 +201,6 @@ alias r="pkg -r"
 alias re="sudo \$(fc -ln -1)"
 alias s="echo \$(bstatus -c)B \| \$(volume ?)V \| \$(date +%H:%M) \| \$(date +%d.%m.%y)"
 alias sc="scrot -s"
-alias td="tree -d"
-alias tf="tree"
 alias tmp="nvim +'set nospell' /tmp/scratch.md"
 alias u="curl -s 'https://archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d | sudo tee /etc/pacman.d/mirrorlist >/dev/null && paru"
 alias v="volume"
@@ -246,6 +243,11 @@ alias tl="tmux ls"
 alias tm="iwltm --mark"
 alias tt="exec tmux -L tty new -A"
 ts() { num=0; [ -n "$1" ] && num="$1"; tmux switch -t "$num"; }
+
+# TREE
+alias td="tree -d"
+alias tf="tree"
+alias tree="tree -aCI '__pycache__|.git|*.aux|*.fdb_latexmk|*.fls|*.log|*.nav|*.snm|*.gz|*.toc' --dirsfirst --noreport"
 
 # VIM
 vpa() {
