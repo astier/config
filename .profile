@@ -36,7 +36,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM=auto
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export GTK_THEME=Arc-Dark
+export GTK_THEME=Arc-Dark-solid
 
 case $0 in
     *bash) . "$HOME/.bashrc" ;;
