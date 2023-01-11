@@ -36,9 +36,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM=auto
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export DISPLAY=:1
 export GTK_THEME=Arc-Dark-solid
-export XAUTHORITY="$XDG_DATA_HOME/sx/xauthority"
 
 case $0 in
     *bash) . "$HOME/.bashrc" ;;
@@ -80,10 +78,4 @@ if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/started_tty1 ]; then
     touch /tmp/started_tty1
     pulsemixer --unmute
     [ -f /usr/bin/sx ] && exec sx
-fi
-
-# AUTOSTART - TTY2
-if [ "$(tty)" = /dev/tty2 ] && [ ! -f /tmp/started_tty2 ]; then
-    touch /tmp/started_tty2
-    [ -f /usr/bin/tmux ] && exec tmux -L tty new \; splitw -hb
 fi
