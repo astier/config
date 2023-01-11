@@ -15,6 +15,11 @@ alt + {1,2}
 alt + {3,4}
     brightness {-,+}
 
+alt + q
+    chvt 2
+alt + g
+    launch tty
+
 {mod5,super} + Return
     "$TERMINAL" -e tmux new \; splitw -h
 {mod5,super} + f
