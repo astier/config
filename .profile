@@ -76,5 +76,6 @@ fi
 # AUTOSTART - TTY1
 if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/started_tty1 ]; then
     touch /tmp/started_tty1
+    pulsemixer --unmute
     [ -f /usr/bin/sx ] && exec sx
 fi
