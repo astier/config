@@ -6,13 +6,10 @@ hsetroot -cover "$XDG_CONFIG_HOME/wallpaper"
 monitor
 sxhkd &
 xbanish &
+xcompmgr &
 xkbcomp "$XDG_CONFIG_HOME/xkeymap" "$DISPLAY"
 
 while clipnotify; do xsel -bo | xsel -bi; done &
 
 "$BROWSER" &
-if tmux has-session; then
-    "$TERMINAL" -e tmux attach &
-else
-    "$TERMINAL" -e tmux new \; splitw -h &
-fi
+"$TERMINAL" -e tmux new -A &
