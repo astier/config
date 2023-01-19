@@ -95,6 +95,7 @@ autocmd group textchanged,insertleave * nested if !&ro | silent! update | endif
 autocmd group vimenter * silent! let @#=expand('#2:p')
 nnoremap <space>d <cmd>qa!<cr>
 nnoremap <space>q <cmd>bd!<cr>
+nnoremap q <cmd>b#<cr>
 set noswapfile
 
 " COMMENTS
@@ -288,70 +289,6 @@ fun! ExeCmdAndRecenter(cmd)
   endif
 endfun
 
-" EXPLORER
-let g:netrw_banner = 0
-let g:netrw_browsex_viewer= 'open'
-let g:netrw_dirhistmax = 0
-let g:netrw_list_hide = '^\./$'
-nnoremap <rightmouse> <cmd>call <sid>NetrwToggle()<cr>
-nnoremap <space>e <cmd>call <sid>NetrwToggle()<cr>
-nnoremap q <cmd>call <sid>ChangeToRealAltFile()<cr>
-
-augroup netrw | autocmd! filetype netrw call NetrwInit() | augroup end
-fun! NetrwInit()
-  nmap <buffer> <c-leftmouse> <plug>NetrwSLeftmouse
-  nmap <buffer> <cr> <nop>
-  nmap <buffer> <tab> mf
-  nmap <buffer> h -
-  nmap <buffer> q <nop>
-  nnoremap <buffer> <leftmouse> <leftmouse><cmd>call <sid>NetrwOpen()<cr>
-  nnoremap <buffer> <rightmouse> <cmd>call <sid>NetrwToggle()<cr>
-  nnoremap <buffer> <space>e <cmd>call <sid>NetrwToggle()<cr>
-  nnoremap <buffer> l <cmd>call <sid>NetrwOpen()<cr>
-endfun
-
-fun! s:NetrwToggle()
-  if &ft ==# 'netrw'
-    if exists('g:abufnr') | execute 'normal `Y' | endif
-    return
-  endif
-  normal mY
-  if getbufvar(bufnr('#'), '&ft') ==# 'netrw'
-    let g:abufnr = bufnr('%')
-  else
-    let g:abufnr = bufnr('#')
-  endif
-  let g:obufnr = bufnr('%')
-  let file = expand('%:t')
-  Explore
-  execute search(file)
-endfun
-
-fun! s:ChangeToRealAltFile()
-  if getbufvar(bufnr('#'), '&ft') ==# 'netrw'
-    if !exists('g:obufnr') | return | endif
-    if bufnr('%') == g:obufnr
-      execute 'buffer ' g:abufnr
-    else
-      normal `Y
-    endif
-  else
-    buffer #
-  endif
-endfun
-
-fun! s:NetrwOpen()
-  let file = split(getline('.'), '@\s*--> ')[0]
-  if split(file, '\.')[-1] =~? '\(pdf\|png\|jpg\|jpeg\|ods\)'
-    normal x
-  else
-    execute "normal \<plug>NetrwLocalBrowseCheck zz"
-    if exists('g:obufnr') && bufnr('%') == g:obufnr
-      normal `Y
-    endif
-  endif
-endfun
-
 " FILETYPE
 autocmd group filetype diff set textwidth=72
 autocmd group filetype hog set ft=udevrules
@@ -479,6 +416,8 @@ let g:loaded_gzip = 0
 let g:loaded_logiPat = 0
 let g:loaded_matchit = 0
 let g:loaded_matchparen = 0
+let g:loaded_netrw = 0
+let g:loaded_netrwPlugin = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python3_provider = 0
