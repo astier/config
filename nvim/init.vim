@@ -426,6 +426,7 @@ nnoremap gs <cmd>lua vim.lsp.buf.document_symbol()<cr>
 nnoremap gS <cmd>lua vim.lsp.buf.workspace_symbol()<cr>
 
 " MISC - MAPPINGS
+inoremap <c-space> <space>
 nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
 nnoremap guw myguiw`y
 nnoremap guW myguiW`y
