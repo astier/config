@@ -529,6 +529,7 @@ fun! s:statusLine()
   return left . repeat('─', winwidth(0) - len(left) - len(right)) . right
 endfun
 nnoremap <expr> <space>b &ls ? '<cmd>set stl=\  ls=0<cr>' : '<cmd>set ls=2 stl=%{<sid>statusLine()}<cr>'
+nnoremap <a-space> <c-g>
 set fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 set noruler noshowcmd noshowmode laststatus=0
 set statusline=\  rulerformat=%=%l/%L
