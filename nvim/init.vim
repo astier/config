@@ -115,37 +115,36 @@ cmp.setup {
     documentation = cmp.config.disable,
   },
   mapping = {
-    ['<c-space>'] = cmp.mapping.complete(),
     ['<cr>'] = cmp.mapping.confirm({ select = true }),
     ['<c-e>'] = cmp.mapping.abort(),
     ['<c-b>'] = cmp.mapping.scroll_docs(-4),
     ['<c-f>'] = cmp.mapping.scroll_docs(4),
-    ['<c-n>'] = function(fallback)
+    ['<c-n>'] = function()
       if cmp.visible() then
         cmp.select_next_item()
       else
-        fallback()
+        cmp.complete()
       end
     end,
-    ['<c-p>'] = function(fallback)
+    ['<c-p>'] = function()
       if cmp.visible() then
         cmp.select_prev_item()
       else
-        fallback()
+        cmp.complete()
       end
     end,
-    ['<down>'] = function(fallback)
+    ['<down>'] = function()
       if cmp.visible() then
         cmp.select_next_item()
       else
-        fallback()
+        cmp.complete()
       end
     end,
-    ['<up>'] = function(fallback)
+    ['<up>'] = function()
       if cmp.visible() then
         cmp.select_prev_item()
       else
-        fallback()
+        cmp.complete()
       end
     end,
   },
