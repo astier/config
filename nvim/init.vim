@@ -133,20 +133,6 @@ cmp.setup {
         cmp.complete()
       end
     end,
-    ['<down>'] = function()
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        cmp.complete()
-      end
-    end,
-    ['<up>'] = function()
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        cmp.complete()
-      end
-    end,
   },
   sources = {
     { name = 'path' },
