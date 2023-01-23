@@ -538,20 +538,20 @@ set statusline=\  rulerformat=%=%l/%L
 set showtabline=1
 set tabline=%!TabLine()
 fun! TabLine()
-  let s = ''
+  let tabline = ''
   for i in range(tabpagenr('$'))
     if i + 1 == tabpagenr()
-      let s .= '%#TabLineSel#'
+      let tabline .= '%#TabLineSel#'
     else
-      let s .= '%#TabLine#'
+      let tabline .= '%#TabLine#'
     endif
-    let s .= '%' . (i + 1) . 'T' . '[' . (i + 1) . '] '
+    let tabline .= '%' . (i + 1) . 'T' . '[' . (i + 1) . '] '
   endfor
-  let s .= '%#TabLineFill#%T'
+  let tabline .= '%#TabLineFill#%T'
   if tabpagenr('$') > 1
-    let s .= '%=%#TabLineSel'
+    let tabline .= '%=%#TabLineSel'
   endif
-  return s
+  return tabline
 endfun
 
 " SWITCH
