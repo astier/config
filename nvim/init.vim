@@ -545,9 +545,7 @@ fun! TabLine()
     else
       let s .= '%#TabLine#'
     endif
-    let s .= '%' . (i + 1) . 'T'
-    let bufnr = tabpagebuflist(i + 1)[tabpagewinnr(i + 1) - 1]
-    let s .= '[' . pathshorten(bufname(bufnr)) . '] '
+    let s .= '%' . (i + 1) . 'T' . '[' . (i + 1) . '] '
   endfor
   let s .= '%#TabLineFill#%T'
   if tabpagenr('$') > 1
