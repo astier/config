@@ -28,3 +28,7 @@
     ignoreSubmodules = dirty
 [rebase]
 	updateRefs = true
+[blame]
+	date = short
+[log]
+	date = short
