@@ -23,6 +23,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'hrsh7th/vim-vsnip'
   Plug 'ibhagwan/fzf-lua'
   Plug 'junegunn/fzf'
+  Plug 'junegunn/gv.vim'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
   Plug 'mhinz/vim-grepper'
@@ -30,7 +31,6 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
-  Plug 'rbong/vim-flog'
   Plug 'stevearc/stickybuf.nvim'
   Plug 'stsewd/gx-extended.vim'
   Plug 'svermeulen/vim-subversive'
@@ -330,15 +330,13 @@ nnoremap fs <cmd>lua require 'fzf-lua'.lsp_document_symbols()<cr>
 nnoremap fS <cmd>lua require 'fzf-lua'.lsp_workspace_symbols()<cr>
 
 " GIT
-autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
-autocmd group filetype floggraph nmap <buffer> <space>q <plug>(FlogQuit)
-autocmd group filetype floggraph xmap <buffer> <rightmouse> <cr>
-let g:flog_permanent_default_opts = { 'date': 'short' }
+autocmd group filetype GV nmap <rightmouse> <leftmouse>o
+autocmd group filetype GV xmap <rightmouse> o
 nnoremap <expr> <space>km &diff ? '<cmd>x<cr>zz' : '<cmd>Gdiffsplit<cr>'
 nnoremap <space>kd <cmd>0G diff<cr>
-nnoremap <space>kg :Flog -search=
-nnoremap <space>kK <cmd>Flog -all -path=%<cr>
-nnoremap <space>kk <cmd>Flog -all<cr>
+nnoremap <space>kg :GV --grep=
+nnoremap <space>kK <cmd>GV!<cr>
+nnoremap <space>kk <cmd>GV<cr>
 nnoremap <space>kr <cmd>G reset --hard<bar>e<cr>
 
 " GITGUTTER
@@ -523,7 +521,7 @@ set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 fun! s:statusLine()
   let left = '[' . pathshorten(expand('%')) . ']'
   let right = '[' . line('.') . '/' . line('$') . ']'
-  if &ft =~# '\(floggraph\)' || empty(expand('%'))
+  if &ft =~# empty(expand('%'))
     let left = ''
   endif
   return left . repeat('─', winwidth(0) - len(left) - len(right)) . right
