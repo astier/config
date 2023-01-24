@@ -25,6 +25,7 @@
     addEmptyPathspec = false
 	detachedHead = false
 [diff]
+    algorithm = histogram
     ignoreSubmodules = dirty
 [rebase]
 	updateRefs = true
