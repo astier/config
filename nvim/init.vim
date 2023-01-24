@@ -333,7 +333,7 @@ nnoremap fS <cmd>lua require 'fzf-lua'.lsp_workspace_symbols()<cr>
 autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
 autocmd group filetype floggraph nmap <buffer> <space>q <plug>(FlogQuit)
 autocmd group filetype floggraph xmap <buffer> <rightmouse> <cr>
-let g:flog_permanent_default_arguments = { 'date': 'short' }
+let g:flog_permanent_default_opts = { 'date': 'short' }
 nnoremap <expr> <space>km &diff ? '<cmd>x<cr>zz' : '<cmd>Gdiffsplit<cr>'
 nnoremap <space>kd <cmd>0G diff<cr>
 nnoremap <space>kg :Flog -search=
