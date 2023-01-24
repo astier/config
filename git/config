@@ -4,7 +4,6 @@
 
 [core]
 	excludesfile = ~/.config/git/ignore
-	pager = "nvim -R +'set ft=git'"
 
 [credential]
 	helper = cache --timeout=7200
@@ -34,5 +33,3 @@
 	date = short
 [log]
 	date = short
-[color]
-	pager = false
