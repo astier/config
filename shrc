@@ -96,11 +96,9 @@ j() {
 }
 
 # GIT
-kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
-kg() { nvim -c "Flog -all -search=$1" -c 1tabclose; }
-krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
-
 alias k="nvim -c 'Flog -all' -c 1tabclose"
+kg() { nvim -c "Flog -all -search=$1" -c 1tabclose; }
+
 alias ka="git add"
 alias kaa="git add --all"
 alias kam="git commit --amend -v"
@@ -116,6 +114,7 @@ alias krv="git remote -v"
 alias ks="git status -bs"
 alias ksf="git show"
 alias kt="git tag"
+kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
 
 alias kc="git commit -v"
 alias kca="git add --all && git commit -v"
@@ -147,6 +146,7 @@ alias krr="git reset --hard; git clean -f"
 alias krs.="git reset --soft HEAD~1; git reset ."
 alias krs="git reset --soft HEAD~1"
 alias krv="git revert"
+krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
 
 alias ksd="git stash drop"
 alias ksl="git stash list"
