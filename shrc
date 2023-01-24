@@ -98,7 +98,7 @@ j() {
 # GIT
 k() { n=24; [ "$1" ] && n=$1; git log --all --graph --decorate --oneline --show-pulls -n"$n"; }
 kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
-kg() { nvim -c "GV --grep=$1" -c 2tabclose; }
+kg() { nvim -c "Flog -all -search=$1" -c 1tabclose; }
 krh() { n=1; [ "$1" ] && n=$1; git reset --hard HEAD~"$n"; }
 ksf() { if [ $# = 0 ]; then git show | "$EDITOR"; else git show "$1" | "$EDITOR"; fi }
 
@@ -113,7 +113,7 @@ alias kbr="git remote -v | grep -P \(push\) | cut -d ' ' -f 1 | cut -f 2 | xargs
 alias kd="git diff"
 alias kdd="git diff | \$EDITOR"
 alias kfp="git format-patch --stdout HEAD^"
-alias kk="nvim -c 'GV' -c 2tabclose"
+alias kk="nvim -c 'Flog -all' -c 1tabclose"
 alias kr="cd \$(git rev-parse --show-toplevel)"
 alias krv="git remote -v"
 alias ks="git status -bs"
