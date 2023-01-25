@@ -387,22 +387,17 @@ let g:loaded_2html_plugin = 0
 let g:loaded_gzip = 0
 let g:loaded_matchit = 0
 let g:loaded_matchparen = 0
-let g:loaded_netrw = 0
-let g:loaded_netrwFileHandlers = 0
 let g:loaded_netrwPlugin = 0
-let g:loaded_netrwSettings = 1
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python3_provider = 0
 let g:loaded_remote_plugins = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_spellfile_plugin = 0
-let g:loaded_tar = 0
 let g:loaded_tarPlugin = 0
 let g:loaded_tutor_mode_plugin = 0
 let g:loaded_vimball = 0
 let g:loaded_vimballPlugin = 0
-let g:loaded_zip = 0
 let g:loaded_zipPlugin = 0
 
 " LSP - SERVERS
