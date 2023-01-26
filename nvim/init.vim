@@ -424,6 +424,7 @@ nnoremap guw myguiw`y
 nnoremap guW myguiW`y
 nnoremap gUw mygUiw`y
 nnoremap gUW mygUiW`y
+nnoremap J myJ`y
 nnoremap Q q
 xnoremap . :normal .<cr>
 xnoremap q :'<,'>:normal @q<cr>
@@ -449,7 +450,6 @@ xnoremap F g$
 nnoremap G G0
 nnoremap gg gg0
 nnoremap H H0
-nnoremap J myJ`y
 nnoremap L L0
 nnoremap M M0
 nnoremap { {zz
