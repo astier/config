@@ -436,8 +436,6 @@ set notimeout
 set virtualedit=block
 
 " MOTIONS
-" noremap <silent> s <cmd>call feedkeys('/'.getcharstr().getcharstr()."\r")<cr>
-" noremap <silent> S <cmd>call feedkeys('?'.getcharstr().getcharstr()."\r")<cr>
 inoremap <c-l> <right>
 nnoremap <c-i> <c-i>zz
 nnoremap <c-o> <c-o>zz
