@@ -443,10 +443,19 @@ nnoremap <c-i> <c-i>zz
 nnoremap <c-o> <c-o>zz
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
-nnoremap F g$
-xnoremap F g$
-nnoremap G G0
+nnoremap $ <nop>
+nnoremap 0 <nop>
+nnoremap ^ <nop>
+nnoremap gl g$
+xnoremap gl g$
+nnoremap gh g0
+xnoremap gh g0
+nnoremap gH g^
+xnoremap gH g^
 nnoremap gg gg0
+nnoremap G G0
+nnoremap j gj
+nnoremap k gk
 nnoremap H H0
 nnoremap L L0
 nnoremap M M0
@@ -628,12 +637,6 @@ tnoremap <silent> <a-l> <c-\><c-n><cmd>lua require 'tmux'.move_right()<cr>
 
 " WRAP
 autocmd group filetype * set formatoptions-=t
-nnoremap $ g$
-nnoremap 0 g0
-nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
-nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
-xnoremap $ g$
-xnoremap 0 g0
 set breakindent
 set breakindentopt=shift:2
 set linebreak
