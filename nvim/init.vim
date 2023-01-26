@@ -475,26 +475,23 @@ set virtualedit=block
 inoremap <c-l> <right>
 nnoremap <c-i> <c-i>zz
 nnoremap <c-o> <c-o>zz
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap $ <nop>
-nnoremap 0 <nop>
-nnoremap ^ <nop>
-nnoremap gl g$
-xnoremap gl g$
-nnoremap gh g0
-xnoremap gh g0
-nnoremap gH g^
-xnoremap gH g^
-nnoremap gg gg0
-nnoremap G G0
-nnoremap j gj
-nnoremap k gk
-nnoremap H H0
-nnoremap L L0
-nnoremap M M0
-nnoremap { {zz
-nnoremap } }zz
+noremap <silent> n nzz
+noremap <silent> N Nzz
+noremap $ <nop>
+noremap 0 <nop>
+noremap ^ <nop>
+noremap gl g$
+noremap gh g0
+noremap gH g^
+noremap gg gg0
+noremap G G0
+noremap j gj
+noremap k gk
+noremap H H0
+noremap L L0
+noremap M M0
+noremap { {zz
+noremap } }zz
 
 " MOUSE
 nmap <2-rightmouse> <rightmouse>
