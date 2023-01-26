@@ -410,12 +410,12 @@ EOF
 
 " LSP - MAPPINGS
 nnoremap <expr> K '<cmd>'.(index(['vim','help'], &ft) >= 0 ? 'h '.expand('<cword>') : 'lua vim.lsp.buf.hover()').'<cr>'
-nnoremap ga <cmd>lua vim.lsp.buf.code_action()<cr>
+nnoremap <space>la <cmd>lua vim.lsp.buf.code_action()<cr>
+nnoremap <space>lR <cmd>lua vim.lsp.buf.references()<cr>
+nnoremap <space>lr <cmd>lua vim.lsp.buf.rename()<cr>
+nnoremap <space>ls <cmd>lua vim.lsp.buf.document_symbol()<cr>
+nnoremap <space>lS <cmd>lua vim.lsp.buf.workspace_symbol()<cr>
 nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
-nnoremap gR <cmd>lua vim.lsp.buf.references()<cr>
-nnoremap gr <cmd>lua vim.lsp.buf.rename()<cr>
-nnoremap gs <cmd>lua vim.lsp.buf.document_symbol()<cr>
-nnoremap gS <cmd>lua vim.lsp.buf.workspace_symbol()<cr>
 
 " MISC - MAPPINGS
 inoremap <c-space> <space>
