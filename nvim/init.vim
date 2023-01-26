@@ -439,8 +439,6 @@ set virtualedit=block
 " noremap <silent> s <cmd>call feedkeys('/'.getcharstr().getcharstr()."\r")<cr>
 " noremap <silent> S <cmd>call feedkeys('?'.getcharstr().getcharstr()."\r")<cr>
 inoremap <c-l> <right>
-nnoremap <a-d> 4<c-y>
-nnoremap <a-f> 4<c-e>
 nnoremap <c-i> <c-i>zz
 nnoremap <c-o> <c-o>zz
 nnoremap <silent> n nzz
@@ -486,6 +484,10 @@ let g:rooter_silent_chdir = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
 nmap saw saiw
 nmap saW saiW
+
+" SCROLLING
+nnoremap <a-d> 4<c-y>
+nnoremap <a-f> 4<c-e>
 
 " SEARCH
 cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>echo<bar>noh<cr>zz' : '<enter>'
