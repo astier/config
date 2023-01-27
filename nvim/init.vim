@@ -16,10 +16,6 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'AndrewRadev/switch.vim'
   Plug 'Darazaki/indent-o-matic'
   Plug 'farmergreg/vim-lastplace'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-path'
-  Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/vim-vsnip'
   Plug 'ibhagwan/fzf-lua'
   Plug 'junegunn/fzf'
@@ -138,105 +134,8 @@ autocmd group filetype c,python set omnifunc=v:lua.vim.lsp.omnifunc
 set completeopt=menuone,noinsert
 set pumheight=8 pumwidth=0
 set shortmess+=c
-lua << EOF
-local cmp = require 'cmp'
-cmp.setup {
-  completion = {
-    autocomplete = false,
-    completeopt = table.concat(vim.opt.completeopt:get(), ","),
-  },
-  snippet = {
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
-    end,
-  },
-  window = {
-    documentation = cmp.config.disable,
-  },
-  mapping = {
-    ['<a-j>'] = function()
-      if cmp.visible() then
-        cmp.select_next_item({ behavior = "select" })
-      else
-        cmp.complete()
-      end
-    end,
-    ['<a-k>'] = cmp.mapping.select_prev_item({ behavior = "select" }),
-    ['<cr>']  = cmp.mapping.confirm({ select = true }),
-  },
-  sources = {
-    { name = 'path' },
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-  },
-  formatting = {
-    format = function(entry, vim_item)
-      vim_item.menu = ({
-        buffer        = '',
-        nvim_lsp      = '',
-      })[entry.source.name]
-      if (os.getenv("TERM") == "linux" or os.getenv("TERM") == "screen") then
-        vim_item.kind = ({
-          Text          = '',
-          Method        = '[f]',
-          Function      = '[f]',
-          Constructor   = '[C]',
-          Field         = '[v]',
-          Variable      = '[v]',
-          Class         = '[c]',
-          Interface     = '[i]',
-          Module        = '[m]',
-          Property      = '[p]',
-          Unit          = '[u]',
-          Value         = '[V]',
-          Enum          = '[e]',
-          Keyword       = '[k]',
-          Snippet       = '[~]',
-          Color         = 'Clr',
-          File          = '[F]',
-          Reference     = '[r]',
-          Folder        = '[D]',
-          EnumMember    = '[em]',
-          Constant      = '[π]',
-          Struct        = '[s]',
-          Event         = '[!]',
-          Operator      = '[%]',
-          TypeParameter = '[t]',
-        })[vim_item.kind]
-      else
-        vim_item.kind = ({
-          Text          = '',
-          Method        = '',
-          Function      = '',
-          Constructor   = '',
-          Field         = '',
-          Variable      = '',
-          Class         = 'ﴯ',
-          Interface     = '',
-          Module        = '',
-          Property      = '',
-          Unit          = '',
-          Value         = '',
-          Enum          = '',
-          Keyword       = '',
-          Snippet       = '﬌',
-          Color         = '',
-          File          = '',
-          Reference     = '',
-          Folder        = '',
-          EnumMember    = 'ℰ',
-          Constant      = '',
-          Struct        = 'פּ',
-          Event         = '',
-          Operator      = '',
-          TypeParameter = '',
-        })[vim_item.kind]
-      end
-      return vim_item
-    end
-  },
-}
-EOF
+inoremap <silent> <expr> <a-j> (pumvisible() ? "\<down>" : &omnifunc != '' ? "\<c-x>\<c-o>" : "\<c-n>\<cmd>echo\<cr>")
+inoremap <silent> <expr> <a-k> (pumvisible() ? "\<up>"   : &omnifunc != '' ? "\<c-x>\<c-o>" : "\<c-n>\<cmd>echo\<cr>")
 
 " EDITING - CHANGE
 nmap cp cip
@@ -433,9 +332,8 @@ let g:loaded_zipPlugin = 0
 " LSP - SERVERS
 lua << EOF
 vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require 'lspconfig'.ccls.setup { capabilities = capabilities }
-require 'lspconfig'.jedi_language_server.setup { capabilities = capabilities }
+require 'lspconfig'.ccls.setup {}
+require 'lspconfig'.jedi_language_server.setup {}
 EOF
 
 " LSP - MAPPINGS
