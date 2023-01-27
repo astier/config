@@ -474,6 +474,8 @@ noremap <silent> N Nzz
 noremap $ <nop>
 noremap 0 <nop>
 noremap ^ <nop>
+noremap A g$i
+noremap I g0i
 noremap gl g$
 noremap gh g0
 noremap gH g^
