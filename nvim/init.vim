@@ -152,24 +152,12 @@ cmp.setup {
   },
   mapping = {
     ['<a-space>'] = cmp.mapping.complete(),
+    ['<c-n>'] = cmp.mapping.select_next_item(),
+    ['<c-p>'] = cmp.mapping.select_prev_item(),
     ['<cr>'] = cmp.mapping.confirm({ select = true }),
     ['<c-e>'] = cmp.mapping.abort(),
     ['<c-b>'] = cmp.mapping.scroll_docs(-4),
     ['<c-f>'] = cmp.mapping.scroll_docs(4),
-    ['<c-n>'] = function()
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        cmp.complete()
-      end
-    end,
-    ['<c-p>'] = function()
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        cmp.complete()
-      end
-    end,
   },
   sources = {
     { name = 'path' },
