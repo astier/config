@@ -151,6 +151,7 @@ cmp.setup {
     documentation = cmp.config.disable,
   },
   mapping = {
+    ['<a-space>'] = cmp.mapping.complete(),
     ['<cr>'] = cmp.mapping.confirm({ select = true }),
     ['<c-e>'] = cmp.mapping.abort(),
     ['<c-b>'] = cmp.mapping.scroll_docs(-4),
