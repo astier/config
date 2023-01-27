@@ -133,6 +133,8 @@ vim.keymap.set("o", "u", commented_lines_textobject,
 EOF
 
 " COMPLETION
+autocmd group filetype * set omnifunc=
+autocmd group filetype c,python set omnifunc=v:lua.vim.lsp.omnifunc
 set completeopt=menuone,noinsert
 set pumheight=8 pumwidth=0
 set shortmess+=c
