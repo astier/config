@@ -152,13 +152,15 @@ cmp.setup {
     documentation = cmp.config.disable,
   },
   mapping = {
-    ['<a-space>'] = cmp.mapping.complete(),
-    ['<c-n>'] = cmp.mapping.select_next_item(),
-    ['<c-p>'] = cmp.mapping.select_prev_item(),
-    ['<cr>'] = cmp.mapping.confirm({ select = true }),
-    ['<c-e>'] = cmp.mapping.abort(),
-    ['<c-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<c-f>'] = cmp.mapping.scroll_docs(4),
+    ['<a-j>'] = function()
+      if cmp.visible() then
+        cmp.select_next_item({ behavior = "select" })
+      else
+        cmp.complete()
+      end
+    end,
+    ['<a-k>'] = cmp.mapping.select_prev_item({ behavior = "select" }),
+    ['<cr>']  = cmp.mapping.confirm({ select = true }),
   },
   sources = {
     { name = 'path' },
