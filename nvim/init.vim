@@ -551,20 +551,13 @@ set spellcapcheck=
 set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATUSLINE
-fun! s:statusLine()
-  let left = '[' . pathshorten(expand('%')) . ']'
-  let right = '[' . line('.') . '/' . line('$') . ']'
-  if &ft =~# '\(floggraph\)' || empty(expand('%'))
-    let left = ''
-  endif
-  return left . repeat('─', winwidth(0) - len(left) - len(right)) . right
-endfun
-nnoremap <expr> <space>b &ls ? '<cmd>set stl=\  ls=0<cr>' : '<cmd>set ls=2 stl=%{<sid>statusLine()}<cr>'
 nnoremap <a-space> <c-g>
 nnoremap <c-g> <nop>
+nnoremap <expr> ,s &ls ? '<cmd>se stl=%= ls=0<cr>' : '<cmd>se ls=2 stl=\[%f\]%=\[%l/%L\]<cr>'
 set fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
-set noruler noshowcmd noshowmode laststatus=0
-set statusline=\  rulerformat=%=%l/%L
+set noshowcmd noshowmode
+set rulerformat=%=\[%l/%L\] noruler
+set statusline=%= laststatus=0
 
 " TABLINE
 set showtabline=1
