@@ -471,11 +471,11 @@ nnoremap <c-i> <c-i>zz
 nnoremap <c-o> <c-o>zz
 noremap <silent> n nzz
 noremap <silent> N Nzz
+nnoremap A g$a
+nnoremap I g0i
 noremap $ g$
 noremap 0 g0
 noremap ^ g^
-noremap A g$a
-noremap I g0i
 noremap gl g$
 noremap gh g0
 noremap gH g^
