@@ -543,8 +543,8 @@ smap <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
 smap <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
 
 " SORT
-nmap <silent> ,s myvii:sort i<cr>`y
-xnoremap <silent> ,s my:sort i<cr>`y
+nmap <silent> gs myvii:sort i<cr>`y
+xnoremap <silent> gs my:sort i<cr>`y
 
 " SPELL
 set spellcapcheck=
