@@ -561,6 +561,7 @@ fun! s:statusLine()
 endfun
 nnoremap <expr> <space>b &ls ? '<cmd>set stl=\  ls=0<cr>' : '<cmd>set ls=2 stl=%{<sid>statusLine()}<cr>'
 nnoremap <a-space> <c-g>
+nnoremap <c-g> <nop>
 set fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 set noruler noshowcmd noshowmode laststatus=0
 set statusline=\  rulerformat=%=%l/%L
