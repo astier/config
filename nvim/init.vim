@@ -471,9 +471,9 @@ nnoremap <c-i> <c-i>zz
 nnoremap <c-o> <c-o>zz
 noremap <silent> n nzz
 noremap <silent> N Nzz
-noremap $ <nop>
-noremap 0 <nop>
-noremap ^ <nop>
+noremap $ g$
+noremap 0 g0
+noremap ^ g^
 noremap A g$i
 noremap I g0i
 noremap gl g$
