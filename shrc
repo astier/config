@@ -6,7 +6,7 @@ alias df="df -h"
 alias du="du -h"
 alias fdisk="sudo fdisk"
 alias gdisk="sudo gdisk"
-alias grep="grep --color --exclude-dir=.?*"
+alias grep="grep -RHn --color --exclude-dir=.?*"
 alias ls="ls -Ahv --color --group-directories-first"
 alias mount="sudo mount"
 alias umount="sudo umount"
@@ -30,13 +30,8 @@ alias fx="jumpopen \$CONFIG sx/sxrc"
 f() { if [ -d "$1" ]; then cd "$1" || return; else "$LAUNCHER" "$@"; fi }
 jumpopen() { cd "$1" >/dev/null && shift && "$LAUNCHER" "$@" ; }
 
-if uname -r | grep -q WSL; then
-    DATA=/mnt/c/Users/$USER/OneDrive/Documents
-else
-    DATA=$HOME/data
-fi
-
 # BOOKMARKS - DATA
+DATA=$HOME/data
 alias jd="cd \$DATA"
 alias jdc="cd \$DATA/config/"
 alias jde="cd \$DATA/education"
@@ -186,7 +181,7 @@ alias b="cd - >/dev/null && ls"
 alias c="cd .."
 alias clean="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm -fr \$XDG_CACHE_HOME/*; sudo rm -fr /var/log/journal/*; rm -fr \$XDG_DATA_HOME/nvim/view/*"
 alias dus="du -s"
-alias g="grep -Rn"
+alias g="grep"
 alias gf="ffind | grep"
 alias h="python"
 alias i="pkg -i"
