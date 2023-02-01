@@ -5,8 +5,6 @@
 
 # CONFIG
 shopt -s autocd cdspell dotglob histappend
-SHRC=$XDG_CONFIG_HOME/shrc
-[ -f "$SHRC" ] && . "$SHRC"
 
 # PROMPT
 NO_COLOR="\[\e[m\]"

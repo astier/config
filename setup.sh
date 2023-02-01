@@ -17,8 +17,8 @@ link_sudo() {
 
 mkdir -p "$XDG_CONFIG_HOME"
 
-link .bashrc ~
 link .profile ~
+link .profile ~/.bashrc
 link alacritty.yml "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
 link gtk-2.0 "$XDG_CONFIG_HOME"
@@ -32,7 +32,6 @@ link nvim "$XDG_CONFIG_HOME"
 link pylintrc "$XDG_CONFIG_HOME"
 link pythonrc.py "$XDG_CONFIG_HOME"
 link shellcheckrc "$XDG_CONFIG_HOME"
-link shrc "$XDG_CONFIG_HOME"
 link skippy-xd "$XDG_CONFIG_HOME"
 link templates "$XDG_CONFIG_HOME"
 link tmux "$XDG_CONFIG_HOME"
