@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+# EXPORTS
 export PATH="$HOME/.local/bin:$PATH"
 
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -38,10 +39,14 @@ export GIT_PS1_SHOWUPSTREAM=auto
 export _JAVA_AWT_WM_NONREPARENTING=1
 export GTK_THEME=Arc-Dark-solid
 
-case $0 in
-    *bash) . "$HOME/.bashrc" ;;
-esac
+# AUTOSTART - TTY1
+if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/started_tty1 ]; then
+    touch /tmp/started_tty1
+    pulsemixer --unmute
+    [ -f /usr/bin/sx ] && exec sx
+fi
 
+# THEME
 if [ "$TERM" = linux ]; then
     BLACK=2e3440
     RED=bf616a
@@ -74,9 +79,7 @@ if [ "$TERM" = linux ]; then
     clear
 fi
 
-# AUTOSTART - TTY1
-if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/started_tty1 ]; then
-    touch /tmp/started_tty1
-    pulsemixer --unmute
-    [ -f /usr/bin/sx ] && exec sx
-fi
+# SHRC
+case $0 in
+    *bash) . "$HOME/.bashrc" ;;
+esac
