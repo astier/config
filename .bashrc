@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Exit if shell is not interactive
 [[ $- != *i* ]] && return
 
 # CONFIG
