@@ -3,7 +3,8 @@
 copy() { sudo cp -fr "$1" "$2" && echo Installed: "$1"; }
 
 link() {
-    TARGET=$1 DESTINATION=$2/$(basename "$TARGET")
+    TARGET=$1 DESTINATION=$2
+    [ -d "$2" ] && DESTINATION=$2/$(basename "$TARGET")
     rm -fr "$DESTINATION"
     ln -rs "$TARGET" "$DESTINATION" && echo Installed: "$TARGET"
 }
