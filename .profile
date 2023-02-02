@@ -187,10 +187,9 @@ alias kfp="git format-patch --stdout HEAD^"
 alias kr="cd \$(git rev-parse --show-toplevel)"
 alias krv="git remote -v"
 alias ks="git status -bs"
-alias ksf="git show"
 alias kt="git tag"
 kcl() { git clone "$@" "$(xsel -b | head -n1)"; }
-ksff() { if [ $# = 0 ]; then git show | "$EDITOR"; else git show "$1" | "$EDITOR"; fi }
+ksf() { if [ $# = 0 ]; then git show | "$EDITOR"; else git show "$1" | "$EDITOR"; fi }
 
 alias kc="git commit -v"
 alias kca="git add --all && git commit -v"
