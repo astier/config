@@ -36,7 +36,6 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'svermeulen/vim-subversive'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
-  Plug 'vijaymarupudi/nvim-fzf'
   Plug 'wellle/targets.vim'
   Plug 'windwp/nvim-autopairs'
 call plug#end()
