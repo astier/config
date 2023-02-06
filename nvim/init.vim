@@ -15,12 +15,12 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'airblade/vim-rooter'
   Plug 'AndrewRadev/switch.vim'
   Plug 'Darazaki/indent-o-matic'
+  Plug 'dcampos/nvim-snippy'
   Plug 'farmergreg/vim-lastplace'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/nvim-cmp'
-  Plug 'hrsh7th/vim-vsnip'
   Plug 'ibhagwan/fzf-lua'
   Plug 'idbrii/textobj-word-column.vim'
   Plug 'Julian/vim-textobj-variable-segment'
@@ -148,7 +148,7 @@ cmp.setup {
   },
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
+      require('snippy').expand_snippet(args.body)
     end,
   },
   window = {
@@ -539,11 +539,19 @@ set ignorecase smartcase
 set shortmess+=Ss
 
 " SNIPPETS
-let g:vsnip_snippet_dir = $XDG_CONFIG_HOME.'/nvim/snippets'
-imap <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
-imap <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<tab>'
-smap <expr> <a-tab> vsnip#available(1) ? '<plug>(vsnip-jump-prev)' : '<a-tab>'
-smap <expr> <tab> vsnip#available(1) ? '<plug>(vsnip-expand-or-next)' : '<tab>'
+lua << EOF
+require('snippy').setup({
+  mappings = {
+    is = {
+      ['<tab>'] = 'expand_or_advance',
+      ['<a-Tab>'] = 'previous',
+    },
+    nx = {
+      ['<leader>x'] = 'cut_text',
+    },
+  },
+})
+EOF
 
 " SORT
 nmap <silent> gs myvii:sort i<cr>`y

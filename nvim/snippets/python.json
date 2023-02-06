@@ -1,6 +1,0 @@
-{
-  "shebang": {
-    "prefix": ["s"],
-    "body": ["#!/usr/bin/env python3\n\n"]
-  }
-}
