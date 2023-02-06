@@ -22,7 +22,9 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/vim-vsnip'
   Plug 'ibhagwan/fzf-lua'
+  Plug 'Julian/vim-textobj-variable-segment'
   Plug 'junegunn/fzf'
+  Plug 'kana/vim-textobj-user'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
   Plug 'mhinz/vim-grepper'
@@ -576,6 +578,11 @@ fun! TabLine()
   endif
   return tabline
 endfun
+
+" TEXTOBJ - Variable-Segment
+nmap cv civ
+nmap dv dav
+nmap yv myyiv`y
 
 " SWITCH
 let g:switch_custom_definitions = [
