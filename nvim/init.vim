@@ -22,6 +22,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/vim-vsnip'
   Plug 'ibhagwan/fzf-lua'
+  Plug 'idbrii/textobj-word-column.vim'
   Plug 'Julian/vim-textobj-variable-segment'
   Plug 'junegunn/fzf'
   Plug 'kana/vim-textobj-user'
@@ -583,6 +584,21 @@ endfun
 nmap cv civ
 nmap dv dav
 nmap yv myyiv`y
+
+" TEXTOBJ - Word-Column
+let g:textobj_wordcolumn_no_default_key_mappings = 1
+call textobj#user#map('wordcolumn', {
+            \ 'word' : {
+            \   'select-i' : 'iq',
+            \   'select-a' : 'aq',
+            \   },
+            \ 'WORD' : {
+            \   'select-i' : 'iQ',
+            \   'select-a' : 'aQ',
+            \   },
+            \ })
+nmap cq 0ciq
+nmap dq my0diq`y
 
 " SWITCH
 let g:switch_custom_definitions = [
