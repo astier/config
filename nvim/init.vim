@@ -165,11 +165,12 @@ cmp.setup {
     ['<a-k>'] = cmp.mapping.select_prev_item({ behavior = "select" }),
     ['<cr>']  = cmp.mapping.confirm({ select = true }),
   },
-  sources = {
-    { name = 'path' },
+  sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+  }, {
+    { name = 'path' },
     { name = 'buffer' },
-  },
+  }),
   formatting = {
     format = function(entry, vim_item)
       vim_item.menu = ({
