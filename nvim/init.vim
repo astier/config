@@ -144,7 +144,6 @@ lua << EOF
 local cmp = require 'cmp'
 cmp.setup {
   completion = {
-    autocomplete = false,
     completeopt = table.concat(vim.opt.completeopt:get(), ","),
   },
   snippet = {
