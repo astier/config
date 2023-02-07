@@ -554,7 +554,7 @@ set spellcapcheck=
 set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " STATUS (CMDLINE/RULER/STATUSLINE)
-nnoremap <expr> ,s &ls ? '<cmd>se stl=%= ls=0<cr>' : '<cmd>se ls=2 stl=\[%f\]%=\[%l/%L\]<cr>'
+nnoremap <expr> ,s &ls ? '<cmd>se stl=%= ls=0<cr>' : '<cmd>se ls=3 stl=\[%f\]%=\[%l/%L\]<cr>'
 set fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 set noshowcmd noshowmode
 set rulerformat=%=\[%l/%L\] noruler
