@@ -388,7 +388,7 @@ set signcolumn=yes
 " GREP
 set grepprg=grep\ -IRn\ --exclude-dir=.?*
 let g:grepper = {
-\ 'grep': {'grepprg': 'grep -IRn --exclude-dir=.?*'},
+\ 'grep': {'grepprg': 'grep -EHIRin --exclude-dir=.?*'},
 \ 'highlight' : 1,
 \ 'side_cmd' : 'new',
 \ 'simple_prompt' : 1,
