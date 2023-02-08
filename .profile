@@ -38,8 +38,6 @@ export GIT_PS1_SHOWUPSTREAM=auto
 
 export GDK_BACKEND=x11
 export XDG_SESSION_TYPE=x11
-
-export _JAVA_AWT_WM_NONREPARENTING=1
 export GTK_THEME=Arc-Dark-solid
 
 # AUTOSTART - TTY1
