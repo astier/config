@@ -36,9 +36,15 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM=auto
 
-export GDK_BACKEND=x11
+export _JAVA_AWT_WM_NONREPARENTING=1
 export GTK_THEME=Arc-Dark-solid
-export XDG_SESSION_TYPE=x11
+
+# AUTOSTART - TTY1
+if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/started_tty1 ]; then
+    touch /tmp/started_tty1
+    pulsemixer --unmute
+    [ -f /usr/bin/sx ] && exec sx
+fi
 
 # THEME
 if [ "$TERM" = linux ]; then
