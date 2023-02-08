@@ -48,16 +48,15 @@ fi
 
 # THEME
 if [ "$TERM" = linux ]; then
-    BLACK=2e3440
-    RED=bf616a
-    GREEN=a3be8c
-    YELLOW=ebcb8b
-    BLUE=81a1c1
-    MAGENTA=b48ead
-    CYAN=88c0d0
-    WHITE=d8dee9
-    BRIGHTBLACK=626c80
-    BRIGHTWHITE=e5e9f0
+    BLACK=000000
+    RED=cc241d
+    GREEN=01a252
+    YELLOW=d79921
+    BLUE=5e81ac
+    MAGENTA=a16a94
+    CYAN=689d6a
+    WHITE=a5a2a2
+    BRIGHTBLACK=4c566a
     # NORMAL
     printf "\033]P0%s" "$BLACK"
     printf "\033]P1%s" "$RED"
@@ -65,7 +64,7 @@ if [ "$TERM" = linux ]; then
     printf "\033]P3%s" "$YELLOW"
     printf "\033]P4%s" "$BLUE"
     printf "\033]P5%s" "$MAGENTA"
-    printf "\033]P6%s" "$CYAN"
+    printf "\033]P6%s" "$BRIGHTBLACK"
     printf "\033]P7%s" "$WHITE"
     # BRIGHT
     printf "\033]P8%s" "$BRIGHTBLACK"
@@ -74,8 +73,8 @@ if [ "$TERM" = linux ]; then
     printf "\033]PB%s" "$YELLOW"
     printf "\033]PC%s" "$BLUE"
     printf "\033]PD%s" "$MAGENTA"
-    printf "\033]PE%s" "$CYAN"
-    printf "\033]PF%s" "$BRIGHTWHITE"
+    printf "\033]PE%s" "$BRIGHTBLACK"
+    printf "\033]PF%s" "$WHITE"
     clear
 fi
 
