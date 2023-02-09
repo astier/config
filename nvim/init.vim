@@ -135,8 +135,6 @@ vim.keymap.set("o", "u", commented_lines_textobject,
 EOF
 
 " COMPLETION
-autocmd group filetype * set omnifunc=
-autocmd group filetype c,python set omnifunc=v:lua.vim.lsp.omnifunc
 set completeopt=menuone,noinsert
 set pumheight=8 pumwidth=0
 set shortmess+=c
@@ -432,23 +430,35 @@ let g:loaded_vimball = 0
 let g:loaded_vimballPlugin = 0
 let g:loaded_zipPlugin = 0
 
-" LSP - SERVERS
+" LSP
 lua << EOF
 vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require 'lspconfig'.ccls.setup { capabilities = capabilities }
-require 'lspconfig'.jedi_language_server.setup { capabilities = capabilities }
-require 'lspconfig'.marksman.setup{ capabilities = capabilities }
+local on_attach = function(client, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', '<space>A', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', 'K',  vim.lsp.buf.hover, bufopts)
+end
+local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
+require 'lspconfig'.ccls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+require 'lspconfig'.jedi_language_server.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+require 'lspconfig'.marksman.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 EOF
-
-" LSP - MAPPINGS
-nnoremap <expr> K '<cmd>'.(index(['vim','help'], &ft) >= 0 ? 'h '.expand('<cword>') : 'lua vim.lsp.buf.hover()').'<cr>'
-nnoremap <space>la <cmd>lua vim.lsp.buf.code_action()<cr>
-nnoremap <space>lR <cmd>lua vim.lsp.buf.references()<cr>
-nnoremap <space>lr <cmd>lua vim.lsp.buf.rename()<cr>
-nnoremap <space>ls <cmd>lua vim.lsp.buf.document_symbol()<cr>
-nnoremap <space>lS <cmd>lua vim.lsp.buf.workspace_symbol()<cr>
-nnoremap gd <cmd>lua vim.lsp.buf.definition()<cr>
 
 " MISC - MAPPINGS
 inoremap <c-space> <space>
