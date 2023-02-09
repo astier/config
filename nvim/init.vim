@@ -238,6 +238,20 @@ cmp.setup {
 }
 EOF
 
+" DIAGNOSTIC
+nnoremap <space>e <cmd>lua vim.diagnostic.open_float()<cr>
+nnoremap <space>l <cmd>lua vim.diagnostic.setloclist()<cr>
+nnoremap [d <cmd>lua vim.diagnostic.goto_prev()<cr>zz
+nnoremap ]d <cmd>lua vim.diagnostic.goto_next()<cr>zz
+lua << EOF
+vim.diagnostic.config({
+  float = { source = "always" },
+  signs = { priority = 11 },
+  underline = false,
+  virtual_text = false,
+})
+EOF
+
 " EDITING - CHANGE
 nmap cp cip
 nmap cw ciw
@@ -432,7 +446,6 @@ let g:loaded_zipPlugin = 0
 
 " LSP
 lua << EOF
-vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -663,7 +676,6 @@ command! -complete=shellcmd -nargs=* T call system('iwltm --send '.shellescape(e
 nnoremap <space><space> <cmd>call T(getline('.'))<cr>
 xnoremap <space><space> "vy <cmd>call T(substitute(@v, '\n$', '', ''))<cr>
 nnoremap <space>a <cmd>T execute<cr>
-nnoremap <space>l <cmd>T lint %<cr>
 
 " WILDMENU
 set path-=/usr/include path+=**
