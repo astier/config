@@ -500,7 +500,7 @@ set mousemodel=extend
 set mousescroll=ver:4
 
 " QUICKFIX
-autocmd group filetype qf set nonu
+autocmd group filetype qf set nonu | setl wrap
 lua << EOF
 require 'bqf'.setup{
   preview = {
