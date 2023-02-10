@@ -17,6 +17,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'Darazaki/indent-o-matic'
   Plug 'dcampos/nvim-snippy'
   Plug 'farmergreg/vim-lastplace'
+  Plug 'folke/trouble.nvim'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-path'
@@ -240,7 +241,7 @@ EOF
 
 " DIAGNOSTIC
 nnoremap <space>e <cmd>lua vim.diagnostic.open_float()<cr>
-nnoremap <space>l <cmd>lua vim.diagnostic.setloclist()<cr>
+nnoremap <space>l <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap [d <cmd>lua vim.diagnostic.goto_prev()<cr>zz
 nnoremap ]d <cmd>lua vim.diagnostic.goto_next()<cr>zz
 lua << EOF
@@ -462,7 +463,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', 'gr', "<cmd>TroubleToggle lsp_references<cr>", bufopts)
   vim.keymap.set('n', 'K',  vim.lsp.buf.hover, bufopts)
 end
 local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
@@ -683,6 +684,16 @@ command! -complete=shellcmd -nargs=* T call system('iwltm --send '.shellescape(e
 nnoremap <space><space> <cmd>call T(getline('.'))<cr>
 xnoremap <space><space> "vy <cmd>call T(substitute(@v, '\n$', '', ''))<cr>
 nnoremap <space>a <cmd>T execute<cr>
+
+" TROUBLE
+lua << EOF
+require("trouble").setup {
+  auto_close = true,
+  icons = false,
+  indent_lines = false,
+  padding = false,
+}
+EOF
 
 " WILDMENU
 set path-=/usr/include path+=**
