@@ -291,10 +291,6 @@ nmap sw siw
 nmap sW siW
 
 " EDITING - UNDO
-inoremap ! !<c-g>u
-inoremap , ,<c-g>u
-inoremap . .<c-g>u
-inoremap ? ?<c-g>u
 nnoremap <c-r> <cmd>call ExeCmdAndRecenter('redo')<cr>
 nnoremap U <cmd>call ExeCmdAndRecenter('redo')<cr>
 nnoremap u <cmd>call ExeCmdAndRecenter('undo')<cr>
