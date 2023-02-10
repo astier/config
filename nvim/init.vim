@@ -172,61 +172,8 @@ cmp.setup {
   }),
   formatting = {
     format = function(entry, vim_item)
-      vim_item.menu = ({
-        buffer        = '',
-        nvim_lsp      = '',
-      })[entry.source.name]
-      if (os.getenv("TERM") == "linux" or os.getenv("TERM") == "screen") then
-        vim_item.kind = ({
-          Text          = '',
-          Method        = '[f]',
-          Constructor   = '[C]',
-          Field         = '[v]',
-          Variable      = '[v]',
-          Class         = '[c]',
-          Interface     = '[i]',
-          Module        = '[m]',
-          Property      = '[p]',
-          Unit          = '[u]',
-          Value         = '[V]',
-          Enum          = '[e]',
-          Keyword       = '[k]',
-          Snippet       = '[~]',
-          Color         = 'Clr',
-          Reference     = '[r]',
-          EnumMember    = '[em]',
-          Constant      = '[π]',
-          Struct        = '[s]',
-          Event         = '[!]',
-          Operator      = '[%]',
-          TypeParameter = '[t]',
-        })[vim_item.kind]
-      else
-        vim_item.kind = ({
-          Text          = '',
-          Method        = '',
-          Constructor   = '',
-          Field         = '',
-          Variable      = '',
-          Class         = 'ﴯ',
-          Interface     = '',
-          Module        = '',
-          Property      = '',
-          Unit          = '',
-          Value         = '',
-          Enum          = '',
-          Keyword       = '',
-          Snippet       = '﬌',
-          Color         = '',
-          Reference     = '',
-          EnumMember    = 'ℰ',
-          Constant      = '',
-          Struct        = 'פּ',
-          Event         = '',
-          Operator      = '',
-          TypeParameter = '',
-        })[vim_item.kind]
-      end
+      vim_item.kind = ({})[vim_item.kind]
+      vim_item.menu = ({})[entry.source.name]
       return vim_item
     end
   },
