@@ -10,7 +10,7 @@ if empty(glob(plug_path))
 endif
 nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
-call plug#begin(stdpath('data') . '/plugged')
+call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'airblade/vim-rooter'
   Plug 'AndrewRadev/switch.vim'
