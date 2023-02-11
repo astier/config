@@ -259,7 +259,7 @@ nnoremap gqq Vgq
 lua << EOF
 require 'fzf-lua'.setup {
   winopts = {
-    border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
+    border = "single",
     preview = { hidden = 'hidden' },
     hl = { border = 'statusline' },
   },
