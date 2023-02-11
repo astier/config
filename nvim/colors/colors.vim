@@ -67,7 +67,7 @@ hi! link signcolumn none " none
 hi! link title comment " none
 
 " PMENU & FLOAT
-hi normalfloat ctermbg=none ctermfg=none cterm=none " pmenu
+hi! link normalfloat none " pmenu
 if $TERM ==# 'linux' || $TERM ==# 'screen'
     hi pmenu ctermbg=gray ctermfg=black cterm=none " none
     hi pmenusbar ctermbg=gray ctermfg=none cterm=none " none
