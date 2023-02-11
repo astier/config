@@ -394,7 +394,7 @@ end
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', '<space>A', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
   vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -615,12 +615,6 @@ nmap ynb myyInb`y
 autocmd group bufenter,focusgained,termopen term://* startinsert
 autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
 autocmd group termopen * setlocal signcolumn=no
-
-" TMUX
-command! -complete=shellcmd -nargs=* T call system('iwltm --send '.shellescape(expandcmd(<q-args>)))
-nnoremap <space><space> <cmd>call T(getline('.'))<cr>
-xnoremap <space><space> "vy <cmd>call T(substitute(@v, '\n$', '', ''))<cr>
-nnoremap <space>a <cmd>T execute<cr>
 
 " TROUBLE
 lua << EOF
