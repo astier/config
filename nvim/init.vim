@@ -261,7 +261,7 @@ require 'fzf-lua'.setup {
   winopts = {
     border = "single",
     preview = { hidden = 'hidden' },
-    hl = { border = 'statusline' },
+    hl = { border = 'FloatBorder' },
   },
   files = {
     cmd = 'ffind -type f',
