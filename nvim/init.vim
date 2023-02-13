@@ -414,6 +414,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'K',  vim.lsp.buf.hover, bufopts)
 end
 local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
+require 'lspconfig'.bashls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 require 'lspconfig'.ccls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -487,7 +491,6 @@ null_ls.setup({
   border = "single",
   sources = {
     null_ls.builtins.diagnostics.markdownlint,
-    null_ls.builtins.diagnostics.shellcheck,
     null_ls.builtins.diagnostics.vint,
     null_ls.builtins.formatting.markdownlint,
     null_ls.builtins.formatting.prettier,
