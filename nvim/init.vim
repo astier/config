@@ -413,23 +413,15 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', "<cmd>TroubleToggle lsp_references<cr>", bufopts)
   vim.keymap.set('n', 'K',  vim.lsp.buf.hover, bufopts)
 end
+local lspconfig = require('lspconfig')
 local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
-require 'lspconfig'.bashls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-require 'lspconfig'.ccls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-require 'lspconfig'.jedi_language_server.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-require 'lspconfig'.marksman.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+local servers = { 'bashls', 'ccls', 'jedi_language_server', 'marksman' }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+end
 EOF
 
 " MISC - MAPPINGS
