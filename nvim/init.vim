@@ -18,6 +18,7 @@ call plug#begin()
   Plug 'dcampos/nvim-snippy'
   Plug 'farmergreg/vim-lastplace'
   Plug 'folke/trouble.nvim'
+  Plug 'gbprod/substitute.nvim'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-path'
@@ -39,7 +40,6 @@ call plug#begin()
   Plug 'rbong/vim-flog'
   Plug 'stevearc/stickybuf.nvim'
   Plug 'stsewd/gx-extended.vim'
-  Plug 'svermeulen/vim-subversive'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'wellle/targets.vim'
@@ -223,15 +223,20 @@ nnoremap p <cmd>silent normal! p<cr>
 nnoremap P <cmd>silent normal! P<cr>
 
 " EDITING - REPLACE
-let g:subversivePreserveCursorPosition = 1
-let g:subversivePromptWithCurrent = 1
-nmap s <plug>(SubversiveSubstitute)
-nmap S <plug>(SubversiveSubstituteToEndOfLine)
-nmap ss <plug>(SubversiveSubstituteLine)
-xmap ss <plug>(SubversiveSubstitute)
-nmap sp sip
-nmap sw siw
-nmap sW siW
+lua require("substitute").setup()
+nnoremap s <cmd>lua require('substitute').operator()<cr>
+nnoremap sw <cmd>lua require('substitute').operator({ motion='iw' })<cr>
+nnoremap sW <cmd>lua require('substitute').operator({ motion='iW' })<cr>
+nnoremap S <cmd>lua require('substitute').eol()<cr>
+nnoremap ss <cmd>lua require('substitute').line()<cr>
+xnoremap ss <cmd>lua require('substitute').visual()<cr>
+
+" EDITING - EXCHANGE
+nnoremap sx <cmd>lua require('substitute.exchange').operator()<cr>
+nnoremap sxw <cmd>lua require('substitute.exchange').operator({ motion='iw' })<cr>
+nnoremap sxW <cmd>lua require('substitute.exchange').operator({ motion='iW' })<cr>
+nnoremap sxx <cmd>lua require('substitute.exchange').line()<cr>
+xnoremap sx <cmd>lua require('substitute.exchange').visual()<cr>
 
 " EDITING - UNDO
 nnoremap <c-r> <cmd>call ExeCmdAndRecenter('redo')<cr>
