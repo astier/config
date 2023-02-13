@@ -24,6 +24,7 @@ call plug#begin()
   Plug 'hrsh7th/nvim-cmp'
   Plug 'ibhagwan/fzf-lua'
   Plug 'idbrii/textobj-word-column.vim'
+  Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'Julian/vim-textobj-variable-segment'
   Plug 'junegunn/fzf'
   Plug 'kana/vim-textobj-user'
@@ -34,6 +35,7 @@ call plug#begin()
   Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
+  Plug 'nvim-lua/plenary.nvim'
   Plug 'rbong/vim-flog'
   Plug 'stevearc/stickybuf.nvim'
   Plug 'stsewd/gx-extended.vim'
@@ -258,6 +260,10 @@ nnoremap gqq Vgq
 " FUZZY - CONFIG
 lua << EOF
 require 'fzf-lua'.setup {
+  lsp = {
+    -- make lsp requests synchronous so they work with null-ls
+    async_or_timeout = 3000,
+  },
   winopts = {
     border = "single",
     preview = { hidden = 'hidden' },
@@ -395,7 +401,6 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
   vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -466,6 +471,27 @@ nmap <3-rightmouse> <rightmouse>
 nmap <4-rightmouse> <rightmouse>
 set mousemodel=extend
 set mousescroll=ver:4
+
+" NULL-LS
+nnoremap <space>f <cmd>lua vim.lsp.buf.format({ timeout_ms = 2000 })<cr>
+nnoremap <space>I <cmd>NullLsInfo<cr>
+hi! link NullLsInfoBorder FloatBorder " NormalFloat
+lua << EOF
+local null_ls = require("null-ls")
+null_ls.setup({
+  border = "single",
+  sources = {
+    null_ls.builtins.diagnostics.markdownlint,
+    null_ls.builtins.diagnostics.shellcheck,
+    null_ls.builtins.diagnostics.vint,
+    null_ls.builtins.formatting.markdownlint,
+    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.shfmt.with({
+      extra_args = { "-s", "-i", "4", "-bn", "-ci", "-sr" },
+    }),
+  },
+})
+EOF
 
 " QUICKFIX
 autocmd group filetype qf set nonu | setl wrap
