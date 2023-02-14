@@ -270,7 +270,7 @@ require 'fzf-lua'.setup {
     async_or_timeout = 3000,
   },
   winopts = {
-    border = "single",
+    border = 'single',
     preview = { hidden = 'hidden' },
     hl = { border = 'FloatBorder' },
   },
@@ -395,7 +395,7 @@ let g:loaded_zipPlugin = 0
 
 " LSP
 lua << EOF
-local border = { {"┌"}, {"─"}, {"┐"}, {"│"}, {"┘"}, {"─"}, {"└"}, {"│"} }
+local border = 'single'
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts = opts or {}
@@ -480,7 +480,7 @@ hi! link NullLsInfoBorder FloatBorder " NormalFloat
 lua << EOF
 local null_ls = require("null-ls")
 null_ls.setup({
-  border = "single",
+  border = 'single',
   sources = {
     null_ls.builtins.diagnostics.markdownlint,
     null_ls.builtins.diagnostics.vint,
