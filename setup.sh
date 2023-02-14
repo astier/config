@@ -17,20 +17,20 @@ link_sudo() {
 
 mkdir -p "$XDG_CONFIG_HOME"
 
-link .profile ~
-link .profile ~/.bashrc
 link alacritty.yml "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
 link gtk-2.0 "$XDG_CONFIG_HOME"
 link gtk-3.0 "$XDG_CONFIG_HOME"
 link gtk-4.0 "$XDG_CONFIG_HOME"
 link ideavim "$XDG_CONFIG_HOME"
-link inputrc "$XDG_CONFIG_HOME"
 link markdownlint "$XDG_CONFIG_HOME"
 link mimeapps.list ~/.config/
 link nvim "$XDG_CONFIG_HOME"
 link pylintrc "$XDG_CONFIG_HOME"
 link pythonrc.py "$XDG_CONFIG_HOME"
+link shell/.profile ~
+link shell/.profile ~/.bashrc
+link shell/inputrc "$XDG_CONFIG_HOME"
 link shellcheckrc "$XDG_CONFIG_HOME"
 link templates "$XDG_CONFIG_HOME"
 link tmux "$XDG_CONFIG_HOME"

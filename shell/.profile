@@ -99,10 +99,10 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # BOOKMARKS - FILES
-alias fb="jumpopen \$CONFIG .bashrc && . .bashrc"
+alias fb="jumpopen \$CONFIG/shell .bashrc && . .bashrc"
 alias fbl="\$EDITOR ~/.config/bashrc_local && . ~/.config/bashrc_local"
 alias fn="jumpopen \$CONFIG nvim/init.vim"
-alias fp="jumpopen \$CONFIG .profile && . .profile"
+alias fp="jumpopen \$CONFIG/shell .profile && . .profile"
 alias fu="nvim +'h user-manual | winc o'"
 alias fx="jumpopen \$CONFIG sx/sxrc"
 f() { if [ -d "$1" ]; then cd "$1" || return; else "$LAUNCHER" "$@"; fi }
@@ -339,5 +339,5 @@ alias wn="cd \$DATA/pictures/wallpapers && wal"
 
 # SHELL
 case $0 in
-    *bash) . "$CONFIG/.bashrc" ;;
+    *bash) . "$CONFIG/shell/.bashrc" ;;
 esac
