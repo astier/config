@@ -63,6 +63,7 @@ hi! link function none " identifier
 hi! link number none " constant
 hi! link plugdeleted none " ignore
 hi! link question none " none
+hi! link quickfixline none " search
 hi! link signcolumn none " none
 hi! link title comment " none
 
