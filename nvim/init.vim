@@ -156,14 +156,14 @@ cmp.setup {
     documentation = cmp.config.disable,
   },
   mapping = {
-    ['<a-j>'] = function()
+    ['<c-n>'] = function()
       if cmp.visible() then
         cmp.select_next_item({ behavior = "select" })
       else
         cmp.complete()
       end
     end,
-    ['<a-k>'] = cmp.mapping.select_prev_item({ behavior = "select" }),
+    ['<c-p>'] = cmp.mapping.select_prev_item({ behavior = "select" }),
     ['<cr>']  = cmp.mapping.confirm({ select = true }),
   },
   sources = cmp.config.sources({
