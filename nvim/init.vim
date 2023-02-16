@@ -347,9 +347,9 @@ nmap ]c <cmd>silent GitGutterNextHunk<cr>zz
 set signcolumn=yes
 
 " GREP
-set grepprg=grep\ -IRn\ --exclude-dir=.?*
+set grepprg=ggrep
 let g:grepper = {
-\ 'grep': {'grepprg': 'grep -EHIRin --exclude-dir=.?*'},
+\ 'grep': {'grepprg': 'ggrep'},
 \ 'highlight' : 1,
 \ 'side_cmd' : 'new',
 \ 'simple_prompt' : 1,
