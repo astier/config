@@ -424,6 +424,14 @@ for _, lsp in ipairs(servers) do
 end
 EOF
 
+" MAKE
+autocmd filetype markdown setl makeprg=markdownlint
+autocmd filetype markdown setl errorformat=%f:%l:%c\ %m
+autocmd filetype markdown setl errorformat+=%f:%l\ %m
+autocmd filetype sh,bash setl makeprg=shellcheck\ -f\ gcc
+autocmd filetype vim setl makeprg=vint
+nnoremap ,l <cmd>silent make! %<cr>
+
 " MISC - MAPPINGS
 inoremap <c-space> <space>
 nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
