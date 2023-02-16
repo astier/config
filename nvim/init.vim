@@ -415,7 +415,7 @@ local on_attach = function(client, bufnr)
 end
 local lspconfig = require('lspconfig')
 local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
-local servers = { 'bashls', 'ccls', 'jedi_language_server', 'marksman' }
+local servers = { 'ccls', 'jedi_language_server', 'marksman' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,
@@ -486,6 +486,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.vint,
     null_ls.builtins.formatting.markdownlint,
     null_ls.builtins.formatting.prettier,
+    null_ls.builtins.diagnostics.shellcheck,
     null_ls.builtins.formatting.shfmt.with({
       extra_args = { "-s", "-i", "4", "-bn", "-ci", "-sr" },
     }),
