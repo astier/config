@@ -496,6 +496,8 @@ EOF
 
 " QUICKFIX
 autocmd group filetype qf set nonu | setl wrap
+autocmd group quickfixcmdpost [^l]* cwindow
+autocmd group quickfixcmdpost l* lwindow
 lua << EOF
 require 'bqf'.setup{
   preview = {
