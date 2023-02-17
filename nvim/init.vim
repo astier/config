@@ -55,8 +55,8 @@ nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 
 " AUTOPAIR
 lua << EOF
 require('nvim-autopairs').setup{}
-local npairs = require'nvim-autopairs'
-local Rule   = require'nvim-autopairs.rule'
+local npairs = require('nvim-autopairs')
+local Rule   = require('nvim-autopairs.rule')
 npairs.add_rules {
   Rule(' ', ' ')
     :with_pair(function (opts)
@@ -104,14 +104,14 @@ lua << EOF
 ---Textobject for adjacent commented lines
 ---https://github.com/numToStr/Comment.nvim/issues/22#issuecomment-1272569139
 local function commented_lines_textobject()
-	local U = require("Comment.utils")
+	local U = require('Comment.utils')
 	local cl = vim.api.nvim_win_get_cursor(0)[1] -- current line
 	local range = { srow = cl, scol = 0, erow = cl, ecol = 0 }
 	local ctx = {
 		ctype = U.ctype.linewise,
 		range = range,
 	}
-	local cstr = require("Comment.ft").calculate(ctx) or vim.bo.commentstring
+	local cstr = require('Comment.ft').calculate(ctx) or vim.bo.commentstring
 	local ll, rr = U.unwrap_cstr(cstr)
 	local padding = true
 	local is_commented = U.is_commented(ll, rr, padding)
@@ -142,7 +142,7 @@ set completeopt=menuone,noinsert
 set pumheight=8 pumwidth=0
 set shortmess+=c
 lua << EOF
-local cmp = require 'cmp'
+local cmp = require('cmp')
 cmp.setup {
   completion = {
     completeopt = table.concat(vim.opt.completeopt:get(), ","),
@@ -228,7 +228,7 @@ nnoremap p <cmd>silent normal! p<cr>
 nnoremap P <cmd>silent normal! P<cr>
 
 " EDITING - REPLACE
-lua require("substitute").setup()
+lua require('substitute').setup()
 nnoremap s <cmd>lua require('substitute').operator()<cr>
 nnoremap sw <cmd>lua require('substitute').operator({ motion='iw' })<cr>
 nnoremap sW <cmd>lua require('substitute').operator({ motion='iW' })<cr>
@@ -269,7 +269,7 @@ nnoremap gqq Vgq
 
 " FUZZY - CONFIG
 lua << EOF
-require 'fzf-lua'.setup {
+require('fzf-lua').setup {
   lsp = {
     -- make lsp requests synchronous so they work with null-ls
     async_or_timeout = 3000,
@@ -302,30 +302,30 @@ require 'fzf-lua'.setup {
 EOF
 
 " FUZZY - MAPPINGS (MISC)
-nnoremap fb <cmd>lua require 'fzf-lua'.buffers()<cr>
-nnoremap fB <cmd>lua require 'fzf-lua'.builtin()<cr>
-nnoremap fc <cmd>lua require 'fzf-lua'.commands()<cr>
-nnoremap ff <cmd>lua require 'fzf-lua'.files()<cr>
-nnoremap fh <cmd>lua require 'fzf-lua'.help_tags()<cr>
-nnoremap fl <cmd>lua require 'fzf-lua'.blines()<cr>
-nnoremap fo <cmd>lua require 'fzf-lua'.oldfiles()<cr>
-nnoremap fQ <cmd>lua require 'fzf-lua'.loclist()<cr>
-nnoremap fq <cmd>lua require 'fzf-lua'.quickfix()<cr>
-nnoremap fR <cmd>lua require 'fzf-lua'.registers()<cr>
+nnoremap fb <cmd>lua require('fzf-lua').buffers()<cr>
+nnoremap fB <cmd>lua require('fzf-lua').builtin()<cr>
+nnoremap fc <cmd>lua require('fzf-lua').commands()<cr>
+nnoremap ff <cmd>lua require('fzf-lua').files()<cr>
+nnoremap fh <cmd>lua require('fzf-lua').help_tags()<cr>
+nnoremap fl <cmd>lua require('fzf-lua').blines()<cr>
+nnoremap fo <cmd>lua require('fzf-lua').oldfiles()<cr>
+nnoremap fQ <cmd>lua require('fzf-lua').loclist()<cr>
+nnoremap fq <cmd>lua require('fzf-lua').quickfix()<cr>
+nnoremap fR <cmd>lua require('fzf-lua').registers()<cr>
 
 " FUZZY - MAPPINGS (GREP)
-nnoremap fg <cmd>lua require 'fzf-lua'.grep()<cr>
-nnoremap fG <cmd>lua require 'fzf-lua'.live_grep()<cr>
-nnoremap fw <cmd>lua require 'fzf-lua'.grep_cword()<cr>
-nnoremap fW <cmd>lua require 'fzf-lua'.grep_cWORD()<cr>
-xnoremap fw <cmd>lua require 'fzf-lua'.grep_visual()<cr>
+nnoremap fg <cmd>lua require('fzf-lua').grep()<cr>
+nnoremap fG <cmd>lua require('fzf-lua').live_grep()<cr>
+nnoremap fw <cmd>lua require('fzf-lua').grep_cword()<cr>
+nnoremap fW <cmd>lua require('fzf-lua').grep_cWORD()<cr>
+xnoremap fw <cmd>lua require('fzf-lua').grep_visual()<cr>
 
 " FUZZY - MAPPINGS (LSP)
-nnoremap fd <cmd>lua require 'fzf-lua'.lsp_definitions()<cr>
-nnoremap fi <cmd>lua require 'fzf-lua'.lsp_implementations()<cr>
-nnoremap fr <cmd>lua require 'fzf-lua'.lsp_references()<cr>
-nnoremap fs <cmd>lua require 'fzf-lua'.lsp_document_symbols()<cr>
-nnoremap fS <cmd>lua require 'fzf-lua'.lsp_workspace_symbols()<cr>
+nnoremap fd <cmd>lua require('fzf-lua').lsp_definitions()<cr>
+nnoremap fi <cmd>lua require('fzf-lua').lsp_implementations()<cr>
+nnoremap fr <cmd>lua require('fzf-lua').lsp_references()<cr>
+nnoremap fs <cmd>lua require('fzf-lua').lsp_document_symbols()<cr>
+nnoremap fS <cmd>lua require('fzf-lua').lsp_workspace_symbols()<cr>
 
 " GIT
 autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
@@ -419,7 +419,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'K',  vim.lsp.buf.hover, bufopts)
 end
 local lspconfig = require('lspconfig')
-local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local servers = { 'ccls', 'jedi_language_server', 'marksman' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -491,7 +491,7 @@ nnoremap <space>f <cmd>lua vim.lsp.buf.format({ timeout_ms = 2000 })<cr>
 nnoremap <space>I <cmd>NullLsInfo<cr>
 hi! link NullLsInfoBorder FloatBorder " NormalFloat
 lua << EOF
-local null_ls = require("null-ls")
+local null_ls = require('null-ls')
 null_ls.setup({
   border = 'single',
   sources = {
@@ -512,7 +512,7 @@ autocmd group filetype qf set nonu | setl wrap
 autocmd group quickfixcmdpost [^l]* cwindow
 autocmd group quickfixcmdpost l* lwindow
 lua << EOF
-require 'bqf'.setup{
+require('bqf').setup{
   preview = {
     auto_preview = false,
     border_chars = { '│', '│', '─', '─', '┌', '┐', '└', '┘', '█' },
@@ -660,7 +660,7 @@ autocmd group termopen * setlocal signcolumn=no
 
 " TROUBLE
 lua << EOF
-require("trouble").setup {
+require('trouble').setup {
   auto_close = true,
   icons = false,
   indent_lines = false,
@@ -684,19 +684,19 @@ set wildmode=longest:list,full
 
 " WINDOWS
 autocmd group vimresized * wincmd =
-nnoremap <a-h> <cmd>lua require 'tmux'.move_left()<cr>
-nnoremap <a-j> <cmd>lua require 'tmux'.move_down()<cr>
-nnoremap <a-k> <cmd>lua require 'tmux'.move_up()<cr>
-nnoremap <a-l> <cmd>lua require 'tmux'.move_right()<cr>
+nnoremap <a-h> <cmd>lua require('tmux').move_left()<cr>
+nnoremap <a-j> <cmd>lua require('tmux').move_down()<cr>
+nnoremap <a-k> <cmd>lua require('tmux').move_up()<cr>
+nnoremap <a-l> <cmd>lua require('tmux').move_right()<cr>
 nnoremap <space>c <c-w>czz
 nnoremap <space>s <c-w>s
 nnoremap <space>v <c-w>v
 nnoremap <space>z <c-w>z<cmd>cclose<cr>
 set splitbelow splitright
-tnoremap <silent> <a-h> <c-\><c-n><cmd>lua require 'tmux'.move_left()<cr>
-tnoremap <silent> <a-j> <c-\><c-n><cmd>lua require 'tmux'.move_down()<cr>
-tnoremap <silent> <a-k> <c-\><c-n><cmd>lua require 'tmux'.move_up()<cr>
-tnoremap <silent> <a-l> <c-\><c-n><cmd>lua require 'tmux'.move_right()<cr>
+tnoremap <silent> <a-h> <c-\><c-n><cmd>lua require('tmux').move_left()<cr>
+tnoremap <silent> <a-j> <c-\><c-n><cmd>lua require('tmux').move_down()<cr>
+tnoremap <silent> <a-k> <c-\><c-n><cmd>lua require('tmux').move_up()<cr>
+tnoremap <silent> <a-l> <c-\><c-n><cmd>lua require('tmux').move_right()<cr>
 
 " WRAP
 autocmd group filetype * set formatoptions-=t
