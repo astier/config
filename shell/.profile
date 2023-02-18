@@ -64,11 +64,11 @@ alias xm="cpm -m"
 alias xp="cpm -p"
 
 # BOOKMARKS - FILES
-alias fb="jumpopen \$CONFIG/shell .bashrc && . .bashrc"
+alias fb="jumpopen \$CONFIG shell/.bashrc && . shell/.bashrc"
 alias fbl="\$EDITOR ~/.config/bashrc_local && . ~/.config/bashrc_local"
-alias fe="jumpopen \$CONFIG/shell exports && . exports"
+alias fe="jumpopen \$CONFIG shell/exports && . shell/exports"
 alias fn="jumpopen \$CONFIG nvim/init.vim"
-alias fp="jumpopen \$CONFIG/shell .profile && . .profile"
+alias fp="jumpopen \$CONFIG shell/.profile && . shell/.profile"
 alias fu="nvim +'h user-manual | winc o'"
 alias fx="jumpopen \$CONFIG sx/sxrc"
 f() { if [ -d "$1" ]; then cd "$1" || return; else "$LAUNCHER" "$@"; fi }
