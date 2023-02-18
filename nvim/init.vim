@@ -281,7 +281,6 @@ require('fzf-lua').setup {
     hl = { border = 'FloatBorder' },
   },
   files = {
-    cmd = 'ffind -type f',
     git_icons = false,
     file_icons = false,
   },
@@ -306,7 +305,7 @@ EOF
 nnoremap fb <cmd>lua require('fzf-lua').buffers()<cr>
 nnoremap fB <cmd>lua require('fzf-lua').builtin()<cr>
 nnoremap fc <cmd>lua require('fzf-lua').commands()<cr>
-nnoremap ff <cmd>lua require('fzf-lua').files()<cr>
+nnoremap ff <cmd>lua require('fzf-lua').files({ cmd = vim.env.FZF_DEFAULT_COMMAND })<cr>
 nnoremap fh <cmd>lua require('fzf-lua').help_tags()<cr>
 nnoremap fl <cmd>lua require('fzf-lua').blines()<cr>
 nnoremap fo <cmd>lua require('fzf-lua').oldfiles()<cr>
