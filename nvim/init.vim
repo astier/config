@@ -230,6 +230,7 @@ nnoremap P <cmd>silent normal! P<cr>
 " EDITING - REPLACE
 lua require('substitute').setup()
 nnoremap s <cmd>lua require('substitute').operator()<cr>
+nnoremap sp <cmd>lua require('substitute').operator({ motion='ip' })<cr>
 nnoremap sw <cmd>lua require('substitute').operator({ motion='iw' })<cr>
 nnoremap sW <cmd>lua require('substitute').operator({ motion='iW' })<cr>
 nnoremap S <cmd>lua require('substitute').eol()<cr>
