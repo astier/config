@@ -48,6 +48,7 @@ fi
 alias cryptsetup="sudo cryptsetup"
 alias df="df -h"
 alias du="du -h"
+alias fd="fd -LHE .git -c never"
 alias fdisk="sudo fdisk"
 alias gdisk="sudo gdisk"
 alias grep="grep --color=auto"
@@ -129,7 +130,7 @@ alias jw="cd ~/repos/sswm"
 j() {
     dir=$1
     if [ $# = 0 ]; then
-        dir=$(ffind -type d | fzf)
+        dir=$(fd -td | fzf)
     elif [ ! -d "$dir" ]; then
         mkdir -p "$dir"
     fi
