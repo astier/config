@@ -23,11 +23,10 @@ call plug#begin()
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/nvim-cmp'
-  Plug 'ibhagwan/fzf-lua'
+  Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
   Plug 'idbrii/textobj-word-column.vim'
   Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'Julian/vim-textobj-variable-segment'
-  Plug 'junegunn/fzf'
   Plug 'kana/vim-textobj-user'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
