@@ -257,7 +257,7 @@ alias os="\$EDITOR setup.sh"
 alias ot="\$EDITOR todo"
 
 autopen() {
-    if [ -r "$(ffind -type f -name 'main\.*' -print -quit)" ]; then
+    if [ -r "$(find . -maxdepth 1 -type f -name 'main\.*' -print -quit)" ]; then
         "$EDITOR" main.*
     elif [ -r setup.sh ]; then
         "$EDITOR" setup.sh
