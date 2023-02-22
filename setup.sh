@@ -32,6 +32,7 @@ link nvim "$XDG_CONFIG_HOME"
 link pacman "$XDG_CONFIG_HOME"
 link pylintrc "$XDG_CONFIG_HOME"
 link pythonrc.py "$XDG_CONFIG_HOME"
+link ripgreprc "$XDG_CONFIG_HOME"
 link shell/.profile ~
 link shell/.profile ~/.bashrc
 link shell/inputrc "$XDG_CONFIG_HOME"

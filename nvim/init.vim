@@ -351,13 +351,14 @@ nmap ]c <cmd>silent GitGutterNextHunk<cr>zz
 set signcolumn=yes
 
 " GREP
-set grepprg=ggrep
+set grepprg=rg\ --vimgrep
+set grepformat=%f:%l:%c:%m
 let g:grepper = {
-\ 'grep': {'grepprg': 'ggrep'},
+\ 'rg': { 'grepprg': 'rg --vimgrep' },
 \ 'highlight' : 1,
 \ 'side_cmd' : 'new',
 \ 'simple_prompt' : 1,
-\ 'tools': ['grep'],
+\ 'tools': ['rg'],
 \}
 nmap gw <plug>(GrepperOperator)iw
 nmap gW <plug>(GrepperOperator)iW

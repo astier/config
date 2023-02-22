@@ -1,0 +1,7 @@
+--follow
+--glob=!.git
+--hidden
+--line-number
+--max-columns=128
+--sort=path
+--trim
