@@ -240,7 +240,7 @@ alias re="sudo \$(fc -ln -1)"
 alias s="echo \$(bstatus -c)B \| \$(volume ?)V \| \$(date +%H:%M) \| \$(date +%d.%m.%y)"
 alias sc="scrot -s"
 alias tmp="nvim +'set nospell' /tmp/scratch.md"
-alias u="sudo reflector --protocol https --latest 8 --sort score --save /etc/pacman.d/mirrorlist && paru"
+alias u="curl -s 'https://archlinux.org/mirrorlist/?protocol=https&use_mirror_status=on' | sed -e s/^#Server/Server/ -e /^#/d | sudo tee /etc/pacman.d/mirrorlist >/dev/null && paru"
 alias v="volume"
 ar() { dir="$(basename "$1").tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
 cd() { command cd "$@" && ls; }
