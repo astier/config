@@ -270,9 +270,9 @@ autopen() {
 }
 
 # SYSTEM
-alias sl="systemctl suspend"
-alias sp="systemctl poweroff"
-alias sr="systemctl reboot"
+alias sl="sudo systemctl suspend"
+alias sp="sudo systemctl poweroff"
+alias sr="sudo systemctl reboot"
 
 # TMUX
 alias tn="exec tmux new -A"

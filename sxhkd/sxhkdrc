@@ -9,7 +9,7 @@ XF86MonBrightness{Down,Up}
     brightness {-,+}
 
 alt + 0
-    systemctl suspend
+    sudo systemctl suspend
 alt + {1,2}
     volume {-,+}
 alt + {3,4}
