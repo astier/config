@@ -519,6 +519,7 @@ require('bqf').setup{
   preview = {
     auto_preview = false,
     border_chars = { '│', '│', '─', '─', '┌', '┐', '└', '┘', '█' },
+    show_title = false,
   },
   func_map = { split = '<c-s>', },
   filter = { fzf = { action_for = { ['ctrl-s'] = 'split' } } },
