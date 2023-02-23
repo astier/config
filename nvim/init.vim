@@ -17,7 +17,6 @@ call plug#begin()
   Plug 'Darazaki/indent-o-matic'
   Plug 'dcampos/nvim-snippy'
   Plug 'farmergreg/vim-lastplace'
-  Plug 'folke/trouble.nvim'
   Plug 'gbprod/substitute.nvim'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -25,7 +24,6 @@ call plug#begin()
   Plug 'hrsh7th/nvim-cmp'
   Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
   Plug 'idbrii/textobj-word-column.vim'
-  Plug 'jose-elias-alvarez/null-ls.nvim'
   Plug 'Julian/vim-textobj-variable-segment'
   Plug 'kana/vim-textobj-user'
   Plug 'kevinhwang91/nvim-bqf'
@@ -35,7 +33,6 @@ call plug#begin()
   Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
-  Plug 'nvim-lua/plenary.nvim'
   Plug 'rbong/vim-flog'
   Plug 'stevearc/qf_helper.nvim'
   Plug 'stevearc/stickybuf.nvim'
@@ -181,26 +178,6 @@ cmp.setup {
 }
 EOF
 
-" DIAGNOSTIC
-nnoremap <space>e <cmd>lua vim.diagnostic.open_float()<cr>
-nnoremap <space>l <cmd>TroubleToggle document_diagnostics<cr>
-nnoremap [d <cmd>lua vim.diagnostic.goto_prev()<cr>zz
-nnoremap ]d <cmd>lua vim.diagnostic.goto_next()<cr>zz
-lua << EOF
-vim.diagnostic.config({
-  float = { source = "always" },
-  signs = { priority = 11 },
-  underline = false,
-  virtual_text = false,
-})
-local signs = { Error = "", Warn = "", Hint = "", Info = "" }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-vim.diagnostic.disable()
-EOF
-
 " EDITING - CHANGE
 nmap cp cip
 nmap cw ciw
@@ -271,10 +248,6 @@ nnoremap gqq Vgq
 " FUZZY - CONFIG
 lua << EOF
 require('fzf-lua').setup {
-  lsp = {
-    -- make lsp requests synchronous so they work with null-ls
-    async_or_timeout = 3000,
-  },
   winopts = {
     border = 'single',
     preview = { hidden = 'hidden' },
@@ -401,6 +374,8 @@ let g:loaded_zipPlugin = 0
 
 " LSP
 lua << EOF
+vim.diagnostic.disable()
+vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
 local border = 'single'
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -416,12 +391,19 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', 'gr', "<cmd>TroubleToggle lsp_references<cr>", bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', 'K',  vim.lsp.buf.hover, bufopts)
 end
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local servers = { 'ccls', 'jedi_language_server', 'marksman' }
+lspconfig.ccls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  init_options = {
+    diagnostics = { onOpen = -1, onChange = -1, onSave = -1 },
+  },
+}
+local servers = { 'jedi_language_server', 'marksman' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,
@@ -436,7 +418,7 @@ set errorformat=%f:%l:%c:%m
 set errorformat+=%f:%l:%c\ %m
 set errorformat+=%f:%l:%m
 set errorformat+=%f:%l\ %m
-nnoremap ,l <cmd>silent make! %<cr>
+nnoremap <space>l <cmd>silent make! %<cr>
 
 " MISC - MAPPINGS
 inoremap <c-space> <space>
@@ -486,27 +468,6 @@ nmap <3-rightmouse> <rightmouse>
 nmap <4-rightmouse> <rightmouse>
 set mousemodel=extend
 set mousescroll=ver:4
-
-" NULL-LS
-nnoremap <space>f <cmd>lua vim.lsp.buf.format({ timeout_ms = 2000 })<cr>
-nnoremap <space>I <cmd>NullLsInfo<cr>
-hi! link NullLsInfoBorder FloatBorder " NormalFloat
-lua << EOF
-local null_ls = require('null-ls')
-null_ls.setup({
-  border = 'single',
-  sources = {
-    null_ls.builtins.diagnostics.markdownlint,
-    null_ls.builtins.diagnostics.vint,
-    null_ls.builtins.formatting.markdownlint,
-    null_ls.builtins.formatting.prettier,
-    null_ls.builtins.diagnostics.shellcheck,
-    null_ls.builtins.formatting.shfmt.with({
-      extra_args = { "-s", "-i", "4", "-bn", "-ci", "-sr" },
-    }),
-  },
-})
-EOF
 
 " QUICKFIX
 autocmd group filetype qf set nonu | setl wrap
@@ -672,16 +633,6 @@ nmap ynb myyInb`y
 autocmd group bufenter,focusgained,termopen term://* startinsert
 autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
 autocmd group termopen * setlocal signcolumn=no
-
-" TROUBLE
-lua << EOF
-require('trouble').setup {
-  auto_close = true,
-  icons = false,
-  indent_lines = false,
-  padding = false,
-}
-EOF
 
 " WILDMENU
 set path-=/usr/include path+=**
