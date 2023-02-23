@@ -28,7 +28,6 @@ call plug#begin()
   Plug 'kana/vim-textobj-user'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
-  Plug 'mhinz/vim-grepper'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
@@ -327,18 +326,27 @@ set signcolumn=yes
 " GREP
 set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
-let g:grepper = {
-\ 'rg': { 'grepprg': 'rg --vimgrep' },
-\ 'highlight' : 1,
-\ 'side_cmd' : 'new',
-\ 'simple_prompt' : 1,
-\ 'tools': ['rg'],
-\}
-nmap gw <plug>(GrepperOperator)iw
-nmap gW <plug>(GrepperOperator)iW
-xmap gw <plug>(GrepperOperator)
-nnoremap <space>G :Grepper<space>
-nnoremap <space>g <cmd>Grepper<cr>
+command! -nargs=+ -complete=file_in_path Grep  silent grep!  <args>
+command! -nargs=+ -complete=file_in_path LGrep silent lgrep! <args>
+nnoremap <space>g :Grep<space>
+nnoremap gw <cmd>Grep -w <cword><cr>
+nnoremap gW <cmd>execute 'Grep -wF -- ' . GrepEscape(expand('<cWORD>'))<cr>
+fun! GrepEscape(pattern)
+  return escape(a:pattern, '`%#"\|')
+  \ ->substitute('\C<cword>',  '\\<cword>',  'g')
+  \ ->substitute('\C<cWORD>',  '\\<cWORD>',  'g')
+  \ ->substitute('\C<cexpr>',  '\\<cexpr>',  'g')
+  \ ->substitute('\C<cfile>',  '\\<cfile>',  'g')
+  \ ->substitute('\C<afile>',  '\\<afile>',  'g')
+  \ ->substitute('\C<abuf>',   '\\<abuf>',   'g')
+  \ ->substitute('\C<amatch>', '\\<amatch>', 'g')
+  \ ->substitute('\C<sfile>',  '\\<sfile>',  'g')
+  \ ->substitute('\C<stack>',  '\\<stack>',  'g')
+  \ ->substitute('\C<script>', '\\<script>', 'g')
+  \ ->substitute('\C<slnum>',  '\\<slnum>',  'g')
+  \ ->substitute('\C<sflnum>', '\\<sflnum>', 'g')
+  \ ->substitute('^\|$', '"', 'g')
+endfun
 
 " INCREMENT
 nnoremap + <c-a>
