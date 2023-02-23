@@ -87,7 +87,6 @@ EOF
 autocmd group textchanged,insertleave * nested if !&ro | silent! update | endif
 autocmd group vimenter * silent! let @#=expand('#2:p')
 nnoremap <space>d <cmd>qa!<cr>
-nnoremap <space>q <cmd>bd!<cr>
 nnoremap q <cmd>b#<cr>
 set noswapfile
 
@@ -512,6 +511,9 @@ EOF
 autocmd group filetype qf set nonu | setl wrap
 autocmd group quickfixcmdpost [^l]* cwindow
 autocmd group quickfixcmdpost l* lwindow
+nnoremap <space>q <cmd>cwindow<cr>
+nnoremap [q <cmd>cn<cr>
+nnoremap ]q <cmd>cp<cr>
 lua << EOF
 require('bqf').setup{
   preview = {
