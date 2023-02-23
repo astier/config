@@ -37,6 +37,7 @@ call plug#begin()
   Plug 'numToStr/Comment.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'rbong/vim-flog'
+  Plug 'stevearc/qf_helper.nvim'
   Plug 'stevearc/stickybuf.nvim'
   Plug 'stsewd/gx-extended.vim'
   Plug 'tpope/vim-eunuch'
@@ -511,10 +512,20 @@ EOF
 autocmd group filetype qf set nonu | setl wrap
 autocmd group quickfixcmdpost [^l]* cwindow
 autocmd group quickfixcmdpost l* lwindow
-nnoremap <space>q <cmd>cwindow<cr>
-nnoremap [q <cmd>cn<cr>
-nnoremap ]q <cmd>cp<cr>
+nnoremap <space>q <cmd>QFToggle!<cr>
+nnoremap [q <cmd>QPrev<cr>
+nnoremap ]q <cmd>QNext<cr>
 lua << EOF
+require('qf_helper').setup({
+  quickfix = {
+    max_height = 10,
+    min_height = 10,
+  },
+  loclist = {
+    max_height = 10,
+    min_height = 10,
+  },
+})
 require('bqf').setup{
   preview = {
     auto_preview = false,
@@ -695,7 +706,7 @@ nnoremap <a-l> <cmd>lua require('tmux').move_right()<cr>
 nnoremap <space>c <c-w>czz
 nnoremap <space>s <c-w>s
 nnoremap <space>v <c-w>v
-nnoremap <space>z <c-w>z<cmd>cclose<cr>
+nnoremap <space>z <c-w>z
 set splitbelow splitright
 tnoremap <silent> <a-h> <c-\><c-n><cmd>lua require('tmux').move_left()<cr>
 tnoremap <silent> <a-j> <c-\><c-n><cmd>lua require('tmux').move_down()<cr>
