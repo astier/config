@@ -431,11 +431,11 @@ end
 EOF
 
 " MAKE
-autocmd filetype markdown setl makeprg=markdownlint
-autocmd filetype markdown setl errorformat=%f:%l:%c\ %m
-autocmd filetype markdown setl errorformat+=%f:%l\ %m
-autocmd filetype sh,bash setl makeprg=shellcheck\ -f\ gcc
-autocmd filetype vim setl makeprg=vint
+set makeprg=lint
+set errorformat=%f:%l:%c:%m
+set errorformat+=%f:%l:%c\ %m
+set errorformat+=%f:%l:%m
+set errorformat+=%f:%l\ %m
 nnoremap ,l <cmd>silent make! %<cr>
 
 " MISC - MAPPINGS
