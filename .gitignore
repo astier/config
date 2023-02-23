@@ -2,3 +2,8 @@
 bookmarks
 gtkfilechooser.ini
 mpv/watch_later
+
+arch/*/*.tar
+arch/*/pkg/
+arch/*/src/
+arch/st/st/
