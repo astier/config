@@ -234,6 +234,29 @@ fun! ExeCmdAndRecenter(cmd)
   endif
 endfun
 
+" https://stackoverflow.com/a/47051271
+fun! GetVisualSelection()
+  if mode()=="v"
+    let [line_start, column_start] = getpos("v")[1:2]
+    let [line_end, column_end] = getpos(".")[1:2]
+  else
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+  end
+  if (line2byte(line_start)+column_start) > (line2byte(line_end)+column_end)
+    let [line_start, column_start, line_end, column_end] =
+    \   [line_end, column_end, line_start, column_start]
+  end
+  let lines = getline(line_start, line_end)
+  if len(lines) == 0
+    return ''
+  endif
+  let lines[-1] = lines[-1][: column_end - 1]
+  let lines[0] = lines[0][column_start - 1:]
+  return join(lines, "\n")
+endfun
+
+
 " FILETYPE
 autocmd group filetype diff set textwidth=72
 autocmd group filetype hog set ft=udevrules
@@ -331,6 +354,7 @@ command! -nargs=+ -complete=file_in_path LGrep silent lgrep! <args>
 nnoremap <space>g :Grep<space>
 nnoremap gw <cmd>Grep -w <cword><cr>
 nnoremap gW <cmd>execute 'Grep -wF -- ' . GrepEscape(expand('<cWORD>'))<cr>
+xnoremap gw <cmd>execute 'Grep -F -- '  . GrepEscape(GetVisualSelection())<cr>
 fun! GrepEscape(pattern)
   return escape(a:pattern, '`%#"\|')
   \ ->substitute('\C<cword>',  '\\<cword>',  'g')
@@ -528,7 +552,7 @@ nnoremap <esc> <cmd>echo<bar>noh<cr><esc>
 nnoremap <a-esc> <cmd>set hls<cr>
 nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nnoremap ,w <cmd>let @/= expand('<cword>')<bar>set hls<cr>
-xnoremap ,w <cmd>let @/= getline(".")[col('v') - 1 : getpos('.')[2] - 1]<bar>set hls<cr><esc>
+xnoremap ,w <cmd>let @/= GetVisualSelection()<bar>set hls<cr><esc>
 set ignorecase smartcase
 set shortmess+=Ss
 
