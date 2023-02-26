@@ -221,41 +221,9 @@ nnoremap sxx <cmd>lua require('substitute.exchange').line()<cr>
 xnoremap sx <cmd>lua require('substitute.exchange').visual()<cr>
 
 " EDITING - UNDO
-nnoremap <c-r> <cmd>call ExeCmdAndRecenter('redo')<cr>
-nnoremap U <cmd>call ExeCmdAndRecenter('redo')<cr>
-nnoremap u <cmd>call ExeCmdAndRecenter('undo')<cr>
-
-" FUNCTIONS
-fun! ExeCmdAndRecenter(cmd)
-  let old_lines = [line('w0'), line('w$')]
-  silent execute a:cmd
-  if !(line('w0') >= old_lines[0] && line('w$') <= old_lines[1])
-    normal! zz
-  endif
-endfun
-
-" https://stackoverflow.com/a/47051271
-fun! GetVisualSelection()
-  if mode()=="v"
-    let [line_start, column_start] = getpos("v")[1:2]
-    let [line_end, column_end] = getpos(".")[1:2]
-  else
-    let [line_start, column_start] = getpos("'<")[1:2]
-    let [line_end, column_end] = getpos("'>")[1:2]
-  end
-  if (line2byte(line_start)+column_start) > (line2byte(line_end)+column_end)
-    let [line_start, column_start, line_end, column_end] =
-    \   [line_end, column_end, line_start, column_start]
-  end
-  let lines = getline(line_start, line_end)
-  if len(lines) == 0
-    return ''
-  endif
-  let lines[-1] = lines[-1][: column_end - 1]
-  let lines[0] = lines[0][column_start - 1:]
-  return join(lines, "\n")
-endfun
-
+nnoremap <c-r> <cmd>call utils#ExeCmdAndRecenter('redo')<cr>
+nnoremap U <cmd>call utils#ExeCmdAndRecenter('redo')<cr>
+nnoremap u <cmd>call utils#ExeCmdAndRecenter('undo')<cr>
 
 " FILETYPE
 autocmd group filetype diff set textwidth=72
@@ -353,24 +321,8 @@ command! -nargs=+ -complete=file_in_path Grep  silent grep!  <args>
 command! -nargs=+ -complete=file_in_path LGrep silent lgrep! <args>
 nnoremap <space>g :Grep<space>
 nnoremap gw <cmd>Grep -w <cword><cr>
-nnoremap gW <cmd>execute 'Grep -wF -- ' . GrepEscape(expand('<cWORD>'))<cr>
-xnoremap gw <cmd>execute 'Grep -F -- '  . GrepEscape(GetVisualSelection())<cr>
-fun! GrepEscape(pattern)
-  return escape(a:pattern, '`%#"\|')
-  \ ->substitute('\C<cword>',  '\\<cword>',  'g')
-  \ ->substitute('\C<cWORD>',  '\\<cWORD>',  'g')
-  \ ->substitute('\C<cexpr>',  '\\<cexpr>',  'g')
-  \ ->substitute('\C<cfile>',  '\\<cfile>',  'g')
-  \ ->substitute('\C<afile>',  '\\<afile>',  'g')
-  \ ->substitute('\C<abuf>',   '\\<abuf>',   'g')
-  \ ->substitute('\C<amatch>', '\\<amatch>', 'g')
-  \ ->substitute('\C<sfile>',  '\\<sfile>',  'g')
-  \ ->substitute('\C<stack>',  '\\<stack>',  'g')
-  \ ->substitute('\C<script>', '\\<script>', 'g')
-  \ ->substitute('\C<slnum>',  '\\<slnum>',  'g')
-  \ ->substitute('\C<sflnum>', '\\<sflnum>', 'g')
-  \ ->substitute('^\|$', '"', 'g')
-endfun
+nnoremap gW <cmd>execute 'Grep -wF -- ' . grep#Escape(expand('<cWORD>'))<cr>
+xnoremap gw <cmd>execute 'Grep -F -- '  . grep#Escape(visual#GetSelection())<cr>
 
 " INCREMENT
 nnoremap + <c-a>
@@ -552,7 +504,7 @@ nnoremap <esc> <cmd>echo<bar>noh<cr><esc>
 nnoremap <a-esc> <cmd>set hls<cr>
 nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nnoremap ,w <cmd>let @/= expand('<cword>')<bar>set hls<cr>
-xnoremap ,w <cmd>let @/= GetVisualSelection()<bar>set hls<cr><esc>
+xnoremap ,w <cmd>let @/= visual#GetSelection()<bar>set hls<cr><esc>
 set ignorecase smartcase
 set shortmess+=Ss
 
@@ -588,23 +540,7 @@ set statusline=%= laststatus=0
 
 " TABLINE
 set showtabline=1
-set tabline=%!TabLine()
-fun! TabLine()
-  let tabline = ''
-  for i in range(tabpagenr('$'))
-    if i + 1 == tabpagenr()
-      let tabline .= '%#TabLineSel#'
-    else
-      let tabline .= '%#TabLine#'
-    endif
-    let tabline .= '%' . (i + 1) . 'T' . '[' . (i + 1) . '] '
-  endfor
-  let tabline .= '%#TabLineFill#%T'
-  if tabpagenr('$') > 1
-    let tabline .= '%=%#TabLineSel'
-  endif
-  return tabline
-endfun
+set tabline=%!tabline#Draw()
 
 " TEXTOBJ - Variable-Segment
 nmap cv civ

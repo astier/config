@@ -1,0 +1,17 @@
+fun! grep#Escape(pattern)
+  return escape(a:pattern, '`%#"\|')
+  \ ->substitute('\C<cword>',  '\\<cword>',  'g')
+  \ ->substitute('\C<cWORD>',  '\\<cWORD>',  'g')
+  \ ->substitute('\C<cexpr>',  '\\<cexpr>',  'g')
+  \ ->substitute('\C<cfile>',  '\\<cfile>',  'g')
+  \ ->substitute('\C<afile>',  '\\<afile>',  'g')
+  \ ->substitute('\C<abuf>',   '\\<abuf>',   'g')
+  \ ->substitute('\C<amatch>', '\\<amatch>', 'g')
+  \ ->substitute('\C<sfile>',  '\\<sfile>',  'g')
+  \ ->substitute('\C<stack>',  '\\<stack>',  'g')
+  \ ->substitute('\C<script>', '\\<script>', 'g')
+  \ ->substitute('\C<slnum>',  '\\<slnum>',  'g')
+  \ ->substitute('\C<sflnum>', '\\<sflnum>', 'g')
+  \ ->substitute('^\|$', '"', 'g')
+endfun
+
