@@ -265,30 +265,30 @@ require('fzf-lua').setup {
 EOF
 
 " FUZZY - MAPPINGS (MISC)
-nnoremap fb <cmd>lua require('fzf-lua').buffers()<cr>
-nnoremap fB <cmd>lua require('fzf-lua').builtin()<cr>
-nnoremap fc <cmd>lua require('fzf-lua').commands()<cr>
-nnoremap ff <cmd>lua require('fzf-lua').files({ cmd = vim.env.FZF_DEFAULT_COMMAND })<cr>
-nnoremap fh <cmd>lua require('fzf-lua').help_tags()<cr>
-nnoremap fl <cmd>lua require('fzf-lua').blines()<cr>
-nnoremap fo <cmd>lua require('fzf-lua').oldfiles()<cr>
-nnoremap fQ <cmd>lua require('fzf-lua').loclist()<cr>
-nnoremap fq <cmd>lua require('fzf-lua').quickfix()<cr>
-nnoremap fR <cmd>lua require('fzf-lua').registers()<cr>
+nnoremap fb <cmd>FzfLua buffers<cr>
+nnoremap fB <cmd>FzfLua builtin<cr>
+nnoremap fc <cmd>FzfLua commands<cr>
+nnoremap ff <cmd>FzfLua files cmd = vim.env.FZF_DEFAULT_COMMAND<cr>
+nnoremap fh <cmd>FzfLua help_tags<cr>
+nnoremap fl <cmd>FzfLua blines<cr>
+nnoremap fo <cmd>FzfLua oldfiles<cr>
+nnoremap fQ <cmd>FzfLua loclist<cr>
+nnoremap fq <cmd>FzfLua quickfix<cr>
+nnoremap fR <cmd>FzfLua registers<cr>
 
 " FUZZY - MAPPINGS (GREP)
-nnoremap fg <cmd>lua require('fzf-lua').grep()<cr>
-nnoremap fG <cmd>lua require('fzf-lua').live_grep()<cr>
-nnoremap fw <cmd>lua require('fzf-lua').grep_cword()<cr>
-nnoremap fW <cmd>lua require('fzf-lua').grep_cWORD()<cr>
-xnoremap fw <cmd>lua require('fzf-lua').grep_visual()<cr>
+nnoremap fg <cmd>FzfLua grep<cr>
+nnoremap fG <cmd>FzfLua live_grep<cr>
+nnoremap fw <cmd>FzfLua grep_cword<cr>
+nnoremap fW <cmd>FzfLua grep_cWORD<cr>
+xnoremap fw <cmd>FzfLua grep_visual<cr>
 
 " FUZZY - MAPPINGS (LSP)
-nnoremap fd <cmd>lua require('fzf-lua').lsp_definitions()<cr>
-nnoremap fi <cmd>lua require('fzf-lua').lsp_implementations()<cr>
-nnoremap fr <cmd>lua require('fzf-lua').lsp_references()<cr>
-nnoremap fs <cmd>lua require('fzf-lua').lsp_document_symbols()<cr>
-nnoremap fS <cmd>lua require('fzf-lua').lsp_workspace_symbols()<cr>
+nnoremap fd <cmd>FzfLua lsp_definitions<cr>
+nnoremap fi <cmd>FzfLua lsp_implementations<cr>
+nnoremap fr <cmd>FzfLua lsp_references<cr>
+nnoremap fs <cmd>FzfLua lsp_document_symbols<cr>
+nnoremap fS <cmd>FzfLua lsp_workspace_symbols<cr>
 
 " GIT
 autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
