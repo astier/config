@@ -1,17 +1,9 @@
-fun! grep#Escape(pattern)
-  return escape(a:pattern, '`%#"\|')
-  \ ->substitute('\C<cword>',  '\\<cword>',  'g')
-  \ ->substitute('\C<cWORD>',  '\\<cWORD>',  'g')
-  \ ->substitute('\C<cexpr>',  '\\<cexpr>',  'g')
-  \ ->substitute('\C<cfile>',  '\\<cfile>',  'g')
-  \ ->substitute('\C<afile>',  '\\<afile>',  'g')
-  \ ->substitute('\C<abuf>',   '\\<abuf>',   'g')
-  \ ->substitute('\C<amatch>', '\\<amatch>', 'g')
-  \ ->substitute('\C<sfile>',  '\\<sfile>',  'g')
-  \ ->substitute('\C<stack>',  '\\<stack>',  'g')
-  \ ->substitute('\C<script>', '\\<script>', 'g')
-  \ ->substitute('\C<slnum>',  '\\<slnum>',  'g')
-  \ ->substitute('\C<sflnum>', '\\<sflnum>', 'g')
-  \ ->substitute('^\|$', '"', 'g')
+" https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
+fun! grep#Expand(...) abort
+  return system(join([&grepprg] + [expandcmd(join(a:000, ' '))], ' '))
 endfun
 
+" https://www.reddit.com/r/vim/comments/11byhfd/comment/ja2skxb/?utm_source=share&utm_medium=web2x&context=3
+fun! grep#Escape(args, pattern, file) abort
+  return system(join([&grepprg, a:args, '-F', '--', shellescape(a:pattern), a:file], ' '))
+endfun

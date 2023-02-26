@@ -317,12 +317,17 @@ set signcolumn=yes
 " GREP
 set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
-command! -nargs=+ -complete=file_in_path Grep  silent grep!  <args>
-command! -nargs=+ -complete=file_in_path LGrep silent lgrep! <args>
-nnoremap <space>g :Grep<space>
-nnoremap gw <cmd>Grep -w <cword><cr>
-nnoremap gW <cmd>execute 'Grep -wF -- ' . grep#Escape(expand('<cWORD>'))<cr>
-xnoremap gw <cmd>execute 'Grep -F -- '  . grep#Escape(visual#GetSelection())<cr>
+command! -nargs=+ -complete=file_in_path Grep cgetexpr grep#Expand(<f-args>)<bar>echo
+nnoremap <space>gg :Grep  %<left><left>
+nnoremap <space>gG :Grep<space>
+nnoremap <space>gw <cmd>cgetexpr grep#Escape('-w', expand('<cword>'), expand('%'))<cr>
+nnoremap <space>gW <cmd>cgetexpr grep#Escape('-w', expand('<cWORD>'), expand('%'))<cr>
+xnoremap <space>gw <cmd>cgetexpr grep#Escape('',   visual#GetSelection(), expand('%'))<cr>
+xnoremap <space>gW <cmd>cgetexpr grep#Escape('-w', visual#GetSelection(), expand('%'))<cr>
+nnoremap <space>Gw <cmd>cgetexpr grep#Escape('-w', expand('<cword>'), expand(''))<cr>
+nnoremap <space>GW <cmd>cgetexpr grep#Escape('-w', expand('<cWORD>'), expand(''))<cr>
+xnoremap <space>Gw <cmd>cgetexpr grep#Escape('',   visual#GetSelection(), expand(''))<cr>
+xnoremap <space>GW <cmd>cgetexpr grep#Escape('-w', visual#GetSelection(), expand(''))<cr>
 
 " INCREMENT
 nnoremap + <c-a>
