@@ -494,15 +494,15 @@ nmap yv myyiv`y
 " TEXTOBJ - Word-Column
 let g:textobj_wordcolumn_no_default_key_mappings = 1
 call textobj#user#map('wordcolumn', {
-            \ 'word' : {
-            \   'select-i' : 'iq',
-            \   'select-a' : 'aq',
-            \   },
-            \ 'WORD' : {
-            \   'select-i' : 'iQ',
-            \   'select-a' : 'aQ',
-            \   },
-            \ })
+\ 'word' : {
+\   'select-i' : 'iq',
+\   'select-a' : 'aq',
+\   },
+\ 'WORD' : {
+\   'select-i' : 'iQ',
+\   'select-a' : 'aQ',
+\   },
+\ })
 nmap cq 0ciq
 nmap dq my0diq`y
 
