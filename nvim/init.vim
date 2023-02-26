@@ -238,29 +238,13 @@ nnoremap gqq Vgq
 " FUZZY - CONFIG
 lua << EOF
 require('fzf-lua').setup {
+  'max-perf',
   winopts = {
     border = 'single',
     preview = { hidden = 'hidden' },
     hl = { border = 'FloatBorder' },
   },
-  files = {
-    git_icons = false,
-    file_icons = false,
-  },
-  git = {
-    files = { git_icons = false, file_icons = false },
-    status = { git_icons = false, file_icons = false },
-  },
-  oldfiles = {
-    cwd_only = true,
-    git_icons = false,
-    file_icons = false,
-  },
-  grep = { git_icons = false, file_icons = false },
-  helptags = { previewer = { _ctor = false } },
-  lines = { git_icons = false, file_icons = false },
-  lsp = { git_icons = false, file_icons = false },
-  quickfix = { git_icons = false, file_icons = false },
+  oldfiles = { cwd_only = true },
 }
 EOF
 
