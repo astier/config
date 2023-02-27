@@ -112,6 +112,10 @@ cmp.setup({
     end,
   },
   window = {
+    completion = {
+      border = 'single',
+      winhighlight = 'FloatBorder:FloatBorder,Normal:Normal,CursorLine:Statement'
+    },
     documentation = cmp.config.disable,
   },
   mapping = {
