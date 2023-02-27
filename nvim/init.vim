@@ -35,7 +35,6 @@ call plug#begin()
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'wellle/targets.vim'
-  Plug 'windwp/nvim-autopairs'
 call plug#end()
 
 " APPEARANCE
@@ -43,38 +42,6 @@ autocmd group filetype * set nocursorline
 autocmd group textyankpost * lua vim.highlight.on_yank()
 colorscheme custom
 nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
-
-" AUTOPAIR
-lua << EOF
-require('nvim-autopairs').setup{}
-local npairs = require('nvim-autopairs')
-local Rule   = require('nvim-autopairs.rule')
-npairs.add_rules {
-  Rule(' ', ' ')
-    :with_pair(function (opts)
-      local pair = opts.line:sub(opts.col - 1, opts.col)
-      return vim.tbl_contains({ '()', '[]', '{}' }, pair)
-    end),
-  Rule('( ', ' )')
-      :with_pair(function() return false end)
-      :with_move(function(opts)
-          return opts.prev_char:match('.%)') ~= nil
-      end)
-      :use_key(')'),
-  Rule('{ ', ' }')
-      :with_pair(function() return false end)
-      :with_move(function(opts)
-          return opts.prev_char:match('.%}') ~= nil
-      end)
-      :use_key('}'),
-  Rule('[ ', ' ]')
-      :with_pair(function() return false end)
-      :with_move(function(opts)
-          return opts.prev_char:match('.%]') ~= nil
-      end)
-      :use_key(']')
-}
-EOF
 
 " BUFFERS
 autocmd group bufread * if !file#IsIgnored() | execute 'silent! normal! g`"zz' | endif
