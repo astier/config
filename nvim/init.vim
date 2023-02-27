@@ -453,7 +453,7 @@ require('snippy').setup({
       ['<a-Tab>'] = 'previous',
     },
     nx = {
-      ['<leader>x'] = 'cut_text',
+      ['<space>x'] = 'cut_text',
     },
   },
 })
