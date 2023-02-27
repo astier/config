@@ -449,8 +449,8 @@ lua << EOF
 require('snippy').setup({
   mappings = {
     is = {
+      ['<s-tab>'] = 'previous',
       ['<tab>'] = 'expand_or_advance',
-      ['<a-tab>'] = 'previous',
     },
     nx = {
       ['<space>x'] = 'cut_text',
