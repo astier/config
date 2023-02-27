@@ -452,9 +452,7 @@ require('snippy').setup({
       ['<s-tab>'] = 'previous',
       ['<tab>'] = 'expand_or_advance',
     },
-    nx = {
-      ['<space>x'] = 'cut_text',
-    },
+    nx = { ['<space>x'] = 'cut_text' },
   },
 })
 EOF
