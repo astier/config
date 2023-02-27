@@ -450,7 +450,7 @@ require('snippy').setup({
   mappings = {
     is = {
       ['<tab>'] = 'expand_or_advance',
-      ['<a-Tab>'] = 'previous',
+      ['<a-tab>'] = 'previous',
     },
     nx = {
       ['<space>x'] = 'cut_text',
