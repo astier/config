@@ -102,7 +102,7 @@ set pumheight=8 pumwidth=0
 set shortmess+=c
 lua << EOF
 local cmp = require('cmp')
-cmp.setup {
+cmp.setup({
   completion = {
     completeopt = table.concat(vim.opt.completeopt:get(), ","),
   },
@@ -138,7 +138,7 @@ cmp.setup {
       return vim_item
     end
   },
-}
+})
 EOF
 
 " EDITING - CHANGE
@@ -201,7 +201,7 @@ nnoremap gqq Vgq
 
 " FUZZY - CONFIG
 lua << EOF
-require('fzf-lua').setup {
+require('fzf-lua').setup({
   'max-perf',
   winopts = {
     border = 'single',
@@ -209,7 +209,7 @@ require('fzf-lua').setup {
     hl = { border = 'FloatBorder' },
   },
   oldfiles = { cwd_only = true },
-}
+})
 EOF
 
 " FUZZY - MAPPINGS (MISC)
@@ -324,19 +324,19 @@ local on_attach = function(client, bufnr)
 end
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-lspconfig.ccls.setup {
+lspconfig.ccls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   init_options = {
     diagnostics = { onOpen = -1, onChange = -1, onSave = -1 },
   },
-}
+})
 local servers = { 'jedi_language_server', 'marksman' }
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  lspconfig[lsp].setup({
     capabilities = capabilities,
     on_attach = on_attach,
-  }
+  })
 end
 EOF
 
@@ -415,7 +415,7 @@ require('qf_helper').setup({
     min_height = 10,
   },
 })
-require('bqf').setup{
+require('bqf').setup({
   preview = {
     auto_preview = false,
     border_chars = { '│', '│', '─', '─', '┌', '┐', '└', '┘', '█' },
@@ -423,7 +423,7 @@ require('bqf').setup{
   },
   func_map = { split = '<c-s>', },
   filter = { fzf = { action_for = { ['ctrl-s'] = 'split' } } },
-}
+})
 EOF
 highlight! link bqfpreviewrange none
 highlight bqfsign ctermfg=yellow
