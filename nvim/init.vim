@@ -33,7 +33,7 @@ call plug#begin()
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
   Plug 'rbong/vim-flog'
-  Plug 'stevearc/qf_helper.nvim'
+  Plug 'romainl/vim-qf'
   Plug 'stevearc/stickybuf.nvim'
   Plug 'stsewd/gx-extended.vim'
   Plug 'tpope/vim-eunuch'
@@ -398,23 +398,11 @@ set mousemodel=extend
 set mousescroll=ver:4
 
 " QUICKFIX
-autocmd group filetype qf set nonu | setl wrap
-autocmd group quickfixcmdpost [^l]* cwindow
-autocmd group quickfixcmdpost l* lwindow
-nnoremap <space>q <cmd>QFToggle!<cr>
-nnoremap [q <cmd>QPrev<cr>
-nnoremap ]q <cmd>QNext<cr>
+autocmd group filetype qf setl nonu scl=no wrap
+nmap <space>q <plug>(qf_qf_toggle_stay)
+nmap [q <plug>(qf_qf_previous)zz
+nmap ]q <plug>(qf_qf_next)zz
 lua << EOF
-require('qf_helper').setup({
-  quickfix = {
-    max_height = 10,
-    min_height = 10,
-  },
-  loclist = {
-    max_height = 10,
-    min_height = 10,
-  },
-})
 require('bqf').setup({
   preview = {
     auto_preview = false,
