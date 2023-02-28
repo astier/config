@@ -1,3 +1,4 @@
 if !exists('g:vscode') && exists('#gitgutter')
-    au! gitgutter cursorhold,cursorholdi
-en
+  autocmd! gitgutter cursorhold,cursorholdi
+  autocmd  gitgutter bufwritepost * GitGutter
+endif

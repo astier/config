@@ -253,7 +253,6 @@ nnoremap <space>kk <cmd>Flog -all<cr>
 nnoremap <space>kr <cmd>G reset --hard<bar>e<cr>
 
 " GITGUTTER
-autocmd group vimenter,bufwritepost * GitGutter
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_show_msg_on_hunk_jumping = 0
