@@ -218,7 +218,7 @@ EOF
 nnoremap fb <cmd>FzfLua buffers<cr>
 nnoremap fB <cmd>FzfLua builtin<cr>
 nnoremap fc <cmd>FzfLua commands<cr>
-nnoremap ff <cmd>FzfLua files cmd = vim.env.FZF_DEFAULT_COMMAND<cr>
+nnoremap ff <cmd>lua require('fzf-lua').files({ cmd = vim.env.FZF_DEFAULT_COMMAND })<cr>
 nnoremap fh <cmd>FzfLua help_tags<cr>
 nnoremap fl <cmd>FzfLua blines<cr>
 nnoremap fo <cmd>FzfLua oldfiles<cr>
