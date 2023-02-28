@@ -28,7 +28,7 @@ export MANPAGER="nvim +Man!"
 export TERMINAL=st
 
 export FZF_CTRL_T_OPTS="--select-1 --exit-0"
-export FZF_DEFAULT_COMMAND="rg --files --no-messages"
+export FZF_DEFAULT_COMMAND="ls-files"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--cycle --multi --reverse --no-separator --no-scrollbar --preview-window border-sharp --tabstop=4 --tiebreak=begin,length,end,index --no-info --color=bg+:-1,fg+:-1,border:8,hl:1,hl+:1,prompt:4,pointer:2,marker:3,info:8"
 export GIT_PS1_SHOWDIRTYSTATE=1
