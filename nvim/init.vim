@@ -445,17 +445,11 @@ set ignorecase smartcase
 set shortmess+=Ss
 
 " SNIPPETS
-lua << EOF
-require('snippy').setup({
-  mappings = {
-    is = {
-      ['<s-tab>'] = 'previous',
-      ['<tab>'] = 'expand_or_advance',
-    },
-    nx = { ['<space>x'] = 'cut_text' },
-  },
-})
-EOF
+imap <expr> <tab> snippy#can_expand_or_advance() ? '<plug>(snippy-expand-or-advance)' : '<tab>'
+imap <expr> <t-tab> snippy#can_jump(-1) ? '<plug>(snippy-previous)' : '<s-tab>'
+smap <expr> <tab> snippy#can_jump(1) ? '<plug>(snippy-next)' : '<tab>'
+smap <expr> <s-tab> snippy#can_jump(-1) ? '<plug>(snippy-previous)' : '<s-tab>'
+xmap <tab> <plug>(snippy-cut-text)
 
 " SORT
 nmap <silent> gs myvii:sort i<cr>`y
