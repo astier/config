@@ -165,7 +165,7 @@ xnoremap d <cmd>silent normal! d<cr>
 
 " EDITING - PASTE
 inoremap <c-v> <c-r>+
-nnoremap cP yap}p
+nnoremap cP <cmd>silent normal! yap}p<cr>
 nnoremap p <cmd>silent normal! p<cr>
 nnoremap P <cmd>silent normal! P<cr>
 
