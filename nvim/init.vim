@@ -528,13 +528,6 @@ autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
 autocmd group termopen * setlocal signcolumn=no
 
 " WILDMENU
-call system('git rev-parse --is-inside-work-tree')
-if v:shell_error
-  set path=.,,**
-else
-  execute 'set path=,' . system('ls-dirs | tr "\n" ,')
-endif
-execute 'set wildignore+=.git/,*/.git/*,' . system('ls-ignored | tr "\n" ,')
 set wildcharm=<c-z>
 set wildmode=longest:list,full
 
