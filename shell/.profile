@@ -137,7 +137,7 @@ alias jw="cd ~/repos/sswm"
 j() {
     dir=$1
     if [ $# = 0 ]; then
-        dir=$(rg --files --no-messages -0 | xargs -0 dirname | sed /^\.$/d | sort -u | fzf)
+        dir=$(ls-dirs | fzf)
     elif [ ! -d "$dir" ]; then
         mkdir -p "$dir"
     fi
