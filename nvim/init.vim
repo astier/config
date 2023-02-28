@@ -366,6 +366,7 @@ set clipboard=unnamedplus
 set nofoldenable
 set notimeout
 set virtualedit=block
+set wildmode=longest:list,full
 
 " MOTIONS
 inoremap <c-l> <right>
@@ -526,10 +527,6 @@ nmap ynb myyInb`y
 autocmd group bufenter,focusgained,termopen term://* startinsert
 autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
 autocmd group termopen * setlocal signcolumn=no
-
-" WILDMENU
-set wildcharm=<c-z>
-set wildmode=longest:list,full
 
 " WINDOWS
 autocmd group vimresized * wincmd =
