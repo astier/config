@@ -152,13 +152,13 @@ nnoremap C "_C
 xnoremap c "_c
 
 " EDITING - COPY
-nnoremap yp <cmd>silent normal myyap`y<cr>
+nnoremap yp <cmd>silent normal! myyap`y<cr>
 nnoremap yw myyiw`y
 nnoremap yW myyiW`y
 xnoremap y <cmd>silent normal! myy`y<cr>
 
 " EDITING - CUT
-nnoremap <expr> dp &diff ? 'dp' : '<cmd>silent normal dap<cr>'
+nnoremap <expr> dp &diff ? 'dp' : '<cmd>silent normal! dap<cr>'
 nnoremap dw daw
 nnoremap dW daW
 xnoremap d <cmd>silent normal! d<cr>
@@ -351,8 +351,8 @@ nnoremap gUw mygUiw`y
 nnoremap gUW mygUiW`y
 nnoremap J myJ`y
 nnoremap Q q
-xnoremap . :normal .<cr>
-xnoremap q :'<,'>:normal @q<cr>
+xnoremap . :normal! .<cr>
+xnoremap q :'<,'>:normal! @q<cr>
 
 " MISC - SETTINGS
 set clipboard=unnamedplus
