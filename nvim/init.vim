@@ -269,13 +269,6 @@ set grepformat=%f:%l:%c:%m
 command! -nargs=+ -complete=file_in_path Grep silent grep! <args><bar>echo
 nnoremap <space>g :Grep<space>
 
-" INCREMENT
-nnoremap + <c-a>
-nnoremap - <c-x>
-set nrformats=
-xnoremap + g<c-a>
-xnoremap - g<c-x>
-
 " INDENTATION
 nnoremap <p <ap
 nnoremap >p >ap
