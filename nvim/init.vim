@@ -103,9 +103,7 @@ set shortmess+=c
 lua << EOF
 local cmp = require('cmp')
 cmp.setup({
-  completion = {
-    completeopt = table.concat(vim.opt.completeopt:get(), ","),
-  },
+  completion = { completeopt = table.concat(vim.opt.completeopt:get(), ","), },
   snippet = {
     expand = function(args)
       require('snippy').expand_snippet(args.body)
