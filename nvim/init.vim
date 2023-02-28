@@ -528,17 +528,14 @@ autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
 autocmd group termopen * setlocal signcolumn=no
 
 " WILDMENU
-set path-=/usr/include path+=**
+call system('git rev-parse --is-inside-work-tree')
+if v:shell_error
+  set path=.,,**
+else
+  execute 'set path=,' . system('ls-dirs | tr "\n" ,')
+endif
+execute 'set wildignore+=.git/,*/.git/*,' . system('ls-ignored | tr "\n" ,')
 set wildcharm=<c-z>
-set wildignore+=*.o
-set wildignore+=*.pdf
-set wildignore+=*.zip
-set wildignore+=*/.ccls_cache/*
-set wildignore+=*/.git/*
-set wildignore+=*/.idea/*
-set wildignore+=*/.vscode/*
-set wildignore+=*/__pycache__/*
-set wildignore+=*/build/*
 set wildmode=longest:list,full
 
 " WINDOWS
