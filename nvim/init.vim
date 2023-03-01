@@ -16,10 +16,6 @@ call plug#begin()
   Plug 'Darazaki/indent-o-matic'
   Plug 'dcampos/nvim-snippy'
   Plug 'gbprod/substitute.nvim'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-path'
-  Plug 'hrsh7th/nvim-cmp'
   Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
   Plug 'idbrii/textobj-word-column.vim'
   Plug 'Julian/vim-textobj-variable-segment'
@@ -68,70 +64,13 @@ nmap gcp gcip
 onoremap u <cmd>lua require('uncomment').uncomment()<cr>
 
 " COMPLETION
+imap <expr> <tab> pumvisible() ? '<down>' : snippy#can_expand() ? '<plug>(snippy-expand)' : completion#TextBeforeCursor() ? completion#Complete() : '<tab>'
+inoremap <expr> <s-tab> pumvisible() ? '<up>' : '<s-tab>'
+inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'
+lua require('completionitemkind')
 set completeopt=menuone,noinsert
 set pumheight=8 pumwidth=0
 set shortmess+=c
-lua << EOF
-local has_words_before = function()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-local cmp = require('cmp')
-local snippy = require('snippy')
-cmp.setup({
-  completion = {
-    autocomplete = false,
-    completeopt = table.concat(vim.opt.completeopt:get(), ","),
-  },
-  snippet = {
-    expand = function(args)
-      require('snippy').expand_snippet(args.body)
-    end,
-  },
-  window = {
-    completion = {
-      border = 'single',
-      winhighlight = 'FloatBorder:FloatBorder,Normal:Normal,CursorLine:Statement'
-    },
-    documentation = cmp.config.disable,
-  },
-  mapping = {
-    ["<tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item({ behavior = 'select' })
-      elseif snippy.can_expand() then
-        snippy.expand()
-      elseif has_words_before() then
-        cmp.complete()
-      else
-        fallback()
-      end
-    end, { "i" }),
-    ["<s-tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item({ behavior = 'select' })
-      else
-        fallback()
-      end
-    end, { "i" }),
-    ['<cr>']  = cmp.mapping.confirm({ select = true }),
-  },
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-  }, {
-    { name = 'path' },
-    { name = 'buffer' },
-  }),
-  formatting = {
-    format = function(entry, vim_item)
-      vim_item.kind = ({})[vim_item.kind]
-      vim_item.menu = ({})[entry.source.name]
-      return vim_item
-    end
-  },
-})
-EOF
 
 " DELETE
 nnoremap <expr> dp &diff ? 'dp' : '<cmd>silent normal! dap<cr>'
@@ -267,7 +206,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'K',  vim.lsp.buf.hover, bufopts)
 end
 local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.ccls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -385,6 +325,7 @@ set virtualedit=block
 set wildmode=longest:list,full
 
 " SNIPPETS
+autocmd group CompleteDone * lua require('snippy').complete_done()
 lua << EOF
 require('snippy').setup({
   mappings = {
