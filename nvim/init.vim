@@ -370,7 +370,7 @@ nnoremap gUw mygUiw`y
 nnoremap gUW mygUiW`y
 nnoremap J myJ`y
 nnoremap Q q
-xnoremap . :normal! .<cr>
+xnoremap <silent> . :normal! .<cr>
 xnoremap q :'<,'>:normal! @q<cr>
 
 " MISC - SETTINGS
