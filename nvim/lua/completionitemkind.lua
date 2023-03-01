@@ -1,0 +1,29 @@
+require('vim.lsp.protocol').CompletionItemKind = { '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '' }
+
+-- require('vim.lsp.protocol').CompletionItemKind = {
+--   '', -- Text
+--   '', -- Method
+--   '', -- Function
+--   '', -- Constructor
+--   '', -- Field
+--   '', -- Variable
+--   'ﴯ', -- Class
+--   '', -- Interface
+--   '', -- Module
+--   '', -- Property
+--   '', -- Unit
+--   '', -- Value
+--   '', -- Enum
+--   '', -- Keyword
+--   '~', -- Snippet
+--   '', -- Color
+--   '', -- File
+--   '', -- Reference
+--   '', -- Folder
+--   'ℰ', -- EnumMember
+--   '', -- Constant
+--   '', -- Struct
+--   '', -- Event
+--   '', -- Operator
+--   '', -- TypeParameter
+-- }
