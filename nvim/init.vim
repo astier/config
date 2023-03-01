@@ -15,7 +15,6 @@ call plug#begin()
   Plug 'AndrewRadev/switch.vim'
   Plug 'Darazaki/indent-o-matic'
   Plug 'dcampos/nvim-snippy'
-  Plug 'farmergreg/vim-lastplace'
   Plug 'gbprod/substitute.nvim'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -509,6 +508,12 @@ nmap yv myyiv`y
 nnoremap <c-r> <cmd>call center#ExeCmdAndCenter('redo')<cr>
 nnoremap U <cmd>call center#ExeCmdAndCenter('redo')<cr>
 nnoremap u <cmd>call center#ExeCmdAndCenter('undo')<cr>
+
+" VIEW
+autocmd group bufread * if !view#FileIsIgnored() | silent! loadview | exe 'norm! zz' | en
+autocmd group bufdelete * if !view#FileIsIgnored() | mkview! | en
+autocmd group vimleavepre * bufdo if !view#FileIsIgnored() | mkview! | en
+set viewoptions=cursor
 
 " WINDOWS
 autocmd group vimresized * wincmd =
