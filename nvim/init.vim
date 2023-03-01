@@ -101,9 +101,18 @@ set completeopt=menuone,noinsert
 set pumheight=8 pumwidth=0
 set shortmess+=c
 lua << EOF
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 local cmp = require('cmp')
+local snippy = require('snippy')
 cmp.setup({
-  completion = { completeopt = table.concat(vim.opt.completeopt:get(), ","), },
+  completion = {
+    autocomplete = false,
+    completeopt = table.concat(vim.opt.completeopt:get(), ","),
+  },
   snippet = {
     expand = function(args)
       require('snippy').expand_snippet(args.body)
@@ -117,14 +126,24 @@ cmp.setup({
     documentation = cmp.config.disable,
   },
   mapping = {
-    ['<c-n>'] = function()
+    ["<tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item({ behavior = 'select' })
-      else
+      elseif snippy.can_expand() then
+        snippy.expand()
+      elseif has_words_before() then
         cmp.complete()
+      else
+        fallback()
       end
-    end,
-    ['<c-p>'] = cmp.mapping.select_prev_item({ behavior = 'select' }),
+    end, { "i" }),
+    ["<s-tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item({ behavior = 'select' })
+      else
+        fallback()
+      end
+    end, { "i" }),
     ['<cr>']  = cmp.mapping.confirm({ select = true }),
   },
   sources = cmp.config.sources({
@@ -436,11 +455,17 @@ set ignorecase smartcase
 set shortmess+=Ss
 
 " SNIPPETS
-imap <expr> <tab> snippy#can_expand_or_advance() ? '<plug>(snippy-expand-or-advance)' : '<tab>'
-imap <expr> <t-tab> snippy#can_jump(-1) ? '<plug>(snippy-previous)' : '<s-tab>'
-smap <expr> <tab> snippy#can_jump(1) ? '<plug>(snippy-next)' : '<tab>'
-smap <expr> <s-tab> snippy#can_jump(-1) ? '<plug>(snippy-previous)' : '<s-tab>'
-xmap <tab> <plug>(snippy-cut-text)
+lua << EOF
+require('snippy').setup({
+  mappings = {
+    ins = {
+      ['<c-j>'] = 'next',
+      ['<c-k>'] = 'previous',
+    },
+    x = { ['<tab>'] = 'cut_text' },
+  },
+})
+EOF
 
 " SORT
 nmap <silent> gs myvii:sort i<cr>`y
