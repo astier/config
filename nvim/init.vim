@@ -481,30 +481,6 @@ nnoremap sxW <cmd>lua require('substitute.exchange').operator({ motion='iW' })<c
 nnoremap sxx <cmd>lua require('substitute.exchange').line()<cr>
 xnoremap sx <cmd>lua require('substitute.exchange').visual()<cr>
 
-" TABLINE
-set showtabline=1
-set tabline=%!tabline#Draw()
-
-" TEXTOBJ - Variable-Segment
-nmap cv civ
-nmap dv dav
-nmap yv myyiv`y
-
-" TEXTOBJ - Word-Column
-let g:textobj_wordcolumn_no_default_key_mappings = 1
-call textobj#user#map('wordcolumn', {
-\ 'word' : {
-\   'select-i' : 'iq',
-\   'select-a' : 'aq',
-\   },
-\ 'WORD' : {
-\   'select-i' : 'iQ',
-\   'select-a' : 'aQ',
-\   },
-\ })
-nmap cq 0ciq
-nmap dq my0diq`y
-
 " SWITCH
 let g:switch_custom_definitions = [
 \ ['+', '-'],
@@ -516,6 +492,10 @@ let g:switch_custom_definitions = [
 \ ['yes', 'no'],
 \]
 let g:switch_mapping = 't'
+
+" TABLINE
+set showtabline=1
+set tabline=%!tabline#Draw()
 
 " TABS
 nnoremap <a-e> <cmd>tabp<cr>
@@ -544,6 +524,26 @@ nmap ynb myyInb`y
 autocmd group bufenter,focusgained,termopen term://* startinsert
 autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
 autocmd group termopen * setlocal signcolumn=no
+
+" TEXTOBJ - VARIABLE-SEGMENT
+nmap cv civ
+nmap dv dav
+nmap yv myyiv`y
+
+" TEXTOBJ - WORD-COLUMN
+let g:textobj_wordcolumn_no_default_key_mappings = 1
+call textobj#user#map('wordcolumn', {
+\ 'word' : {
+\   'select-i' : 'iq',
+\   'select-a' : 'aq',
+\   },
+\ 'WORD' : {
+\   'select-i' : 'iQ',
+\   'select-a' : 'aQ',
+\   },
+\ })
+nmap cq 0ciq
+nmap dq my0diq`y
 
 " WINDOWS
 autocmd group vimresized * wincmd =
