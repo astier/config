@@ -506,7 +506,7 @@ tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
 
 " TARGETS
 autocmd group user targets#mappings#user call targets#mappings#extend({
-\ 'q': {}, 'b': {
+\ 'b': {
 \   'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}],
 \   'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]
 \ },
@@ -525,25 +525,11 @@ autocmd group bufenter,focusgained,termopen term://* startinsert
 autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
 autocmd group termopen * setlocal signcolumn=no
 
-" TEXTOBJ - VARIABLE-SEGMENT
+" TEXTOBJ
 nmap cv civ
+nmap dc my^dic`y
 nmap dv dav
 nmap yv myyiv`y
-
-" TEXTOBJ - WORD-COLUMN
-let g:textobj_wordcolumn_no_default_key_mappings = 1
-call textobj#user#map('wordcolumn', {
-\ 'word' : {
-\   'select-i' : 'iq',
-\   'select-a' : 'aq',
-\   },
-\ 'WORD' : {
-\   'select-i' : 'iQ',
-\   'select-a' : 'aQ',
-\   },
-\ })
-nmap cq 0ciq
-nmap dq my0diq`y
 
 " WINDOWS
 autocmd group vimresized * wincmd =
