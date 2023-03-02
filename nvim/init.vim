@@ -377,6 +377,7 @@ xnoremap q :'<,'>:normal! @q<cr>
 set clipboard=unnamedplus
 set nofoldenable
 set notimeout
+set path=.,,**
 set virtualedit=block
 set wildmode=longest:list,full
 
