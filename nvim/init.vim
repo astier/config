@@ -469,6 +469,7 @@ set statusline=%= laststatus=0
 " SUBSTITUTE
 lua require('substitute').setup()
 nnoremap s <cmd>lua require('substitute').operator()<cr>
+nnoremap sA <cmd>lua require('substitute').operator({ motion='a' })<cr>
 nnoremap sp <cmd>lua require('substitute').operator({ motion='ip' })<cr>
 nnoremap sw <cmd>lua require('substitute').operator({ motion='iw' })<cr>
 nnoremap sW <cmd>lua require('substitute').operator({ motion='iW' })<cr>
