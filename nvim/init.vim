@@ -188,23 +188,6 @@ nnoremap cP <cmd>silent normal! yap}p<cr>
 nnoremap p <cmd>silent normal! p<cr>
 nnoremap P <cmd>silent normal! P<cr>
 
-" EDITING - REPLACE
-lua require('substitute').setup()
-nnoremap s <cmd>lua require('substitute').operator()<cr>
-nnoremap sp <cmd>lua require('substitute').operator({ motion='ip' })<cr>
-nnoremap sw <cmd>lua require('substitute').operator({ motion='iw' })<cr>
-nnoremap sW <cmd>lua require('substitute').operator({ motion='iW' })<cr>
-nnoremap S <cmd>lua require('substitute').eol()<cr>
-nnoremap ss <cmd>lua require('substitute').line()<cr>
-xnoremap ss <cmd>lua require('substitute').visual()<cr>
-
-" EDITING - EXCHANGE
-nnoremap sx <cmd>lua require('substitute.exchange').operator()<cr>
-nnoremap sxw <cmd>lua require('substitute.exchange').operator({ motion='iw' })<cr>
-nnoremap sxW <cmd>lua require('substitute.exchange').operator({ motion='iW' })<cr>
-nnoremap sxx <cmd>lua require('substitute.exchange').line()<cr>
-xnoremap sx <cmd>lua require('substitute.exchange').visual()<cr>
-
 " EDITING - UNDO
 nnoremap <c-r> <cmd>call utils#ExeCmdAndRecenter('redo')<cr>
 nnoremap U <cmd>call utils#ExeCmdAndRecenter('redo')<cr>
@@ -482,6 +465,21 @@ set fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 set noshowcmd noshowmode
 set rulerformat=%=\[%l/%L\] noruler
 set statusline=%= laststatus=0
+
+" SUBSTITUTE
+lua require('substitute').setup()
+nnoremap s <cmd>lua require('substitute').operator()<cr>
+nnoremap sp <cmd>lua require('substitute').operator({ motion='ip' })<cr>
+nnoremap sw <cmd>lua require('substitute').operator({ motion='iw' })<cr>
+nnoremap sW <cmd>lua require('substitute').operator({ motion='iW' })<cr>
+nnoremap S <cmd>lua require('substitute').eol()<cr>
+nnoremap ss <cmd>lua require('substitute').line()<cr>
+xnoremap ss <cmd>lua require('substitute').visual()<cr>
+nnoremap sx <cmd>lua require('substitute.exchange').operator()<cr>
+nnoremap sxw <cmd>lua require('substitute.exchange').operator({ motion='iw' })<cr>
+nnoremap sxW <cmd>lua require('substitute.exchange').operator({ motion='iW' })<cr>
+nnoremap sxx <cmd>lua require('substitute.exchange').line()<cr>
+xnoremap sx <cmd>lua require('substitute.exchange').visual()<cr>
 
 " TABLINE
 set showtabline=1
