@@ -258,8 +258,8 @@ nnoremap <space>kr <cmd>G reset --hard<bar>e<cr>
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_show_msg_on_hunk_jumping = 0
-nmap <space>i <cmd>GitGutterPreviewHunk<cr>
-nmap <space>S <cmd>GitGutterStageHunk<cr>
+nmap <space>i <cmd>silent GitGutterPreviewHunk<cr>
+nmap <space>S <cmd>silent GitGutterStageHunk<cr>
 nmap <space>u <cmd>silent GitGutterUndoHunk<cr>
 nmap [c <cmd>silent GitGutterPrevHunk<cr>zz
 nmap ]c <cmd>silent GitGutterNextHunk<cr>zz
