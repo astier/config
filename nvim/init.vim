@@ -508,11 +508,6 @@ nmap dnb dInb
 nmap snb sInb
 nmap ynb myyInb`y
 
-" TERMINAL
-autocmd group bufenter,focusgained,termopen term://* startinsert
-autocmd group termopen * nnoremap <buffer><leftrelease> <leftrelease>i
-autocmd group termopen * setlocal signcolumn=no
-
 " TEXTOBJ
 nmap cv civ
 nmap dc my^dic`y
