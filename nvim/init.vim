@@ -190,11 +190,13 @@ nnoremap gqq Vgq
 lua << EOF
 require('fzf-lua').setup({
   'max-perf',
+  fzf_args = vim.env.FZF_DEFAULT_OPTS,
   winopts = {
     border = 'single',
     preview = { hidden = 'hidden' },
     hl = { border = 'FloatBorder' },
   },
+  files = { cmd = vim.env.FZF_DEFAULT_COMMAND },
   oldfiles = { cwd_only = true },
 })
 EOF
@@ -203,7 +205,7 @@ EOF
 nnoremap fb <cmd>FzfLua buffers<cr>
 nnoremap fB <cmd>FzfLua builtin<cr>
 nnoremap fc <cmd>FzfLua commands<cr>
-nnoremap ff <cmd>lua require('fzf-lua').files({ cmd = vim.env.FZF_DEFAULT_COMMAND })<cr>
+nnoremap ff <cmd>FzfLua files<cr>
 nnoremap fh <cmd>FzfLua help_tags<cr>
 nnoremap fl <cmd>FzfLua blines<cr>
 nnoremap fo <cmd>FzfLua oldfiles<cr>
