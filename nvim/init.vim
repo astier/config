@@ -525,15 +525,15 @@ nnoremap <a-h> <cmd>lua require('tmux').move_left()<cr>
 nnoremap <a-j> <cmd>lua require('tmux').move_down()<cr>
 nnoremap <a-k> <cmd>lua require('tmux').move_up()<cr>
 nnoremap <a-l> <cmd>lua require('tmux').move_right()<cr>
+tnoremap <a-h> <c-\><c-n><cmd>lua require('tmux').move_left()<cr>
+tnoremap <a-j> <c-\><c-n><cmd>lua require('tmux').move_down()<cr>
+tnoremap <a-k> <c-\><c-n><cmd>lua require('tmux').move_up()<cr>
+tnoremap <a-l> <c-\><c-n><cmd>lua require('tmux').move_right()<cr>
 nnoremap <space>c <c-w>czz
 nnoremap <space>s <c-w>s
 nnoremap <space>v <c-w>v
 nnoremap <space>z <c-w>z
 set splitbelow splitright
-tnoremap <silent> <a-h> <c-\><c-n><cmd>lua require('tmux').move_left()<cr>
-tnoremap <silent> <a-j> <c-\><c-n><cmd>lua require('tmux').move_down()<cr>
-tnoremap <silent> <a-k> <c-\><c-n><cmd>lua require('tmux').move_up()<cr>
-tnoremap <silent> <a-l> <c-\><c-n><cmd>lua require('tmux').move_right()<cr>
 
 " WRAP
 autocmd group filetype * set formatoptions-=t
