@@ -540,7 +540,6 @@ autocmd group filetype * set formatoptions-=t
 set breakindent
 set breakindentopt=shift:2
 set linebreak
-
 if $TERM ==# 'linux' || $TERM ==# 'screen'
   set showbreak=¬\ 
 else
