@@ -189,9 +189,9 @@ nnoremap p <cmd>silent normal! p<cr>
 nnoremap P <cmd>silent normal! P<cr>
 
 " EDITING - UNDO
-nnoremap <c-r> <cmd>call utils#ExeCmdAndRecenter('redo')<cr>
-nnoremap U <cmd>call utils#ExeCmdAndRecenter('redo')<cr>
-nnoremap u <cmd>call utils#ExeCmdAndRecenter('undo')<cr>
+nnoremap <c-r> <cmd>call center#ExeCmdAndCenter('redo')<cr>
+nnoremap U <cmd>call center#ExeCmdAndCenter('redo')<cr>
+nnoremap u <cmd>call center#ExeCmdAndCenter('undo')<cr>
 
 " FILETYPE
 autocmd group filetype diff set textwidth=72
