@@ -444,7 +444,7 @@ xnoremap <silent> gs my:sort i<cr>`y
 
 " SPELL
 set spellcapcheck=
-set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
+set spellfile=$XDG_STATE_HOME/nvim/spell/en.utf-8.add
 
 " STATUS (CMDLINE/RULER/STATUSLINE)
 nnoremap <expr> ,s &ls ? '<cmd>se stl=%= ls=0<cr>' : '<cmd>se ls=3 stl=\[%f\]%=\[%l/%L\]<cr>'
