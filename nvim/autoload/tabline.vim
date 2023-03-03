@@ -1,4 +1,4 @@
-fun! tabline#Draw() abort
+function! tabline#Draw() abort
   let tabline = ''
   for i in range(tabpagenr('$'))
     if i + 1 == tabpagenr()
@@ -13,4 +13,4 @@ fun! tabline#Draw() abort
     let tabline .= '%=%#TabLineSel'
   endif
   return tabline
-endfun
+endfunction
