@@ -171,9 +171,11 @@ nnoremap C "_C
 xnoremap c "_c
 
 " EDITING - COPY
+nnoremap <silent> y :<c-u>call yank#AndJumpBack()<cr>g@
 nnoremap yp <cmd>silent normal! myyap`y<cr>
 nnoremap yw myyiw`y
 nnoremap yW myyiW`y
+nnoremap yy myyy`y
 xnoremap y <cmd>silent normal! myy`y<cr>
 
 " EDITING - CUT
