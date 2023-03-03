@@ -410,7 +410,7 @@ nnoremap <a-d> 4<c-y>
 nnoremap <a-f> 4<c-e>
 
 " SEARCH
-cno <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>echo<bar>noh<cr>zz' : '<enter>'
+cnoremap <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>echo<bar>noh<cr>zz' : '<enter>'
 nnoremap <esc> <cmd>echo<bar>noh<cr><esc>
 nnoremap <a-esc> <cmd>set hls<cr>
 nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
