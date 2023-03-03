@@ -517,9 +517,9 @@ nmap dv dav
 nmap yv myyiv`y
 
 " UNDO
-nnoremap <c-r> my<cmd>call center#ExeCmdAndCenter('redo')<cr>`y
-nnoremap U my<cmd>call center#ExeCmdAndCenter('redo')<cr>`y
-nnoremap u my<cmd>call center#ExeCmdAndCenter('undo')<cr>`y
+nnoremap <c-r> <cmd>call center#ExeCmdAndCenter('redo')<cr>
+nnoremap U <cmd>call center#ExeCmdAndCenter('redo')<cr>
+nnoremap u <cmd>call center#ExeCmdAndCenter('undo')<cr>
 
 " WINDOWS
 autocmd group vimresized * wincmd =
