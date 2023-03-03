@@ -345,8 +345,8 @@ xnoremap q :'<,'>:normal! @q<cr>
 inoremap <c-l> <right>
 nnoremap <c-i> <c-i>zz
 nnoremap <c-o> <c-o>zz
-noremap <silent> n nzz
-noremap <silent> N Nzz
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
 nnoremap A g$a
 nnoremap I g0i
 noremap $ g$
