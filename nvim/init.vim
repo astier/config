@@ -87,6 +87,14 @@ nnoremap <space>d <cmd>qa!<cr>
 nnoremap q <cmd>b#<cr>
 set noswapfile
 
+" CHANGE
+nmap cp cip
+nmap cw ciw
+nmap cW ciW
+nnoremap c "_c
+nnoremap C "_C
+xnoremap c "_c
+
 " COMMENTS
 autocmd group filetype * set formatoptions-=cro
 lua require('Comment').setup()
@@ -162,38 +170,11 @@ cmp.setup({
 })
 EOF
 
-" EDITING - CHANGE
-nmap cp cip
-nmap cw ciw
-nmap cW ciW
-nnoremap c "_c
-nnoremap C "_C
-xnoremap c "_c
-
-" EDITING - COPY
-nnoremap <silent> y :<c-u>call yank#AndJumpBack()<cr>g@
-nnoremap yp <cmd>silent normal! myyap`y<cr>
-nnoremap yw myyiw`y
-nnoremap yW myyiW`y
-nnoremap yy myyy`y
-xnoremap y <cmd>silent normal! myy`y<cr>
-
-" EDITING - CUT
+" DELETE
 nnoremap <expr> dp &diff ? 'dp' : '<cmd>silent normal! dap<cr>'
 nnoremap dw daw
 nnoremap dW daW
 xnoremap d <cmd>silent normal! d<cr>
-
-" EDITING - PASTE
-inoremap <c-v> <c-r>+
-nnoremap cP <cmd>silent normal! yap}p<cr>
-nnoremap p <cmd>silent normal! p<cr>
-nnoremap P <cmd>silent normal! P<cr>
-
-" EDITING - UNDO
-nnoremap <c-r> <cmd>call center#ExeCmdAndCenter('redo')<cr>
-nnoremap U <cmd>call center#ExeCmdAndCenter('redo')<cr>
-nnoremap u <cmd>call center#ExeCmdAndCenter('undo')<cr>
 
 " FILETYPE
 autocmd group filetype diff set textwidth=72
@@ -346,7 +327,7 @@ set errorformat+=%f:%l:%m
 set errorformat+=%f:%l\ %m
 nnoremap <space>l <cmd>silent make! %<cr>
 
-" MISC - MAPPINGS
+" MAPPINGS
 inoremap <c-space> <space>
 nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
 nnoremap guw myguiw`y
@@ -357,14 +338,6 @@ nnoremap J myJ`y
 nnoremap Q q
 xnoremap <silent> . :normal! .<cr>
 xnoremap q :'<,'>:normal! @q<cr>
-
-" MISC - SETTINGS
-set clipboard=unnamedplus
-set nofoldenable
-set notimeout
-set path=.,,**
-set virtualedit=block
-set wildmode=longest:list,full
 
 " MOTIONS
 inoremap <c-l> <right>
@@ -394,6 +367,12 @@ nmap <3-rightmouse> <rightmouse>
 nmap <4-rightmouse> <rightmouse>
 set mousemodel=extend
 set mousescroll=ver:4
+
+" PASTE
+inoremap <c-v> <c-r>+
+nnoremap cP <cmd>silent normal! yap}p<cr>
+nnoremap p <cmd>silent normal! p<cr>
+nnoremap P <cmd>silent normal! P<cr>
 
 " QUICKFIX
 autocmd group filetype qf setl nonu scl=no wrap
@@ -437,6 +416,14 @@ nnoremap ,w <cmd>let @/= expand('<cword>')<bar>set hls<cr>
 xnoremap ,w <cmd>let @/= visual#GetSelection()<bar>set hls<cr><esc>
 set ignorecase smartcase
 set shortmess+=Ss
+
+" SETTINGS
+set clipboard=unnamedplus
+set nofoldenable
+set notimeout
+set path=.,,**
+set virtualedit=block
+set wildmode=longest:list,full
 
 " SNIPPETS
 lua << EOF
@@ -532,6 +519,11 @@ nmap dc my^dic`y
 nmap dv dav
 nmap yv myyiv`y
 
+" UNDO
+nnoremap <c-r> my<cmd>call center#ExeCmdAndCenter('redo')<cr>`y
+nnoremap U my<cmd>call center#ExeCmdAndCenter('redo')<cr>`y
+nnoremap u my<cmd>call center#ExeCmdAndCenter('undo')<cr>`y
+
 " WINDOWS
 autocmd group vimresized * wincmd =
 nnoremap <a-h> <cmd>lua require('tmux').move_left()<cr>
@@ -559,3 +551,11 @@ if $TERM ==# 'linux' || $TERM ==# 'screen'
 else
   set showbreak=↳\ 
 endif
+
+" YANK
+nnoremap <silent> y :<c-u>call yank#AndJumpBack()<cr>g@
+nnoremap yp <cmd>silent normal! myyap`y<cr>
+nnoremap yw myyiw`y
+nnoremap yW myyiW`y
+nnoremap yy myyy`y
+xnoremap y <cmd>silent normal! myy`y<cr>
