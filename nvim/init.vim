@@ -34,7 +34,6 @@ call plug#begin()
   Plug 'numToStr/Comment.nvim'
   Plug 'rbong/vim-flog'
   Plug 'romainl/vim-qf'
-  Plug 'stevearc/stickybuf.nvim'
   Plug 'stsewd/gx-extended.vim'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
