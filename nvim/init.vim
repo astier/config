@@ -483,7 +483,7 @@ let g:switch_mapping = 't'
 
 " TABLINE
 set showtabline=1
-set tabline=%!tabline#Draw()
+set tabline=%!tabline#Show()
 
 " TABS
 nnoremap <a-e> <cmd>tabp<cr>

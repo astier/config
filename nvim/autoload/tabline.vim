@@ -1,4 +1,4 @@
-function! tabline#Draw() abort
+function! tabline#Show() abort
   let tabline = ''
   for i in range(tabpagenr('$'))
     if i + 1 == tabpagenr()
