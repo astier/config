@@ -143,7 +143,6 @@ nnoremap <space>kr <cmd>G reset --hard<bar>e<cr>
 
 " GITGUTTER
 let g:gitgutter_map_keys = 0
-let g:gitgutter_show_msg_on_hunk_jumping = 0
 let g:gitgutter_floating_window_options = {
 \ 'border': 'single',
 \ 'relative': 'cursor',
