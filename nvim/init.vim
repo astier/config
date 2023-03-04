@@ -400,7 +400,17 @@ let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
 
 " SANDWICH
+" Combine with targets.vim (https://github.com/machakann/vim-sandwich/issues/92)
+let g:sandwich_no_default_key_mappings = 1
 let g:textobj_sandwich_no_default_key_mappings = 1
+nmap sd <plug>(operator-sandwich-delete)a
+nmap sr <plug>(operator-sandwich-replace)a
+nmap sdf <plug>(sandwich-delete)f
+nmap srf <plug>(sandwich-replace)f
+nmap sa <plug>(operator-sandwich-add)
+xmap sa <plug>(operator-sandwich-add)
+nmap sab saib
+nmap saB saab
 nmap saw saiw
 nmap saW saiW
 
@@ -460,12 +470,16 @@ lua require('substitute').setup()
 nnoremap s <cmd>lua require('substitute').operator()<cr>
 nnoremap sA <cmd>lua require('substitute').operator({ motion='a' })<cr>
 nnoremap sp <cmd>lua require('substitute').operator({ motion='ip' })<cr>
+nnoremap sb <cmd>lua require('substitute').operator({ motion='Ib' })<cr>
+nnoremap sB <cmd>lua require('substitute').operator({ motion='ab' })<cr>
 nnoremap sw <cmd>lua require('substitute').operator({ motion='iw' })<cr>
 nnoremap sW <cmd>lua require('substitute').operator({ motion='iW' })<cr>
 nnoremap S <cmd>lua require('substitute').eol()<cr>
 nnoremap ss <cmd>lua require('substitute').line()<cr>
 xnoremap ss <cmd>lua require('substitute').visual()<cr>
 nnoremap sx <cmd>lua require('substitute.exchange').operator()<cr>
+nnoremap sxb <cmd>lua require('substitute.exchange').operator({ motion='Ib' })<cr>
+nnoremap sxB <cmd>lua require('substitute.exchange').operator({ motion='ab' })<cr>
 nnoremap sxw <cmd>lua require('substitute.exchange').operator({ motion='iw' })<cr>
 nnoremap sxW <cmd>lua require('substitute.exchange').operator({ motion='iW' })<cr>
 nnoremap sxx <cmd>lua require('substitute.exchange').line()<cr>
@@ -503,12 +517,7 @@ autocmd group user targets#mappings#user call targets#mappings#extend({
 \})
 nmap cb cIb
 nmap db dIb
-nmap sb sIb
 nmap yb myyIb`y
-nmap cnb cInb
-nmap dnb dInb
-nmap snb sInb
-nmap ynb myyInb`y
 
 " TEXTOBJ
 nmap cv civ
