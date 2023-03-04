@@ -82,7 +82,6 @@ EOF
 
 " BUFFERS
 autocmd group textchanged,insertleave * nested if !&ro | silent! update | endif
-autocmd group vimenter * silent! let @#=expand('#2:p')
 nnoremap <space>d <cmd>qa!<cr>
 nnoremap q <cmd>b#<cr>
 set noswapfile
