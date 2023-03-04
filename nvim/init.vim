@@ -12,7 +12,6 @@ nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
-  Plug 'AndrewRadev/switch.vim'
   Plug 'Darazaki/indent-o-matic'
   Plug 'dcampos/nvim-snippy'
   Plug 'gbprod/substitute.nvim'
@@ -248,6 +247,7 @@ nnoremap gUw mygUiw`y
 nnoremap gUW mygUiW`y
 nnoremap J myJ`y
 nnoremap Q q
+nnoremap t <cmd>call toggle#Next()<cr>
 xnoremap <silent> . :normal! .<cr>
 xnoremap q :'<,'>:normal! @q<cr>
 
@@ -379,18 +379,6 @@ nnoremap sxw <cmd>lua require('substitute.exchange').operator({ motion='iw' })<c
 nnoremap sxW <cmd>lua require('substitute.exchange').operator({ motion='iW' })<cr>
 nnoremap sxx <cmd>lua require('substitute.exchange').line()<cr>
 xnoremap sx <cmd>lua require('substitute.exchange').visual()<cr>
-
-" SWITCH
-let g:switch_custom_definitions = [
-\ ['+', '-'],
-\ ['0', '1'],
-\ ['<', '>'],
-\ ['==', '!='],
-\ ['on', 'off'],
-\ ['pick', 'fixup', 'reword'],
-\ ['yes', 'no'],
-\]
-let g:switch_mapping = 't'
 
 " TABLINE
 set showtabline=1
