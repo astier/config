@@ -12,7 +12,6 @@ nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
-  Plug 'airblade/vim-rooter'
   Plug 'AndrewRadev/switch.vim'
   Plug 'Darazaki/indent-o-matic'
   Plug 'dcampos/nvim-snippy'
@@ -392,11 +391,6 @@ require('bqf').setup({
 EOF
 highlight! link bqfpreviewrange none
 highlight bqfsign ctermfg=yellow
-
-" ROOTER
-let g:rooter_change_directory_for_non_project_files = 'current'
-let g:rooter_resolve_links = 1
-let g:rooter_silent_chdir = 1
 
 " SANDWICH
 " Combine with targets.vim (https://github.com/machakann/vim-sandwich/issues/92)
