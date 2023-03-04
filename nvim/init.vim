@@ -77,6 +77,7 @@ npairs.add_rules {
 EOF
 
 " BUFFERS
+autocmd group bufread * if !file#IsIgnored() | execute 'silent! normal! g`"zz' | endif
 autocmd group textchanged,insertleave * nested if !&ro | silent! update | endif
 nnoremap <space>d <cmd>qa!<cr>
 nnoremap q <cmd>b#<cr>
@@ -508,12 +509,6 @@ nmap yv myyiv`y
 nnoremap <c-r> <cmd>call center#ExeCmdAndCenter('redo')<cr>
 nnoremap U <cmd>call center#ExeCmdAndCenter('redo')<cr>
 nnoremap u <cmd>call center#ExeCmdAndCenter('undo')<cr>
-
-" VIEW
-autocmd group bufread * if !view#FileIsIgnored() | silent! loadview | exe 'norm! zz' | en
-autocmd group bufdelete * if !view#FileIsIgnored() | mkview! | en
-autocmd group vimleavepre * bufdo if !view#FileIsIgnored() | mkview! | en
-set viewoptions=cursor
 
 " WINDOWS
 autocmd group vimresized * wincmd =
