@@ -414,6 +414,7 @@ nnoremap <esc> <cmd>echo<bar>noh<cr><esc>
 nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 nnoremap ,w <cmd>let @/='\<'.expand('<cword>').'\>'<bar>set hls<cr>
 xnoremap ,w <cmd>let @/=visual#GetSelection()<bar>set hls<cr><esc>
+nnoremap ,c <cmd>set ignorecase!<cr>
 nnoremap ,h <cmd>set hlsearch!<cr>
 set ignorecase smartcase
 set shortmess+=Ss
