@@ -284,8 +284,8 @@ set mousescroll=ver:4
 " PASTE
 inoremap <c-v> <c-r>+
 nnoremap cP <cmd>silent normal! yap}p<cr>
-nnoremap p <cmd>silent normal! p<cr>
-nnoremap P <cmd>silent normal! P<cr>
+nnoremap p <cmd>silent! normal! p<cr>
+nnoremap P <cmd>silent! normal! P<cr>
 
 " QUICKFIX
 autocmd group filetype qf nnoremap <buffer> o <cr><plug>(qf_qf_toggle_stay)
