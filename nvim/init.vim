@@ -12,7 +12,6 @@ nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
-  Plug 'dcampos/nvim-snippy'
   Plug 'gbprod/substitute.nvim'
   Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
   Plug 'idbrii/textobj-word-column.vim'
@@ -62,7 +61,7 @@ nmap gcp gcip
 onoremap u <cmd>lua require('uncomment').uncomment()<cr>
 
 " COMPLETION
-imap <expr> <tab> pumvisible() ? '<down>' : snippy#can_expand() ? '<plug>(snippy-expand)' : completion#TextBeforeCursor() ? completion#Complete() : '<tab>'
+imap <expr> <tab> pumvisible() ? '<down>' : completion#TextBeforeCursor() ? completion#Complete() : '<tab>'
 inoremap <expr> <s-tab> pumvisible() ? '<up>' : '<s-tab>'
 inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'
 lua require('completionitemkind')
@@ -212,10 +211,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'K',  vim.lsp.buf.hover, bufopts)
 end
 local lspconfig = require('lspconfig')
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.ccls.setup({
-  capabilities = capabilities,
   on_attach = on_attach,
   init_options = {
     diagnostics = { onOpen = -1, onChange = -1, onSave = -1 },
@@ -224,7 +220,6 @@ lspconfig.ccls.setup({
 local servers = { 'jedi_language_server', 'marksman' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
-    capabilities = capabilities,
     on_attach = on_attach,
   })
 end
@@ -332,18 +327,42 @@ set virtualedit=block
 set wildmode=longest:list,full
 
 " SNIPPETS
-autocmd group CompleteDone * lua require('snippy').complete_done()
-lua << EOF
-require('snippy').setup({
-  mappings = {
-    ins = {
-      ['<c-j>'] = 'next',
-      ['<c-k>'] = 'previous',
-    },
-    x = { ['<tab>'] = 'cut_text' },
-  },
-})
-EOF
+inoremap <c-j> <esc><cmd>call search('<++>')<cr>ca<
+inoremap <c-k> <esc><cmd>call search('<++>', 'b')<cr>ca<
+nnoremap <c-j> <cmd>call search('<++>')<cr>ca<
+nnoremap <c-k> <cmd>call search('<++>', 'b')<cr>ca<
+
+" SNIPPETS - (
+inoremap (<tab>  ()<left>
+inoremap (,      (),<left><left>
+inoremap (;      ();<left><left>
+inoremap ((<tab> (<cr>)<c-o>O<tab>
+inoremap ((,     (<cr>),<c-c>O<tab>
+inoremap ((;     (<cr>);<c-c>O<tab>
+
+" SNIPPETS - [
+inoremap [<tab>  []<left>
+inoremap [,      [],<left><left>
+inoremap [s<tab> [  ]<left><left>
+inoremap [s,     [  ],<left><left><left>
+inoremap [[<tab> [<cr>]<c-o>O<tab>
+inoremap [[,     [<cr>],<c-c>O<tab>
+
+" SNIPPETS - {
+inoremap {<tab>  {}<left>
+inoremap {,     {},<left><left>
+inoremap {s<tab> {  }<left><left>
+inoremap {s,    {  },<left><left><left>
+inoremap {{<tab> {<cr>}<c-o>O<tab>
+inoremap {{,    {<cr>},<c-c>O<tab>
+
+" SNIPPETS - QUOTES
+inoremap "<tab>  ""<left>
+inoremap ",<tab> "",<left><left>
+inoremap '<tab>  ''<left>
+inoremap ',<tab> '',<left><left>
+inoremap <<tab>  <><left>
+inoremap `<tab>  ``<left>
 
 " SORT
 nmap <silent> gs myvii:sort i<cr>`y
