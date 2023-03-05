@@ -401,7 +401,8 @@ autocmd group user targets#mappings#user call targets#mappings#extend({
 \})
 nmap cb cIb
 nmap db dIb
-nmap yb myyIb`y
+" Call as cmd to fix flog-error
+nmap yb <cmd>silent! normal myyIb`y<cr>
 
 " TEXTOBJ
 nmap cv civ
