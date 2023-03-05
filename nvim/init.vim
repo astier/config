@@ -423,7 +423,7 @@ tnoremap <a-h> <c-\><c-n><cmd>lua require('tmux').move_left()<cr>
 tnoremap <a-j> <c-\><c-n><cmd>lua require('tmux').move_down()<cr>
 tnoremap <a-k> <c-\><c-n><cmd>lua require('tmux').move_up()<cr>
 tnoremap <a-l> <c-\><c-n><cmd>lua require('tmux').move_right()<cr>
-nnoremap <space>c <c-w>czz
+nnoremap <space>c <c-w>c
 nnoremap <space>s <c-w>s
 nnoremap <space>v <c-w>v
 nnoremap <space>z <c-w>z
