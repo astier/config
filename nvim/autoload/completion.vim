@@ -11,6 +11,6 @@ function! completion#Complete() abort
   if &omnifunc !=# ''
     return "\<c-x>\<c-o>"
   else
-    return "\<c-x>\<c-n>"
+    return "\<c-n>"
   endif
 endfunction
