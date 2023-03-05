@@ -12,7 +12,6 @@ nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
-  Plug 'Darazaki/indent-o-matic'
   Plug 'dcampos/nvim-snippy'
   Plug 'gbprod/substitute.nvim'
   Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
@@ -165,6 +164,7 @@ command! -nargs=+ -complete=file_in_path Grep silent grep! <args><bar>echo
 nnoremap <space>g :Grep<space>
 
 " INDENTATION
+autocmd group bufread * call indent#Detect()
 nnoremap <p <ap
 nnoremap >p >ap
 set expandtab
