@@ -168,8 +168,8 @@ nnoremap <space>g :Grep<space>
 nnoremap <p <ap
 nnoremap >p >ap
 set expandtab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " LOADED
 let g:loaded_2html_plugin = 0
