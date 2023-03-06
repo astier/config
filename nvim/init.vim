@@ -12,19 +12,15 @@ nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
+  Plug 'chrisgrieser/nvim-various-textobjs'
   Plug 'gbprod/substitute.nvim'
   Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
-  Plug 'idbrii/textobj-word-column.vim'
-  Plug 'Julian/vim-textobj-variable-segment'
-  Plug 'kana/vim-textobj-user'
   Plug 'machakann/vim-sandwich'
-  Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
   Plug 'rbong/vim-flog'
   Plug 'romainl/vim-qf'
-  Plug 'stsewd/gx-extended.vim'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'wellle/targets.vim'
@@ -240,6 +236,7 @@ nnoremap guw myguiw`y
 nnoremap guW myguiW`y
 nnoremap gUw mygUiw`y
 nnoremap gUW mygUiW`y
+nnoremap gx <cmd>lua require('gx').gx()<cr>
 nnoremap J myJ`y
 nnoremap Q q
 nnoremap t <cmd>call toggle#Next()<cr>
@@ -422,11 +419,11 @@ nmap db dIb
 " Call as cmd to fix flog-error
 nmap yb <cmd>silent! normal myyIb`y<cr>
 
-" TEXTOBJ
-nmap cv civ
-nmap dc my^dic`y
-nmap dv dav
-nmap yv myyiv`y
+" TEXTOBJS
+lua require("various-textobjs").setup({ useDefaultKeymaps = true })
+nmap cS ciS
+nmap dS daS
+nmap d\| my^di\|`y
 
 " UNDO
 nnoremap <c-r> <cmd>call center#ExeCmdAndCenter('redo')<cr>
