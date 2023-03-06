@@ -61,6 +61,7 @@ nmap gcp gcip
 onoremap u <cmd>lua require('uncomment').uncomment()<cr>
 
 " COMPLETION
+autocmd group BufRead * call completion#SetMethod()
 inoremap <expr> <tab> pumvisible() ? '<down>' : completion#CanComplete() ? completion#Complete() : '<tab>'
 inoremap <expr> <s-tab> pumvisible() ? '<up>' : '<s-tab>'
 inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'

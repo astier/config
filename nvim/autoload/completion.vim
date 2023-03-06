@@ -1,6 +1,18 @@
 augroup completion | autocmd! | augroup end
 autocmd completion CompleteDone * call s:CompleteDone()
 
+function! s:GetMainMethod() abort
+  if &omnifunc !=# ''
+    return 'omni'
+  else
+    return 'buffer'
+  endif
+endfunction
+
+function! completion#SetMethod() abort
+  let b:next_method = s:GetMainMethod()
+endfunction
+
 function! completion#CanComplete() abort
   " Exit if cursor is at the beginning of line
   if col('.') <= 1 | return v:false | endif
@@ -10,12 +22,24 @@ function! completion#CanComplete() abort
   return char !=# ' ' && char !=# "\t"
 endfunction
 
-function! completion#Complete() abort
-  if &omnifunc !=# ''
-    return "\<c-x>\<c-o>"
+function! completion#Check(timer) abort
+  if pumvisible()
+    let b:next_method = s:GetMainMethod()
   else
-    return "\<c-n>"
+    call completion#Complete()
   endif
+endfunction
+
+function! completion#Complete() abort
+  if b:next_method ==# 'omni'
+    let b:next_method = 'buffer'
+    call feedkeys("\<c-x>\<c-o>", 'n')
+    call timer_start(64, 'completion#Check', { 'repeat': 0 })
+  elseif b:next_method ==# 'buffer'
+    let b:next_method = s:GetMainMethod()
+    call feedkeys("\<c-x>\<c-n>", 'n')
+  endif
+  return ''
 endfunction
 
 function! s:CompleteDone() abort
