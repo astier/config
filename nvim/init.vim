@@ -40,7 +40,7 @@ nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 
 autocmd group bufread * if !file#IsIgnored() | execute 'silent! normal! g`"zz' | endif
 autocmd group textchanged,insertleave * nested if !&ro | silent! update | endif
 nnoremap <space>d <cmd>qa!<cr>
-nnoremap q <cmd>b#<cr>
+nnoremap q <cmd>silent! b#<cr>
 set noswapfile
 
 " CHANGE
