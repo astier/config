@@ -79,7 +79,6 @@ xnoremap d <cmd>silent normal! d<cr>
 " FILETYPE
 autocmd group filetype diff set textwidth=72
 autocmd group filetype hog set ft=udevrules
-autocmd group filetype markdown set textwidth=80
 let g:tex_flavor = 'latex'
 
 " FORMATTING
