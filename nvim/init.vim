@@ -16,9 +16,9 @@ call plug#begin()
   Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
   Plug 'idbrii/textobj-word-column.vim'
   Plug 'Julian/vim-textobj-variable-segment'
+  Plug 'kana/vim-textobj-indent'
   Plug 'kana/vim-textobj-user'
   Plug 'machakann/vim-sandwich'
-  Plug 'michaeljsmith/vim-indent-object'
   Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
