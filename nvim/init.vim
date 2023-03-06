@@ -426,7 +426,6 @@ nmap yb <cmd>silent! normal myyIb`y<cr>
 nmap cv civ
 nmap dc my^dic`y
 nmap dv dav
-nmap yv myyiv`y
 
 " UNDO
 nnoremap <c-r> <cmd>call center#ExeCmdAndCenter('redo')<cr>
