@@ -1,3 +1,6 @@
+augroup completion | autocmd! | augroup end
+autocmd completion CompleteDone * call s:CompleteDone()
+
 function! completion#TextBeforeCursor() abort
   " Exit if cursor is at the beginning of line
   if col('.') <= 1 | return v:false | endif
@@ -13,4 +16,13 @@ function! completion#Complete() abort
   else
     return "\<c-n>"
   endif
+endfunction
+
+function! s:CompleteDone() abort
+  try
+    if v:completed_item['user_data']['nvim']['lsp']['completion_item']['kind'] == 3
+      call feedkeys("()\<left>", 'nt')
+    endif
+  catch
+  endtry
 endfunction
