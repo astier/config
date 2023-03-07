@@ -95,11 +95,11 @@ require('fzf-lua').setup({
 EOF
 
 " FUZZY - MAPPINGS (MISC)
-nnoremap fb <cmd>FzfLua buffers<cr>
-nnoremap fB <cmd>FzfLua builtin<cr>
+nnoremap fb <cmd>FzfLua builtin<cr>
 nnoremap fc <cmd>FzfLua commands<cr>
 nnoremap ff <cmd>FzfLua files<cr>
 nnoremap fh <cmd>FzfLua help_tags<cr>
+nnoremap fj <cmd>FzfLua buffers<cr>
 nnoremap fl <cmd>FzfLua blines<cr>
 nnoremap fo <cmd>FzfLua oldfiles<cr>
 nnoremap fQ <cmd>FzfLua loclist<cr>
