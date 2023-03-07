@@ -13,7 +13,6 @@ function! completion#Complete() abort
   if b:completion ==# 'omni'
     let b:completion = 'buffer'
     call feedkeys("\<c-x>\<c-o>", 'n')
-    call timer_start(64, 'completion#Check', { 'repeat': 0 })
   elseif b:completion ==# 'buffer'
     let b:completion = GetCompletion()
     call feedkeys("\<c-x>\<c-n>", 'n')
@@ -32,11 +31,13 @@ endfunction
 function! s:CompleteDone() abort
   " Do nothing if no selection inserted
   if empty(v:completed_item)
+    " If omni-completion was just executed start a timer to check if it has
+    " results or if the next completion-method should be tried
+    if GetCompletion() != b:completion
+      call timer_start(0, 'completion#Check', { 'repeat': 0 })
+    endif
     return
   endif
-  " Reset chain-completion
-  call timer_stopall()
-  let b:completion = GetCompletion()
   " Append parentheses if selection is a lsp-function
   try
     if v:completed_item['user_data']['nvim']['lsp']['completion_item']['kind'] == 3
