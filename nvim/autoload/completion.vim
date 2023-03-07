@@ -45,6 +45,14 @@ function! completion#Complete() abort
 endfunction
 
 function! s:CompleteDone() abort
+  " Do nothing if no selection inserted
+  if empty(v:completed_item)
+    return
+  endif
+  " Reset chain-completion
+  call timer_stopall()
+  let b:next_method = s:GetMainMethod()
+  " Append parentheses if selection is a lsp-function
   try
     if v:completed_item['user_data']['nvim']['lsp']['completion_item']['kind'] == 3
       call feedkeys("()\<left>", 'nt')
