@@ -1,5 +1,7 @@
-augroup completion | autocmd! | augroup end
-autocmd completion CompleteDone * call s:CompleteDone()
+augroup completion
+  autocmd!
+  autocmd CompleteDone * call s:CompleteDone()
+augroup end
 
 function! s:GetMainMethod() abort
   if &omnifunc !=# ''
