@@ -12,6 +12,7 @@ nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
+  Plug 'aserowy/tmux.nvim'
   Plug 'gbprod/substitute.nvim'
   Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
   Plug 'idbrii/textobj-word-column.vim'
@@ -19,7 +20,6 @@ call plug#begin()
   Plug 'kana/vim-textobj-indent'
   Plug 'kana/vim-textobj-user'
   Plug 'machakann/vim-sandwich'
-  Plug 'nathom/tmux.nvim'
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
   Plug 'rbong/vim-flog'
@@ -427,20 +427,46 @@ nnoremap U <cmd>call center#ExeCmdAndCenter('redo')<cr>
 nnoremap u <cmd>call center#ExeCmdAndCenter('undo')<cr>
 
 " WINDOWS
-autocmd group vimresized * wincmd =
-nnoremap <a-h> <cmd>lua require('tmux').move_left()<cr>
-nnoremap <a-j> <cmd>lua require('tmux').move_down()<cr>
-nnoremap <a-k> <cmd>lua require('tmux').move_up()<cr>
-nnoremap <a-l> <cmd>lua require('tmux').move_right()<cr>
-tnoremap <a-h> <c-\><c-n><cmd>lua require('tmux').move_left()<cr>
-tnoremap <a-j> <c-\><c-n><cmd>lua require('tmux').move_down()<cr>
-tnoremap <a-k> <c-\><c-n><cmd>lua require('tmux').move_up()<cr>
-tnoremap <a-l> <c-\><c-n><cmd>lua require('tmux').move_right()<cr>
 nnoremap <space>c <c-w>c
 nnoremap <space>s <c-w>s
 nnoremap <space>v <c-w>v
 nnoremap <space>z <c-w>z
 set splitbelow splitright
+
+" WINDOWS - NAVIGATION
+lua << EOF
+return require("tmux").setup({
+  copy_sync = { enable = false },
+  navigation = {
+    cycle_navigation = false,
+    enable_default_keybindings = false,
+  },
+  resize = {
+    enable_default_keybindings = false,
+    resize_step_x = 2,
+    resize_step_y = 2,
+  },
+})
+EOF
+nnoremap <a-h> <cmd>lua require('tmux').move_left()<cr>
+nnoremap <a-j> <cmd>lua require('tmux').move_bottom()<cr>
+nnoremap <a-k> <cmd>lua require('tmux').move_top()<cr>
+nnoremap <a-l> <cmd>lua require('tmux').move_right()<cr>
+tnoremap <a-h> <c-\><c-n><cmd>lua require('tmux').move_left()<cr>
+tnoremap <a-j> <c-\><c-n><cmd>lua require('tmux').move_bottom()<cr>
+tnoremap <a-k> <c-\><c-n><cmd>lua require('tmux').move_top()<cr>
+tnoremap <a-l> <c-\><c-n><cmd>lua require('tmux').move_right()<cr>
+
+" WINDOWS - RESIZE
+autocmd group vimresized * wincmd =
+nnoremap <a-H> <cmd>lua require('tmux').resize_left()<cr>
+nnoremap <a-J> <cmd>lua require('tmux').resize_bottom()<cr>
+nnoremap <a-K> <cmd>lua require('tmux').resize_top()<cr>
+nnoremap <a-L> <cmd>lua require('tmux').resize_right()<cr>
+tnoremap <a-H> <c-\><c-n><cmd>lua require('tmux').resize_left()<cr>
+tnoremap <a-J> <c-\><c-n><cmd>lua require('tmux').resize_bottom()<cr>
+tnoremap <a-K> <c-\><c-n><cmd>lua require('tmux').resize_top()<cr>
+tnoremap <a-L> <c-\><c-n><cmd>lua require('tmux').resize_right()<cr>
 
 " WRAP
 autocmd group filetype * set formatoptions-=t
