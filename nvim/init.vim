@@ -157,7 +157,6 @@ command! -nargs=+ -complete=file_in_path Grep silent grep! <args><bar>echo
 nnoremap <space>g :Grep<space>
 
 " INDENTATION
-autocmd group bufread * call indent#Detect()
 filetype indent off
 nnoremap <p <ap
 nnoremap >p >ap

@@ -1,4 +1,9 @@
-function! indent#Detect() abort
+augroup indent
+  autocmd!
+  autocmd bufread * call s:DetectIndent()
+augroup end
+
+function! s:DetectIndent() abort
   let file = expand('%')
   " tab
   call system("grep -qm1 \"$(printf '\t')\" " . file)
