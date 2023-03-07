@@ -1,19 +1,4 @@
-augroup completion
-  autocmd!
-  autocmd CompleteDone * call s:CompleteDone()
-augroup end
-
-function! s:GetMainMethod() abort
-  if &omnifunc !=# ''
-    return 'omni'
-  else
-    return 'buffer'
-  endif
-endfunction
-
-function! completion#SetMethod() abort
-  let b:next_method = s:GetMainMethod()
-endfunction
+autocmd completion CompleteDone * call s:CompleteDone()
 
 function! completion#CanComplete() abort
   " Exit if cursor is at the beginning of line
@@ -24,24 +9,24 @@ function! completion#CanComplete() abort
   return char !=# ' ' && char !=# "\t"
 endfunction
 
-function! completion#Check(timer) abort
-  if pumvisible()
-    let b:next_method = s:GetMainMethod()
-  else
-    call completion#Complete()
-  endif
-endfunction
-
 function! completion#Complete() abort
-  if b:next_method ==# 'omni'
-    let b:next_method = 'buffer'
+  if b:completion ==# 'omni'
+    let b:completion = 'buffer'
     call feedkeys("\<c-x>\<c-o>", 'n')
     call timer_start(64, 'completion#Check', { 'repeat': 0 })
-  elseif b:next_method ==# 'buffer'
-    let b:next_method = s:GetMainMethod()
+  elseif b:completion ==# 'buffer'
+    let b:completion = GetCompletion()
     call feedkeys("\<c-x>\<c-n>", 'n')
   endif
   return ''
+endfunction
+
+function! completion#Check(timer) abort
+  if pumvisible()
+    let b:completion = GetCompletion()
+  else
+    call completion#Complete()
+  endif
 endfunction
 
 function! s:CompleteDone() abort
@@ -51,7 +36,7 @@ function! s:CompleteDone() abort
   endif
   " Reset chain-completion
   call timer_stopall()
-  let b:next_method = s:GetMainMethod()
+  let b:completion = GetCompletion()
   " Append parentheses if selection is a lsp-function
   try
     if v:completed_item['user_data']['nvim']['lsp']['completion_item']['kind'] == 3
