@@ -6,9 +6,9 @@ augroup end
 let g:compl = 'omni'
 
 function! compl#CanComplete() abort
-  " Exit if cursor is at the beginning of line
+  " Check if cursor is at the beginning of line
   if col('.') <= 1 | return v:false | endif
-  " Exit if cursor is preceded by space or tab
+  " Check if cursor is preceded by space or tab
   let char = getline('.')[:col('.') - 2]
   let char = strcharpart(char, strchars(char) - 1)
   return char !=# ' ' && char !=# "\t"
