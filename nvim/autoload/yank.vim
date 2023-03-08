@@ -2,10 +2,10 @@
 
 function! yank#AndJumpBack() abort
     let g:save_cursor = getpos('.')
-    set operatorfunc=YankAndJumpBack
+    set operatorfunc=yank#YankAndJumpBack
 endfunction
 
-function! YankAndJumpBack(type, ...) abort
+function! yank#YankAndJumpBack(type, ...) abort
     if a:0
         silent execute "normal! `<" . a:type . "`>y"
     elseif a:type ==# 'line'
