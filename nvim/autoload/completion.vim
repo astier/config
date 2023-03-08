@@ -20,14 +20,6 @@ function! completion#Complete() abort
   return ''
 endfunction
 
-function! completion#Check(timer) abort
-  if pumvisible()
-    let b:completion = GetCompletion()
-  else
-    call completion#Complete()
-  endif
-endfunction
-
 function! s:CompleteDone() abort
   " Do nothing if no selection inserted
   if empty(v:completed_item)
@@ -45,4 +37,12 @@ function! s:CompleteDone() abort
     endif
   catch
   endtry
+endfunction
+
+function! completion#Check(timer) abort
+  if pumvisible()
+    let b:completion = GetCompletion()
+  else
+    call completion#Complete()
+  endif
 endfunction
