@@ -32,21 +32,21 @@ function! compl#Complete() abort
 endfunction
 
 function! s:CompleteDone() abort
-  " Check if selection was inserted
-  if empty(v:completed_item)
-    " Try the next compl-method if more methods are left to try
-    if g:method != 0
-      call timer_start(0, 'compl#Next', { 'repeat': 0 })
-    endif
-  else
-    " Append parentheses if selection is a lsp-function
-    try
-      if v:completed_item['user_data']['nvim']['lsp']['completion_item']['kind'] == 3
-        call feedkeys("()\<left>", 'nt')
-      endif
-    catch
-    endtry
+  " Try the next compl-method if last method not reached
+  if g:method != 0
+    call timer_start(0, 'compl#Next', { 'repeat': 0 })
   endif
+  " Do nothing if selection is empty
+  if empty(v:completed_item)
+    return
+  endif
+  " Append parentheses if selection is a lsp-function
+  try
+    if v:completed_item['user_data']['nvim']['lsp']['completion_item']['kind'] == 3
+      call feedkeys("()\<left>", 'nt')
+    endif
+  catch
+  endtry
 endfunction
 
 function! compl#Next(timer) abort
