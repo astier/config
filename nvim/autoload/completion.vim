@@ -11,9 +11,9 @@ endfunction
 
 function! completion#Complete() abort
   if b:completion ==# 'omni'
-    let b:completion = 'buffer'
+    let b:completion = 'keyword'
     call feedkeys("\<c-x>\<c-o>", 'n')
-  elseif b:completion ==# 'buffer'
+  elseif b:completion ==# 'keyword'
     let b:completion = GetCompletion()
     call feedkeys("\<c-x>\<c-n>", 'n')
   endif

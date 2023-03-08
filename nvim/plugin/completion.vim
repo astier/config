@@ -7,6 +7,6 @@ function! GetCompletion()
   if &omnifunc !=# ''
     return 'omni'
   else
-    return 'buffer'
+    return 'keyword'
   endif
 endfunction
