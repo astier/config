@@ -26,7 +26,7 @@ function! s:CompleteDone() abort
     " If omni-completion was just executed start a timer to check if it has
     " results or if the next completion-method should be tried
     if GetCompletion() != b:completion
-      call timer_start(0, 'completion#Check', { 'repeat': 0 })
+      call timer_start(0, 'completion#Next', { 'repeat': 0 })
     endif
     return
   endif
@@ -39,7 +39,7 @@ function! s:CompleteDone() abort
   endtry
 endfunction
 
-function! completion#Check(timer) abort
+function! completion#Next(timer) abort
   if pumvisible()
     let b:completion = GetCompletion()
   else
