@@ -3,7 +3,14 @@ augroup compl
   autocmd CompleteDone * call s:CompleteDone()
 augroup end
 
-let g:compl = 'omni'
+let s:methods = [ 'omni', 'filename', 'current' ]
+let g:method = 0
+
+let s:keys = {
+  \ 'current':  "\<c-x>\<c-n>",
+  \ 'filename': "\<c-x>\<c-f>",
+  \ 'omni':     "\<c-x>\<c-o>",
+\}
 
 function! compl#CanComplete() abort
   " Check if cursor is at the beginning of line
@@ -15,26 +22,20 @@ function! compl#CanComplete() abort
 endfunction
 
 function! compl#Complete() abort
-  if g:compl ==# 'omni'
-    let g:compl = 'current'
-    if &omnifunc !=# ''
-      call feedkeys("\<c-x>\<c-o>", 'n')
-    else
-      call compl#Complete()
-    endif
-  elseif g:compl ==# 'current'
-    let g:compl = 'omni'
-    call feedkeys("\<c-x>\<c-n>", 'n')
+  call feedkeys(s:keys[s:methods[g:method]], 'n')
+  if g:method < len(s:methods) - 1
+    let g:method += 1
+  else
+    let g:method = 0
   endif
-  return ''
+  return '' " Prevent outputting 0 in <expr>-mappings
 endfunction
 
 function! s:CompleteDone() abort
   " Check if selection was inserted
   if empty(v:completed_item)
-    " If compl-omni was just executed start a timer to check if it has results
-    " otherwise try the next compl-method
-    if g:compl !=# 'omni'
+    " Try the next compl-method if more methods are left to try
+    if g:method != 0
       call timer_start(0, 'compl#Next', { 'repeat': 0 })
     endif
   else
@@ -50,7 +51,7 @@ endfunction
 
 function! compl#Next(timer) abort
   if pumvisible()
-    let g:compl = 'omni'
+    let g:method = 0
   else
     call compl#Complete()
   endif
