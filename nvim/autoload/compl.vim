@@ -21,23 +21,23 @@ function! compl#CanComplete() abort
 endfunction
 
 function! s:Complete() abort
+  " Determine next compl-method
   if s:method_idx < len(b:compl_methods) - 1
     let s:method_idx += 1
   else
     let s:method_idx = 0
   endif
+  " Prevent compl-filename from completing based on the relative path
   let method = b:compl_methods[s:method_idx - 1]
-  " Use compl-filename only for words with a certain prefix to prevent completing the relative path for all words.
   if method ==# 'filename'
-    " Get cWORD left from cursor. Because in insert-mode the cursor is not directly on the word which should be completed, vim searches for the next cWORD to the right of the cursor. To circumvent this move the cursor one character to the left so it is placed on cWORD, get cWORD and move the cursor back to its original position.
+    " Get cWORD left from cursor
     let pos = getpos('.')
     call cursor(pos[1], pos[2] - 1)
     let word = expand('<cWORD>')
     call cursor(pos)
-    " If cWORD starts with a certain prefix use compl-filename. Otherwise try the next compl-method. The prefixes are: / ./ $ \$ ~
+    " Use compl-filename only for words with certain prefixes
     if word =~# '^\(/\|./\|\$\|\\\$\|~\)'
       return s:keys[method]
-    " Use next compl-method
     elseif s:method_idx != 0
       return s:Complete()
     else
@@ -58,15 +58,13 @@ function! s:TryNextMethod() abort
 endfunction
 
 function! s:CompleteDone() abort
-  " Do nothing if selection is empty
-  if empty(v:completed_item)
-    return
-  endif
   " Append parentheses if selection is a lsp-function
-  try
-    if v:completed_item['user_data']['nvim']['lsp']['completion_item']['kind'] == 3
-      call feedkeys("()\<left>", 'nt')
-    endif
-  catch
-  endtry
+  if !empty(v:completed_item)
+    try
+      if v:completed_item['user_data']['nvim']['lsp']['completion_item']['kind'] == 3
+        call feedkeys("()\<left>", 'nt')
+      endif
+    catch
+    endtry
+  endif
 endfunction
