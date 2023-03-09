@@ -7,7 +7,7 @@ inoremap <expr> <plug>(Complete) <sid>Complete()
 imap <plug>(compl-complete) <plug>(Complete)<cmd>call <sid>TryNextMethod()<cr>
 
 let s:methods = [ 'omni', 'filename', 'current' ]
-let g:method = 0
+let g:method_idx = 0
 
 let s:keys = {
   \ 'current':  "\<c-x>\<c-n>",
@@ -25,19 +25,19 @@ function! compl#CanComplete() abort
 endfunction
 
 function! s:Complete() abort
-  if g:method < len(s:methods) - 1
-    let g:method += 1
+  if g:method_idx < len(s:methods) - 1
+    let g:method_idx += 1
   else
-    let g:method = 0
+    let g:method_idx = 0
   endif
-  return s:keys[s:methods[g:method - 1]]
+  return s:keys[s:methods[g:method_idx - 1]]
 endfunction
 
 function! s:TryNextMethod() abort
   if pumvisible()
-    let g:method = 0
+    let g:method_idx = 0
   else
-    if g:method != 0
+    if g:method_idx != 0
       call feedkeys("\<plug>(compl-complete)")
     endif
   endif
