@@ -26,7 +26,25 @@ function! s:Complete() abort
   else
     let s:method_idx = 0
   endif
-  return s:keys[b:compl_methods[s:method_idx - 1]]
+  let method = b:compl_methods[s:method_idx - 1]
+  " Use compl-filename only for words with a certain prefix to prevent completing the relative path for all words.
+  if method ==# 'filename'
+    " Get cWORD left from cursor. Because in insert-mode the cursor is not directly on the word which should be completed, vim searches for the next cWORD to the right of the cursor. To circumvent this move the cursor one character to the left so it is placed on cWORD, get cWORD and move the cursor back to its original position.
+    let pos = getpos('.')
+    call cursor(pos[1], pos[2] - 1)
+    let word = expand('<cWORD>')
+    call cursor(pos)
+    " If cWORD starts with a certain prefix use compl-filename. Otherwise try the next compl-method. The prefixes are: / ./ $ \$ ~
+    if word =~# '^\(/\|./\|\$\|\\\$\|~\)'
+      return s:keys[method]
+    " Use next compl-method
+    elseif s:method_idx != 0
+      return s:Complete()
+    else
+      return ''
+    endif
+  endif
+  return s:keys[method]
 endfunction
 
 function! s:TryNextMethod() abort
