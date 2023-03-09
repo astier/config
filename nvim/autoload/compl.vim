@@ -3,6 +3,9 @@ augroup compl
   autocmd CompleteDone * call s:CompleteDone()
 augroup end
 
+inoremap <expr> <plug>(Complete) <sid>Complete()
+imap <plug>(compl-complete) <plug>(Complete)<cmd>call <sid>TryNextMethod()<cr>
+
 let s:methods = [ 'omni', 'filename', 'current' ]
 let g:method = 0
 
@@ -21,21 +24,26 @@ function! compl#CanComplete() abort
   return char !=# ' ' && char !=# "\t"
 endfunction
 
-function! compl#Complete() abort
-  call feedkeys(s:keys[s:methods[g:method]], 'n')
+function! s:Complete() abort
   if g:method < len(s:methods) - 1
     let g:method += 1
   else
     let g:method = 0
   endif
-  return '' " Prevent outputting 0 in <expr>-mappings
+  return s:keys[s:methods[g:method - 1]]
+endfunction
+
+function! s:TryNextMethod() abort
+  if pumvisible()
+    let g:method = 0
+  else
+    if g:method != 0
+      call feedkeys("\<plug>(compl-complete)")
+    endif
+  endif
 endfunction
 
 function! s:CompleteDone() abort
-  " Try the next compl-method if last method not reached
-  if g:method != 0
-    call timer_start(0, 'compl#Next', { 'repeat': 0 })
-  endif
   " Do nothing if selection is empty
   if empty(v:completed_item)
     return
@@ -47,12 +55,4 @@ function! s:CompleteDone() abort
     endif
   catch
   endtry
-endfunction
-
-function! compl#Next(timer) abort
-  if pumvisible()
-    let g:method = 0
-  else
-    call compl#Complete()
-  endif
 endfunction

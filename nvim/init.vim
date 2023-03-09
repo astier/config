@@ -60,7 +60,7 @@ nmap gcp gcip
 onoremap u <cmd>lua require('uncomment').uncomment()<cr>
 
 " COMPLETION
-inoremap <expr> <tab> pumvisible() ? '<down>' : compl#CanComplete() ? compl#Complete() : '<tab>'
+inoremap <expr> <tab> pumvisible() ? '<down>' : compl#CanComplete() ? '<plug>(compl-complete)' : '<tab>'
 inoremap <expr> <s-tab> pumvisible() ? '<up>' : '<s-tab>'
 inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'
 lua require('completionitemkind')
