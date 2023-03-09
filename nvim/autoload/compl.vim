@@ -1,12 +1,8 @@
-augroup compl
-  autocmd!
-  autocmd CompleteDone * call s:CompleteDone()
-augroup end
+autocmd compl CompleteDone * call s:CompleteDone()
 
 inoremap <expr> <plug>(Complete) <sid>Complete()
 imap <plug>(compl-complete) <plug>(Complete)<cmd>call <sid>TryNextMethod()<cr>
 
-let s:methods = [ 'omni', 'filename', 'current' ]
 let s:method_idx = 0
 
 let s:keys = {
@@ -25,12 +21,12 @@ function! compl#CanComplete() abort
 endfunction
 
 function! s:Complete() abort
-  if s:method_idx < len(s:methods) - 1
+  if s:method_idx < len(b:compl_methods) - 1
     let s:method_idx += 1
   else
     let s:method_idx = 0
   endif
-  return s:keys[s:methods[s:method_idx - 1]]
+  return s:keys[b:compl_methods[s:method_idx - 1]]
 endfunction
 
 function! s:TryNextMethod() abort
