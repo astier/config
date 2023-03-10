@@ -27,8 +27,8 @@ function! s:Complete() abort
   else
     let s:method_idx = 0
   endif
-  " Prevent compl-filename from completing based on the relative path
   let method = b:compl_methods[s:method_idx - 1]
+  " Prevent compl-filename from completing based on the relative path
   if method ==# 'filename'
     " Get cWORD left from cursor
     let pos = getpos('.')
