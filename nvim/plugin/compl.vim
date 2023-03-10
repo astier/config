@@ -1,6 +1,6 @@
 augroup compl
   autocmd!
-  autocmd BufRead * call s:ComplSetup()
+  autocmd VimEnter,BufNewFile,BufRead * call s:ComplSetup()
 augroup end
 
 function! s:ComplSetup()
