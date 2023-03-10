@@ -6,6 +6,8 @@ augroup end
 inoremap <expr> <plug>(Complete) <sid>Complete()
 imap <plug>(compl-complete) <plug>(Complete)<cmd>call <sid>TryNextMethod()<cr>
 
+" omnifunc=v:lua.vim.lsp.omnifunc breaks this script
+" https://github.com/neovim/neovim/issues/12390
 let s:methods = [ 'filename', 'omni', 'current', ]
 let s:method_idx = 0
 
