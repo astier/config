@@ -15,8 +15,8 @@ function! s:DetectIndent() abort
   let num_spaces = system('grep -om1 "^ \+" ' . file . ' | wc -c') - 1
   if num_spaces != -1
     set expandtab
-    execute 'set shiftwidth=' . num_spaces
-    execute 'set tabstop=' . num_spaces
+    execute 'setl shiftwidth=' . num_spaces
+    execute 'setl tabstop=' . num_spaces
     return
   endif
 endfunction
