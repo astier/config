@@ -36,7 +36,7 @@ function! s:Complete() abort
     let word = expand('<cWORD>')
     call cursor(pos)
     " Use compl-filename only for words with certain prefixes
-    if word =~# '^\(/\|./\|\$\|\\\$\|~\)'
+    if word =~# '^\(/\|\./\|\$\|\\\$\|\~\)'
       return s:keys[method]
     elseif s:method_idx != 0
       return s:Complete()
