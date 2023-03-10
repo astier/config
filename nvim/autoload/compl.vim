@@ -21,6 +21,10 @@ function! compl#CanComplete() abort
 endfunction
 
 function! s:Complete() abort
+  if empty(b:compl_methods)
+    echom 'b:compl_methods =' b:compl_methods
+    return ''
+  endif
   " Determine next compl-method
   if s:method_idx < len(b:compl_methods) - 1
     let s:method_idx += 1
