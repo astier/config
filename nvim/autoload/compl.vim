@@ -50,10 +50,8 @@ endfunction
 function! s:TryNextMethod() abort
   if pumvisible()
     let s:method_idx = 0
-  else
-    if s:method_idx != 0
-      call feedkeys("\<plug>(compl-complete)")
-    endif
+  elseif s:method_idx != 0
+    call feedkeys("\<plug>(compl-complete)")
   endif
 endfunction
 
