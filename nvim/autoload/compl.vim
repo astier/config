@@ -32,20 +32,20 @@ function! s:Complete() abort
     let s:method_idx = 0
   endif
   let method = b:compl_methods[s:method_idx - 1]
-  " Prevent compl-filename from completing based on the relative path
+  " Don't complete with compl-filename based on the relative path
   if method ==# 'filename'
     " Get cWORD left from cursor
     let pos = getpos('.')
     call cursor(pos[1], pos[2] - 1)
     let word = expand('<cWORD>')
     call cursor(pos)
-    " Use compl-filename only for words with certain prefixes
-    if word =~# '^\(/\|\./\|\$\|\\\$\|\~\)'
-      return s:keys[method]
-    elseif s:method_idx != 0
-      return s:Complete()
-    else
-      return ''
+    " If cWORD doesn't have a certain prefix try next method
+    if !(word =~# '^\(/\|\./\|\$\|\\\$\|\~\)')
+      if s:method_idx != 0
+        return s:Complete()
+      else
+        return ''
+      endif
     endif
   endif
   return s:keys[method]
