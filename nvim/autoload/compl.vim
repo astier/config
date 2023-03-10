@@ -1,9 +1,11 @@
 autocmd compl CompleteDone * call s:CompleteDone()
 
 inoremap <expr> <plug>(Complete) <sid>Complete()
-imap <plug>(compl-complete) <plug>(Complete)<cmd>call <sid>TryNextMethod()<cr>
+imap <plug>(compl-complete) <plug>(Complete)<cmd>call compl#TryNextMethod(-1)<cr>
 
 let s:method_idx = 0
+" v:lua.vim.lsp.omnifunc is async: Use CompleteDone to determine if pum is visible
+let s:wait_for_completedone = v:false
 
 let s:keys = {
   \ 'current':  "\<c-x>\<c-n>",
@@ -48,10 +50,16 @@ function! s:Complete() abort
       return ''
     endif
   endif
+  if method ==# 'omni' && &omnifunc ==# 'v:lua.vim.lsp.omnifunc'
+    let s:wait_for_completedone = v:true
+  endif
   return s:keys[method]
 endfunction
 
-function! s:TryNextMethod() abort
+function! compl#TryNextMethod(timer) abort
+  if s:wait_for_completedone
+    return v:false
+  endif
   if pumvisible()
     let s:method_idx = 0
   elseif s:method_idx != 0
@@ -60,6 +68,12 @@ function! s:TryNextMethod() abort
 endfunction
 
 function! s:CompleteDone() abort
+  if s:wait_for_completedone
+    let s:wait_for_completedone = v:false
+    if s:method_idx != 0
+      call timer_start(0, 'compl#TryNextMethod', { 'repeat': 0 })
+    endif
+  endif
   " Append parentheses if selection is a lsp-function
   if !empty(v:completed_item)
     try
