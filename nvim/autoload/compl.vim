@@ -32,23 +32,27 @@ function! s:Complete() abort
     let s:method_idx = 0
   endif
   let method = s:methods[s:method_idx - 1]
-  " Don't complete with compl-filename based on the relative path
+  " Skip filename if cWORD left of cursor doesn't have the correct prefix
   if method ==# 'filename'
-    " Get cWORD left from cursor
     let pos = getpos('.')
     call cursor(pos[1], pos[2] - 1)
     let word = expand('<cWORD>')
     call cursor(pos)
-    " If cWORD doesn't have a certain prefix try next method
     if !(word =~# '^\(/\|\./\|\$\|\\\$\|\~\)')
-      if s:method_idx != 0
-        return s:Complete()
-      else
-        return ''
-      endif
+      return s:NextMethod()
     endif
+  elseif method ==# 'omni' && &omnifunc ==# ''
+    return s:NextMethod()
   endif
   return s:keys[method]
+endfunction
+
+function! s:NextMethod() abort
+  if s:method_idx != 0
+    return s:Complete()
+  else
+    return ''
+  endif
 endfunction
 
 function! s:TryNextMethod() abort
