@@ -1,8 +1,12 @@
-autocmd compl CompleteDone * call s:CompleteDone()
+augroup compl
+  autocmd!
+  autocmd compl CompleteDone * call s:CompleteDone()
+augroup end
 
 inoremap <expr> <plug>(Complete) <sid>Complete()
 imap <plug>(compl-complete) <plug>(Complete)<cmd>call <sid>TryNextMethod()<cr>
 
+let s:methods = [ 'filename', 'omni', 'current', ]
 let s:method_idx = 0
 
 let s:keys = {
@@ -21,17 +25,13 @@ function! compl#CanComplete() abort
 endfunction
 
 function! s:Complete() abort
-  if empty(b:compl_methods)
-    echom 'b:compl_methods =' b:compl_methods
-    return ''
-  endif
   " Determine next compl-method
-  if s:method_idx < len(b:compl_methods) - 1
+  if s:method_idx < len(s:methods) - 1
     let s:method_idx += 1
   else
     let s:method_idx = 0
   endif
-  let method = b:compl_methods[s:method_idx - 1]
+  let method = s:methods[s:method_idx - 1]
   " Don't complete with compl-filename based on the relative path
   if method ==# 'filename'
     " Get cWORD left from cursor
