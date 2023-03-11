@@ -33,7 +33,11 @@ function! s:Next(lists, expr)
 endfunction
 
 function! toggle#Next() abort
-  let replacement = s:Next(s:chars, getline('.')[col('.') - 1])
+  let char = getline('.')[col('.') - 1]
+  if char ==# ' '
+    return
+  endif
+  let replacement = s:Next(s:chars, char)
   if !empty(replacement)
     execute 'normal! r' . replacement
     return
