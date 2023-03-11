@@ -304,11 +304,11 @@ nnoremap <a-f> 4<c-e>
 cnoremap <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>echo<bar>noh<cr>zz' : '<enter>'
 nnoremap <esc> <cmd>echo<bar>noh<cr><esc>
 nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
-nnoremap ,w <cmd>let @/='\<'.expand('<cword>').'\>'<bar>set hls<cr>
-nnoremap ,W <cmd>let @/='\<'.expand('<cWORD>').'\>'<bar>set hls<cr>
-xnoremap ,w <cmd>let @/=visual#GetSelection()<bar>set hls<cr><esc>
-nnoremap ,c <cmd>set ignorecase!<cr>
-nnoremap ,h <cmd>set hlsearch!<cr>
+nnoremap <space>w <cmd>let @/='\<'.expand('<cword>').'\>'<bar>set hls<cr>
+nnoremap <space>W <cmd>let @/='\<'.expand('<cWORD>').'\>'<bar>set hls<cr>
+xnoremap <space>w <cmd>let @/=visual#GetSelection()<bar>set hls<cr><esc>
+nnoremap <c <cmd>set ignorecase!<cr>
+nnoremap <h <cmd>set hlsearch!<cr>
 set ignorecase smartcase
 set shortmess+=Ss
 
@@ -367,7 +367,7 @@ set spellcapcheck=
 set spellfile=$XDG_STATE_HOME/nvim/spell/en.utf-8.add
 
 " STATUS (CMDLINE/RULER/STATUSLINE)
-nnoremap <expr> ,s &ls ? '<cmd>se stl=%= ls=0<cr>' : '<cmd>se ls=3 stl=\[%f\]%=\[%l/%L\]<cr>'
+nnoremap <expr> <s &ls ? '<cmd>se stl=%= ls=0<cr>' : '<cmd>se ls=3 stl=\[%f\]%=\[%l/%L\]<cr>'
 set fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 set noshowcmd noshowmode
 set rulerformat=%=\[%l/%L\] noruler
