@@ -253,8 +253,6 @@ noremap $ g$
 noremap F g$
 noremap 0 g0
 noremap ^ g^
-noremap gg gg0
-noremap G G0
 noremap j gj
 noremap k gk
 noremap H H0
