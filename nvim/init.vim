@@ -156,7 +156,6 @@ command! -nargs=+ -complete=file_in_path Grep silent grep! <args><bar>echo
 nnoremap <space>g :Grep<space>
 
 " INDENTATION
-filetype indent off
 nnoremap <p <ap
 nnoremap >p >ap
 set expandtab
@@ -327,36 +326,29 @@ nnoremap <c-j> <cmd>call search('<++>')<cr>ca<
 nnoremap <c-k> <cmd>call search('<++>', 'b')<cr>ca<
 
 " SNIPPETS - (
-inoremap (<tab>  ()<left>
-inoremap (,      (),<left><left>
-inoremap (;      ();<left><left>
-inoremap ((<tab> (<cr>)<c-o>O<tab>
-inoremap ((,     (<cr>),<c-c>O<tab>
-inoremap ((;     (<cr>);<c-c>O<tab>
+inoremap <a-f>(,      (),<left><left>
+inoremap <a-f>(;      ();<left><left>
+inoremap <a-f>((<tab> (<cr>)<c-o>O
+inoremap <a-f>((,     (<cr>),<c-c>O
+inoremap <a-f>((;     (<cr>);<c-c>O
 
 " SNIPPETS - [
-inoremap [<tab>  []<left>
-inoremap [,      [],<left><left>
-inoremap [s<tab> [  ]<left><left>
-inoremap [s,     [  ],<left><left><left>
-inoremap [[<tab> [<cr>]<c-o>O<tab>
-inoremap [[,     [<cr>],<c-c>O<tab>
+inoremap <a-f>[,      [],<left><left>
+inoremap <a-f>[s<tab> [  ]<left><left>
+inoremap <a-f>[s,     [  ],<left><left><left>
+inoremap <a-f>[[<tab> [<cr>]<c-o>O
+inoremap <a-f>[[,     [<cr>],<c-c>O
 
 " SNIPPETS - {
-inoremap {<tab>  {}<left>
-inoremap {,     {},<left><left>
-inoremap {s<tab> {  }<left><left>
-inoremap {s,    {  },<left><left><left>
-inoremap {{<tab> {<cr>}<c-o>O<tab>
-inoremap {{,    {<cr>},<c-c>O<tab>
+inoremap <a-f>{,     {},<left><left>
+inoremap <a-f>{s<tab> {  }<left><left>
+inoremap <a-f>{s,    {  },<left><left><left>
+inoremap <a-f>{{<tab> {<cr>}<c-o>O
+inoremap <a-f>{{,    {<cr>},<c-c>O
 
 " SNIPPETS - QUOTES
-inoremap "<tab>  ""<left>
-inoremap ",<tab> "",<left><left>
-inoremap '<tab>  ''<left>
-inoremap ',<tab> '',<left><left>
-inoremap <<tab>  <><left>
-inoremap `<tab>  ``<left>
+inoremap <a-f>", "",<left><left>
+inoremap <a-f>', '',<left><left>
 
 " SORT
 nmap <silent> gs myvii:sort i<cr>`y
