@@ -163,10 +163,11 @@ set shiftwidth=2
 set tabstop=2
 
 " LOADED
+" Two function-calls are needed to open lsp-float-windows in insert-mode if disabled
+" let g:loaded_matchparen = 0
 let g:loaded_2html_plugin = 0
 let g:loaded_gzip = 0
 let g:loaded_matchit = 0
-let g:loaded_matchparen = 0
 let g:loaded_netrwPlugin = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
@@ -194,6 +195,8 @@ end
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<c-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
