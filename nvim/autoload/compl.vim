@@ -6,8 +6,6 @@ augroup end
 inoremap <expr> <plug>(Complete) <sid>Complete()
 imap <plug>(compl-complete) <plug>(Complete)<cmd>call <sid>TryNextMethod()<cr>
 
-" omnifunc=v:lua.vim.lsp.omnifunc breaks this script
-" https://github.com/neovim/neovim/issues/12390
 let s:methods = [ 'filename', 'omni', 'current', ]
 let s:method_idx = 0
 
@@ -43,8 +41,13 @@ function! s:Complete() abort
     if !(word =~# '^\(/\|\./\|\$\|\\\$\|\~\)')
       return s:NextMethod()
     endif
-  elseif method ==# 'omni' && &omnifunc ==# ''
-    return s:NextMethod()
+  elseif method ==# 'omni'
+    " v:lua.vim.lsp.omnifunc breaks this script because its async. Chain-commpletion after omni doesn't work. Continue with next method only if omnifunc isn't set, otherwise cancel omni (https://github.com/neovim/neovim/issues/12390)
+    if &omnifunc ==# ''
+      return s:NextMethod()
+    else
+      let s:method_idx = 0
+    endif
   endif
   return s:keys[method]
 endfunction
