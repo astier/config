@@ -14,6 +14,7 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'aserowy/tmux.nvim'
   Plug 'gbprod/substitute.nvim'
+  Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
   Plug 'idbrii/textobj-word-column.vim'
   Plug 'Julian/vim-textobj-variable-segment'
   Plug 'kana/vim-textobj-indent'
@@ -38,7 +39,7 @@ nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 
 " BUFFERS
 autocmd group textchanged,insertleave * nested if !&ro | silent! update | endif
 nnoremap <space>d <cmd>qa!<cr>
-nnoremap q <cmd>b#<cr>
+nnoremap q <cmd>silent! b#<cr>
 set noswapfile
 
 " CHANGE
@@ -51,10 +52,7 @@ xnoremap c "_c
 
 " CMDLINE
 autocmd group cmdlineleave * echo ''
-nnoremap ff :find<space>
-nnoremap fh :help<space>
-nnoremap fj <cmd>ls<cr>:b<space>
-nnoremap ft :tag<space>
+set path=.,,**
 
 " COMMENTS
 autocmd group filetype * set formatoptions-=cro
@@ -83,6 +81,47 @@ xnoremap d <cmd>silent normal! d<cr>
 " FORMATTING
 nnoremap gqp gqip
 nnoremap gqq Vgq
+
+" FUZZY - CONFIG
+lua << EOF
+require('fzf-lua').setup({
+  'max-perf',
+  fzf_args = vim.env.FZF_DEFAULT_OPTS,
+  winopts = {
+    border = 'single',
+    preview = { hidden = 'hidden' },
+    hl = { border = 'FloatBorder' },
+  },
+  files = { cmd = vim.env.FZF_DEFAULT_COMMAND },
+  oldfiles = { cwd_only = true },
+})
+EOF
+
+" FUZZY - MAPPINGS (MISC)
+nnoremap fb <cmd>FzfLua builtin<cr>
+nnoremap fc <cmd>FzfLua commands<cr>
+nnoremap ff <cmd>FzfLua files<cr>
+nnoremap fh <cmd>FzfLua help_tags<cr>
+nnoremap fj <cmd>FzfLua buffers<cr>
+nnoremap fl <cmd>FzfLua blines<cr>
+nnoremap fo <cmd>FzfLua oldfiles<cr>
+nnoremap fQ <cmd>FzfLua loclist<cr>
+nnoremap fq <cmd>FzfLua quickfix<cr>
+nnoremap fR <cmd>FzfLua registers<cr>
+
+" FUZZY - MAPPINGS (GREP)
+nnoremap fg <cmd>FzfLua grep<cr>
+nnoremap fG <cmd>FzfLua live_grep<cr>
+nnoremap fw <cmd>FzfLua grep_cword<cr>
+nnoremap fW <cmd>FzfLua grep_cWORD<cr>
+xnoremap fw <cmd>FzfLua grep_visual<cr>
+
+" FUZZY - MAPPINGS (LSP)
+nnoremap fd <cmd>FzfLua lsp_definitions<cr>
+nnoremap fi <cmd>FzfLua lsp_implementations<cr>
+nnoremap fr <cmd>FzfLua lsp_references<cr>
+nnoremap fs <cmd>FzfLua lsp_document_symbols<cr>
+nnoremap fS <cmd>FzfLua lsp_workspace_symbols<cr>
 
 " GIT
 autocmd group filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
@@ -239,15 +278,6 @@ nnoremap cP <cmd>silent normal! yap}p<cr>
 nnoremap p <cmd>silent! normal! p<cr>
 nnoremap P <cmd>silent! normal! P<cr>
 
-" PATH & WILDMENU
-call system('git rev-parse --is-inside-work-tree')
-if v:shell_error
-  set path=.,,**
-else
-  execute 'set path=,' . system('git ls-files -z | xargs -0 dirname | sed /^\.$/d | tr "\n" ,')
-endif
-set wildmode=longest:list,full
-
 " QUICKFIX
 autocmd group filetype qf nnoremap <buffer> o <cr><plug>(qf_qf_toggle_stay)
 autocmd group filetype qf setl nonu scl=no wrap
@@ -337,7 +367,7 @@ xnoremap <silent> gs my:sort i<cr>`y
 set spellcapcheck=
 set spellfile=$XDG_STATE_HOME/nvim/spell/en.utf-8.add
 
-" STATUS (CMDLINE/RULER/STATUSLINE)
+" STATUS (RULER/STATUSLINE)
 nnoremap <expr> <s &ls ? '<cmd>se stl=%= ls=0<cr>' : '<cmd>se ls=3 stl=\[%f\]%=\[%l/%L\]<cr>'
 set fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
 set noshowcmd noshowmode
