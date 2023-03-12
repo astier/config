@@ -16,12 +16,8 @@ let s:keys = {
 \}
 
 function! compl#CanComplete() abort
-  " Check if cursor is at the beginning of line
-  if col('.') <= 1 | return v:false | endif
-  " Check if cursor is preceded by space or tab
-  let char = getline('.')[:col('.') - 2]
-  let char = strcharpart(char, strchars(char) - 1)
-  return char !=# ' ' && char !=# "\t"
+  " Check if cursor is at the beginning of the line or is preceded by space or tab
+  return col('.') > 1 && getline('.')[col('.') - 2] !~# '\(\s\|\t\)'
 endfunction
 
 function! s:Complete() abort
