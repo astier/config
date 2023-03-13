@@ -68,6 +68,7 @@ hi! link signcolumn none " none
 hi! link title comment " none
 
 " PMENU & FLOAT
+hi lspsignatureactiveparameter ctermbg=none ctermfg=yellow cterm=none
 hi! link normalfloat none " pmenu
 if $TERM ==# 'linux' || $TERM ==# 'screen'
     hi pmenu ctermbg=gray ctermfg=black cterm=none " none
