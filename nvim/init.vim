@@ -24,6 +24,7 @@ call plug#begin()
   Plug 'Julian/vim-textobj-variable-segment'
   Plug 'kana/vim-textobj-indent'
   Plug 'kana/vim-textobj-user'
+  Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
@@ -354,11 +355,24 @@ nnoremap p <cmd>silent! normal! p<cr>
 nnoremap P <cmd>silent! normal! P<cr>
 
 " QUICKFIX
-autocmd group filetype qf nnoremap <buffer> o <cr><plug>(qf_qf_toggle_stay)
 autocmd group filetype qf setl nonu scl=no wrap
 nmap <space>q <plug>(qf_qf_toggle_stay)
 nmap [q <plug>(qf_qf_previous)zz
 nmap ]q <plug>(qf_qf_next)zz
+lua << EOF
+require('bqf').setup({
+  preview = {
+    auto_preview = false,
+    border_chars = { '│', '│', '─', '─', '┌', '┐', '└', '┘', '█' },
+    show_title = false,
+  },
+  func_map = { split = '<c-s>', },
+  filter = { fzf = { action_for = { ['ctrl-s'] = 'split' } } },
+})
+EOF
+highlight bqfsign ctermfg=yellow
+highlight! link bqfpreviewborder comment
+highlight! link bqfpreviewrange none
 
 " SANDWICH
 " Combine with targets.vim (https://github.com/machakann/vim-sandwich/issues/92)
