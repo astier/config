@@ -31,7 +31,7 @@ call plug#begin()
 call plug#end()
 
 " APPEARANCE
-autocmd group filetype * set nocursorline
+autocmd group filetype * setl nocursorline
 autocmd group textyankpost * lua vim.highlight.on_yank()
 colorscheme custom
 nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
