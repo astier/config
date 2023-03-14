@@ -114,7 +114,6 @@ local cmp = require('cmp')
 local snippy = require('snippy')
 cmp.setup({
   completion = {
-    autocomplete = false,
     completeopt = table.concat(vim.opt.completeopt:get(), ","),
   },
   snippet = {
@@ -133,32 +132,12 @@ cmp.setup({
     },
   },
   mapping = cmp.mapping.preset.insert({
-    ['<tab>'] = cmp.mapping(function(fallback)
-      if snippy.can_expand() then
-        snippy.expand()
-      elseif has_words_before() then
-        cmp.complete()
-      else
-        fallback()
-      end
-    end),
-    ['<a-j>'] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_next_item({ behavior = 'select' })
-      elseif snippy.can_jump(1) then
-        snippy.next()
-      end
-    end),
-    ['<a-k>'] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_prev_item({ behavior = 'select' })
-      elseif snippy.can_jump(-1) then
-        snippy.previous()
-      end
-    end),
-    ['<cr>']  = cmp.mapping.confirm({ select = true }),
     ['<a-d>'] = cmp.mapping.scroll_docs(-4),
     ['<a-f>'] = cmp.mapping.scroll_docs(4),
+    ['<a-j>'] = cmp.mapping.select_next_item({ behavior = 'select' }),
+    ['<a-k>'] = cmp.mapping.select_prev_item({ behavior = 'select' }),
+    ['<a-space>'] = cmp.mapping.complete(),
+    ['<cr>']  = cmp.mapping.confirm({ select = true }),
   }),
   sources = cmp.config.sources(
     {{ name = 'path' }},
@@ -445,9 +424,9 @@ set virtualedit=block
 lua << EOF
 require('snippy').setup({
   mappings = {
-    s = {
-      ['<a-j>'] = 'next',
-      ['<a-k>'] = 'previous',
+    is = {
+      ['<tab>'] = 'expand_or_advance',
+      ['<s-tab>'] = 'previous',
     },
     x = { ['<tab>'] = 'cut_text' },
   },
