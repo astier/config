@@ -471,16 +471,11 @@ tnoremap <silent> <a-e> <c-\><c-n><cmd>tabp<cr>
 tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
 
 " TARGETS
-autocmd group user targets#mappings#user call targets#mappings#extend({
-\ 'b': {
-\   'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}],
-\   'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]
-\ },
-\})
 nmap cb cIb
+nmap cq cIq
 nmap db dIb
-" Call as cmd to fix flog-error
-nmap yb <cmd>silent! normal myyIb`y<cr>
+nmap dq dIq
+nmap yb <cmd>silent! normal myyIb`y<cr> " Call as cmd to fix flog-error
 
 " TEXTOBJ
 nmap cv civ
