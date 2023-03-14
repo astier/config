@@ -34,6 +34,7 @@ call plug#begin()
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'wellle/targets.vim'
+  Plug 'windwp/nvim-autopairs'
 call plug#end()
 
 " APPEARANCE
@@ -41,6 +42,35 @@ autocmd group filetype * setl nocursorline
 autocmd group textyankpost * lua vim.highlight.on_yank()
 colorscheme custom
 nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
+
+" AUTOPAIRS
+lua << EOF
+require('nvim-autopairs').setup()
+local npairs = require('nvim-autopairs')
+local rule   = require('nvim-autopairs.rule')
+local brackets = { { '(', ')' }, { '[', ']' }, { '{', '}' } }
+npairs.add_rules {
+  rule(' ', ' ')
+    :with_pair(function (opts)
+      local pair = opts.line:sub(opts.col - 1, opts.col)
+      return vim.tbl_contains({
+        brackets[1][1]..brackets[1][2],
+        brackets[2][1]..brackets[2][2],
+        brackets[3][1]..brackets[3][2],
+      }, pair)
+    end)
+}
+for _,bracket in pairs(brackets) do
+  npairs.add_rules {
+    rule(bracket[1]..' ', ' '..bracket[2])
+      :with_pair(function() return false end)
+      :with_move(function(opts)
+        return opts.prev_char:match('.%'..bracket[2]) ~= nil
+      end)
+      :use_key(bracket[2])
+  }
+end
+EOF
 
 " BUFFERS
 autocmd group textchanged,insertleave * nested if !&ro | silent! update | endif
