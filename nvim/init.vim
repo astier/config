@@ -355,7 +355,7 @@ nnoremap p <cmd>silent! normal! p<cr>
 nnoremap P <cmd>silent! normal! P<cr>
 
 " QUICKFIX
-autocmd group filetype qf setl nonu scl=no wrap
+autocmd group filetype qf setl nonu scl=no
 nmap <space>q <plug>(qf_qf_toggle_stay)
 nmap [q <plug>(qf_qf_previous)zz
 nmap ]q <plug>(qf_qf_next)zz
@@ -535,7 +535,7 @@ tnoremap <a-K> <c-\><c-n><cmd>lua require('tmux').resize_top()<cr>
 tnoremap <a-L> <c-\><c-n><cmd>lua require('tmux').resize_right()<cr>
 
 " WRAP
-autocmd group filetype * set formatoptions-=t
+autocmd group filetype * set formatoptions-=t wrap
 set breakindent
 set breakindentopt=shift:2
 set linebreak
