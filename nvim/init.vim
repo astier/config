@@ -49,12 +49,12 @@ nnoremap q <cmd>silent! b#<cr>
 set noswapfile
 
 " CHANGE
-nmap cp cip
-nmap cw ciw
-nmap cW ciW
 nnoremap c "_c
 nnoremap C "_C
 xnoremap c "_c
+nmap cp cip
+nmap cw ciw
+nmap cW ciW
 
 " CMDLINE
 autocmd group cmdlineleave * echo ''
