@@ -13,6 +13,7 @@ nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'aserowy/tmux.nvim'
+  Plug 'astier/gx-extended.vim'
   Plug 'dcampos/nvim-snippy'
   Plug 'gbprod/substitute.nvim'
   Plug 'hrsh7th/cmp-buffer'
@@ -30,7 +31,6 @@ call plug#begin()
   Plug 'numToStr/Comment.nvim'
   Plug 'rbong/vim-flog'
   Plug 'romainl/vim-qf'
-  Plug 'stsewd/gx-extended.vim'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'wellle/targets.vim'
