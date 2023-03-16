@@ -269,6 +269,7 @@ local on_attach = function(client, bufnr)
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<c-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('v', '<c-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
