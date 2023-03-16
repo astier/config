@@ -219,15 +219,6 @@ nnoremap <space>kr <cmd>G reset --hard<bar>e<cr>
 
 " GITGUTTER
 let g:gitgutter_map_keys = 0
-let g:gitgutter_floating_window_options = {
-\ 'border': 'single',
-\ 'relative': 'cursor',
-\ 'row': 1,
-\ 'col': 0,
-\ 'width': 42,
-\ 'height': &previewheight,
-\ 'style': 'minimal',
-\}
 nnoremap <space>i <cmd>silent GitGutterPreviewHunk<cr>
 nnoremap <space>S <cmd>silent GitGutterStageHunk<cr>
 nnoremap <space>u <cmd>silent GitGutterUndoHunk<cr>
