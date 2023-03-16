@@ -287,7 +287,14 @@ lspconfig.ccls.setup({
     diagnostics = { onOpen = -1, onChange = -1, onSave = -1 },
   },
 })
-local servers = { 'jedi_language_server', 'marksman' }
+lspconfig.jedi_language_server.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  init_options = {
+    diagnostics = { enable = false },
+  },
+})
+local servers = { 'marksman' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
     capabilities = capabilities,
