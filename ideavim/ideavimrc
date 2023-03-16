@@ -1,1 +1,10 @@
-set visualbell " disable bell
+Plug 'kamancha/vim-highlightedyank'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+
+set clipboard+=ideaput
+set clipboard+=unnamedplus
+set visualbell
+
+nnoremap <cr> o<esc>
