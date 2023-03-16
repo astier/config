@@ -20,7 +20,7 @@ call plug#begin()
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/nvim-cmp'
-  Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
+  Plug 'ibhagwan/fzf-lua', { 'branch': 'main' }
   Plug 'idbrii/textobj-word-column.vim'
   Plug 'Julian/vim-textobj-variable-segment'
   Plug 'kana/vim-textobj-indent'
