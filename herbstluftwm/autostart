@@ -23,7 +23,6 @@ hc keybind $altgr-Shift-s quit
 hc keybind $super-d close
 
 # MISC
-hc set auto_detect_panels 0
 hc set default_frame_layout 2
 hc set focus_stealing_prevention 0
 hc set tree_style '╾│ ├└╼─┐'
