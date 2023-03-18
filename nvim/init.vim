@@ -255,8 +255,10 @@ let g:loaded_zipPlugin = 0
 
 " LSP
 lua << EOF
+-- Diagnostics
 vim.diagnostic.disable()
 vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
+-- Border
 local border = 'single'
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -264,43 +266,36 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts.border = opts.border or border
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
-local on_attach = function(client, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<c-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('v', '<c-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', 'K',  vim.lsp.buf.hover, bufopts)
-end
-local lspconfig = require('lspconfig')
+-- LspAttach
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<c-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('v', '<c-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'K',  vim.lsp.buf.hover, opts)
+  end,
+})
+-- Servers
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local lspconfig = require('lspconfig')
 lspconfig.ccls.setup({
   capabilities = capabilities,
-  on_attach = on_attach,
-  init_options = {
-    diagnostics = { onOpen = -1, onChange = -1, onSave = -1 },
-  },
+  init_options = { diagnostics = { onOpen = -1, onChange = -1, onSave = -1 } },
 })
 lspconfig.jedi_language_server.setup({
   capabilities = capabilities,
-  on_attach = on_attach,
-  init_options = {
-    diagnostics = { enable = false },
-  },
+  init_options = { diagnostics = { enable = false } },
 })
-local servers = { 'marksman' }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-  })
-end
+lspconfig.marksman.setup({ capabilities = capabilities })
 EOF
 
 " MAKE
