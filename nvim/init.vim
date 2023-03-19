@@ -360,7 +360,6 @@ nmap ]q <plug>(qf_qf_next)zz
 lua << EOF
 require('bqf').setup({
   preview = {
-    auto_preview = false,
     border_chars = { '│', '│', '─', '─', '┌', '┐', '└', '┘', '█' },
     show_title = false,
   },
