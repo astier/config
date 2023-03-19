@@ -275,8 +275,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<c-k>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('v', '<c-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
@@ -479,6 +479,12 @@ nmap yb <cmd>silent! normal myyIb`y<cr> " Call as cmd to fix flog-error
 nmap cv civ
 nmap dc my^dic`y
 nmap dv dav
+
+" TMUX
+command! -complete=shellcmd -nargs=* T call system('iwltm --send '.shellescape(expandcmd(<q-args>)))
+nnoremap <space><space> <cmd>call T(getline('.'))<cr>
+xnoremap <space><space> "vy <cmd>call T(substitute(@v, '\n$', '', ''))<cr>
+nnoremap <space>a <cmd>T execute<cr>
 
 " UNDO
 nnoremap <c-r> <cmd>call center#ExeCmdAndCenter('redo')<cr>
