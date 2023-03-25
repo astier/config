@@ -21,6 +21,8 @@ alt + {3,4}
     dmenu_run
 {mod5,super} + t
     libreoffice ~/data/notes/tracker.ods
+super + {v,space}
+    dunstctl {history-pop,close}
 
 mod5 + S
     pkill sswm
