@@ -49,7 +49,7 @@ hc keybind $super-x substitute FSRESTORE clients.focus.fullscreen chain , fullsc
 # RULES
 hc unrule -F
 hc rule floating=off focus=on index=0
-hc rule instance~'battery_status|launcher' pseudotile=on
+hc rule instance~'battery_status|launcher' floating=on floatplacement=center
 hc rule instance~'.*Nautilus|nemo|thunar|jetbrains-.*|JetBrains.*|code' index=1
 hc rule title='win0' pseudotile=on # jetbrains-splash-window
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on

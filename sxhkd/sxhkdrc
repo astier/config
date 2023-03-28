@@ -18,7 +18,7 @@ alt + {3,4}
 {mod5,super} + Return
     "$TERMINAL" -e tmux new \; splitw -h
 {mod5,super} + f
-    dmenu_run
+    launch term
 {mod5,super} + t
     libreoffice ~/data/notes/tracker.ods
 super + {v,space}
