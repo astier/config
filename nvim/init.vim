@@ -468,6 +468,12 @@ tnoremap <silent> <a-e> <c-\><c-n><cmd>tabp<cr>
 tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
 
 " TARGETS
+autocmd vimrc user targets#mappings#user call targets#mappings#extend({
+\ 'b': {
+\   'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}],
+\   'quote': [{'d':"'"}, {'d':'"'}, {'d':'`'}]
+\ },
+\})
 nmap cb cIb
 nmap cq cIq
 nmap db dIb
