@@ -93,8 +93,8 @@ alias jde="cd \$DATA/education"
 alias jdj="cd \$DATA && j"
 alias jdp="cd \$DATA/pictures"
 alias ju="cd \$DATA/uni"
-alias sn="rclone sync -Pv --stats-one-line --exclude .~* ~/data data:"
-alias snn="rclone sync -Pv --stats-one-line data: ~/data"
+alias sn="rclone sync --track-renames -Pv --stats-one-line --exclude .~* ~/data data:"
+alias snn="rclone sync --track-renames -Pv --stats-one-line data: ~/data"
 
 # BOOKMARKS - HIDDEN
 bookmarks=$HOME/data/config/bookmarks
