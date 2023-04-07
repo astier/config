@@ -85,19 +85,17 @@ alias fx="jumpopen \$CONFIG sx/sxrc"
 f() { if [ -d "$1" ]; then cd "$1" || return; else "$LAUNCHER" "$@"; fi }
 jumpopen() { cd "$1" >/dev/null && shift && "$LAUNCHER" "$@" ; }
 
-# BOOKMARKS - DATA
-DATA=$HOME/data
-alias jd="cd \$DATA"
-alias jdc="cd \$DATA/config/"
-alias jde="cd \$DATA/education"
-alias jdj="cd \$DATA && j"
-alias jdp="cd \$DATA/pictures"
-alias ju="cd \$DATA/uni"
-alias sn="rclone sync --track-renames -Pv --stats-one-line --exclude .~* ~/data data:"
-alias snn="rclone sync --track-renames -Pv --stats-one-line data: ~/data"
+# BOOKMARKS - DOCUMENTS
+alias jd="cd \$DOCUMENTS"
+alias jdc="cd \$DOCUMENTS/config/"
+alias jde="cd \$DOCUMENTS/education"
+alias jdj="cd \$DOCUMENTS && j"
+alias ju="cd \$DOCUMENTS/uni"
+alias sn="rclone sync --track-renames -Pv --stats-one-line --exclude .~* \$DOCUMENTS cloud:Documents"
+alias snn="rclone sync --track-renames -Pv --stats-one-line cloud:Documents \$DOCUMENTS"
 
 # BOOKMARKS - HIDDEN
-bookmarks=$DATA/config/bookmarks
+bookmarks=$DOCUMENTS/config/bookmarks
 [ -f "$bookmarks" ] && . "$bookmarks"
 alias bm="\$EDITOR \$bookmarks && . \$bookmarks"
 
@@ -110,15 +108,15 @@ alias jl="cd \$HOME/.local"
 alias jsh="cd \$XDG_DATA_HOME"
 
 # BOOKMARKS - NOTES
-alias jn="cd \$DATA/notes"
-alias n="jumpopen \$DATA/notes notes"
-alias nb="jumpopen \$DATA/notes books"
-alias ni="jumpopen \$DATA/notes ideas"
-alias nl="jumpopen \$DATA/notes links"
-alias nn="jumpopen \$DATA/notes newsboat"
-alias np="jumpopen \$DATA/notes projects"
-alias ns="jumpopen \$DATA/notes study"
-alias rss="newsboat -u \$DATA/notes/newsboat"
+alias jn="cd \$NOTES"
+alias n="jumpopen \$NOTES notes"
+alias nb="jumpopen \$NOTES books"
+alias ni="jumpopen \$NOTES ideas"
+alias nl="jumpopen \$NOTES links"
+alias nn="jumpopen \$NOTES newsboat"
+alias np="jumpopen \$NOTES projects"
+alias ns="jumpopen \$NOTES study"
+alias rss="newsboat -u \$NOTES/newsboat"
 
 # BOOKMARKS - REPOS
 alias fa="jumpopen ~/repos/scripts arch.sh"

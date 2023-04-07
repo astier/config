@@ -40,3 +40,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export GDK_BACKEND=x11
 export XDG_SESSION_TYPE=x11
 export GTK_THEME=Arc-Dark-solid
+
+export DOCUMENTS=$HOME/Documents
+export NOTES=$DOCUMENTS/notes
+export PICTURES=$HOME/Pictures
