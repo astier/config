@@ -308,11 +308,6 @@ vpd() {
     rm -fr ".git/modules/$1"
 }
 
-# WALLPAPERS
-alias jwl="cd \$DATA/pictures/wallpapers"
-alias wd="wal -d"
-alias wn="cd \$DATA/pictures/wallpapers && wal"
-
 # SHELL
 case $0 in
     *bash) . "$CONFIG/shell/.bashrc" ;;
