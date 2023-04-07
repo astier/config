@@ -97,7 +97,7 @@ alias sn="rclone sync --track-renames -Pv --stats-one-line --exclude .~* ~/data 
 alias snn="rclone sync --track-renames -Pv --stats-one-line data: ~/data"
 
 # BOOKMARKS - HIDDEN
-bookmarks=$HOME/data/config/bookmarks
+bookmarks=$DATA/config/bookmarks
 [ -f "$bookmarks" ] && . "$bookmarks"
 alias bm="\$EDITOR \$bookmarks && . \$bookmarks"
 
