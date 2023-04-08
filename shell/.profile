@@ -91,8 +91,6 @@ alias jdc="cd \$DOCUMENTS/config/"
 alias jde="cd \$DOCUMENTS/education"
 alias jdj="cd \$DOCUMENTS && j"
 alias ju="cd \$DOCUMENTS/uni"
-alias sn="rclone sync --track-renames -Pv --stats-one-line --exclude .~* \$DOCUMENTS cloud:Documents"
-alias snn="rclone sync --track-renames -Pv --stats-one-line cloud:Documents \$DOCUMENTS"
 
 # BOOKMARKS - HIDDEN
 bookmarks=$DOCUMENTS/config/bookmarks
@@ -141,6 +139,12 @@ j() {
     fi
     [ -n "$dir" ] && cd "$dir" || return
 }
+
+# CLOUD
+alias sn="rrclone --exclude '.~*' \$DOCUMENTS cloud:Documents"
+alias snn="rrclone cloud:Documents \$DOCUMENTS"
+alias snp="rrclone --exclude '.*/**' \$PICTURES cloud:Pictures"
+alias snnp="rrclone cloud:Pictures \$PICTURES"
 
 # GIT
 alias k="git log --all --graph --decorate --oneline --show-pulls -n24"
