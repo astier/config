@@ -93,7 +93,7 @@ alias jdj="cd \$DOCUMENTS && j"
 alias ju="cd \$DOCUMENTS/uni"
 
 # BOOKMARKS - HIDDEN
-bookmarks=$DOCUMENTS/config/bookmarks
+bookmarks=$NOTES/bookmarks
 [ -f "$bookmarks" ] && . "$bookmarks"
 alias bm="\$EDITOR \$bookmarks && . \$bookmarks"
 
