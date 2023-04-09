@@ -274,7 +274,6 @@ end
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(args)
-    vim.bo[args.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
     local opts = { buffer = args.buf }
     vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<c-k>', vim.lsp.buf.signature_help, opts)
