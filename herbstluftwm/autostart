@@ -50,11 +50,11 @@ hc keybind $super-x substitute FSRESTORE clients.focus.fullscreen chain , fullsc
 hc unrule -F
 hc rule floating=off floatplacement=center focus=on index=0
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY)' pseudotile=on index=
-hc rule windowtype='_NET_WM_WINDOW_TYPE_SPLASH' floating=on index=
-hc rule title='win0' floating=on index= # jetbrains-splash-window
-hc rule instance='tint2conf' floating=off pseudotile=off index=
+hc rule windowtype='_NET_WM_WINDOW_TYPE_SPLASH' floating=on
+hc rule title='win0' floating=on # jetbrains-splash-window
+hc rule instance='tint2conf' pseudotile=off index=
 hc rule instance='gcr-prompter' pseudotile=on index=
-hc rule instance~'battery_status|launcher' floating=on index=
+hc rule instance~'battery_status|launcher' floating=on
 hc rule instance~'.*Nautilus|nemo|thunar|jetbrains-.*|JetBrains.*|code' index=1
 
 # THEME
