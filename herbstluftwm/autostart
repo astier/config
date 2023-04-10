@@ -53,6 +53,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY)' pseudotile=on index=
 hc rule windowtype='_NET_WM_WINDOW_TYPE_SPLASH' floating=on index=
 hc rule title='win0' floating=on index= # jetbrains-splash-window
 hc rule instance='tint2conf' floating=off pseudotile=off index=
+hc rule instance='gcr-prompter' pseudotile=on index=
 hc rule instance~'battery_status|launcher' floating=on index=
 hc rule instance~'.*Nautilus|nemo|thunar|jetbrains-.*|JetBrains.*|code' index=1
 
