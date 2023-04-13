@@ -211,6 +211,10 @@ alias ig="iwctl station wlan0 get-networks"
 alias ir="sudo systemctl restart iwd.service"
 alias is="iwctl station wlan0 scan"
 
+# LOCK
+alias lk="sudo lock"
+alias lke="sudo lock > /dev/null && sudo \$EDITOR /root/lockrc && sudo lock"
+
 # MEDIA
 pm() { if [ $# = 0 ]; then mpv --no-video "$(xsel -ob)"; else mpv --no-video "$@"; fi }
 pv() { if [ $# = 0 ]; then mpv "$(xsel -ob)"; else mpv "$@"; fi }
@@ -241,8 +245,6 @@ alias h="python"
 alias i="pkg -i"
 alias l="preview"
 alias lb="lsblk -o name,label,mountpoint,fstype,size"
-alias lk="sudo /usr/bin/lock"
-alias lko="sudo /usr/bin/lock > /dev/null; sudo \$EDITOR \$XDG_CONFIG_HOME/lockrc; sudo /usr/bin/lock"
 alias ll="ls -l"
 alias lt="lint"
 alias pa="patch -p1 <"
