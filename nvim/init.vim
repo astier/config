@@ -3,6 +3,11 @@ augroup vimrc | autocmd! | augroup end
 scriptencoding utf-8
 
 " PLUGINS
+let plug_path = stdpath('data') . '/site/autoload/plug.vim'
+if empty(glob(plug_path))
+  execute '!curl -fLo' plug_path '--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd group vimenter * PlugInstall --sync | source $MYVIMRC
+endif
 nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
