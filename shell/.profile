@@ -213,7 +213,7 @@ alias is="iwctl station wlan0 scan"
 
 # LOCK
 alias lk="sudo lock"
-alias lke="sudo lock > /dev/null && sudo \$EDITOR /root/lockrc && sudo lock"
+alias lke="sudo lock > /dev/null && sudo \$EDITOR /root/lock_date && sudo lock"
 
 # MEDIA
 pm() { if [ $# = 0 ]; then mpv --no-video "$(xsel -ob)"; else mpv --no-video "$@"; fi }
