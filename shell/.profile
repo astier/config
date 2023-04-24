@@ -8,7 +8,7 @@ EXPORTS=$CONFIG/shell/exports
 # AUTOSTART - TTY1
 if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/tty1_started ]; then
     touch /tmp/tty1_started
-    pulsemixer --unmute
+    pulsemixer --unmute > /dev/null 2>&1
     [ -f /usr/bin/sx ] && exec sx
 fi
 
