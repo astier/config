@@ -12,6 +12,7 @@ nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   " Plug 'chrisgrieser/nvim-spider'
+  " Plug 'chrishrb/gx.nvim'
   " Plug 'mrjones2014/smart-splits.nvim'
   " Plug 'Wansmer/treesj'
   Plug 'airblade/vim-gitgutter'
