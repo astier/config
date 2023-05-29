@@ -20,7 +20,7 @@ alt + {3,4}
 {mod5,super} + f
     dmenu_run
 {mod5,super} + t
-    libreoffice ~/data/notes/tracker.ods
+    libreoffice ~/Documents/notes/tracker.ods
 super + {v,space}
     dunstctl {history-pop,close}
 
