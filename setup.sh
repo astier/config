@@ -92,7 +92,9 @@ if groups "$USER" | grep -q wheel; then
     link_sudo key.map "$DIR"
     copy systemd/system/tty-conf.service /etc/systemd/system
 
-    sudo rm /etc/NetworkManager/NetworkManager.conf
+    DIR=/etc/NetworkManager
+    [ ! -d "$DIR" ] && sudo mkdir "$DIR"
+    link_sudo NetworkManager.conf "$DIR"
 
     [ ! -f /etc/default/grub ] && copy grub /etc/default
 
@@ -100,6 +102,7 @@ if groups "$USER" | grep -q wheel; then
     copy systemd/system/getty@.service.d /etc/systemd/system
     sudo sed -i "s|<user>|$USER|g" /etc/systemd/system/getty@.service.d/override.conf
 
-    sudo rm /etc/udev/rules.d/00-udev.rules
+    copy 00-udev.rules /etc/udev/rules.d/
+    sudo sed -i "s|<user>|$USER|g" /etc/udev/rules.d/00-udev.rules
 
 fi
