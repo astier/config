@@ -1,5 +1,4 @@
 --glob=!.git
 --hidden
---line-number
 --max-columns=256
 --trim
