@@ -48,7 +48,7 @@ fi
 alias cryptsetup="sudo cryptsetup"
 alias df="df -h"
 alias du="du -h"
-alias fd="fd --follow --hidden --exclude .git --color never"
+alias fd="fd --hidden --exclude .git --color never"
 alias fdisk="sudo fdisk"
 alias gdisk="sudo gdisk"
 alias grep="grep --color=auto"

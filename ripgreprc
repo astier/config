@@ -1,4 +1,3 @@
---follow
 --glob=!.git
 --hidden
 --line-number
