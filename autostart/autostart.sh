@@ -5,7 +5,7 @@ bstatus &
 monitor
 sxhkd &
 xbanish &
-xkbcomp "$XDG_CONFIG_HOME/xkeymap" "$DISPLAY"
+xkbcomp "$XDG_CONFIG_HOME/keymap.xkb" "$DISPLAY"
 
 "$BROWSER" &
 if tmux has-session; then
