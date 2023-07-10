@@ -1,0 +1,10 @@
+default
+xkb_symbols "swap" {
+    include "us(altgr-intl)+capslock(swapescape)"
+    key <AC10> { [ Return ] };
+    key <RTRN> { [ semicolon ] };
+};
+
+xkb_symbols "noswap" {
+    include "us(altgr-intl)"
+};

@@ -27,7 +27,6 @@ link gtk-3.0 "$XDG_CONFIG_HOME"
 link gtk-4.0 "$XDG_CONFIG_HOME"
 link herbstluftwm "$XDG_CONFIG_HOME"
 link ideavim "$XDG_CONFIG_HOME"
-link keymap.xkb "$XDG_CONFIG_HOME"
 link markdownlint "$XDG_CONFIG_HOME"
 link mimeapps.list ~/.config/
 link mpv "$XDG_CONFIG_HOME"
@@ -85,6 +84,7 @@ if groups "$USER" | grep -q wheel; then
     link_sudo locale.conf /etc
     link_sudo thinkfan.conf /etc
     link_sudo vconsole.conf /etc
+    link_sudo xkb/symbols/custom /usr/share/X11/xkb/symbols
     link_sudo xorg.conf /etc/X11
 
     DIR=/usr/local/share/kbd/keymaps
