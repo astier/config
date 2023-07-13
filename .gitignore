@@ -3,8 +3,8 @@ bookmarks
 gtkfilechooser.ini
 mpv/watch_later
 
-arch/*/*.tar
-arch/*/pkg/
-arch/*/src/
-arch/st/st/
-arch/susu/susu
+pkgbuilds/*/*.tar
+pkgbuilds/*/pkg/
+pkgbuilds/*/src/
+pkgbuilds/st/st/
+pkgbuilds/susu/susu
