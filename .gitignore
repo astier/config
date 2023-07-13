@@ -7,3 +7,4 @@ arch/*/*.tar
 arch/*/pkg/
 arch/*/src/
 arch/st/st/
+arch/susu/susu

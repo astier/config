@@ -1,0 +1,15 @@
+pkgname=susu
+pkgver=1
+pkgrel=1
+pkgdesc="Use su as a sudo-replacement."
+arch=(x86_64)
+url=https://github.com/astier/scripts
+license=(MIT)
+provides=(sudo)
+conflicts=(sudo)
+source=("file://$HOME/.local/bin/susu")
+sha256sums=(SKIP)
+
+package() {
+	install -D "${srcdir}/susu" "${pkgdir}/usr/bin/sudo"
+}
