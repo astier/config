@@ -1,0 +1,13 @@
+window.active.border.color: #000000
+window.inactive.border.color: #000000
+
+window.active.title.bg.color: #2e3440
+window.inactive.title.bg.color: #2e3440
+
+window.active.label.text.color: #7c818c
+window.inactive.label.text.color: #7c818c
+
+window.active.button.unpressed.image.color: #7c818c
+window.inactive.button.unpressed.image.color: #7c818c
+
+osd.border.color: #000000
