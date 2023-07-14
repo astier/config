@@ -238,7 +238,6 @@ alias clean="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm -fr \$XDG_C
 alias dus="du -s"
 alias g="rg"
 alias gw="g -w"
-alias h="python"
 alias i="pkg -i"
 alias l="preview"
 alias lb="lsblk -o name,label,mountpoint,fstype,size"
@@ -256,6 +255,7 @@ ar() { dir="$(basename "$1").tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$
 cd() { command cd "$@" && ls; }
 d() { if [ $# = 0 ]; then exit; else realpath -s "$@" | sed 's/.*/"&"/' | xargs rm -fr; ls; fi }
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
+h () { if [ $# = 0 ]; then python; else awk "BEGIN{ print $* }"; fi }
 p() { if [ $# = 0 ]; then pwd | sed "s|$HOME|~|"; else cp -irv "$@"; fi }
 
 # OPEN PROJECT-FILES
