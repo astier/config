@@ -14,6 +14,8 @@ call plug#begin()
   " Plug 'chrisgrieser/nvim-spider'
   " Plug 'chrishrb/gx.nvim'
   " Plug 'mrjones2014/smart-splits.nvim'
+  " Plug 'rgroli/other.nvim'
+  " Plug 'ThePrimeagen/harpoon'
   " Plug 'Wansmer/treesj'
   Plug 'airblade/vim-gitgutter'
   Plug 'airblade/vim-rooter'
