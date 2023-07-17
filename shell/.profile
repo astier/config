@@ -56,14 +56,6 @@ alias mount="sudo mount"
 alias umount="sudo umount"
 alias watch="watch --color"
 
-rg() {
-    if [ -t 1 ]; then
-        command rg -p "$@" | less
-    else
-        command rg "$@"
-    fi
-}
-
 # CPM
 alias x="cpm"
 alias xc="cpm -c"
@@ -130,7 +122,7 @@ alias jw="cd ~/repos/sswm"
 j() {
     dir=$1
     if [ $# = 0 ]; then
-        dir=$(rg --files -0 | xargs -0 dirname | sed /^\.$/d | sort -u | fzf)
+        dir=$(ls-dirs | fzf)
     elif [ ! -d "$dir" ]; then
         mkdir -p "$dir"
     fi
@@ -236,7 +228,7 @@ alias b="cd - >/dev/null && ls"
 alias c="cd .."
 alias clean="sudo pacman -Rns \$(pacman -Qttdq); sudo pacman -Sc; rm -fr \$XDG_CACHE_HOME/*; sudo rm -fr /var/log/journal/*; rm -fr \$XDG_DATA_HOME/nvim/view/*"
 alias dus="du -s"
-alias g="rg"
+alias g="ggrep"
 alias gw="g -w"
 alias i="pkg -i"
 alias l="preview"

@@ -225,7 +225,7 @@ nnoremap ]c <cmd>silent GitGutterNextHunk<cr>zz
 set signcolumn=yes
 
 " GREP
-set grepprg=rg\ --vimgrep
+set grepprg=ggrep\ --vimgrep
 set grepformat=%f:%l:%c:%m
 command! -nargs=+ -complete=file_in_path Grep silent grep! <args><bar>echo
 nnoremap <space>g :Grep<space>
