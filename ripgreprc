@@ -1,4 +1,5 @@
 --glob=!.git
 --hidden
 --max-columns=256
+--no-messages
 --trim
