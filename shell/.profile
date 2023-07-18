@@ -241,7 +241,8 @@ alias re="sudo \$(fc -ln -1)"
 alias s="echo \$(bstatus -c)B \| \$(volume ?)V \| \$(date +%H:%M) \| \$(date +%d.%m.%y)"
 alias sc="scrot -s"
 alias tmp="nvim +'set nospell' /tmp/scratch.md"
-alias u="sudo reflector --protocol https --latest 8 --sort score --save /etc/pacman.d/mirrorlist && paru"
+alias u="paru"
+alias um="sudo systemctl start reflector.service"
 alias v="volume"
 ar() { dir="$(basename "$1").tar.gz"; [ $# -gt 1 ] && shift; tar -czvf "$dir" "$@"; }
 cd() { command cd "$@" && ls; }
