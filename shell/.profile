@@ -53,6 +53,7 @@ alias grep="grep --color=auto"
 alias less="less -FKRX"
 alias ls="ls -Ahv --color=auto --group-directories-first"
 alias mount="sudo mount"
+alias sudo="sudo -E"
 alias umount="sudo umount"
 alias watch="watch --color"
 
