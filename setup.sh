@@ -81,7 +81,7 @@ if groups "$USER" | grep -q wheel; then
 
     copy 00-polkit.rules /etc/polkit-1/rules.d/
     copy pacman/pacman.conf /etc
-    copy reflector.conf /etc/xdg/reflector
+    copy reflector.conf /etc/xdg/reflector/
     copy systemd/journald.conf.d /etc/systemd
     copy systemd/logind.conf.d /etc/systemd
     copy systemd/resolved.conf.d /etc/systemd
