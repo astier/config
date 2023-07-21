@@ -30,7 +30,6 @@ link ideavim "$XDG_CONFIG_HOME"
 link labwc "$XDG_CONFIG_HOME"
 link markdownlint "$XDG_CONFIG_HOME"
 link mimeapps.list ~/.config/
-link mpv "$XDG_CONFIG_HOME"
 link nvim "$XDG_CONFIG_HOME"
 link pacman "$XDG_CONFIG_HOME"
 link pylintrc "$XDG_CONFIG_HOME"
@@ -46,6 +45,10 @@ link templates "$XDG_CONFIG_HOME"
 link tint2 "$XDG_CONFIG_HOME"
 link tmux "$XDG_CONFIG_HOME"
 link zathura "$XDG_CONFIG_HOME"
+
+DIR="$XDG_CONFIG_HOME"/mpv
+mkdir -p "$DIR"
+link mpv.conf "$DIR"
 
 DIR="$HOME/.mozilla/firefox"
 PROFILE=$(grep "Default=" "$DIR/profiles.ini" | head -1 | cut -d= -f2 | cut -d. -f1)
