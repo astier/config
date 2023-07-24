@@ -8,7 +8,7 @@ EXPORTS=$CONFIG/shell/exports
 # AUTOSTART - TTY1
 if [ "$(tty)" = /dev/tty1 ] && [ ! -f /tmp/tty1_started ]; then
     touch /tmp/tty1_started
-    [ -f /usr/bin/sx ] && exec sx
+    [ -x "$(command -v sx)" ] && exec sx
 fi
 
 # THEME
