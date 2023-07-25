@@ -101,9 +101,11 @@ alias n="jumpopen \$NOTES notes"
 alias nb="jumpopen \$NOTES books"
 alias ni="jumpopen \$NOTES ideas"
 alias nl="jumpopen \$NOTES links"
+alias nmi="jumpopen \$NOTES misc"
 alias nn="jumpopen \$NOTES newsboat"
 alias np="jumpopen \$NOTES projects"
 alias ns="jumpopen \$NOTES study"
+alias nw="jumpopen \$NOTES wisdoms"
 alias rss="newsboat -u \$NOTES/newsboat"
 
 # BOOKMARKS - REPOS
