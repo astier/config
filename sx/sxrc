@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+# TODO: export in /etc/environment?
 export _JAVA_AWT_WM_NONREPARENTING=1
 export GDK_BACKEND=x11
 export XDG_SESSION_TYPE=x11
