@@ -79,6 +79,7 @@ jumpopen() { cd "$1" >/dev/null && shift && "$LAUNCHER" "$@" ; }
 alias jd="cd \$DOCUMENTS"
 alias jdc="cd \$DOCUMENTS/config/"
 alias jde="cd \$DOCUMENTS/education"
+alias jdf="cd \$DOCUMENTS && f"
 alias jdj="cd \$DOCUMENTS && j"
 alias ju="cd \$DOCUMENTS/uni"
 
