@@ -444,7 +444,14 @@ set rulerformat=%=\[%l/%L\] noruler
 set statusline=%= laststatus=0
 
 " SUBSTITUTE
-lua require('substitute').setup()
+lua << EOF
+require('substitute').setup({
+  preserve_cursor_position = true,
+  exchange = {
+    preserve_cursor_position = true,
+  },
+})
+EOF
 nnoremap s <cmd>lua require('substitute').operator()<cr>
 nnoremap sA <cmd>lua require('substitute').operator({ motion='a' })<cr>
 nnoremap sp <cmd>lua require('substitute').operator({ motion='ip' })<cr>
