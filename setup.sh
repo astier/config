@@ -84,6 +84,8 @@ if groups "$USER" | grep -q wheel; then
     copy reflector.conf /etc/xdg/reflector/
     copy systemd/journald.conf.d /etc/systemd
     copy systemd/logind.conf.d /etc/systemd
+    copy systemd/network/20-wired.network /etc/systemd/network
+    copy systemd/network/25-wireless.network /etc/systemd/network
     copy systemd/resolved.conf.d /etc/systemd
     link_sudo iptables.rules /etc/iptables
     link_sudo locale.conf /etc
