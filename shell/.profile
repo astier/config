@@ -120,7 +120,7 @@ alias jsf="cd ~/repos/scripts && f"
 alias jsi="cd ~/repos/sites/"
 alias jt="cd ~/repos/st"
 alias jv="cd ~/repos/vlugins"
-alias jw="cd ~/repos/sswm"
+alias jw="cd ~/repos/xswm"
 
 j() {
     dir=$1

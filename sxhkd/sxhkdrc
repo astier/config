@@ -25,8 +25,8 @@ super + {v,space}
     dunstctl {history-pop,close}
 
 mod5 + S
-    pkill sswm
+    pkill xswm
 {mod5,super} + d
-    sswm delete
+    xswm delete
 {button2,mod5 + l,super + s}
-    sswm last
+    xswm last

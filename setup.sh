@@ -58,6 +58,7 @@ DIR="$XDG_CONFIG_HOME"/autostart
 mkdir -p "$DIR"
 link autostart/autostart.desktop "$DIR"
 link autostart/autostart.sh "$DIR"
+link "$DIR" "$XDG_CONFIG_HOME"/xswm
 
 DIR=$XDG_CONFIG_HOME/Code/User
 if [ -d "$DIR" ]; then
