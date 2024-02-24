@@ -21,3 +21,6 @@ ui.context_menus.after_mouseup true
 
 # Disabel detachable tabs
 browser.tabs.allowTabDetach false
+
+# Disable thumbnails in search-results
+browser.urlbar.richSuggestions.featureGate false
