@@ -81,7 +81,6 @@ if groups "$USER" | grep -q wheel; then
     copy iwd.conf "$DIR/main.conf"
 
     copy 00-polkit.rules /etc/polkit-1/rules.d/
-    copy pacman/pacman.conf /etc
     copy reflector.conf /etc/xdg/reflector/
     copy systemd/journald.conf.d /etc/systemd
     copy systemd/logind.conf.d /etc/systemd
