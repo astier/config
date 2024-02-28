@@ -81,7 +81,6 @@ if groups "$USER" | grep -q wheel; then
     copy iwd.conf "$DIR/main.conf"
 
     copy 00-polkit.rules /etc/polkit-1/rules.d/
-    copy reflector.conf /etc/xdg/reflector/
     copy systemd/journald.conf.d /etc/systemd
     copy systemd/logind.conf.d /etc/systemd
     copy systemd/network/20-wired.network /etc/systemd/network
@@ -100,8 +99,10 @@ if groups "$USER" | grep -q wheel; then
     copy systemd/system/tty-conf.service /etc/systemd/system
 
     DIR=/etc/NetworkManager
-    [ ! -d "$DIR" ] && sudo mkdir "$DIR"
-    link_sudo NetworkManager.conf "$DIR"
+    [ -d "$DIR" ] && link_sudo NetworkManager.conf "$DIR"
+
+    DIR=/etc/xdg/reflector
+    [ -d "$DIR" ] && copy reflector.conf /etc/xdg/reflector/
 
     [ ! -f /etc/default/grub ] && copy grub /etc/default
 
