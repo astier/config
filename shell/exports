@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
-case $(tty) in
-  /dev/tty*)
-    export PATH="$HOME/.local/bin:$PATH"
-    ;;
+USER_BIN="$HOME/.local/bin"
+case ":$PATH:" in
+  *":$USER_BIN:"*) ;;
+  *) export PATH="$USER_BIN:$PATH" ;;
 esac
 
 export XDG_CACHE_HOME="$HOME/.cache"
