@@ -31,7 +31,6 @@ link labwc "$XDG_CONFIG_HOME"
 link markdownlint "$XDG_CONFIG_HOME"
 link mimeapps.list ~/.config/
 link nvim "$XDG_CONFIG_HOME"
-link pacman "$XDG_CONFIG_HOME"
 link pylintrc "$XDG_CONFIG_HOME"
 link pythonrc.py "$XDG_CONFIG_HOME"
 link ripgreprc "$XDG_CONFIG_HOME"
