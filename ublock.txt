@@ -5,6 +5,7 @@ www.youtube.com###secondary
 www.youtube.com##ytd-watch-next-secondary-results-renderer.ytd-watch-flexy.style-scope > .ytd-watch-next-secondary-results-renderer.style-scope
 ! chat
 www.youtube.com###chat
+www.youtube.com###panels-full-bleed-container
 
 ! overlay which blocks loading more tweets
 twitter.com##html:style(overflow: auto !important;)
