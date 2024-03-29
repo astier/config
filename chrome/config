@@ -15,6 +15,7 @@ reader.parse-on-load.enabled false
 
 # Enable hardware-acceleration (check arch-wiki)
 media.ffmpeg.vaapi.enabled true
+gfx.webrender.all true
 
 # Prevent right mouse-button from instantly clicking first option
 ui.context_menus.after_mouseup true
