@@ -11,11 +11,11 @@ endif
 nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
-  " Plug 'chrisgrieser/nvim-spider'
   " Plug 'ThePrimeagen/harpoon'
   Plug 'airblade/vim-gitgutter'
   Plug 'airblade/vim-rooter'
   Plug 'aserowy/tmux.nvim'
+  Plug 'chrisgrieser/nvim-spider'
   Plug 'dcampos/nvim-snippy'
   Plug 'gbprod/substitute.nvim'
   Plug 'hrsh7th/cmp-buffer'
@@ -332,6 +332,28 @@ noremap L L0
 noremap M M0
 noremap { {zz
 noremap } }zz
+
+" MOTIONS - SPIDER
+lua << EOF
+vim.keymap.set(
+	{ "n", "o", "x" },
+	"w",
+	"<cmd>lua require('spider').motion('w')<CR>",
+	{ desc = "Spider-w" }
+)
+vim.keymap.set(
+	{ "n", "o", "x" },
+	"e",
+	"<cmd>lua require('spider').motion('e')<CR>",
+	{ desc = "Spider-e" }
+)
+vim.keymap.set(
+	{ "n", "o", "x" },
+	"b",
+	"<cmd>lua require('spider').motion('b')<CR>",
+	{ desc = "Spider-b" }
+)
+EOF
 
 " MOUSE
 nmap <2-rightmouse> <rightmouse>
