@@ -67,9 +67,8 @@ hi! link question none " none
 hi! link signcolumn none " none
 hi! link title comment " none
 
-" PMENU & FLOAT
+" PMENU
 hi lspsignatureactiveparameter ctermbg=none ctermfg=yellow cterm=none
-hi! link normalfloat none " pmenu
 if $TERM ==# 'linux' || $TERM ==# 'screen'
     hi pmenu ctermbg=gray ctermfg=black cterm=none " none
     hi pmenusbar ctermbg=gray ctermfg=none cterm=none " none
@@ -91,7 +90,11 @@ hi search ctermbg=none ctermfg=red cterm=none " none
 " STATUSLINE
 hi statusline ctermbg=none ctermfg=8 cterm=none " none
 hi statuslinenc ctermbg=none ctermfg=8 cterm=none " none
-hi vertsplit ctermbg=none ctermfg=8 cterm=none " none
+
+" SEPARATOR
+hi separator ctermbg=none ctermfg=8 cterm=none
+hi! link normalfloat separator " pmenu
+hi! link winseparator separator " normal
 
 " VIM
 hi! link vimautocmdmod none " special

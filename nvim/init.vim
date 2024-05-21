@@ -37,7 +37,6 @@ call plug#begin()
   Plug 'numToStr/Comment.nvim'
   Plug 'rbong/vim-flog'
   Plug 'romainl/vim-qf'
-  Plug 'stsewd/gx-extended.vim'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'wellle/targets.vim'
@@ -252,14 +251,12 @@ let g:loaded_ruby_provider = 0
 let g:loaded_spellfile_plugin = 0
 let g:loaded_tarPlugin = 0
 let g:loaded_tutor_mode_plugin = 0
-let g:loaded_vimball = 0
-let g:loaded_vimballPlugin = 0
 let g:loaded_zipPlugin = 0
 
 " LSP
 lua << EOF
 -- Diagnostics
-vim.diagnostic.disable()
+vim.diagnostic.enable(false)
 vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
 -- Border
 local border = 'single'
@@ -283,7 +280,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', 'K',  vim.lsp.buf.hover, opts)
   end,
 })
 -- Servers
