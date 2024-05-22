@@ -287,7 +287,10 @@ lspconfig.ccls.setup({
 })
 lspconfig.jedi_language_server.setup({
   capabilities = capabilities,
-  init_options = { diagnostics = { enable = false } },
+  init_options = {
+		completion = { ignorePatterns = {"^_.*$"} },
+		diagnostics = { enable = false },
+	},
 })
 lspconfig.marksman.setup({ capabilities = capabilities })
 EOF
