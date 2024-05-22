@@ -406,6 +406,8 @@ nmap sab saib
 nmap saB saab
 nmap saw saiw
 nmap saW saiW
+nmap st' sr'"
+nmap st" sr"'
 
 " SCROLLING
 nnoremap <a-d> 4<c-y>
