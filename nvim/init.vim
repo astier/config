@@ -16,7 +16,6 @@ call plug#begin()
   Plug 'airblade/vim-rooter'
   Plug 'aserowy/tmux.nvim'
   Plug 'chrisgrieser/nvim-spider'
-  Plug 'dcampos/nvim-snippy'
   Plug 'gbprod/substitute.nvim'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -82,7 +81,7 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 local cmp = require('cmp')
-local snippy = require('snippy')
+local snippets = require('snippets')
 cmp.setup({
   completion = {
     autocomplete = false,
@@ -90,7 +89,7 @@ cmp.setup({
   },
   snippet = {
     expand = function(args)
-      snippy.expand_snippet(args.body)
+      vim.snippet.expand(args.body)
     end,
   },
   window = {
@@ -105,8 +104,8 @@ cmp.setup({
   },
   mapping = cmp.mapping.preset.insert({
     ['<tab>'] = cmp.mapping(function(fallback)
-      if snippy.can_expand() then
-        snippy.expand()
+      if snippets.expand() then
+        return
       elseif has_words_before() then
         cmp.complete()
       else
@@ -116,15 +115,15 @@ cmp.setup({
     ['<a-j>'] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_next_item({ behavior = 'select' })
-      elseif snippy.can_jump(1) then
-        snippy.next()
+      elseif vim.snippet.active({ direction = 1 }) then
+        vim.snippet.jump(1)
       end
     end),
     ['<a-k>'] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_prev_item({ behavior = 'select' })
-      elseif snippy.can_jump(-1) then
-        snippy.previous()
+      elseif vim.snippet.active({ direction = -1 }) then
+        vim.snippet.jump(-1)
       end
     end),
     ['<cr>']  = cmp.mapping.confirm({ select = true }),
@@ -435,15 +434,43 @@ set virtualedit=block
 
 " SNIPPETS
 lua << EOF
-require('snippy').setup({
-  mappings = {
-    s = {
-      ['<a-j>'] = 'next',
-      ['<a-k>'] = 'previous',
-    },
-    x = { ['<tab>'] = 'cut_text' },
+require('snippets').setup({
+  global = {
+    ['('] = { body = '($0)', i = true },
+    ['<'] = { body = '<$0>', i = true },
+    ['['] = { body = '[$0]', i = true },
+    ['"'] = { body = '"$0"', i = true },
+    ["'"] = { body = "'$0'", i = true },
+    ['{'] = { body = '{$0}', i = true },
+  },
+  c = {
+    f = { body = '$1($2) {\n\t$0\n}', b = true },
+  },
+  lua = {
+    f  = { body = 'function $1($2)\n\t$0\nend', b = true },
+    lf = { body = 'local function $1($2)\n\t$0\nend', b = true },
+    r = { body = 'return'},
+  },
+  vim = {
+    l = { body = 'lua << EOF\n$0\nEOF', b = true },
+    p = { body = 'Plug \'$0\'', b = true },
+    s = { body = '$1 = { body = \'$0\'},', b = true},
   },
 })
+vim.keymap.set('s', '<a-j>', function()
+  if vim.snippet.active({ 1 }) then
+    return '<cmd>lua vim.snippet.jump(1)<cr>'
+  else
+    return '<a-j>'
+  end
+end, { expr = true })
+vim.keymap.set('s', '<a-k>', function()
+  if vim.snippet.active({ -1 }) then
+    return '<cmd>lua vim.snippet.jump(-1)<cr>'
+  else
+    return '<a-k>'
+  end
+end, { expr = true })
 EOF
 
 " SORT
