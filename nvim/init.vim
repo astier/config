@@ -11,7 +11,6 @@ endif
 nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
-  " Plug 'ThePrimeagen/harpoon'
   Plug 'airblade/vim-gitgutter'
   Plug 'airblade/vim-rooter'
   Plug 'aserowy/tmux.nvim'
@@ -30,8 +29,10 @@ call plug#begin()
   Plug 'machakann/vim-sandwich'
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
+  Plug 'nvim-lua/plenary.nvim'
   Plug 'rbong/vim-flog'
   Plug 'romainl/vim-qf' " h: cfilter-plugin
+  Plug 'ThePrimeagen/harpoon'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'wellle/targets.vim'
@@ -222,6 +223,17 @@ set grepprg=ggrep\ --vimgrep
 set grepformat=%f:%l:%c:%m
 command! -nargs=+ -complete=file_in_path Grep silent grep! <args><bar>echo
 nnoremap <space>g :Grep<space>
+
+" HARPOON
+hi! link HarpoonBorder separator
+nnoremap <space>ha <cmd>lua require("harpoon.mark").add_file()<cr>
+nnoremap <space>m <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <space>1 <cmd>lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <space>2 <cmd>lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <space>3 <cmd>lua require("harpoon.ui").nav_file(3)<cr>
+nnoremap <space>4 <cmd>lua require("harpoon.ui").nav_file(4)<cr>
+nnoremap <c-n> <cmd>lua require("harpoon.ui").nav_next()<cr>
+nnoremap <c-p> <cmd>lua require("harpoon.ui").nav_prev()<cr>
 
 " INDENTATION
 nnoremap <p <ap
