@@ -93,6 +93,7 @@ hi statuslinenc ctermbg=none ctermfg=8 cterm=none " none
 
 " SEPARATOR
 hi separator ctermbg=none ctermfg=8 cterm=none
+hi! link floatborder separator " pmenu
 hi! link normalfloat separator " pmenu
 hi! link winseparator separator " normal
 
