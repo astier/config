@@ -4,6 +4,7 @@ let s:chars = [
 \]
 
 let s:words = [
+  \ [ 'and', 'or' ],
   \ [ 'on', 'off' ],
   \ [ 'yes', 'no' ],
   \ [ 'true', 'false' ],
