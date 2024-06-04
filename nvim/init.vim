@@ -30,7 +30,7 @@ call plug#begin()
   Plug 'numToStr/Comment.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'rbong/vim-flog'
-  Plug 'romainl/vim-qf' " h: cfilter-plugin
+  Plug 'romainl/vim-qf'
   Plug 'ThePrimeagen/harpoon'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
