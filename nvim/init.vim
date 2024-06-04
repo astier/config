@@ -31,7 +31,7 @@ call plug#begin()
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
   Plug 'rbong/vim-flog'
-  Plug 'romainl/vim-qf'
+  Plug 'romainl/vim-qf' " h: cfilter-plugin
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'wellle/targets.vim'
