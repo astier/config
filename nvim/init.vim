@@ -506,8 +506,6 @@ xnoremap sx <cmd>lua require('substitute.exchange').visual()<cr>
 " TABLINE
 set showtabline=1
 set tabline=%!tabline#Show()
-
-" TABS
 nnoremap <a-e> <cmd>tabp<cr>
 nnoremap <a-r> <cmd>tabn<cr>
 nnoremap <space>n <cmd>tab split<cr>
