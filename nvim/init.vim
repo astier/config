@@ -435,8 +435,7 @@ require('snippy').setup({
 EOF
 
 " SORT
-nmap <silent> gs myvii:sort i<cr>`y
-xnoremap <silent> gs my:sort i<cr>`y
+lua vim.keymap.set({ 'n', 'x' }, 'gs', 'my<cmd>lua require("sort").sort()<cr>`y')
 
 " SPELL
 set spellcapcheck=
