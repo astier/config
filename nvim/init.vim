@@ -567,9 +567,9 @@ else
 endif
 
 " YANK
-nnoremap <silent> y :<c-u>call yank#AndJumpBack()<cr>g@
-nnoremap yp <cmd>silent normal! myyap`y<cr>
-nnoremap yw myyiw`y
-nnoremap yW myyiW`y
-nnoremap yy myyy`y
+nnoremap y <cmd>call yank#AndJumpBack()<cr>g@
 xnoremap y <cmd>silent normal! myy`y<cr>
+nnoremap yy yy
+nmap yp yap
+nmap yw yiw
+nmap yW yiW
