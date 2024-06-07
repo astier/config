@@ -12,7 +12,6 @@ nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
-  Plug 'airblade/vim-rooter'
   Plug 'aserowy/tmux.nvim'
   Plug 'dcampos/nvim-snippy'
   Plug 'gbprod/substitute.nvim'
@@ -43,6 +42,16 @@ autocmd vimrc filetype * setl nocursorline
 autocmd vimrc textyankpost * lua vim.highlight.on_yank()
 colorscheme custom
 nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
+
+" AUTOCHDIR
+lua << EOF
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    local root = vim.fs.root(0, '.git')
+    if root then vim.uv.chdir(root) end
+  end,
+})
+EOF
 
 " BUFFERS
 autocmd vimrc textchanged,insertleave * nested if !&ro | silent! update | endif
@@ -376,11 +385,6 @@ EOF
 highlight bqfsign ctermfg=yellow
 highlight! link bqfpreviewborder comment
 highlight! link bqfpreviewrange none
-
-" ROOTER
-let g:rooter_change_directory_for_non_project_files = 'current'
-let g:rooter_resolve_links = 1
-let g:rooter_silent_chdir = 1
 
 " SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
 let g:sandwich_no_default_key_mappings = 1
