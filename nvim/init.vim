@@ -314,7 +314,6 @@ set errorformat+=%f:%l\ %m
 nnoremap <space>l <cmd>silent make! %<cr>
 
 " MAPPINGS
-inoremap <c-space> <space>
 nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
 nnoremap guw myguiw`y
 nnoremap guW myguiW`y
