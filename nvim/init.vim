@@ -482,7 +482,7 @@ nnoremap <space>n <cmd>tab split<cr>
 tnoremap <silent> <a-e> <c-\><c-n><cmd>tabp<cr>
 tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
 
-" TARGETS
+" TEXTOBJECT - BRACKETS & QUOTES
 autocmd vimrc user targets#mappings#user call targets#mappings#extend({
 \ 'b': {
 \   'pair': [{'o':'(', 'c':')'}, {'o':'[', 'c':']'}, {'o':'{', 'c':'}'}, {'o':'<', 'c':'>'}],
@@ -495,10 +495,15 @@ nmap db dIb
 nmap dq dIq
 nmap yb <cmd>silent! normal myyIb`y<cr> " Call as cmd to fix flog-error
 
-" TEXTOBJ
+" TEXTOBJECT - VARIABLE SEGMENT
 nmap cv civ
-nmap dc my^dic`y
 nmap dv dav
+
+" TEXTOBJECT - WORD COLUMN
+nmap c^ ^cic
+nmap d^ my^dic`y
+nmap c\| cic
+nmap d\| dic
 
 " TMUX
 command! -complete=shellcmd -nargs=* T call system('iwltm --send '.shellescape(expandcmd(<q-args>)))
