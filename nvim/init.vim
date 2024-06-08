@@ -486,12 +486,15 @@ nnoremap <space>n <cmd>tab split<cr>
 tnoremap <silent> <a-e> <c-\><c-n><cmd>tabp<cr>
 tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
 
-" TEXTOBJECT: BRACKETS & QUOTES
+" TEXTOBJECT: BRACKETS
 nmap cb cIb
-nmap cq cIq
 nmap db dIb
-nmap dq dIq
 nmap yb <cmd>silent! normal myyIb`y<cr> " Call as cmd to fix flog-error
+
+" TEXTOBJECT: QUOTES
+nmap cq cIq
+nmap dq dIq
+nmap yb yIq
 
 " TEXTOBJECT: VARIABLE SEGMENT
 nmap cv civ
