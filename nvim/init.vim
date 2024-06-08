@@ -12,7 +12,6 @@ nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
-  Plug 'aserowy/tmux.nvim'
   Plug 'dcampos/nvim-snippy'
   Plug 'gbprod/substitute.nvim'
   Plug 'hrsh7th/cmp-buffer'
@@ -521,6 +520,7 @@ nnoremap U <cmd>call center#ExeCmdAndCenter('redo')<cr>
 nnoremap u <cmd>call center#ExeCmdAndCenter('undo')<cr>
 
 " WINDOWS
+autocmd vimrc vimresized * wincmd =
 nnoremap <space>c <c-w>c
 nnoremap <space>s <c-w>s
 nnoremap <space>v <c-w>v
@@ -528,39 +528,14 @@ nnoremap <space>z <c-w>z
 set splitbelow splitright
 
 " WINDOWS - NAVIGATION
-lua << EOF
-return require("tmux").setup({
-  copy_sync = { enable = false },
-  navigation = {
-    cycle_navigation = false,
-    enable_default_keybindings = false,
-  },
-  resize = {
-    enable_default_keybindings = false,
-    resize_step_x = 2,
-    resize_step_y = 2,
-  },
-})
-EOF
-nnoremap <a-h> <cmd>lua require('tmux').move_left()<cr>
-nnoremap <a-j> <cmd>lua require('tmux').move_bottom()<cr>
-nnoremap <a-k> <cmd>lua require('tmux').move_top()<cr>
-nnoremap <a-l> <cmd>lua require('tmux').move_right()<cr>
-tnoremap <a-h> <c-\><c-n><cmd>lua require('tmux').move_left()<cr>
-tnoremap <a-j> <c-\><c-n><cmd>lua require('tmux').move_bottom()<cr>
-tnoremap <a-k> <c-\><c-n><cmd>lua require('tmux').move_top()<cr>
-tnoremap <a-l> <c-\><c-n><cmd>lua require('tmux').move_right()<cr>
-
-" WINDOWS - RESIZE
-autocmd vimrc vimresized * wincmd =
-nnoremap <a-H> <cmd>lua require('tmux').resize_left()<cr>
-nnoremap <a-J> <cmd>lua require('tmux').resize_bottom()<cr>
-nnoremap <a-K> <cmd>lua require('tmux').resize_top()<cr>
-nnoremap <a-L> <cmd>lua require('tmux').resize_right()<cr>
-tnoremap <a-H> <c-\><c-n><cmd>lua require('tmux').resize_left()<cr>
-tnoremap <a-J> <c-\><c-n><cmd>lua require('tmux').resize_bottom()<cr>
-tnoremap <a-K> <c-\><c-n><cmd>lua require('tmux').resize_top()<cr>
-tnoremap <a-L> <c-\><c-n><cmd>lua require('tmux').resize_right()<cr>
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+tnoremap <c-h> <c-w>h
+tnoremap <c-j> <c-w>j
+tnoremap <c-k> <c-w>k
+tnoremap <c-l> <c-w>l
 
 " WRAP
 autocmd vimrc filetype * set formatoptions-=t wrap
