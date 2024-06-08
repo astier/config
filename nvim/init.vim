@@ -165,7 +165,7 @@ xnoremap d <cmd>silent normal! d<cr>
 nnoremap gqp gqip
 nnoremap gqq Vgq
 
-" FUZZY - CONFIG
+" FUZZY: CONFIG
 lua << EOF
 require('fzf-lua').setup({
   'max-perf',
@@ -180,7 +180,7 @@ require('fzf-lua').setup({
 })
 EOF
 
-" FUZZY - MAPPINGS (MISC)
+" FUZZY: MAPPINGS (MISC)
 nnoremap fb <cmd>FzfLua builtin<cr>
 nnoremap fc <cmd>FzfLua commands<cr>
 nnoremap ff <cmd>FzfLua files<cr>
@@ -192,14 +192,14 @@ nnoremap fQ <cmd>FzfLua loclist<cr>
 nnoremap fq <cmd>FzfLua quickfix<cr>
 nnoremap fR <cmd>FzfLua registers<cr>
 
-" FUZZY - MAPPINGS (GREP)
+" FUZZY: MAPPINGS (GREP)
 nnoremap fg <cmd>FzfLua grep<cr>
 nnoremap fG <cmd>FzfLua live_grep<cr>
 nnoremap fw <cmd>FzfLua grep_cword<cr>
 nnoremap fW <cmd>FzfLua grep_cWORD<cr>
 xnoremap fw <cmd>FzfLua grep_visual<cr>
 
-" FUZZY - MAPPINGS (LSP)
+" FUZZY: MAPPINGS (LSP)
 nnoremap fd <cmd>FzfLua lsp_definitions<cr>
 nnoremap fi <cmd>FzfLua lsp_implementations<cr>
 nnoremap fr <cmd>FzfLua lsp_references<cr>
@@ -486,18 +486,18 @@ nnoremap <space>n <cmd>tab split<cr>
 tnoremap <silent> <a-e> <c-\><c-n><cmd>tabp<cr>
 tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
 
-" TEXTOBJECT - BRACKETS & QUOTES
+" TEXTOBJECT: BRACKETS & QUOTES
 nmap cb cIb
 nmap cq cIq
 nmap db dIb
 nmap dq dIq
 nmap yb <cmd>silent! normal myyIb`y<cr> " Call as cmd to fix flog-error
 
-" TEXTOBJECT - VARIABLE SEGMENT
+" TEXTOBJECT: VARIABLE SEGMENT
 nmap cv civ
 nmap dv dav
 
-" TEXTOBJECT - WORD COLUMN
+" TEXTOBJECT: WORD COLUMN
 nmap c^ ^cic
 nmap d^ my^dic`y
 nmap c\| cic
@@ -521,7 +521,7 @@ nnoremap <space>v <c-w>v
 nnoremap <space>z <c-w>z
 set splitbelow splitright
 
-" WINDOWS - NAVIGATION
+" WINDOWS: NAVIGATION
 lua << EOF
 return require("tmux").setup({
   copy_sync = { enable = false },
@@ -545,7 +545,7 @@ tnoremap <a-j> <c-\><c-n><cmd>lua require('tmux').move_bottom()<cr>
 tnoremap <a-k> <c-\><c-n><cmd>lua require('tmux').move_top()<cr>
 tnoremap <a-l> <c-\><c-n><cmd>lua require('tmux').move_right()<cr>
 
-" WINDOWS - RESIZE
+" WINDOWS: RESIZE
 autocmd vimrc vimresized * wincmd =
 nnoremap <a-H> <cmd>lua require('tmux').resize_left()<cr>
 nnoremap <a-J> <cmd>lua require('tmux').resize_bottom()<cr>
