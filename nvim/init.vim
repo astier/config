@@ -14,6 +14,7 @@ call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'aserowy/tmux.nvim'
   Plug 'dcampos/nvim-snippy'
+  Plug 'echasnovski/mini.ai'
   Plug 'gbprod/substitute.nvim'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -34,7 +35,6 @@ call plug#begin()
   Plug 'ThePrimeagen/harpoon'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
-  Plug 'wellle/targets.vim'
 call plug#end()
 
 " APPEARANCE
@@ -485,15 +485,18 @@ nnoremap <space>n <cmd>tab split<cr>
 tnoremap <silent> <a-e> <c-\><c-n><cmd>tabp<cr>
 tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
 
+" TEXTOBJECTS
+lua require('mini.ai').setup({ silent = true })
+
 " TEXTOBJECT: BRACKETS
-nmap cb cIb
-nmap db dIb
-nmap yb <cmd>silent! normal myyIb`y<cr> " Call as cmd to fix flog-error
+nmap cb cib
+nmap db dib
+nmap yb <cmd>silent! normal myyib`y<cr> " Call as cmd to fix flog-error
 
 " TEXTOBJECT: QUOTES
-nmap cq cIq
-nmap dq dIq
-nmap yq yIq
+nmap cq ciq
+nmap dq diq
+nmap yq yiq
 
 " TEXTOBJECT: VARIABLE SEGMENT
 nmap cv civ
