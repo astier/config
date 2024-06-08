@@ -23,13 +23,11 @@ call plug#begin()
   Plug 'Julian/vim-textobj-variable-segment'
   Plug 'kana/vim-textobj-indent'
   Plug 'kana/vim-textobj-user'
-  Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'rbong/vim-flog'
-  Plug 'romainl/vim-qf'
   Plug 'ThePrimeagen/harpoon'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
@@ -367,23 +365,24 @@ nnoremap p <cmd>silent! normal! p<cr>
 nnoremap P <cmd>silent! normal! P<cr>
 
 " QUICKFIX
-autocmd vimrc filetype qf setl nonu scl=no
-nmap <space>q <plug>(qf_qf_toggle_stay)
-nmap [q <plug>(qf_qf_previous)zz
-nmap ]q <plug>(qf_qf_next)zz
+autocmd vimrc filetype qf setl nonu nowrap scl=no
+autocmd vimrc filetype qf nnoremap <buffer> <cr> <cr>zz
+autocmd vimrc filetype qf nnoremap <buffer> o <cr><cmd>cclose<cr>zz
+autocmd vimrc filetype qf nnoremap <buffer> p <cr>zz<c-w>p
+autocmd vimrc quickfixcmdpost [^l]* cwindow
+autocmd vimrc quickfixcmdpost l* lwindow
+nnoremap ]q <cmd>cn<cr>zz
+nnoremap [q <cmd>cp<cr>zz
 lua << EOF
-require('bqf').setup({
-  preview = {
-    border_chars = { '│', '│', '─', '─', '┌', '┐', '└', '┘', '█' },
-    show_title = false,
-  },
-  func_map = { split = '<c-s>', },
-  filter = { fzf = { action_for = { ['ctrl-s'] = 'split' } } },
-})
+vim.keymap.set('n', '<space>q', function()
+  local qf_exists = not vim.tbl_isempty(vim.fn.filter(vim.fn.getwininfo(), 'v:val.quickfix'))
+  if qf_exists then
+    vim.cmd('cclose')
+  else
+    vim.cmd('copen')
+  end
+end)
 EOF
-highlight bqfsign ctermfg=yellow
-highlight! link bqfpreviewborder comment
-highlight! link bqfpreviewrange none
 
 " SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
 let g:sandwich_no_default_key_mappings = 1
