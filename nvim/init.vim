@@ -395,7 +395,6 @@ nmap srf <plug>(sandwich-replace)f
 nmap sa <plug>(operator-sandwich-add)
 xmap sa <plug>(operator-sandwich-add)
 nmap sab saib
-nmap saB saab
 nmap saw saiw
 nmap saW saiW
 nmap st' sr'"
