@@ -23,10 +23,10 @@ call plug#begin()
   Plug 'ibhagwan/fzf-lua', { 'branch': 'main' }
   Plug 'idbrii/textobj-word-column.vim'
   Plug 'Julian/vim-textobj-variable-segment'
-  Plug 'kana/vim-textobj-indent'
   Plug 'kana/vim-textobj-user'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
+  Plug 'michaeljsmith/vim-indent-object'
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
   Plug 'nvim-lua/plenary.nvim'
@@ -497,6 +497,11 @@ nmap yb <cmd>silent! normal myyib`y<cr> " Call as cmd to fix flog-error
 nmap cq ciq
 nmap dq diq
 nmap yq yiq
+
+" TEXTOBJECT: INDENT
+nmap cI caI
+nmap dI daI
+nmap yI yaI
 
 " TEXTOBJECT: VARIABLE SEGMENT
 nmap cv civ
