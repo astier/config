@@ -499,9 +499,9 @@ nmap dq diq
 nmap yq yiq
 
 " TEXTOBJECT: BUFFER
-nmap ce cie
-nmap de die
-nmap ye yie
+let g:textobj_entire_no_default_key_mappings = 1
+omap aB <Plug>(textobj-entire-a)
+omap B  <Plug>(textobj-entire-i)
 
 " TEXTOBJECT: INDENT
 nmap cI caI
