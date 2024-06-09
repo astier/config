@@ -13,6 +13,7 @@ nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'aserowy/tmux.nvim'
+  Plug 'chrisgrieser/nvim-various-textobjs'
   Plug 'dcampos/nvim-snippy'
   Plug 'echasnovski/mini.ai'
   Plug 'gbprod/substitute.nvim'
@@ -23,12 +24,9 @@ call plug#begin()
   Plug 'ibhagwan/fzf-lua', { 'branch': 'main' }
   Plug 'idbrii/textobj-word-column.vim'
   Plug 'Julian/vim-textobj-variable-segment'
-  Plug 'kana/vim-textobj-entire'
-  Plug 'kana/vim-textobj-line'
   Plug 'kana/vim-textobj-user'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
-  Plug 'michaeljsmith/vim-indent-object'
   Plug 'neovim/nvim-lspconfig'
   Plug 'numToStr/Comment.nvim'
   Plug 'nvim-lua/plenary.nvim'
@@ -487,7 +485,30 @@ tnoremap <silent> <a-e> <c-\><c-n><cmd>tabp<cr>
 tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
 
 " TEXTOBJECTS
-lua require('mini.ai').setup({ silent = true })
+lua << EOF
+local map = vim.keymap.set
+require('mini.ai').setup({ silent = true })
+require('various-textobjs').setup({ notifyNotFound = false })
+map('o', 'ii', '<cmd>lua require("various-textobjs").indentation("inner", "inner")<cr>')
+map('o', 'ai', '<cmd>lua require("various-textobjs").indentation("outer", "inner")<cr>')
+map('o', 'I',  '<cmd>lua require("various-textobjs").indentation("outer", "outer")<cr>')
+map('o', 'B',  '<cmd>lua require("various-textobjs").entireBuffer()<cr>')
+map('o', '_',  '<cmd>lua require("various-textobjs").lineCharacterwise("inner")<cr>')
+map('o', 'v',  '<cmd>lua require("various-textobjs").value("inner")<cr>')
+map('o', 'k',  '<cmd>lua require("various-textobjs").key("inner")<cr>')
+map('o', 'il', '<cmd>lua require("various-textobjs").mdlink("inner")<cr>')
+map('o', 'al', '<cmd>lua require("various-textobjs").mdlink("outer")<cr>')
+map('o', 'iC', '<cmd>lua require("various-textobjs").mdFencedCodeBlock("inner")<cr>')
+map('o', 'aC', '<cmd>lua require("various-textobjs").mdFencedCodeBlock("outer")<cr>')
+map('n', 'gx', function()
+  require('various-textobjs').url()
+  local foundURL = vim.fn.mode():find('v')
+  if not foundURL then return end
+  vim.cmd.normal { '"zy', bang = true }
+  local url = vim.fn.getreg('z')
+  vim.ui.open(url)
+end, { desc = 'Smart gx seeks next URL' })
+EOF
 
 " TEXTOBJECT: BRACKETS
 nmap cb cib
@@ -498,20 +519,6 @@ nmap yb <cmd>silent! normal myyib`y<cr> " Call as cmd to fix flog-error
 nmap cq ciq
 nmap dq diq
 nmap yq yiq
-
-" TEXTOBJECT: BUFFER
-let g:textobj_entire_no_default_key_mappings = 1
-omap aB <Plug>(textobj-entire-a)
-omap B  <Plug>(textobj-entire-i)
-
-" TEXTOBJECT: INDENT
-nmap cI caI
-nmap dI daI
-nmap yI yaI
-
-" TEXTOBJECT: LINE
-omap _ <Plug>(textobj-line-i)
-xmap _ <Plug>(textobj-line-i)
 
 " TEXTOBJECT: SUBWORD
 nmap cs civ
