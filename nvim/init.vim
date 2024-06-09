@@ -323,7 +323,6 @@ set errorformat+=%f:%l\ %m
 nnoremap <space>l <cmd>silent make! %<cr>
 
 " MAPPINGS
-nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
 nnoremap guw myguiw`y
 nnoremap guW myguiW`y
 nnoremap gUw mygUiw`y
@@ -387,17 +386,14 @@ highlight! link bqfpreviewrange none
 
 " SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
 let g:sandwich_no_default_key_mappings = 1
-nmap sd <plug>(operator-sandwich-delete)a
-nmap sr <plug>(operator-sandwich-replace)a
-nmap sdf <plug>(sandwich-delete)f
-nmap srf <plug>(sandwich-replace)f
-nmap sa <plug>(operator-sandwich-add)
-xmap sa <plug>(operator-sandwich-add)
-nmap sab saib
-nmap saw saiw
-nmap saW saiW
-nmap st' sr'"
-nmap st" sr"'
+nmap ds <Plug>(operator-sandwich-delete)a
+nmap cs <Plug>(operator-sandwich-replace)a
+nmap df <Plug>(sandwich-delete)f
+nmap cf <Plug>(sandwich-replace)f
+nmap s  <Plug>(operator-sandwich-add)
+xmap s  <Plug>(operator-sandwich-add)
+nmap sw siw
+nmap sW siW
 
 " SCROLLING
 nnoremap <a-d> 4<c-y>
@@ -457,23 +453,23 @@ require('substitute').setup({
   },
 })
 EOF
-nnoremap s <cmd>lua require('substitute').operator()<cr>
-nnoremap sA <cmd>lua require('substitute').operator({ motion='a' })<cr>
-nnoremap sp <cmd>lua require('substitute').operator({ motion='ip' })<cr>
-nnoremap sb <cmd>lua require('substitute').operator({ motion='Ib' })<cr>
-nnoremap sB <cmd>lua require('substitute').operator({ motion='ab' })<cr>
-nnoremap sw <cmd>lua require('substitute').operator({ motion='iw' })<cr>
-nnoremap sW <cmd>lua require('substitute').operator({ motion='iW' })<cr>
-nnoremap S <cmd>lua require('substitute').eol()<cr>
-nnoremap ss <cmd>lua require('substitute').line()<cr>
-xnoremap ss <cmd>lua require('substitute').visual()<cr>
-nnoremap sx <cmd>lua require('substitute.exchange').operator()<cr>
-nnoremap sxb <cmd>lua require('substitute.exchange').operator({ motion='Ib' })<cr>
-nnoremap sxB <cmd>lua require('substitute.exchange').operator({ motion='ab' })<cr>
-nnoremap sxw <cmd>lua require('substitute.exchange').operator({ motion='iw' })<cr>
-nnoremap sxW <cmd>lua require('substitute.exchange').operator({ motion='iW' })<cr>
-nnoremap sxx <cmd>lua require('substitute.exchange').line()<cr>
-xnoremap sx <cmd>lua require('substitute.exchange').visual()<cr>
+nnoremap <cr>r  <cmd>lua require('substitute').operator()<cr>
+nnoremap <cr>rw <cmd>lua require('substitute').operator({ motion='iw' })<cr>
+nnoremap <cr>rW <cmd>lua require('substitute').operator({ motion='iW' })<cr>
+nnoremap <cr>rp <cmd>lua require('substitute').operator({ motion='ap' })<cr>
+nnoremap <cr>rb <cmd>lua require('substitute').operator({ motion='ib' })<cr>
+nnoremap <cr>rq <cmd>lua require('substitute').operator({ motion='iq' })<cr>
+nnoremap <cr>R  <cmd>lua require('substitute').eol()<cr>
+nnoremap <cr>rr <cmd>lua require('substitute').line()<cr>
+xnoremap <cr>r  <cmd>lua require('substitute').visual()<cr>
+nnoremap <cr>x  <cmd>lua require('substitute.exchange').operator()<cr>
+nnoremap <cr>xw <cmd>lua require('substitute.exchange').operator({ motion='iw' })<cr>
+nnoremap <cr>xW <cmd>lua require('substitute.exchange').operator({ motion='iW' })<cr>
+nnoremap <cr>xp <cmd>lua require('substitute.exchange').operator({ motion='ap' })<cr>
+nnoremap <cr>xb <cmd>lua require('substitute.exchange').operator({ motion='ib' })<cr>
+nnoremap <cr>xq <cmd>lua require('substitute.exchange').operator({ motion='iq' })<cr>
+nnoremap <cr>xx <cmd>lua require('substitute.exchange').line()<cr>
+xnoremap x      <cmd>lua require('substitute.exchange').visual()<cr>
 
 " TABLINE
 set showtabline=1
@@ -501,9 +497,9 @@ require('mini.ai').setup({
 })
 local map = vim.keymap.set
 -- Brackets
-map('n', 'cb', 'cib', { remap = true })
-map('n', 'db', 'dib', { remap = true })
-map('n', 'yb', 'yib', { remap = true })
+map('n', 'cb', 'csb', { remap = true })
+map('n', 'db', 'dsb', { remap = true })
+map('n', 'yb', 'ysb', { remap = true })
 -- Buffer
 map('n', 'cB', 'caB', { remap = true })
 map('n', 'dB', 'daB', { remap = true })
@@ -513,12 +509,12 @@ map('n', 'cL', 'ciL', { remap = true })
 map('n', 'dL', 'diL', { remap = true })
 map('n', 'yL', 'yiL', { remap = true })
 -- Quotes
-map('n', 'cq', 'ciq', { remap = true })
-map('n', 'dq', 'diq', { remap = true })
-map('n', 'yq', 'yiq', { remap = true })
+map('n', 'cq', 'csq', { remap = true })
+map('n', 'dq', 'dsq', { remap = true })
+map('n', 'yq', 'ysq', { remap = true })
 -- Subword
-map('n', 'cs', 'civ', { remap = true })
-map('n', 'ds', 'dav', { remap = true })
+map('n', 'cv', 'civ', { remap = true })
+map('n', 'dv', 'dav', { remap = true })
 -- Word-Column
 map('n', 'c|', 'cic', { remap = true })
 map('n', 'd|', 'dic', { remap = true })
