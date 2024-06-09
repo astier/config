@@ -23,6 +23,7 @@ call plug#begin()
   Plug 'ibhagwan/fzf-lua', { 'branch': 'main' }
   Plug 'idbrii/textobj-word-column.vim'
   Plug 'Julian/vim-textobj-variable-segment'
+  Plug 'kana/vim-textobj-entire'
   Plug 'kana/vim-textobj-user'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
@@ -497,6 +498,11 @@ nmap yb <cmd>silent! normal myyib`y<cr> " Call as cmd to fix flog-error
 nmap cq ciq
 nmap dq diq
 nmap yq yiq
+
+" TEXTOBJECT: BUFFER
+nmap ce cie
+nmap de die
+nmap ye yie
 
 " TEXTOBJECT: INDENT
 nmap cI caI
