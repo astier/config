@@ -499,33 +499,30 @@ require('mini.ai').setup({
   },
   silent = true,
 })
+local map = vim.keymap.set
+-- Brackets
+map('n', 'cb', 'cib', { remap = true })
+map('n', 'db', 'dib', { remap = true })
+map('n', 'yb', 'yib', { remap = true })
 -- Buffer
-vim.keymap.set('n', 'cB', 'caB', { remap = true })
-vim.keymap.set('n', 'dB', 'daB', { remap = true })
-vim.keymap.set('n', 'yB', 'yiB', { remap = true })
--- Indent
-vim.keymap.set('n', 'cL', 'ciL', { remap = true })
-vim.keymap.set('n', 'dL', 'diL', { remap = true })
-vim.keymap.set('n', 'yL', 'yiL', { remap = true })
+map('n', 'cB', 'caB', { remap = true })
+map('n', 'dB', 'daB', { remap = true })
+map('n', 'yB', 'yiB', { remap = true })
+-- Line
+map('n', 'cL', 'ciL', { remap = true })
+map('n', 'dL', 'diL', { remap = true })
+map('n', 'yL', 'yiL', { remap = true })
+-- Quotes
+map('n', 'cq', 'ciq', { remap = true })
+map('n', 'dq', 'diq', { remap = true })
+map('n', 'yq', 'yiq', { remap = true })
+-- Subword
+map('n', 'cs', 'civ', { remap = true })
+map('n', 'ds', 'dav', { remap = true })
+-- Word-Column
+map('n', 'c|', 'cic', { remap = true })
+map('n', 'd|', 'dic', { remap = true })
 EOF
-
-" TEXTOBJECT: BRACKETS
-nmap cb cib
-nmap db dib
-nmap yb <cmd>silent! normal myyib`y<cr> " Call as cmd to fix flog-error
-
-" TEXTOBJECT: QUOTES
-nmap cq ciq
-nmap dq diq
-nmap yq yiq
-
-" TEXTOBJECT: SUBWORD
-nmap cs civ
-nmap ds dav
-
-" TEXTOBJECT: WORD COLUMN
-nmap c\| cic
-nmap d\| dic
 
 " TMUX
 command! -complete=shellcmd -nargs=* T call system('iwltm --send '.shellescape(expandcmd(<q-args>)))
