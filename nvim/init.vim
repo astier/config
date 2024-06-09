@@ -13,9 +13,9 @@ nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'aserowy/tmux.nvim'
-  Plug 'chrisgrieser/nvim-various-textobjs'
   Plug 'dcampos/nvim-snippy'
   Plug 'echasnovski/mini.ai'
+  Plug 'echasnovski/mini.extra'
   Plug 'gbprod/substitute.nvim'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -486,28 +486,27 @@ tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
 
 " TEXTOBJECTS
 lua << EOF
-local map = vim.keymap.set
-require('mini.ai').setup({ silent = true })
-require('various-textobjs').setup({ notifyNotFound = false })
-map('o', 'ii', '<cmd>lua require("various-textobjs").indentation("inner", "inner")<cr>')
-map('o', 'ai', '<cmd>lua require("various-textobjs").indentation("outer", "inner")<cr>')
-map('o', 'I',  '<cmd>lua require("various-textobjs").indentation("outer", "outer")<cr>')
-map('o', 'B',  '<cmd>lua require("various-textobjs").entireBuffer()<cr>')
-map('o', '_',  '<cmd>lua require("various-textobjs").lineCharacterwise("inner")<cr>')
-map('o', 'v',  '<cmd>lua require("various-textobjs").value("inner")<cr>')
-map('o', 'k',  '<cmd>lua require("various-textobjs").key("inner")<cr>')
-map('o', 'il', '<cmd>lua require("various-textobjs").mdlink("inner")<cr>')
-map('o', 'al', '<cmd>lua require("various-textobjs").mdlink("outer")<cr>')
-map('o', 'iC', '<cmd>lua require("various-textobjs").mdFencedCodeBlock("inner")<cr>')
-map('o', 'aC', '<cmd>lua require("various-textobjs").mdFencedCodeBlock("outer")<cr>')
-map('n', 'gx', function()
-  require('various-textobjs').url()
-  local foundURL = vim.fn.mode():find('v')
-  if not foundURL then return end
-  vim.cmd.normal { '"zy', bang = true }
-  local url = vim.fn.getreg('z')
-  vim.ui.open(url)
-end, { desc = 'Smart gx seeks next URL' })
+require('mini.extra').setup()
+local gen_ai_spec = require('mini.extra').gen_ai_spec
+require('mini.ai').setup({
+  custom_textobjects = {
+    B = gen_ai_spec.buffer(),
+    i = gen_ai_spec.indent(),
+    L = gen_ai_spec.line(),
+  },
+  mappings = {
+    inside_next = 'n',
+  },
+  silent = true,
+})
+-- Buffer
+vim.keymap.set('n', 'cB', 'caB', { remap = true })
+vim.keymap.set('n', 'dB', 'daB', { remap = true })
+vim.keymap.set('n', 'yB', 'yiB', { remap = true })
+-- Indent
+vim.keymap.set('n', 'cL', 'ciL', { remap = true })
+vim.keymap.set('n', 'dL', 'diL', { remap = true })
+vim.keymap.set('n', 'yL', 'yiL', { remap = true })
 EOF
 
 " TEXTOBJECT: BRACKETS
