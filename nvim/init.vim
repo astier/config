@@ -508,9 +508,9 @@ nmap cI caI
 nmap dI daI
 nmap yI yaI
 
-" TEXTOBJECT: VARIABLE SEGMENT
-nmap cv civ
-nmap dv dav
+" TEXTOBJECT: SUBWORD
+nmap cs civ
+nmap ds dav
 
 " TEXTOBJECT: WORD COLUMN
 nmap c^ ^cic
