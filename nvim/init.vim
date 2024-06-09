@@ -525,8 +525,6 @@ nmap cs civ
 nmap ds dav
 
 " TEXTOBJECT: WORD COLUMN
-nmap c^ ^cic
-nmap d^ my^dic`y
 nmap c\| cic
 nmap d\| dic
 
