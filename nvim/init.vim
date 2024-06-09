@@ -343,10 +343,9 @@ nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 nnoremap A g$a
 nnoremap I g0i
-noremap $ g$
-noremap F g$
-noremap 0 g0
-noremap ^ g^
+noremap gH g0
+noremap gh g^
+noremap gl g$
 noremap j gj
 noremap k gk
 noremap H H0
