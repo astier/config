@@ -24,6 +24,7 @@ call plug#begin()
   Plug 'idbrii/textobj-word-column.vim'
   Plug 'Julian/vim-textobj-variable-segment'
   Plug 'kana/vim-textobj-entire'
+  Plug 'kana/vim-textobj-line'
   Plug 'kana/vim-textobj-user'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
@@ -507,6 +508,10 @@ omap B  <Plug>(textobj-entire-i)
 nmap cI caI
 nmap dI daI
 nmap yI yaI
+
+" TEXTOBJECT: LINE
+omap _ <Plug>(textobj-line-i)
+xmap _ <Plug>(textobj-line-i)
 
 " TEXTOBJECT: SUBWORD
 nmap cs civ
