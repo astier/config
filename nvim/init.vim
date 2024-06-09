@@ -493,7 +493,7 @@ nmap yb <cmd>silent! normal myyIb`y<cr> " Call as cmd to fix flog-error
 " TEXTOBJECT: QUOTES
 nmap cq cIq
 nmap dq dIq
-nmap yb yIq
+nmap yq yIq
 
 " TEXTOBJECT: VARIABLE SEGMENT
 nmap cv civ
