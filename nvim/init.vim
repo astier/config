@@ -497,7 +497,7 @@ local map = vim.keymap.set
 -- Brackets
 map('n', 'cb', 'csb', { remap = true })
 map('n', 'db', 'dsb', { remap = true })
-map('n', 'yb', 'ysb', { remap = true })
+map('n', 'yb', 'yib', { remap = true })
 -- Buffer
 map('n', 'cB', 'caB', { remap = true })
 map('n', 'dB', 'daB', { remap = true })
@@ -509,7 +509,7 @@ map('n', 'yL', 'yiL', { remap = true })
 -- Quotes
 map('n', 'cq', 'csq', { remap = true })
 map('n', 'dq', 'dsq', { remap = true })
-map('n', 'yq', 'ysq', { remap = true })
+map('n', 'yq', 'yiq', { remap = true })
 -- Subword
 map('n', 'cv', 'civ', { remap = true })
 map('n', 'dv', 'dav', { remap = true })
