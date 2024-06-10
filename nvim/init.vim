@@ -450,9 +450,6 @@ require('snippy').setup({
 })
 EOF
 
-" SORT
-lua vim.keymap.set({ 'n', 'x' }, 'gs', function() require('sort').sort() end)
-
 " SPELL
 set spellcapcheck=
 set spellfile=$XDG_STATE_HOME/nvim/spell/en.utf-8.add
@@ -544,12 +541,11 @@ nnoremap <space><space> <cmd>call T(getline('.'))<cr>
 xnoremap <space><space> "vy <cmd>call T(substitute(@v, '\n$', '', ''))<cr>
 nnoremap <space>a <cmd>T execute<cr>
 
-" TOGGLE
+" TRANSFORM
 lua << EOF
-require('mini.splitjoin').setup({
-  mappings = { toggle = '<space>t', },
-})
+require('mini.splitjoin').setup({ mappings = { toggle = '<space>t' } })
 vim.keymap.set('n', 't', '<cmd>call toggle#Next()<cr>')
+vim.keymap.set({ 'n', 'x' }, 'gs', function() require('sort').sort() end)
 EOF
 
 " UNDO
