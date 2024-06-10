@@ -323,6 +323,7 @@ set errorformat+=%f:%l\ %m
 nnoremap <space>l <cmd>silent make! %<cr>
 
 " MAPPINGS
+nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
 nnoremap guw myguiw`y
 nnoremap guW myguiW`y
 nnoremap gUw mygUiw`y
@@ -446,26 +447,26 @@ set statusline=%= laststatus=0
 " SUBSTITUTE
 lua << EOF
 local substitute = require('substitute')
-substitute.setup()
+substitute.setup({ exchange = { preserve_cursor_position = true } })
 local map = vim.keymap.set
-map('n', '<cr>r',  function() substitute.operator() end)
-map('n', '<cr>rw', function() substitute.operator({ motion='iw' }) end)
-map('n', '<cr>rW', function() substitute.operator({ motion='iW' }) end)
-map('n', '<cr>rp', function() substitute.operator({ motion='ab' }) end)
-map('n', '<cr>rb', function() substitute.operator({ motion='ib' }) end)
-map('n', '<cr>rq', function() substitute.operator({ motion='iq' }) end)
-map('n', '<cr>R',  function() substitute.eol() end)
-map('n', '<cr>rr', function() substitute.line() end)
-map('x', '<cr>r',  function() substitute.visual() end)
+map('n', ',r',  function() substitute.operator() end)
+map('n', ',rw', function() substitute.operator({ motion='iw' }) end)
+map('n', ',rW', function() substitute.operator({ motion='iW' }) end)
+map('n', ',rp', function() substitute.operator({ motion='ab' }) end)
+map('n', ',rb', function() substitute.operator({ motion='ib' }) end)
+map('n', ',rq', function() substitute.operator({ motion='iq' }) end)
+map('n', ',rr', function() substitute.line() end)
+map('x', ',r',  function() substitute.visual() end)
+map('n', 'R',   function() substitute.eol() end)
 local exchange = require('substitute.exchange')
-map('n', '<cr>x',  function() exchange.operator() end)
-map('n', '<cr>xw', function() exchange.operator({ motion='iw' }) end)
-map('n', '<cr>xW', function() exchange.operator({ motion='iW' }) end)
-map('n', '<cr>xp', function() exchange.operator({ motion='ab' }) end)
-map('n', '<cr>xb', function() exchange.operator({ motion='ib' }) end)
-map('n', '<cr>xq', function() exchange.operator({ motion='iq' }) end)
-map('n', '<cr>xx', function() exchange.line() end)
-map('x', '<cr>x',  function() exchange.visual() end)
+map('n', ',x',  function() exchange.operator() end)
+map('n', ',xw', function() exchange.operator({ motion='iw' }) end)
+map('n', ',xW', function() exchange.operator({ motion='iW' }) end)
+map('n', ',xp', function() exchange.operator({ motion='ab' }) end)
+map('n', ',xb', function() exchange.operator({ motion='ib' }) end)
+map('n', ',xq', function() exchange.operator({ motion='iq' }) end)
+map('n', ',xx', function() exchange.line() end)
+map('x', ',x',  function() exchange.visual() end)
 EOF
 
 " TABLINE
@@ -513,8 +514,8 @@ map('n', 'yq', 'yiq', { remap = true })
 map('n', 'cv', 'civ', { remap = true })
 map('n', 'dv', 'dav', { remap = true })
 -- Word-Column
-map('n', 'c|', 'cic', { remap = true })
-map('n', 'd|', 'dic', { remap = true })
+map('n', 'c|', '^cic', { remap = true })
+map('n', 'd|', '^dic', { remap = true })
 EOF
 
 " TMUX
