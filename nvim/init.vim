@@ -446,30 +446,28 @@ set statusline=%= laststatus=0
 
 " SUBSTITUTE
 lua << EOF
-require('substitute').setup({
-  preserve_cursor_position = true,
-  exchange = {
-    preserve_cursor_position = true,
-  },
-})
+local substitute = require('substitute')
+substitute.setup()
+local map = vim.keymap.set
+map('n', '<cr>r',  function() substitute.operator() end)
+map('n', '<cr>rw', function() substitute.operator({ motion='iw' }) end)
+map('n', '<cr>rW', function() substitute.operator({ motion='iW' }) end)
+map('n', '<cr>rp', function() substitute.operator({ motion='ab' }) end)
+map('n', '<cr>rb', function() substitute.operator({ motion='ib' }) end)
+map('n', '<cr>rq', function() substitute.operator({ motion='iq' }) end)
+map('n', '<cr>R',  function() substitute.eol() end)
+map('n', '<cr>rr', function() substitute.line() end)
+map('x', '<cr>r',  function() substitute.visual() end)
+local exchange = require('substitute.exchange')
+map('n', '<cr>x',  function() exchange.operator() end)
+map('n', '<cr>xw', function() exchange.operator({ motion='iw' }) end)
+map('n', '<cr>xW', function() exchange.operator({ motion='iW' }) end)
+map('n', '<cr>xp', function() exchange.operator({ motion='ab' }) end)
+map('n', '<cr>xb', function() exchange.operator({ motion='ib' }) end)
+map('n', '<cr>xq', function() exchange.operator({ motion='iq' }) end)
+map('n', '<cr>xx', function() exchange.line() end)
+map('x', '<cr>x',  function() exchange.visual() end)
 EOF
-nnoremap <cr>r  <cmd>lua require('substitute').operator()<cr>
-nnoremap <cr>rw <cmd>lua require('substitute').operator({ motion='iw' })<cr>
-nnoremap <cr>rW <cmd>lua require('substitute').operator({ motion='iW' })<cr>
-nnoremap <cr>rp <cmd>lua require('substitute').operator({ motion='ap' })<cr>
-nnoremap <cr>rb <cmd>lua require('substitute').operator({ motion='ib' })<cr>
-nnoremap <cr>rq <cmd>lua require('substitute').operator({ motion='iq' })<cr>
-nnoremap <cr>R  <cmd>lua require('substitute').eol()<cr>
-nnoremap <cr>rr <cmd>lua require('substitute').line()<cr>
-xnoremap <cr>r  <cmd>lua require('substitute').visual()<cr>
-nnoremap <cr>x  <cmd>lua require('substitute.exchange').operator()<cr>
-nnoremap <cr>xw <cmd>lua require('substitute.exchange').operator({ motion='iw' })<cr>
-nnoremap <cr>xW <cmd>lua require('substitute.exchange').operator({ motion='iW' })<cr>
-nnoremap <cr>xp <cmd>lua require('substitute.exchange').operator({ motion='ap' })<cr>
-nnoremap <cr>xb <cmd>lua require('substitute.exchange').operator({ motion='ib' })<cr>
-nnoremap <cr>xq <cmd>lua require('substitute.exchange').operator({ motion='iq' })<cr>
-nnoremap <cr>xx <cmd>lua require('substitute.exchange').line()<cr>
-xnoremap x      <cmd>lua require('substitute.exchange').visual()<cr>
 
 " TABLINE
 set showtabline=1
