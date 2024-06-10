@@ -155,16 +155,6 @@ cmp.setup({
 })
 EOF
 
-" CURSOR-RESTORE: YANK
-augroup yank_restore_cursor
-  autocmd!
-  autocmd VimEnter,CursorMoved * let s:cursor = getpos('.')
-  autocmd TextYankPost *
-    \ if v:event.operator ==? 'y' |
-      \ call setpos('.', s:cursor) |
-    \ endif
-augroup end
-
 " DELETE
 nnoremap <expr> dp &diff ? 'dp' : '<cmd>silent normal! dap<cr>'
 nnoremap dw daw
@@ -393,6 +383,27 @@ highlight bqfsign ctermfg=yellow
 highlight! link bqfpreviewborder comment
 highlight! link bqfpreviewrange none
 
+" RESTORE-POSITION: OPERATORFUNC
+augroup RestoreOpfuncPos
+  autocmd!
+  autocmd OptionSet operatorfunc let s:opfunc_pos = getpos('.')
+  autocmd CursorMoved *
+    \ if exists('s:opfunc_pos') |
+      \ call setpos('.', s:opfunc_pos) |
+      \ unlet s:opfunc_pos |
+    \ endif
+augroup end
+
+" RESTORE-POSITION: YANK
+augroup RestoreYankPos
+  autocmd!
+  autocmd VimEnter,CursorMoved * let s:yank_pos = getpos('.')
+  autocmd TextYankPost *
+    \ if v:event.operator ==? 'y' |
+      \ call setpos('.', s:yank_pos) |
+    \ endif
+augroup end
+
 " SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
 let g:sandwich_no_default_key_mappings = 1
 nmap ds <Plug>(operator-sandwich-delete)a
@@ -440,7 +451,7 @@ require('snippy').setup({
 EOF
 
 " SORT
-lua vim.keymap.set({ 'n', 'x' }, 'gs', 'my<cmd>lua require("sort").sort()<cr>`y')
+lua vim.keymap.set({ 'n', 'x' }, 'gs', function() require('sort').sort() end)
 
 " SPELL
 set spellcapcheck=
