@@ -16,6 +16,7 @@ call plug#begin()
   Plug 'dcampos/nvim-snippy'
   Plug 'echasnovski/mini.ai'
   Plug 'echasnovski/mini.extra'
+  Plug 'echasnovski/mini.splitjoin'
   Plug 'gbprod/substitute.nvim'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -330,7 +331,6 @@ nnoremap gUw mygUiw`y
 nnoremap gUW mygUiW`y
 nnoremap J myJ`y
 nnoremap Q q
-nnoremap t <cmd>call toggle#Next()<cr>
 xnoremap <silent> . :normal! .<cr>
 xnoremap q :'<,'>:normal! @q<cr>
 
@@ -523,6 +523,14 @@ command! -complete=shellcmd -nargs=* T call system('iwltm --send '.shellescape(e
 nnoremap <space><space> <cmd>call T(getline('.'))<cr>
 xnoremap <space><space> "vy <cmd>call T(substitute(@v, '\n$', '', ''))<cr>
 nnoremap <space>a <cmd>T execute<cr>
+
+" TOGGLE
+lua << EOF
+require('mini.splitjoin').setup({
+  mappings = { toggle = '<space>t', },
+})
+vim.keymap.set('n', 't', '<cmd>call toggle#Next()<cr>')
+EOF
 
 " UNDO
 nnoremap <c-r> <cmd>call center#ExeCmdAndCenter('redo')<cr>
