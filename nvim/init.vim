@@ -40,7 +40,6 @@ call plug#end()
 
 " APPEARANCE
 autocmd vimrc filetype * setl nocursorline
-autocmd vimrc textyankpost * lua vim.highlight.on_yank()
 colorscheme custom
 nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 
@@ -591,6 +590,7 @@ else
 endif
 
 " YANK
+autocmd vimrc textyankpost * lua vim.highlight.on_yank()
 nnoremap y <cmd>call yank#AndJumpBack()<cr>g@
 xnoremap y <cmd>silent normal! myy`y<cr>
 nnoremap yy yy
