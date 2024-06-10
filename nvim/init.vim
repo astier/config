@@ -155,6 +155,16 @@ cmp.setup({
 })
 EOF
 
+" CURSOR-RESTORE: YANK
+augroup yank_restore_cursor
+  autocmd!
+  autocmd VimEnter,CursorMoved * let s:cursor = getpos('.')
+  autocmd TextYankPost *
+    \ if v:event.operator ==? 'y' |
+      \ call setpos('.', s:cursor) |
+    \ endif
+augroup end
+
 " DELETE
 nnoremap <expr> dp &diff ? 'dp' : '<cmd>silent normal! dap<cr>'
 nnoremap dw daw
@@ -591,9 +601,6 @@ endif
 
 " YANK
 autocmd vimrc textyankpost * lua vim.highlight.on_yank()
-nnoremap y <cmd>call yank#AndJumpBack()<cr>g@
-xnoremap y <cmd>silent normal! myy`y<cr>
-nnoremap yy yy
-nmap yp yap
-nmap yw yiw
-nmap yW yiW
+nnoremap yp yap
+nnoremap yw yiw
+nnoremap yW yiW
