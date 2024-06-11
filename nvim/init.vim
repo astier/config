@@ -324,10 +324,11 @@ nnoremap <space>l <cmd>silent make! %<cr>
 
 " MAPPINGS
 nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
-nnoremap guw guiw
-nnoremap guW guiW
-nnoremap gUw gUiw
-nnoremap gUW gUiW
+nnoremap guw myguiw`y
+nnoremap guW myguiW`y
+nnoremap gUw mygUiw`y
+nnoremap gUW mygUiW`y
+nnoremap J myJ`y
 nnoremap Q q
 xnoremap <silent> . :normal! .<cr>
 xnoremap q :'<,'>:normal! @q<cr>
@@ -381,50 +382,6 @@ EOF
 highlight bqfsign ctermfg=yellow
 highlight! link bqfpreviewborder comment
 highlight! link bqfpreviewrange none
-
-" RESTORE-POSITION: TEXTCHANGE
-augroup RestoreChangePos
-  autocmd!
-  autocmd VimEnter *
-    \ let s:pos_old = getcurpos('.') |
-    \ let s:pos_new = s:pos_old |
-    \ let s:undo_old = undotree().seq_cur |
-    \ let s:undo_new = s:undo_old |
-    \ let s:insert_change = 0 |
-    \ let s:pos_restored = 0 |
-  autocmd CursorMoved *
-    \ let s:pos_old = s:pos_new |
-    \ let s:pos_new = getcurpos('.') |
-    \ let s:undo_old = s:undo_new |
-    \ let s:undo_new = undotree().seq_cur |
-    \ let s:pos_restored = 0 |
-  autocmd TextChanged *
-    \ if s:undo_new > s:undo_old && !s:insert_change |
-      \ call setpos('.', s:pos_old) |
-      \ let s:pos_restored = 1 |
-    \ else |
-      \ let s:insert_change = 0 |
-    \ endif |
-  autocmd InsertEnter *
-    \ if s:pos_restored |
-      \ let v:char = 1 |
-      \ call setpos('.', s:pos_new) |
-      \ call feedkeys("\<right>", 'n') |
-      \ let s:pos_restored = 0 |
-    \ endif |
-  " todo: report that TextChanged gets triggered after TextChangedI
-  autocmd TextChangedI * let s:insert_change = 1
-augroup end
-
-" RESTORE-POSITION: YANK
-augroup RestoreYankPos
-  autocmd!
-  autocmd VimEnter,CursorMoved * let s:yank_pos = getcurpos('.')
-  autocmd TextYankPost *
-    \ if v:event.operator ==? 'y' |
-      \ call setpos('.', s:yank_pos) |
-    \ endif
-augroup end
 
 " SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
 let g:sandwich_no_default_key_mappings = 1
@@ -567,7 +524,7 @@ nnoremap <space>a <cmd>T execute<cr>
 lua << EOF
 require('mini.splitjoin').setup({ mappings = { toggle = '<space>t' } })
 vim.keymap.set('n', 't', '<cmd>call toggle#Next()<cr>')
-vim.keymap.set({ 'n', 'x' }, 'gs', function() require('sort').sort() end)
+vim.keymap.set({ 'n', 'x' }, 'gs', 'my<cmd>lua require("sort").sort()<cr>`y')
 EOF
 
 " UNDO
@@ -629,6 +586,14 @@ else
 endif
 
 " YANK
+augroup RestoreYankPos
+  autocmd!
+  autocmd VimEnter,CursorMoved * let s:yank_pos = getcurpos('.')
+  autocmd TextYankPost *
+    \ if v:event.operator ==? 'y' |
+      \ call setpos('.', s:yank_pos) |
+    \ endif
+augroup end
 autocmd vimrc textyankpost * lua vim.highlight.on_yank()
 nnoremap yp yap
 nnoremap yw yiw
