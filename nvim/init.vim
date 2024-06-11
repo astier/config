@@ -324,11 +324,10 @@ nnoremap <space>l <cmd>silent make! %<cr>
 
 " MAPPINGS
 nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
-nnoremap guw myguiw`y
-nnoremap guW myguiW`y
-nnoremap gUw mygUiw`y
-nnoremap gUW mygUiW`y
-nnoremap J myJ`y
+nnoremap guw guiw
+nnoremap guW guiW
+nnoremap gUw gUiw
+nnoremap gUW gUiW
 nnoremap Q q
 xnoremap <silent> . :normal! .<cr>
 xnoremap q :'<,'>:normal! @q<cr>
@@ -383,15 +382,38 @@ highlight bqfsign ctermfg=yellow
 highlight! link bqfpreviewborder comment
 highlight! link bqfpreviewrange none
 
-" RESTORE-POSITION: OPERATORFUNC
-augroup RestoreOpfuncPos
+" RESTORE-POSITION: TEXTCHANGE
+augroup RestoreChangePos
   autocmd!
-  autocmd OptionSet operatorfunc let s:opfunc_pos = getcurpos('.')
+  autocmd VimEnter *
+    \ let s:pos_old = getcurpos('.') |
+    \ let s:pos_new = s:pos_old |
+    \ let s:undo_old = undotree().seq_cur |
+    \ let s:undo_new = s:undo_old |
+    \ let s:insert_change = 0 |
+    \ let s:pos_restored = 0 |
   autocmd CursorMoved *
-    \ if exists('s:opfunc_pos') |
-      \ call setpos('.', s:opfunc_pos) |
-      \ unlet s:opfunc_pos |
-    \ endif
+    \ let s:pos_old = s:pos_new |
+    \ let s:pos_new = getcurpos('.') |
+    \ let s:undo_old = s:undo_new |
+    \ let s:undo_new = undotree().seq_cur |
+    \ let s:pos_restored = 0 |
+  autocmd TextChanged *
+    \ if s:undo_new > s:undo_old && !s:insert_change |
+      \ call setpos('.', s:pos_old) |
+      \ let s:pos_restored = 1 |
+    \ else |
+      \ let s:insert_change = 0 |
+    \ endif |
+  autocmd InsertEnter *
+    \ if s:pos_restored |
+      \ let v:char = 1 |
+      \ call setpos('.', s:pos_new) |
+      \ call feedkeys("\<right>", 'n') |
+      \ let s:pos_restored = 0 |
+    \ endif |
+  " todo: report that TextChanged gets triggered after TextChangedI
+  autocmd TextChangedI * let s:insert_change = 1
 augroup end
 
 " RESTORE-POSITION: YANK
