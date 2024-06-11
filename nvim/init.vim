@@ -386,7 +386,7 @@ highlight! link bqfpreviewrange none
 " RESTORE-POSITION: OPERATORFUNC
 augroup RestoreOpfuncPos
   autocmd!
-  autocmd OptionSet operatorfunc let s:opfunc_pos = getpos('.')
+  autocmd OptionSet operatorfunc let s:opfunc_pos = getcurpos('.')
   autocmd CursorMoved *
     \ if exists('s:opfunc_pos') |
       \ call setpos('.', s:opfunc_pos) |
@@ -397,7 +397,7 @@ augroup end
 " RESTORE-POSITION: YANK
 augroup RestoreYankPos
   autocmd!
-  autocmd VimEnter,CursorMoved * let s:yank_pos = getpos('.')
+  autocmd VimEnter,CursorMoved * let s:yank_pos = getcurpos('.')
   autocmd TextYankPost *
     \ if v:event.operator ==? 'y' |
       \ call setpos('.', s:yank_pos) |
