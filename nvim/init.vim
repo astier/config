@@ -217,6 +217,7 @@ nnoremap <space>kg :Flog -search=
 nnoremap <space>kK <cmd>Flog -all -path=%<cr>
 nnoremap <space>kk <cmd>Flog -all<cr>
 nnoremap <space>kr <cmd>G reset --hard<bar>e<cr>
+nnoremap <space>ks <cmd>G status -bs<cr>
 
 " GITGUTTER
 let g:gitgutter_map_keys = 0
