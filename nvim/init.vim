@@ -478,7 +478,15 @@ tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
 " TEXTOBJECTS
 lua << EOF
 local map = vim.keymap.set
-require('mini.ai').setup({ silent = true })
+require('mini.ai').setup({
+  custom_textobjects = {
+    j = {
+      {'%b()', '%b[]', '%b{}', '%b""', '%b\'\'', '%b``'},
+      '^.().*().$'
+    },
+  },
+  silent = true,
+})
 require('various-textobjs').setup({ notifyNotFound = false })
 map('o', 'ii', '<cmd>lua require("various-textobjs").indentation("inner", "inner")<cr>')
 map('o', 'ai', '<cmd>lua require("various-textobjs").indentation("outer", "inner")<cr>')
@@ -509,6 +517,10 @@ map('n', 'yb', 'yib', { remap = true })
 map('n', 'cq', 'ciq', { remap = true })
 map('n', 'dq', 'diq', { remap = true })
 map('n', 'yq', 'yiq', { remap = true })
+-- Brackets + Quotes
+map('n', 'cj', 'cij', { remap = true })
+map('n', 'dj', 'dij', { remap = true })
+map('n', 'yj', 'yij', { remap = true })
 -- Subword
 map('n', 'cS', 'civ', { remap = true })
 map('n', 'dS', 'dav', { remap = true })
