@@ -386,12 +386,10 @@ highlight! link bqfpreviewrange none
 
 " SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
 let g:sandwich_no_default_key_mappings = 1
-nmap ds <Plug>(operator-sandwich-delete)a
-nmap cs <Plug>(operator-sandwich-replace)a
-nmap df <Plug>(sandwich-delete)f
-nmap cf <Plug>(sandwich-replace)f
-nmap s  <Plug>(operator-sandwich-add)
-xmap s  <Plug>(operator-sandwich-add)
+nmap s   <Plug>(operator-sandwich-add)
+xmap s   <Plug>(operator-sandwich-add)
+nmap sd  <Plug>(operator-sandwich-delete)a
+nmap sr  <Plug>(operator-sandwich-replace)a
 nmap sw siw
 nmap sW siW
 
@@ -523,8 +521,8 @@ map('n', 'cj', 'cij', { remap = true })
 map('n', 'dj', 'dij', { remap = true })
 map('n', 'yj', 'yij', { remap = true })
 -- Subword
-map('n', 'cS', 'civ', { remap = true })
-map('n', 'dS', 'dav', { remap = true })
+map('n', 'cs', 'civ', { remap = true })
+map('n', 'ds', 'dav', { remap = true })
 -- Word-Column
 map('n', 'c|', '^cic', { remap = true })
 map('n', 'd|', '^dic', { remap = true })
