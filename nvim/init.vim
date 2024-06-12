@@ -492,8 +492,8 @@ require('mini.ai').setup({
 })
 local map = vim.keymap.set
 -- Brackets
-map('n', 'cb', 'csb', { remap = true })
-map('n', 'db', 'dsb', { remap = true })
+map('n', 'cb', 'cib', { remap = true })
+map('n', 'db', 'dib', { remap = true })
 map('n', 'yb', 'yib', { remap = true })
 -- Buffer
 map('n', 'cB', 'caB', { remap = true })
@@ -504,8 +504,8 @@ map('n', 'cL', 'ciL', { remap = true })
 map('n', 'dL', 'diL', { remap = true })
 map('n', 'yL', 'yiL', { remap = true })
 -- Quotes
-map('n', 'cq', 'csq', { remap = true })
-map('n', 'dq', 'dsq', { remap = true })
+map('n', 'cq', 'ciq', { remap = true })
+map('n', 'dq', 'diq', { remap = true })
 map('n', 'yq', 'yiq', { remap = true })
 -- Subword
 map('n', 'cv', 'civ', { remap = true })
