@@ -520,6 +520,10 @@ map('n', 'yq', 'yiq', { remap = true })
 map('n', 'cj', 'cij', { remap = true })
 map('n', 'dj', 'dij', { remap = true })
 map('n', 'yj', 'yij', { remap = true })
+-- Function
+map('n', 'cf', 'cif', { remap = true })
+map('n', 'df', 'dif', { remap = true })
+map('n', 'yf', 'yif', { remap = true })
 -- Subword
 map('n', 'cs', 'civ', { remap = true })
 map('n', 'ds', 'dav', { remap = true })
