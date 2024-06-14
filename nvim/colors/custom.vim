@@ -87,15 +87,12 @@ endif
 hi incsearch ctermbg=yellow ctermfg=black cterm=none " none
 hi search ctermbg=none ctermfg=red cterm=none " none
 
-" STATUSLINE
-hi statusline ctermbg=none ctermfg=8 cterm=none " none
-hi statuslinenc ctermbg=none ctermfg=8 cterm=none " none
-
 " SEPARATOR
-hi separator ctermbg=none ctermfg=8 cterm=none
-hi! link floatborder separator " pmenu
-hi! link normalfloat separator " pmenu
-hi! link winseparator separator " normal
+hi winseparator ctermbg=none ctermfg=8 cterm=none
+hi! link floatborder winseparator
+hi! link normalfloat winseparator
+hi! link statusline winseparator
+hi! link statuslinenc winseparator
 
 " VIM
 hi! link vimautocmdmod none " special
