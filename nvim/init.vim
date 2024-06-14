@@ -550,6 +550,15 @@ nnoremap <space>a <cmd>T execute<cr>
 " TRANSFORM
 lua << EOF
 require('mini.splitjoin').setup({ mappings = { toggle = '<space>t' } })
+local gen_hook = MiniSplitjoin.gen_hook
+local curly = { brackets = { '%b{}' } }
+local add_comma_curly = gen_hook.add_trailing_separator(curly)
+local del_comma_curly = gen_hook.del_trailing_separator(curly)
+local pad_curly = gen_hook.pad_brackets(curly)
+vim.b.minisplitjoin_config = {
+  split = { hooks_post = { add_comma_curly } },
+  join  = { hooks_post = { del_comma_curly, pad_curly, } },
+}
 vim.keymap.set('n', 't', '<cmd>call toggle#Next()<cr>')
 vim.keymap.set({ 'n', 'x' }, 'gs', 'my<cmd>lua require("sort").sort()<cr>`y')
 EOF
