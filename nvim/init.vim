@@ -97,6 +97,7 @@ cmp.setup({
     autocomplete = false,
     completeopt = table.concat(vim.opt.completeopt:get(), ","),
   },
+  view = { docs = { auto_open = false } },
   snippet = {
     expand = function(args)
       snippy.expand_snippet(args.body)
@@ -134,6 +135,15 @@ cmp.setup({
         cmp.select_prev_item({ behavior = 'select' })
       elseif snippy.can_jump(-1) then
         snippy.previous()
+      end
+    end),
+    ['K'] = cmp.mapping(function(fallback)
+      if cmp.visible_docs() then
+        cmp.close_docs()
+      elseif cmp.visible() then
+        cmp.open_docs()
+      else
+        fallback()
       end
     end),
     ['<cr>']  = cmp.mapping.confirm({ select = true }),
