@@ -76,9 +76,8 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd('FileType', { command = 'set formatoptions-=cro' })
 autocmd('FileType', { pattern = 'vim', command = 'setl cms=\\"\\ %s' })
 local map = vim.keymap.set
-map('n', 'gcc', 'gc$',      { remap = true })
-map('n', 'gcp', 'mygcip`y', { remap = true })
-map('n', 'gcu', 'mygcgc`y', { remap = true })
+map('n', 'gcp', 'gcip', { remap = true })
+map('n', 'gcu', 'gcgc', { remap = true })
 map('n', 'gcj', function()
   local comment = vim.bo.commentstring:gsub('%%s', '')
   vim.api.nvim_feedkeys('o' .. comment, 'n', false)
@@ -351,11 +350,10 @@ nnoremap <space>l <cmd>silent make! %<cr>
 
 " MAPPINGS
 nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
-nnoremap guw myguiw`y
-nnoremap guW myguiW`y
-nnoremap gUw mygUiw`y
-nnoremap gUW mygUiW`y
-nnoremap J myJ`y
+nnoremap guw guiw
+nnoremap guW guiW
+nnoremap gUw gUiw
+nnoremap gUW gUiW
 nnoremap Q q
 xnoremap <silent> . :normal! .<cr>
 xnoremap q :'<,'>:normal! @q<cr>
@@ -576,7 +574,7 @@ vim.b.minisplitjoin_config = {
   join  = { hooks_post = { del_comma_curly, pad_curly, } },
 }
 vim.keymap.set('n', 't', '<cmd>call toggle#Next()<cr>')
-vim.keymap.set({ 'n', 'x' }, 'gs', 'my<cmd>lua require("sort").sort()<cr>`y')
+vim.keymap.set({ 'n', 'x' }, 'gs', function() require('sort').sort() end)
 EOF
 
 " UNDO
