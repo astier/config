@@ -636,15 +636,24 @@ else
 endif
 
 " YANK
-augroup RestoreYankPos
-  autocmd!
-  autocmd VimEnter,CursorMoved * let s:yank_pos = getcurpos('.')
-  autocmd TextYankPost *
-    \ if v:event.operator ==? 'y' |
-      \ call setpos('.', s:yank_pos) |
-    \ endif
-augroup end
-autocmd vimrc textyankpost * lua vim.highlight.on_yank()
-nnoremap yp yap
-nnoremap yw yiw
-nnoremap yW yiW
+lua << EOF
+local autocmd = vim.api.nvim_create_autocmd
+autocmd({ 'VimEnter', 'CursorMoved' }, {
+  callback = function()
+    yank_pos = vim.api.nvim_win_get_cursor(0)
+  end
+})
+autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+    if vim.v.event.operator == 'y' then
+      vim.api.nvim_win_set_cursor(0, yank_pos)
+    end
+    print(' ')
+  end
+})
+local map = vim.keymap.set
+map('n', 'yp', 'yap')
+map('n', 'yw', 'yiw')
+map('n', 'yW', 'yiW')
+EOF
