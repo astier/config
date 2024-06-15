@@ -29,7 +29,6 @@ call plug#begin()
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
   Plug 'neovim/nvim-lspconfig'
-  Plug 'numToStr/Comment.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'rbong/vim-flog'
   Plug 'romainl/vim-qf'
@@ -71,14 +70,31 @@ nmap cW ciW
 autocmd vimrc cmdlineleave * echo ''
 set path=.,,**
 
-" COMMENTS
-autocmd vimrc filetype * set formatoptions-=cro
-lua require('Comment').setup()
-nmap gcj gco
-nmap gck gcO
-nmap gcl gcA
-nmap gcp gcip
-onoremap u <cmd>lua require('uncomment').uncomment()<cr>
+" COMMENTING
+lua << EOF
+local autocmd = vim.api.nvim_create_autocmd
+autocmd('FileType', { command = 'set formatoptions-=cro' })
+autocmd('FileType', { pattern = 'vim', command = 'setl cms=\\"\\ %s' })
+local map = vim.keymap.set
+map('n', 'gcc', 'gc$',      { remap = true })
+map('n', 'gcp', 'mygcip`y', { remap = true })
+map('n', 'gcu', 'mygcgc`y', { remap = true })
+map('n', 'gcj', function()
+  local comment = vim.bo.commentstring:gsub('%%s', '')
+  vim.api.nvim_feedkeys('o' .. comment, 'n', false)
+end)
+map('n', 'gck', function()
+  local comment = vim.bo.commentstring:gsub('%%s', '')
+  vim.api.nvim_feedkeys('O' .. comment, 'n', false)
+end)
+map('n', 'gcl', function()
+  local comment = vim.bo.commentstring:gsub('%%s', '')
+  if vim.bo.filetype == 'python' then
+    comment = ' ' .. comment
+  end
+  vim.api.nvim_feedkeys('A ' .. comment, 'n', false)
+end)
+EOF
 
 " COMPLETION
 highlight! link CmpSelection lspsignatureactiveparameter
