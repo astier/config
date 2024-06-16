@@ -54,24 +54,24 @@ nnoremap <space>d <cmd>qa!<cr>
 nnoremap q <cmd>silent! b#<cr>
 set noswapfile
 
-" CHANGE
-nnoremap c "_c
-nnoremap C "_C
-xnoremap c "_c
-nmap cp cip
-nmap cw ciw
-nmap cW ciW
-
 lua << EOF
--- CMDLINE
 local autocmd = vim.api.nvim_create_autocmd
+local map = vim.keymap.set
+
+-- CHANGE
+map({ 'n', 'x' }, 'c', '"_c')
+map('n', 'C', '"_C')
+map('n', 'cp', 'cip', { remap = true })
+map('n', 'cw', 'ciw', { remap = true })
+map('n', 'cW', 'ciW', { remap = true })
+
+-- CMDLINE
 autocmd('CmdlineLeave', { command = 'echo " "' })
 vim.o.path = '.,,**'
 
 -- COMMENTING
 autocmd('FileType', { command = 'set formatoptions-=cro' })
 autocmd('FileType', { pattern = 'vim', command = 'setl cms=\\"\\ %s' })
-local map = vim.keymap.set
 map('n', 'gcp', 'gcip', { remap = true })
 map('n', 'gcu', 'gcgc', { remap = true })
 map('n', 'gcj', function()
