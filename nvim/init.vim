@@ -89,14 +89,12 @@ map('n', 'gcl', function()
   end
   vim.api.nvim_feedkeys('A ' .. comment, 'n', false)
 end)
-EOF
 
-" COMPLETION
-highlight! link CmpSelection lspsignatureactiveparameter
-set completeopt=menuone,noinsert
-set pumheight=8 pumwidth=0
-set shortmess+=c
-lua << EOF
+-- COMPLETION
+vim.opt.completeopt= { 'menuone', 'noinsert' }
+vim.opt.pumheight = 8
+vim.opt.pumwidth = 0
+vim.opt.shortmess:append('c')
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -117,11 +115,11 @@ cmp.setup({
   window = {
     completion = {
       border = 'single',
-      winhighlight = 'FloatBorder:FloatBorder,Normal:Normal,CursorLine:CmpSelection',
+      winhighlight = 'FloatBorder:FloatBorder,Normal:Normal,CursorLine:LspSignatureActiveParameter',
     },
     documentation = {
       border = 'single',
-      winhighlight = 'FloatBorder:FloatBorder,Normal:Normal,CursorLine:CmpSelection',
+      winhighlight = 'FloatBorder:FloatBorder,Normal:Normal,CursorLine:LspSignatureActiveParameter',
     },
   },
   mapping = cmp.mapping.preset.insert({
