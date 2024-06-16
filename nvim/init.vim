@@ -479,7 +479,6 @@ map('n', 'x',  function() substitute.operator() end)
 map('n', 'xw', function() substitute.operator({ motion='iw' }) end)
 map('n', 'xW', function() substitute.operator({ motion='iW' }) end)
 map('n', 'xp', function() substitute.operator({ motion='ab' }) end)
-map('n', 'xj', function() substitute.operator({ motion='ij' }) end)
 map('n', 'xb', function() substitute.operator({ motion='ib' }) end)
 map('n', 'xq', function() substitute.operator({ motion='iq' }) end)
 map('x', 'x',  function() substitute.visual() end)
@@ -489,7 +488,6 @@ map('n', 'xx',  function() exchange.operator() end)
 map('n', 'xxw', function() exchange.operator({ motion='iw' }) end)
 map('n', 'xxW', function() exchange.operator({ motion='iW' }) end)
 map('n', 'xxp', function() exchange.operator({ motion='ap' }) end)
-map('n', 'xxj', function() exchange.operator({ motion='ij' }) end)
 map('n', 'xxb', function() exchange.operator({ motion='ib' }) end)
 map('n', 'xxq', function() exchange.operator({ motion='iq' }) end)
 map('x', 'X',   function() exchange.visual() end)
@@ -503,15 +501,7 @@ map('n', '<space>n', '<cmd>tab split<cr>')
 
 -- TEXTOBJECTS
 local map = vim.keymap.set
-require('mini.ai').setup({
-  custom_textobjects = {
-    j = {
-      {'%b()', '%b[]', '%b{}', '%b""', '%b\'\'', '%b``'},
-      '^.().*().$'
-    },
-  },
-  silent = true,
-})
+require('mini.ai').setup({ silent = true })
 require('various-textobjs').setup({ notifyNotFound = false })
 map('o', 'ii', '<cmd>lua require("various-textobjs").indentation("inner", "inner")<cr>')
 map('o', 'ai', '<cmd>lua require("various-textobjs").indentation("outer", "inner")<cr>')
@@ -542,10 +532,6 @@ map('n', 'yb', 'yib', { remap = true })
 map('n', 'cq', 'ciq', { remap = true })
 map('n', 'dq', 'diq', { remap = true })
 map('n', 'yq', 'yiq', { remap = true })
--- Brackets + Quotes
-map('n', 'cj', 'cij', { remap = true })
-map('n', 'dj', 'dij', { remap = true })
-map('n', 'yj', 'yij', { remap = true })
 -- Function
 map('n', 'cf', 'cif', { remap = true })
 map('n', 'df', 'dif', { remap = true })
