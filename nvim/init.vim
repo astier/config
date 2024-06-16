@@ -1,12 +1,11 @@
 " FIRST THINGS FIRST
-augroup vimrc | autocmd! | augroup end
 scriptencoding utf-8
 
 " PLUGINS
 let plug_path = stdpath('data') . '/site/autoload/plug.vim'
 if empty(glob(plug_path))
   execute '!curl -fLo' plug_path '--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd vimrc vimenter * PlugInstall --sync | source $MYVIMRC
+  autocmd vimenter * PlugInstall --sync | source $MYVIMRC
 endif
 nnoremap <space>pc <cmd>PlugClean<cr>
 nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
@@ -38,7 +37,7 @@ call plug#begin()
 call plug#end()
 
 " APPEARANCE
-autocmd vimrc filetype * setl nocursorline
+autocmd filetype * setl nocursorline
 colorscheme custom
 nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 
@@ -53,7 +52,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
 EOF
 
 " BUFFERS
-autocmd vimrc textchanged,insertleave * nested if !&ro | silent! update | endif
+autocmd textchanged,insertleave * nested if !&ro | silent! update | endif
 nnoremap <space>d <cmd>qa!<cr>
 nnoremap q <cmd>silent! b#<cr>
 set noswapfile
@@ -67,7 +66,7 @@ nmap cw ciw
 nmap cW ciW
 
 " CMDLINE
-autocmd vimrc cmdlineleave * echo ''
+autocmd cmdlineleave * echo ''
 set path=.,,**
 
 " COMMENTING
@@ -232,9 +231,9 @@ nnoremap fs <cmd>FzfLua lsp_document_symbols<cr>
 nnoremap fS <cmd>FzfLua lsp_workspace_symbols<cr>
 
 " GIT
-autocmd vimrc filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
-autocmd vimrc filetype floggraph nmap <buffer> <space>q <plug>(FlogQuit)
-autocmd vimrc filetype floggraph xmap <buffer> <rightmouse> <cr>
+autocmd filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
+autocmd filetype floggraph nmap <buffer> <space>q <plug>(FlogQuit)
+autocmd filetype floggraph xmap <buffer> <rightmouse> <cr>
 let g:flog_permanent_default_opts = { 'date': 'short' }
 nnoremap <expr> <space>km &diff ? '<cmd>x<cr>zz' : '<cmd>Gdiffsplit<cr>'
 nnoremap <space>kd <cmd>0G diff<cr>
@@ -390,7 +389,7 @@ nnoremap p <cmd>silent! normal! p<cr>
 nnoremap P <cmd>silent! normal! P<cr>
 
 " QUICKFIX
-autocmd vimrc filetype qf setl nonu scl=no
+autocmd filetype qf setl nonu scl=no
 nmap <space>q <plug>(qf_qf_toggle_stay)
 nmap [q <plug>(qf_qf_previous)zz
 nmap ]q <plug>(qf_qf_next)zz
@@ -614,7 +613,7 @@ tnoremap <a-k> <c-\><c-n><cmd>lua require('tmux').move_top()<cr>
 tnoremap <a-l> <c-\><c-n><cmd>lua require('tmux').move_right()<cr>
 
 " WINDOWS: RESIZE
-autocmd vimrc vimresized * wincmd =
+autocmd vimresized * wincmd =
 nnoremap <a-H> <cmd>lua require('tmux').resize_left()<cr>
 nnoremap <a-J> <cmd>lua require('tmux').resize_bottom()<cr>
 nnoremap <a-K> <cmd>lua require('tmux').resize_top()<cr>
@@ -625,7 +624,7 @@ tnoremap <a-K> <c-\><c-n><cmd>lua require('tmux').resize_top()<cr>
 tnoremap <a-L> <c-\><c-n><cmd>lua require('tmux').resize_right()<cr>
 
 " WRAP
-autocmd vimrc filetype * set formatoptions-=t wrap
+autocmd filetype * set formatoptions-=t wrap
 set breakindent
 set breakindentopt=shift:2
 set linebreak
