@@ -185,20 +185,20 @@ cmp.setup({
     end
   },
 })
-EOF
 
-" DELETE
-nnoremap <expr> dp &diff ? 'dp' : '<cmd>silent normal! dap<cr>'
-nnoremap dw daw
-nnoremap dW daW
-xnoremap d <cmd>silent normal! d<cr>
+-- DELETE
+map('n', 'dw', 'daw')
+map('n', 'dW', 'daW')
+map('n', 'dp', function()
+  return vim.o.diff and 'dp' or '<cmd>silent normal! dap<cr>'
+end, { expr = true })
+map('x', 'd', '<cmd>silent normal! d<cr>')
 
-" FORMATTING
-nnoremap gqp gqip
-nnoremap gqq Vgq
+-- FORMATTING
+map('n', 'gqp', '<cmd>silent normal! gqip<cr>')
+map('n', 'gqq', 'Vgq')
 
-" FUZZY: CONFIG
-lua << EOF
+-- FUZZY: CONFIG
 require('fzf-lua').setup({
   'max-perf',
   fzf_args = vim.env.FZF_DEFAULT_OPTS,
