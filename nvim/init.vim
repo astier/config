@@ -1,6 +1,3 @@
-" FIRST THINGS FIRST
-scriptencoding utf-8
-
 " PLUGINS
 let plug_path = stdpath('data') . '/site/autoload/plug.vim'
 if empty(glob(plug_path))
