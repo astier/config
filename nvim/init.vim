@@ -581,22 +581,19 @@ map('n', '<a-h>', function() tmux.move_left() end)
 map('n', '<a-j>', function() tmux.move_bottom() end)
 map('n', '<a-k>', function() tmux.move_top() end)
 map('n', '<a-l>', function() tmux.move_right() end)
-EOF
 
-" WRAP
-autocmd filetype * set formatoptions-=t wrap
-set breakindent
-set breakindentopt=shift:2
-set linebreak
-if $TERM ==# 'linux' || $TERM ==# 'screen'
-  set showbreak=¬\ 
+-- WRAP
+autocmd('FileType', { command = 'set formatoptions-=t' })
+vim.opt.breakindent = true
+vim.opt.linebreak = true
+vim.opt.showbreak = '  ↳ '
+if vim.env.TERM == 'linux' or vim.env.TERM == 'screen' then
+  vim.opt.showbreak = '  ¬ '
 else
-  set showbreak=↳\ 
-endif
+  vim.opt.showbreak = '  ↳ '
+end
 
-" YANK
-lua << EOF
-local autocmd = vim.api.nvim_create_autocmd
+-- YANK
 autocmd({ 'VimEnter', 'CursorMoved' }, {
   callback = function()
     yank_pos = vim.api.nvim_win_get_cursor(0)
@@ -611,7 +608,6 @@ autocmd('TextYankPost', {
     print(' ')
   end
 })
-local map = vim.keymap.set
 map('n', 'yp', 'yap')
 map('n', 'yw', 'yiw')
 map('n', 'yW', 'yiW')
