@@ -560,16 +560,10 @@ map('n', 'ds', 'dav', { remap = true })
 -- Word-Column
 map('n', 'c|', '^cic', { remap = true })
 map('n', 'd|', '^dic', { remap = true })
-EOF
 
-" TMUX
-command! -complete=shellcmd -nargs=* T call system('iwltm --send '.shellescape(expandcmd(<q-args>)))
-nnoremap <space><space> <cmd>call T(getline('.'))<cr>
-xnoremap <space><space> "vy <cmd>call T(substitute(@v, '\n$', '', ''))<cr>
-nnoremap <space>a <cmd>T execute<cr>
-
-" TRANSFORM
-lua << EOF
+-- TRANSFORM
+map('n', 't', '<cmd>call toggle#Next()<cr>')
+map({ 'n', 'x' }, 'gs', function() require('sort').sort() end)
 require('mini.splitjoin').setup({ mappings = { toggle = '<space>t' } })
 local gen_hook = MiniSplitjoin.gen_hook
 local curly = { brackets = { '%b{}' } }
@@ -580,8 +574,6 @@ vim.b.minisplitjoin_config = {
   split = { hooks_post = { add_comma_curly } },
   join  = { hooks_post = { del_comma_curly, pad_curly, } },
 }
-vim.keymap.set('n', 't', '<cmd>call toggle#Next()<cr>')
-vim.keymap.set({ 'n', 'x' }, 'gs', function() require('sort').sort() end)
 EOF
 
 " UNDO
