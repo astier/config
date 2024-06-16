@@ -33,14 +33,21 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
 call plug#end()
 
-" APPEARANCE
-autocmd filetype * setl nocursorline
-colorscheme custom
-nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
-
 lua << EOF
 local autocmd = vim.api.nvim_create_autocmd
 local map = vim.keymap.set
+
+-- APPEARANCE
+vim.cmd.colorscheme('custom')
+autocmd('FileType', { callback =
+  function() vim.opt_local.cursorline = false
+end })
+map('n', '<space>H', function()
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local synID = vim.fn.synID(row, col, 1)
+  local synIDattr = vim.fn.synIDattr(vim.fn.synID(row, col, 1), 'name')
+  vim.cmd.highlight(synIDattr)
+end, { desc = 'Show highlight-group under the cursor.' })
 
 -- AUTOCHDIR
 vim.api.nvim_create_autocmd('VimEnter', {
