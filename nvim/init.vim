@@ -440,14 +440,16 @@ nnoremap <h <cmd>set hlsearch!<cr>
 set ignorecase smartcase
 set shortmess+=Ss
 
-" SETTINGS
-set clipboard=unnamedplus
-set nofoldenable
-set notimeout
-set virtualedit=block
-
-" SNIPPETS
 lua << EOF
+-- SETTINGS
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.foldenable = false
+vim.opt.spellcapcheck = ''
+vim.opt.spellfile = '$XDG_STATE_HOME/nvim/spell/en.utf-8.add'
+vim.opt.timeout = false
+vim.opt.virtualedit = 'block'
+
+-- SNIPPETS
 require('snippy').setup({
   mappings = {
     s = {
@@ -458,10 +460,6 @@ require('snippy').setup({
   },
 })
 EOF
-
-" SPELL
-set spellcapcheck=
-set spellfile=$XDG_STATE_HOME/nvim/spell/en.utf-8.add
 
 " STATUS (RULER/STATUSLINE)
 nnoremap <expr> <s &ls ? '<cmd>se stl=%= ls=0<cr>' : '<cmd>se ls=3 stl=\[%f\]%=\[%l/%L\]<cr>'
