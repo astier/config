@@ -62,13 +62,13 @@ nmap cp cip
 nmap cw ciw
 nmap cW ciW
 
-" CMDLINE
-autocmd cmdlineleave * echo ''
-set path=.,,**
-
-" COMMENTING
 lua << EOF
+-- CMDLINE
 local autocmd = vim.api.nvim_create_autocmd
+autocmd('CmdlineLeave', { command = 'echo " "' })
+vim.o.path = '.,,**'
+
+-- COMMENTING
 autocmd('FileType', { command = 'set formatoptions-=cro' })
 autocmd('FileType', { pattern = 'vim', command = 'setl cms=\\"\\ %s' })
 local map = vim.keymap.set
