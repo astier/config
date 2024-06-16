@@ -564,6 +564,7 @@ map('n', 'U', '<cmd>call center#ExeCmdAndCenter("redo")<cr>')
 map('n', 'u', '<cmd>call center#ExeCmdAndCenter("undo")<cr>')
 
 -- WINDOWS: MANAGEMENT
+autocmd('VimResized', { callback = function() vim.cmd.wincmd('=') end })
 map('n', '<space>c', '<c-w>c')
 map('n', '<space>s', '<c-w>s')
 map('n', '<space>v', '<c-w>v')
@@ -571,26 +572,17 @@ map('n', '<space>z', '<c-w>z')
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- WINDOWS: NAVIGATION & RESIZE
-autocmd('VimResized', { callback = function() vim.cmd.wincmd('=') end })
+-- WINDOWS: NAVIGATION
 local tmux = require('tmux')
 tmux.setup({
   copy_sync = { enable = false },
   navigation = { enable_default_keybindings = false },
-  resize = {
-    enable_default_keybindings = false,
-    resize_step_x = 2,
-    resize_step_y = 2,
-  },
+  resize = { enable_default_keybindings = false },
 })
 map('n', '<a-h>', function() tmux.move_left() end)
 map('n', '<a-j>', function() tmux.move_bottom() end)
 map('n', '<a-k>', function() tmux.move_top() end)
 map('n', '<a-l>', function() tmux.move_right() end)
-map('n', '<a-H>', function() tmux.resize_left() end)
-map('n', '<a-J>', function() tmux.resize_bottom() end)
-map('n', '<a-K>', function() tmux.resize_top() end)
-map('n', '<a-L>', function() tmux.resize_right() end)
 EOF
 
 " WRAP
