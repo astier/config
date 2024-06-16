@@ -38,25 +38,31 @@ autocmd filetype * setl nocursorline
 colorscheme custom
 nnoremap <space>H <cmd>execute 'highlight' synIDattr(synID(line('.'), col('.'), 1), "name")<cr>
 
-" AUTOCHDIR
 lua << EOF
+local autocmd = vim.api.nvim_create_autocmd
+local map = vim.keymap.set
+
+-- AUTOCHDIR
 vim.api.nvim_create_autocmd('VimEnter', {
   callback = function()
     local root = vim.fs.root(0, '.git')
     if root then vim.uv.chdir(root) end
   end,
 })
-EOF
 
-" BUFFERS
-autocmd textchanged,insertleave * nested if !&ro | silent! update | endif
-nnoremap <space>d <cmd>qa!<cr>
-nnoremap q <cmd>silent! b#<cr>
-set noswapfile
+-- AUTOSAVE
+autocmd({ 'TextChanged', 'InsertLeave' }, {
+  nested = true,
+  callback = function()
+    if vim.bo.readonly then return end
+    vim.cmd.update({ mods = { silent = true } })
+  end
+})
 
-lua << EOF
-local autocmd = vim.api.nvim_create_autocmd
-local map = vim.keymap.set
+-- BUFFERS
+map('n', '<space>d', function() vim.cmd.quitall({ bang = true }) end)
+map('n', 'q', function() vim.cmd.buffer('#') end)
+vim.opt.swapfile = false
 
 -- CHANGE
 map({ 'n', 'x' }, 'c', '"_c')
