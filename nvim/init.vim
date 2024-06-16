@@ -574,22 +574,21 @@ vim.b.minisplitjoin_config = {
   split = { hooks_post = { add_comma_curly } },
   join  = { hooks_post = { del_comma_curly, pad_curly, } },
 }
-EOF
 
-" UNDO
-nnoremap <c-r> <cmd>call center#ExeCmdAndCenter('redo')<cr>
-nnoremap U <cmd>call center#ExeCmdAndCenter('redo')<cr>
-nnoremap u <cmd>call center#ExeCmdAndCenter('undo')<cr>
+-- UNDO
+map('n', '<c-r', '<cmd>call center#ExeCmdAndCenter("redo")<cr>')
+map('n', 'U', '<cmd>call center#ExeCmdAndCenter("redo")<cr>')
+map('n', 'u', '<cmd>call center#ExeCmdAndCenter("undo")<cr>')
 
-" WINDOWS
-nnoremap <space>c <c-w>c
-nnoremap <space>s <c-w>s
-nnoremap <space>v <c-w>v
-nnoremap <space>z <c-w>z
-set splitbelow splitright
+-- WINDOWS
+map('n', '<space>c', '<c-w>c')
+map('n', '<space>s', '<c-w>s')
+map('n', '<space>v', '<c-w>v')
+map('n', '<space>z', '<c-w>z')
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
-" WINDOWS: NAVIGATION
-lua << EOF
+-- WINDOWS: NAVIGATION
 return require("tmux").setup({
   copy_sync = { enable = false },
   navigation = {
