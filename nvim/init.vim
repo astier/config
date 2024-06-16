@@ -493,19 +493,15 @@ map('n', 'xxj', function() exchange.operator({ motion='ij' }) end)
 map('n', 'xxb', function() exchange.operator({ motion='ib' }) end)
 map('n', 'xxq', function() exchange.operator({ motion='iq' }) end)
 map('x', 'X',   function() exchange.visual() end)
-EOF
 
-" TABLINE
-set showtabline=1
-set tabline=%!tabline#Show()
-nnoremap <a-e> <cmd>tabp<cr>
-nnoremap <a-r> <cmd>tabn<cr>
-nnoremap <space>n <cmd>tab split<cr>
-tnoremap <silent> <a-e> <c-\><c-n><cmd>tabp<cr>
-tnoremap <silent> <a-r> <c-\><c-n><cmd>tabn<cr>
+-- TABLINE
+vim.opt.showtabline = 1
+vim.opt.tabline = '%!tabline#Show()'
+map('n', '<a-e>', 'gT')
+map('n', '<a-r>', 'gt')
+map('n', '<space>n', '<cmd>tab split<cr>')
 
-" TEXTOBJECTS
-lua << EOF
+-- TEXTOBJECTS
 local map = vim.keymap.set
 require('mini.ai').setup({
   custom_textobjects = {
