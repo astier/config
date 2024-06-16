@@ -470,11 +470,13 @@ set noshowcmd noshowmode
 set rulerformat=%=\[%l/%L\] noruler
 set statusline=%= laststatus=0
 
-" SUBSTITUTE
 lua << EOF
+local autocmd = vim.api.nvim_create_autocmd
+local map = vim.keymap.set
+
+-- SUBSTITUTE
 local substitute = require('substitute')
 substitute.setup({ exchange = { preserve_cursor_position = true } })
-local map = vim.keymap.set
 map('n', 'x',  function() substitute.operator() end)
 map('n', 'xw', function() substitute.operator({ motion='iw' }) end)
 map('n', 'xW', function() substitute.operator({ motion='iW' }) end)
@@ -500,7 +502,6 @@ map('n', '<a-r>', 'gt')
 map('n', '<space>n', '<cmd>tab split<cr>')
 
 -- TEXTOBJECTS
-local map = vim.keymap.set
 require('mini.ai').setup({ silent = true })
 require('various-textobjs').setup({ notifyNotFound = false })
 map('o', 'ii', '<cmd>lua require("various-textobjs").indentation("inner", "inner")<cr>')
@@ -562,7 +563,7 @@ map('n', '<c-r', '<cmd>call center#ExeCmdAndCenter("redo")<cr>')
 map('n', 'U', '<cmd>call center#ExeCmdAndCenter("redo")<cr>')
 map('n', 'u', '<cmd>call center#ExeCmdAndCenter("undo")<cr>')
 
--- WINDOWS
+-- WINDOWS: MANAGEMENT
 map('n', '<space>c', '<c-w>c')
 map('n', '<space>s', '<c-w>s')
 map('n', '<space>v', '<c-w>v')
@@ -570,39 +571,27 @@ map('n', '<space>z', '<c-w>z')
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- WINDOWS: NAVIGATION
-return require("tmux").setup({
+-- WINDOWS: NAVIGATION & RESIZE
+autocmd('VimResized', { callback = function() vim.cmd.wincmd('=') end })
+local tmux = require('tmux')
+tmux.setup({
   copy_sync = { enable = false },
-  navigation = {
-    cycle_navigation = false,
-    enable_default_keybindings = false,
-  },
+  navigation = { enable_default_keybindings = false },
   resize = {
     enable_default_keybindings = false,
     resize_step_x = 2,
     resize_step_y = 2,
   },
 })
+map('n', '<a-h>', function() tmux.move_left() end)
+map('n', '<a-j>', function() tmux.move_bottom() end)
+map('n', '<a-k>', function() tmux.move_top() end)
+map('n', '<a-l>', function() tmux.move_right() end)
+map('n', '<a-H>', function() tmux.resize_left() end)
+map('n', '<a-J>', function() tmux.resize_bottom() end)
+map('n', '<a-K>', function() tmux.resize_top() end)
+map('n', '<a-L>', function() tmux.resize_right() end)
 EOF
-nnoremap <a-h> <cmd>lua require('tmux').move_left()<cr>
-nnoremap <a-j> <cmd>lua require('tmux').move_bottom()<cr>
-nnoremap <a-k> <cmd>lua require('tmux').move_top()<cr>
-nnoremap <a-l> <cmd>lua require('tmux').move_right()<cr>
-tnoremap <a-h> <c-\><c-n><cmd>lua require('tmux').move_left()<cr>
-tnoremap <a-j> <c-\><c-n><cmd>lua require('tmux').move_bottom()<cr>
-tnoremap <a-k> <c-\><c-n><cmd>lua require('tmux').move_top()<cr>
-tnoremap <a-l> <c-\><c-n><cmd>lua require('tmux').move_right()<cr>
-
-" WINDOWS: RESIZE
-autocmd vimresized * wincmd =
-nnoremap <a-H> <cmd>lua require('tmux').resize_left()<cr>
-nnoremap <a-J> <cmd>lua require('tmux').resize_bottom()<cr>
-nnoremap <a-K> <cmd>lua require('tmux').resize_top()<cr>
-nnoremap <a-L> <cmd>lua require('tmux').resize_right()<cr>
-tnoremap <a-H> <c-\><c-n><cmd>lua require('tmux').resize_left()<cr>
-tnoremap <a-J> <c-\><c-n><cmd>lua require('tmux').resize_bottom()<cr>
-tnoremap <a-K> <c-\><c-n><cmd>lua require('tmux').resize_top()<cr>
-tnoremap <a-L> <c-\><c-n><cmd>lua require('tmux').resize_right()<cr>
 
 " WRAP
 autocmd filetype * set formatoptions-=t wrap
