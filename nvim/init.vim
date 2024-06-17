@@ -78,9 +78,11 @@ map('n', 'cp', 'cip', { remap = true })
 map('n', 'cw', 'ciw', { remap = true })
 map('n', 'cW', 'ciW', { remap = true })
 
--- CMDLINE
-autocmd('CmdlineLeave', { command = 'echo " "' })
-vim.opt.path = '.,,**'
+-- CMDLINE/RULER
+vim.opt.cmdheight = 0
+vim.opt.ruler = false
+vim.opt.showcmd = false
+vim.opt.showmode = false
 
 -- COMMENTING
 autocmd('FileType', { command = 'set formatoptions-=cro' })
@@ -190,12 +192,11 @@ cmp.setup({
 map('n', 'dw', 'daw')
 map('n', 'dW', 'daW')
 map('n', 'dp', function()
-  return vim.o.diff and 'dp' or '<cmd>silent normal! dap<cr>'
+  return vim.o.diff and 'dp' or 'dap'
 end, { expr = true })
-map('x', 'd', '<cmd>silent normal! d<cr>')
 
 -- FORMATTING
-map('n', 'gqp', '<cmd>silent normal! gqip<cr>')
+map('n', 'gqp', 'gqip')
 map('n', 'gqq', 'Vgq')
 
 -- FUZZY: CONFIG
@@ -263,7 +264,7 @@ set signcolumn=yes
 " GREP
 set grepprg=ggrep\ --vimgrep
 set grepformat=%f:%l:%c:%m
-command! -nargs=+ -complete=file_in_path Grep silent grep! <args><bar>echo
+command! -nargs=+ -complete=file_in_path Grep silent grep! <args>
 nnoremap <space>g :Grep<space>
 
 " HARPOON
@@ -369,8 +370,8 @@ xnoremap q :'<,'>:normal! @q<cr>
 inoremap <c-l> <right>
 nnoremap <c-i> <c-i>zz
 nnoremap <c-o> <c-o>zz
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
+nnoremap n nzz
+nnoremap N Nzz
 nnoremap A g$a
 nnoremap I g0i
 noremap gH g0
@@ -390,11 +391,6 @@ nmap <3-rightmouse> <rightmouse>
 nmap <4-rightmouse> <rightmouse>
 set mousemodel=extend
 set mousescroll=ver:4
-
-" PASTE
-nnoremap cP <cmd>silent normal! yap}p<cr>
-nnoremap p <cmd>silent! normal! p<cr>
-nnoremap P <cmd>silent! normal! P<cr>
 
 " QUICKFIX
 autocmd filetype qf setl nonu scl=no
@@ -429,8 +425,8 @@ nnoremap <a-d> 4<c-y>
 nnoremap <a-f> 4<c-e>
 
 " SEARCH
-cnoremap <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>echo<bar>noh<cr>zz' : '<enter>'
-nnoremap <esc> <cmd>echo<bar>noh<cr><esc>
+cnoremap <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>noh<cr>zz' : '<enter>'
+nnoremap <esc> <cmd>noh<cr><esc>
 nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
 xnoremap <space>w <cmd>let @/=visual#GetSelection()<bar>set hls<cr><esc>
 
@@ -452,6 +448,7 @@ vim.opt.smartcase = true
 -- SETTINGS
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.foldenable = false
+vim.opt.path:append('**')
 vim.opt.spellcapcheck = ''
 vim.opt.spellfile = '$XDG_STATE_HOME/nvim/spell/en.utf-8.add'
 vim.opt.timeout = false
@@ -480,10 +477,6 @@ map('n', '<s', function()
 end, { desc = 'Toggle statusline.' })
 vim.o.fillchars = 'diff: ,eob: ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│'
 vim.opt.laststatus = 0
-vim.opt.ruler = false
-vim.opt.rulerformat = '%=[%l/%L]'
-vim.opt.showcmd = false
-vim.opt.showmode = false
 vim.opt.statusline = '%='
 
 -- SUBSTITUTE
