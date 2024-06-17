@@ -432,17 +432,22 @@ nnoremap <a-f> 4<c-e>
 cnoremap <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>echo<bar>noh<cr>zz' : '<enter>'
 nnoremap <esc> <cmd>echo<bar>noh<cr><esc>
 nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
-nnoremap <space>w <cmd>let @/='\<'.expand('<cword>').'\>'<bar>set hls<cr>
-nnoremap <space>W <cmd>let @/='\<'.expand('<cWORD>').'\>'<bar>set hls<cr>
 xnoremap <space>w <cmd>let @/=visual#GetSelection()<bar>set hls<cr><esc>
-nnoremap <c <cmd>set ignorecase!<cr>
-nnoremap <h <cmd>set hlsearch!<cr>
-set ignorecase smartcase
-set shortmess+=Ss
 
 lua << EOF
 local autocmd = vim.api.nvim_create_autocmd
 local map = vim.keymap.set
+
+-- SEARCH
+map('n', '<space>w', function()
+  vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
+  vim.opt.hlsearch = true
+end)
+map('n', '<c', '<cmd>set ignorecase!<cr>')
+map('n', '<h', '<cmd>set hlsearch!<cr>')
+vim.opt.ignorecase = true
+vim.opt.shortmess:append('sS')
+vim.opt.smartcase = true
 
 -- SETTINGS
 vim.opt.clipboard = 'unnamedplus'
