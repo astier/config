@@ -441,6 +441,9 @@ set ignorecase smartcase
 set shortmess+=Ss
 
 lua << EOF
+local autocmd = vim.api.nvim_create_autocmd
+local map = vim.keymap.set
+
 -- SETTINGS
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.foldenable = false
@@ -459,18 +462,24 @@ require('snippy').setup({
     x = { ['<tab>'] = 'cut_text' },
   },
 })
-EOF
 
-" STATUS (RULER/STATUSLINE)
-nnoremap <expr> <s &ls ? '<cmd>se stl=%= ls=0<cr>' : '<cmd>se ls=3 stl=\[%f\]%=\[%l/%L\]<cr>'
-set fillchars+=diff:\ ,eob:\ ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│
-set noshowcmd noshowmode
-set rulerformat=%=\[%l/%L\] noruler
-set statusline=%= laststatus=0
-
-lua << EOF
-local autocmd = vim.api.nvim_create_autocmd
-local map = vim.keymap.set
+-- STATUSLINE/RULER
+map('n', '<s', function()
+  if vim.o.ls ~= 0 then
+    vim.opt.laststatus = 0
+    vim.opt.statusline = '%='
+  else
+    vim.opt.laststatus = 3
+    vim.opt.statusline = '[%f]%=[%l/%L]'
+  end
+end, { desc = 'Toggle statusline.' })
+vim.o.fillchars = 'diff: ,eob: ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│'
+vim.opt.laststatus = 0
+vim.opt.ruler = false
+vim.opt.rulerformat = '%=[%l/%L]'
+vim.opt.showcmd = false
+vim.opt.showmode = false
+vim.opt.statusline = '%='
 
 -- SUBSTITUTE
 local substitute = require('substitute')
