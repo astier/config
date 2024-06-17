@@ -278,12 +278,15 @@ nnoremap <space>4 <cmd>lua require("harpoon.ui").nav_file(4)<cr>
 nnoremap <c-n> <cmd>lua require("harpoon.ui").nav_next()<cr>
 nnoremap <c-p> <cmd>lua require("harpoon.ui").nav_prev()<cr>
 
-" INDENTATION
-nnoremap <p <ap
-nnoremap >p >ap
-set expandtab
-set shiftwidth=2
-set tabstop=2
+lua << EOF
+-- INDENTATION
+local map = vim.keymap.set
+map('n', '<p', '<ap')
+map('n', '>p', '>ap')
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+EOF
 
 " LOADED
 " Two function-calls are needed to open lsp-float-windows in insert-mode if disabled
