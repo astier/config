@@ -199,7 +199,7 @@ end, { expr = true })
 map('n', 'gqp', 'gqip')
 map('n', 'gqq', 'Vgq')
 
--- FUZZY: CONFIG
+-- FZF: CONFIG
 require('fzf-lua').setup({
   'max-perf',
   fzf_args = vim.env.FZF_DEFAULT_OPTS,
@@ -211,33 +211,31 @@ require('fzf-lua').setup({
   files = { cmd = vim.env.FZF_DEFAULT_COMMAND },
   oldfiles = { cwd_only = true },
 })
+
+-- FZF: BUFFERS & FILES
+local fzf = require('fzf-lua')
+map('n', 'ff', function() fzf.files() end)
+map('n', 'fj', function() fzf.buffers() end)
+map('n', 'fl', function() fzf.blines() end)
+map('n', 'fQ', function() fzf.loclist() end)
+map('n', 'fq', function() fzf.quickfix() end)
+
+-- FZF: SEARCH
+map('n', 'fg', function() fzf.grep() end)
+map('n', 'fG', function() fzf.live_grep() end)
+map('n', 'fw', function() fzf.grep_cword() end)
+map('n', 'fW', function() fzf.grep_cWORD() end)
+map('x', 'fw', function() fzf.grep_visual() end)
+
+-- FZF: LSP
+map('n', 'fr', function() fzf.lsp_references() end)
+map('n', 'fs', function() fzf.lsp_document_symbols() end)
+
+-- FZF: MISC
+map('n', 'fb', function() fzf.builtin() end)
+map('n', 'fc', function() fzf.commands() end)
+map('n', 'fh', function() fzf.help_tags() end)
 EOF
-
-" FUZZY: MAPPINGS (MISC)
-nnoremap fb <cmd>FzfLua builtin<cr>
-nnoremap fc <cmd>FzfLua commands<cr>
-nnoremap ff <cmd>FzfLua files<cr>
-nnoremap fh <cmd>FzfLua help_tags<cr>
-nnoremap fj <cmd>FzfLua buffers<cr>
-nnoremap fl <cmd>FzfLua blines<cr>
-nnoremap fo <cmd>FzfLua oldfiles<cr>
-nnoremap fQ <cmd>FzfLua loclist<cr>
-nnoremap fq <cmd>FzfLua quickfix<cr>
-nnoremap fR <cmd>FzfLua registers<cr>
-
-" FUZZY: MAPPINGS (GREP)
-nnoremap fg <cmd>FzfLua grep<cr>
-nnoremap fG <cmd>FzfLua live_grep<cr>
-nnoremap fw <cmd>FzfLua grep_cword<cr>
-nnoremap fW <cmd>FzfLua grep_cWORD<cr>
-xnoremap fw <cmd>FzfLua grep_visual<cr>
-
-" FUZZY: MAPPINGS (LSP)
-nnoremap fd <cmd>FzfLua lsp_definitions<cr>
-nnoremap fi <cmd>FzfLua lsp_implementations<cr>
-nnoremap fr <cmd>FzfLua lsp_references<cr>
-nnoremap fs <cmd>FzfLua lsp_document_symbols<cr>
-nnoremap fS <cmd>FzfLua lsp_workspace_symbols<cr>
 
 " GIT
 autocmd filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
