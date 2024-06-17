@@ -60,7 +60,6 @@ hi netrwMarkFile ctermbg=none ctermfg=yellow cterm=none " tablinesel
 hi wildmenu ctermbg=none ctermfg=none cterm=none " none
 hi! link boolean none " constant
 hi! link function none " identifier
-hi! link matchparen none " none
 hi! link number none " constant
 hi! link plugdeleted none " ignore
 hi! link question none " none

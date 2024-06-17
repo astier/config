@@ -286,27 +286,17 @@ map('n', '>p', '>ap')
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-EOF
 
-" LOADED
-" Two function-calls are needed to open lsp-float-windows in insert-mode if disabled
-" let g:loaded_matchparen = 0
-let g:loaded_2html_plugin = 0
-let g:loaded_gzip = 0
-let g:loaded_matchit = 0
-let g:loaded_netrwPlugin = 0
-let g:loaded_node_provider = 0
-let g:loaded_perl_provider = 0
-let g:loaded_python3_provider = 0
-let g:loaded_remote_plugins = 0
-let g:loaded_ruby_provider = 0
-let g:loaded_spellfile_plugin = 0
-let g:loaded_tarPlugin = 0
-let g:loaded_tutor_mode_plugin = 0
-let g:loaded_zipPlugin = 0
+-- LOADED
+vim.g.loaded_matchparen = 0
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
 
-" LSP
-lua << EOF
+-- LSP
 -- Diagnostics
 vim.diagnostic.enable(false)
 vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
@@ -323,15 +313,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(args)
     local opts = { buffer = args.buf }
-    vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<c-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('v', '<c-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    map('i', '<c-k>', vim.lsp.buf.signature_help, opts)
+    map('n', '<c-k>', vim.lsp.buf.signature_help, opts)
+    map('v', '<c-k>', vim.lsp.buf.signature_help, opts)
+    map('n', '<space>r', vim.lsp.buf.rename, opts)
+    map('n', 'ga', vim.lsp.buf.code_action, opts)
+    map('n', 'gD', vim.lsp.buf.declaration, opts)
+    map('n', 'gd', vim.lsp.buf.definition, opts)
+    map('n', 'gi', vim.lsp.buf.implementation, opts)
+    map('n', 'gr', vim.lsp.buf.references, opts)
   end,
 })
 -- Servers
