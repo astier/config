@@ -80,7 +80,7 @@ map('n', 'cW', 'ciW', { remap = true })
 
 -- CMDLINE
 autocmd('CmdlineLeave', { command = 'echo " "' })
-vim.o.path = '.,,**'
+vim.opt.path = '.,,**'
 
 -- COMMENTING
 autocmd('FileType', { command = 'set formatoptions-=cro' })
