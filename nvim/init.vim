@@ -259,10 +259,6 @@ nnoremap [c <cmd>silent GitGutterPrevHunk<cr>zz
 nnoremap ]c <cmd>silent GitGutterNextHunk<cr>zz
 set signcolumn=yes
 
-" GREP
-command! -nargs=+ -complete=file_in_path Grep silent grep! <args>
-nnoremap <space>g :Grep<space>
-
 lua << EOF
 local map = vim.keymap.set
 
@@ -346,6 +342,7 @@ nnoremap <space>l <cmd>silent make! %<cr>
 
 " MAPPINGS
 nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
+nnoremap <space>g :silent grep!<space>
 nnoremap guw guiw
 nnoremap guW guiW
 nnoremap gUw gUiw
