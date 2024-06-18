@@ -250,17 +250,17 @@ nnoremap <space>kk <cmd>Flog -all<cr>
 nnoremap <space>kr <cmd>G reset --hard<bar>e<cr>
 nnoremap <space>ks <cmd>G status -bs<cr>
 
-" GITGUTTER
-let g:gitgutter_map_keys = 0
-nnoremap <space>i <cmd>silent GitGutterPreviewHunk<cr>
-nnoremap <space>S <cmd>silent GitGutterStageHunk<cr>
-nnoremap <space>u <cmd>silent GitGutterUndoHunk<cr>
-nnoremap [c <cmd>silent GitGutterPrevHunk<cr>zz
-nnoremap ]c <cmd>silent GitGutterNextHunk<cr>zz
-set signcolumn=yes
-
 lua << EOF
 local map = vim.keymap.set
+
+-- GITGUTTER
+map('n', '<space>i', '<cmd>silent GitGutterPreviewHunk<cr>')
+map('n', '<space>S', '<cmd>silent GitGutterStageHunk<cr>')
+map('n', '<space>u', '<cmd>silent GitGutterUndoHunk<cr>')
+map('n', '[c', '<cmd>silent GitGutterPrevHunk<cr>zz')
+map('n', ']c', '<cmd>silent GitGutterNextHunk<cr>zz')
+vim.g.gitgutter_map_keys = 0
+vim.opt.signcolumn = 'yes'
 
 -- HARPOON
 map('n', '<space>a', function() require('harpoon.mark').add_file() end)
