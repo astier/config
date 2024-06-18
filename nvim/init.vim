@@ -22,12 +22,10 @@ call plug#begin()
   Plug 'idbrii/textobj-word-column.vim'
   Plug 'Julian/vim-textobj-variable-segment'
   Plug 'kana/vim-textobj-user'
-  Plug 'kevinhwang91/nvim-bqf'
   Plug 'machakann/vim-sandwich'
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'rbong/vim-flog'
-  Plug 'romainl/vim-qf'
   Plug 'ThePrimeagen/harpoon'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
@@ -378,24 +376,50 @@ nmap <4-rightmouse> <rightmouse>
 set mousemodel=extend
 set mousescroll=ver:4
 
-" QUICKFIX
-autocmd filetype qf setl nonu scl=no
-nmap <space>q <plug>(qf_qf_toggle_stay)
-nmap [q <plug>(qf_qf_previous)zz
-nmap ]q <plug>(qf_qf_next)zz
 lua << EOF
-require('bqf').setup({
-  preview = {
-    border_chars = { '│', '│', '─', '─', '┌', '┐', '└', '┘', '█' },
-    show_title = false,
-  },
-  func_map = { split = '<c-s>', },
-  filter = { fzf = { action_for = { ['ctrl-s'] = 'split' } } },
+-- QUICKFIX
+local autocmd = vim.api.nvim_create_autocmd
+local map = vim.keymap.set
+autocmd('FileType', { pattern = 'qf',
+  callback = function()
+    map('n', '<cr>', '<cr>zz', { buffer = true })
+    map('n', 'o', '<cr><cmd>cclose<cr>zz', { buffer = true })
+    map('n', 'p', '<cr>zz<c-w>p', { buffer = true })
+    vim.opt_local.number = false
+    vim.opt_local.signcolumn = 'no'
+    vim.opt_local.winfixbuf = true
+    vim.opt_local.wrap = false
+  end
 })
+autocmd('QuickFixCmdPost', { pattern = '[^l]*',
+  callback = function()
+    local height_max = math.floor(vim.api.nvim_win_get_height(0) * 0.2)
+    local height = math.min(#vim.fn.getqflist(), height_max)
+    if height == 0 then return end
+    vim.cmd('copen ' .. height)
+  end
+})
+autocmd('QuickFixCmdPost', { pattern = 'l*',
+  callback = function()
+    local height_max = math.floor(vim.api.nvim_win_get_height(0) * 0.2)
+    local height = math.min(#vim.fn.getqflist(), height_max)
+    if height == 0 then return end
+    vim.cmd('lopen ' .. height)
+  end
+})
+map('n', '<space>q', function()
+  if vim.tbl_isempty(vim.fn.filter(vim.fn.getwininfo(), 'v:val.quickfix')) then
+    local height_max = math.floor(vim.api.nvim_win_get_height(0) * 0.2)
+    local height = math.min(#vim.fn.getqflist(), height_max)
+    if height == 0 then return end
+    vim.cmd('copen ' .. height)
+  else
+    vim.cmd.cclose()
+  end
+end, { desc = 'Toggle quickfix-window.' })
+map('n', '[q', '<cmd>cprevious<cr>zz')
+map('n', ']q', '<cmd>cnext<cr>zz')
 EOF
-highlight bqfsign ctermfg=yellow
-highlight! link bqfpreviewborder comment
-highlight! link bqfpreviewrange none
 
 " SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
 let g:sandwich_no_default_key_mappings = 1
