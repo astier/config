@@ -265,20 +265,19 @@ set grepformat=%f:%l:%c:%m
 command! -nargs=+ -complete=file_in_path Grep silent grep! <args>
 nnoremap <space>g :Grep<space>
 
-" HARPOON
-hi! link HarpoonBorder separator
-nnoremap <space>ha <cmd>lua require("harpoon.mark").add_file()<cr>
-nnoremap <space>m <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
-nnoremap <space>1 <cmd>lua require("harpoon.ui").nav_file(1)<cr>
-nnoremap <space>2 <cmd>lua require("harpoon.ui").nav_file(2)<cr>
-nnoremap <space>3 <cmd>lua require("harpoon.ui").nav_file(3)<cr>
-nnoremap <space>4 <cmd>lua require("harpoon.ui").nav_file(4)<cr>
-nnoremap <c-n> <cmd>lua require("harpoon.ui").nav_next()<cr>
-nnoremap <c-p> <cmd>lua require("harpoon.ui").nav_prev()<cr>
-
 lua << EOF
--- INDENTATION
 local map = vim.keymap.set
+
+-- HARPOON
+map('n', '<space>a', function() require('harpoon.mark').add_file() end)
+map('n', '<space>m', function() require('harpoon.ui').toggle_quick_menu() end)
+map('n', '<space>1', function() require('harpoon.ui').nav_file(1) end)
+map('n', '<space>2', function() require('harpoon.ui').nav_file(2) end)
+map('n', '<space>3', function() require('harpoon.ui').nav_file(3) end)
+map('n', '<space>4', function() require('harpoon.ui').nav_file(4) end)
+vim.cmd.highlight({ 'link HarpoonBorder WinSeparator', bang = true })
+
+-- INDENTATION
 map('n', '<p', '<ap')
 map('n', '>p', '>ap')
 vim.opt.expandtab = true
