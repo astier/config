@@ -106,7 +106,7 @@ map('n', 'gcl', function()
 end)
 
 -- COMPLETION
-vim.opt.completeopt= { 'menuone', 'noinsert' }
+vim.opt.completeopt = { 'menuone', 'noinsert' }
 vim.opt.pumheight = 8
 vim.opt.pumwidth = 0
 vim.opt.shortmess:append('c')
