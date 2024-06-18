@@ -235,25 +235,26 @@ map('n', 'fs', function() fzf.lsp_document_symbols() end)
 map('n', 'fb', function() fzf.builtin() end)
 map('n', 'fc', function() fzf.commands() end)
 map('n', 'fh', function() fzf.help_tags() end)
-EOF
 
-" GIT
-autocmd filetype floggraph nmap <buffer> <rightmouse> <leftmouse><cr>
-autocmd filetype floggraph nmap <buffer> <space>q <plug>(FlogQuit)
-autocmd filetype floggraph xmap <buffer> <rightmouse> <cr>
-let g:flog_permanent_default_opts = { 'date': 'short' }
-nnoremap <expr> <space>km &diff ? '<cmd>x<cr>zz' : '<cmd>Gdiffsplit<cr>'
-nnoremap <space>kd <cmd>0G diff<cr>
-nnoremap <space>kg :Flog -search=
-nnoremap <space>kK <cmd>Flog -all -path=%<cr>
-nnoremap <space>kk <cmd>Flog -all<cr>
-nnoremap <space>kr <cmd>G reset --hard<bar>e<cr>
-nnoremap <space>ks <cmd>G status -bs<cr>
+-- GIT
+map('n', '<space>kd', '<cmd>0G diff<cr>')
+map('n', '<space>ks', '<cmd>G<cr>')
 
-lua << EOF
-local map = vim.keymap.set
+-- GIT-GRAPH
+autocmd('FileType', {
+  pattern = 'floggraph',
+  callback = function()
+    map('n', '<rightmouse>', '<leftmouse><cr>', { buffer = true, remap = true })
+    map('x', '<rightmouse>', '<esc><leftmouse><cr>', { buffer = true, remap = true })
+    map('n', 'q', '<Plug>(FlogQuit)', { buffer = true })
+  end
+})
+vim.g.flog_permanent_default_opts = { date = 'short' }
+map('n', '<space>kg', ':Flog -search=')
+map('n', '<space>kf', '<cmd>Flog -all -path=%<cr>')
+map('n', '<space>kk', '<cmd>Flog -all<cr>')
 
--- GITGUTTER
+-- GIT-GUTTER
 map('n', '<space>i', '<cmd>silent GitGutterPreviewHunk<cr>')
 map('n', '<space>S', '<cmd>silent GitGutterStageHunk<cr>')
 map('n', '<space>u', '<cmd>silent GitGutterUndoHunk<cr>')
