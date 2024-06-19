@@ -402,16 +402,15 @@ end })
 map('n', '<space>q', '<Plug>(qf_qf_toggle)')
 map('n', '[q', '<Plug>(qf_qf_previous)zz')
 map('n', ']q', '<Plug>(qf_qf_next)zz')
-EOF
 
-" SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
-let g:sandwich_no_default_key_mappings = 1
-nmap s   <Plug>(operator-sandwich-add)
-xmap s   <Plug>(operator-sandwich-add)
-nmap sd  <Plug>(operator-sandwich-delete)a
-nmap sr  <Plug>(operator-sandwich-replace)a
-nmap sw siw
-nmap sW siW
+-- SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
+vim.g.sandwich_no_default_key_mappings = 1
+map({ 'n', 'x' }, 's', '<Plug>(operator-sandwich-add)', { remap = true })
+map('n', 'sd', '<Plug>(operator-sandwich-delete)a', { remap = true })
+map('n', 'sr', '<Plug>(operator-sandwich-replace)a', { remap = true })
+map('n', 'sw', 'siw', { remap = true })
+map('n', 'sW', 'siW', { remap = true })
+EOF
 
 " SCROLLING
 nnoremap <a-d> 4<c-y>
