@@ -342,7 +342,7 @@ map('n', '<space>l', '<cmd>silent make! %<cr>')
 EOF
 
 " MAPPINGS
-nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
+nnoremap <cr> o<esc>
 nnoremap <space>g :silent grep!<space>
 nnoremap guw guiw
 nnoremap guW guiW
