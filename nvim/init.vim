@@ -36,6 +36,7 @@ call plug#end()
 lua << EOF
 local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.cmd
+local fn = vim.fn
 local map = vim.keymap.set
 local set = vim.opt
 local setl = vim.opt_local
@@ -47,8 +48,8 @@ autocmd('FileType', { callback =
 end })
 map('n', '<space>H', function()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  local synID = vim.fn.synID(row, col, 1)
-  local synIDattr = vim.fn.synIDattr(vim.fn.synID(row, col, 1), 'name')
+  local synID = fn.synID(row, col, 1)
+  local synIDattr = fn.synIDattr(fn.synID(row, col, 1), 'name')
   cmd.highlight(synIDattr)
 end, { desc = 'Show highlight-group under the cursor.' })
 
@@ -416,15 +417,15 @@ set.shortmess:append('sS')
 set.smartcase = true
 -- Don't highlight matches and center after search
 map('c', '<enter>', function()
-  return vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype()) and '<enter><cmd>noh<cr>zz' or '<enter>'
+  return vim.tbl_contains({ '/', '?' }, fn.getcmdtype()) and '<enter><cmd>noh<cr>zz' or '<enter>'
 end, { expr = true })
 -- Search cword
 map('n', '<space>w', function()
-  vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
+  fn.setreg('/', '\\<' .. fn.expand('<cword>') .. '\\>')
   set.hlsearch = true
 end)
 map('n', '<space>w', function()
-  vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
+  fn.setreg('/', '\\<' .. fn.expand('<cword>') .. '\\>')
   set.hlsearch = true
 end)
 
@@ -507,10 +508,10 @@ map('o', 'C',  '<cmd>lua require("various-textobjs").mdFencedCodeBlock("inner")<
 map('o', 'aC', '<cmd>lua require("various-textobjs").mdFencedCodeBlock("outer")<cr>')
 map('n', 'gx', function()
   require('various-textobjs').url()
-  local foundURL = vim.fn.mode():find('v')
+  local foundURL = fn.mode():find('v')
   if not foundURL then return end
   cmd.normal { '"zy', bang = true }
-  local url = vim.fn.getreg('z')
+  local url = fn.getreg('z')
   vim.ui.open(url)
 end, { desc = 'Smart gx seeks next URL' })
 -- Brackets
