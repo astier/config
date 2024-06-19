@@ -37,11 +37,13 @@ lua << EOF
 local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.cmd
 local map = vim.keymap.set
+local set = vim.opt
+local setl = vim.opt_local
 
 -- APPEARANCE
 cmd.colorscheme('custom')
 autocmd('FileType', { callback =
-  function() vim.opt_local.cursorline = false
+  function() setl.cursorline = false
 end })
 map('n', '<space>H', function()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -70,7 +72,7 @@ autocmd({ 'TextChanged', 'InsertLeave' }, {
 -- BUFFERS
 map('n', '<space>d', function() cmd.quitall({ bang = true }) end)
 map('n', 'q', function() cmd.buffer('#') end)
-vim.opt.swapfile = false
+set.swapfile = false
 
 -- CHANGE
 map({ 'n', 'x' }, 'c', '"_c')
@@ -80,10 +82,10 @@ map('n', 'cw', 'ciw', { remap = true })
 map('n', 'cW', 'ciW', { remap = true })
 
 -- CMDLINE/RULER
-vim.opt.cmdheight = 0
-vim.opt.ruler = false
-vim.opt.showcmd = false
-vim.opt.showmode = false
+set.cmdheight = 0
+set.ruler = false
+set.showcmd = false
+set.showmode = false
 
 -- COMMENTING
 autocmd('FileType', { command = 'set formatoptions-=cro' })
@@ -107,10 +109,10 @@ map('n', 'gcl', function()
 end)
 
 -- COMPLETION
-vim.opt.completeopt = { 'menuone', 'noinsert' }
-vim.opt.pumheight = 8
-vim.opt.pumwidth = 0
-vim.opt.shortmess:append('c')
+set.completeopt = { 'menuone', 'noinsert' }
+set.pumheight = 8
+set.pumwidth = 0
+set.shortmess:append('c')
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -120,7 +122,7 @@ local snippy = require('snippy')
 cmp.setup({
   completion = {
     autocomplete = false,
-    completeopt = table.concat(vim.opt.completeopt:get(), ","),
+    completeopt = table.concat(set.completeopt:get(), ","),
   },
   view = { docs = { auto_open = false } },
   snippet = {
@@ -262,7 +264,7 @@ map('n', '<space>u', '<cmd>silent GitGutterUndoHunk<cr>')
 map('n', '[c', '<cmd>silent GitGutterPrevHunk<cr>zz')
 map('n', ']c', '<cmd>silent GitGutterNextHunk<cr>zz')
 vim.g.gitgutter_map_keys = 0
-vim.opt.signcolumn = 'yes'
+set.signcolumn = 'yes'
 
 -- HARPOON
 map('n', '<space>a', function() require('harpoon.mark').add_file() end)
@@ -276,9 +278,9 @@ cmd.highlight({ 'link HarpoonBorder WinSeparator', bang = true })
 -- INDENTATION
 map('n', '<p', '<ap')
 map('n', '>p', '>ap')
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
+set.expandtab = true
+set.shiftwidth = 2
+set.tabstop = 2
 
 -- LOADED
 vim.g.loaded_matchparen = 0
@@ -334,11 +336,11 @@ lspconfig.jedi_language_server.setup({
 lspconfig.marksman.setup({ capabilities = capabilities })
 
 -- MAKE
-vim.opt.makeprg = 'lint'
-vim.opt.errorformat = '%f:%l:%c:%m'
-vim.opt.errorformat:append('%f:%l:%c %m')
-vim.opt.errorformat:append('%f:%l:%m')
-vim.opt.errorformat:append('%f:%l %m')
+set.makeprg = 'lint'
+set.errorformat = '%f:%l:%c:%m'
+set.errorformat:append('%f:%l:%c %m')
+set.errorformat:append('%f:%l:%m')
+set.errorformat:append('%f:%l %m')
 map('n', '<space>l', '<cmd>silent make! %<cr>')
 
 -- MAPPINGS
@@ -369,8 +371,8 @@ map('n', 'L', '0L')
 map('n', 'M', '0M')
 
 -- MOUSE
-vim.opt.mousemodel = 'extend'
-vim.opt.mousescroll = 'ver:4'
+set.mousemodel = 'extend'
+set.mousescroll = 'ver:4'
 
 -- QUICKFIX: BQF
 require('bqf').setup({
@@ -385,9 +387,9 @@ cmd.highlight({ 'link BqfPreviewRange None', bang = true })
 
 -- QUICKFIX: QF
 autocmd('FileType', { pattern = 'qf', callback = function()
-  vim.opt_local.number = false
-  vim.opt_local.signcolumn = 'no'
-  vim.opt_local.wrap = false
+  setl.number = false
+  setl.signcolumn = 'no'
+  setl.wrap = false
 end })
 map('n', '<space>q', '<Plug>(qf_qf_toggle)')
 map('n', '[q', '<Plug>(qf_qf_previous)zz')
@@ -409,9 +411,9 @@ map('n', '<a-f>', '4<c-e>')
 map('n', '<c', '<cmd>set ignorecase!<cr>')
 map('n', '<h', '<cmd>set hlsearch!<cr>')
 map('n', '<esc>', '<cmd>noh<cr><esc>')
-vim.opt.ignorecase = true
-vim.opt.shortmess:append('sS')
-vim.opt.smartcase = true
+set.ignorecase = true
+set.shortmess:append('sS')
+set.smartcase = true
 -- Don't highlight matches and center after search
 map('c', '<enter>', function()
   return vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype()) and '<enter><cmd>noh<cr>zz' or '<enter>'
@@ -419,21 +421,21 @@ end, { expr = true })
 -- Search cword
 map('n', '<space>w', function()
   vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
-  vim.opt.hlsearch = true
+  set.hlsearch = true
 end)
 map('n', '<space>w', function()
   vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
-  vim.opt.hlsearch = true
+  set.hlsearch = true
 end)
 
 -- SETTINGS
-vim.opt.clipboard = 'unnamedplus'
-vim.opt.foldenable = false
-vim.opt.path:append('**')
-vim.opt.spellcapcheck = ''
-vim.opt.spellfile = '$XDG_STATE_HOME/nvim/spell/en.utf-8.add'
-vim.opt.timeout = false
-vim.opt.virtualedit = 'block'
+set.clipboard = 'unnamedplus'
+set.foldenable = false
+set.path:append('**')
+set.spellcapcheck = ''
+set.spellfile = '$XDG_STATE_HOME/nvim/spell/en.utf-8.add'
+set.timeout = false
+set.virtualedit = 'block'
 
 -- SNIPPETS
 require('snippy').setup({
@@ -449,16 +451,16 @@ require('snippy').setup({
 -- STATUSLINE/RULER
 map('n', '<s', function()
   if vim.o.ls ~= 0 then
-    vim.opt.laststatus = 0
-    vim.opt.statusline = '%='
+    set.laststatus = 0
+    set.statusline = '%='
   else
-    vim.opt.laststatus = 3
-    vim.opt.statusline = '[%f]%=[%l/%L]'
+    set.laststatus = 3
+    set.statusline = '[%f]%=[%l/%L]'
   end
 end, { desc = 'Toggle statusline.' })
-vim.o.fillchars = 'diff: ,eob: ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│'
-vim.opt.laststatus = 0
-vim.opt.statusline = '%='
+set.fillchars = 'diff: ,eob: ,fold:─,foldsep:│,stl:─,stlnc:─,vert:│'
+set.laststatus = 0
+set.statusline = '%='
 
 -- SUBSTITUTE
 local substitute = require('substitute')
@@ -481,8 +483,8 @@ map('n', 'xxq', function() exchange.operator({ motion='iq' }) end)
 map('x', 'X',   function() exchange.visual() end)
 
 -- TABLINE
-vim.opt.showtabline = 1
-vim.opt.tabline = '%!tabline#Show()'
+set.showtabline = 1
+set.tabline = '%!tabline#Show()'
 map('n', '<a-e>', 'gT')
 map('n', '<a-r>', 'gt')
 map('n', '<space>n', '<cmd>tab split<cr>')
@@ -555,8 +557,8 @@ map('n', '<space>c', '<c-w>c')
 map('n', '<space>s', '<c-w>s')
 map('n', '<space>v', '<c-w>v')
 map('n', '<space>z', '<c-w>z')
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+set.splitbelow = true
+set.splitright = true
 
 -- WINDOWS: NAVIGATION
 local tmux = require('tmux')
@@ -572,13 +574,13 @@ map('n', '<a-l>', function() tmux.move_right() end)
 
 -- WRAP
 autocmd('FileType', { command = 'set formatoptions-=t' })
-vim.opt.breakindent = true
-vim.opt.linebreak = true
-vim.opt.showbreak = '  ↳ '
+set.breakindent = true
+set.linebreak = true
+set.showbreak = '  ↳ '
 if vim.env.TERM == 'linux' or vim.env.TERM == 'screen' then
-  vim.opt.showbreak = '  ¬ '
+  set.showbreak = '  ¬ '
 else
-  vim.opt.showbreak = '  ↳ '
+  set.showbreak = '  ↳ '
 end
 
 -- YANK
