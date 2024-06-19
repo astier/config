@@ -45,30 +45,23 @@ local setl = vim.opt_local
 
 -- APPEARANCE
 cmd.colorscheme('custom')
-autocmd('FileType', { callback =
-  function() setl.cursorline = false
-end })
+autocmd('FileType', { callback = function() setl.cursorline = false end })
 map('n', '<space>H', function()
   local row, col = unpack(api.nvim_win_get_cursor(0))
   cmd.highlight(fn.synIDattr(fn.synID(row, col, 1), 'name'))
 end, { desc = 'Show highlight-group under the cursor.' })
 
 -- AUTOCHDIR
-autocmd('VimEnter', {
-  callback = function()
-    local root = vim.fs.root(0, '.git')
-    if root then vim.uv.chdir(root) end
-  end,
-})
+autocmd('VimEnter', { callback = function()
+  local root = vim.fs.root(0, '.git')
+  if root then vim.uv.chdir(root) end
+end })
 
 -- AUTOSAVE
-autocmd({ 'TextChanged', 'InsertLeave' }, {
-  nested = true,
-  callback = function()
-    if vim.bo.readonly then return end
-    cmd.update({ mods = { silent = true } })
-  end
-})
+autocmd({ 'TextChanged', 'InsertLeave' }, { nested = true, callback = function()
+  if vim.bo.readonly then return end
+  cmd.update({ mods = { silent = true } })
+end })
 
 -- BUFFERS
 map('n', '<space>d', function() cmd.quitall({ bang = true }) end)
@@ -245,14 +238,11 @@ map('n', '<space>kd', '<cmd>0G diff<cr>')
 map('n', '<space>ks', '<cmd>G<cr>')
 
 -- GIT-GRAPH
-autocmd('FileType', {
-  pattern = 'floggraph',
-  callback = function()
-    map('n', '<rightmouse>', '<leftmouse><cr>', { buffer = true, remap = true })
-    map('x', '<rightmouse>', '<esc><leftmouse><cr>', { buffer = true, remap = true })
-    map('n', 'q', '<Plug>(FlogQuit)', { buffer = true })
-  end
-})
+autocmd('FileType', { pattern = 'floggraph', callback = function()
+  map('n', '<rightmouse>', '<leftmouse><cr>', { buffer = true, remap = true })
+  map('x', '<rightmouse>', '<esc><leftmouse><cr>', { buffer = true, remap = true })
+  map('n', 'q', '<Plug>(FlogQuit)', { buffer = true })
+end })
 vim.g.flog_permanent_default_opts = { date = 'short' }
 map('n', '<space>kg', ':Flog -search=')
 map('n', '<space>kf', '<cmd>Flog -all -path=%<cr>')
@@ -305,21 +295,18 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 -- LspAttach
-autocmd('LspAttach', {
-  group = augroup('UserLspConfig', {}),
-  callback = function(args)
-    local opts = { buffer = args.buf }
-    map('i', '<c-k>', vim.lsp.buf.signature_help, opts)
-    map('n', '<c-k>', vim.lsp.buf.signature_help, opts)
-    map('v', '<c-k>', vim.lsp.buf.signature_help, opts)
-    map('n', '<space>r', vim.lsp.buf.rename, opts)
-    map('n', 'ga', vim.lsp.buf.code_action, opts)
-    map('n', 'gD', vim.lsp.buf.declaration, opts)
-    map('n', 'gd', vim.lsp.buf.definition, opts)
-    map('n', 'gi', vim.lsp.buf.implementation, opts)
-    map('n', 'gr', vim.lsp.buf.references, opts)
-  end,
-})
+autocmd('LspAttach', { group = augroup('UserLspConfig', {}), callback = function(args)
+  local opts = { buffer = args.buf }
+  map('i', '<c-k>', vim.lsp.buf.signature_help, opts)
+  map('n', '<c-k>', vim.lsp.buf.signature_help, opts)
+  map('v', '<c-k>', vim.lsp.buf.signature_help, opts)
+  map('n', '<space>r', vim.lsp.buf.rename, opts)
+  map('n', 'ga', vim.lsp.buf.code_action, opts)
+  map('n', 'gD', vim.lsp.buf.declaration, opts)
+  map('n', 'gd', vim.lsp.buf.definition, opts)
+  map('n', 'gi', vim.lsp.buf.implementation, opts)
+  map('n', 'gr', vim.lsp.buf.references, opts)
+end })
 -- Servers
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
@@ -590,20 +577,16 @@ else
 end
 
 -- YANK
-autocmd({ 'VimEnter', 'CursorMoved' }, {
-  callback = function()
-    yank_pos = api.nvim_win_get_cursor(0)
+autocmd({ 'VimEnter', 'CursorMoved' }, { callback = function()
+  yank_pos = api.nvim_win_get_cursor(0)
+end })
+autocmd('TextYankPost', { callback = function()
+  vim.highlight.on_yank()
+  if vim.v.event.operator == 'y' then
+    api.nvim_win_set_cursor(0, yank_pos)
   end
-})
-autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-    if vim.v.event.operator == 'y' then
-      api.nvim_win_set_cursor(0, yank_pos)
-    end
-    print(' ')
-  end
-})
+  print(' ')
+end })
 map('n', 'yp', 'yap')
 map('n', 'yw', 'yiw')
 map('n', 'yW', 'yiW')
