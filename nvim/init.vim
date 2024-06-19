@@ -252,8 +252,8 @@ map('n', '<space>kk', '<cmd>Flog -all<cr>')
 map('n', '<space>i', '<cmd>silent GitGutterPreviewHunk<cr>')
 map('n', '<space>S', '<cmd>silent GitGutterStageHunk<cr>')
 map('n', '<space>u', '<cmd>silent GitGutterUndoHunk<cr>')
-map('n', '[c', '<cmd>silent GitGutterPrevHunk<cr>zz')
-map('n', ']c', '<cmd>silent GitGutterNextHunk<cr>zz')
+map('n', '[c', '<cmd>silent GitGutterPrevHunk<cr>')
+map('n', ']c', '<cmd>silent GitGutterNextHunk<cr>')
 vim.g.gitgutter_map_keys = 0
 set.signcolumn = 'yes'
 
@@ -343,17 +343,11 @@ map('n', 'Q', 'q')
 
 -- MOTIONS
 map('i', '<c-l>', '<right>')
-map('n', '<c-i>', '<c-i>zz')
-map('n', '<c-o>', '<c-o>zz')
 map('n', 'gH', 'g0')
 map('n', 'gh', 'g^')
 map('n', 'gl', 'g$')
 map('n', 'j', 'gj')
 map('n', 'k', 'gk')
-map('n', 'n', 'nzz')
-map('n', 'N', 'Nzz')
-map('n', '{', '{zz')
-map('n', '}', '}zz')
 map('n', 'H', '0H')
 map('n', 'L', '0L')
 map('n', 'M', '0M')
@@ -380,8 +374,8 @@ autocmd('FileType', { pattern = 'qf', callback = function()
   setl.wrap = false
 end })
 map('n', '<space>q', '<Plug>(qf_qf_toggle)')
-map('n', '[q', '<Plug>(qf_qf_previous)zz')
-map('n', ']q', '<Plug>(qf_qf_next)zz')
+map('n', '[q', '<Plug>(qf_qf_previous)')
+map('n', ']q', '<Plug>(qf_qf_next)')
 
 -- SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
 vim.g.sandwich_no_default_key_mappings = 1
@@ -394,6 +388,7 @@ map('n', 'sW', 'siW', { remap = true })
 -- SCROLLING
 map('n', '<a-d>', '4<c-y>')
 map('n', '<a-f>', '4<c-e>')
+set.scrolloff = 128
 
 -- SEARCH
 map('n', '<c', '<cmd>set ignorecase!<cr>')
@@ -404,7 +399,7 @@ set.shortmess:append('sS')
 set.smartcase = true
 -- Don't highlight matches and center after search
 map('c', '<enter>', function()
-  return vim.tbl_contains({ '/', '?' }, fn.getcmdtype()) and '<enter><cmd>noh<cr>zz' or '<enter>'
+  return vim.tbl_contains({ '/', '?' }, fn.getcmdtype()) and '<enter><cmd>noh<cr>' or '<enter>'
 end, { expr = true })
 -- Search cword
 map('n', '<space>w', function()
