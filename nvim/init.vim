@@ -428,6 +428,11 @@ map('n', '<space>w', function()
   fn.setreg('/', '\\<' .. fn.expand('<cword>') .. '\\>')
   set.hlsearch = true
 end)
+map('x', '<space>w', function()
+  fn.setreg('/', require('visual').get_visual_selection())
+  set.hlsearch = true
+  return '<esc>'
+end, { expr = true })
 
 -- SETTINGS
 set.clipboard = 'unnamedplus'
