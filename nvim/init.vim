@@ -424,8 +424,8 @@ map('n', '<space>w', function()
   fn.setreg('/', '\\<' .. fn.expand('<cword>') .. '\\>')
   set.hlsearch = true
 end)
-map('n', '<space>w', function()
-  fn.setreg('/', '\\<' .. fn.expand('<cword>') .. '\\>')
+map('n', '<space>W', function()
+  fn.setreg('/', '\\<' .. fn.expand('<cWORD>') .. '\\>')
   set.hlsearch = true
 end)
 map('x', '<space>w', function()
