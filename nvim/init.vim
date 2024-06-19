@@ -34,6 +34,7 @@ call plug#begin()
 call plug#end()
 
 lua << EOF
+local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.cmd
 local fn = vim.fn
@@ -304,7 +305,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 end
 -- LspAttach
 autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  group = augroup('UserLspConfig', {}),
   callback = function(args)
     local opts = { buffer = args.buf }
     map('i', '<c-k>', vim.lsp.buf.signature_help, opts)
