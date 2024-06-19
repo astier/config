@@ -349,26 +349,24 @@ map('n', 'guW', 'guiW')
 map('n', 'gUw', 'gUiw')
 map('n', 'gUW', 'gUiW')
 map('n', 'Q', 'q')
-EOF
 
-" MOTIONS
-inoremap <c-l> <right>
-nnoremap <c-i> <c-i>zz
-nnoremap <c-o> <c-o>zz
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap A g$a
-nnoremap I g0i
-noremap gH g0
-noremap gh g^
-noremap gl g$
-noremap j gj
-noremap k gk
-noremap H H0
-noremap L L0
-noremap M M0
-noremap { {zz
-noremap } }zz
+-- MOTIONS
+map('i', '<c-l>', '<right>')
+map('n', '<c-i>', '<c-i>zz')
+map('n', '<c-o>', '<c-o>zz')
+map('n', 'gH', 'g0')
+map('n', 'gh', 'g^')
+map('n', 'gl', 'g$')
+map('n', 'j', 'gj')
+map('n', 'k', 'gk')
+map('n', 'n', 'nzz')
+map('n', 'N', 'Nzz')
+map('n', '{', '{zz')
+map('n', '}', '}zz')
+map('n', 'H', '0H')
+map('n', 'L', '0L')
+map('n', 'M', '0M')
+EOF
 
 " MOUSE
 nmap <2-rightmouse> <rightmouse>
