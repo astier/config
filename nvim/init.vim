@@ -331,15 +331,15 @@ lspconfig.jedi_language_server.setup({
   },
 })
 lspconfig.marksman.setup({ capabilities = capabilities })
-EOF
 
-" MAKE
-set makeprg=lint
-set errorformat=%f:%l:%c:%m
-set errorformat+=%f:%l:%c\ %m
-set errorformat+=%f:%l:%m
-set errorformat+=%f:%l\ %m
-nnoremap <space>l <cmd>silent make! %<cr>
+-- MAKE
+vim.opt.makeprg = 'lint'
+vim.opt.errorformat = '%f:%l:%c:%m'
+vim.opt.errorformat:append('%f:%l:%c %m')
+vim.opt.errorformat:append('%f:%l:%m')
+vim.opt.errorformat:append('%f:%l %m')
+map('n', '<space>l', '<cmd>silent make! %<cr>')
+EOF
 
 " MAPPINGS
 nnoremap <expr> <cr> &ft == 'qf' ? '<cr>' : 'o<esc>'
