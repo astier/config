@@ -34,6 +34,7 @@ call plug#begin()
 call plug#end()
 
 lua << EOF
+local api = vim.api
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.cmd
@@ -48,7 +49,7 @@ autocmd('FileType', { callback =
   function() setl.cursorline = false
 end })
 map('n', '<space>H', function()
-  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local row, col = unpack(api.nvim_win_get_cursor(0))
   cmd.highlight(fn.synIDattr(fn.synID(row, col, 1), 'name'))
 end, { desc = 'Show highlight-group under the cursor.' })
 
@@ -94,18 +95,18 @@ map('n', 'gcp', 'gcip', { remap = true })
 map('n', 'gcu', 'gcgc', { remap = true })
 map('n', 'gcj', function()
   local comment = vim.bo.commentstring:gsub('%%s', '')
-  vim.api.nvim_feedkeys('o' .. comment, 'n', false)
+  api.nvim_feedkeys('o' .. comment, 'n', false)
 end)
 map('n', 'gck', function()
   local comment = vim.bo.commentstring:gsub('%%s', '')
-  vim.api.nvim_feedkeys('O' .. comment, 'n', false)
+  api.nvim_feedkeys('O' .. comment, 'n', false)
 end)
 map('n', 'gcl', function()
   local comment = vim.bo.commentstring:gsub('%%s', '')
   if vim.bo.filetype == 'python' then
     comment = ' ' .. comment
   end
-  vim.api.nvim_feedkeys('A ' .. comment, 'n', false)
+  api.nvim_feedkeys('A ' .. comment, 'n', false)
 end)
 
 -- COMPLETION
@@ -114,8 +115,8 @@ set.pumheight = 8
 set.pumwidth = 0
 set.shortmess:append('c')
 local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+  local line, col = unpack(api.nvim_win_get_cursor(0))
+  return col ~= 0 and api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 local cmp = require('cmp')
 local snippy = require('snippy')
@@ -586,14 +587,14 @@ end
 -- YANK
 autocmd({ 'VimEnter', 'CursorMoved' }, {
   callback = function()
-    yank_pos = vim.api.nvim_win_get_cursor(0)
+    yank_pos = api.nvim_win_get_cursor(0)
   end
 })
 autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
     if vim.v.event.operator == 'y' then
-      vim.api.nvim_win_set_cursor(0, yank_pos)
+      api.nvim_win_set_cursor(0, yank_pos)
     end
     print(' ')
   end
