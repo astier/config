@@ -48,9 +48,7 @@ autocmd('FileType', { callback =
 end })
 map('n', '<space>H', function()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  local synID = fn.synID(row, col, 1)
-  local synIDattr = fn.synIDattr(fn.synID(row, col, 1), 'name')
-  cmd.highlight(synIDattr)
+  cmd.highlight(fn.synIDattr(fn.synID(row, col, 1), 'name'))
 end, { desc = 'Show highlight-group under the cursor.' })
 
 -- AUTOCHDIR
