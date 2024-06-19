@@ -410,11 +410,11 @@ map('n', 'sd', '<Plug>(operator-sandwich-delete)a', { remap = true })
 map('n', 'sr', '<Plug>(operator-sandwich-replace)a', { remap = true })
 map('n', 'sw', 'siw', { remap = true })
 map('n', 'sW', 'siW', { remap = true })
-EOF
 
-" SCROLLING
-nnoremap <a-d> 4<c-y>
-nnoremap <a-f> 4<c-e>
+-- SCROLLING
+map('n', '<a-d>', '4<c-y>')
+map('n', '<a-f>', '4<c-e>')
+EOF
 
 " SEARCH
 cnoremap <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>noh<cr>zz' : '<enter>'
