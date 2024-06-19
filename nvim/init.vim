@@ -341,19 +341,15 @@ vim.opt.errorformat:append('%f:%l %m')
 map('n', '<space>l', '<cmd>silent make! %<cr>')
 
 -- MAPPINGS
+map('n', '<cr>', 'o<esc>')
+map('n', '<space>g', ':silent grep! ')
 map('n', '<space>r', ':%s/<c-r><c-w>//gI<left><left><left>')
+map('n', 'guw', 'guiw')
+map('n', 'guW', 'guiW')
+map('n', 'gUw', 'gUiw')
+map('n', 'gUW', 'gUiW')
+map('n', 'Q', 'q')
 EOF
-
-" MAPPINGS
-nnoremap <cr> o<esc>
-nnoremap <space>g :silent grep!<space>
-nnoremap guw guiw
-nnoremap guW guiW
-nnoremap gUw gUiw
-nnoremap gUW gUiW
-nnoremap Q q
-xnoremap <silent> . :normal! .<cr>
-xnoremap q :'<,'>:normal! @q<cr>
 
 " MOTIONS
 inoremap <c-l> <right>
