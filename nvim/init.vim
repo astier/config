@@ -339,6 +339,9 @@ vim.opt.errorformat:append('%f:%l:%c %m')
 vim.opt.errorformat:append('%f:%l:%m')
 vim.opt.errorformat:append('%f:%l %m')
 map('n', '<space>l', '<cmd>silent make! %<cr>')
+
+-- MAPPINGS
+map('n', '<space>r', ':%s/<c-r><c-w>//gI<left><left><left>')
 EOF
 
 " MAPPINGS
@@ -414,28 +417,27 @@ map('n', 'sW', 'siW', { remap = true })
 -- SCROLLING
 map('n', '<a-d>', '4<c-y>')
 map('n', '<a-f>', '4<c-e>')
-EOF
-
-" SEARCH
-cnoremap <expr> <enter> index(['/', '?'], getcmdtype()) >= 0 ? '<enter><cmd>noh<cr>zz' : '<enter>'
-nnoremap <esc> <cmd>noh<cr><esc>
-nnoremap <space>r :%s/\<<c-r><c-w>\>//gI<left><left><left>
-xnoremap <space>w <cmd>let @/=visual#GetSelection()<bar>set hls<cr><esc>
-
-lua << EOF
-local autocmd = vim.api.nvim_create_autocmd
-local map = vim.keymap.set
 
 -- SEARCH
+map('n', '<c', '<cmd>set ignorecase!<cr>')
+map('n', '<h', '<cmd>set hlsearch!<cr>')
+map('n', '<esc>', '<cmd>noh<cr><esc>')
+vim.opt.ignorecase = true
+vim.opt.shortmess:append('sS')
+vim.opt.smartcase = true
+-- Don't highlight matches and center after search
+map('c', '<enter>', function()
+  return vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype()) and '<enter><cmd>noh<cr>zz' or '<enter>'
+end, { expr = true })
+-- Search cword
 map('n', '<space>w', function()
   vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
   vim.opt.hlsearch = true
 end)
-map('n', '<c', '<cmd>set ignorecase!<cr>')
-map('n', '<h', '<cmd>set hlsearch!<cr>')
-vim.opt.ignorecase = true
-vim.opt.shortmess:append('sS')
-vim.opt.smartcase = true
+map('n', '<space>w', function()
+  vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
+  vim.opt.hlsearch = true
+end)
 
 -- SETTINGS
 vim.opt.clipboard = 'unnamedplus'
