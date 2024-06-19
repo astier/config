@@ -366,18 +366,10 @@ map('n', '}', '}zz')
 map('n', 'H', '0H')
 map('n', 'L', '0L')
 map('n', 'M', '0M')
-EOF
 
-" MOUSE
-nmap <2-rightmouse> <rightmouse>
-nmap <3-rightmouse> <rightmouse>
-nmap <4-rightmouse> <rightmouse>
-set mousemodel=extend
-set mousescroll=ver:4
-
-lua << EOF
-local autocmd = vim.api.nvim_create_autocmd
-local map = vim.keymap.set
+-- MOUSE
+vim.opt.mousemodel = 'extend'
+vim.opt.mousescroll = 'ver:4'
 
 -- QUICKFIX: BQF
 require('bqf').setup({
