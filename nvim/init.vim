@@ -52,7 +52,7 @@ map('n', '<space>H', function()
 end, { desc = 'Show highlight-group under the cursor.' })
 
 -- AUTOCHDIR
-vim.api.nvim_create_autocmd('VimEnter', {
+autocmd('VimEnter', {
   callback = function()
     local root = vim.fs.root(0, '.git')
     if root then vim.uv.chdir(root) end
@@ -303,7 +303,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 -- LspAttach
-vim.api.nvim_create_autocmd('LspAttach', {
+autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(args)
     local opts = { buffer = args.buf }
