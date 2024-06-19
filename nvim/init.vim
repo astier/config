@@ -35,10 +35,11 @@ call plug#end()
 
 lua << EOF
 local autocmd = vim.api.nvim_create_autocmd
+local cmd = vim.cmd
 local map = vim.keymap.set
 
 -- APPEARANCE
-vim.cmd.colorscheme('custom')
+cmd.colorscheme('custom')
 autocmd('FileType', { callback =
   function() vim.opt_local.cursorline = false
 end })
@@ -46,7 +47,7 @@ map('n', '<space>H', function()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   local synID = vim.fn.synID(row, col, 1)
   local synIDattr = vim.fn.synIDattr(vim.fn.synID(row, col, 1), 'name')
-  vim.cmd.highlight(synIDattr)
+  cmd.highlight(synIDattr)
 end, { desc = 'Show highlight-group under the cursor.' })
 
 -- AUTOCHDIR
@@ -62,13 +63,13 @@ autocmd({ 'TextChanged', 'InsertLeave' }, {
   nested = true,
   callback = function()
     if vim.bo.readonly then return end
-    vim.cmd.update({ mods = { silent = true } })
+    cmd.update({ mods = { silent = true } })
   end
 })
 
 -- BUFFERS
-map('n', '<space>d', function() vim.cmd.quitall({ bang = true }) end)
-map('n', 'q', function() vim.cmd.buffer('#') end)
+map('n', '<space>d', function() cmd.quitall({ bang = true }) end)
+map('n', 'q', function() cmd.buffer('#') end)
 vim.opt.swapfile = false
 
 -- CHANGE
@@ -270,7 +271,7 @@ map('n', '<space>1', function() require('harpoon.ui').nav_file(1) end)
 map('n', '<space>2', function() require('harpoon.ui').nav_file(2) end)
 map('n', '<space>3', function() require('harpoon.ui').nav_file(3) end)
 map('n', '<space>4', function() require('harpoon.ui').nav_file(4) end)
-vim.cmd.highlight({ 'link HarpoonBorder WinSeparator', bang = true })
+cmd.highlight({ 'link HarpoonBorder WinSeparator', bang = true })
 
 -- INDENTATION
 map('n', '<p', '<ap')
@@ -380,7 +381,7 @@ require('bqf').setup({
   func_map = { split = '<c-s>', },
   filter = { fzf = { action_for = { ['ctrl-s'] = 'split' } } },
 })
-vim.cmd.highlight({ 'link BqfPreviewRange None', bang = true })
+cmd.highlight({ 'link BqfPreviewRange None', bang = true })
 
 -- QUICKFIX: QF
 autocmd('FileType', { pattern = 'qf', callback = function()
@@ -506,7 +507,7 @@ map('n', 'gx', function()
   require('various-textobjs').url()
   local foundURL = vim.fn.mode():find('v')
   if not foundURL then return end
-  vim.cmd.normal { '"zy', bang = true }
+  cmd.normal { '"zy', bang = true }
   local url = vim.fn.getreg('z')
   vim.ui.open(url)
 end, { desc = 'Smart gx seeks next URL' })
@@ -549,7 +550,7 @@ map('n', 'U', '<cmd>call center#ExeCmdAndCenter("redo")<cr>')
 map('n', 'u', '<cmd>call center#ExeCmdAndCenter("undo")<cr>')
 
 -- WINDOWS: MANAGEMENT
-autocmd('VimResized', { callback = function() vim.cmd.wincmd('=') end })
+autocmd('VimResized', { callback = function() cmd.wincmd('=') end })
 map('n', '<space>c', '<c-w>c')
 map('n', '<space>s', '<c-w>s')
 map('n', '<space>v', '<c-w>v')
