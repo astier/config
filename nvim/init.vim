@@ -1,11 +1,11 @@
-" PLUGINS
-let plug_path = stdpath('data') . '/site/autoload/plug.vim'
-if empty(glob(plug_path))
-  execute '!curl -fLo' plug_path '--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd vimenter * PlugInstall --sync | source $MYVIMRC
-endif
-nnoremap <space>pc <cmd>PlugClean<cr>
-nnoremap <space>pp <cmd>PlugUpgrade<bar>PlugUpdate<cr>
+lua << EOF
+-- PLUGINS
+local plug_path = vim.fn.stdpath('data') .. '/site/autoload/plug.vim'
+if vim.loop.fs_stat(plug_path) then return end
+vim.fn.system({'curl', '-fLo', plug_path, '--create-dirs', 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'})
+vim.api.nvim_create_autocmd('VimEnter', { command = 'PlugInstall --sync | source $MYVIMRC' })
+EOF
+
 call plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'aserowy/tmux.nvim'
@@ -34,6 +34,9 @@ call plug#begin()
 call plug#end()
 
 lua << EOF
+vim.keymap.set('n', '<space>pc', '<cmd>PlugClean<cr>')
+vim.keymap.set('n', '<space>pp', '<cmd>PlugUpgrade<bar>PlugUpdate<cr>')
+
 local api = vim.api
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
