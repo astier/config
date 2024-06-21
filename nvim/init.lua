@@ -2,6 +2,7 @@ local api = vim.api
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.cmd
+local feedkeys = vim.api.nvim_feedkeys
 local fn = vim.fn
 local map = vim.keymap.set
 local set = vim.opt
@@ -88,18 +89,18 @@ map('n', 'gcp', 'gcip', { remap = true })
 map('n', 'gcu', 'gcgc', { remap = true })
 map('n', 'gcj', function()
   local comment = vim.bo.commentstring:gsub('%%s', '')
-  api.nvim_feedkeys('o' .. comment, 'n', false)
+  feedkeys('o' .. comment, 'n', false)
 end)
 map('n', 'gck', function()
   local comment = vim.bo.commentstring:gsub('%%s', '')
-  api.nvim_feedkeys('O' .. comment, 'n', false)
+  feedkeys('O' .. comment, 'n', false)
 end)
 map('n', 'gcl', function()
   local comment = vim.bo.commentstring:gsub('%%s', '')
   if vim.bo.filetype == 'python' then
     comment = ' ' .. comment
   end
-  api.nvim_feedkeys('A ' .. comment, 'n', false)
+  feedkeys('A ' .. comment, 'n', false)
 end)
 
 -- COMPLETION
