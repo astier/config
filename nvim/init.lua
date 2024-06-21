@@ -1,6 +1,7 @@
 local api = vim.api
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
+local call = vim.call
 local cmd = vim.cmd
 local feedkeys = vim.api.nvim_feedkeys
 local fn = vim.fn
@@ -16,8 +17,8 @@ if not vim.loop.fs_stat(plug_path) then
 end
 map('n', '<space>pc', '<cmd>PlugClean<cr>')
 map('n', '<space>pp', '<cmd>PlugUpgrade<bar>PlugUpdate<cr>')
-local Plug = vim.fn['plug#']
-vim.call('plug#begin')
+local Plug = fn['plug#']
+call('plug#begin')
   Plug('airblade/vim-gitgutter')
   Plug('aserowy/tmux.nvim')
   Plug('chrisgrieser/nvim-various-textobjs')
@@ -42,7 +43,7 @@ vim.call('plug#begin')
   Plug('ThePrimeagen/harpoon')
   Plug('tpope/vim-eunuch')
   Plug('tpope/vim-fugitive')
-vim.call('plug#end')
+call('plug#end')
 
 -- APPEARANCE
 cmd.colorscheme('custom')
