@@ -78,7 +78,7 @@ map('n', 'cw', 'ciw', { remap = true })
 map('n', 'cW', 'ciW', { remap = true })
 
 -- CMDLINE/RULER
-set.cmdheight = 0
+autocmd('CmdlineLeave', { command = 'echo " "' })
 set.ruler = false
 set.showcmd = false
 set.showmode = false
@@ -191,11 +191,12 @@ cmp.setup({
 map('n', 'dw', 'daw')
 map('n', 'dW', 'daW')
 map('n', 'dp', function()
-  return vim.o.diff and 'dp' or 'dap'
+  return vim.o.diff and 'dp' or '<cmd>silent normal! dap<cr>'
 end, { expr = true })
+map('x', 'd', '<cmd>silent normal! d<cr>')
 
 -- FORMATTING
-map('n', 'gqp', 'gqip')
+map('n', 'gqp', '<cmd>silent normal! gqip<cr>')
 map('n', 'gqq', 'Vgq')
 
 -- FZF: CONFIG
@@ -356,14 +357,18 @@ map('n', 'G', 'Gzz')
 map('n', 'H', '0H')
 map('n', 'L', '0L')
 map('n', 'M', '0M')
-map('n', 'n', 'nzz')
-map('n', 'N', 'Nzz')
+map('n', 'n', 'nzz', { silent = true })
+map('n', 'N', 'Nzz', { silent = true })
 map('n', '{', '{zz')
 map('n', '}', '}zz')
 
 -- MOUSE
 set.mousemodel = 'extend'
 set.mousescroll = 'ver:4'
+
+-- PASTE
+map('n', 'p', '<cmd>silent! normal! p<cr>')
+map('n', 'P', '<cmd>silent! normal! P<cr>')
 
 -- QUICKFIX: BQF
 require('bqf').setup({
@@ -402,13 +407,13 @@ set.scrolloff = 8
 -- SEARCH
 map('n', '<c', '<cmd>set ignorecase!<cr>')
 map('n', '<h', '<cmd>set hlsearch!<cr>')
-map('n', '<esc>', '<cmd>noh<cr><esc>')
+map('n', '<esc>', '<cmd>echo<bar>noh<cr><esc>')
 set.ignorecase = true
 set.shortmess:append('sS')
 set.smartcase = true
 -- Don't highlight matches and center after search
 map('c', '<enter>', function()
-  return vim.tbl_contains({ '/', '?' }, fn.getcmdtype()) and '<enter><cmd>noh<cr>zz' or '<enter>'
+  return vim.tbl_contains({ '/', '?' }, fn.getcmdtype()) and '<enter><cmd>echo<bar>noh<cr>zz' or '<enter>'
 end, { expr = true })
 -- Search cword
 map('n', '<space>w', function()
