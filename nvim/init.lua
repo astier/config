@@ -1,42 +1,3 @@
-lua << EOF
--- PLUGINS
-local plug_path = vim.fn.stdpath('data') .. '/site/autoload/plug.vim'
-if vim.loop.fs_stat(plug_path) then return end
-vim.fn.system({'curl', '-fLo', plug_path, '--create-dirs', 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'})
-vim.api.nvim_create_autocmd('VimEnter', { command = 'PlugInstall --sync | source $MYVIMRC' })
-EOF
-
-call plug#begin()
-  Plug 'airblade/vim-gitgutter'
-  Plug 'aserowy/tmux.nvim'
-  Plug 'chrisgrieser/nvim-various-textobjs'
-  Plug 'dcampos/nvim-snippy'
-  Plug 'echasnovski/mini.ai'
-  Plug 'echasnovski/mini.splitjoin'
-  Plug 'gbprod/substitute.nvim'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-path'
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'ibhagwan/fzf-lua', { 'branch': 'main' }
-  Plug 'idbrii/textobj-word-column.vim'
-  Plug 'Julian/vim-textobj-variable-segment'
-  Plug 'kana/vim-textobj-user'
-  Plug 'kevinhwang91/nvim-bqf'
-  Plug 'machakann/vim-sandwich'
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'rbong/vim-flog'
-  Plug 'romainl/vim-qf'
-  Plug 'ThePrimeagen/harpoon'
-  Plug 'tpope/vim-eunuch'
-  Plug 'tpope/vim-fugitive'
-call plug#end()
-
-lua << EOF
-vim.keymap.set('n', '<space>pc', '<cmd>PlugClean<cr>')
-vim.keymap.set('n', '<space>pp', '<cmd>PlugUpgrade<bar>PlugUpdate<cr>')
-
 local api = vim.api
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
@@ -45,6 +6,42 @@ local fn = vim.fn
 local map = vim.keymap.set
 local set = vim.opt
 local setl = vim.opt_local
+
+-- PLUGINS
+local plug_path = fn.stdpath('data') .. '/site/autoload/plug.vim'
+if not vim.loop.fs_stat(plug_path) then
+  fn.system({'curl', '-fLo', plug_path, '--create-dirs', 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'})
+  autocmd('VimEnter', { command = 'PlugInstall --sync | source $MYVIMRC' })
+end
+map('n', '<space>pc', '<cmd>PlugClean<cr>')
+map('n', '<space>pp', '<cmd>PlugUpgrade<bar>PlugUpdate<cr>')
+local Plug = vim.fn['plug#']
+vim.call('plug#begin')
+  Plug('airblade/vim-gitgutter')
+  Plug('aserowy/tmux.nvim')
+  Plug('chrisgrieser/nvim-various-textobjs')
+  Plug('dcampos/nvim-snippy')
+  Plug('echasnovski/mini.ai')
+  Plug('echasnovski/mini.splitjoin')
+  Plug('gbprod/substitute.nvim')
+  Plug('hrsh7th/cmp-buffer')
+  Plug('hrsh7th/cmp-nvim-lsp')
+  Plug('hrsh7th/cmp-path')
+  Plug('hrsh7th/nvim-cmp')
+  Plug('ibhagwan/fzf-lua', { branch = 'main' })
+  Plug('idbrii/textobj-word-column.vim')
+  Plug('Julian/vim-textobj-variable-segment')
+  Plug('kana/vim-textobj-user')
+  Plug('kevinhwang91/nvim-bqf')
+  Plug('machakann/vim-sandwich')
+  Plug('neovim/nvim-lspconfig')
+  Plug('nvim-lua/plenary.nvim')
+  Plug('rbong/vim-flog')
+  Plug('romainl/vim-qf')
+  Plug('ThePrimeagen/harpoon')
+  Plug('tpope/vim-eunuch')
+  Plug('tpope/vim-fugitive')
+vim.call('plug#end')
 
 -- APPEARANCE
 cmd.colorscheme('custom')
@@ -588,4 +585,3 @@ end })
 map('n', 'yp', 'yap')
 map('n', 'yw', 'yiw')
 map('n', 'yW', 'yiW')
-EOF
