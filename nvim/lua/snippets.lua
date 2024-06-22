@@ -44,6 +44,7 @@ function M.expand()
   if not snippet then return false end
   -- Expand snippet
   ::expand::
+  vim.opt.undolevels = vim.opt.undolevels:get() -- undo-break
   vim.api.nvim_buf_set_text(0, row - 1, word_start - 1, row - 1, word_end, {''})
   vim.api.nvim_win_set_cursor(0, {row, word_start - 1})
   vim.snippet.expand(snippet.body)
