@@ -8,6 +8,7 @@ local fn = vim.fn
 local map = vim.keymap.set
 local set = vim.opt
 local setl = vim.opt_local
+local snippet = vim.snippet
 
 -- PLUGINS
 local plug_path = fn.stdpath('data') .. '/site/autoload/plug.vim'
@@ -22,7 +23,6 @@ call('plug#begin')
   Plug('airblade/vim-gitgutter')
   Plug('aserowy/tmux.nvim')
   Plug('chrisgrieser/nvim-various-textobjs')
-  Plug('dcampos/nvim-snippy')
   Plug('echasnovski/mini.ai')
   Plug('echasnovski/mini.splitjoin')
   Plug('gbprod/substitute.nvim')
@@ -117,7 +117,7 @@ local has_words_before = function()
   return col ~= 0 and api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 local cmp = require('cmp')
-local snippy = require('snippy')
+local snippets = require('snippets')
 cmp.setup({
   completion = {
     autocomplete = false,
@@ -126,7 +126,7 @@ cmp.setup({
   view = { docs = { auto_open = false } },
   snippet = {
     expand = function(args)
-      snippy.expand_snippet(args.body)
+      snippet.expand(args.body)
     end,
   },
   window = {
@@ -141,8 +141,8 @@ cmp.setup({
   },
   mapping = cmp.mapping.preset.insert({
     ['<tab>'] = cmp.mapping(function(fallback)
-      if snippy.can_expand() then
-        snippy.expand()
+      if snippets.expand() then
+        return
       elseif has_words_before() then
         cmp.complete()
       else
@@ -152,15 +152,15 @@ cmp.setup({
     ['<a-j>'] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_next_item({ behavior = 'select' })
-      elseif snippy.can_jump(1) then
-        snippy.next()
+      elseif snippet.active({ direction = 1 }) then
+        snippet.jump(1)
       end
     end),
     ['<a-k>'] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_prev_item({ behavior = 'select' })
-      elseif snippy.can_jump(-1) then
-        snippy.previous()
+      elseif snippet.active({ direction = -1 }) then
+        snippet.jump(-1)
       end
     end),
     ['K'] = cmp.mapping(function(fallback)
@@ -438,15 +438,29 @@ set.timeout = false
 set.virtualedit = 'block'
 
 -- SNIPPETS
-require('snippy').setup({
-  mappings = {
-    s = {
-      ['<a-j>'] = 'next',
-      ['<a-k>'] = 'previous',
-    },
-    x = { ['<tab>'] = 'cut_text' },
+require('snippets').setup({
+  global = {
+    ["'"] = { body = "'$0'", i = true },
+    ['"'] = { body = '"$0"', i = true },
+    ['('] = { body = '($0)', i = true },
+    ['(('] = { body = '(\n\t$0\n)', i = true },
+    ['<'] = { body = '<$0>', i = true },
+    ['['] = { body = '[$0]', i = true },
+    ['{'] = { body = '{$0}', i = true },
+    ['{s'] = { body = '{ $0 }', i = true },
+    ['{{'] = { body = '{\n\t$0\n}', i = true },
   },
-})
+  c = {
+    f = { body = '$1($2) {\n\t$0\n}', b = true },
+  },
+  lua = {
+    f  = { body = 'function $1($2)\n\t$0\nend' },
+    r = { body = 'return'},
+    s = { body = '$1 = { body = \'$0\'},', b = true},
+  },
+ })
+map('s', '<a-j>', function() if snippet.active({ 1 }) then snippet.jump(1) end end)
+map('s', '<a-k>', function() if snippet.active({ -1 }) then snippet.jump(-1) end end )
 
 -- STATUSLINE/RULER
 map('n', '<s', function()
