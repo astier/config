@@ -33,11 +33,11 @@ function M.expand()
     word = line:sub(i, word_end)
     snippet = snippets_ft[word] or snippets_global[word]
     if snippet then
-      if snippet.b or not snippet.i then
-        snippet = nil
-      else
+      if snippet.i then
         word_start = i
         break
+      else
+        snippet = nil
       end
     end
   end
