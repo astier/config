@@ -458,7 +458,7 @@ require('snippets').setup({
     r = { body = 'return'},
     s = { body = '$1 = { body = \'$0\'},', b = true},
   },
- })
+})
 map('s', '<a-j>', function() if snippet.active({ 1 }) then snippet.jump(1) end end)
 map('s', '<a-k>', function() if snippet.active({ -1 }) then snippet.jump(-1) end end )
 
