@@ -6,9 +6,12 @@ local cmd = vim.cmd
 local feedkeys = api.nvim_feedkeys
 local fn = vim.fn
 local map = vim.keymap.set
+local pumvisible = vim.fn.pumvisible
+local replace_termcodes = api.nvim_replace_termcodes
 local set = vim.opt
 local setl = vim.opt_local
 local snippet = vim.snippet
+local snippets = require('snippets')
 
 -- PLUGINS
 local plug_path = fn.stdpath('data') .. '/site/autoload/plug.vim'
@@ -26,10 +29,6 @@ call('plug#begin')
   Plug('echasnovski/mini.ai')
   Plug('echasnovski/mini.splitjoin')
   Plug('gbprod/substitute.nvim')
-  Plug('hrsh7th/cmp-buffer')
-  Plug('hrsh7th/cmp-nvim-lsp')
-  Plug('hrsh7th/cmp-path')
-  Plug('hrsh7th/nvim-cmp')
   Plug('ibhagwan/fzf-lua', { branch = 'main' })
   Plug('idbrii/textobj-word-column.vim')
   Plug('Julian/vim-textobj-variable-segment')
@@ -78,9 +77,6 @@ map('n', 'cw', 'ciw', { remap = true })
 map('n', 'cW', 'ciW', { remap = true })
 
 -- CMDLINE/RULER
--- Fix dissapearance of last line when entering i-mode, caused by cmp.
-autocmd('InsertEnter', { callback = function() set.cmdheight = 0 end })
------------------------------------------------------------------------
 set.cmdheight = 0
 set.ruler = false
 set.showcmd = false
@@ -112,83 +108,6 @@ set.completeopt = { 'menuone', 'noinsert' }
 set.pumheight = 8
 set.pumwidth = 0
 set.shortmess:append('c')
-local has_words_before = function()
-  local line, col = unpack(api.nvim_win_get_cursor(0))
-  return col ~= 0 and api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-local cmp = require('cmp')
-local snippets = require('snippets')
-cmp.setup({
-  completion = {
-    autocomplete = false,
-    completeopt = table.concat(set.completeopt:get(), ","),
-  },
-  view = { docs = { auto_open = false } },
-  snippet = {
-    expand = function(args)
-      snippet.expand(args.body)
-    end,
-  },
-  window = {
-    completion = {
-      border = 'single',
-      winhighlight = 'FloatBorder:FloatBorder,Normal:Normal,CursorLine:LspSignatureActiveParameter',
-    },
-    documentation = {
-      border = 'single',
-      winhighlight = 'FloatBorder:FloatBorder,Normal:Normal,CursorLine:LspSignatureActiveParameter',
-    },
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<tab>'] = cmp.mapping(function(fallback)
-      if snippets.expand() then
-        return
-      elseif has_words_before() then
-        cmp.complete()
-      else
-        fallback()
-      end
-    end),
-    ['<a-j>'] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_next_item({ behavior = 'select' })
-      elseif snippet.active({ direction = 1 }) then
-        snippet.jump(1)
-      end
-    end),
-    ['<a-k>'] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_prev_item({ behavior = 'select' })
-      elseif snippet.active({ direction = -1 }) then
-        snippet.jump(-1)
-      end
-    end),
-    ['K'] = cmp.mapping(function(fallback)
-      if cmp.visible_docs() then
-        cmp.close_docs()
-      elseif cmp.visible() then
-        cmp.open_docs()
-      else
-        fallback()
-      end
-    end),
-    ['<cr>']  = cmp.mapping.confirm({ select = true }),
-    ['<a-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<a-f>'] = cmp.mapping.scroll_docs(4),
-  }),
-  sources = cmp.config.sources(
-    {{ name = 'path' }},
-    {{ name = 'nvim_lsp' }},
-    {{ name = 'buffer' }}
-  ),
-  formatting = {
-    format = function(entry, vim_item)
-      vim_item.kind = ({})[vim_item.kind]
-      vim_item.menu = ({})[entry.source.name]
-      return vim_item
-    end
-  },
-})
 
 -- DELETE
 map('n', 'dw', 'daw')
@@ -313,7 +232,7 @@ autocmd('LspAttach', { group = augroup('UserLspConfig', {}), callback = function
   map('n', 'gr', vim.lsp.buf.references, opts)
 end })
 -- Servers
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 local lspconfig = require('lspconfig')
 lspconfig.ccls.setup({
   capabilities = capabilities,
@@ -438,7 +357,7 @@ set.timeout = false
 set.virtualedit = 'block'
 
 -- SNIPPETS
-require('snippets').setup({
+snippets.setup({
   global = {
     ["'"] = { body = "'$0'", i = true },
     ['"'] = { body = '"$0"', i = true },
@@ -459,8 +378,6 @@ require('snippets').setup({
     s = { body = '$1 = { body = \'$0\'},', b = true},
   },
 })
-map('s', '<a-j>', function() if snippet.active({ 1 }) then snippet.jump(1) end end)
-map('s', '<a-k>', function() if snippet.active({ -1 }) then snippet.jump(-1) end end )
 
 -- STATUSLINE/RULER
 map('n', '<s', function()
@@ -495,6 +412,46 @@ map('n', 'xxp', function() exchange.operator({ motion='ap' }) end)
 map('n', 'xxb', function() exchange.operator({ motion='ib' }) end)
 map('n', 'xxq', function() exchange.operator({ motion='iq' }) end)
 map('x', 'X',   function() exchange.visual() end)
+
+-- SUPER-TAB
+autocmd('CompleteDone', { callback = function()
+  local kind = vim.v.completed_item.kind
+  if kind ~= 'Function' and kind ~= 'Method' then return end
+  feedkeys(replace_termcodes('()<left>', true, false, true), 'n', false)
+end, desc = 'Append parentheses if completed item is a function or method.' })
+map('i', '<tab>', function()
+  local line = api.nvim_get_current_line():sub(1, col)
+  local col = api.nvim_win_get_cursor(0)[2]
+  if not line:match('%S$') then
+    feedkeys(replace_termcodes('<tab>', true, false, true), 'n', false)
+  elseif snippets.expand() then
+    return
+  elseif line:match('/%S*$') then
+    feedkeys(replace_termcodes('<c-x><c-f>', true, false, true), 'n', false)
+  elseif vim.bo.omnifunc ~= '' then
+    feedkeys(replace_termcodes('<c-x><c-o>', true, false, true), 'n', false)
+    vim.defer_fn(function()
+      if pumvisible() == 1 then return end
+      feedkeys(replace_termcodes('<c-x><c-n>', true, false, true), 'n', false)
+    end, 100)
+  else
+    feedkeys(replace_termcodes('<c-x><c-n>', true, false, true), 'n', false)
+  end
+end, { desc = 'Super-Tab to expand snippets and trigger completion.' })
+map({ 'i', 's' }, '<a-j>', function()
+  if pumvisible() == 1 then
+    feedkeys(replace_termcodes('<down>', true, false, true), 'n', false)
+  elseif snippet.active({ 1 }) then
+    snippet.jump(1)
+  end
+end)
+map({ 'i', 's' }, '<a-k>', function()
+  if pumvisible() == 1 then
+    feedkeys(replace_termcodes('<up>', true, false, true), 'n', false)
+  elseif snippet.active({ -1 }) then
+    snippet.jump(-1)
+  end
+end)
 
 -- TABLINE
 set.showtabline = 1
