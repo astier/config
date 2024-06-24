@@ -24,7 +24,6 @@ map('n', '<space>pp', '<cmd>PlugUpgrade<bar>PlugUpdate<cr>')
 local Plug = fn['plug#']
 call('plug#begin')
   Plug('airblade/vim-gitgutter')
-  Plug('aserowy/tmux.nvim')
   Plug('chrisgrieser/nvim-various-textobjs')
   Plug('echasnovski/mini.ai')
   Plug('echasnovski/mini.splitjoin')
@@ -528,14 +527,9 @@ set.splitright = true
 
 -- WINDOWS: NAVIGATION
 local tmux = require('tmux')
-tmux.setup({
-  copy_sync = { enable = false },
-  navigation = { enable_default_keybindings = false },
-  resize = { enable_default_keybindings = false },
-})
 map('n', '<a-h>', function() tmux.move_left() end)
-map('n', '<a-j>', function() tmux.move_bottom() end)
-map('n', '<a-k>', function() tmux.move_top() end)
+map('n', '<a-j>', function() tmux.move_down() end)
+map('n', '<a-k>', function() tmux.move_up() end)
 map('n', '<a-l>', function() tmux.move_right() end)
 
 -- WRAP
