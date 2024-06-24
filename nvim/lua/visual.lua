@@ -1,22 +1,25 @@
+local fn = vim.fn
+local getpos = fn.getpos
+local line2byte = fn.line2byte
+
 local M = {}
 
 function M.get_visual_selection()
-  local mode = vim.fn.mode()
   local line_start, column_start, line_end, column_end
 
-  if mode == 'v' then
-    line_start, column_start = unpack(vim.fn.getpos('v'), 2, 3)
-    line_end, column_end = unpack(vim.fn.getpos('.'), 2, 3)
+  if fn.mode() == 'v' then
+    line_start, column_start = unpack(getpos('v'), 2, 3)
+    line_end, column_end = unpack(getpos('.'), 2, 3)
   else
-    line_start, column_start = unpack(vim.fn.getpos("'<"), 2, 3)
-    line_end, column_end = unpack(vim.fn.getpos("'>"), 2, 3)
+    line_start, column_start = unpack(getpos("'<"), 2, 3)
+    line_end, column_end = unpack(getpos("'>"), 2, 3)
   end
 
-  if (vim.fn.line2byte(line_start) + column_start) > (vim.fn.line2byte(line_end) + column_end) then
+  if (line2byte(line_start) + column_start) > (line2byte(line_end) + column_end) then
     line_start, column_start, line_end, column_end = line_end, column_end, line_start, column_start
   end
 
-  local lines = vim.fn.getline(line_start, line_end)
+  local lines = fn.getline(line_start, line_end)
   if #lines == 0 then return '' end
 
   lines[#lines] = lines[#lines]:sub(1, column_end)
