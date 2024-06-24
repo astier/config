@@ -401,7 +401,9 @@ set.virtualedit = 'block'
 snippets.setup({
   global = {
     ["'"] = { body = "'$0'", i = true },
+    ["',"] = { body = "'$0',", i = true },
     ['"'] = { body = '"$0"', i = true },
+    ['",'] = { body = '"$0",', i = true },
     ['('] = { body = '($0)', i = true },
     ['(('] = { body = '(\n\t$0\n)', i = true },
     ['<'] = { body = '<$0>', i = true },
