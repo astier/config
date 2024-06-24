@@ -54,13 +54,13 @@ map('n', '<space>H', function()
   cmd.highlight(fn.synIDattr(fn.synID(row, col, 1), 'name'))
 end, { desc = 'Show highlight-group under the cursor.' })
 
--- AUTOCHDIR
+-- AUTO-CHDIR
 autocmd('VimEnter', { callback = function()
   local root = vim.fs.root(0, '.git')
   if root then vim.uv.chdir(root) end
 end })
 
--- AUTOSAVE
+-- AUTO-SAVE
 autocmd({ 'TextChanged', 'InsertLeave' }, { nested = true, callback = function()
   if bo.readonly then return end
   cmd.update({ mods = { silent = true } })
