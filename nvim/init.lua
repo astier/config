@@ -5,6 +5,7 @@ local call = vim.call
 local cmd = vim.cmd
 local feedkeys = api.nvim_feedkeys
 local fn = vim.fn
+local getqflist = fn.getqflist
 local map = vim.keymap.set
 local pumvisible = vim.fn.pumvisible
 local replace_termcodes = api.nvim_replace_termcodes
@@ -12,6 +13,8 @@ local set = vim.opt
 local setl = vim.opt_local
 local snippet = vim.snippet
 local snippets = require('snippets')
+local tbl_isempty = vim.tbl_isempty
+local wincmd = cmd.wincmd
 
 -- PLUGINS
 local plug_path = fn.stdpath('data') .. '/site/autoload/plug.vim'
@@ -32,12 +35,10 @@ call('plug#begin')
   Plug('idbrii/textobj-word-column.vim')
   Plug('Julian/vim-textobj-variable-segment')
   Plug('kana/vim-textobj-user')
-  Plug('kevinhwang91/nvim-bqf')
   Plug('machakann/vim-sandwich')
   Plug('neovim/nvim-lspconfig')
   Plug('nvim-lua/plenary.nvim')
   Plug('rbong/vim-flog')
-  Plug('romainl/vim-qf')
   Plug('ThePrimeagen/harpoon')
   Plug('tpope/vim-eunuch')
   Plug('tpope/vim-fugitive')
@@ -282,26 +283,55 @@ map('n', 'N', '<cmd>silent! normal! N<cr>')
 set.mousemodel = 'extend'
 set.mousescroll = 'ver:4'
 
--- QUICKFIX: BQF
-require('bqf').setup({
-  preview = {
-    border_chars = { '│', '│', '─', '─', '┌', '┐', '└', '┘', '█' },
-    show_title = false,
-  },
-  func_map = { split = '<c-s>', },
-  filter = { fzf = { action_for = { ['ctrl-s'] = 'split' } } },
-})
-cmd.highlight({ 'link BqfPreviewRange None', bang = true })
-
--- QUICKFIX: QF
+-- QUICKFIX
 autocmd('FileType', { pattern = 'qf', callback = function()
+  map('n', '<cr>', '<cr>', { buffer = true })
+  map('n', 'o', '<cr><cmd>cclose<cr>', { buffer = true })
+  map('n', 'p', '<cr><c-w>p', { buffer = true })
   setl.number = false
   setl.signcolumn = 'no'
   setl.wrap = false
 end })
-map('n', '<space>q', '<Plug>(qf_qf_toggle)')
-map('n', '[q', '<Plug>(qf_qf_previous)')
-map('n', ']q', '<Plug>(qf_qf_next)')
+autocmd('QuickFixCmdPost', { pattern = '[^l]*', callback = function()
+  local height = math.min(#getqflist(), 10)
+  if height == 0 then return end
+  cmd('copen ' .. height)
+  wincmd('=')
+end })
+autocmd('QuickFixCmdPost', { pattern = 'l*', callback = function()
+  local height = math.min(#fn.getloclist(), 10)
+  if height == 0 then return end
+  cmd('lopen ' .. height)
+  wincmd('=')
+end })
+map('n', '<space>q', function()
+  if tbl_isempty(fn.filter(fn.getwininfo(), 'v:val.quickfix')) then
+    local height = math.min(#getqflist(), 10)
+    if height == 0 then return end
+    cmd('copen ' .. height)
+    wincmd('=')
+  else
+    cmd.cclose()
+  end
+end, { desc = 'Toggle quickfix-window.' })
+map('n', '[q', function()
+  local qflist = getqflist()
+  if tbl_isempty(qflist) then return end
+  if getqflist({idx = 0}).idx > 1 then
+    cmd('silent! cprevious')
+  else
+    cmd('silent! clast')
+  end
+end)
+map('n', ']q', function()
+  local qflist = getqflist()
+  if tbl_isempty(qflist) then return end
+  if getqflist({idx = 0}).idx < #qflist then
+    cmd('silent! cnext')
+  else
+    cmd('silent! cfirst')
+  end
+end)
 
 -- SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
 vim.g.sandwich_no_default_key_mappings = 1
@@ -519,7 +549,7 @@ map('n', 'U', '<cmd>silent! normal! U<cr>')
 map('n', 'u', '<cmd>silent! normal! u<cr>')
 
 -- WINDOWS: MANAGEMENT
-autocmd('VimResized', { callback = function() cmd.wincmd('=') end })
+autocmd('VimResized', { callback = function() wincmd('=') end })
 map('n', '<space>c', '<c-w>c')
 map('n', '<space>s', '<c-w>s')
 map('n', '<space>v', '<c-w>v')
