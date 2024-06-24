@@ -1,10 +1,12 @@
 local api = vim.api
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
+local bo = vim.bo
 local call = vim.call
 local cmd = vim.cmd
 local feedkeys = vim.api.nvim_feedkeys
 local fn = vim.fn
+local g = vim.g
 local getqflist = vim.fn.getqflist
 local map = vim.keymap.set
 local pumvisible = vim.fn.pumvisible
@@ -60,7 +62,7 @@ end })
 
 -- AUTOSAVE
 autocmd({ 'TextChanged', 'InsertLeave' }, { nested = true, callback = function()
-  if vim.bo.readonly then return end
+  if bo.readonly then return end
   cmd.update({ mods = { silent = true } })
 end })
 
@@ -88,16 +90,16 @@ autocmd('FileType', { pattern = 'vim', command = 'setl cms=\\"\\ %s' })
 map('n', 'gcp', 'gcip', { remap = true })
 map('n', 'gcu', 'gcgc', { remap = true })
 map('n', 'gcj', function()
-  local comment = vim.bo.commentstring:gsub('%%s', '')
+  local comment = bo.commentstring:gsub('%%s', '')
   feedkeys('o' .. comment, 'n', false)
 end)
 map('n', 'gck', function()
-  local comment = vim.bo.commentstring:gsub('%%s', '')
+  local comment = bo.commentstring:gsub('%%s', '')
   feedkeys('O' .. comment, 'n', false)
 end)
 map('n', 'gcl', function()
-  local comment = vim.bo.commentstring:gsub('%%s', '')
-  if vim.bo.filetype == 'python' then
+  local comment = bo.commentstring:gsub('%%s', '')
+  if bo.filetype == 'python' then
     comment = ' ' .. comment
   end
   feedkeys('A ' .. comment, 'n', false)
@@ -168,7 +170,7 @@ autocmd('FileType', { pattern = 'floggraph', callback = function()
   map('x', '<rightmouse>', '<esc><leftmouse><cr>', { buffer = true, remap = true })
   map('n', 'q', '<Plug>(FlogQuit)', { buffer = true })
 end })
-vim.g.flog_permanent_default_opts = { date = 'short' }
+g.flog_permanent_default_opts = { date = 'short' }
 map('n', '<space>kg', ':Flog -search=')
 map('n', '<space>kf', '<cmd>Flog -all -path=%<cr>')
 map('n', '<space>kk', '<cmd>Flog -all<cr>')
@@ -179,7 +181,7 @@ map('n', '<space>S', '<cmd>silent GitGutterStageHunk<cr>')
 map('n', '<space>u', '<cmd>silent GitGutterUndoHunk<cr>')
 map('n', '[c', '<cmd>silent GitGutterPrevHunk<cr>')
 map('n', ']c', '<cmd>silent GitGutterNextHunk<cr>')
-vim.g.gitgutter_map_keys = 0
+g.gitgutter_map_keys = 0
 set.signcolumn = 'yes'
 
 -- HARPOON
@@ -199,13 +201,13 @@ set.shiftwidth = 2
 set.tabstop = 2
 
 -- LOADED
-vim.g.loaded_matchparen = 0
-vim.g.loaded_netrw = 0
-vim.g.loaded_netrwPlugin = 0
-vim.g.loaded_node_provider = 0
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_ruby_provider = 0
+g.loaded_matchparen = 0
+g.loaded_netrw = 0
+g.loaded_netrwPlugin = 0
+g.loaded_node_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_python3_provider = 0
+g.loaded_ruby_provider = 0
 
 -- LSP
 -- Diagnostics
@@ -334,7 +336,7 @@ map('n', ']q', function()
 end)
 
 -- SANDWICH (https://github.com/machakann/vim-sandwich/issues/92)
-vim.g.sandwich_no_default_key_mappings = 1
+g.sandwich_no_default_key_mappings = 1
 map({ 'n', 'x' }, 's', '<Plug>(operator-sandwich-add)', { remap = true })
 map('n', 'sd', '<Plug>(operator-sandwich-delete)a', { remap = true })
 map('n', 'sr', '<Plug>(operator-sandwich-replace)a', { remap = true })
@@ -455,7 +457,7 @@ map('i', '<tab>', function()
     return
   elseif line:match('/%S*$') then
     feedkeys(replace_termcodes('<c-x><c-f>', true, false, true), 'n', false)
-  elseif vim.bo.omnifunc ~= '' then
+  elseif bo.omnifunc ~= '' then
     feedkeys(replace_termcodes('<c-x><c-o>', true, false, true), 'n', false)
     vim.defer_fn(function()
       if pumvisible() == 1 then return end
