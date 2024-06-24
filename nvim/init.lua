@@ -1,20 +1,20 @@
 local api = vim.api
-local augroup = api.nvim_create_augroup
-local autocmd = api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 local call = vim.call
 local cmd = vim.cmd
-local feedkeys = api.nvim_feedkeys
+local feedkeys = vim.api.nvim_feedkeys
 local fn = vim.fn
-local getqflist = fn.getqflist
+local getqflist = vim.fn.getqflist
 local map = vim.keymap.set
 local pumvisible = vim.fn.pumvisible
-local replace_termcodes = api.nvim_replace_termcodes
+local replace_termcodes = vim.api.nvim_replace_termcodes
 local set = vim.opt
 local setl = vim.opt_local
 local snippet = vim.snippet
 local snippets = require('snippets')
 local tbl_isempty = vim.tbl_isempty
-local wincmd = cmd.wincmd
+local wincmd = vim.cmd.wincmd
 
 -- PLUGINS
 local plug_path = fn.stdpath('data') .. '/site/autoload/plug.vim'
