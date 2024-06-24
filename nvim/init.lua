@@ -7,6 +7,7 @@ local cmd = vim.cmd
 local feedkeys = vim.api.nvim_feedkeys
 local fn = vim.fn
 local g = vim.g
+local get_cursor = vim.api.nvim_win_get_cursor
 local getqflist = vim.fn.getqflist
 local map = vim.keymap.set
 local pumvisible = vim.fn.pumvisible
@@ -50,7 +51,7 @@ call('plug#end')
 cmd.colorscheme('custom')
 autocmd('FileType', { callback = function() setl.cursorline = false end })
 map('n', '<space>H', function()
-  local row, col = unpack(api.nvim_win_get_cursor(0))
+  local row, col = unpack(get_cursor(0))
   cmd.highlight(fn.synIDattr(fn.synID(row, col, 1), 'name'))
 end, { desc = 'Show highlight-group under the cursor.' })
 
@@ -450,7 +451,7 @@ autocmd('CompleteDone', { callback = function()
 end, desc = 'Append parentheses if completed item is a function or method.' })
 map('i', '<tab>', function()
   local line = api.nvim_get_current_line():sub(1, col)
-  local col = api.nvim_win_get_cursor(0)[2]
+  local col = get_cursor(0)[2]
   if not line:match('%S$') then
     feedkeys(replace_termcodes('<tab>', true, false, true), 'n', false)
   elseif snippets.expand() then
@@ -579,7 +580,7 @@ end
 
 -- YANK
 autocmd({ 'VimEnter', 'CursorMoved' }, { callback = function()
-  yank_pos = api.nvim_win_get_cursor(0)
+  yank_pos = get_cursor(0)
 end })
 autocmd('TextYankPost', { callback = function()
   vim.highlight.on_yank()
