@@ -337,7 +337,7 @@ map('n', '<space>W', function()
   set.hlsearch = true
 end)
 map('x', '<space>w', function()
-  fn.setreg('/', require('visual').get_visual_selection())
+  fn.setreg('/', require('utils').get_visual_selection())
   set.hlsearch = true
   return '<esc>'
 end, { expr = true })
