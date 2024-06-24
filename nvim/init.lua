@@ -104,6 +104,7 @@ map('n', 'gcl', function()
 end)
 
 -- COMPLETION
+require('kind')
 set.completeopt = { 'menuone', 'noinsert' }
 set.pumheight = 8
 set.pumwidth = 0
