@@ -597,15 +597,13 @@ end
 
 -- YANK
 autocmd({ 'VimEnter', 'CursorMoved' }, { callback = function()
-  yank_pos = get_cursor(0)
-end })
+  vim.w.cursor = get_cursor(0)
+end, desc = 'Save cursor-position to restore it later after yank.' })
 autocmd('TextYankPost', { callback = function()
+  if vim.v.event.operator ~= 'y' then return end
+  api.nvim_win_set_cursor(0, vim.w.cursor)
   vim.highlight.on_yank()
-  if vim.v.event.operator == 'y' then
-    api.nvim_win_set_cursor(0, yank_pos)
-  end
-  print(' ')
-end })
+end, desc = 'Restore cursor-position after yank.' })
 map('n', 'yp', 'yap')
 map('n', 'yw', 'yiw')
 map('n', 'yW', 'yiW')
