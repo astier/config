@@ -358,9 +358,11 @@ map('n', 'sw', 'siw', { remap = true })
 map('n', 'sW', 'siW', { remap = true })
 
 -- SCROLLING
+autocmd({ 'VimEnter', 'WinEnter', 'WinResized' }, { callback = function()
+  set.scrolloff = math.floor(api.nvim_win_get_height(0) * 0.2)
+end })
 map('n', '<a-d>', '4<c-y>')
 map('n', '<a-f>', '4<c-e>')
-set.scrolloff = 8
 
 -- SEARCH
 map('n', '<c', '<cmd>set ignorecase!<cr>')
