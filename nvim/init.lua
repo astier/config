@@ -55,6 +55,19 @@ map('n', '<space>H', function()
   cmd.highlight(fn.synIDattr(fn.synID(row, col, 1), 'name'))
 end, { desc = 'Show highlight-group under the cursor.' })
 
+-- AUTO-CENTER
+autocmd({ 'VimEnter', 'WinEnter', 'WinScrolled' }, { callback = function()
+  vim.w.min_line = fn.line('w0')
+  vim.w.max_line = fn.line('w$')
+end })
+autocmd('CursorMoved', { callback = function()
+  if not vim.w.min_line then return end
+  local line = fn.line('.')
+  if line < vim.w.min_line or line > vim.w.max_line then
+    cmd('normal! zz')
+  end
+end, desc = 'Center window around cursor if cursor moves outside of window.' })
+
 -- AUTO-CHDIR
 autocmd('VimEnter', { callback = function()
   local root = vim.fs.root(0, '.git')
