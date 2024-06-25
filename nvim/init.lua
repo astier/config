@@ -4,6 +4,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local bo = vim.bo
 local call = vim.call
 local cmd = vim.cmd
+local command = vim.api.nvim_create_user_command
 local expand = vim.fn.expand
 local feedkeys = vim.api.nvim_feedkeys
 local fn = vim.fn
@@ -44,7 +45,6 @@ call('plug#begin')
   Plug('nvim-lua/plenary.nvim')
   Plug('rbong/vim-flog')
   Plug('ThePrimeagen/harpoon')
-  Plug('tpope/vim-eunuch')
   Plug('tpope/vim-fugitive')
 call('plug#end')
 
@@ -83,7 +83,23 @@ end })
 
 -- BUFFERS
 map('n', '<space>d', function() cmd.quitall({ bang = true }) end)
-map('n', 'q', function() cmd.buffer('#') end)
+map('n', 'q', function() cmd('silent! b#') end)
+command('Delete', function()
+  os.remove(expand('%'))
+  cmd.bwipeout()
+end, {})
+command('Rename', function(opts)
+  local old_name = expand('%')
+  local new_name = vim.fs.dirname(old_name) .. '/' .. opts.args
+  if old_name == new_name then
+    return
+  elseif os.rename(old_name, new_name) then
+    cmd.edit(new_name)
+    cmd.bwipeout('#')
+  else
+    cmd.file(new_name)
+  end
+end, { nargs = 1 })
 set.swapfile = false
 
 -- CHANGE
