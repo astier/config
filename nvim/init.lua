@@ -420,6 +420,7 @@ snippets.setup({
   },
   lua = {
     f  = { body = 'function $1($2)\n\t$0\nend' },
+    p = { body = 'Plug(\'$0\')'},
     r = { body = 'return'},
     s = { body = '$1 = { body = \'$0\'},', b = true},
   },
