@@ -4,6 +4,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local bo = vim.bo
 local call = vim.call
 local cmd = vim.cmd
+local expand = vim.fn.expand
 local feedkeys = vim.api.nvim_feedkeys
 local fn = vim.fn
 local g = vim.g
@@ -377,11 +378,11 @@ map('c', '<enter>', function()
 end, { expr = true })
 -- Search cword
 map('n', '<space>w', function()
-  fn.setreg('/', '\\<' .. fn.expand('<cword>') .. '\\>')
+  fn.setreg('/', '\\<' .. expand('<cword>') .. '\\>')
   set.hlsearch = true
 end)
 map('n', '<space>W', function()
-  fn.setreg('/', '\\<' .. fn.expand('<cWORD>') .. '\\>')
+  fn.setreg('/', '\\<' .. expand('<cWORD>') .. '\\>')
   set.hlsearch = true
 end)
 map('x', '<space>w', function()
