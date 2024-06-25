@@ -588,7 +588,6 @@ map('n', '<a-l>', function() tmux.move_right() end)
 autocmd('FileType', { command = 'set formatoptions-=t' })
 set.breakindent = true
 set.linebreak = true
-set.showbreak = '  ↳ '
 if vim.env.TERM == 'linux' or vim.env.TERM == 'screen' then
   set.showbreak = '  ¬ '
 else
