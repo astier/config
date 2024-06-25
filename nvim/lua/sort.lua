@@ -7,11 +7,11 @@ function M.sort(type)
     vim.o.operatorfunc = "v:lua.require'sort'.sort"
     mode = vim.fn.mode()
     if mode == 'V' then
-      vim.cmd('normal! g@')
+      vim.cmd.normal({ 'g@', bang = true })
     elseif vim.fn.indent('.') == 0 then
-      vim.cmd('normal! g@ip')
+      vim.cmd.normal({ 'g@ip', bang = true })
     else
-      vim.cmd('normal g@ii')
+      vim.cmd.normal('g@ii')
     end
   else
     if mode == 'V' then

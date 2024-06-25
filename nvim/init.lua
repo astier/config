@@ -64,7 +64,7 @@ autocmd('CursorMoved', { callback = function()
   if not vim.w.min_line then return end
   local line = fn.line('.')
   if line < vim.w.min_line or line > vim.w.max_line then
-    cmd('normal! zz')
+    cmd.normal({ 'zz', bang = true })
   end
 end, desc = 'Center window around cursor if cursor moves outside of window.' })
 
