@@ -77,8 +77,7 @@ end })
 
 -- AUTO-SAVE
 autocmd({ 'TextChanged', 'InsertLeave' }, { nested = true, callback = function()
-  if bo.readonly then return end
-  cmd.update({ mods = { silent = true } })
+  cmd.update({ bang = true, mods = { emsg_silent = true } })
 end })
 
 -- BUFFERS
