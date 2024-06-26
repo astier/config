@@ -377,7 +377,7 @@ map('n', 'sW', 'siW', { remap = true })
 -- SCROLLING
 autocmd({ 'VimEnter', 'WinEnter', 'WinResized' }, { callback = function()
   set.scrolloff = math.floor(api.nvim_win_get_height(0) * 0.2)
-end })
+end, desc = 'Set scrolloff based on window-height.' } )
 map('n', '<a-d>', '4<c-y>')
 map('n', '<a-f>', '4<c-e>')
 
