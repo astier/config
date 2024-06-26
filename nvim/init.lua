@@ -8,6 +8,7 @@ local command = vim.api.nvim_create_user_command
 local expand = vim.fn.expand
 local feedkeys = vim.api.nvim_feedkeys
 local fn = vim.fn
+local fs = vim.fs
 local g = vim.g
 local get_cursor = vim.api.nvim_win_get_cursor
 local getqflist = vim.fn.getqflist
@@ -71,7 +72,7 @@ end, desc = 'Center window around cursor if cursor moves outside of window.' })
 
 -- AUTO-CHDIR
 autocmd('VimEnter', { callback = function()
-  local root = vim.fs.root(0, '.git')
+  local root = fs.root(0, '.git')
   if root then vim.uv.chdir(root) end
 end })
 
@@ -89,7 +90,7 @@ command('Delete', function()
 end, {})
 command('Rename', function(opts)
   local old_name = expand('%')
-  local new_name = vim.fs.dirname(old_name) .. '/' .. opts.args
+  local new_name = fs.dirname(old_name) .. '/' .. opts.args
   if old_name == new_name then
     return
   elseif os.rename(old_name, new_name) then
