@@ -257,9 +257,7 @@ end
 -- LspAttach
 autocmd('LspAttach', { group = augroup('UserLspConfig', {}), callback = function(args)
   local opts = { buffer = args.buf }
-  map('i', '<c-k>', lsp.buf.signature_help, opts)
-  map('n', '<c-k>', lsp.buf.signature_help, opts)
-  map('v', '<c-k>', lsp.buf.signature_help, opts)
+  map({ 'i', 'n', 'x' }, '<c-k>', lsp.buf.signature_help, opts)
   map('n', '<space>r', lsp.buf.rename, opts)
   map('n', 'ga', lsp.buf.code_action, opts)
   map('n', 'gD', lsp.buf.declaration, opts)
