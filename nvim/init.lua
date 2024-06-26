@@ -12,6 +12,7 @@ local fs = vim.fs
 local g = vim.g
 local get_cursor = vim.api.nvim_win_get_cursor
 local getqflist = vim.fn.getqflist
+local lsp = vim.lsp
 local map = vim.keymap.set
 local pumvisible = vim.fn.pumvisible
 local replace_termcodes = vim.api.nvim_replace_termcodes
@@ -243,11 +244,11 @@ g.loaded_ruby_provider = 0
 -- LSP
 -- Diagnostics
 vim.diagnostic.enable(false)
-vim.lsp.handlers['textDocument/publishDiagnostics'] = function() end
+lsp.handlers['textDocument/publishDiagnostics'] = function() end
 -- Border
 local border = 'single'
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+local orig_util_open_floating_preview = lsp.util.open_floating_preview
+function lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts = opts or {}
   opts.border = opts.border or border
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
@@ -255,18 +256,18 @@ end
 -- LspAttach
 autocmd('LspAttach', { group = augroup('UserLspConfig', {}), callback = function(args)
   local opts = { buffer = args.buf }
-  map('i', '<c-k>', vim.lsp.buf.signature_help, opts)
-  map('n', '<c-k>', vim.lsp.buf.signature_help, opts)
-  map('v', '<c-k>', vim.lsp.buf.signature_help, opts)
-  map('n', '<space>r', vim.lsp.buf.rename, opts)
-  map('n', 'ga', vim.lsp.buf.code_action, opts)
-  map('n', 'gD', vim.lsp.buf.declaration, opts)
-  map('n', 'gd', vim.lsp.buf.definition, opts)
-  map('n', 'gi', vim.lsp.buf.implementation, opts)
-  map('n', 'gr', vim.lsp.buf.references, opts)
+  map('i', '<c-k>', lsp.buf.signature_help, opts)
+  map('n', '<c-k>', lsp.buf.signature_help, opts)
+  map('v', '<c-k>', lsp.buf.signature_help, opts)
+  map('n', '<space>r', lsp.buf.rename, opts)
+  map('n', 'ga', lsp.buf.code_action, opts)
+  map('n', 'gD', lsp.buf.declaration, opts)
+  map('n', 'gd', lsp.buf.definition, opts)
+  map('n', 'gi', lsp.buf.implementation, opts)
+  map('n', 'gr', lsp.buf.references, opts)
 end })
 -- Servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = lsp.protocol.make_client_capabilities()
 local lspconfig = require('lspconfig')
 lspconfig.ccls.setup({
   capabilities = capabilities,
