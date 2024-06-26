@@ -79,7 +79,7 @@ autocmd('VimEnter', { callback = function()
 end })
 
 -- AUTO-SAVE
-autocmd({ 'TextChanged', 'InsertLeave' }, { nested = true, callback = function()
+autocmd( 'TextChanged', { nested = true, callback = function()
   cmd.update({ bang = true, mods = { emsg_silent = true } })
 end })
 
