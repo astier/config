@@ -53,7 +53,10 @@ call('plug#end')
 
 -- APPEARANCE
 cmd.colorscheme('custom')
-autocmd('FileType', { callback = function() setl.cursorline = false end })
+autocmd('FileType', { callback = function()
+  setl.cursorline = false
+  vim.treesitter.stop()
+end })
 map('n', '<space>H', function()
   local row, col = unpack(get_cursor(0))
   cmd.highlight(fn.synIDattr(fn.synID(row, col, 1), 'name'))
