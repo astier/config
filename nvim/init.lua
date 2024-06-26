@@ -422,15 +422,15 @@ set.virtualedit = 'block'
 -- SNIPPETS
 snippets.setup({
   global = {
-    ["'"] = { body = "'$0'", i = true },
+    ["'"]  = { body = "'$0'", i = true },
     ["',"] = { body = "'$0',", i = true },
-    ['"'] = { body = '"$0"', i = true },
+    ['"']  = { body = '"$0"', i = true },
     ['",'] = { body = '"$0",', i = true },
-    ['('] = { body = '($0)', i = true },
+    ['(']  = { body = '($0)', i = true },
     ['(('] = { body = '(\n\t$0\n)', i = true },
-    ['<'] = { body = '<$0>', i = true },
-    ['['] = { body = '[$0]', i = true },
-    ['{'] = { body = '{$0}', i = true },
+    ['<']  = { body = '<$0>', i = true },
+    ['[']  = { body = '[$0]', i = true },
+    ['{']  = { body = '{$0}', i = true },
     ['{s'] = { body = '{ $0 }', i = true },
     ['{{'] = { body = '{\n\t$0\n}', i = true },
   },
@@ -438,7 +438,7 @@ snippets.setup({
     f = { body = '$1($2) {\n\t$0\n}', b = true },
   },
   lua = {
-    f  = { body = 'function $1($2)\n\t$0\nend' },
+    f = { body = 'function $1($2)\n\t$0\nend' },
     p = { body = 'Plug(\'$0\')'},
     r = { body = 'return'},
     s = { body = '$1 = { body = \'$0\'},', b = true},
