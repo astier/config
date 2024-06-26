@@ -5,6 +5,7 @@ local bo = vim.bo
 local call = vim.call
 local cmd = vim.cmd
 local command = vim.api.nvim_create_user_command
+local env = vim.env
 local expand = vim.fn.expand
 local feedkeys = vim.api.nvim_feedkeys
 local fn = vim.fn
@@ -158,13 +159,13 @@ map('n', 'gqq', 'Vgq')
 -- FZF: CONFIG
 require('fzf-lua').setup({
   'max-perf',
-  fzf_args = vim.env.FZF_DEFAULT_OPTS,
+  fzf_args = env.FZF_DEFAULT_OPTS,
   winopts = {
     border = 'single',
     preview = { hidden = 'hidden' },
     hl = { border = 'FloatBorder' },
   },
-  files = { cmd = vim.env.FZF_DEFAULT_COMMAND },
+  files = { cmd = env.FZF_DEFAULT_COMMAND },
   oldfiles = { cwd_only = true },
 })
 
@@ -607,7 +608,7 @@ map('n', '<a-l>', function() tmux.move_right() end)
 autocmd('FileType', { command = 'set formatoptions-=t' })
 set.breakindent = true
 set.linebreak = true
-if vim.env.TERM == 'linux' or vim.env.TERM == 'screen' then
+if env.TERM == 'linux' or env.TERM == 'screen' then
   set.showbreak = '  ¬ '
 else
   set.showbreak = '  ↳ '
