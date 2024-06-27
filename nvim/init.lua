@@ -488,8 +488,7 @@ autocmd('CompleteDone', { callback = function()
   feedkeys(replace_termcodes('()<left>', true, false, true), 'n', false)
 end, desc = 'Append parentheses if completed item is a function or method.' })
 map('i', '<tab>', function()
-  local line = api.nvim_get_current_line():sub(1, col)
-  local col = get_cursor(0)[2]
+  local line = api.nvim_get_current_line():sub(1, get_cursor(0)[2])
   if not line:match('%S$') then
     feedkeys(replace_termcodes('<tab>', true, false, true), 'n', false)
   elseif snippets.expand() then
