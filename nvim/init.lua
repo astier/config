@@ -88,7 +88,7 @@ end })
 
 -- BUFFERS
 map('n', '<space>d', function() cmd.quitall({ bang = true }) end)
-map('n', 'q', function() cmd('silent! b#') end)
+map('n', 'q', function() cmd.buffer({ '#', mods = { emsg_silent = true } }) end)
 command('Delete', function()
   os.remove(expand('%'))
   cmd.bwipeout()
@@ -354,18 +354,18 @@ map('n', '[q', function()
   local qflist = getqflist()
   if tbl_isempty(qflist) then return end
   if getqflist({idx = 0}).idx > 1 then
-    cmd('silent! cprevious')
+    cmd.cprevious({ mods = { emsg_silent = true } })
   else
-    cmd('silent! clast')
+    cmd.clast({ mods = { emsg_silent = true } })
   end
 end)
 map('n', ']q', function()
   local qflist = getqflist()
   if tbl_isempty(qflist) then return end
   if getqflist({idx = 0}).idx < #qflist then
-    cmd('silent! cnext')
+    cmd.cnext({ mods = { emsg_silent = true } })
   else
-    cmd('silent! cfirst')
+    cmd.cfirst({ mods = { emsg_silent = true } })
   end
 end)
 
