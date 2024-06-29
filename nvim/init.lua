@@ -319,6 +319,49 @@ map('n', 'N', '<cmd>silent! normal! N<cr>')
 set.mousemodel = 'extend'
 set.mousescroll = 'ver:4'
 
+-- OBJECTS
+require('mini.ai').setup({ silent = true })
+require('various-textobjs').setup({ notifyNotFound = false })
+map('o', 'ii', '<cmd>lua require("various-textobjs").indentation("inner", "inner")<cr>')
+map('o', 'ai', '<cmd>lua require("various-textobjs").indentation("outer", "inner")<cr>')
+map('o', 'I',  '<cmd>lua require("various-textobjs").indentation("outer", "outer")<cr>')
+map('o', 'B',  '<cmd>lua require("various-textobjs").entireBuffer()<cr>')
+map('o', 'v',  '<cmd>lua require("various-textobjs").value("inner")<cr>')
+map('o', 'k',  '<cmd>lua require("various-textobjs").key("inner")<cr>')
+map('o', '_',  '<cmd>lua require("various-textobjs").lineCharacterwise("inner")<cr>')
+map('o', 'a_', '<cmd>lua require("various-textobjs").lineCharacterwise("outer")<cr>')
+map('o', 'u',  '<cmd>lua require("various-textobjs").url()<cr>')
+map('o', 'au',  '<cmd>lua require("various-textobjs").mdlink("outer")<cr>')
+map('o', 'iu', '<cmd>lua require("various-textobjs").mdlink("inner")<cr>')
+map('o', 'C',  '<cmd>lua require("various-textobjs").mdFencedCodeBlock("inner")<cr>')
+map('o', 'aC', '<cmd>lua require("various-textobjs").mdFencedCodeBlock("outer")<cr>')
+map('n', 'gx', function()
+  require('various-textobjs').url()
+  local foundURL = fn.mode():find('v')
+  if not foundURL then return end
+  cmd.normal { '"zy', bang = true }
+  local url = fn.getreg('z')
+  vim.ui.open(url)
+end, { desc = 'Smart gx seeks next URL' })
+-- Brackets
+map('n', 'cb', 'cib', { remap = true })
+map('n', 'db', 'dib', { remap = true })
+map('n', 'yb', 'yib', { remap = true })
+-- Quotes
+map('n', 'cq', 'ciq', { remap = true })
+map('n', 'dq', 'diq', { remap = true })
+map('n', 'yq', 'yiq', { remap = true })
+-- Function
+map('n', 'cf', 'cif', { remap = true })
+map('n', 'df', 'dif', { remap = true })
+map('n', 'yf', 'yif', { remap = true })
+-- Subword
+map('n', 'cs', 'civ', { remap = true })
+map('n', 'ds', 'dav', { remap = true })
+-- Word-Column
+map('n', 'c|', '^cic', { remap = true })
+map('n', 'd|', '^dic', { remap = true })
+
 -- QUICKFIX
 autocmd('FileType', { pattern = 'qf', callback = function()
   map('n', '<cr>', '<cr>', { buffer = true })
@@ -526,49 +569,6 @@ set.tabline = '%!tabline#Show()'
 map('n', '<a-e>', 'gT')
 map('n', '<a-r>', 'gt')
 map('n', '<space>n', '<cmd>tab split<cr>')
-
--- TEXTOBJECTS
-require('mini.ai').setup({ silent = true })
-require('various-textobjs').setup({ notifyNotFound = false })
-map('o', 'ii', '<cmd>lua require("various-textobjs").indentation("inner", "inner")<cr>')
-map('o', 'ai', '<cmd>lua require("various-textobjs").indentation("outer", "inner")<cr>')
-map('o', 'I',  '<cmd>lua require("various-textobjs").indentation("outer", "outer")<cr>')
-map('o', 'B',  '<cmd>lua require("various-textobjs").entireBuffer()<cr>')
-map('o', 'v',  '<cmd>lua require("various-textobjs").value("inner")<cr>')
-map('o', 'k',  '<cmd>lua require("various-textobjs").key("inner")<cr>')
-map('o', '_',  '<cmd>lua require("various-textobjs").lineCharacterwise("inner")<cr>')
-map('o', 'a_', '<cmd>lua require("various-textobjs").lineCharacterwise("outer")<cr>')
-map('o', 'u',  '<cmd>lua require("various-textobjs").url()<cr>')
-map('o', 'au',  '<cmd>lua require("various-textobjs").mdlink("outer")<cr>')
-map('o', 'iu', '<cmd>lua require("various-textobjs").mdlink("inner")<cr>')
-map('o', 'C',  '<cmd>lua require("various-textobjs").mdFencedCodeBlock("inner")<cr>')
-map('o', 'aC', '<cmd>lua require("various-textobjs").mdFencedCodeBlock("outer")<cr>')
-map('n', 'gx', function()
-  require('various-textobjs').url()
-  local foundURL = fn.mode():find('v')
-  if not foundURL then return end
-  cmd.normal { '"zy', bang = true }
-  local url = fn.getreg('z')
-  vim.ui.open(url)
-end, { desc = 'Smart gx seeks next URL' })
--- Brackets
-map('n', 'cb', 'cib', { remap = true })
-map('n', 'db', 'dib', { remap = true })
-map('n', 'yb', 'yib', { remap = true })
--- Quotes
-map('n', 'cq', 'ciq', { remap = true })
-map('n', 'dq', 'diq', { remap = true })
-map('n', 'yq', 'yiq', { remap = true })
--- Function
-map('n', 'cf', 'cif', { remap = true })
-map('n', 'df', 'dif', { remap = true })
-map('n', 'yf', 'yif', { remap = true })
--- Subword
-map('n', 'cs', 'civ', { remap = true })
-map('n', 'ds', 'dav', { remap = true })
--- Word-Column
-map('n', 'c|', '^cic', { remap = true })
-map('n', 'd|', '^dic', { remap = true })
 
 -- TRANSFORM
 map('n', 't', '<cmd>call toggle#Next()<cr>')
