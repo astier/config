@@ -1,9 +1,8 @@
-local fn = vim.fn
-local getpos = fn.getpos
+local getpos = vim.fn.getpos
 
 local M = {}
 
-function M.get_visual_selection()
+function M.visual()
   local col_start = getpos('v')[3]
   local col_end = getpos('.')[3]
   if col_start > col_end then
