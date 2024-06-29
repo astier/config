@@ -15,6 +15,7 @@ local get_cursor = vim.api.nvim_win_get_cursor
 local getqflist = vim.fn.getqflist
 local lsp = vim.lsp
 local map = vim.keymap.set
+local objects = require('objects')
 local pumvisible = vim.fn.pumvisible
 local replace_termcodes = vim.api.nvim_replace_termcodes
 local set = vim.opt
@@ -448,7 +449,7 @@ map('n', '<space>W', function()
   set.hlsearch = true
 end)
 map('x', '<space>w', function()
-  fn.setreg('/', require('objects').visual())
+  fn.setreg('/', objects.visual())
   set.hlsearch = true
   return '<esc>'
 end, { expr = true })
