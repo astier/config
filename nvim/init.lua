@@ -44,6 +44,7 @@ call('plug#begin')
   Plug('idbrii/textobj-word-column.vim')
   Plug('Julian/vim-textobj-variable-segment')
   Plug('kana/vim-textobj-user')
+  Plug('lervag/vimtex')
   Plug('machakann/vim-sandwich')
   Plug('neovim/nvim-lspconfig')
   Plug('nvim-lua/plenary.nvim')
@@ -211,6 +212,23 @@ g.flog_permanent_default_opts = { date = 'short' }
 map('n', '<space>kg', ':Flog -search=')
 map('n', '<space>kf', '<cmd>Flog -all -path=%<cr>')
 map('n', '<space>kk', '<cmd>Flog -all<cr>')
+
+-- LATEX
+g.vimtex_view_general_viewer = 'evince'
+g.vimtex_compiler_silent = 1
+g.vimtex_compiler_latexmk = {
+  aux_dir = 'aux',
+  continuous = 0,
+  options = {
+    '-verbose',
+    '-synctex=0',
+    '-file-line-error',
+    '-interaction=nonstopmode',
+  }
+}
+autocmd('FileType', { pattern = 'tex', callback = function()
+  map('n', '<space>a', '<cmd>VimtexCompile<cr>')
+end })
 
 -- GIT-GUTTER
 map('n', '<space>i', '<cmd>silent GitGutterPreviewHunk<cr>')
