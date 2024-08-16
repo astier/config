@@ -1,10 +1,9 @@
-! recommendations on the homepage
-www.youtube.com##ytd-browse[page-subtype="home"]
-! recommendations beside the video
+! recommendations
+youtube.com##ytd-browse[page-subtype="home"]
 youtube.com##.ytd-watch-next-secondary-results-renderer
 ! chat
-www.youtube.com###chat
-www.youtube.com###panels-full-bleed-container
+youtube.com###chat
+youtube.com###panels-full-bleed-container
 
 ! overlay which blocks loading more tweets
 twitter.com##html:style(overflow: auto !important;)
