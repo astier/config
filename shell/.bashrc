@@ -35,3 +35,7 @@ clean_history() {
     mv -f /tmp/bash_history "$HISTFILE"
 }
 trap clean_history EXIT
+
+if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
+    exec tmux
+fi
