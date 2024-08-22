@@ -44,6 +44,6 @@ export GIT_PS1_SHOWUPSTREAM=auto
 export GTK_OVERLAY_SCROLLING=0
 export GTK_THEME=Arc-Dark-solid
 
-export DOCUMENTS="$HOME/docs"
+export DOCUMENTS="$HOME/Documents"
 export NOTES="$DOCUMENTS/notes"
 export PICTURES="$HOME/Pictures"
