@@ -1,6 +1,7 @@
 ! recommendations
 youtube.com##ytd-browse[page-subtype="home"]
 youtube.com##.ytd-watch-next-secondary-results-renderer
+youtube.com###secondary
 ! chat
 youtube.com###chat
 youtube.com###panels-full-bleed-container
