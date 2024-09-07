@@ -35,7 +35,3 @@ clean_history() {
     mv -f /tmp/bash_history "$HISTFILE"
 }
 trap clean_history EXIT
-
-case "$(tty)" in
-    !/dev/tty*) [ -z "$TMUX" ] && command -v tmux >/dev/null && exec tmux ;;
-esac

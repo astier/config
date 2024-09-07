@@ -16,7 +16,7 @@ alt + {3,4}
     brightness {-,+}
 
 {mod5,super} + Return
-    "$TERMINAL"
+    "$TERMINAL" -e tmux new \; splitw -h
 {mod5,super} + f
     dmenu_run
 {mod5,super} + t
