@@ -140,8 +140,8 @@ alias snnp="rrclone cloud:Pictures \$PICTURES"
 
 # GIT
 alias k="git log --all --graph --decorate --oneline --show-pulls -n24"
-alias kk="nvim -c 'Flog -all' -c 1tabclose"
-kg() { nvim -c "Flog -all -search=$1" -c 1tabclose; }
+alias kk="nvim -c 'Flog -all'"
+kg() { nvim -c "Flog -all -search=$1"; }
 
 alias ka="git add"
 alias kaa="git add --all"
