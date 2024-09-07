@@ -36,6 +36,6 @@ clean_history() {
 }
 trap clean_history EXIT
 
-if [ -z "$TMUX" ] && command -v tmux >/dev/null; then
-    exec tmux
-fi
+case "$(tty)" in
+    !/dev/tty*) [ -z "$TMUX" ] && command -v tmux >/dev/null && exec tmux ;;
+esac
