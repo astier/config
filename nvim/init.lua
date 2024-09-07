@@ -221,6 +221,11 @@ map('n', ']c', '<cmd>silent GitGutterNextHunk<cr>')
 g.gitgutter_map_keys = 0
 set.signcolumn = 'yes'
 
+-- GREP
+map('n', '<space>g', ':silent grep! ')
+set.grepformat = '%f:%l:%c:%m'
+set.grepprg = 'ggrep --vimgrep'
+
 -- HARPOON
 map('n', '<space>a', function() require('harpoon.mark').add_file() end)
 map('n', '<space>m', function() require('harpoon.ui').toggle_quick_menu() end)
@@ -295,7 +300,6 @@ map('n', '<space>l', '<cmd>silent make! %<cr>')
 
 -- MAPPINGS
 map('n', '<cr>', 'o<esc>')
-map('n', '<space>g', ':silent grep! ')
 map('n', '<space>r', ':%s/<c-r><c-w>//gI<left><left><left>')
 map('n', 'guw', 'guiw')
 map('n', 'guW', 'guiW')
