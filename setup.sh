@@ -51,7 +51,8 @@ link mpv.conf "$DIR"
 
 DIR="$HOME/.mozilla/firefox"
 PROFILE=$(grep "Default=" "$DIR/profiles.ini" | head -1 | cut -d= -f2 | cut -d. -f1)
-link chrome "$DIR/$PROFILE.default-release"
+link mozilla/chrome "$DIR/$PROFILE.default-release"
+link mozilla/user.js "$DIR/$PROFILE.default-release"
 
 DIR="$XDG_CONFIG_HOME"/autostart
 mkdir -p "$DIR"
