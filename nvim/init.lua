@@ -531,8 +531,10 @@ map('x', '<space>x',  function() exchange.visual() end)
 
 -- SUPER-TAB
 autocmd('CompleteDone', { callback = function()
-  local kind = vim.v.completed_item.kind
-  if kind ~= 'Function' and kind ~= 'Method' then return end
+  if vim.v.completed_item.user_data == nil then return end
+  if vim.v.completed_item.user_data.nvim == nil then return end
+  local kind = vim.v.completed_item.user_data.nvim.lsp.completion_item.kind
+  if kind ~= 3 then return end
   feedkeys(replace_termcodes('()<left>', true, false, true), 'n', false)
 end, desc = 'Append parentheses if completed item is a function or method.' })
 map('i', '<tab>', function()
