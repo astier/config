@@ -541,6 +541,14 @@ autocmd('CompleteDone', { callback = function()
 end, desc = 'Append parentheses if completed item is a function or method.' })
 map('i', '<tab>', function()
   local line = api.nvim_get_current_line():sub(1, get_cursor(0)[2])
+  -- if pumvisible() == 1 then
+    -- local items = vim.fn.complete_info({'items'}).items
+    -- vim.notify(vim.inspect(items))
+    -- local words = {}
+    -- for _, item in ipairs(items) do
+    --   table.insert(words, item.word)
+    -- end
+    -- vim.notify(vim.inspect(words))
   if not line:match('%S$') then
     feedkeys(replace_termcodes('<tab>', true, false, true), 'n', false)
   elseif snippets.expand() then
