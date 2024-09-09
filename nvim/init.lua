@@ -536,7 +536,8 @@ autocmd('CompleteDone', { callback = function()
   -- vim.notify(vim.inspect(vim.v.completed_item.user_data.nvim.lsp.completion_item))
   local kind = vim.v.completed_item.user_data.nvim.lsp.completion_item.kind
   if kind ~= 3 then return end
-  feedkeys(replace_termcodes('()<left>', true, false, true), 'n', false)
+  -- <esc>a exits insert-mode and reenters it immediatly again. This fixes a bug where subsequent completions would not complete the next typed word after the previous paranthesis-insertion but rather insert new paranthesis again. This happenes at least with the ccls-lsp.
+  feedkeys(replace_termcodes('()<left><esc>a<c-g>u', true, false, true), 'n', false)
 end, desc = 'Append parentheses if completed item is a function or method.' })
 map('i', '<tab>', function()
   local line = api.nvim_get_current_line():sub(1, get_cursor(0)[2])
