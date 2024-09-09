@@ -533,6 +533,7 @@ map('x', '<space>x',  function() exchange.visual() end)
 autocmd('CompleteDone', { callback = function()
   if vim.v.completed_item.user_data == nil then return end
   if vim.v.completed_item.user_data.nvim == nil then return end
+  -- vim.notify(vim.inspect(vim.v.completed_item.user_data.nvim.lsp.completion_item))
   local kind = vim.v.completed_item.user_data.nvim.lsp.completion_item.kind
   if kind ~= 3 then return end
   feedkeys(replace_termcodes('()<left>', true, false, true), 'n', false)
