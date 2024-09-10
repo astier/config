@@ -565,6 +565,13 @@ map('i', '<tab>', function()
     feedkeys(replace_termcodes('<c-x><c-n>', true, false, true), 'n', false)
   end
 end, { desc = 'Super-Tab to expand snippets and trigger completion.' })
+map('i', '<cr>', function()
+  if pumvisible() == 1 then
+    feedkeys(replace_termcodes('<c-y>', true, false, true), 'n', false)
+  else
+    feedkeys(replace_termcodes('<cr>', true, false, true), 'n', false)
+  end
+end)
 map({ 'i', 's' }, '<a-j>', function()
   if pumvisible() == 1 then
     feedkeys(replace_termcodes('<down>', true, false, true), 'n', false)
