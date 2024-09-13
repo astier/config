@@ -27,6 +27,6 @@ super + {v,space}
 mod5 + S
     pkill xswm
 {mod5,super} + d
-    xswm delete
+    xswm close
 {button2,mod5 + l,super + s}
     xswm last
