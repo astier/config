@@ -24,9 +24,9 @@ alt + {3,4}
 super + {v,space}
     dunstctl {history-pop,close}
 
-mod5 + S
-    pkill xswm
 {mod5,super} + d
     xswm close
 {button2,mod5 + l,super + s}
     xswm last
+mod5 + S
+    xswm quit
