@@ -609,6 +609,7 @@ vim.b.minisplitjoin_config = {
 }
 
 -- UNDO
+map('n', '<c-r>', '<cmd>silent! normal! <c-r><cr>')
 map('n', 'U', '<cmd>silent! normal! U<cr>')
 map('n', 'u', '<cmd>silent! normal! u<cr>')
 
