@@ -31,3 +31,6 @@ user_pref('ui.key.menuAccessKeyFocuses', false);
 // Enable hardware-acceleration (check arch-wiki)
 user_pref('gfx.webrender.all', true);
 user_pref('media.ffmpeg.vaapi.enabled', true);
+
+// Force hardware-video-decoding
+user_pref('media.hardware-video-decoding.force-enabled', true);
