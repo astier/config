@@ -37,3 +37,6 @@ user_pref('media.hardware-video-decoding.force-enabled', true);
 
 // Remove full screen warning
 user_pref('full-screen-api.warning.timeout', 0);
+
+// Prevent the download panel from opening automatically
+user_pref('browser.download.alwaysOpenPanel', false);
