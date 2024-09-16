@@ -4,6 +4,9 @@
 /* Remove left drag-space from the tab-bar */
 .titlebar-spacer[type="pre-tabs"] { display:none; }
 
+/* Remove DRM-icon */
+#eme-notification-icon { display:none; }
+
 /* Remove rounded corners */
 /* https://www.reddit.com/r/FirefoxCSS/comments/nqeiog/comment/h0a9wv4/?utm_source=share&utm_medium=web2x&context=3 */
 menupopup,
