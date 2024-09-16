@@ -108,6 +108,9 @@ alias np="jumpopen \$NOTES projects"
 alias ns="jumpopen \$NOTES study"
 alias rss="newsboat -u \$NOTES/newsboat"
 
+# BOOKMARKS - PICTURES
+alias jp="cd \$PICTURES"
+
 # BOOKMARKS - REPOS
 alias fa="jumpopen ~/repos/scripts arch.sh"
 alias fv="jumpopen ~/repos/vlugins README.md"
