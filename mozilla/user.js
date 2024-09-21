@@ -47,3 +47,9 @@ user_pref('widget.gtk.overlay-scrollbars.enabled', false);
 
 // Set color-scheme to light
 user_pref('layout.css.prefers-color-scheme.content-override', 1);
+
+// Disabel certain suggestions in urlbar
+user_pref('browser.urlbar.suggest.trending', false);
+user_pref('browser.urlbar.trending.featureGate', false);
+user_pref('browser.urlbar.suggest.recentsearches', false);
+user_pref('browser.urlbar.recentsearches.featureGate', false);
