@@ -6,6 +6,7 @@ user_pref('browser.aboutConfig.showWarning', false);
 
 // Show compact-mode as a density-option
 user_pref('browser.compactmode.show', true);
+user_pref('browser.uidensity', 1);
 
 // Disabel detachable tabs
 user_pref('browser.tabs.allowTabDetach', false);
