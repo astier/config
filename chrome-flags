@@ -4,6 +4,7 @@
 #enable-webrtc-hide-local-ips-with-mdns
 #show-autofill-type-predictions
 #smooth-scrolling
+#overlay-scrollbars
 #enable-quic
 #enable-quic
 #rounded-display
