@@ -41,3 +41,6 @@ user_pref('full-screen-api.warning.timeout', 0);
 
 // Prevent the download panel from opening automatically
 user_pref('browser.download.alwaysOpenPanel', false);
+
+// Don't hide scrollbar
+user_pref('widget.gtk.overlay-scrollbars.enabled', false);
