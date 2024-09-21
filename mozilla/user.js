@@ -44,3 +44,6 @@ user_pref('browser.download.alwaysOpenPanel', false);
 
 // Don't hide scrollbar
 user_pref('widget.gtk.overlay-scrollbars.enabled', false);
+
+// Set color-scheme to light
+user_pref('layout.css.prefers-color-scheme.content-override', 1);
