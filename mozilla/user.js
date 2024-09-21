@@ -53,3 +53,6 @@ user_pref('browser.urlbar.suggest.trending', false);
 user_pref('browser.urlbar.trending.featureGate', false);
 user_pref('browser.urlbar.suggest.recentsearches', false);
 user_pref('browser.urlbar.recentsearches.featureGate', false);
+
+// Disable history
+user_pref('places.history.enabled', false);
