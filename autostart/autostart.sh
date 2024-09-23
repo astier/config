@@ -6,3 +6,8 @@ sxhkd &
 xhidecursor &
 
 "$BROWSER" &
+if tmux has-session; then
+    "$TERMINAL" -e tmux attach &
+else
+    "$TERMINAL" -e tmux new \; splitw -h &
+fi
