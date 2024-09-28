@@ -16,7 +16,7 @@ alt + {3,4}
     brightness {-,+}
 
 {mod5,super} + Return
-    "$TERMINAL" -e tmux new \; splitw -h
+    if tmux has-session; then "$TERMINAL" -e tmux attach & else "$TERMINAL" -e tmux new \; splitw -h & fi
 {mod5,super} + f
     dmenu_run
 {mod5,super} + t
