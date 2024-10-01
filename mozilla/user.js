@@ -11,9 +11,6 @@ user_pref('browser.uidensity', 1);
 // Disabel detachable tabs
 user_pref('browser.tabs.allowTabDetach', false);
 
-// Disable tabmanager in the right corner
-user_pref('browser.tabs.tabmanager.enabled', false);
-
 // Disable thumbnails
 user_pref('browser.tabs.hoverPreview.enabled', false);
 user_pref('browser.tabs.hoverPreview.showThumbnails', false);

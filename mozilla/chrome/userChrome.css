@@ -12,3 +12,6 @@
 menupopup,
 .menupopup-arrowscrollbox{ border-radius: 0 !important; }
 :root{--arrowpanel-border-radius:0px !important;}
+
+/* Remove tab-overview-menu */
+#alltabs-button { display: none !important; }
