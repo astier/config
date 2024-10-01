@@ -56,3 +56,6 @@ user_pref('browser.urlbar.recentsearches.featureGate', false);
 
 // Disable history
 user_pref('places.history.enabled', false);
+
+// Move sidebar to the right
+user_pref('sidebar.position_start', false);
