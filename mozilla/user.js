@@ -14,7 +14,9 @@ user_pref('browser.tabs.allowTabDetach', false);
 // Disable tabmanager in the right corner
 user_pref('browser.tabs.tabmanager.enabled', false);
 
-// Disable thumbnails in search-results
+// Disable thumbnails
+user_pref('browser.tabs.hoverPreview.enabled', false);
+user_pref('browser.tabs.hoverPreview.showThumbnails', false);
 user_pref('browser.urlbar.richSuggestions.featureGate', false);
 
 // Disable pocket-extension
