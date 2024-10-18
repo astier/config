@@ -58,3 +58,6 @@ user_pref('places.history.enabled', false);
 
 // Move sidebar to the right
 user_pref('sidebar.position_start', false);
+
+// Don't show bookmarks
+user_pref('browser.toolbars.bookmarks.visibility', 'never');
