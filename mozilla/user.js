@@ -61,3 +61,6 @@ user_pref('sidebar.position_start', false);
 
 // Don't show bookmarks
 user_pref('browser.toolbars.bookmarks.visibility', 'never');
+
+// Don't translate german
+user_pref('browser.translations.neverTranslateLanguages', 'de');
