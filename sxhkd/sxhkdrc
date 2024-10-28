@@ -17,7 +17,7 @@ alt + {3,4}
 
 {mod5,super} + Return
     if tmux has-session; then "$TERMINAL" -e tmux attach & else "$TERMINAL" -e tmux new \; splitw -h & fi
-{mod5,super} + f
+alt + space
     dmenu_run
 {mod5,super} + t
     libreoffice "$DOCUMENTS/notes/tracker.ods"
