@@ -5,6 +5,8 @@ youtube.com###secondary
 ! chat
 youtube.com###chat
 youtube.com###panels-full-bleed-container
+! scrollbar
+youtube.com##body::-webkit-scrollbar
 
 ! overlay which blocks loading more tweets
 twitter.com##html:style(overflow: auto !important;)
