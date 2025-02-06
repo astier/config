@@ -7,14 +7,3 @@ youtube.com###chat
 youtube.com###panels-full-bleed-container
 ! scrollbar
 youtube.com##body::-webkit-scrollbar
-
-! overlay which blocks loading more tweets
-twitter.com##html:style(overflow: auto !important;)
-twitter.com##.r-11nfnuw.r-16wqof.r-1dqxon3.r-16y2uox.r-14lw9ot.css-1dbjc4n
-twitter.com##.r-ipm5af.r-zchlnj.r-1xcajam.r-1d2f490.r-1p0dtai.r-1ffj0ar.css-1dbjc4n
-twitter.com##.r-g6jmlv.r-ipm5af.r-1xcajam.r-xr3zp9.r-1pjcn9w.r-1777fci.r-1pi2tsx.r-18u37iz.r-1kihuf0.r-1awozwy.css-1dbjc4n
-! signup/login
-twitter.com##.r-1upvrn0.r-l5o3uw.css-1dbjc4n
-! trending hashtags
-twitter.com##div.r-1udh08x.r-1ifxtd0.r-rs99b7.r-1phboty.r-1867qdf.r-1d6w8o1.r-x572qd.css-1dbjc4n:nth-of-type(6)
-twitter.com##.r-1udh08x.r-1ifxtd0.r-rs99b7.r-1phboty.r-1867qdf.r-1d6w8o1.r-x572qd.css-1dbjc4n
