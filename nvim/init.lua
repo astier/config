@@ -164,10 +164,10 @@ map('n', 'gqq', 'Vgq')
 require('fzf-lua').setup({
   'max-perf',
   fzf_args = env.FZF_DEFAULT_OPTS,
+  hls = { border = 'FloatBorder' },
   winopts = {
     border = 'single',
     preview = { hidden = 'hidden' },
-    hl = { border = 'FloatBorder' },
   },
   files = { cmd = env.FZF_DEFAULT_COMMAND },
   oldfiles = { cwd_only = true },
@@ -326,7 +326,7 @@ set.mousescroll = 'ver:4'
 
 -- OBJECTS
 require('mini.ai').setup({ silent = true })
-require('various-textobjs').setup({ notifyNotFound = false })
+require('various-textobjs').setup({ notify = { whenObjectNotFound = false } })
 map('o', 'ii', '<cmd>lua require("various-textobjs").indentation("inner", "inner")<cr>')
 map('o', 'ai', '<cmd>lua require("various-textobjs").indentation("outer", "inner")<cr>')
 map('o', 'I',  '<cmd>lua require("various-textobjs").indentation("outer", "outer")<cr>')
