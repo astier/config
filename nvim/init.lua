@@ -467,6 +467,9 @@ set.spellfile = '$XDG_STATE_HOME/nvim/spell/en.utf-8.add'
 set.timeout = false
 set.virtualedit = 'block'
 
+-- SHELL
+map('n', '<space>a', '<cmd>call system("iwltm --send execute")<cr>')
+
 -- SNIPPETS
 snippets.setup({
   global = {
