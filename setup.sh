@@ -28,6 +28,7 @@ link gtk-4.0 "$XDG_CONFIG_HOME"
 link herbstluftwm "$XDG_CONFIG_HOME"
 link ideavim "$XDG_CONFIG_HOME"
 link labwc "$XDG_CONFIG_HOME"
+link latexmk "$XDG_CONFIG_HOME"
 link markdownlint "$XDG_CONFIG_HOME"
 link mimeapps.list ~/.config/
 link nvim "$XDG_CONFIG_HOME"
