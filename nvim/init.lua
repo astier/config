@@ -494,6 +494,11 @@ snippets.setup({
     r = { body = 'return'},
     s = { body = '$1 = { body = \'$0\'},', b = true},
   },
+  tex = {
+    s =   { body = '\\section{$0}', b = true},
+    ss =  { body = '\\subsection{$0}', b = true},
+    sss = { body = '\\subsubsection{$0}', b = true},
+  },
 })
 
 -- STATUSLINE/RULER
