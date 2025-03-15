@@ -18,7 +18,6 @@ link_sudo() {
 mkdir -p "$XDG_CONFIG_HOME"
 
 link .vintrc.yaml "$XDG_CONFIG_HOME"
-link .Xresources "$XDG_CONFIG_HOME"
 link alacritty.yml "$XDG_CONFIG_HOME"
 link dunst "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
@@ -44,6 +43,7 @@ link sxhkd "$XDG_CONFIG_HOME"
 link templates "$XDG_CONFIG_HOME"
 link tint2 "$XDG_CONFIG_HOME"
 link tmux "$XDG_CONFIG_HOME"
+link Xresources "$XDG_CONFIG_HOME"
 link zathura "$XDG_CONFIG_HOME"
 
 DIR="$XDG_CONFIG_HOME"/mpv
