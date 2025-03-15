@@ -6,3 +6,5 @@ sxhkd &
 xhidecursor &
 
 "$BROWSER" &
+
+. "$XDG_CONFIG_HOME/autostart/local.sh"
