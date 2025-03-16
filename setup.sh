@@ -59,20 +59,6 @@ DIR="$XDG_CONFIG_HOME"/xswm
 mkdir -p "$DIR"
 link autostart/autostart.sh "$DIR"
 
-DIR=$XDG_CONFIG_HOME/Code/User
-if [ -d "$DIR" ]; then
-    link code/code.vim "$DIR"
-    link code/keybindings.json "$DIR"
-    link code/settings.json "$DIR"
-fi
-
-DIR=$XDG_CONFIG_HOME/Code\ -\ OSS/User
-if [ -d "$DIR" ]; then
-    link code/code.vim "$DIR"
-    link code/keybindings.json "$DIR"
-    link code/settings.json "$DIR"
-fi
-
 if groups "$USER" | grep -q wheel; then
 
     DIR=/etc/iwd
