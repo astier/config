@@ -17,7 +17,6 @@ link_sudo() {
 
 mkdir -p "$XDG_CONFIG_HOME"
 
-link .vintrc.yaml "$XDG_CONFIG_HOME"
 link dunst "$XDG_CONFIG_HOME"
 link git "$XDG_CONFIG_HOME"
 link gtk-2.0 "$XDG_CONFIG_HOME"
