@@ -89,7 +89,6 @@ if groups "$USER" | grep -q wheel; then
     copy systemd/resolved.conf.d /etc/systemd
     link_sudo iptables.rules /etc/iptables
     link_sudo locale.conf /etc
-    link_sudo thinkfan.conf /etc
     link_sudo vconsole.conf /etc
     link_sudo xkb/symbols/custom /usr/share/X11/xkb/symbols
     link_sudo xorg.conf /etc/X11
