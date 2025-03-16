@@ -36,7 +36,6 @@ link sx "$XDG_CONFIG_HOME"
 link sxhkd "$XDG_CONFIG_HOME"
 link templates "$XDG_CONFIG_HOME"
 link tmux "$XDG_CONFIG_HOME"
-link Xresources "$XDG_CONFIG_HOME"
 link zathura "$XDG_CONFIG_HOME"
 
 DIR="$XDG_CONFIG_HOME"/mpv
