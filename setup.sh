@@ -98,9 +98,6 @@ if groups "$USER" | grep -q wheel; then
     link_sudo key.map "$DIR"
     copy systemd/system/tty-conf.service /etc/systemd/system
 
-    DIR=/etc/NetworkManager
-    [ -d "$DIR" ] && link_sudo NetworkManager.conf "$DIR"
-
     DIR=/etc/xdg/reflector
     [ -d "$DIR" ] && copy reflector.conf /etc/xdg/reflector/
 
