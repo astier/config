@@ -68,6 +68,7 @@ if groups "$USER" | grep -q wheel; then
     copy systemd/network/20-wired.network /etc/systemd/network
     copy systemd/network/25-wireless.network /etc/systemd/network
     copy systemd/resolved.conf.d /etc/systemd
+
     link_sudo iptables.rules /etc/iptables
     link_sudo locale.conf /etc
     link_sudo vconsole.conf /etc
