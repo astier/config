@@ -105,8 +105,6 @@ if groups "$USER" | grep -q wheel; then
     DIR=/etc/xdg/reflector
     [ -d "$DIR" ] && copy reflector.conf /etc/xdg/reflector/
 
-    [ ! -f /etc/default/grub ] && copy grub /etc/default
-
     # TODO: use envsubst instead of sed
     copy systemd/system/getty@.service.d /etc/systemd/system
     sudo sed -i "s|<user>|$USER|g" /etc/systemd/system/getty@.service.d/override.conf
