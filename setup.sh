@@ -94,8 +94,8 @@ if groups "$USER" | grep -q wheel; then
 
     DIR=/usr/local/share/kbd/keymaps
     [ ! -d "$DIR" ] && sudo mkdir -p "$DIR"
-    link_sudo key.map "$DIR"
-    copy systemd/system/tty-conf.service /etc/systemd/system
+    link_sudo tty.map "$DIR"
+    copy systemd/system/ttyrc.service /etc/systemd/system
 
     DIR=/etc/xdg/reflector
     [ -d "$DIR" ] && copy reflector.conf /etc/xdg/reflector/
