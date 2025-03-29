@@ -7,4 +7,5 @@ xhidecursor &
 
 "$BROWSER" &
 
-. "$XDG_CONFIG_HOME/autostart/local.sh"
+FILE=$XDG_CONFIG_HOME/autostart/local.sh
+[ -f "$FILE" ] && . "$FILE"
