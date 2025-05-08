@@ -7,3 +7,5 @@ youtube.com###chat
 youtube.com###panels-full-bleed-container
 ! scrollbar
 youtube.com##body::-webkit-scrollbar
+! voice-search-button
+youtube.com###voice-search-button
