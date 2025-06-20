@@ -256,6 +256,7 @@ d() { if [ $# = 0 ]; then exit; else realpath -s "$@" | sed 's/.*/"&"/' | xargs 
 flash() { sudo dd bs=4M if="$1" of="$2" status=progress oflag=sync; }
 h () { if [ $# = 0 ]; then python; else awk "BEGIN{ print $* }"; fi }
 p() { if [ $# = 0 ]; then pwd | sed "s|$HOME|~|"; else cp -irv "$@"; fi }
+prtl() { ip r | grep default | cut -d' ' -f3; }
 
 # OPEN PROJECT-FILES
 alias o="autopen"
