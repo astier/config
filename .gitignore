@@ -1,4 +1,5 @@
 *.add.spl
+.DS_Store
 bookmarks
 gtkfilechooser.ini
 mpv/watch_later
