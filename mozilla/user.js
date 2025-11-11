@@ -31,13 +31,6 @@ user_pref('ui.context_menus.after_mouseup', true);
 // Disable showing menubar after pressing alt-button
 user_pref('ui.key.menuAccessKeyFocuses', false);
 
-// Enable hardware-acceleration (check arch-wiki)
-user_pref('gfx.webrender.all', true);
-user_pref('media.ffmpeg.vaapi.enabled', true);
-
-// Force hardware-video-decoding
-user_pref('media.hardware-video-decoding.force-enabled', true);
-
 // Remove full screen warning
 user_pref('full-screen-api.warning.timeout', 0);
 
