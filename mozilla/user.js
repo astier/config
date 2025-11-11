@@ -19,6 +19,9 @@ user_pref('browser.urlbar.richSuggestions.featureGate', false);
 // Disable pocket-extension
 user_pref('extensions.pocket.enabled', false);
 
+// Disable search-engine icon in url-bar
+user_pref('browser.urlbar.scotchBonnet.enableOverride', false);
+
 // Disable reader-mode
 user_pref('reader.parse-on-load.enabled', false);
 
